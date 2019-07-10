@@ -70,13 +70,21 @@ class MediatorWelcomeLeft extends Observer {
     super()
     this.welcome = welcome_model  // ref to Welcome model
     this.gui_div = id             // ref to DOM div where we want the welcome message to appear
-    this.uppercase_welcome = false
+    this._uppercase_welcome = false
   }
   
+  get uppercase_welcome() { 
+    return this._uppercase_welcome 
+  }
+  set uppercase_welcome(val) { 
+    this._uppercase_welcome = val
+    this.notify(this, 'display option change')
+  }
+
   notify(target, data) {
-    super.notify(target, data)
     let msg = this.uppercase_welcome ? this.welcome.message.toUpperCase() : this.welcome.message
     $('#' + this.gui_div).html(msg)
+    super.notify(target, data)
   }
 }
 
@@ -86,16 +94,32 @@ class MediatorWelcomeUserRight extends Observer {
     this.welcome = welcome_model
     this.user = user_model
     this.gui_div = id
-    this.uppercase_welcome = false
-    this.uppercase_user = false
+    this._uppercase_welcome = false
+    this._uppercase_user = false
   }
   
+  get uppercase_welcome() { 
+    return this._uppercase_welcome 
+  }
+  set uppercase_welcome(val) { 
+    this._uppercase_welcome = val
+    this.notify(this, 'display option change')
+  }
+  
+  get uppercase_user() { 
+    return this._uppercase_user 
+  }
+  set uppercase_user(val) { 
+    this._uppercase_user = val
+    this.notify(this, 'display option change')
+  }
+
   notify(target, data) {
-    super.notify(target, data)
     let welcome = this.uppercase_welcome ? this.welcome.message.toUpperCase() : this.welcome.message
     let firstname = this.uppercase_user ? this.user.firstname.toUpperCase() : this.user.firstname
     let surname = this.uppercase_user ? this.user.surname.toUpperCase() : this.user.surname
     $('#' + this.gui_div).html(welcome + ' ' + firstname + ' ' + surname )
+    super.notify(target, data)
   }
 }
 
@@ -154,14 +178,13 @@ class MediatorPageTitle extends Observer {
   }
 }
 
-class MediatorDumpModels extends Observer {
+class DebugDumpModels {  // Not an OO Observer (to avoid infinite recursion), but a listener nevertheless
   constructor(id) {
-    super()
     this.gui_pre_id = id
+    document.addEventListener("observer-notification", (event) => { this.notify_ocurred(event.target) }) // Must use arrow function to get correct value of 'this'
   }
   
-  notify(target, data) {
-    super.notify(target, data)
+  notify_ocurred(target) {
     let info = {
       model: model,
       mediator_welcome_left: mediator_welcome_left,
@@ -172,7 +195,7 @@ class MediatorDumpModels extends Observer {
     }
     $(`#${this.gui_pre_id}`).html(syntaxHighlight(JSON.stringify(info, function(key, value) {
 
-        // skip observers or circular references will break the json
+        // skip 'observers' fields or circular references will break the generated json
         if (key == 'observers') { 
           return value.id;
         } else {
@@ -215,26 +238,15 @@ $('#reset_user_model').on('click', function(e) {
 $("input[name=uppercase_welcome]").change(function(e) {
   mediator_welcome_left.uppercase_welcome = $(e.target).prop('checked')
   mediator_welcome_user_right.uppercase_welcome = $(e.target).prop('checked')
-
-  // Notify affected mediators directly, rather than inefficient model.dirty_all()
-  mediator_welcome_left.notify(null, "display option change")
-  mediator_welcome_user_right.notify(null, "display option change")
-  mediator_dump_models.notify(null, "display option change")
 })
 
 $("input[name=uppercase_user]").change(function(e) {
   mediator_welcome_user_right.uppercase_user = $(e.target).prop('checked')
-
-  mediator_welcome_user_right.notify(null, "display option change")
-  mediator_dump_models.notify(null, "display option change")
 })
 
 $("input[name=uppercase_welcome_user]").change(function(e){
   mediator_welcome_user_right.uppercase_welcome = $(e.target).prop('checked')
   mediator_welcome_user_right.uppercase_user = $(e.target).prop('checked')
-
-  mediator_welcome_user_right.notify(null, "display option change")
-  mediator_dump_models.notify(null, "display option change")
 });
 
 $( "input[name=welcome]" ).keypress(function(e) {  // use 'change' if you want to wait for ENTER
@@ -263,8 +275,8 @@ mediator_welcome_user_right = new MediatorWelcomeUserRight(model.welcome, model.
 mediator_edit_welcome_msg = new MediatorEditWelcome(model.welcome, 'welcome')
 mediator_edit_user_name_msg = new MediatorEditUserFirstName(model.user, 'firstname')
 mediator_edit_user_surname_msg = new MediatorEditUserSurName(model.user, 'surname')
-mediator_dump_models = new MediatorDumpModels("debug_info")
 mediator_page_title = new MediatorPageTitle("Gui wired via OO + Observer", $('#title > h1'))
+controller_dump_models = new DebugDumpModels("debug_info")  // not an OO Observer (to avoid infinite recursion), but a listener nevertheless
 
 // Observer Wiring
 model.welcome.add_observer(mediator_welcome_left)
@@ -273,7 +285,5 @@ model.welcome.add_observer(mediator_edit_welcome_msg)
 model.user.add_observer(mediator_welcome_user_right)
 model.user.add_observer(mediator_edit_user_name_msg)
 model.user.add_observer(mediator_edit_user_surname_msg)
-model.welcome.add_observer(mediator_dump_models)  // debug mediator is also an observer of the models
-model.user.add_observer(mediator_dump_models)
 
 model.dirty_startup()  // initialise the gui with initial model values
