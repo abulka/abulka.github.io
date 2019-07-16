@@ -1,10 +1,9 @@
 //
-// Model - The Welcome model and User model are Observable.
+// Models
 //
 
-class Welcome extends Subject {
+class Welcome {
   constructor(message) {
-      super();
       this._msg = message == undefined ? "Welcome" : message;
     }
   
@@ -14,13 +13,12 @@ class Welcome extends Subject {
   
     set message(v) {
       this._msg = v;
-      this.notifyall(`modified ${this._msg}`)
+      notify_all("modified welcome", this, this._msg)
     }
 }
 
-class User extends Subject {
+class User {
   constructor() {
-      super();
       this._firstname = "Sam"
       this._surname = "Smith"
     }
@@ -31,7 +29,7 @@ class User extends Subject {
   
     set firstname(v) {
       this._firstname = v;
-      this.notifyall(`modified ${this._firstname}`)
+      notify_all("modified user", this, this._firstname)
     }
   
     get surname() {
@@ -40,35 +38,52 @@ class User extends Subject {
   
     set surname(v) {
       this._surname = v;
-      this.notifyall(`modified ${this._surname}`)
+      notify_all("modified user", this, this._surname)
     }
 }
 
-class Model {  // aggregates all the sub models into one housing
+class App {  // aggregates all the sub models into one housing, with some business logic
   constructor(welcome_model, user_model) {
-      this.welcome = welcome_model
-      this.user = user_model
+      this.welcome_model = welcome_model
+      this.user_model = user_model
+    }
+  
+    on_change_welcome_model(event) {
+      this.welcome_model.message = isUpperCaseAt(this.welcome_model.message, 1) ? this.welcome_model.message.toLowerCase() : this.welcome_model.message.toUpperCase()
+    }
+
+    on_change_user_model(event) {
+      this.user_model.firstname = isUpperCaseAt(this.user_model.firstname, 1) ? this.user_model.firstname.toLowerCase() : this.user_model.firstname.toUpperCase()
+      this.user_model.surname = isUpperCaseAt(this.user_model.surname, 1) ? this.user_model.surname.toLowerCase() : this.user_model.surname.toUpperCase()
+    }
+
+    on_reset_welcome_model(event) {
+      this.welcome_model.message = "Hello"
+    }
+  
+    on_reset_user_model(event) {
+      this.user_model.firstname = "Fred"
+      this.user_model.surname = "Flinstone"
     }
   
     dirty_startup() {
       this.dirty_all()
-      mediator_page_title.notify(null, "dirty startup")  // notify 'mediator_page_title' directly since this only happens once and 'mediator_page_title' doesn't subscribe to anyone
+      notify_all("startup", this)
     }
 
     dirty_all() {
-      this.welcome.notifyall("dirty all")
-      this.user.notifyall("dirty all")
+      notify_all("modified welcome", this)
+      notify_all("modified user", this)
     }
 }
 
 //
-// Mediators - are implemented as Observer classes, contain the display update behaviour plus refs to model and gui
+// Mediators - contain the View/GUI/DOM updating code, some display option flags plus refs to model and DOM
 //
 
-class MediatorWelcomeLeft extends Observer {
+class MediatorWelcome {
   constructor(welcome_model, id) {
-    super()
-    this.welcome = welcome_model  // ref to Welcome model
+    this.welcome_model = welcome_model  // ref to Welcome model
     this.gui_div = id             // ref to DOM div where we want the welcome message to appear
     this._uppercase_welcome = false
   }
@@ -78,21 +93,23 @@ class MediatorWelcomeLeft extends Observer {
   }
   set uppercase_welcome(val) { 
     this._uppercase_welcome = val
-    this.notify(this, 'display option change')
+    notify_all("display option change", this, `flag uppercase_welcome ${val}`)
   }
 
-  notify(target, data) {
-    let msg = this.uppercase_welcome ? this.welcome.message.toUpperCase() : this.welcome.message
+  on_check_upper_welcome(e) {
+    this.uppercase_welcome = $(e.target).prop('checked')
+  }
+
+  notify(event) {
+    let msg = this.uppercase_welcome ? this.welcome_model.message.toUpperCase() : this.welcome_model.message
     $('#' + this.gui_div).html(msg)
-    super.notify(target, data)
   }
 }
 
-class MediatorWelcomeUserRight extends Observer {
+class MediatorWelcomeUser {
   constructor(welcome_model, user_model, id) {
-    super()
-    this.welcome = welcome_model
-    this.user = user_model
+    this.welcome_model = welcome_model
+    this.user_model = user_model
     this.gui_div = id
     this._uppercase_welcome = false
     this._uppercase_user = false
@@ -103,7 +120,7 @@ class MediatorWelcomeUserRight extends Observer {
   }
   set uppercase_welcome(val) { 
     this._uppercase_welcome = val
-    this.notify(this, 'display option change')
+    notify_all("display option change", this, `flag uppercase_welcome ${val}`)
   }
   
   get uppercase_user() { 
@@ -111,99 +128,95 @@ class MediatorWelcomeUserRight extends Observer {
   }
   set uppercase_user(val) { 
     this._uppercase_user = val
-    this.notify(this, 'display option change')
+    notify_all("display option change", this, `flag uppercase_user ${val}`)
   }
 
-  notify(target, data) {
-    let welcome = this.uppercase_welcome ? this.welcome.message.toUpperCase() : this.welcome.message
-    let firstname = this.uppercase_user ? this.user.firstname.toUpperCase() : this.user.firstname
-    let surname = this.uppercase_user ? this.user.surname.toUpperCase() : this.user.surname
+  on_check_upper_welcome(e) {
+    this.uppercase_welcome = $(e.target).prop('checked')
+  }
+
+  on_check_upper_user(e) {
+    this.uppercase_user = $(e.target).prop('checked')
+  }
+
+  on_check_upper_welcome_user(e) {
+    this.uppercase_welcome = $(e.target).prop('checked')
+    this.uppercase_user = $(e.target).prop('checked')
+  }
+
+  notify(event) {
+    let welcome = this.uppercase_welcome ? this.welcome_model.message.toUpperCase() : this.welcome_model.message
+    let firstname = this.uppercase_user ? this.user_model.firstname.toUpperCase() : this.user_model.firstname
+    let surname = this.uppercase_user ? this.user_model.surname.toUpperCase() : this.user_model.surname
     $('#' + this.gui_div).html(welcome + ' ' + firstname + ' ' + surname )
-    super.notify(target, data)
   }
 }
 
-class MediatorEditWelcome extends Observer {
+class MediatorEditWelcome {
   constructor(welcome_model, id) {
-    super()
-    this.welcome = welcome_model
+    this.welcome_model = welcome_model
     this.gui_input = id  // name (not id) of input to hold welcome message
   }
-  
-  notify(target, data) {
-    super.notify(target, data)
-    assert(target == this.welcome)
-    $(`input[name=${this.gui_input}]`).val(this.welcome.message)
+
+  on_keychar_welcome(e) { this.welcome_model.message = $(e.target).val() }
+
+  notify(event) {
+    $(`input[name=${this.gui_input}]`).val(this.welcome_model.message)
   }
 }
 
-class MediatorEditUserFirstName extends Observer {
+class MediatorEditUserFirstName {
   constructor(user_model, id) {
-    super()
-    this.user = user_model
+    this.user_model = user_model
+    this.gui_input = id
+  }
+
+  on_keychar_firstname(e) { this.user_model.firstname = $(e.target).val() }
+
+  notify(event) {
+    $(`input[name=${this.gui_input}]`).val(this.user_model.firstname)
+  }
+}
+
+class MediatorEditUserSurName {
+  constructor(user_model, id) {
+    this.user_model = user_model
     this.gui_input = id
   }
   
-  notify(target, data) {
-    super.notify(target, data)
-    assert(target == this.user)
-    $(`input[name=${this.gui_input}]`).val(this.user.firstname)
+  on_keychar_surname(e) { this.user_model.surname = $(e.target).val() }
+
+  notify(event) {
+    $(`input[name=${this.gui_input}]`).val(this.user_model.surname)
   }
 }
 
-class MediatorEditUserSurName extends Observer {
-  constructor(user_model, id) {
-    super()
-    this.user = user_model
-    this.gui_input = id
-  }
-  
-  notify(target, data) {
-    super.notify(target, data)
-    assert(target == this.user)
-    $(`input[name=${this.gui_input}]`).val(this.user.surname)
-  }
-}
-
-class MediatorPageTitle extends Observer {
+class MediatorPageTitle {
   constructor(s, $id) {
-    super()
     this.s = s
     this.$id = $id
   }
   
-  notify(target, data) {
-    super.notify(target, data)
+  notify(event) {
     this.$id.html(this.s)
   }
 }
 
-class DebugDumpModels {  // Not an OO Observer (to avoid infinite recursion), but a listener nevertheless
+class DebugDumpModels {
   constructor(id) {
     this.gui_pre_id = id
-    document.addEventListener("observer-notification", (event) => { this.notify_ocurred(event.target) }) // Must use arrow function to get correct value of 'this'
   }
   
-  notify_ocurred(target) {
+  notify(event) {
     let info = {
-      model: model,
-      mediator_welcome_left: mediator_welcome_left,
-      mediator_welcome_user_right : mediator_welcome_user_right,
-      mediator_edit_welcome_msg : mediator_edit_welcome_msg,
-      mediator_edit_user_name_msg : mediator_edit_user_name_msg,
-      mediator_edit_user_surname_msg : mediator_edit_user_surname_msg,
+      app_models: app,
+      mediator_welcome: mediator_welcome,
+      mediator_welcome_user : mediator_welcome_user,
+      mediator_edit_welcome : mediator_edit_welcome,
+      mediator_edit_firstname : mediator_edit_firstname,
+      mediator_edit_user_surname : mediator_edit_user_surname,
     }
-    $(`#${this.gui_pre_id}`).html(syntaxHighlight(JSON.stringify(info, function(key, value) {
-
-        // skip 'observers' fields or circular references will break the generated json
-        if (key == 'observers') { 
-          return value.id;
-        } else {
-          return value;
-        }
-
-    }, 2)))
-
+    $(`#${this.gui_pre_id}`).html(syntaxHighlight(JSON.stringify(info, null, 2)))
   }
 }
 
@@ -214,76 +227,46 @@ function isUpperCaseAt(str, n) {
 }  
 
 //
-// GUI events
+// Create the app and mediators
 //
 
-$('#change_welcome_model').on('click', function(e) {
-  model.welcome.message = isUpperCaseAt(model.welcome.message, 1) ? model.welcome.message.toLowerCase() : model.welcome.message.toUpperCase()
-})
-
-$('#change_user_model').on('click', function(e) {
-  model.user.firstname = isUpperCaseAt(model.user.firstname, 1) ? model.user.firstname.toLowerCase() : model.user.firstname.toUpperCase()
-  model.user.surname = isUpperCaseAt(model.user.surname, 1) ? model.user.surname.toLowerCase() : model.user.surname.toUpperCase()
-})
-
-$('#reset_welcome_model').on('click', function(e) {
-  model.welcome.message = "Hello"
-})
-
-$('#reset_user_model').on('click', function(e) {
-  model.user.firstname = "Fred"
-  model.user.surname = "Flinstone"
-})
-
-$("input[name=uppercase_welcome]").change(function(e) {
-  mediator_welcome_left.uppercase_welcome = $(e.target).prop('checked')
-  mediator_welcome_user_right.uppercase_welcome = $(e.target).prop('checked')
-})
-
-$("input[name=uppercase_user]").change(function(e) {
-  mediator_welcome_user_right.uppercase_user = $(e.target).prop('checked')
-})
-
-$("input[name=uppercase_welcome_user]").change(function(e){
-  mediator_welcome_user_right.uppercase_welcome = $(e.target).prop('checked')
-  mediator_welcome_user_right.uppercase_user = $(e.target).prop('checked')
-});
-
-$( "input[name=welcome]" ).keypress(function(e) {  // use 'change' if you want to wait for ENTER
-  model.welcome.message = $(e.target).val()
-});
-
-$("input[name=firstname]").keypress(function(e) {
-  model.user.firstname = $(e.target).val()
-})
-
-$("input[name=surname]").keypress(function(e) {
-  model.user.surname = $(e.target).val()
-})
-
-$('#render-now').on('click', function(e) {
-  model.dirty_all()
-})
-
-//
-// Wire up and build everything
-//
-
-model = new Model(new Welcome(), new User())
-mediator_welcome_left = new MediatorWelcomeLeft(model.welcome, "welcome")
-mediator_welcome_user_right = new MediatorWelcomeUserRight(model.welcome, model.user, 'welcome-user')
-mediator_edit_welcome_msg = new MediatorEditWelcome(model.welcome, 'welcome')
-mediator_edit_user_name_msg = new MediatorEditUserFirstName(model.user, 'firstname')
-mediator_edit_user_surname_msg = new MediatorEditUserSurName(model.user, 'surname')
-mediator_page_title = new MediatorPageTitle("Gui wired via OO + Observer", $('#title > h1'))
-controller_dump_models = new DebugDumpModels("debug_info")  // not an OO Observer (to avoid infinite recursion), but a listener nevertheless
+app = new App(new Welcome(), new User())
+mediator_welcome = new MediatorWelcome(app.welcome_model, "welcome")
+mediator_welcome_user = new MediatorWelcomeUser(app.welcome_model, app.user_model, 'welcome-user')
+mediator_edit_welcome = new MediatorEditWelcome(app.welcome_model, 'welcome')
+mediator_edit_firstname = new MediatorEditUserFirstName(app.user_model, 'firstname')
+mediator_edit_user_surname = new MediatorEditUserSurName(app.user_model, 'surname')
+mediator_page_title = new MediatorPageTitle("Gui wired via OO + Events", $('#title > h1'))
+mediator_debug_info = new DebugDumpModels("debug_info")
 
 // Observer Wiring
-model.welcome.add_observer(mediator_welcome_left)
-model.welcome.add_observer(mediator_welcome_user_right)
-model.welcome.add_observer(mediator_edit_welcome_msg)
-model.user.add_observer(mediator_welcome_user_right)
-model.user.add_observer(mediator_edit_user_name_msg)
-model.user.add_observer(mediator_edit_user_surname_msg)
+document.addEventListener("modified welcome", (event) => { mediator_welcome.notify(event) })
+document.addEventListener("modified welcome", (event) => { mediator_welcome_user.notify(event) })
+document.addEventListener("modified welcome", (event) => { mediator_edit_welcome.notify(event) })
+document.addEventListener("modified user", (event) =>    { mediator_welcome_user.notify(event) })
+document.addEventListener("modified user", (event) =>    { mediator_edit_firstname.notify(event) })
+document.addEventListener("modified user", (event) =>    { mediator_edit_user_surname.notify(event) })
+document.addEventListener("startup", (event) =>          { mediator_page_title.notify(event) })
+document.addEventListener("display option change", (event) => { mediator_welcome.notify(event) })
+document.addEventListener("display option change", (event) => { mediator_welcome_user.notify(event) })
+document.addEventListener("notify all called", (event) => { mediator_debug_info.notify(event) })
 
-model.dirty_startup()  // initialise the gui with initial model values
+// Gui Event Wiring - front line controller event hander functions
+
+// button click commands that change the model, go to the app controller
+$('#change_welcome_model').on('click', (event) => { app.on_change_welcome_model(event) })
+$('#change_user_model').on('click', (event) => { app.on_change_user_model(event) })
+$('#reset_welcome_model').on('click', (event) => { app.on_reset_welcome_model(event) })
+$('#reset_user_model').on('click', (event) => { app.on_reset_user_model(event) })
+$('#render-now').on('click', function(e) { app.dirty_all() })
+// text input keystrokes that edit the model, go to the individual mediator controllers
+$('input[name=welcome]').on('keyup', (event) => { mediator_edit_welcome.on_keychar_welcome(event) })
+$('input[name=firstname]').on('keyup', (event) => { mediator_edit_firstname.on_keychar_firstname(event) })
+$('input[name=surname]').on('keyup', (event) => { mediator_edit_user_surname.on_keychar_surname(event) })
+// checkbox display options that change the way the models are rendered, go to the individual mediator controllers
+$('input[name=uppercase_welcome]').on('change', (event) => { mediator_welcome.on_check_upper_welcome(event) })
+$('input[name=uppercase_welcome]').on('change', (event) => { mediator_welcome_user.on_check_upper_welcome(event) })
+$('input[name=uppercase_user]').on('change', (event) => { mediator_welcome_user.on_check_upper_user(event) })
+$('input[name=uppercase_welcome_user]').on('change', (event) => { mediator_welcome_user.on_check_upper_welcome_user(event) })
+
+app.dirty_startup()  // initialise the gui with initial model values
