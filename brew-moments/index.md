@@ -10,11 +10,18 @@ Accurately calculate how much water you need for a given amount of coffee, in or
 
 ## Screenshots
 
+Play with the sliders or click the up/down buttons for more fine grained control:
 ![Image](images/Screen%20Shot%202020-09-04%20at%2011.58.06%20am.png?raw=true)
 
-![Image](images/Screen%20Shot%202020-09-04%20at%12.41.06%20am.png?raw=true)
+Saving a brew moment:
+![Image](images/Screen%20Shot%202020-09-04%20at%2012.41.53%20pm.png?raw=true)
 
-![Image](images/Screen%20Shot%202020-09-04%20at%12.41.53%20am.png?raw=true)
+
+A list of brew moments, which you can refer to in order to recreate your successful brews or expresso shots. 
+
+You can click on the left of each entry to edit or delete:
+![Image](images/Screen%20Shot%202020-09-04%20at%2012.41.06%20pm.png?raw=true)
+
 
 ## Where to get it
 
