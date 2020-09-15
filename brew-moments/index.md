@@ -32,9 +32,9 @@ You can click on the left of each entry to edit or delete:
 
 ## Where to get it
 
-Look on Google Play Store.
+Look on the [Brew Moments](https://play.google.com/store/apps/details?id=com.wware.brew_moments) Google Play Store Page.
 
-Might do an iOS version if there is enough interest.
+I might do an iOS version if there is enough interest.
 
 ## Privacy Policy
 
