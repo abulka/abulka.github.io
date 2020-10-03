@@ -45,6 +45,11 @@
   integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
   crossorigin="anonymous"></script>
 
+<script
+  src="https://unpkg.com/lunr@2.3.8/lunr.min.js"
+  integrity="sha384-vRQ9bDyE0Wnu+lMfm57BlYLO0/XauFuKpVsZPs7KEDwYKktWi5+Kz3MP8++DFlRY"
+  crossorigin="anonymous"></script>
+
 
 
 
@@ -95,7 +100,19 @@
 		</ul>
 	</div>
 	<div class="navbar-nav d-none d-lg-block">
-<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
+
+
+<input
+  type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; Search this site…"
+  aria-label="Search this site…"
+  autocomplete="off"
+  
+  data-offline-search-index-json-src="/offline-search-index.ec033262eca6018991de0eceea2b601678ba609f824b0218c170e2535ce63b4b41b2a33203a48545d394074a0d3abd6ae7f518c30320e50daa82fb2e768fcd59.json"
+  data-offline-search-base-href="/"
+  data-offline-search-max-results="10"
+>
 
 </div>
 </nav>
@@ -114,7 +131,19 @@
   
   <form class="td-sidebar__search d-flex align-items-center">
     
-<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
+
+
+<input
+  type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; Search this site…"
+  aria-label="Search this site…"
+  autocomplete="off"
+  
+  data-offline-search-index-json-src="/offline-search-index.ec033262eca6018991de0eceea2b601678ba609f824b0218c170e2535ce63b4b41b2a33203a48545d394074a0d3abd6ae7f518c30320e50daa82fb2e768fcd59.json"
+  data-offline-search-base-href="/"
+  data-offline-search-max-results="10"
+>
 
 
     <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
@@ -137,6 +166,41 @@
   <ul>
     <li class="collapse show" id="blog">
       
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/blog/patterns/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Design Patterns</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="blogpatterns">
+      
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blog20190104relationship-manager-design-pattern" href="/blog/2019/01/04/relationship-manager-design-pattern/">Relationship Manager</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blog20190104transformation-interface-design-pattern" href="/blog/2019/01/04/transformation-interface-design-pattern/">Transformation Interface</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
       
       
       
@@ -382,6 +446,36 @@ Hey THERE this is a standalone page. this is a standalone page. this is a standa
 			
 			<li class="media mb-4">
 				<div class="media-body">
+					<h5 class="mt-0 mb-1"><a href="/blog/2019/01/04/transformation-interface-design-pattern/">Transformation Interface</a></h5>
+					<p class="mb-2 mb-md-3"><small class="text-muted">Friday, January 04, 2019 in Design Patterns</small></p>
+					
+
+
+
+
+
+					<p class="pt-0 mt-0">1234567890123 Introduction The Transformation Interface is both a design pattern and an architectural pattern. It describes an interface or layer, which offers services to transform an object into another format and back again. A pair of methods on …</p>
+					<p class="pt-0"><a href="/blog/2019/01/04/transformation-interface-design-pattern/">Read more</a></p>
+				</div>
+			</li>
+			
+			<li class="media mb-4">
+				<div class="media-body">
+					<h5 class="mt-0 mb-1"><a href="/blog/2019/01/04/relationship-manager-design-pattern/">Relationship Manager</a></h5>
+					<p class="mb-2 mb-md-3"><small class="text-muted">Friday, January 04, 2019 in Design Patterns</small></p>
+					
+
+
+
+
+
+					<p class="pt-0 mt-0">Introduction 1233 Andy&rsquo;s Published Design Patterns These four papers are substantial works which have been presented at KoalaPlop (Asian Pacific Conference on Pattern Languages of Programs) in both 2000 and 2001. My shepherds (paper peer …</p>
+					<p class="pt-0"><a href="/blog/2019/01/04/relationship-manager-design-pattern/">Read more</a></p>
+				</div>
+			</li>
+			
+			<li class="media mb-4">
+				<div class="media-body">
 					<h5 class="mt-0 mb-1"><a href="/blog/2019/01/04/on-images/">Plantuml Images Baby</a></h5>
 					<p class="mb-2 mb-md-3"><small class="text-muted">Friday, January 04, 2019 in New Category Dir</small></p>
 					
@@ -600,7 +694,9 @@ The Problem: Untangling UML Diagrams Terms  Nodes – these are the shapes/recta
 
 
 
-<script src="/js/main.min.bd2ceaa9b001eaa100c485c2d784d39eb4147b5efa7e770bef10f433770845a5.js" integrity="sha256-vSzqqbAB6qEAxIXC14TTnrQUe176fncL7xD0M3cIRaU=" crossorigin="anonymous"></script>
+
+
+<script src="/js/main.min.460c8ae21829f9b330823a08f34ac961d7d0daa8874c8c9eba7ea0484bb42a79.js" integrity="sha256-RgyK4hgp&#43;bMwgjoI80rJYdfQ2qiHTIyeun6gSEu0Knk=" crossorigin="anonymous"></script>
 
 
 

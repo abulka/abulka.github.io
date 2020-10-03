@@ -695,6 +695,49 @@ This is a warning with a title!
     </item>
     
     <item>
+      <title>Blog: Relationship Manager - Design Pattern</title>
+      <link>https://abulka.github.io/blog/2019/01/04/relationship-manager-design-pattern/</link>
+      <pubDate>Fri, 04 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://abulka.github.io/blog/2019/01/04/relationship-manager-design-pattern/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;introduction-1233&#34;&gt;Introduction 1233&lt;/h2&gt;
+&lt;p&gt;Andy&amp;rsquo;s Published Design Patterns
+These four papers are substantial works which have been presented at KoalaPlop (Asian Pacific Conference on Pattern Languages of Programs) in both 2000 and 2001.  My shepherds (paper peer reviewers) were:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Jim Coplien (MGM pattern)&lt;/li&gt;
+&lt;li&gt;Ali Arsanjani (TI pattern)&lt;/li&gt;
+&lt;li&gt;James Noble (RM pattern).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;These final versions also incorporate comments and reviews from the attendees of KoalaPlop 2000 and 2001.&lt;/p&gt;
+&lt;h2 id=&#34;abstract&#34;&gt;Abstract&lt;/h2&gt;
+&lt;p&gt;A central mediating class which records all the one-to-one, one-to-many and many-to-many relationships between a group of selected classes. Classes that use a Relationship Manager to implement their relationship properties and methods have a consistent metaphor and trivial implementation code (one line calls). In contrast - traditional &amp;ldquo;pointer&amp;rdquo; and &amp;ldquo;arraylist&amp;rdquo; techniques of implementing relationships are fully flexible but often require a reasonable amount of non-trivial code which can be tricky to get working correctly and are almost always a pain to maintain due to the detailed coding and coupling between classes involved.&lt;/p&gt;
+&lt;h2 id=&#34;intro2&#34;&gt;Intro2&lt;/h2&gt;
+&lt;p&gt;Presented at &amp;hellip;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Blog: Transformation Interface Design Pattern</title>
+      <link>https://abulka.github.io/blog/2019/01/04/transformation-interface-design-pattern/</link>
+      <pubDate>Fri, 04 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://abulka.github.io/blog/2019/01/04/transformation-interface-design-pattern/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;1234567890123&#34;&gt;1234567890123&lt;/h2&gt;
+&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;The Transformation Interface is both a design pattern and an architectural pattern. It describes an interface or layer, which offers services to transform an object into another format and back again. A pair of methods on some class e.g. load/save are often the signature of a Transformation Interface.&lt;/p&gt;
+&lt;h2 id=&#34;intro2&#34;&gt;Intro2&lt;/h2&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Blog: Easy documentation with Docsy</title>
       <link>https://abulka.github.io/blog/2018/10/06/easy-documentation-with-docsy/</link>
       <pubDate>Sat, 06 Oct 2018 00:00:00 +0000</pubDate>

@@ -7,6 +7,7 @@
 
 <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
 
+<link rel="alternate" type="application/rss&#43;xml" href="https://abulka.github.io/blog/patterns/index.xml">
 
 
 <link rel="shortcut icon" href="/favicons/favicon.ico" >
@@ -20,27 +21,16 @@
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
-<title>UML Layout | Andy Bulka - Blog</title><meta property="og:title" content="UML Layout" />
-<meta property="og:description" content="Developing a Layout Algorithm for UML diagrams
-" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://abulka.github.io/blog/2011/04/06/uml-layout/" />
-<meta property="article:published_time" content="2011-04-06T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-10-03T13:18:32+10:00" />
-<meta itemprop="name" content="UML Layout">
-<meta itemprop="description" content="Developing a Layout Algorithm for UML diagrams
-">
-<meta itemprop="datePublished" content="2011-04-06T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2020-10-03T13:18:32+10:00" />
-<meta itemprop="wordCount" content="807">
+<title>Design Patterns | Andy Bulka - Blog</title><meta property="og:title" content="Design Patterns" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://abulka.github.io/blog/patterns/" />
 
-
-
-<meta itemprop="keywords" content="" />
+<meta itemprop="name" content="Design Patterns">
+<meta itemprop="description" content="">
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="UML Layout"/>
-<meta name="twitter:description" content="Developing a Layout Algorithm for UML diagrams
-"/>
+<meta name="twitter:title" content="Design Patterns"/>
+<meta name="twitter:description" content=""/>
 
 
 
@@ -64,7 +54,7 @@
 
 
   </head>
-  <body class="td-page td-blog">
+  <body class="td-section td-blog">
     <header>
       
 <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
@@ -188,10 +178,10 @@
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/blog/patterns/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Design Patterns</a>
+    <a  href="/blog/patterns/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Design Patterns</a>
   </li>
   <ul>
-    <li class="collapse " id="blogpatterns">
+    <li class="collapse show" id="blogpatterns">
       
       
       
@@ -223,10 +213,10 @@
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/blog/newcat/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">New Category Dir</a>
+    <a  href="/blog/newcat/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">New Category Dir</a>
   </li>
   <ul>
-    <li class="collapse show" id="blognewcat">
+    <li class="collapse " id="blognewcat">
       
       
       
@@ -239,7 +229,7 @@
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page  active" id="m-blog20110406uml-layout" href="/blog/2011/04/06/uml-layout/">UML Diagram Layout</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blog20110406uml-layout" href="/blog/2011/04/06/uml-layout/">UML Diagram Layout</a>
       
       
     </li>
@@ -378,8 +368,8 @@
 
 
 
-<a href="https://github.com/google/docsy-example/edit/master/content/en/blog/newcat/uml-layout.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
-<a href="https://github.com/google/docsy-example/issues/new?title=UML%20Layout" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
+<a href="https://github.com/google/docsy-example/edit/master/content/en/blog/patterns/_index.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+<a href="https://github.com/google/docsy-example/issues/new?title=Design%20Patterns" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
 
 
 <a href="https://github.com/google/docsy/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
@@ -391,236 +381,68 @@
 
 
 
-<nav id="TableOfContents">
-  <ul>
-    <li><a href="#intro">Intro</a></li>
-    <li><a href="#the-problem-untangling-uml-diagrams">The Problem: Untangling UML Diagrams</a></li>
-    <li><a href="#terms">Terms</a></li>
-    <li><a href="#background">Background</a></li>
-    <li><a href="#what-i-developed">What I developed</a></li>
-    <li><a href="#overlap-removal---before-and-after">Overlap Removal - Before and After</a></li>
-    <li><a href="#unit-testing">Unit Testing</a>
-      <ul>
-        <li><a href="#unit-testing-brittleness-avoided">Unit Testing Brittleness Avoided</a></li>
-      </ul>
-    </li>
-    <li><a href="#design-patterns-used">Design Patterns Used</a>
-      <ul>
-        <li><a href="#memento">Memento</a></li>
-        <li><a href="#blackboard">Blackboard</a></li>
-      </ul>
-    </li>
-    <li><a href="#future">Future</a></li>
-    <li><a href="#overlap-removal-server">Overlap Removal Server</a></li>
-    <li><a href="#resources">Resources</a>
-      <ul>
-        <li><a href="#code-and-links">Code and Links</a></li>
-        <li><a href="#slides-on-scribd">Slides on Scribd</a></li>
-        <li><a href="#slides-as-html">Slides as HTML</a></li>
-        <li><a href="#slides-as-pdf-download">Slides as Pdf download</a></li>
-      </ul>
-    </li>
-    <li><a href="#images">Images</a>
-      <ul>
-        <li><a href="#sample-images">Sample Images</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-
 
 
           </div>
           <main class="col-12 col-md-9 col-xl-8 pl-md-5 pr-md-4" role="main">
-            <a class="btn btn-lg -bg-orange td-rss-button d-none d-lg-block" href="https://abulka.github.io/blog/newcat/index.xml" target="_blank">
+            <a class="btn btn-lg -bg-orange td-rss-button d-none d-lg-block" href="https://abulka.github.io/blog/patterns/index.xml" target="_blank">
               RSS <i class="fa fa-rss ml-2 "></i>
             </a>
             
-<div class="td-content">
-	<h1>UML Layout</h1>
-	<div class="lead">Developing a Layout Algorithm for UML diagrams</div>
-	<div class="td-byline mb-4">
+
+
+
+
+
+
+
+<div class="row">
+	<div class="col-12">
 		
-		<time datetime="2011-04-06" class="text-muted">Wednesday, April 06, 2011</time>
+		<h2>Posts in 2019</h2>
+		<ul class="list-unstyled mt-4">
+			
+			<li class="media mb-4">
+				<div class="media-body">
+					<h5 class="mt-0 mb-1"><a href="/blog/2019/01/04/transformation-interface-design-pattern/">Transformation Interface</a></h5>
+					<p class="mb-2 mb-md-3"><small class="text-muted">Friday, January 04, 2019 in Design Patterns</small></p>
+					
+
+
+
+
+
+					<p class="pt-0 mt-0">1234567890123 Introduction The Transformation Interface is both a design pattern and an architectural pattern. It describes an interface or layer, which offers services to transform an object into another format and back again. A pair of methods on …</p>
+					<p class="pt-0"><a href="/blog/2019/01/04/transformation-interface-design-pattern/">Read more</a></p>
+				</div>
+			</li>
+			
+			<li class="media mb-4">
+				<div class="media-body">
+					<h5 class="mt-0 mb-1"><a href="/blog/2019/01/04/relationship-manager-design-pattern/">Relationship Manager</a></h5>
+					<p class="mb-2 mb-md-3"><small class="text-muted">Friday, January 04, 2019 in Design Patterns</small></p>
+					
+
+
+
+
+
+					<p class="pt-0 mt-0">Introduction 1233 Andy&rsquo;s Published Design Patterns These four papers are substantial works which have been presented at KoalaPlop (Asian Pacific Conference on Pattern Languages of Programs) in both 2000 and 2001. My shepherds (paper peer …</p>
+					<p class="pt-0"><a href="/blog/2019/01/04/relationship-manager-design-pattern/">Read more</a></p>
+				</div>
+			</li>
+			
+		</ul>
+		
 	</div>
-	
-	<h1 id="developing-a-layout-algorithm-for-uml-diagrams">Developing a Layout Algorithm for UML diagrams</h1>
-<h2 id="intro">Intro</h2>
-<p>Presented to the <a href="https://melbournepatterns.wordpress.com/">Melbourne Patterns Group</a>, Wednesday 6th April 2011 6:30 PM</p>
-<h2 id="the-problem-untangling-uml-diagrams">The Problem: Untangling UML Diagrams</h2>
-<p><img src="/blog/images/uml-layout-the-problem.png" alt="png your image"></p>
-<h2 id="terms">Terms</h2>
-<ul>
-<li>Nodes – these are the shapes/rectangles</li>
-<li>Edges – these are the lines connecting the shapes</li>
-</ul>
-<h2 id="background">Background</h2>
-<ul>
-<li>My UML tool is written in Python</li>
-<li>Existing layout libraries for e.g. python PyGraphviz has no windows port so I wrote my own</li>
-<li>Layout is reasonably hard to implement – academic papers are very complex and deal in a lot of math</li>
-<li>DIRTY SECRET OF ACADEMIA - Most Layout algorithms only deal with ‘points’ and don’t take into account real width and height</li>
-</ul>
-<p>Thus for any real world use
-(unless dealing with network and particle visualisation where each node is the same size/shape),
-it seemed to me that one needs to run an <em>overlap removal algorithm</em> after the layout to remove shape overlaps.</p>
-<p>Overlap removal algorithm needs to minimise shape movement in order to respect the layout results</p>
-<h2 id="what-i-developed">What I developed</h2>
-<ul>
-<li>I used a ‘spring layout’ adapted from java and javascript</li>
-<li>I developed my own overlap removal algorithm</li>
-<li>Developed a GUI sandbox test app for development</li>
-</ul>
-<h2 id="overlap-removal---before-and-after">Overlap Removal - Before and After</h2>
-<figure>
-    <img src="/blog/images/uml-layout-before.png#floatleft"
-         alt="before"/> <figcaption>
-            <p>before</p>
-        </figcaption>
-</figure>
-<figure>
-    <img src="/blog/images/uml-layout-after.png#floatright"
-         alt="after applying layout"/> <figcaption>
-            <p>after applying layout</p>
-        </figcaption>
-</figure>
-<h2 id="unit-testing">Unit Testing</h2>
-<p>Extensive unit tests were created to keep on top of the layout algorithm results.  A word document containing annotated screenshots for each test helped me enormously.</p>
-<figure>
-    <img src="/blog/images/uml-layout-unit-testing.png"
-         alt="an overlap removal use case which became a unit test"/> <figcaption>
-            <p>an overlap removal use case which became a unit test</p>
-        </figcaption>
-</figure>
-<p>Layout / persistence format was created for creating layout scenarios</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#000;font-weight:bold">{</span><span style="color:#4e9a06">&#39;type&#39;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#39;node&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#39;id&#39;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#39;D25&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#39;x&#39;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#0000cf;font-weight:bold">6</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#39;y&#39;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#0000cf;font-weight:bold">7</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#39;width&#39;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#0000cf;font-weight:bold">159</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#39;height&#39;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#0000cf;font-weight:bold">106</span><span style="color:#000;font-weight:bold">}</span>
-<span style="color:#000;font-weight:bold">{</span><span style="color:#4e9a06">&#39;type&#39;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#39;node&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#39;id&#39;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#39;D13&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#39;x&#39;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#0000cf;font-weight:bold">6</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#39;y&#39;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#0000cf;font-weight:bold">119</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#39;width&#39;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#0000cf;font-weight:bold">119</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#39;height&#39;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#0000cf;font-weight:bold">73</span><span style="color:#000;font-weight:bold">}</span>
-<span style="color:#000;font-weight:bold">{</span><span style="color:#4e9a06">&#39;type&#39;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#39;node&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#39;id&#39;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#39;m1&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#39;x&#39;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#0000cf;font-weight:bold">170</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#39;y&#39;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#0000cf;font-weight:bold">9</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#39;width&#39;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#0000cf;font-weight:bold">139</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#39;height&#39;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#0000cf;font-weight:bold">92</span><span style="color:#000;font-weight:bold">}</span>
-</code></pre></div><h3 id="unit-testing-brittleness-avoided">Unit Testing Brittleness Avoided</h3>
-<p>Loose tests using (e.g. I created a function called <code>ensureYorder()</code> etc) were created so that the tests were not too brittle.  Slight variations in position are ignored.</p>
-<p>View this unit test file at the Pynsource GitHub repository <a href="https://github.com/abulka/pynsource/blob/master/src/tests/test_overlaps1.py">tests/test_overlaps1.py</a>. Here is an example unit test:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">_LoadScenario3</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>
-    <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">g</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">LoadGraphFromStrings</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">TEST_GRAPH3</span><span style="color:#000;font-weight:bold">)</span>
-
-<span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">test3_5InsertedVerticallyTwoPushedDown</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>
-    <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">_LoadScenario3</span><span style="color:#000;font-weight:bold">()</span>
-
-    <span style="color:#8f5902;font-style:italic"># move m1 to the left</span>
-    <span style="color:#000">node</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">g</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">FindNodeById</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;m1&#34;</span><span style="color:#000;font-weight:bold">)</span>
-    <span style="color:#000">node</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">left</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">node</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">top</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">6</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">4</span><span style="color:#000;font-weight:bold">)</span>
-
-    <span style="color:#000">d97</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">g</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">FindNodeById</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;D97&#34;</span><span style="color:#000;font-weight:bold">)</span>
-    <span style="color:#000">oldD97pos</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">d97</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">left</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">d97</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">top</span><span style="color:#000;font-weight:bold">)</span>
-
-    <span style="color:#8f5902;font-style:italic"># assert m1 has been inserted vertically - two pushed down</span>
-    <span style="color:#000">were_all_overlaps_removed</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">overlap_remover</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">RemoveOverlaps</span><span style="color:#000;font-weight:bold">()</span>
-    <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">assertTrue</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">were_all_overlaps_removed</span><span style="color:#000;font-weight:bold">)</span>
-    <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">assertEqual</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">overlap_remover</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">GetStats</span><span style="color:#000;font-weight:bold">()[</span><span style="color:#4e9a06">&#34;total_overlaps_found&#34;</span><span style="color:#000;font-weight:bold">])</span>
-
-    <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">assertTrue</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">_ensureYorder</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;m1&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;D25&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;D13&#34;</span><span style="color:#000;font-weight:bold">))</span>
-    <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">assertTrue</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">_ensureXorder</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;m1&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;D97&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;D98&#34;</span><span style="color:#000;font-weight:bold">))</span>
-    <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">assertTrue</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">_ensureXorder</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;D25&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;D97&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;D98&#34;</span><span style="color:#000;font-weight:bold">))</span>
-    <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">assertTrue</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">_ensureXorder</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;D13&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;D97&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;D98&#34;</span><span style="color:#000;font-weight:bold">))</span>
-    <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">assertEqual</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">oldD97pos</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">d97</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">left</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">d97</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">top</span><span style="color:#000;font-weight:bold">))</span>  <span style="color:#8f5902;font-style:italic"># ensure D97 hasn&#39;t been pushed</span>
-</code></pre></div><p>Running the tests:</p>
-<figure>
-    <img src="/blog/images/uml-layout-test-run.png"
-         alt="An example test run"/> <figcaption>
-            <p>An example test run</p>
-        </figcaption>
-</figure>
-<p>Having a huge bank of unit tests helped in refactoring, too.  Imagine testing all the necessary scenarios by hand!</p>
-<p>The final Results were pretty good!</p>
-<figure>
-    <img src="/blog/images/uml-layout-final-result-good.png"
-         alt="A UML diagram after overlap removal"/> <figcaption>
-            <p>A UML diagram after overlap removal</p>
-        </figcaption>
-</figure>
-<h2 id="design-patterns-used">Design Patterns Used</h2>
-<h3 id="memento">Memento</h3>
-<ul>
-<li>Memento was used to remember graph layout positions and then compare mementos to see if anything had ‘changed’ and thus drop out of the Spring layout algorithm early</li>
-<li>Memento was used to save/restore layouts in my test GUI – assigned to keys 0..9</li>
-</ul>
-<h3 id="blackboard">Blackboard</h3>
-<p>Blackboard pattern used to run layout several times and figure out which was the best, cleanest result using multiple criteria.  Each run is a ‘snapshot’</p>
-<pre><code>Snapshot 1 [6] LL  0   NN pre rm overlaps  5   LN  0   scale 1.6   bounds 23  (500, 473) &lt;---
-Snapshot 2 [4] LL  0   NN pre rm overlaps  5   LN  1   scale 1.4   bounds 30  (570, 537)
-Snapshot 3 [5] LL  0   NN pre rm overlaps  6   LN  2   scale 2.0   bounds 17  (444, 393)
-Snapshot 4 [2] LL  0   NN pre rm overlaps  4   LN  2   scale 1.4   bounds 34  (648, 537)
-Snapshot 5 [3] LL  0   NN pre rm overlaps  5   LN  4   scale 2.0   bounds 21  (427, 508)
-Snapshot 6 [1] LL  0   NN pre rm overlaps 10   LN  5   scale 2.0   bounds 18  (485, 379)
-</code></pre><p>Python goodness helped in this ‘AI’ smartness</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">sortfunc</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">d</span><span style="color:#000;font-weight:bold">):</span>
-  <span style="color:#8f5902;font-style:italic"># this does the thinking!</span>
-  <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">d</span><span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#39;LL&#39;</span><span style="color:#000;font-weight:bold">],</span> <span style="color:#000">d</span><span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#39;LN&#39;</span><span style="color:#000;font-weight:bold">],</span> <span style="color:#000">d</span><span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#39;bounds_area_simple&#39;</span><span style="color:#000;font-weight:bold">],</span> <span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#000">d</span><span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#39;scale&#39;</span><span style="color:#000;font-weight:bold">],</span> <span style="color:#000">d</span><span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#39;NN_pre_OR&#39;</span><span style="color:#000;font-weight:bold">])</span> 
-</code></pre></div><h2 id="future">Future</h2>
-<ul>
-<li>“Line  over node” overlap was abandoned as it started to get really complex with a lot of trigonometry and perhaps this area needs a more academic approach</li>
-<li>Non straight lines and line routing is probably the better direction</li>
-<li>Adding an understanding of UML semantics is another direction to research, so that e.g. base classes are above derived classes etc.</li>
-</ul>
-<h2 id="overlap-removal-server">Overlap Removal Server</h2>
-<p>In 2020 I needed to expose the overlap removal code as an API for javascript to use.</p>
-<p>Here is that small research sub-project <a href="https://github.com/abulka/pynsource/tree/master/Research/overlap_removal_server">https://github.com/abulka/pynsource/tree/master/Research/overlap_removal_server</a></p>
-<h2 id="resources">Resources</h2>
-<h3 id="code-and-links">Code and Links</h3>
-<ul>
-<li>Overlap removal code is Python, open source</li>
-<li>Part of my python UML tool <a href="https://www.pynsource.com">PyNSource</a>: Reverse engineer python source code into UML - display UML as Ascii art or PlantUML diagrams in a proper diagramming visual workspace.</li>
-</ul>
-<h3 id="slides-on-scribd">Slides on Scribd</h3>
-<p><a href="http://www.scribd.com/doc/55976194/UML-Graph-Layout-Andy-Talk-March-2011" title="View UML Graph Layout - Andy Talk - March 2011 on Scribd">UML Graph Layout - Andy Talk - March 2011</a></p>
-<h3 id="slides-as-html">Slides as HTML</h3>
-<ul>
-<li>The problem of laying out UML</li>
-<li>Spring Layout</li>
-<li>Mapping layout to Real World</li>
-<li>OGL</li>
-<li>MVC</li>
-<li>Overlap Removal</li>
-<li>Unit tests and unit test diagrams</li>
-<li>Memento Design Pattern</li>
-<li>Blackboard Design Pattern &amp; Injecting sorting function</li>
-<li>Future..</li>
-</ul>
-<iframe src="/files/UML-Graph-Layout-Andy-Talk-March-2011.html" name="frame1" scrolling="yes" frameborder="yes" align="center" height = "842px" width = "800">
-</iframe>
-<h3 id="slides-as-pdf-download">Slides as Pdf download</h3>
-<p><a href="/index.php/download_file/429/109/">View as pdf</a></p>
-<hr>
-<h2 id="images">Images</h2>
-<h3 id="sample-images">Sample Images</h3>
-<p><img src="/images/uml/content/en/blog/newcat/uml/test-uml.png" alt="png your image"></p>
-<p><img src="/images/uml/fred-uml.png" alt="png your image"></p>
-<p><img src="/blog/images/uml-layout-before.png" alt="">
-<img src="/blog/images/uml-layout-after.png" alt=""></p>
-<figure>
-    <img src="/blog/images/uml-layout-before.png#floatleft"
-         alt="before"/> <figcaption>
-            <p>before</p>
-        </figcaption>
-</figure>
-<figure>
-    <img src="/blog/images/uml-layout-after.png#floatright"
-         alt="after applying layout"/> <figcaption>
-            <p>after applying layout</p>
-        </figcaption>
-</figure>
-
-	
-
-	<ul class="list-unstyled d-flex justify-content-between align-items-center mb-0 pt-5">
-  <li>
-    <a  class="btn btn-primary  disabled"><span class="mr-1">←</span> Previous</a>
-  </li>
-    <a href="/blog/2019/01/04/on-images/" class="btn btn-primary ">Next <span class="ml-1">→</span></a>
-  </li>
-</ul>
-
 </div>
+<div class="row pl-2 pt-2">
+	<div class="col">
+		
 
+
+	</div>
+</div>
 
           </main>
         </div>
