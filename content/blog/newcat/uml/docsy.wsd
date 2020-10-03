@@ -1,0 +1,220 @@
+@startuml "docsy"
+skinparam backgroundcolor Ivory/Azure
+set namespaceSeparator none
+title Theme "docsy"
+
+skinparam class { 
+    BackgroundColor<<dir>> lightgrey
+    BorderColor<<dir>> grey
+
+    BackgroundColor<<html>> beige
+    BorderColor<<html>> cadetblue
+
+    BackgroundColor<<partial>> cornsilk
+    BorderColor<<partial>> LightCoral
+}
+
+"layouts/" -[#grey,dashed]- "home.html"
+"layouts/" -[#grey,dashed]- "swagger/"
+"layouts/" -[#grey,dashed]- "404.html"
+"layouts/" -[#grey,dashed]- "docs/"
+"layouts/" -[#grey,dashed]- "blog/"
+"layouts/" -[#grey,dashed]- "shortcodes/"
+"layouts/" -[#grey,dashed]- "_default/"
+"layouts/" -[#grey,dashed]- "community/"
+"layouts/" -[#grey,dashed]- "partials/"
+"swagger/" -[#grey,dashed]- "swagger/single.html"
+"swagger/" -[#grey,dashed]- "swagger/list.html"
+"swagger/" -[#grey,dashed]- "swagger/baseof.html"
+"docs/" -[#grey,dashed]- "docs/single.html"
+"docs/" -[#grey,dashed]- "docs/list.html"
+"docs/" -[#grey,dashed]- "docs/baseof.html"
+"blog/" -[#grey,dashed]- "blog/single.html"
+"blog/" -[#grey,dashed]- "blog/list.html"
+"blog/" -[#grey,dashed]- "blog/baseof.html"
+"blog/" -[#grey,dashed]- "blog/content.html"
+"shortcodes/" -[#grey,dashed]- "shortcodes/blocks/"
+"shortcodes/" -[#grey,dashed]- "shortcodes/pageinfo.html"
+"shortcodes/" -[#grey,dashed]- "shortcodes/imgproc.html"
+"shortcodes/" -[#grey,dashed]- "shortcodes/readfile.md"
+"shortcodes/" -[#grey,dashed]- "shortcodes/alert.html"
+"shortcodes/" -[#grey,dashed]- "shortcodes/swaggerui.html"
+"shortcodes/blocks/" -[#grey,dashed]- "shortcodes/blocks/cover.html"
+"shortcodes/blocks/" -[#grey,dashed]- "shortcodes/blocks/lead.html"
+"shortcodes/blocks/" -[#grey,dashed]- "shortcodes/blocks/section.html"
+"shortcodes/blocks/" -[#grey,dashed]- "shortcodes/blocks/link-down.html"
+"shortcodes/blocks/" -[#grey,dashed]- "shortcodes/blocks/feature.html"
+"_default/" -[#grey,dashed]- "_default/single.html"
+"_default/" -[#grey,dashed]- "_default/list.html"
+"_default/" -[#grey,dashed]- "_default/list.rss.xml"
+"_default/" -[#grey,dashed]- "_default/baseof.html"
+"_default/" -[#grey,dashed]- "_default/search.html"
+"_default/" -[#grey,dashed]- "_default/content.html"
+"community/" -[#grey,dashed]- "community/list.html"
+"partials/" -[#grey,dashed]- "partials/hooks/"
+"swagger/list.html" --[#548485]-> "partials/section-index.html"
+"swagger/list.html" --[#548485]-> "partials/feedback.html"
+"swagger/list.html" --[#548485]-> "partials/disqus-comment.html"
+"swagger/list.html" --[#548485]-> "partials/page-meta-lastmod.html"
+"swagger/baseof.html" --[#548485]-> "partials/head.html"
+"swagger/baseof.html" --[#548485]-> "partials/navbar.html"
+"swagger/baseof.html" --[#548485]-> "partials/sidebar.html"
+"swagger/baseof.html" --[#548485]-> "partials/toc.html"
+"swagger/baseof.html" --[#548485]-> "partials/breadcrumb.html"
+"swagger/baseof.html" --[#548485]-> "partials/footer.html"
+"swagger/baseof.html" --[#548485]-> "partials/scripts.html"
+"docs/list.html" --[#548485]-> "partials/reading-time.html"
+"docs/list.html" --[#548485]-> "partials/section-index.html"
+"docs/list.html" --[#548485]-> "partials/feedback.html"
+"docs/list.html" --[#548485]-> "partials/disqus-comment.html"
+"docs/list.html" --[#548485]-> "partials/page-meta-lastmod.html"
+"docs/baseof.html" --[#548485]-> "partials/head.html"
+"docs/baseof.html" --[#548485]-> "partials/navbar.html"
+"docs/baseof.html" --[#548485]-> "partials/sidebar.html"
+"docs/baseof.html" --[#548485]-> "partials/toc.html"
+"docs/baseof.html" --[#548485]-> "partials/version-banner.html"
+"docs/baseof.html" --[#548485]-> "partials/breadcrumb.html"
+"docs/baseof.html" --[#548485]-> "partials/footer.html"
+"docs/baseof.html" --[#548485]-> "partials/scripts.html"
+"blog/list.html" --[#548485]-> "partials/featured-image.html"
+"blog/baseof.html" --[#548485]-> "partials/head.html"
+"blog/baseof.html" --[#548485]-> "partials/navbar.html"
+"blog/baseof.html" --[#548485]-> "partials/sidebar.html"
+"blog/baseof.html" --[#548485]-> "partials/toc.html"
+"blog/baseof.html" --[#548485]-> "partials/footer.html"
+"blog/baseof.html" --[#548485]-> "partials/scripts.html"
+"blog/content.html" --[#548485]-> "partials/reading-time.html"
+"blog/content.html" --[#548485]-> "partials/disqus-comment.html"
+"blog/content.html" --[#548485]-> "partials/pager.html"
+"_default/baseof.html" --[#548485]-> "partials/head.html"
+"_default/baseof.html" --[#548485]-> "partials/navbar.html"
+"_default/baseof.html" --[#548485]-> "partials/footer.html"
+"_default/baseof.html" --[#548485]-> "partials/scripts.html"
+"_default/content.html" --[#548485]-> "partials/reading-time.html"
+"_default/content.html" --[#548485]-> "partials/feedback.html"
+"_default/content.html" --[#548485]-> "partials/disqus-comment.html"
+"_default/content.html" --[#548485]-> "partials/page-meta-lastmod.html"
+"community/list.html" --[#548485]-> "partials/community_links.html"
+"partials/navbar.html" --[#548485]-> "partials/navbar-version-selector.html"
+"partials/navbar.html" --[#548485]-> "partials/navbar-lang-selector.html"
+"partials/navbar.html" --[#548485]-> "partials/search-input.html"
+"partials/toc.html" --[#548485]-> "partials/page-meta-links.html"
+"partials/scripts.html" --[#548485]-> "partials/hooks/body-end.html"
+"partials/sidebar-tree.html" --[#548485]-> "partials/search-input.html"
+"partials/sidebar-tree.html" --[#548485]-> "partials/navbar-lang-selector.html"
+"partials/head.html" --[#548485]-> "partials/favicons.html"
+"partials/head.html" --[#548485]-> "partials/head-css.html"
+"partials/head.html" --[#548485]-> "partials/hooks/head-end.html"
+"partials/sidebar.html" --[#548485]-> "partials/sidebar-tree.html"
+
+
+
+class "partials/head.html" << (P,cornsilk) partial >> {}
+class "partials/sidebar.html" << (P,cornsilk) partial >> {}
+class "partials/community_links.html" << (P,cornsilk) partial >> {}
+class "partials/pager.html" << (P,cornsilk) partial >> {}
+class "partials/footer.html" << (P,cornsilk) partial >> {}
+class "partials/navbar-lang-selector.html" << (P,cornsilk) partial >> {}
+class "partials/head-css.html" << (P,cornsilk) partial >> {}
+class "partials/feedback.html" << (P,cornsilk) partial >> {}
+class "partials/version-banner.html" << (P,cornsilk) partial >> {}
+class "partials/featured-image.html" << (P,cornsilk) partial >> {}
+class "partials/search-input.html" << (P,cornsilk) partial >> {}
+class "partials/breadcrumb.html" << (P,cornsilk) partial >> {}
+class "partials/page-meta-links.html" << (P,cornsilk) partial >> {}
+class "partials/navbar.html" << (P,cornsilk) partial >> {}
+class "partials/favicons.html" << (P,cornsilk) partial >> {}
+class "partials/navbar-version-selector.html" << (P,cornsilk) partial >> {}
+class "partials/hooks/head-end.html" << (P,cornsilk) partial >> {}
+class "partials/disqus-comment.html" << (P,cornsilk) partial >> {}
+class "partials/scripts.html" << (P,cornsilk) partial >> {}
+class "partials/section-index.html" << (P,cornsilk) partial >> {}
+class "partials/toc.html" << (P,cornsilk) partial >> {}
+class "partials/page-meta-lastmod.html" << (P,cornsilk) partial >> {}
+class "partials/hooks/body-end.html" << (P,cornsilk) partial >> {}
+class "partials/reading-time.html" << (P,cornsilk) partial >> {}
+class "partials/sidebar-tree.html" << (P,cornsilk) partial >> {}
+
+class "404.html" << (H, cadetblue) html >> {}
+class "shortcodes/readfile.md" << (H, cadetblue) html >> {}
+class "community/list.html" << (H, cadetblue) html >> {}
+class "_default/list.rss.xml" << (H, cadetblue) html >> {}
+class "docs/single.html" << (H, cadetblue) html >> {}
+class "shortcodes/imgproc.html" << (H, cadetblue) html >> {}
+class "_default/search.html" << (H, cadetblue) html >> {}
+class "docs/baseof.html" << (H, cadetblue) html >> {}
+class "docs/list.html" << (H, cadetblue) html >> {}
+class "blog/list.html" << (H, cadetblue) html >> {}
+class "shortcodes/blocks/cover.html" << (H, cadetblue) html >> {}
+class "shortcodes/alert.html" << (H, cadetblue) html >> {}
+class "_default/baseof.html" << (H, cadetblue) html >> {}
+class "swagger/single.html" << (H, cadetblue) html >> {}
+class "home.html" << (H, cadetblue) html >> {}
+class "shortcodes/pageinfo.html" << (H, cadetblue) html >> {}
+class "swagger/baseof.html" << (H, cadetblue) html >> {}
+class "shortcodes/blocks/feature.html" << (H, cadetblue) html >> {}
+class "_default/content.html" << (H, cadetblue) html >> {}
+class "_default/single.html" << (H, cadetblue) html >> {}
+class "_default/list.html" << (H, cadetblue) html >> {}
+class "blog/single.html" << (H, cadetblue) html >> {}
+class "shortcodes/blocks/section.html" << (H, cadetblue) html >> {}
+class "shortcodes/blocks/link-down.html" << (H, cadetblue) html >> {}
+class "shortcodes/blocks/lead.html" << (H, cadetblue) html >> {}
+class "blog/content.html" << (H, cadetblue) html >> {}
+class "blog/baseof.html" << (H, cadetblue) html >> {}
+class "swagger/list.html" << (H, cadetblue) html >> {}
+class "shortcodes/swaggerui.html" << (H, cadetblue) html >> {}
+
+class "layouts/" << (D,silver) dir >> {}
+class "layouts/" << (D,silver) dir >> {}
+class "swagger/" << (D,silver) dir >> {}
+class "layouts/" << (D,silver) dir >> {}
+class "layouts/" << (D,silver) dir >> {}
+class "docs/" << (D,silver) dir >> {}
+class "layouts/" << (D,silver) dir >> {}
+class "blog/" << (D,silver) dir >> {}
+class "layouts/" << (D,silver) dir >> {}
+class "shortcodes/" << (D,silver) dir >> {}
+class "layouts/" << (D,silver) dir >> {}
+class "_default/" << (D,silver) dir >> {}
+class "layouts/" << (D,silver) dir >> {}
+class "community/" << (D,silver) dir >> {}
+class "layouts/" << (D,silver) dir >> {}
+class "partials/" << (D,silver) dir >> {}
+class "swagger/" << (D,silver) dir >> {}
+class "swagger/" << (D,silver) dir >> {}
+class "swagger/" << (D,silver) dir >> {}
+class "docs/" << (D,silver) dir >> {}
+class "docs/" << (D,silver) dir >> {}
+class "docs/" << (D,silver) dir >> {}
+class "blog/" << (D,silver) dir >> {}
+class "blog/" << (D,silver) dir >> {}
+class "blog/" << (D,silver) dir >> {}
+class "blog/" << (D,silver) dir >> {}
+class "shortcodes/" << (D,silver) dir >> {}
+class "shortcodes/blocks/" << (D,silver) dir >> {}
+class "shortcodes/" << (D,silver) dir >> {}
+class "shortcodes/" << (D,silver) dir >> {}
+class "shortcodes/" << (D,silver) dir >> {}
+class "shortcodes/" << (D,silver) dir >> {}
+class "shortcodes/" << (D,silver) dir >> {}
+class "shortcodes/blocks/" << (D,silver) dir >> {}
+class "shortcodes/blocks/" << (D,silver) dir >> {}
+class "shortcodes/blocks/" << (D,silver) dir >> {}
+class "shortcodes/blocks/" << (D,silver) dir >> {}
+class "shortcodes/blocks/" << (D,silver) dir >> {}
+class "_default/" << (D,silver) dir >> {}
+class "_default/" << (D,silver) dir >> {}
+class "_default/" << (D,silver) dir >> {}
+class "_default/" << (D,silver) dir >> {}
+class "_default/" << (D,silver) dir >> {}
+class "_default/" << (D,silver) dir >> {}
+class "community/" << (D,silver) dir >> {}
+class "partials/" << (D,silver) dir >> {}
+class "partials/hooks/" << (D,silver) dir >> {}
+
+
+hide empty members
+
+@enduml
+    

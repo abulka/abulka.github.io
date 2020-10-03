@@ -1,0 +1,8 @@
+@startuml "test-uml"
+
+skinparam backgroundcolor Ivory/Azure
+
+a - b
+a - ccc
+
+@enduml

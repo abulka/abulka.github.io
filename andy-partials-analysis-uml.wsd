@@ -1,0 +1,45 @@
+@startuml "fred-uml"
+
+skinparam backgroundcolor Ivory/Azure
+
+"/docs or /project"..baseof
+"/docs or /project".."list"
+"/docs or /project".."single"
+
+baseof..head
+baseof..navbar
+baseof..sidebar
+note right on link #Khaki : left hand side
+baseof..toc
+note right on link #Khaki : right hand side
+baseof.."version-banner"
+baseof..breadcrumb
+baseof..footer
+baseof..scripts
+
+' navbar.."navbar-version-selector"
+' navbar.."navbar-lang-selector"
+' navbar.."search-input"
+
+"sidebar".."sidebar-tree"
+"sidebar-tree".."search-input"
+"sidebar-tree".."navbar-lang-selector"
+
+toc.."page-meta-links"
+"page-meta-links"--"post_edit_this"
+"page-meta-links"--"post_create_issue"
+"page-meta-links"--"post_create_project_issue"
+
+list.."reading-time"
+list.."section-index"
+list.."feedback"
+note right on link #Khaki
+rather than editing the list.html
+partial, simply add
+hide_feedback: true
+to the header of the .md file
+end note
+
+list.."disqus-comment"
+
+@enduml
