@@ -1,0 +1,617 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Andy Bulka - Blog – New Cat</title>
+    <link>https://abulka.github.io/blog/newcat/</link>
+    <description>Recent content in New Cat on Andy Bulka - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	  <atom:link href="https://abulka.github.io/blog/newcat/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Blog: on-images</title>
+      <link>https://abulka.github.io/blog/2019/01/04/on-images/</link>
+      <pubDate>Fri, 04 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://abulka.github.io/blog/2019/01/04/on-images/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;baseurl-broken&#34;&gt;baseURL broken&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/gohugoio/hugo/issues/5226&#34;&gt;https://github.com/gohugoio/hugo/issues/5226&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;You need to set to true to make image links generated with full path incl. the &amp;lsquo;hugo-docsy-example&amp;rsquo; sub-path&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span style=&#34;color:#000&#34;&gt;canonifyurls&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;For example these images will not render unless canonifyurls is true cos the subpath of the baseURL is not generated for assets - thus is relevant for deploying to github project pages
+&lt;img src=&#34;https://abulka.github.io/blog/images/fred.png&#34; alt=&#34;png your image&#34;&gt;
+&lt;img src=&#34;https://abulka.github.io/images/uml/fred-uml.png&#34; alt=&#34;png your image&#34;&gt;
+but its a bit ugly having to turn canonifyurls on because all the links in the website become long, absolute.&lt;/p&gt;
+&lt;p&gt;Gee this is needed also for previewing locally! WTF
+but &lt;a href=&#34;https://discourse.gohugo.io/t/solved-generate-wrong-image-relative-url/11726&#34;&gt;https://discourse.gohugo.io/t/solved-generate-wrong-image-relative-url/11726&lt;/a&gt; says:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The baseURL config doesn’t affect links set in markdown.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;andys-shortcode-hack&#34;&gt;Andy&amp;rsquo;s shortcode hack&lt;/h3&gt;
+&lt;p&gt;You can refer to images in html files using &lt;code&gt;RelPermalink&lt;/code&gt; but for markdown files which don&amp;rsquo;t allow such templating, we have to encapsulate the trick into a shortcode fragment&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;{{ .Get 0 | absURL }}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;E.g. trying to add a shortccodes to image urls can be the solution (no leading /, either viz &lt;code&gt;images/...&lt;/code&gt; not &lt;code&gt;/images/...&lt;/code&gt;)
+This workaround trick seems to survive turning canonifyurls off.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/fred.png
+&#34; alt=&#34;png your image&#34;&gt;
+&lt;img src=&#34;https://abulka.github.io/images/uml/fred-uml.png
+&#34; alt=&#34;png your image&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note: trying to fiddle with my shortcode and get a relpermalink into it has been abandoned&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;{{ $url := .Get 0 | absURL }}
+{{/* $url = $url.RelPermalink */}}
+{{/* {{ $url = .RelPermalink }} */}}
+{{ $url }}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;leaving-off-the-slash&#34;&gt;leaving off the slash&lt;/h3&gt;
+&lt;p&gt;leaving off the leading / on image references as recommended &lt;a href=&#34;https://github.com/gohugoio/hugo/issues/5736&#34;&gt;here&lt;/a&gt; is not the solution either because the images don&amp;rsquo;t show up in development server mode, nor does the right url get generated when you generate the static site&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;blog/images/fred.png&#34; alt=&#34;png your image&#34;&gt;
+&lt;img src=&#34;images/uml/fred-uml.png&#34; alt=&#34;png your image&#34;&gt;&lt;/p&gt;
+&lt;p&gt;e.g.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;relative to blog/... unless you put the /blog in there you get
+http://localhost:1313/   blog/2019/01/04/plantuml-images/blog/images/fred.png 404 (Not Found)
+
+with the /blog you get the correct
+http://localhost:1313/   blog/images/fred.png
+
+viz.
+
+bad urls generated:
+&amp;lt;img src=&amp;quot;/blog/images/fred.png&amp;quot; alt=&amp;quot;png your image&amp;quot;&amp;gt;
+&amp;lt;img src=&amp;quot;/images/uml/fred-uml.png&amp;quot; alt=&amp;quot;png your image&amp;quot;&amp;gt;
+
+leaving off the leading / on image references is not the solution either
+&amp;lt;img src=&amp;quot;blog/images/fred.png&amp;quot; alt=&amp;quot;png your image&amp;quot;&amp;gt;
+&amp;lt;img src=&amp;quot;images/uml/fred-uml.png&amp;quot; alt=&amp;quot;png your image&amp;quot;&amp;gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;experiments-with-page-variables&#34;&gt;Experiments with page variables&lt;/h2&gt;
+&lt;!-- {{ .RelPermalink }} --&gt;
+&lt;p&gt;your site&amp;rsquo;s url is https://abulka.github.io/ hi &lt;code&gt;there&lt;/code&gt; andy.&lt;/p&gt;
+&lt;p&gt;your site&amp;rsquo;s url is&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;https://abulka.github.io/
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The &lt;code&gt;.Page.RelPermalink&lt;/code&gt; and &lt;code&gt;.Page.Permalink&lt;/code&gt; are&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;/blog/2019/01/04/on-images/
+https://abulka.github.io/blog/2019/01/04/on-images/
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;links-and-xrefs&#34;&gt;links and xrefs&lt;/h1&gt;
+&lt;p&gt;all these are correctly output - either absolute or relative links get the correct path from the baseUrl inserted&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://abulka.github.io/projects/aaaa-pynsource/&#34; title=&#34;About Us&#34;&gt;pynsource dir&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://abulka.github.io/projects/aaaa-pynsource/some-info/&#34; title=&#34;some-info&#34;&gt;pynsource info&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://abulka.github.io/projects/aaaa-pynsource/some-info/&#34; title=&#34;some-info&#34;&gt;pynsource info&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://abulka.github.io/projects/aaaa-pynsource/some-info/&#34; title=&#34;some-info&#34;&gt;pynsource info&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://abulka.github.io/projects/aaaa-pynsource/some-info/&#34; title=&#34;some-info&#34;&gt;pynsource info&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;viz.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;p&amp;gt;&amp;lt;a href=&amp;quot;https://abulka.github.io/hugo-docsy-example/projects/aaaa-pynsource/&amp;quot; title=&amp;quot;About Us&amp;quot;&amp;gt;pynsource dir&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;&amp;lt;a href=&amp;quot;https://abulka.github.io/hugo-docsy-example/projects/aaaa-pynsource/some-info/&amp;quot; title=&amp;quot;some-info&amp;quot;&amp;gt;pynsource info&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;&amp;lt;a href=&amp;quot;https://abulka.github.io/hugo-docsy-example/projects/aaaa-pynsource/some-info/&amp;quot; title=&amp;quot;some-info&amp;quot;&amp;gt;pynsource info&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;&amp;lt;a href=&amp;quot;/hugo-docsy-example/projects/aaaa-pynsource/some-info/&amp;quot; title=&amp;quot;some-info&amp;quot;&amp;gt;pynsource info&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;&amp;lt;a href=&amp;quot;/hugo-docsy-example/projects/aaaa-pynsource/some-info/&amp;quot; title=&amp;quot;some-info&amp;quot;&amp;gt;pynsource info&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;http://localhost:1313/projects/aaaa-pynsource/&lt;/p&gt;
+&lt;p&gt;http://localhost:1313/projects/aaaa-pynsource/some-info/&lt;/p&gt;
+&lt;h1 id=&#34;andy-images&#34;&gt;ANDY IMAGES&lt;/h1&gt;
+&lt;h2 id=&#34;svg-is-ok&#34;&gt;svg is ok&lt;/h2&gt;
+&lt;p&gt;but has no background unless you specify&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-plantuml&#34; data-lang=&#34;plantuml&#34;&gt;skinparam backgroundcolor AntiqueWhite/Gold
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;See colour info &lt;a href=&#34;https://plantuml.com/color&#34;&gt;https://plantuml.com/color&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;serve-from-the-blog-subdir&#34;&gt;serve from the blog subdir&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/fred.svg&#34; alt=&#34;svg your image&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;shortcode hack version:&lt;/strong&gt;
+&lt;img src=&#34;https://abulka.github.io/blog/images/fred.svg
+&#34; alt=&#34;png your image&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;what-about-a-png&#34;&gt;what about a png?&lt;/h3&gt;
+&lt;p&gt;from the blog subdir&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/fred.png&#34; alt=&#34;png your image&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;shortcode hack version:&lt;/strong&gt;
+&lt;img src=&#34;https://abulka.github.io/blog/images/fred.png
+&#34; alt=&#34;png your image&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;serve-from-static-dir&#34;&gt;serve from static dir&lt;/h2&gt;
+&lt;p&gt;from a common dir in &lt;code&gt;/static&lt;/code&gt; - note that you don&amp;rsquo;t
+need to specify the &lt;code&gt;/static&lt;/code&gt; part of the path, just the subdir path.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/images/uml/fred-uml.png&#34; alt=&#34;png your image&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;shortcode hack version:&lt;/strong&gt;
+&lt;img src=&#34;https://abulka.github.io/images/uml/fred-uml.png
+&#34; alt=&#34;png your image&#34;&gt;&lt;/p&gt;
+&lt;p&gt;remember to set the out path of plantuml vscode plugin to &lt;code&gt;static/images/uml/&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;local-uml-dir&#34;&gt;local uml dir&lt;/h2&gt;
+&lt;p&gt;you can keep uml &lt;code&gt;.wsd&lt;/code&gt; files anywhere so how about in a subdir within the blog area you are writing for - they still get exported to a common place though.&lt;/p&gt;
+
+
+&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Note&lt;/h4&gt;
+&lt;p&gt;Note that images will &lt;strong&gt;always&lt;/strong&gt; end up in a subdirectory structure - even if you specify &lt;code&gt;exportSubFolder&lt;/code&gt; false - cos that only controls an extra dir level with the same name as the uml file, not the whole dir levels thing.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;plantuml.exportOutDir&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;static/images/uml&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;plantuml.exportSubFolder&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;false&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;So you need to specify a long path into the static dir - related to where your &lt;em&gt;original&lt;/em&gt; source code lives e.g.
+&lt;code&gt;/images/uml/content/en/blog/newcat/uml/test-uml.png&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/images/uml/content/en/blog/newcat/uml/test-uml.png&#34; alt=&#34;png your image&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;shortcode hack version:&lt;/strong&gt;
+&lt;img src=&#34;https://abulka.github.io/images/uml/content/en/blog/newcat/uml/test-uml.png
+&#34; alt=&#34;png your image&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;docsy-theme-visualised-using-my-tool&#34;&gt;docsy theme visualised using my tool&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://abulka.github.io/images/uml/content/en/blog/newcat/uml/docsy.svg&#34;&gt;&lt;img src=&#34;https://abulka.github.io/images/uml/content/en/blog/newcat/uml/docsy.svg&#34; alt=&#34;svg your image&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;shortcode hack version:&lt;/strong&gt;
+&lt;a href=&#34;https://abulka.github.io/images/uml/content/en/blog/newcat/uml/docsy.svg
+&#34;&gt;&lt;img src=&#34;https://abulka.github.io/images/uml/content/en/blog/newcat/uml/docsy.svg
+&#34; alt=&#34;svg your image&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;my-new-imgsvg-shortcode-attempt&#34;&gt;my new &amp;lsquo;imgsvg&amp;rsquo; shortcode attempt&lt;/h2&gt;
+&lt;p&gt;it works!&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/images/uml/content/en/blog/newcat/uml/docsy.svg&#34;&gt;
+just the image&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://abulka.github.io/images/uml/content/en/blog/newcat/uml/docsy.svg&#34;&gt;&lt;img src=&#34;https://abulka.github.io/images/uml/content/en/blog/newcat/uml/docsy.svg&#34;&gt;&lt;/a&gt;
+image with clickable link&lt;/p&gt;
+&lt;h2 id=&#34;usual-content&#34;&gt;Usual content&lt;/h2&gt;
+&lt;p&gt;Text can be &lt;strong&gt;bold&lt;/strong&gt;, &lt;em&gt;italic&lt;/em&gt;, or &lt;del&gt;strikethrough&lt;/del&gt;. &lt;a href=&#34;https://github.com&#34;&gt;Links&lt;/a&gt; should be blue with no underlines (unless hovered over).&lt;/p&gt;
+&lt;p&gt;There should be whitespace between paragraphs. There should be whitespace between paragraphs. There should be whitespace between paragraphs. There should be whitespace between paragraphs.&lt;/p&gt;
+&lt;p&gt;There should be whitespace between paragraphs. There should be whitespace between paragraphs. There should be whitespace between paragraphs. There should be whitespace between paragraphs.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;There should be no margin above this first sentence.&lt;/p&gt;
+&lt;p&gt;Blockquotes should be a lighter gray with a border along the left side in the secondary color.&lt;/p&gt;
+&lt;p&gt;There should be no margin below this final sentence.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;first-header&#34;&gt;First Header&lt;/h2&gt;
+&lt;p&gt;This is a normal paragraph following a header. Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.  Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.  Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p&gt;
+&lt;p&gt;Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p&gt;
+&lt;p&gt;On big screens, paragraphs and headings should not take up the full container width, but we want tables, code blocks and similar to take the full width.&lt;/p&gt;
+&lt;p&gt;Lorem markdownum tuta hospes stabat; idem saxum facit quaterque repetito
+occumbere, oves novem gestit haerebat frena; qui. Respicit recurvam erat:
+pignora hinc reppulit nos &lt;strong&gt;aut&lt;/strong&gt;, aptos, ipsa.&lt;/p&gt;
+&lt;p&gt;Meae optatos &lt;em&gt;passa est&lt;/em&gt; Epiros utiliter &lt;em&gt;Talibus niveis&lt;/em&gt;, hoc lata, edidit.
+Dixi ad aestum.&lt;/p&gt;
+&lt;h2 id=&#34;header-2&#34;&gt;Header 2&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;This is a blockquote following a header. Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;header-3&#34;&gt;Header 3&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;This is a code block following a header.
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;header-4&#34;&gt;Header 4&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;This is an unordered list following a header.&lt;/li&gt;
+&lt;li&gt;This is an unordered list following a header.&lt;/li&gt;
+&lt;li&gt;This is an unordered list following a header.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;header-5&#34;&gt;Header 5&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;This is an ordered list following a header.&lt;/li&gt;
+&lt;li&gt;This is an ordered list following a header.&lt;/li&gt;
+&lt;li&gt;This is an ordered list following a header.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h6 id=&#34;header-6&#34;&gt;Header 6&lt;/h6&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;What&lt;/th&gt;
+&lt;th&gt;Follows&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;A table&lt;/td&gt;
+&lt;td&gt;A header&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;A table&lt;/td&gt;
+&lt;td&gt;A header&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;A table&lt;/td&gt;
+&lt;td&gt;A header&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;There&amp;rsquo;s a horizontal rule above and below this.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Here is an unordered list:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Salt-n-Pepa&lt;/li&gt;
+&lt;li&gt;Bel Biv DeVoe&lt;/li&gt;
+&lt;li&gt;Kid &amp;lsquo;N Play&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And an ordered list:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Michael Jackson&lt;/li&gt;
+&lt;li&gt;Michael Bolton&lt;/li&gt;
+&lt;li&gt;Michael Bublé&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;And an unordered task list:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Create a sample markdown document&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Add task lists to it&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Take a vacation&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And a &amp;ldquo;mixed&amp;rdquo; task list:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Steal underpants&lt;/li&gt;
+&lt;li&gt;?&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Profit!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And a nested list:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Jackson 5
+&lt;ul&gt;
+&lt;li&gt;Michael&lt;/li&gt;
+&lt;li&gt;Tito&lt;/li&gt;
+&lt;li&gt;Jackie&lt;/li&gt;
+&lt;li&gt;Marlon&lt;/li&gt;
+&lt;li&gt;Jermaine&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;TMNT
+&lt;ul&gt;
+&lt;li&gt;Leonardo&lt;/li&gt;
+&lt;li&gt;Michelangelo&lt;/li&gt;
+&lt;li&gt;Donatello&lt;/li&gt;
+&lt;li&gt;Raphael&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Definition lists can be used with Markdown syntax. Definition terms are bold.&lt;/p&gt;
+&lt;dl&gt;
+&lt;dt&gt;Name&lt;/dt&gt;
+&lt;dd&gt;Godzilla&lt;/dd&gt;
+&lt;dt&gt;Born&lt;/dt&gt;
+&lt;dd&gt;1952&lt;/dd&gt;
+&lt;dt&gt;Birthplace&lt;/dt&gt;
+&lt;dd&gt;Japan&lt;/dd&gt;
+&lt;dt&gt;Color&lt;/dt&gt;
+&lt;dd&gt;Green&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;hr&gt;
+&lt;p&gt;Tables should have bold headings and alternating shaded rows.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Artist&lt;/th&gt;
+&lt;th&gt;Album&lt;/th&gt;
+&lt;th&gt;Year&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Michael Jackson&lt;/td&gt;
+&lt;td&gt;Thriller&lt;/td&gt;
+&lt;td&gt;1982&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Prince&lt;/td&gt;
+&lt;td&gt;Purple Rain&lt;/td&gt;
+&lt;td&gt;1984&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Beastie Boys&lt;/td&gt;
+&lt;td&gt;License to Ill&lt;/td&gt;
+&lt;td&gt;1986&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;If a table is too wide, it should scroll horizontally.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Artist&lt;/th&gt;
+&lt;th&gt;Album&lt;/th&gt;
+&lt;th&gt;Year&lt;/th&gt;
+&lt;th&gt;Label&lt;/th&gt;
+&lt;th&gt;Awards&lt;/th&gt;
+&lt;th&gt;Songs&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Michael Jackson&lt;/td&gt;
+&lt;td&gt;Thriller&lt;/td&gt;
+&lt;td&gt;1982&lt;/td&gt;
+&lt;td&gt;Epic Records&lt;/td&gt;
+&lt;td&gt;Grammy Award for Album of the Year, American Music Award for Favorite Pop/Rock Album, American Music Award for Favorite Soul/R&amp;amp;B Album, Brit Award for Best Selling Album, Grammy Award for Best Engineered Album, Non-Classical&lt;/td&gt;
+&lt;td&gt;Wanna Be Startin&amp;rsquo; Somethin&#39;, Baby Be Mine, The Girl Is Mine, Thriller, Beat It, Billie Jean, Human Nature, P.Y.T. (Pretty Young Thing), The Lady in My Life&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Prince&lt;/td&gt;
+&lt;td&gt;Purple Rain&lt;/td&gt;
+&lt;td&gt;1984&lt;/td&gt;
+&lt;td&gt;Warner Brothers Records&lt;/td&gt;
+&lt;td&gt;Grammy Award for Best Score Soundtrack for Visual Media, American Music Award for Favorite Pop/Rock Album, American Music Award for Favorite Soul/R&amp;amp;B Album, Brit Award for Best Soundtrack/Cast Recording, Grammy Award for Best Rock Performance by a Duo or Group with Vocal&lt;/td&gt;
+&lt;td&gt;Let&amp;rsquo;s Go Crazy, Take Me With U, The Beautiful Ones, Computer Blue, Darling Nikki, When Doves Cry, I Would Die 4 U, Baby I&amp;rsquo;m a Star, Purple Rain&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Beastie Boys&lt;/td&gt;
+&lt;td&gt;License to Ill&lt;/td&gt;
+&lt;td&gt;1986&lt;/td&gt;
+&lt;td&gt;Mercury Records&lt;/td&gt;
+&lt;td&gt;noawardsbutthistablecelliswide&lt;/td&gt;
+&lt;td&gt;Rhymin &amp;amp; Stealin, The New Style, She&amp;rsquo;s Crafty, Posse in Effect, Slow Ride, Girls, (You Gotta) Fight for Your Right, No Sleep Till Brooklyn, Paul Revere, Hold It Now, Hit It, Brass Monkey, Slow and Low, Time to Get Ill&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;Code snippets like &lt;code&gt;var foo = &amp;quot;bar&amp;quot;;&lt;/code&gt; can be shown inline.&lt;/p&gt;
+&lt;p&gt;Also, &lt;code&gt;this should vertically align&lt;/code&gt; &lt;del&gt;&lt;code&gt;with this&lt;/code&gt;&lt;/del&gt; &lt;del&gt;and this&lt;/del&gt;.&lt;/p&gt;
+&lt;p&gt;Code can also be shown in a block element.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;foo := &amp;quot;bar&amp;quot;;
+bar := &amp;quot;foo&amp;quot;;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Code can also use syntax highlighting.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;main&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;input&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;`var foo = &amp;#34;bar&amp;#34;;`&lt;/span&gt;
+
+  &lt;span style=&#34;color:#000&#34;&gt;lexer&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;lexers&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Get&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;javascript&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;iterator&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;_&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;lexer&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Tokenise&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;nil&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;input&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;style&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;styles&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Get&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;github&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;formatter&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;html&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;New&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;html&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;WithLineNumbers&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;())&lt;/span&gt;
+
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;buff&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;bytes&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Buffer&lt;/span&gt;
+  &lt;span style=&#34;color:#000&#34;&gt;formatter&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Format&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;buff&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;style&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;iterator&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+
+  &lt;span style=&#34;color:#000&#34;&gt;fmt&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Println&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;buff&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;String&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;())&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;pre&gt;&lt;code&gt;Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Inline code inside table cells should still be distinguishable.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Language&lt;/th&gt;
+&lt;th&gt;Code&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Javascript&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;var foo = &amp;quot;bar&amp;quot;;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Ruby&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;foo = &amp;quot;bar&amp;quot;{&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;Small images should be shown at their actual size.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://placekitten.com/g/300/200/&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Large images should always scale down and fit in the content container.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://placekitten.com/g/1200/800/&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;components&#34;&gt;Components&lt;/h2&gt;
+&lt;h3 id=&#34;alerts&#34;&gt;Alerts&lt;/h3&gt;
+&lt;p&gt;
+
+&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
+
+This is an alert.
+&lt;/div&gt;
+
+
+
+&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Note:&lt;/h4&gt;
+This is an alert with a title.
+&lt;/div&gt;
+
+
+
+&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
+
+This is a successful alert.
+&lt;/div&gt;
+
+
+
+&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
+
+This is a warning!
+&lt;/div&gt;
+
+
+
+&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Warning!&lt;/h4&gt;
+This is a warning with a title!
+&lt;/div&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;sizing&#34;&gt;Sizing&lt;/h2&gt;
+&lt;p&gt;Add some sections here to see how the ToC looks like. Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p&gt;
+&lt;h3 id=&#34;parameters-available&#34;&gt;Parameters available&lt;/h3&gt;
+&lt;p&gt;Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p&gt;
+&lt;h3 id=&#34;using-pixels&#34;&gt;Using pixels&lt;/h3&gt;
+&lt;p&gt;Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p&gt;
+&lt;h3 id=&#34;using-rem&#34;&gt;Using rem&lt;/h3&gt;
+&lt;p&gt;Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p&gt;
+&lt;h2 id=&#34;memory&#34;&gt;Memory&lt;/h2&gt;
+&lt;p&gt;Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p&gt;
+&lt;h3 id=&#34;ram-to-use&#34;&gt;RAM to use&lt;/h3&gt;
+&lt;p&gt;Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p&gt;
+&lt;h3 id=&#34;more-is-better&#34;&gt;More is better&lt;/h3&gt;
+&lt;p&gt;Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p&gt;
+&lt;h3 id=&#34;used-ram&#34;&gt;Used RAM&lt;/h3&gt;
+&lt;p&gt;Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;This is the final element on the page and there should be no margin below this.
+&lt;/code&gt;&lt;/pre&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Blog: UML Layout</title>
+      <link>https://abulka.github.io/blog/2011/04/06/uml-layout/</link>
+      <pubDate>Wed, 06 Apr 2011 00:00:00 +0000</pubDate>
+      
+      <guid>https://abulka.github.io/blog/2011/04/06/uml-layout/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;developing-a-layout-algorithm-for-uml-diagrams&#34;&gt;Developing a Layout Algorithm for UML diagrams&lt;/h1&gt;
+&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;Presented to the &lt;a href=&#34;https://melbournepatterns.wordpress.com/&#34;&gt;Melbourne Patterns Group&lt;/a&gt;, Wednesday 6th April 2011 6:30 PM&lt;/p&gt;
+&lt;h2 id=&#34;the-problem-untangling-uml-diagrams&#34;&gt;The Problem: Untangling UML Diagrams&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/uml-layout-the-problem.png&#34; alt=&#34;png your image&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;terms&#34;&gt;Terms&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Nodes – these are the shapes/rectangles&lt;/li&gt;
+&lt;li&gt;Edges – these are the lines connecting the shapes&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;background&#34;&gt;Background&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;My UML tool is written in Python&lt;/li&gt;
+&lt;li&gt;Existing layout libraries for e.g. python PyGraphviz has no windows port so I wrote my own&lt;/li&gt;
+&lt;li&gt;Layout is reasonably hard to implement – academic papers are very complex and deal in a lot of math&lt;/li&gt;
+&lt;li&gt;DIRTY SECRET OF ACADEMIA - Most Layout algorithms only deal with ‘points’ and don’t take into account real width and height&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Thus for any real world use
+(unless dealing with network and particle visualisation where each node is the same size/shape),
+it seemed to me that one needs to run an &lt;em&gt;overlap removal algorithm&lt;/em&gt; after the layout to remove shape overlaps.&lt;/p&gt;
+&lt;p&gt;Overlap removal algorithm needs to minimise shape movement in order to respect the layout results&lt;/p&gt;
+&lt;h2 id=&#34;what-i-developed&#34;&gt;What I developed&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;I used a ‘spring layout’ adapted from java and javascript&lt;/li&gt;
+&lt;li&gt;I developed my own overlap removal algorithm&lt;/li&gt;
+&lt;li&gt;Developed a GUI sandbox test app for development&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;overlap-removal---before-and-after&#34;&gt;Overlap Removal - Before and After&lt;/h2&gt;
+&lt;figure&gt;
+    &lt;img src=&#34;https://abulka.github.io/blog/images/uml-layout-before.png#floatleft&#34;
+         alt=&#34;before&#34;/&gt; &lt;figcaption&gt;
+            &lt;p&gt;before&lt;/p&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;figure&gt;
+    &lt;img src=&#34;https://abulka.github.io/blog/images/uml-layout-after.png#floatright&#34;
+         alt=&#34;after applying layout&#34;/&gt; &lt;figcaption&gt;
+            &lt;p&gt;after applying layout&lt;/p&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2 id=&#34;unit-testing&#34;&gt;Unit Testing&lt;/h2&gt;
+&lt;p&gt;Extensive unit tests were created to keep on top of the layout algorithm results.  A word document containing annotated screenshots for each test helped me enormously.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;img src=&#34;https://abulka.github.io/blog/images/uml-layout-unit-testing.png&#34;
+         alt=&#34;an overlap removal use case which became a unit test&#34;/&gt; &lt;figcaption&gt;
+            &lt;p&gt;an overlap removal use case which became a unit test&lt;/p&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Layout / persistence format was created for creating layout scenarios&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;type&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;node&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;id&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;D25&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;x&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;6&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;y&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;7&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;width&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;159&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;height&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;106&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;type&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;node&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;id&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;D13&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;x&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;6&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;y&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;119&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;width&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;119&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;height&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;73&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;type&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;node&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;id&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;m1&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;x&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;170&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;y&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;9&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;width&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;139&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;height&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;92&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;unit-testing-brittleness-avoided&#34;&gt;Unit Testing Brittleness Avoided&lt;/h3&gt;
+&lt;p&gt;Loose tests using (e.g. I created a function called &lt;code&gt;ensureYorder()&lt;/code&gt; etc) were created so that the tests were not too brittle.  Slight variations in position are ignored.&lt;/p&gt;
+&lt;p&gt;View this unit test file at the Pynsource GitHub repository &lt;a href=&#34;https://github.com/abulka/pynsource/blob/master/src/tests/test_overlaps1.py&#34;&gt;tests/test_overlaps1.py&lt;/a&gt;. Here is an example unit test:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;_LoadScenario3&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;):&lt;/span&gt;
+    &lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;g&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;LoadGraphFromStrings&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;TEST_GRAPH3&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;test3_5InsertedVerticallyTwoPushedDown&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;):&lt;/span&gt;
+    &lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;_LoadScenario3&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
+
+    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# move m1 to the left&lt;/span&gt;
+    &lt;span style=&#34;color:#000&#34;&gt;node&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;g&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;FindNodeById&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;m1&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+    &lt;span style=&#34;color:#000&#34;&gt;node&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;left&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;node&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;top&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;6&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+
+    &lt;span style=&#34;color:#000&#34;&gt;d97&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;g&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;FindNodeById&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;D97&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+    &lt;span style=&#34;color:#000&#34;&gt;oldD97pos&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;d97&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;left&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;d97&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;top&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+
+    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# assert m1 has been inserted vertically - two pushed down&lt;/span&gt;
+    &lt;span style=&#34;color:#000&#34;&gt;were_all_overlaps_removed&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;overlap_remover&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;RemoveOverlaps&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
+    &lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;assertTrue&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;were_all_overlaps_removed&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+    &lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;assertEqual&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;overlap_remover&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;GetStats&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()[&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;total_overlaps_found&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;])&lt;/span&gt;
+
+    &lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;assertTrue&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;_ensureYorder&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;m1&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;D25&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;D13&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;))&lt;/span&gt;
+    &lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;assertTrue&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;_ensureXorder&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;m1&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;D97&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;D98&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;))&lt;/span&gt;
+    &lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;assertTrue&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;_ensureXorder&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;D25&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;D97&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;D98&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;))&lt;/span&gt;
+    &lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;assertTrue&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;_ensureXorder&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;D13&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;D97&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;D98&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;))&lt;/span&gt;
+    &lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;assertEqual&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;oldD97pos&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;d97&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;left&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;d97&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;top&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;))&lt;/span&gt;  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# ensure D97 hasn&amp;#39;t been pushed&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Running the tests:&lt;/p&gt;
+&lt;figure&gt;
+    &lt;img src=&#34;https://abulka.github.io/blog/images/uml-layout-test-run.png&#34;
+         alt=&#34;An example test run&#34;/&gt; &lt;figcaption&gt;
+            &lt;p&gt;An example test run&lt;/p&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Having a huge bank of unit tests helped in refactoring, too.  Imagine testing all the necessary scenarios by hand!&lt;/p&gt;
+&lt;p&gt;The final Results were pretty good!&lt;/p&gt;
+&lt;figure&gt;
+    &lt;img src=&#34;https://abulka.github.io/blog/images/uml-layout-final-result-good.png&#34;
+         alt=&#34;A UML diagram after overlap removal&#34;/&gt; &lt;figcaption&gt;
+            &lt;p&gt;A UML diagram after overlap removal&lt;/p&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2 id=&#34;design-patterns-used&#34;&gt;Design Patterns Used&lt;/h2&gt;
+&lt;h3 id=&#34;memento&#34;&gt;Memento&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Memento was used to remember graph layout positions and then compare mementos to see if anything had ‘changed’ and thus drop out of the Spring layout algorithm early&lt;/li&gt;
+&lt;li&gt;Memento was used to save/restore layouts in my test GUI – assigned to keys 0..9&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;blackboard&#34;&gt;Blackboard&lt;/h3&gt;
+&lt;p&gt;Blackboard pattern used to run layout several times and figure out which was the best, cleanest result using multiple criteria.  Each run is a ‘snapshot’&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Snapshot 1 [6] LL  0   NN pre rm overlaps  5   LN  0   scale 1.6   bounds 23  (500, 473) &amp;lt;---
+Snapshot 2 [4] LL  0   NN pre rm overlaps  5   LN  1   scale 1.4   bounds 30  (570, 537)
+Snapshot 3 [5] LL  0   NN pre rm overlaps  6   LN  2   scale 2.0   bounds 17  (444, 393)
+Snapshot 4 [2] LL  0   NN pre rm overlaps  4   LN  2   scale 1.4   bounds 34  (648, 537)
+Snapshot 5 [3] LL  0   NN pre rm overlaps  5   LN  4   scale 2.0   bounds 21  (427, 508)
+Snapshot 6 [1] LL  0   NN pre rm overlaps 10   LN  5   scale 2.0   bounds 18  (485, 379)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Python goodness helped in this ‘AI’ smartness&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;sortfunc&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;d&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;):&lt;/span&gt;
+  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# this does the thinking!&lt;/span&gt;
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;d&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;LL&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;],&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;d&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;LN&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;],&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;d&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;bounds_area_simple&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;],&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;d&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;scale&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;],&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;d&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;NN_pre_OR&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;])&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;future&#34;&gt;Future&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;“Line  over node” overlap was abandoned as it started to get really complex with a lot of trigonometry and perhaps this area needs a more academic approach&lt;/li&gt;
+&lt;li&gt;Non straight lines and line routing is probably the better direction&lt;/li&gt;
+&lt;li&gt;Adding an understanding of UML semantics is another direction to research, so that e.g. base classes are above derived classes etc.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;overlap-removal-server&#34;&gt;Overlap Removal Server&lt;/h2&gt;
+&lt;p&gt;In 2020 I needed to expose the overlap removal code as an API for javascript to use.&lt;/p&gt;
+&lt;p&gt;Here is that small research sub-project &lt;a href=&#34;https://github.com/abulka/pynsource/tree/master/Research/overlap_removal_server&#34;&gt;https://github.com/abulka/pynsource/tree/master/Research/overlap_removal_server&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;resources&#34;&gt;Resources&lt;/h2&gt;
+&lt;h3 id=&#34;code-and-links&#34;&gt;Code and Links&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Overlap removal code is Python, open source&lt;/li&gt;
+&lt;li&gt;Part of my python UML tool &lt;a href=&#34;https://www.pynsource.com&#34;&gt;PyNSource&lt;/a&gt;: Reverse engineer python source code into UML - display UML as Ascii art or PlantUML diagrams in a proper diagramming visual workspace.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;slides-on-scribd&#34;&gt;Slides on Scribd&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.scribd.com/doc/55976194/UML-Graph-Layout-Andy-Talk-March-2011&#34; title=&#34;View UML Graph Layout - Andy Talk - March 2011 on Scribd&#34;&gt;UML Graph Layout - Andy Talk - March 2011&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;slides-as-html&#34;&gt;Slides as HTML&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;The problem of laying out UML&lt;/li&gt;
+&lt;li&gt;Spring Layout&lt;/li&gt;
+&lt;li&gt;Mapping layout to Real World&lt;/li&gt;
+&lt;li&gt;OGL&lt;/li&gt;
+&lt;li&gt;MVC&lt;/li&gt;
+&lt;li&gt;Overlap Removal&lt;/li&gt;
+&lt;li&gt;Unit tests and unit test diagrams&lt;/li&gt;
+&lt;li&gt;Memento Design Pattern&lt;/li&gt;
+&lt;li&gt;Blackboard Design Pattern &amp;amp; Injecting sorting function&lt;/li&gt;
+&lt;li&gt;Future..&lt;/li&gt;
+&lt;/ul&gt;
+&lt;iframe src=&#34;https://abulka.github.io/files/UML-Graph-Layout-Andy-Talk-March-2011.html&#34; name=&#34;frame1&#34; scrolling=&#34;yes&#34; frameborder=&#34;yes&#34; align=&#34;center&#34; height = &#34;842px&#34; width = &#34;800&#34;&gt;
+&lt;/iframe&gt;
+&lt;h3 id=&#34;slides-as-pdf-download&#34;&gt;Slides as Pdf download&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://abulka.github.io/index.php/download_file/429/109/&#34;&gt;View as pdf&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;images&#34;&gt;Images&lt;/h2&gt;
+&lt;h3 id=&#34;sample-images&#34;&gt;Sample Images&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/images/uml/content/en/blog/newcat/uml/test-uml.png&#34; alt=&#34;png your image&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/images/uml/fred-uml.png&#34; alt=&#34;png your image&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/uml-layout-before.png&#34; alt=&#34;&#34;&gt;
+&lt;img src=&#34;https://abulka.github.io/blog/images/uml-layout-after.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;figure&gt;
+    &lt;img src=&#34;https://abulka.github.io/blog/images/uml-layout-before.png#floatleft&#34;
+         alt=&#34;before&#34;/&gt; &lt;figcaption&gt;
+            &lt;p&gt;before&lt;/p&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;figure&gt;
+    &lt;img src=&#34;https://abulka.github.io/blog/images/uml-layout-after.png#floatright&#34;
+         alt=&#34;after applying layout&#34;/&gt; &lt;figcaption&gt;
+            &lt;p&gt;after applying layout&lt;/p&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>
