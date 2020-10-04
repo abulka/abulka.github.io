@@ -2,12 +2,14 @@
 ---
 title: "Relationship Manager - Design Pattern"
 linkTitle: "Relationship Manager"
-date: 2019-01-04
+date: 2001-08-04
 description: >
   A central mediating class which records all the one-to-one, one-to-many and many-to-many relationships between a group of selected classes.
 ---
 
-## Introduction 1233
+![](http://www.andypatterns.com/files/62371233035718bgDSC1367.jpg)
+
+## Introduction
 
 Andy's Published Design Patterns
 These four papers are substantial works which have been presented at KoalaPlop (Asian Pacific Conference on Pattern Languages of Programs) in both 2000 and 2001.  My shepherds (paper peer reviewers) were:
@@ -27,3 +29,11 @@ A central mediating class which records all the one-to-one, one-to-many and many
 
 Presented at ....
 
+## The Pattern
+
+<iframe src="/files/andybulkarelationshipmanagerpattern.html" name="frame1" scrolling="yes" frameborder="yes" align="center" height = "842px" width = "800">
+</iframe>
+
+## Resources
+
+See [original andypatterns page](http://www.andypatterns.com/index.php?cID=44)
