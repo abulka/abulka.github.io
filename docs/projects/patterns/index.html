@@ -7,7 +7,7 @@
 
 <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
 
-<link rel="alternate" type="application/rss&#43;xml" href="https://abulka.github.io/projects/index.xml">
+<link rel="alternate" type="application/rss&#43;xml" href="https://abulka.github.io/projects/patterns/index.xml">
 
 
 <link rel="shortcut icon" href="/favicons/favicon.ico" >
@@ -21,15 +21,15 @@
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
-<title>Projects | Andy Bulka - Blog</title><meta property="og:title" content="Projects" />
+<title>Design Patterns | Andy Bulka - Blog</title><meta property="og:title" content="Design Patterns" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://abulka.github.io/projects/" />
+<meta property="og:url" content="https://abulka.github.io/projects/patterns/" />
 
-<meta itemprop="name" content="Projects">
+<meta itemprop="name" content="Design Patterns">
 <meta itemprop="description" content="">
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Projects"/>
+<meta name="twitter:title" content="Design Patterns"/>
 <meta name="twitter:description" content=""/>
 
 
@@ -161,7 +161,7 @@
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/projects/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Projects</a>
+    <a  href="/projects/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Projects</a>
   </li>
   <ul>
     <li class="collapse show" id="projects">
@@ -178,7 +178,7 @@
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/projects/patterns/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Design Patterns</a>
+    <a  href="/projects/patterns/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Design Patterns</a>
   </li>
   <ul>
     <li class="collapse show" id="projectspatterns">
@@ -225,10 +225,10 @@
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/projects/misc/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Misc</a>
+    <a  href="/projects/misc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Misc</a>
   </li>
   <ul>
-    <li class="collapse show" id="projectsmisc">
+    <li class="collapse " id="projectsmisc">
       
       
       
@@ -291,8 +291,18 @@
 
 
 
-<li class="breadcrumb-item active" aria-current="page">
+
+
+
+<li class="breadcrumb-item" >
 	<a href="https://abulka.github.io/projects/">Projects</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="https://abulka.github.io/projects/patterns/">Design Patterns</a>
 </li>
 
 	</ol>
@@ -300,11 +310,43 @@
 
             
 <div class="td-content">
-	<h1>Projects</h1>
+	<h1>Design Patterns</h1>
         
 	
-	<p>Various projects. Still to be sorted into categories.
-See the Misc area for links back to the current andypatterns.com site.</p>
+	<h2 id="introduction">Introduction</h2>
+<p>Andy&rsquo;s Published Design Patterns
+These four papers are substantial works which have been presented at KoalaPlop (Asian Pacific Conference on Pattern Languages of Programs) in both 2000 and 2001.  My shepherds (paper peer reviewers) were:</p>
+<ul>
+<li>Jim Coplien (MGM pattern)</li>
+<li>Ali Arsanjani (TI pattern)</li>
+<li>James Noble (RM pattern).</li>
+<li>(Design Pattern Automation) was not peer reviewed before being presented and published.</li>
+</ul>
+<p>These final versions also incorporate comments and reviews from the attendees of KoalaPlop 2000 and 2001.</p>
+<!--
+
+# OLD FRONT PAGE
+
+**My Design Patterns**
+----------------------
+
+### [Relationship Manager Pattern](/index.php/design_patterns/relationship_manager/)
+
+A central mediating class which records all the one-to-one, one-to-many and many-to-many relationships between a group of selected classes. Classes that use a Relationship Manager to implement their…
+
+### [Model Gui Mediator Pattern](/index.php/design_patterns/model_gui_mediator_pattern/)
+
+The MGM pattern is a variation of MVC (model view controller) or MVP (Model View Presenter) but takes into account the use of modern off the shelf GUI controls. A MGM object displays a portion of a…
+
+### [Transformation Interface Pattern](/index.php/design_patterns/transformation_interface_pattern/)
+
+The Transformation Interface is both a design pattern and an architectural pattern. It describes an interface or layer, which offers services to transform an object into another format and back agai…
+
+### [Design Pattern Automation](/index.php/design_patterns/pattern_automation/)
+
+As design patterns become more mainstream, various IDE's (Integrated Development Environments) and UML modelling software environments have begun to introduce support for design patterns. For example,…
+
+-->
 
         <div class="section-index">
     
@@ -314,31 +356,52 @@ See the Misc area for links back to the current andypatterns.com site.</p>
     <hr class="panel-line">
         
             
+        
+            
+        
+            
                 <div class="entry">
                     <h5>
-                        <a href="/projects/patterns/">Design Patterns</a>
+                        <a href="/projects/patterns/mgm-pattern/">MGM Pattern</a>
                     </h5>
-                    <p></p>
+                    <p>Model-Gui-Mediator Pattern - the original version of <a href="/projects/patterns/mvca-pattern">MVCA Architectural Pattern</a> The MGM pattern is a variation of MVC (model view controller) or MVP (Model View Presenter) but takes into account the use of modern off the shelf GUI controls.</p>
                 </div>
             
         
             
                 <div class="entry">
                     <h5>
-                        <a href="/projects/misc/">Misc</a>
+                        <a href="/projects/patterns/mvca-pattern/">MVCA Architectural Pattern</a>
                     </h5>
-                    <p></p>
+                    <p>MVCA simply means &ldquo;Model View Controller Application&rdquo; - all four roles are necessary to any implementation.</p>
                 </div>
             
         
             
-        
+                <div class="entry">
+                    <h5>
+                        <a href="/projects/patterns/transformation-interface/">Transformation Interface Design Pattern</a>
+                    </h5>
+                    <p>An interface or layer, which offers services to transform an object into another format and back again.</p>
+                </div>
             
         
             
-        
+                <div class="entry">
+                    <h5>
+                        <a href="/projects/patterns/design-pattern-automation/">Design Pattern Automation</a>
+                    </h5>
+                    <p>Tooling and Design Patterns in IDEs.  As design patterns become more mainstream, various IDE&rsquo;s (Integrated Development Environments) and UML modelling software environments have begun to introduce support for design patterns.</p>
+                </div>
             
         
+            
+                <div class="entry">
+                    <h5>
+                        <a href="/projects/patterns/relationship-manager/">Relationship Manager - Design Pattern</a>
+                    </h5>
+                    <p>A central mediating class which records all the one-to-one, one-to-many and many-to-many relationships between a group of selected classes. Basically a cheap object relational database.</p>
+                </div>
             
         
             
@@ -346,6 +409,66 @@ See the Misc area for links back to the current andypatterns.com site.</p>
     
 </div>
 
+	
+		<style>
+  .feedback--answer {
+    display: inline-block;
+  }
+  .feedback--answer-no {
+    margin-left: 1em;
+  }
+  .feedback--response {
+    display: none;
+    margin-top: 1em;
+  }
+  .feedback--response__visible {
+    display: block;
+  }
+</style>
+<h2 class="feedback--title">Feedback</h2>
+<p class="feedback--question">Was this page helpful?</p>
+<button class="feedback--answer feedback--answer-yes">Yes</button>
+<button class="feedback--answer feedback--answer-no">No</button>
+<p class="feedback--response feedback--response-yes">
+  Glad to hear it! Please <a href="https://github.com/USERNAME/REPOSITORY/issues/new">tell us how we can improve</a>.
+</p>
+<p class="feedback--response feedback--response-no">
+  Sorry to hear that. Please <a href="https://github.com/USERNAME/REPOSITORY/issues/new">tell us how we can improve</a>.
+</p>
+<script>
+  const yesButton = document.querySelector('.feedback--answer-yes');
+  const noButton = document.querySelector('.feedback--answer-no');
+  const yesResponse = document.querySelector('.feedback--response-yes');
+  const noResponse = document.querySelector('.feedback--response-no');
+  const disableButtons = () => {
+    yesButton.disabled = true;
+    noButton.disabled = true;
+  };
+  const sendFeedback = (value) => {
+    if (typeof ga !== 'function') return;
+    const args = {
+      command: 'send',
+      hitType: 'event',
+      category: 'Helpful',
+      action: 'click',
+      label: window.location.pathname,
+      value: value
+    };
+    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
+  };
+  yesButton.addEventListener('click', () => {
+    yesResponse.classList.add('feedback--response__visible');
+    disableButtons();
+    sendFeedback(1);
+  });
+  noButton.addEventListener('click', () => {
+    noResponse.classList.add('feedback--response__visible');
+    disableButtons();
+    sendFeedback(0);
+  });
+</script>
+
+		<br />
 	
 	
 	

@@ -3,113 +3,43 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://abulka.github.io/projects/getting-started/</loc>
-    <lastmod>2020-10-03T13:18:32+10:00</lastmod>
+    <loc>https://abulka.github.io/projects/patterns/</loc>
+    <lastmod>2020-10-09T18:13:46+11:00</lastmod>
   </url>
   
   <url>
-    <loc>https://abulka.github.io/projects/gituml/</loc>
-    <lastmod>2020-10-03T13:18:32+10:00</lastmod>
+    <loc>https://abulka.github.io/projects/misc/</loc>
+    <lastmod>2020-10-09T18:13:46+11:00</lastmod>
   </url>
   
   <url>
-    <loc>https://abulka.github.io/projects/aaaa-pynsource/</loc>
-    <lastmod>2020-10-03T13:18:32+10:00</lastmod>
+    <loc>https://abulka.github.io/projects/patterns/mgm-pattern/</loc>
+    <lastmod>2020-10-09T18:13:46+11:00</lastmod>
   </url>
   
   <url>
-    <loc>https://abulka.github.io/blog/patterns/</loc>
-    <lastmod>2020-10-03T17:31:25+10:00</lastmod>
+    <loc>https://abulka.github.io/projects/patterns/mvca-pattern/</loc>
+    <lastmod>2020-10-09T18:13:46+11:00</lastmod>
   </url>
   
   <url>
-    <loc>https://abulka.github.io/blog/newcat/</loc>
-    <lastmod>2020-10-03T13:18:32+10:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://abulka.github.io/blog/news/</loc>
-    <lastmod>2020-10-03T13:18:32+10:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://abulka.github.io/blog/releases/</loc>
-    <lastmod>2020-10-03T13:18:32+10:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://abulka.github.io/blog/releases2/</loc>
-    <lastmod>2020-10-03T13:18:32+10:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://abulka.github.io/blog/2020/09/18/andy-2/</loc>
-    <lastmod>2020-10-03T13:18:32+10:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://abulka.github.io/blog/2020/09/16/andy-1/</loc>
-    <lastmod>2020-10-03T13:18:32+10:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://abulka.github.io/blog/2019/01/04/mgm-pattern/</loc>
-    <lastmod>2020-10-04T15:15:31+11:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://abulka.github.io/blog/2019/01/04/mvca-architectural-pattern/</loc>
-    <lastmod>2020-10-04T15:15:31+11:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://abulka.github.io/blog/2019/01/04/on-images/</loc>
-    <lastmod>2020-10-03T13:18:32+10:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://abulka.github.io/blog/2019/01/04/transformation-interface-design-pattern/</loc>
-    <lastmod>2020-10-04T15:15:31+11:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://abulka.github.io/blog/2018/10/06/easy-documentation-with-docsy/</loc>
-    <lastmod>2020-10-03T13:18:32+10:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://abulka.github.io/blog/2018/10/06/the-second-blog-post/</loc>
-    <lastmod>2020-10-03T13:18:32+10:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://abulka.github.io/blog/2018/01/04/another-great-release/</loc>
-    <lastmod>2020-10-03T13:18:32+10:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://abulka.github.io/blog/2018/01/04/another-great-release2/</loc>
-    <lastmod>2020-10-03T13:18:32+10:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://abulka.github.io/projects/getting-started/example-page/</loc>
-    <lastmod>2020-10-03T13:18:32+10:00</lastmod>
+    <loc>https://abulka.github.io/projects/patterns/transformation-interface/</loc>
+    <lastmod>2020-10-09T18:13:46+11:00</lastmod>
   </url>
   
   <url>
     <loc>https://abulka.github.io/blog/2011/04/06/uml-layout/</loc>
-    <lastmod>2020-10-03T13:18:32+10:00</lastmod>
+    <lastmod>2020-10-09T18:13:46+11:00</lastmod>
   </url>
   
   <url>
-    <loc>https://abulka.github.io/blog/2002/01/04/design-pattern-automation/</loc>
-    <lastmod>2020-10-04T15:15:31+11:00</lastmod>
+    <loc>https://abulka.github.io/projects/patterns/design-pattern-automation/</loc>
+    <lastmod>2020-10-09T18:13:46+11:00</lastmod>
   </url>
   
   <url>
-    <loc>https://abulka.github.io/blog/2001/08/04/relationship-manager-design-pattern/</loc>
-    <lastmod>2020-10-04T15:15:31+11:00</lastmod>
+    <loc>https://abulka.github.io/projects/patterns/relationship-manager/</loc>
+    <lastmod>2020-10-09T18:13:46+11:00</lastmod>
   </url>
   
   <url>
@@ -129,16 +59,11 @@
   
   <url>
     <loc>https://abulka.github.io/projects/</loc>
-    <lastmod>2020-10-03T13:18:32+10:00</lastmod>
+    <lastmod>2020-10-09T18:13:46+11:00</lastmod>
   </url>
   
   <url>
     <loc>https://abulka.github.io/search/</loc>
-    <lastmod>2020-10-03T13:18:32+10:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://abulka.github.io/projects/aaaa-pynsource/some-info/</loc>
     <lastmod>2020-10-03T13:18:32+10:00</lastmod>
   </url>
   
