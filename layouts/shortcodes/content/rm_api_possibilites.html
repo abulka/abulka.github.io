@@ -1,0 +1,510 @@
+<table cellspacing="1" cellpadding="9">
+    <tbody>
+        <tr>
+            <th></th>
+            <th>Relationship Scenario</th>
+            <th>Example Python Implementation</th>
+        </tr>
+
+
+        <!-- 
+
+        one to one
+
+        -->
+
+        <tr>
+            <td colspan="3">
+                <h3>Implementing <b>one</b> to <b>one</b> relationships between class X and Y</h3>
+            </td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>#1.</td>
+            <td>
+                <p><i>1 → 1, directional, all methods on X</i></p>
+                <pre>
+  Singular API             No API
+ ______________        ______________
+|       X      |      |       Y      |
+|______________|      |______________|
+|              |      |              |
+|void  setY(y) |1    1|              |
+|Y     getY()  |⎯⎯⎯⎯⎯⎯⎯⎯⎯→|              |
+|void  clearY()|      |              |
+|______________|      |______________|
+				</pre>
+            </td>
+            <td>
+                <pre>
+class X:
+  def __init__(self): 
+    RM.ER("xtoy", "onetoone", "directional")
+	
+  def setY(self, y): 
+    RM.R(self, y, "xtoy")
+	
+  def getY(self): 
+    return RM.P(self, "xtoy")
+	
+  def clearY(self): 
+    RM.NR(self, self.getY(), "xtoy")
+				</pre>
+                <pre>
+class Y:
+  pass
+				</pre>
+            </td>
+        </tr>
+
+
+
+
+        <tr>
+            <td>#2.</td>
+            <td>
+                <p><i>1 → 1, directional, all methods on Y</i></p>
+                <pre>
+    No API              Singular API
+ ______________        ______________
+|       X      |      |       Y      |
+|______________|      |______________|
+|              |      |              |
+|              |1    1| setX(x)      |
+|              |⎯⎯⎯⎯⎯⎯⎯⎯→ | getX()       |
+|              |      | clearX()     |
+|______________|      |______________|
+				</pre>
+            </td>
+            <td>
+                <pre>
+class X:
+  pass
+				</pre>
+                <pre>
+class Y:
+  def __init__(self): 
+    RM.ER("xtoy", "onetoone", "directional")
+
+  def setX(self, x):
+    RM.R(x, self, "xtoy")
+
+  def getX(self):
+    return RM.B(self, "xtoy")
+
+  def clearX(self):
+    RM.NR(self.getX(), self, "xtoy")
+				</pre>
+            </td>
+        </tr>
+
+
+
+
+        <tr>
+            <td>#3.</td>
+            <td>
+                <p><i>1 ←→ 1, bi-directional, methods on both X and Y</i></p>
+
+                <pre>
+   Singular API         Singular API
+ ______________        ______________
+|       X      |      |       Y      |
+|______________|      |______________|
+|              |      |              |
+|void  setY(y) |1    1| setX(x)      |
+|Y     getY()  | ←⎯⎯⎯⎯→ | getX()       |
+|void  clearY()|      | clearX()     |
+|______________|      |______________|
+				</pre>
+            </td>
+            <td>
+                <pre>
+class X:                    
+  def __init__(self):
+    RM.ER("xy", "onetoone", "bidirectional")
+  
+  def setY(self, y):
+    RM.R(self, y, "xy")
+  
+  def getY(self):
+    return RM.P(self, "xy")
+  
+  def clearY(self):
+    RM.NR(self, self.getY(), "xy")
+				</pre>
+                <pre>
+class Y:
+  def __init__(self):
+    RM.ER("xy", "onetoone", "bidirectional")
+
+  def setX(self, x):
+    RM.R(self, x, "xy")
+
+  def getX(self):
+    return RM.P(self, "xy")
+
+  def clearX(self):
+    RM.NR(self, self.getX(), "xy")
+				</pre>
+            </td>
+        </tr>
+
+
+
+
+        <tr>
+            <td>#3A.</td>
+            <td>
+                <p><i>1 → 1, directional, all methods on X, back pointer</i></p>
+                <pre>
+            Singular API
+        ___________________
+       |       X           |&lt;-------,
+       |___________________| 1      |
+     1 |                   |        |
+  |---→| void  _setX(x)    |        |
+  |    | X     _getX(x)    |        |
+  |____| X     _getBack()  |........|
+back   |___________________|    x
+				</pre>
+                <p>This is the
+                    <a href="https://en.wikipedia.org/wiki/Composite_pattern">Composite Design Pattern</a> - good for representing trees etc.
+                </p>
+                <p>
+                    <span style="font-size: small;">See backpointer discussion
+                        <a href="#backpointers">below</a> which includes a fully
+                        worked out example of case 3A, in Python.
+                    </span>
+                </p>
+
+            </td>
+            <td>
+                <pre>
+class X:
+  def __init__(self):
+    RM.ER("xtox", "onetoone", "directional")
+
+  def _setX(self, x):
+    RM.R(self, thing, "xtox")
+
+  def _getX(self):
+    return RM.P(self, "xtox")
+
+  def _getBack(self):
+    return RM.B(self, "xtox")
+
+				</pre>
+                <pre>
+x = property(_getThing, _setThing)
+
+back = property(_getBack)
+				</pre>
+            </td>
+        </tr>
+
+
+        <!-- 
+
+        one to many
+
+
+        -->
+
+
+        <tr>
+            <td colspan="3">
+                <h3>Implementing <b>one</b> to <b>many</b> relationships between class X and Y</h3>
+            </td>
+            <td></td>
+            <td></td>
+        </tr>
+
+
+        <tr>
+            <td>#4.</td>
+            <td>
+                <p><i>1 → *, directional, all methods on X</i></p>
+
+
+                <pre>
+  Plural  API             No API
+ _____________        ______________
+|      X      |      |       Y      |
+|_____________|      |______________|
+|             |      |              |
+|addY(y)      |1    *|              |
+|getAllY()    | ⎯⎯⎯⎯⎯⎯→ |              |
+|removeY(y)   |      |              |
+|_____________|      |______________|
+				</pre>
+            </td>
+            <td>
+                <pre>
+class X:
+  def __init__(self):
+    RM.ER("xtoy", "onetomany", "directional")
+
+  def addY(self, y):
+    RM.R(self, y, "xtoy")
+
+  def getAllY(self):
+    return RM.PS(self, "xtoy")
+
+  def removeY(self, y):
+    RM.NR(self, y, "xtoy")
+				</pre>
+                <pre>
+class Y:
+  pass
+				</pre>
+            </td>
+        </tr>
+
+
+
+
+        <tr>
+            <td>#5.</td>
+            <td>
+                <p><i>1 ←→ *, bi-directional, methods on both X and Y</i></p>
+
+                <pre>
+  Plural  API          Singular API
+ _____________        ______________
+|      X      |      |       Y      |
+|_____________|      |______________|
+|             |      |              |
+|addY(y)      |1    *| setX(x)      |
+|getAllY()    | ←⎯⎯⎯⎯→ | getX()       |
+|removeY(y)   |      | clearX()     |
+|_____________|      |______________|
+				</pre>
+            </td>
+            <td>
+                <pre>
+class X:
+  def __init__(self):
+    RM.ER("xtoy", "onetomany", "bidirectional")
+
+  def addY(self, y):
+    RM.R(self, y, "xtoy")
+
+  def getAllY(self):
+    return RM.PS(self, "xtoy")
+
+  def removeY(self, y):
+    RM.NR(self, y, "xtoy")
+				</pre>
+                <pre>
+class Y:
+  def setX(self, x):
+    RM.R(x, self, "xtoy")
+
+  def getX(self):
+    return RM.P(self, "xtoy")
+
+  def clearX(self):
+    RM.NR(self, self.getX(), "xtoy")
+				</pre>
+            </td>
+        </tr>
+
+
+        <!-- 
+
+        many to one
+            
+        -->
+
+
+        <tr>
+            <td colspan="3">
+                <h3>Implementing <b>many</b> to <b>one</b> relationships between class X and Y</h3>
+            </td>
+            <td></td>
+            <td></td>
+        </tr>
+
+
+        <tr>
+            <td>#6.</td>
+            <td>
+                <p><i>* → 1, directional, all methods on Y</i></p>
+                <pre>
+    No API              Plural  API
+ ______________        ______________
+|     X        |      |       Y      |
+|______________|      |______________|
+|              |      |              |
+|              |*    1|addX(x)       |
+|              | ⎯⎯⎯⎯⎯⎯→ |getAllX()     |
+|              |      |removeX(x)    |
+|______________|      |______________|
+				</pre>
+            </td>
+            <td>
+                <p>DRAFT API (not tested)</p>
+                <pre>
+class X:
+  pass
+				</pre>
+                <pre>
+class Y:
+  def addX(x) -> None:
+    RM.R(x, this, "xtoy")
+
+  def getAllX() -> List:
+    return RM.BS(this, "xtoy")
+
+  def removeX(x) -> None:
+    RM.NR(x, this, "xtoy")
+				</pre>
+                <p></p>
+            </td>
+        </tr>
+
+
+
+
+        <tr>
+            <td>#7.</td>
+            <td>
+                <p><i>* ←→ 1, bi-directional, methods on both X and Y</i></p>
+
+
+
+
+                <pre>
+  Singular API          Plural  API
+ ______________        ______________
+|     X        |      |       Y      |
+|______________|      |______________|
+|              |      |              |
+|void  setY(y) |*    1|addX(x)       |
+|Y     getY()  | ←⎯⎯⎯⎯→ |getAllX()     |
+|void  clearY()|      |removeX(x)    |
+|______________|      |______________|
+				</pre>
+            </td>
+            <td>
+                <p>DRAFT API (not tested)</p>
+                <pre>
+class X:
+  def setY(y) -> None:
+    RM.R(this, y, "xtoy")
+
+  def getY() -> Y:
+    RM.P(this, "xtoy")
+
+  def clearY() -> None:
+    RM.NR(this, getY(), "xtoy")
+				</pre>
+                <pre>
+class Y:
+  def addX(x) -> None:
+    RM.R(x, this, "xtoy")
+
+  def getAllX() -> List:
+    RM.BS(this, "xtoy")
+
+  def removeX(x) -> None:
+    RM.NR(x, this, "xtoy")
+				</pre>
+                <p></p>
+            </td>
+        </tr>
+
+
+
+
+        <!-- 
+
+        many to many
+            
+        -->
+
+
+        <tr>
+            <td colspan="3">
+                <h3>Implementing <b>many</b> to <b>many</b> relationships between class X and Y</h3>
+            </td>
+            <td></td>
+            <td></td>
+        </tr>
+
+
+        <tr>
+            <td>#8.</td>
+            <td>
+                <p><i>* → *, directional, all methods on X</i></p>
+                <pre>
+  Plural  API              No API
+ _____________        ______________
+|      X      |      |       Y      |
+|_____________|      |______________|
+|             |      |              |
+|addY(y)      |*    *|              |
+|getAllY()    | ⎯⎯⎯⎯⎯⎯→ |              |
+|removeY(y)   |      |              |
+|_____________|      |______________|
+				</pre>
+            </td>
+            <td>
+                <p>DRAFT API (TODO, not tested)</p>
+            </td>
+        </tr>
+
+
+
+
+        <tr>
+            <td>#9.</td>
+            <td>
+                <p><i>* → *, directional, all methods on Y</i></p>
+
+                <pre>
+      No API            Plural  API
+ ______________        ______________
+|     X        |      |       Y      |
+|______________|      |______________|
+|              |      |              |
+|              |*    *|addX(x)       |
+|              | ⎯⎯⎯⎯⎯⎯→ |getAllX()     |
+|              |      |removeX(x)    |
+|______________|      |______________|
+				</pre>
+            </td>
+            <td>
+                <p>DRAFT API (TODO, not tested)</p>
+            </td>
+        </tr>
+
+
+
+
+
+        <tr>
+            <td>#10.</td>
+            <td>
+                <p><i>* ←→ *, bi-directional, methods on both X and Y</i></p>
+
+                <pre>
+   Plural  API          Plural  API
+ ______________        ______________
+|     X        |      |       Y      |
+|______________|      |______________|
+|              |      |              |
+| addY(y)      |*    *| addX(x)      |
+| getAllY()    | ←⎯⎯⎯⎯→ | getAllX()    |
+| removeY(y)   |      | removeX(x)   |
+|______________|      |______________|
+				</pre>
+            </td>
+            <td>
+                <p>DRAFT API (TODO, not tested)</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
