@@ -1,7 +1,7 @@
 ---
 title: "Some Info"
 # date: 2020-09-16
-draft: false
+draft: true
 # hero: /images/hero-3.jpg
 ---
 

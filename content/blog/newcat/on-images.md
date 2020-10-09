@@ -3,6 +3,7 @@
 title: "on-images"
 linkTitle: "Plantuml Images Baby"
 date: 2019-01-04
+draft: true
 description: >
   A short lead description about this content page. Text here can also be **bold** or _italic_ and can even be split over multiple paragraphs.
 ---

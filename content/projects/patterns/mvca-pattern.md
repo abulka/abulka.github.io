@@ -1,6 +1,6 @@
 ---
 title: "MVCA Architectural Pattern"
-linkTitle: "MVC App Pattern"
+linkTitle: "MVC-App Pattern"
 date: 2019-01-04
 description: >
   MVCA simply means "Model View Controller Application" - all four roles are necessary to any implementation.
@@ -8,7 +8,7 @@ description: >
 
 ## Introduction
 
-For the original MGM pattern see [MGM pattern]({{< ref "/blog/patterns/mgm-pattern.md" >}})
+For the original MGM pattern see [MGM pattern]({{< ref "/projects/patterns/mgm-pattern.md" >}})
 
 ## TodoMVC-OO
 
