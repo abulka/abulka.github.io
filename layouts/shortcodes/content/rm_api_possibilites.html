@@ -40,16 +40,16 @@
                 <pre>
 class X:
   def __init__(self): 
-    RM.ER("xtoy", "onetoone", "directional")
+    rm.enforce("xtoy", "onetoone", "directional")
 	
   def setY(self, y): 
-    RM.R(self, y, "xtoy")
+    rm.add_rel(self, y, "xtoy")
 	
   def getY(self): 
-    return RM.P(self, "xtoy")
+    rm.find_target(source=self, rel_id="xtoy")
 	
   def clearY(self): 
-    RM.NR(self, self.getY(), "xtoy")
+    rm.remove_rel(self, self.getY(), "xtoy")
 				</pre>
                 <pre>
 class Y:
@@ -85,16 +85,16 @@ class X:
                 <pre>
 class Y:
   def __init__(self): 
-    RM.ER("xtoy", "onetoone", "directional")
+    rm.enforce("xtoy", "onetoone", "directional")
 
   def setX(self, x):
-    RM.R(x, self, "xtoy")
+    rm.add_rel(x, self, "xtoy")
 
   def getX(self):
-    return RM.B(self, "xtoy")
+    rm.find_source(target=self, rel_id="xtoy")
 
   def clearX(self):
-    RM.NR(self.getX(), self, "xtoy")
+    rm.remove_rel(self.getX(), self, "xtoy")
 				</pre>
             </td>
         </tr>
@@ -123,30 +123,30 @@ class Y:
                 <pre>
 class X:                    
   def __init__(self):
-    RM.ER("xy", "onetoone", "bidirectional")
+    rm.enforce("xy", "onetoone", "bidirectional")
   
   def setY(self, y):
-    RM.R(self, y, "xy")
+    rm.add_rel(self, y, "xy")
   
   def getY(self):
-    return RM.P(self, "xy")
+    rm.find_target(self, "xy")
   
   def clearY(self):
-    RM.NR(self, self.getY(), "xy")
+    rm.remove_rel(self, self.getY(), "xy")
 				</pre>
                 <pre>
 class Y:
   def __init__(self):
-    RM.ER("xy", "onetoone", "bidirectional")
+    rm.enforce("xy", "onetoone", "bidirectional")
 
   def setX(self, x):
-    RM.R(self, x, "xy")
+    rm.add_rel(self, x, "xy")
 
   def getX(self):
-    return RM.P(self, "xy")
+    rm.find_target(self, "xy")
 
   def clearX(self):
-    RM.NR(self, self.getX(), "xy")
+    rm.remove_rel(self, self.getX(), "xy")
 				</pre>
             </td>
         </tr>
@@ -184,16 +184,16 @@ back   |___________________|    x
                 <pre>
 class X:
   def __init__(self):
-    RM.ER("xtox", "onetoone", "directional")
+    rm.enforce("xtox", "onetoone", "directional")
 
   def _setX(self, x):
-    RM.R(self, thing, "xtox")
+    rm.add_rel(self, thing, "xtox")
 
   def _getX(self):
-    return RM.P(self, "xtox")
+    rm.find_target(source=self, rel_id="xtox")
 
   def _getBack(self):
-    return RM.B(self, "xtox")
+    rm.find_source(target=self, rel_id="xtox")
 
 				</pre>
                 <pre>
@@ -244,19 +244,19 @@ back = property(_getBack)
                 <pre>
 class X:
   def __init__(self):
-    RM.ER("xtoy", "onetomany", "directional")
+    rm.enforce
 
   def addY(self, y):
-    RM.R(self, y, "xtoy")
+    rm.add_rel(self, y, "xtoy")
 
   def getAllY(self):
-    return RM.PS(self, "xtoy")
+    rm.find_targets(self, "xtoy")
 
   def removeY(self, y):
-    RM.NR(self, y, "xtoy")
+    rm.remove_rel(self, y, "xtoy")
 				</pre>
                 <pre>
-class Y:
+class Y:  # no methods on rhs
   pass
 				</pre>
             </td>
@@ -280,36 +280,92 @@ class Y:
 |getAllY()    | ←⎯⎯⎯⎯→ | getX()       |
 |removeY(y)   |      | clearX()     |
 |_____________|      |______________|
-				</pre>
+        </pre>
+                <ul>
+                    <li>X has the required plural API</li>
+                    <li>Y has the reciprocal singular API</li>
+                </ul>
+                <p>
+                    Since there are two API's, one on each class, this makes it a bidirectional relationship.
+                </p>
+                <p>
+                    However - there still remains a sense of
+                    <i>directionality</i> because the one to many is directional
+                    <i>i.e.</i> the the lhs. 'one' side is the X and the rhs. 'many' side is the Y, not the other way around.
+                </p>
             </td>
             <td>
                 <pre>
 class X:
   def __init__(self):
-    RM.ER("xtoy", "onetomany", "bidirectional")
+    rm.enforce("xtoy", "onetomany", "bidirectional")
 
   def addY(self, y):
-    RM.R(self, y, "xtoy")
+    rm.add_rel(self, y, "xtoy")
 
   def getAllY(self):
-    return RM.PS(self, "xtoy")
+    rm.find_targets(self, "xtoy")
 
   def removeY(self, y):
-    RM.NR(self, y, "xtoy")
+    rm.remove_rel(self, y, "xtoy")
 				</pre>
                 <pre>
 class Y:
+  # though bi, there is still a direction!
   def setX(self, x):
-    RM.R(x, self, "xtoy")
+    rm.add_rel(x, self, "xtoy")
 
   def getX(self):
-    return RM.P(self, "xtoy")
+    rm.find_target(self, "xtoy")
 
   def clearX(self):
-    RM.NR(self, self.getX(), "xtoy")
+    rm.remove_rel(self, self.getX(), "xtoy")
 				</pre>
             </td>
         </tr>
+
+
+
+
+
+
+        <tr>
+            <td>#5A.</td>
+            <td>
+                <p><i>1 ←→ *, bi-directional, methods on both X and Y</i></p>
+                <p>Alternative implementation of scenario 5, using "directional" and a backpointer method</p>
+
+            </td>
+            <td>
+                <pre>
+class X:
+  def __init__(self):
+    rm.enforce("xtoy", "onetomany", "directional")  # DIFFERENT to 5, 'directional' not 'bidirectional'
+
+  def addY(self, y):
+    rm.add_rel(self, y, "xtoy")  # same as 5.
+
+  def getAllY(self):
+    rm.find_targets(self, "xtoy")  # same as 5.
+
+  def removeY(self, y):
+    rm.remove_rel(self, y, "xtoy")  # same as 5.
+      </pre>
+                <pre>
+class Y:
+  def setX(self, x):
+    rm.add_rel(x, self, "xtoy")  # same as 5.
+
+  def getX(self):
+    rm.find_source(self, "xtoy")  # DIFFERENT to 5, uses 'find_source' not 'find_target'
+
+  def clearX(self):
+    rm.remove_rel(self.getX(), self, "xtoy")  # DIFFERENT to 5, source and target params swapped
+      </pre>
+            </td>
+        </tr>
+
+
 
 
         <!-- 
@@ -353,13 +409,13 @@ class X:
                 <pre>
 class Y:
   def addX(x) -> None:
-    RM.R(x, this, "xtoy")
+    rm.add_rel(x, this, "xtoy")
 
   def getAllX() -> List:
-    return RM.BS(this, "xtoy")
+    return rm.find_sources(this, "xtoy")
 
   def removeX(x) -> None:
-    RM.NR(x, this, "xtoy")
+    rm.remove_rel(x, this, "xtoy")
 				</pre>
                 <p></p>
             </td>
@@ -393,24 +449,24 @@ class Y:
                 <pre>
 class X:
   def setY(y) -> None:
-    RM.R(this, y, "xtoy")
+    rm.add_rel(this, y, "xtoy")
 
   def getY() -> Y:
-    RM.P(this, "xtoy")
+    rm.find_target(this, "xtoy")
 
   def clearY() -> None:
-    RM.NR(this, getY(), "xtoy")
+    rm.remove_rel(this, getY(), "xtoy")
 				</pre>
                 <pre>
 class Y:
   def addX(x) -> None:
-    RM.R(x, this, "xtoy")
+    rm.add_rel(x, this, "xtoy")
 
   def getAllX() -> List:
-    RM.BS(this, "xtoy")
+    rm.find_sources(this, "xtoy")
 
   def removeX(x) -> None:
-    RM.NR(x, this, "xtoy")
+    rm.remove_rel(x, this, "xtoy")
 				</pre>
                 <p></p>
             </td>
