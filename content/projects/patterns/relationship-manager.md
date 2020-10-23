@@ -111,7 +111,7 @@ Finally, you have variations of whether you put pointer methods *(e.g. set, get,
 
 For example, assuming you have a two classes one on the lhs and one on the rhs - you could omit methods on e.g. the rhs. class, or you could go to the other extreme and provide a full range of methods on the rhs. class. 
 
-I recommend that you use the [templates](#UsageTemplates) table to figuring out what methods to put where for each type of classic relationship you want to model.  For example, to implement a **one to many** relationship between two classes X and Y, you would use template 4 or 5 (use the latter if you want bidirectionality)
+I recommend that you use the [table of relationship scenarios](#table-of-relationship-scenarios) table to figuring out what methods to put where for each type of classic relationship you want to model.  For example, to implement a **one to many** relationship between two classes X and Y, you would use template 4 or 5 (use the latter if you want bidirectionality)
 
 Note that some combinatorial possibilities do not make sense and are left out of the table below. 
 
@@ -121,16 +121,17 @@ Note that some combinatorial possibilities do not make sense and are left out of
 
 Blank cells mean "not applicable".
 
-| [Scenario #](#UsageTemplates) (see below) | directional  | bi-directional |
-|-----------|---------------------------|---------------------------|
+| Scenario # see [below](#table-of-relationship-scenarios) | directional  | bi-directional | comments |
+|-----------|---------------------------|---------------------------|----------|
 |           | _one to one_<br>`1 --> 1`  | _one to one_<br>`1 <--> 1`  |
 | #1.       | S       \-                 |                           |
 | #2.       | \-       S                |                           |
-| #3.       |                           |   S        S              |
-| #3A.<br> (composite, pointing to self)| S | |
+| #3.       |                           |   S        S              | using 'bidirectional' relationship, which creates two relationship entries
+| #3A.      |                           |   S        S              | alternative implementation using a single 'direction' relationship - the bidirectionality is figured out using the magic of `rm.find_source()`
 |           | _one to many_<br>`1 --> *`  | _one to many_<br>`1 <--> *`  |
 | #4.       | P      \-                  |                           |
-| #5.       |                           | P       S                 |
+| #5.       |                           | P       S                 | using 'bidirectional' relationship, which creates two relationship entries
+| #5A.      |                           | P       S                 | alternative implementation using a single 'direction' relationship - the bidirectionality is figured out using the magic of `rm.find_source()`
 |           | _many to one_<br>`* --> 1`  | _many to one_<br>`* <--> 1`   |
 | #6.       | \-       P                |                           |
 | #7.       |                           | S         P               |
@@ -157,84 +158,13 @@ Note: The method names below are just suggestions. Normally you would use better
 * Instead of `.getX()` you might have `getCustomer()`.
 * Instead of `getAllY()` you might have `.getOrders()` etc.
 
-This table uses the [Shortened API](#abstract-api) calls for brevity. E.g. `RM.ER` means call `EnforceRelationship` on your Relationship Manager instance.
+Here is the table:
 
 {{< content/rm_api_possibilites >}}
 
-These all exist under unit testing in `tests/python/test_enforcing.py` in the Github project.
+These scenarios are all unit tested in `tests/python/test_enforcing.py` in the Github project.
 
-## More Detail on each scenario
-
-Here are some further notes on using each template.  I don't cover each variation, so see the above table for the complete list of possibilites.  I also use slightly different method names here just in case you don't like the `setX` and `setY` syntax I have been using.
-
-### One to one
-
-![](http://www.atug.com/andypatterns/images/rm_the1.gif)
-
-Class X points to class Y.
-
-#### Methods on class X
-
-| Returns | Example method name | Implementation in RM |
-|-----------|-----------------|-----------------|
-| void  | setPointer(y) | `R(x, y, "xtoy")` |
-| Y     | getPointer()  | `P(x, "xtoy")` |
-| void  | clearPointer() | `NR(x, y, "xtoy")` |
-
-#### Methods on class Y
-
-None.
-
-#### Notes:
-
-1.  The clearPointer() implementation needs to get a reference to **y** in order to call `NR(x,**y**,...)`.  The implementation can either call its own `getPointer()` method to get a reference to **y**, e.g. clearPointer() would be implemented as `NR(x, getPointer() ,"xtoy")`.  Alternatively the getPointer() implementation can make a second call to relationship manager itself e.g.  `clearPointer()` would be implemented as `NR(x, P(x,"xtoy"),"xtoy")`.
-2.  If there is only _one_ relationship between class X and class Y, then your P and NR calls can specify "\*" as the relationshipId in order to match any relationship between these two objects.  Alternatively, you can use the overloaded P and NR calls which don't take a relationshipId at all. _\[not sure if this note on overloaded methods is relevant to the latest C# and Java implementations\]_
-
-![](http://www.atug.com/andypatterns/_themes/canvas/acnvrule.gif)
-
-### One to one, with back pointer
-
-![](http://www.atug.com/andypatterns/images/rm_the2.jpg)
-
-Class X points to class Y.   
-Class Y can deduce a back pointer to class X.
-
-#### Methods on class X
-
-Same as one to one, i.e.
-
-| Returns | Example method name | Implementation in RM |
-|-----------|-----------------|-----------------|
-| void | setPointer(y) | `R(x, y, "xtoy")` |
-| Y     | getPointer()  | `P(x, "xtoy")` |
-| void  |clearPointer() | `NR(x, y, "xtoy")` |
-
-#### Methods on class Y
-
-| Returns | Example method name | Implementation in RM |
-|-----------|-----------------|-----------------|
-| X | getBackPointer() | B(y, "xtoy") |
-
-_and optionally setter methods ..._
-
-| Returns | Example method name | Implementation in RM |
-|-----------|-----------------|-----------------|
-| void | setBackPointer(x) | `R(x, y, "xtoy")`<br> _or simply call `x.setPointer(this)`_ |
-| void  | clearBackPointer() | `NR(x, y, "xtoy")`<br>_or simply call `x._clearPointer()`_ |
-
-#### Notes:
-
-1.  An implicit back-pointer (i.e. a back reference) is always deducible, when using a relationship manager, thus instead of wiring up an explicit pointer relationship as a back-pointer , you can implement a back-pointer using an implicit back reference on an existing relationship (in this case the "xtoy" relationship) instead. i.e. see  `getBackPointer()` on class Y.
-2.  Notice all the relationshipId's in this example (in both classes) are the same viz. "xtoy"
-3.  In implementing X methods, whenever you need a reference to **y**, just call this.`getPointer()`.  Similarly, in implementing Y methods, whenever you need a reference to **x**, just call this.getBackPointer().  See discussion on this _above_.
-4.  If you chose to have backpointer setter methods on class Y, you need not necessarily call the wrapping methods on X in order to implement them e.g. `setBackPointer(x)` is implemented by simply calling `x.setPointer(this)` (although it is recommended that you do, since X is the 'controlling' class for the relationship - see [Martin Fowler 'Refactorings'](https://martinfowler.com/books/refactoring.html) p. 197 "Change Unidirectional Association to Bidirectional").  You could alternatively call the relationship manager directly, thus setBackPointer(x) becomes a call to `R(x, y, "xtoy")` and `clearBackPointer()`  becomes a call to `NR(x, y, "xtoy")`.
-5.  If you are trying to enforce a one to one relationship, then you should stricltly speaking, remove any exising relationship between a1 and b1 before creating a relationship between a2 and b1.  However relationship manager will remove the previous relationship for you automatically. See discussion on this behaviour. 
-
-
-
-![](http://www.atug.com/andypatterns/_themes/canvas/acnvrule.gif)
 * * *
-
 
 ## Bi-directional relationships
 
@@ -363,6 +293,12 @@ Backpointers are pointers on the "receiving end" of a relationship, so that the 
 The easiest way of implementing this backpointer without using relationship manager is to follow the Martin Fowler refactoring technique - see Martin Fowler 'Refactorings' p. 197 "Change Unidirectional Association to Bidirectional" - this will ensure you get the wiring correct.  In this refactoring, you decide which class is the master and which is the slave etc.  See the before and after python pdf below for an example of the correct wiring.
 
 The way of implementing a backpointer using relationship manager is simply to call the **findObjectPointingToMe(toMe, id)** method.  Since a RM holds all relationships, it can answer lots of questions for free - just like SQL queries to a database.  See the before and after python pdf below for an example of using findObjectPointingToMe().
+
+### Even more (scraps)
+
+If you chose to have backpointer setter methods on class Y, you need not necessarily call the wrapping methods on X in order to implement them e.g. `setBackPointer(x)` is implemented by simply calling `x.setPointer(this)` (although it is recommended that you do, since X is the 'controlling' class for the relationship - see [Martin Fowler 'Refactorings'](https://martinfowler.com/books/refactoring.html) p. 197 "Change Unidirectional Association to Bidirectional").
+
+You could alternatively call the relationship manager directly, thus setBackPointer(x) becomes a call to `R(x, y, "xtoy")` and `clearBackPointer()`  becomes a call to `NR(x, y, "xtoy")`.
 
 
 ## More Examples

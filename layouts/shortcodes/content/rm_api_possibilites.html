@@ -1,3 +1,6 @@
+<p>
+    Look up the scenario you need to implement on the left, then use the template implementation on the right in your code.
+</p>
 <table cellspacing="1" cellpadding="9">
     <tbody>
         <tr>
@@ -17,9 +20,15 @@
             <td colspan="3">
                 <h3>Implementing <b>one</b> to <b>one</b> relationships between class X and Y</h3>
             </td>
-            <td></td>
-            <td></td>
+            <td>
+            </td>
+            <td>
+            </td>
         </tr>
+
+
+
+
         <tr>
             <td>#1.</td>
             <td>
@@ -34,8 +43,10 @@
 |Y     getY()  |⎯⎯⎯⎯⎯⎯⎯⎯⎯→|              |
 |void  clearY()|      |              |
 |______________|      |______________|
-				</pre>
+        </pre>
+                <p>Note: The <code>clearY()</code> implementation needs to get a reference to <code>y</code> in order to call <code>remove_rel(x, y, ...)</code> which is done by calling <code>getY()</code> on itself.</p>
             </td>
+
             <td>
                 <pre>
 class X:
@@ -57,6 +68,7 @@ class Y:
 				</pre>
             </td>
         </tr>
+
 
 
 
@@ -153,56 +165,81 @@ class Y:
 
 
 
-
         <tr>
             <td>#3A.</td>
             <td>
-                <p><i>1 → 1, directional, all methods on X, back pointer</i></p>
-                <pre>
-            Singular API
-        ___________________
-       |       X           |&lt;-------,
-       |___________________| 1      |
-     1 |                   |        |
-  |---→| void  _setX(x)    |        |
-  |    | X     _getX(x)    |        |
-  |____| X     _getBack()  |........|
-back   |___________________|    x
-				</pre>
-                <p>This is the
-                    <a href="https://en.wikipedia.org/wiki/Composite_pattern">Composite Design Pattern</a> - good for representing trees etc.
-                </p>
-                <p>
-                    <span style="font-size: small;">See backpointer discussion
-                        <a href="#backpointers">below</a> which includes a fully
-                        worked out example of case 3A, in Python.
-                    </span>
-                </p>
+                <p><i>1 ←→ 1, bi-directional, methods on both X and Y</i></p>
+                <p>Alternative implementation of scenario 3, using "directional" and a backpointer method</p>
 
+                <pre>
+diagram as above
+        				</pre>
             </td>
             <td>
                 <pre>
-class X:
+class X:                    
   def __init__(self):
-    rm.enforce("xtox", "onetoone", "directional")
+    rm.enforce("xy", "onetoone", "directional")  # different to 3.
+    # uses 'directional' not 'bidirectional'
 
-  def _setX(self, x):
-    rm.add_rel(self, thing, "xtox")
-
-  def _getX(self):
-    rm.find_target(source=self, rel_id="xtox")
-
-  def _getBack(self):
-    rm.find_source(target=self, rel_id="xtox")
-
+  def setY(self, y):
+    rm.add_rel(self, y, "xy")  # same as 3.
+  
+  def getY(self):
+    rm.find_target(self, "xy")  # same as 3.
+  
+  def clearY(self):
+    rm.remove_rel(self, self.getY(), "xy")  # same as 3.
 				</pre>
                 <pre>
-x = property(_getThing, _setThing)
+class Y:
+  def __init__(self):
+    rm.enforce("xy", "onetoone", "directional")  # different to 3.
+    # uses 'directional' not 'bidirectional'
+    # redundant call since already called in X's constructor
 
-back = property(_getBack)
+  def setX(self, x):  # different to 3.
+    rm.add_rel(self, x, "xy")
+    # source and target params swapped
+
+  def getX(self):  # different to 3.
+    rm.find_source(self, "xy")
+    # uses 'find_source' not 'find_target'
+
+  def clearX(self):  # different to 3.
+    rm.remove_rel(self, self.getX(), "xy")
+    # source and target params swapped
 				</pre>
             </td>
         </tr>
+
+
+        <tr>
+            <td></td>
+            <td colspan="2">
+                <p>Notes on Scenario 3 and 3A:</p>
+                <ol>
+                    <li>
+                        <p>When you create a bi-directional enforcement rule (Scenario 3) with a call to <code>rm.enforce("xy", "onetoone", "bidirectional")</code> you are actually causing rm to create <i>two</i> relationship entries in the rm. This means
+                            you can reliably use a <code>rm.find_target()</code> call from either side, knowing there is a relationship in both directions.</p>
+                    </li>
+                    <li>
+                        <p>When you create a directional enforcement rule (Scenario 3A) with a call to <code>rm.enforce("xy", "onetoone", "directional")</code> or leave out this call altogether, you are causing rm to create <i>only</i> the relationships
+                            that you ask for. Thus classes on the 'target' side of a relationship cannot call <code>rm.find_target()</code> to find out who is pointing to them. They can however, thanks to the magic of rm, call <code>rm.find_source()</code>                            to derive this information.
+                        </p>
+                    </li>
+                    <li>
+                        <p>This means bidirectional relationships never actually need to be used or declared, 😲, since an implicit back-pointer (i.e. a back reference) is <i>always deducible</i> using <code>rm.find_source()</code>, when using a Relationship
+                            Manager! In fact a bidirectional relationships creates extra entries in the rm datastructure, and slightly more overhead in performance (maintaining both relationships e.g. in the case of creation and removal).</p>
+                        <p>However you may still want to declare a bidirectional relationship for its semantic value in your particular business logic domain, or for domain modelling accuracy - or even just for your own implementation preferences.
+                        </p>
+                    </li>
+                </ol>
+
+            </td>
+        </tr>
+
+
 
 
         <!-- 
@@ -334,13 +371,17 @@ class Y:
             <td>
                 <p><i>1 ←→ *, bi-directional, methods on both X and Y</i></p>
                 <p>Alternative implementation of scenario 5, using "directional" and a backpointer method</p>
+                <pre>
+diagram as above
+                </pre>
 
             </td>
             <td>
                 <pre>
 class X:
   def __init__(self):
-    rm.enforce("xtoy", "onetomany", "directional")  # DIFFERENT to 5, 'directional' not 'bidirectional'
+    rm.enforce("xtoy", "onetomany", "directional")  # different to 5
+    # uses 'directional' not 'bidirectional'
 
   def addY(self, y):
     rm.add_rel(self, y, "xtoy")  # same as 5.
@@ -357,10 +398,12 @@ class Y:
     rm.add_rel(x, self, "xtoy")  # same as 5.
 
   def getX(self):
-    rm.find_source(self, "xtoy")  # DIFFERENT to 5, uses 'find_source' not 'find_target'
+    rm.find_source(self, "xtoy")  # different to 5
+    # uses 'find_source' not 'find_target'
 
   def clearX(self):
-    rm.remove_rel(self.getX(), self, "xtoy")  # DIFFERENT to 5, source and target params swapped
+    rm.remove_rel(self.getX(), self, "xtoy")  # different to 5
+    # source and target params swapped
       </pre>
             </td>
         </tr>
