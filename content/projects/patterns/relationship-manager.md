@@ -162,129 +162,20 @@ Here is the table:
 
 {{< content/rm_api_possibilites >}}
 
-These scenarios are all unit tested in `tests/python/test_enforcing.py` in the Github project.
+These scenarios are all unit tested in `tests/python/test_enforcing.py` in the [GitHub project](https://github.com/abulka/relationship-manager).
 
 * * *
-
-## Bi-directional relationships
-
-### Bi-directional implementations of directional relationships
-
-We must distinguish between a relationship that in its meaning, goes both ways, and a relationship which goes one way only.  And furthermore, implementationally, you can have RM methods on one class only, on the other class only, or on both classes.  The meaning of the relationship and the implementation (methods to create and look up those relationships) are two different things!
-
-Thus when you put an API (relationship manager methods) on both classes this might seem to imply that you are implementing bi-directionality.  However this does not mean that the "relationship" points in both directions.  The meaning of the relationship is often in one direction only, and the existence of methods on both classes merely gives you a convenient way of querying the relationships that exist.
-
-Thus the same relationship id should be used in both classes e.g. `"xtoy"` (notice the sense of directionality is built into the name of the relationship!), even though it is a bidirectional relationship in the sense that there is an API on both classes allowing each class to find the other class.  In the following implementation of a one to many relationship between class X and class Y, notice the same relationship id `"xtoy"` must be used in both classes.
-
-```python
-class X:  
-    def __init__(self):        RM.ER("xtoy", "onetomany",   
-                                     "bidirectional")  
-    def addY(self, y): RM.R(self, y, "xtoy")  
-    def getAllY(self):  return RM.PS(self, "xtoy")  
-    def removeY(self, y):      RM.NR(self, y, "xtoy")  
-    
-
-class Y:  
-    def setX(self, x): RM.R(x, self, "xtoy")  
-    def getX(self):     return RM.P(self, "xtoy")  
-    def clearX(self):          RM.NR(self, self.getX(), "xtoy")  
-```
-
-### More on Directionality and Backpointers
-
-Relationships are here considered directional.  So when you add a relationship with R(a,b) then **a** points to **b**.
-
-Using a relationship manager you can get it deduce who is pointing at you, which means you get 'back-references' for free.  However being able to determine a back-reference doesn't mean that the model you are building _officially_ has this pointer connection.  Thus we must distinguish official pointers from deducible back references / back pointers. 
-
-To find what **a** points to, use P(a).  To find out what is pointing at **b**, use B(b).  
-
-| API Short-hand | Description |
-|:----------:|----------|
-| P(a)      | Find Pointer From |
-| B(b)	    | Find Back Reference To      |
-
-Thus, just because you point at something doesn't mean it is officially pointing back at you. But, using a relationship manager you can deduce who is pointing at you.
-
-So if...
-
-| API Short-hand | Comment |
-|:----------:|----------|
-| R(a,b)     | if you make **a** point to **b** |
-
-then...
-
-| API Short-hand | Comment |
-|:----------:|----------|
-| P(a) == b   | **a** points to **b** |
-| B(b) == a   | the thing pointing at **b** is **a** |
-| P(b) == null   | **b** doesn't point at anything<br> _(crucial distinction - see above line)._ |
-| B(a) == null   | nothing is pointing back at **a** |
-
-
-![](http://www.atug.com/andypatterns/_themes/canvas/acnvrule.gif)
-* * *
-
 
 ## Back pointers
 
 One of the benefits of the relationship manager pattern is that *you don't have to explicitly wire up and maintain back-pointers*.  Once you add a pointer relationship, you get the back pointer relationship available, for free.  And once you delete the pointer relationship, the back-pointer relationship goes away automatically too.
 
-However if you want to delete or change the back-pointer relationship (from Y's perspective) then you must talk to the relationship manager in terms of the relationship "xtoy".  If you imlplement  the back-pointer relationship as a different relationship, with a different relationshipId, then you will fall prey to the same out of synch problems that traditional spaghetti wiring techniques often fall prey to.  The trick is to treat the relationship as two sides of the *one relationshipId*.
+The following [code](http://www.atug.com/andypatterns/code/proxydecorator01.zip) is a good example of how the use of RM saves you from having to explicitly maintain backpointers. P.S. To run the code you also need the support files found [here](http://www.atug.com/downloads/pythonRmProof.zip).  View the code below (requires the flash plugin) - showing an implementation of a Composite Pattern, with back pointer - or simply read the [pdf](http://www.atug.com/downloads/rm_annotation_by_ANDY_01.PDF) directly.
 
+<iframe src="/files/rm_annotation_by_ANDY_01.html" name="frame1" scrolling="yes" frameborder="yes" align="center" height = "842px" width = "800">
+</iframe>
 
-### One to many
-
- ![](http://www.atug.com/andypatterns/images/rm_the3.gif)
-
-Class X points to many instances of class Y.
-
-#### Methods on class X
-
-| Returns | Example method name | Implementation in RM |
-|-----------|-----------------|-----------------|
-| void | add(y) | `R(x, y, "xtoy*")` |
-| list | getAll() | `PS(x, "xtoy*")` |
-| void  | remove(y)  | `NR(x, y, "xtoy*")` |
-
-#### Methods on class Y
-
-None.
-
-#### Notes:
-
-1.  Notice that the relationshipId has a `*` symbol in it.  This means that you can add multiple relationships of that type without the relationship manager removing the prior relationship. Not sure which of my Relationship Manager implementations auto-support this - its been so long ago...
-
-### One to many, with back pointers
-
-![](http://www.atug.com/andypatterns/images/rm_the4.gif)
-
-#### Methods on class X
-
-| Returns | Example method name | Implementation in RM |
-|-----------|-----------------|-----------------|
-| void | add(y) | `R(x, y, "xtoy*")` |
-| list | getAll() | `PS(x, "xtoy*")` |
-| void  | remove(y)  | `NR(x, y, "xtoy*")` |
-
-#### Methods on class Y
-
-| Returns | Example method name | Implementation in RM |
-|-----------|-----------------|-----------------|
-| X | getBackPointer() | `B(y, "xtoy*")` |
-
-_and optionally setter methods ..._
-
-| Returns | Example method name | Implementation in RM |
-|-----------|-----------------|-----------------|
-| void | setBackPointer(x) | `R(x, y, "xtoy*")`<br> _or simply call `x.setPointer(this)`_ |
-| void  | clearBackPointer() | `NR(x, y, "xtoy*")`<br>_or simply call `x._clearPointer()`_ |
-
-* * *
-
-### More on Backpointers
-
-Backpointers are pointers on the "receiving end" of a relationship, so that the receiving object knows who is pointing at it.  For example when a Customer places an Order, it might be convenient for any particular order instance to know which customer ordered it.  I think you can choose to conceive of the backpointer in a few different ways:
+Backpointers are pointers on the "target end" of a relationship, so that the target object knows who is pointing at it.  For example when a Customer places an Order, it might be convenient for any particular order instance to know which customer ordered it.  I think you can choose to conceive of the backpointer in a few different ways:
 
 *   as an extra, separate relationship or
 *   as part of the one bidirectional relationship or
@@ -292,25 +183,121 @@ Backpointers are pointers on the "receiving end" of a relationship, so that the 
 
 The easiest way of implementing this backpointer without using relationship manager is to follow the Martin Fowler refactoring technique - see Martin Fowler 'Refactorings' p. 197 "Change Unidirectional Association to Bidirectional" - this will ensure you get the wiring correct.  In this refactoring, you decide which class is the master and which is the slave etc.  See the before and after python pdf below for an example of the correct wiring.
 
-The way of implementing a backpointer using relationship manager is simply to call the **findObjectPointingToMe(toMe, id)** method.  Since a RM holds all relationships, it can answer lots of questions for free - just like SQL queries to a database.  See the before and after python pdf below for an example of using findObjectPointingToMe().
-
-### Even more (scraps)
-
-If you chose to have backpointer setter methods on class Y, you need not necessarily call the wrapping methods on X in order to implement them e.g. `setBackPointer(x)` is implemented by simply calling `x.setPointer(this)` (although it is recommended that you do, since X is the 'controlling' class for the relationship - see [Martin Fowler 'Refactorings'](https://martinfowler.com/books/refactoring.html) p. 197 "Change Unidirectional Association to Bidirectional").
-
-You could alternatively call the relationship manager directly, thus setBackPointer(x) becomes a call to `R(x, y, "xtoy")` and `clearBackPointer()`  becomes a call to `NR(x, y, "xtoy")`.
+The way of implementing a backpointer using relationship manager is simply to call the `rm.find_source(target=self)` method.  Since a rm holds all relationships, it can answer lots of questions for free - just like SQL queries to a database.
 
 
-## More Examples
 
-### Before and After - Modeling Composite Design Pattern  in Python
+* * *
 
-The following [code](http://www.atug.com/andypatterns/code/proxydecorator01.zip) is a good example of how the use of RM saves you from having to explicitly maintain backpointers. P.S. To run the code you also need the support files found [here](http://www.atug.com/downloads/pythonRmProof.zip).  View the code below (requires the flash plugin) - showing an implementation of a Composite Pattern, with back pointer - or simply read the [pdf](http://www.atug.com/downloads/rm_annotation_by_ANDY_01.PDF) directly.
+## Bi-directional relationships
 
-<iframe src="/files/rm_annotation_by_ANDY_01.html" name="frame1" scrolling="yes" frameborder="yes" align="center" height = "842px" width = "800">
-</iframe>
+A bi-directional relationship between X and Y means both sides have pointers to each other.
 
-### Person-Order modelling in .NET
+![svg your image](/images/uml/content/projects/patterns/uml/rm-bidirectionality.svg)
+
+or just
+
+![svg your image](/images/uml/content/projects/patterns/uml/rm-bidirectionality2.svg)
+
+Within this seemingly obvious idea are a myriad of nuances:
+
+We must distinguish between a relationship that in its domain meaning, goes both ways, and a relationship which goes one way only.  And furthermore, implementationally, you can have RM methods on one class only, on the other class only, or on both classes.  The meaning of the relationship and the implementation (methods to create and look up those relationships) are two different things!
+
+  - As the diagram above shows, one bi-bidirectional relationship is arguably shorthand for two directional relationships. 
+  
+In fact in the Python rm implementation, when you create a bi-directional enforcement rule (e.g. Scenario 3) with a call to <code>rm.enforce("xy", "onetoone", "bidirectional")</code> you are actually causing rm to create <i>two</i> relationship entries in the rm. This means you can reliably use a <code>rm.find_target(source=self)</code> call from either side, knowing there is a relationship in both directions.
+
+  - The methods you implement on your classes to create and look up relationships can influence your perception of what is pointing to what.
+
+When you put an API (relationship manager methods) on both classes this might seem to imply that you are implementing bi-directionality - however this does *not mean* that the "semantic relationship" points in both directions.  The meaning of the relationship is often in one direction only, and the existence of methods on both classes merely gives you a convenient way of querying the directional relationship that exists.
+
+A rm, like a database, allows you to 'cheat' and find out who is pointing to a class even though that class has no actual pointers implementing 'am pointed to by'. This is accomplished by using <code>rm.find_source(target=self)</code>. But just because a rm let's you find out this knowledge doesn't mean there is a official modelling of this back-relationship in your domain.
+
+  - Back-pointer relationships are not the same thing as official, semantic relationships.
+  
+However you may still want to declare a bidirectional relationship for its semantic value in your particular business logic domain, or for domain modelling accuracy - or even just for your own implementation preferences.
+
+  - A bi-directional relationship (pair) can be implemented more efficiently by a single directional relationship together with the magic rm back-pointer lookup call <code>rm.find_source(target=self)</code>.
+
+When you create a directional enforcement rule (e.g. Scenario 3A) with a call to <code>rm.enforce("xy", "onetoone", "directional")</code> or leave out this call altogether, you are causing rm to create <i>only</i> the relationships that you ask for. Thus classes on the 'target' side of a relationship cannot call <code>rm.find_target(source=self)</code> to find out who is pointing to them. They can however, thanks to the back-pointer lookup magic of rm, call <code>rm.find_source(target=self)</code> to derive this information.
+
+This means bidirectional relationships never actually need to be used or declared, 😲, since an implicit back-pointer (i.e. a back reference) is <i>always deducible</i> using <code>rm.find_source()</code>, when using a Relationship Manager! In fact a bidirectional relationship creates extra entries in the rm datastructure, and slightly more overhead in performance (maintaining both relationships e.g. in the case of creation and removal).
+
+- Name your relationships with direction in mind
+- If you choose to implement relationship related methods on both classes use the same relationship id on both sides.
+
+The same relationship id should be used in both classes e.g. `"xtoy"` (notice the sense of directionality is built into the name of the relationship!). Even though there is an API on both classes allowing each class to find the other class, does not turn the relationship semantics to be bi-directional from the point of view of domain modelling, but only in a convenient implementation sense. 
+
+Some may frown on this ability of an implementation to cheat and betray the domain model. Perhaps a flag could be set in the rm to disallow use of the back-pointer lookup magic <code>rm.find_source(target=self)</code> of rm,.
+
+In the following implementation of a one to many relationship between class X and class Y, notice the same relationship id `"xtoy"` must be used in both classes.
+
+```python
+class X:
+    def __init__(self):        rm.enforce("xtoy", "onetoone", "directional")
+    def setY(self, y):         rm.add_rel(self, y, "xtoy")
+    def getY(self):     return rm.find_target(self, "xtoy")
+    def clearY(self):          rm.remove_rel(self, self.getY(), "xtoy")
+
+class Y:
+    def __init__(self):        rm.enforce("xtoy", "onetoone", "directional")  # probably redundant
+    def setX(self, x):         rm.add_rel(x, self, "xtoy")
+    def getX(self):     return rm.find_source(self, "xtoy")
+    def clearX(self):          rm.remove_rel(self.getX(), self, "xtoy")
+```
+
+Note that both classes calling `rm.enforce` is possibly redundant, since its telling the rm the same information - depending on the order of initialisation of your classes. 
+ 
+
+
+
+
+## Examples
+
+### Observer pattern
+Here is an example of hiding the use of Relationship Manager, 
+found in the examples folder as `relmgr/examples/observer.py` - the
+classic Subject/Observer pattern:
+
+```python
+from relmgr import RelationshipManager
+
+
+rm = RelationshipManager()
+
+
+class Observer:
+   
+    @property
+    def subject(self):
+        return rm.find_target(self)
+
+    @subject.setter
+    def subject(self, _subject):
+        rm.add_rel(self, _subject)
+
+    def notify(self, subject, notification_type):
+        pass  # implementations override this and do something
+
+
+class Subject:
+
+    def notify_all(self, notification_type: str):
+        observers = rm.find_sources(self)  # all things pointing at me
+        for o in observers:
+            o.Notify(self, notification_type)
+
+    def add_observer(self, observer):
+        rm.add_rel(observer, self)
+
+    def remove_observer(self, observer):
+        rm.remove_rel(source=observer, target=self)
+
+```
+
+When using the Subject and Observer, you use their methods without realising their functionality has been implemented using rm.  See `tests/python/examples/test_observer.py` in the [GitHub project](https://github.com/abulka/relationship-manager) for the unit tests for this code.
+
+### Modelling Person -->* Order 
 
 This example uses the Boo .NET assembly, which is quite usable from other .NET langauges like C# and VB.NET etc.  Alternatively you can adapt this example to use the pure C# implementation assembly (something I should publish here at some stage).
 
@@ -321,6 +308,8 @@ Say you want to model a Person class which has one or more Orders.  The Orders 
 Instead of hand coding and reinventing techniques for doing all the AddOrder() methods and GetOrders() methods etc. using ArrayLists and whatever, we can do it using the relationship manager object instead, which turns out to be simpler and faster and less error prone. 
 
 The RM (relationship manager) is implemented in this particular example as a static member of the base BO (business object) class.  Thus in this situation all business objects will be using the same relationship manager.
+
+This code uses the old v1 API documented in the [GitHub project](https://github.com/abulka/relationship-manager).
 
 Here is the c# code to implement the above UML:
 
@@ -403,15 +392,6 @@ namespace WindowsApplicationUsing\_RelationshipManagerDllTest001 {
 Here is the project source code [WindowsApplicationUsing RelationshipManagerDllTest001.rar](http://www.atug.com/downloads/RmBooNet/WindowsApplicationUsing%20RelationshipManagerDllTest001.rar) 
 
 
-
-
-
-## Appendix - Constraints
-
-Not sure exactly what this document is about, I'd have to study it (it was created 20 years ago) - but it looks kind of interesting.
-
-<iframe src="/files/rm-one to one and many maps 01.html" name="frame1" scrolling="yes" frameborder="yes" align="center" height = "842px" width = "800">
-</iframe>
 
 ## Future Directions
 

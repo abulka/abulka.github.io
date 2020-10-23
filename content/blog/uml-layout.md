@@ -180,7 +180,7 @@ Here is that small research sub-project https://github.com/abulka/pynsource/tree
 
 ### Sample Images
 
-![png your image](/images/uml/content/en/blog/newcat/uml/test-uml.png)
+![png your image](/images/uml/content/blog/newcat/uml/test-uml.png)
 
 ![png your image](/images/uml/fred-uml.png)
 

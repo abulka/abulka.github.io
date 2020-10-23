@@ -173,28 +173,28 @@ Note that images will **always** end up in a subdirectory structure - even if yo
 {{% /alert %}}
 
 So you need to specify a long path into the static dir - related to where your *original* source code lives e.g.
-`/images/uml/content/en/blog/newcat/uml/test-uml.png`
+`/images/uml/content/blog/newcat/uml/test-uml.png`
 
-![png your image](/images/uml/content/en/blog/newcat/uml/test-uml.png)
+![png your image](/images/uml/content/blog/newcat/uml/test-uml.png)
 
 
 __shortcode hack version:__
-![png your image]({{< andy/img "images/uml/content/en/blog/newcat/uml/test-uml.png" >}})
+![png your image]({{< andy/img "images/uml/content/blog/newcat/uml/test-uml.png" >}})
 
 ## docsy theme visualised using my tool
 
-[![svg your image](/images/uml/content/en/blog/newcat/uml/docsy.svg)](/images/uml/content/en/blog/newcat/uml/docsy.svg)
+[![svg your image](/images/uml/content/blog/newcat/uml/docsy.svg)](/images/uml/content/blog/newcat/uml/docsy.svg)
 
 __shortcode hack version:__
-[![svg your image]({{< andy/img "images/uml/content/en/blog/newcat/uml/docsy.svg" >}})]({{< andy/img "images/uml/content/en/blog/newcat/uml/docsy.svg" >}})
+[![svg your image]({{< andy/img "images/uml/content/blog/newcat/uml/docsy.svg" >}})]({{< andy/img "images/uml/content/blog/newcat/uml/docsy.svg" >}})
 
 ## my new 'imgsvg' shortcode attempt 
 it works!
 
-{{< andy/img2 "images/uml/content/en/blog/newcat/uml/docsy.svg" >}}
+{{< andy/img2 "images/uml/content/blog/newcat/uml/docsy.svg" >}}
 just the image
 
-{{< andy/imgsvg "images/uml/content/en/blog/newcat/uml/docsy.svg" >}}
+{{< andy/imgsvg "images/uml/content/blog/newcat/uml/docsy.svg" >}}
 image with clickable link
 
 

@@ -221,16 +221,16 @@ class Y:
                 <ol>
                     <li>
                         <p>When you create a bi-directional enforcement rule (Scenario 3) with a call to <code>rm.enforce("xy", "onetoone", "bidirectional")</code> you are actually causing rm to create <i>two</i> relationship entries in the rm. This means
-                            you can reliably use a <code>rm.find_target()</code> call from either side, knowing there is a relationship in both directions.</p>
+                            you can reliably use a <code>rm.find_target(source=self)</code> call from either side, knowing there is a relationship in both directions.</p>
                     </li>
                     <li>
                         <p>When you create a directional enforcement rule (Scenario 3A) with a call to <code>rm.enforce("xy", "onetoone", "directional")</code> or leave out this call altogether, you are causing rm to create <i>only</i> the relationships
-                            that you ask for. Thus classes on the 'target' side of a relationship cannot call <code>rm.find_target()</code> to find out who is pointing to them. They can however, thanks to the magic of rm, call <code>rm.find_source()</code>                            to derive this information.
+                            that you ask for. Thus classes on the 'target' side of a relationship cannot call <code>rm.find_target(source=self)</code> to find out who is pointing to them. They can however, thanks to the magic of rm, call <code>rm.find_source()</code>                            to derive this information.
                         </p>
                     </li>
                     <li>
                         <p>This means bidirectional relationships never actually need to be used or declared, 😲, since an implicit back-pointer (i.e. a back reference) is <i>always deducible</i> using <code>rm.find_source()</code>, when using a Relationship
-                            Manager! In fact a bidirectional relationships creates extra entries in the rm datastructure, and slightly more overhead in performance (maintaining both relationships e.g. in the case of creation and removal).</p>
+                            Manager! In fact a bidirectional relationship creates extra entries in the rm datastructure, and slightly more overhead in performance (maintaining both relationships e.g. in the case of creation and removal).</p>
                         <p>However you may still want to declare a bidirectional relationship for its semantic value in your particular business logic domain, or for domain modelling accuracy - or even just for your own implementation preferences.
                         </p>
                     </li>
