@@ -35,7 +35,7 @@ Download as [pdf](/files/rm_AndyBulkaRelationshipManagerPattern.pdf).
 
 The examples on this page use the modern v2. Python implementation. 
 
-Relationship Manager has also been implemented in Python, Boo (.net), C# (.net) and Java - see the Relationship Manager [GitHub project](https://github.com/abulka/relationship-manager) for all implementation source code.
+Relationship Manager has also been implemented in Python, C# (.net4 and .net core) and Java - see the Relationship Manager [GitHub project](https://github.com/abulka/relationship-manager) for all implementation source code.
 
 ### Installation
 
@@ -254,7 +254,7 @@ Note that both classes calling `rm.enforce` is possibly redundant, since its tel
 
 ## Examples
 
-### Observer pattern
+### Python Example - Observer pattern
 Here is an example of hiding the use of Relationship Manager, 
 found in the examples folder as `relmgr/examples/observer.py` - the
 classic Subject/Observer pattern:
@@ -297,11 +297,9 @@ class Subject:
 
 When using the Subject and Observer, you use their methods without realising their functionality has been implemented using rm.  See `tests/python/examples/test_observer.py` in the [GitHub project](https://github.com/abulka/relationship-manager) for the unit tests for this code.
 
-### Modelling Person -->* Order 
+### C# Example - modelling Person -->* Order
 
-This example uses the Boo .NET assembly, which is quite usable from other .NET langauges like C# and VB.NET etc.  Alternatively you can adapt this example to use the pure C# implementation assembly (something I should publish here at some stage).
-
-Say you want to model a Person class which has one or more Orders.  The Orders class has a backpointer back to the Person owning it.
+Say you want to model a Person class which has one or more Orders.  The Order class needs to have a backpointer - back to the Person owning that order.
 
 ![](http://www.atug.com/andypatterns/images/PersonToOrderUsingRM001.gif)
 
@@ -309,93 +307,160 @@ Instead of hand coding and reinventing techniques for doing all the AddOrder() m
 
 The RM (relationship manager) is implemented in this particular example as a static member of the base BO (business object) class.  Thus in this situation all business objects will be using the same relationship manager.
 
-This code uses the old v1 API documented in the [GitHub project](https://github.com/abulka/relationship-manager).
+> Note that the use of Relationship Manager is hidden, and is a mere implementation detail.
 
-Here is the c# code to implement the above UML:
+Here is the c# code to implement the above UML. This code uses the v1 API documented in the Relationship Manager [GitHub project](https://github.com/abulka/relationship-manager):
 
 ```c#
 using System;
 using System.Collections;
-using RelationshipManager55;
+using System.Collections.Generic;
+using RelationshipManager.Interfaces;
+using RelationshipManager.Turbo;
 
-namespace WindowsApplicationUsing\_RelationshipManagerDllTest001 {
-  ///   
-  /// BO is the base Business Object class which holds a single static reference  
-  /// to a relationship manager. This one relationship manager is  
-  /// used for managing all the relationships between Business Objects.  
-  ///   
-  public class BO // Base business object  
-  {
-    static protected RM1 RM = new RM1();
-  }
+namespace Example_Person_Order_Console_App
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var jane = new Person("Jane");
+            var order1 = new Order("Boots");
+            var order2 = new Order("Clothes");
+            jane.AddOrder(order1);
+            jane.AddOrder(order2);
 
-  ///   
-  /// Person class points to one or more orders.  
-  /// Implemented using a relationship manager rather   
-  /// than via pointers and arraylists etc.  
-  ///   
-  public class Person: BO {
-    public string name;
+            // test forward pointer wiring
+            Console.WriteLine(jane + " has " + jane.GetOrders().Count + " orders");
 
-    static Person() {
-      RM.ER("p->o", "onetomany", "bidirectional");
-    }
+            // test the backpointer wiring
+            foreach (var order in jane.GetOrders())
+            {
+                Console.WriteLine("The person who ordered " + order + " is " + order.GetPerson());
+            }
 
-    public Person(string name) {
-      this.name = name;
-    }
-    public override string ToString() {
-      return "Person: " + this.name;
-    }
+            Console.WriteLine("Done!");
 
-    public void AddOrder(Order o) {
-      RM.R(this, o, "p->o");
-    }
-    public void RemoveOrder(Order o) {
-      RM.NR(this, o, "p->o");
-    }
-    public IList GetOrders() {
-      return RM.PS(this, "p->o");
-    }
-  }
+        }
 
-  ///   
-  /// Order class points back to the person holding the order.  
-  /// Implemented using a relationship manager rather             /// than via pointers and arraylists etc.  
-  ///   
-  public class Order: BO {
-    public string description;
+        ///   
+        /// BO is the base Business Object class which holds a single static reference  
+        /// to a relationship manager. This one relationship manager is  
+        /// used for managing all the relationships between Business Objects
+        /// like Person and Order.  
+        ///   
+        public class BO // Base business object  
+        {
+            static protected RelationshipMgrTurbo rm = new RelationshipMgrTurbo();
+        }
 
-    public Order(string description) {
-      this.description = description;
-    }
-    public override string ToString() {
-      return "Order Description: " + this.description;
-    }
 
-    public void SetPerson(Person p) {
-      RM.R(p, this, "p->o"); // though mapping is bidirectional,  
-      there is still a primary relationship direction !
+        ///   
+        /// Person class points to one or more orders.  
+        /// Implemented using a relationship manager rather   
+        /// than via pointers and arraylists etc.  
+        ///   
+        public class Person : BO
+        {
+            public string name;
+
+            static Person()
+            {
+                rm.EnforceRelationship("p->o", Cardinality.OneToMany, Directionality.DirectionalWithBackPointer);
+            }
+
+            public Person(string name)
+            {
+                this.name = name;
+            }
+
+            public override string ToString()
+            {
+                return "Person: " + this.name;
+            }
+
+            public void AddOrder(Order o)
+            {
+                rm.AddRelationship(this, o, "p->o");
+            }
+
+            public void RemoveOrder(Order o)
+            {
+                rm.RemoveRelationship(this, o, "p->o");
+            }
+
+            public List<Order> GetOrders()
+            {
+                IList list = rm.FindObjectsPointedToByMe(this, "p->o");
+
+                // cast from list of 'object' to list of 'Person'
+                var result = new List<Order>();
+                foreach (var order in list)
+                    result.Add((Order)order);
+
+                // attempts at other simpler ways to cast a whole list
+                //result = list as List<Order>;  // crash
+                //result = new List<Order>(list); // syntax error?
+
+                return result;
+            }
+        }
+
+        ///   
+        /// Order class points back to the person holding the order.  
+        /// Implemented using a relationship manager rather
+        /// than via pointers and arraylists etc.  
+        ///  
+        public class Order : BO
+        {
+            public string description;
+
+            public Order(string description)
+            {
+                this.description = description;
+            }
+
+            public override string ToString()
+            {
+                return "Order Description: " + this.description;
+            }
+
+            public void SetPerson(Person p)
+            {
+                // though mapping is bidirectional, there is still a primary relationship direction!
+                rm.AddRelationship(p, this, "p->o");
+
+            }
+
+            public Person GetPerson()
+            {
+                // cast from 'object' to 'Person'
+                return (Person)rm.FindObjectPointingToMe(this, "p->o");
+            }
+
+            public void ClearPerson()
+            {
+                rm.RemoveRelationship(this, this.GetPerson(), "p->o");
+            }
+        }
 
     }
-    public Person GetPerson() {
-      return (Person) RM.P(this, "p->o");
-    }
-    public void ClearPerson() {
-      RM.NR(this, this.GetPerson(), "p->o");
-    }
-  }
 
 }
 ```
 
-Here is the project source code [WindowsApplicationUsing RelationshipManagerDllTest001.rar](http://www.atug.com/downloads/RmBooNet/WindowsApplicationUsing%20RelationshipManagerDllTest001.rar) 
+Output:
 
+```
+Person: Jane has 2 orders
+The person who ordered Order Description: Clothes is Person: Jane
+The person who ordered Order Description: Boots is Person: Jane
+Done!
+```
 
+## C# Future Directions
 
-## Future Directions
-
-A generics version of relationship manager would be cool - that way no casting would be required. Presently all calls to relationship manager return objects - which you have to cast to the specific type you actually have stored.
+A generics version of relationship manager would be cool - that way no casting would be required. Presently all calls to relationship manager return objects or lists of objects - which you have to cast to the specific type you actually have stored. You can see this casting in the above example.
 
 ## Resources
 
