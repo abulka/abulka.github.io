@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.75.1" />
+<meta name="generator" content="Hugo 0.74.3" />
 
 <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
 
@@ -26,13 +26,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://abulka.github.io/projects/patterns/relationship-manager/" />
 <meta property="article:published_time" content="2020-10-22T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-10-23T12:31:43+11:00" />
+<meta property="article:modified_time" content="2020-10-28T13:44:54+11:00" />
 <meta itemprop="name" content="Relationship Manager - Design Pattern">
 <meta itemprop="description" content="A central mediating class which records all the one-to-one, one-to-many and many-to-many relationships between a group of selected classes.
 ">
 <meta itemprop="datePublished" content="2020-10-22T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2020-10-23T12:31:43+11:00" />
-<meta itemprop="wordCount" content="4099">
+<meta itemprop="dateModified" content="2020-10-28T13:44:54+11:00" />
+<meta itemprop="wordCount" content="4292">
 
 
 
@@ -46,8 +46,8 @@
 
 
 
-<link rel="preload" href="/scss/main.min.cbea9f094273c8a43af72fe2215a8b1f9f73b87369f938ada2881a668933349a.css" as="style">
-<link href="/scss/main.min.cbea9f094273c8a43af72fe2215a8b1f9f73b87369f938ada2881a668933349a.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/scss/main.min.8319f0938bf5d5a33ffa5c494577715b7ca46c3afe1a7bcdff6a598eb9c2bff1.css" as="style">
+<link href="/scss/main.min.8319f0938bf5d5a33ffa5c494577715b7ca46c3afe1a7bcdff6a598eb9c2bff1.css" rel="stylesheet" integrity="">
 
 
 <script
@@ -119,7 +119,7 @@
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.7cee2df2ab21d6061e9c1d832d44964a04a99af1f2240fdb320bd9f5861255da7e8fa8d88b2a51d31e87c6e2a3e42f5ff87d21192fd4fc99df8ad220c982e324.json"
+  data-offline-search-index-json-src="/offline-search-index.c117c91984e61fd81a06535d0563f76d0ebb75e371df77e02a0ad98da6a296f2f6569b280a9c62393d9d155007c82a60e4e134b6f2320bf8ffcf3b6f9468accb.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -150,7 +150,7 @@
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.7cee2df2ab21d6061e9c1d832d44964a04a99af1f2240fdb320bd9f5861255da7e8fa8d88b2a51d31e87c6e2a3e42f5ff87d21192fd4fc99df8ad220c982e324.json"
+  data-offline-search-index-json-src="/offline-search-index.c117c91984e61fd81a06535d0563f76d0ebb75e371df77e02a0ad98da6a296f2f6569b280a9c62393d9d155007c82a60e4e134b6f2320bf8ffcf3b6f9468accb.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -305,28 +305,15 @@
         <li><a href="#table-of-relationship-scenarios">Table of Relationship Scenarios</a></li>
       </ul>
     </li>
-    <li><a href="#bi-directional-relationships">Bi-directional relationships</a>
+    <li><a href="#back-pointers">Back pointers</a></li>
+    <li><a href="#bi-directional-relationships">Bi-directional relationships</a></li>
+    <li><a href="#examples">Examples</a>
       <ul>
-        <li><a href="#bi-directional-implementations-of-directional-relationships">Bi-directional implementations of directional relationships</a></li>
-        <li><a href="#more-on-directionality-and-backpointers">More on Directionality and Backpointers</a></li>
+        <li><a href="#python-example---observer-pattern">Python Example - Observer pattern</a></li>
+        <li><a href="#c-example---modelling-person----order">C# Example - modelling Person &ndash;&gt;* Order</a></li>
       </ul>
     </li>
-    <li><a href="#back-pointers">Back pointers</a>
-      <ul>
-        <li><a href="#one-to-many">One to many</a></li>
-        <li><a href="#one-to-many-with-back-pointers">One to many, with back pointers</a></li>
-        <li><a href="#more-on-backpointers">More on Backpointers</a></li>
-        <li><a href="#even-more-scraps">Even more (scraps)</a></li>
-      </ul>
-    </li>
-    <li><a href="#more-examples">More Examples</a>
-      <ul>
-        <li><a href="#before-and-after---modeling-composite-design-pattern-in-python">Before and After - Modeling Composite Design Pattern  in Python</a></li>
-        <li><a href="#person-order-modelling-in-net">Person-Order modelling in .NET</a></li>
-      </ul>
-    </li>
-    <li><a href="#appendix---constraints">Appendix - Constraints</a></li>
-    <li><a href="#future-directions">Future Directions</a></li>
+    <li><a href="#c-future-directions">C# Future Directions</a></li>
     <li><a href="#resources">Resources</a></li>
   </ul>
 </nav>
@@ -397,7 +384,7 @@ though persistence is built into Relationship Manager too.</p>
 <p>Download as <a href="/files/rm_AndyBulkaRelationshipManagerPattern.pdf">pdf</a>.</p>
 <h2 id="quick-example">Quick Example</h2>
 <p>The examples on this page use the modern v2. Python implementation.</p>
-<p>Relationship Manager has also been implemented in Python, Boo (.net), C# (.net) and Java - see the Relationship Manager <a href="https://github.com/abulka/relationship-manager">GitHub project</a> for all implementation source code.</p>
+<p>Relationship Manager has also been implemented in Python, C# (.net4 and .net core) and Java - see the Relationship Manager <a href="https://github.com/abulka/relationship-manager">GitHub project</a> for all implementation source code.</p>
 <h3 id="installation">Installation</h3>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">pip install relationship-manager
 </code></pre></div><h3 id="usage">Usage</h3>
@@ -468,8 +455,8 @@ though persistence is built into Relationship Manager too.</p>
 <tbody>
 <tr>
 <td></td>
-<td><em>one to one</em><br><code>1 --&gt; 1</code></td>
-<td><em>one to one</em><br><code>1 &lt;--&gt; 1</code></td>
+<td>_one to one_<br><code>1 --&gt; 1</code></td>
+<td>_one to one_<br><code>1 &lt;--&gt; 1</code></td>
 <td></td>
 </tr>
 <tr>
@@ -498,8 +485,8 @@ though persistence is built into Relationship Manager too.</p>
 </tr>
 <tr>
 <td></td>
-<td><em>one to many</em><br><code>1 --&gt; *</code></td>
-<td><em>one to many</em><br><code>1 &lt;--&gt; *</code></td>
+<td>_one to many_<br><code>1 --&gt; *</code></td>
+<td>_one to many_<br><code>1 &lt;--&gt; *</code></td>
 <td></td>
 </tr>
 <tr>
@@ -522,8 +509,8 @@ though persistence is built into Relationship Manager too.</p>
 </tr>
 <tr>
 <td></td>
-<td><em>many to one</em><br><code>* --&gt; 1</code></td>
-<td><em>many to one</em><br><code>* &lt;--&gt; 1</code></td>
+<td>_many to one_<br><code>* --&gt; 1</code></td>
+<td>_many to one_<br><code>* &lt;--&gt; 1</code></td>
 <td></td>
 </tr>
 <tr>
@@ -540,8 +527,8 @@ though persistence is built into Relationship Manager too.</p>
 </tr>
 <tr>
 <td></td>
-<td><em>many to many</em><br><code>* --&gt; *</code></td>
-<td><em>many to many</em><br><code>* &lt;--&gt; *</code></td>
+<td>_many to many_<br><code>* --&gt; *</code></td>
+<td>_many to many_<br><code>* &lt;--&gt; *</code></td>
 <td></td>
 </tr>
 <tr>
@@ -796,16 +783,16 @@ class Y:
                 <ol>
                     <li>
                         <p>When you create a bi-directional enforcement rule (Scenario 3) with a call to <code>rm.enforce("xy", "onetoone", "bidirectional")</code> you are actually causing rm to create <i>two</i> relationship entries in the rm. This means
-                            you can reliably use a <code>rm.find_target()</code> call from either side, knowing there is a relationship in both directions.</p>
+                            you can reliably use a <code>rm.find_target(source=self)</code> call from either side, knowing there is a relationship in both directions.</p>
                     </li>
                     <li>
                         <p>When you create a directional enforcement rule (Scenario 3A) with a call to <code>rm.enforce("xy", "onetoone", "directional")</code> or leave out this call altogether, you are causing rm to create <i>only</i> the relationships
-                            that you ask for. Thus classes on the 'target' side of a relationship cannot call <code>rm.find_target()</code> to find out who is pointing to them. They can however, thanks to the magic of rm, call <code>rm.find_source()</code>                            to derive this information.
+                            that you ask for. Thus classes on the 'target' side of a relationship cannot call <code>rm.find_target(source=self)</code> to find out who is pointing to them. They can however, thanks to the magic of rm, call <code>rm.find_source()</code>                            to derive this information.
                         </p>
                     </li>
                     <li>
                         <p>This means bidirectional relationships never actually need to be used or declared, 😲, since an implicit back-pointer (i.e. a back reference) is <i>always deducible</i> using <code>rm.find_source()</code>, when using a Relationship
-                            Manager! In fact a bidirectional relationships creates extra entries in the rm datastructure, and slightly more overhead in performance (maintaining both relationships e.g. in the case of creation and removal).</p>
+                            Manager! In fact a bidirectional relationship creates extra entries in the rm datastructure, and slightly more overhead in performance (maintaining both relationships e.g. in the case of creation and removal).</p>
                         <p>However you may still want to declare a bidirectional relationship for its semantic value in your particular business logic domain, or for domain modelling accuracy - or even just for your own implementation preferences.
                         </p>
                     </li>
@@ -1169,304 +1156,256 @@ class Y:
         </tr>
     </tbody>
 </table>
-<p>These scenarios are all unit tested in <code>tests/python/test_enforcing.py</code> in the Github project.</p>
-<hr>
-<h2 id="bi-directional-relationships">Bi-directional relationships</h2>
-<h3 id="bi-directional-implementations-of-directional-relationships">Bi-directional implementations of directional relationships</h3>
-<p>We must distinguish between a relationship that in its meaning, goes both ways, and a relationship which goes one way only.  And furthermore, implementationally, you can have RM methods on one class only, on the other class only, or on both classes.  The meaning of the relationship and the implementation (methods to create and look up those relationships) are two different things!</p>
-<p>Thus when you put an API (relationship manager methods) on both classes this might seem to imply that you are implementing bi-directionality.  However this does not mean that the &ldquo;relationship&rdquo; points in both directions.  The meaning of the relationship is often in one direction only, and the existence of methods on both classes merely gives you a convenient way of querying the relationships that exist.</p>
-<p>Thus the same relationship id should be used in both classes e.g. <code>&quot;xtoy&quot;</code> (notice the sense of directionality is built into the name of the relationship!), even though it is a bidirectional relationship in the sense that there is an API on both classes allowing each class to find the other class.  In the following implementation of a one to many relationship between class X and class Y, notice the same relationship id <code>&quot;xtoy&quot;</code> must be used in both classes.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">X</span><span style="color:#000;font-weight:bold">:</span>  
-    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>        <span style="color:#000">RM</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">ER</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;xtoy&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;onetomany&#34;</span><span style="color:#000;font-weight:bold">,</span>   
-                                     <span style="color:#4e9a06">&#34;bidirectional&#34;</span><span style="color:#000;font-weight:bold">)</span>  
-    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">addY</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">y</span><span style="color:#000;font-weight:bold">):</span> <span style="color:#000">RM</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">R</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">y</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;xtoy&#34;</span><span style="color:#000;font-weight:bold">)</span>  
-    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">getAllY</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>  <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">RM</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">PS</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;xtoy&#34;</span><span style="color:#000;font-weight:bold">)</span>  
-    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">removeY</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">y</span><span style="color:#000;font-weight:bold">):</span>      <span style="color:#000">RM</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">NR</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">y</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;xtoy&#34;</span><span style="color:#000;font-weight:bold">)</span>  
-    
-
-<span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Y</span><span style="color:#000;font-weight:bold">:</span>  
-    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">setX</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">x</span><span style="color:#000;font-weight:bold">):</span> <span style="color:#000">RM</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">R</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">x</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;xtoy&#34;</span><span style="color:#000;font-weight:bold">)</span>  
-    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">getX</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>     <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">RM</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">P</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;xtoy&#34;</span><span style="color:#000;font-weight:bold">)</span>  
-    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">clearX</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>          <span style="color:#000">RM</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">NR</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">getX</span><span style="color:#000;font-weight:bold">(),</span> <span style="color:#4e9a06">&#34;xtoy&#34;</span><span style="color:#000;font-weight:bold">)</span>  
-</code></pre></div><h3 id="more-on-directionality-and-backpointers">More on Directionality and Backpointers</h3>
-<p>Relationships are here considered directional.  So when you add a relationship with R(a,b) then <strong>a</strong> points to <strong>b</strong>.</p>
-<p>Using a relationship manager you can get it deduce who is pointing at you, which means you get &lsquo;back-references&rsquo; for free.  However being able to determine a back-reference doesn&rsquo;t mean that the model you are building <em>officially</em> has this pointer connection.  Thus we must distinguish official pointers from deducible back references / back pointers. </p>
-<p>To find what <strong>a</strong> points to, use P(a).  To find out what is pointing at <strong>b</strong>, use B(b).  </p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">API Short-hand</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">P(a)</td>
-<td>Find Pointer From</td>
-</tr>
-<tr>
-<td style="text-align:center">B(b)</td>
-<td>Find Back Reference To</td>
-</tr>
-</tbody>
-</table>
-<p>Thus, just because you point at something doesn&rsquo;t mean it is officially pointing back at you. But, using a relationship manager you can deduce who is pointing at you.</p>
-<p>So if&hellip;</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">API Short-hand</th>
-<th>Comment</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">R(a,b)</td>
-<td>if you make <strong>a</strong> point to <strong>b</strong></td>
-</tr>
-</tbody>
-</table>
-<p>then&hellip;</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">API Short-hand</th>
-<th>Comment</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">P(a) == b</td>
-<td><strong>a</strong> points to <strong>b</strong></td>
-</tr>
-<tr>
-<td style="text-align:center">B(b) == a</td>
-<td>the thing pointing at <strong>b</strong> is <strong>a</strong></td>
-</tr>
-<tr>
-<td style="text-align:center">P(b) == null</td>
-<td><strong>b</strong> doesn&rsquo;t point at anything<br> <em>(crucial distinction - see above line).</em></td>
-</tr>
-<tr>
-<td style="text-align:center">B(a) == null</td>
-<td>nothing is pointing back at <strong>a</strong></td>
-</tr>
-</tbody>
-</table>
-<p><img src="http://www.atug.com/andypatterns/_themes/canvas/acnvrule.gif" alt=""></p>
+<p>These scenarios are all unit tested in <code>tests/python/test_enforcing.py</code> in the <a href="https://github.com/abulka/relationship-manager">GitHub project</a>.</p>
 <hr>
 <h2 id="back-pointers">Back pointers</h2>
 <p>One of the benefits of the relationship manager pattern is that <em>you don&rsquo;t have to explicitly wire up and maintain back-pointers</em>.  Once you add a pointer relationship, you get the back pointer relationship available, for free.  And once you delete the pointer relationship, the back-pointer relationship goes away automatically too.</p>
-<p>However if you want to delete or change the back-pointer relationship (from Y&rsquo;s perspective) then you must talk to the relationship manager in terms of the relationship &ldquo;xtoy&rdquo;.  If you imlplement  the back-pointer relationship as a different relationship, with a different relationshipId, then you will fall prey to the same out of synch problems that traditional spaghetti wiring techniques often fall prey to.  The trick is to treat the relationship as two sides of the <em>one relationshipId</em>.</p>
-<h3 id="one-to-many">One to many</h3>
-<p> <img src="http://www.atug.com/andypatterns/images/rm_the3.gif" alt=""></p>
-<p>Class X points to many instances of class Y.</p>
-<h4 id="methods-on-class-x">Methods on class X</h4>
-<table>
-<thead>
-<tr>
-<th>Returns</th>
-<th>Example method name</th>
-<th>Implementation in RM</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>void</td>
-<td>add(y)</td>
-<td><code>R(x, y, &quot;xtoy*&quot;)</code></td>
-</tr>
-<tr>
-<td>list</td>
-<td>getAll()</td>
-<td><code>PS(x, &quot;xtoy*&quot;)</code></td>
-</tr>
-<tr>
-<td>void</td>
-<td>remove(y)</td>
-<td><code>NR(x, y, &quot;xtoy*&quot;)</code></td>
-</tr>
-</tbody>
-</table>
-<h4 id="methods-on-class-y">Methods on class Y</h4>
-<p>None.</p>
-<h4 id="notes">Notes:</h4>
-<ol>
-<li>Notice that the relationshipId has a <code>*</code> symbol in it.  This means that you can add multiple relationships of that type without the relationship manager removing the prior relationship. Not sure which of my Relationship Manager implementations auto-support this - its been so long ago&hellip;</li>
-</ol>
-<h3 id="one-to-many-with-back-pointers">One to many, with back pointers</h3>
-<p><img src="http://www.atug.com/andypatterns/images/rm_the4.gif" alt=""></p>
-<h4 id="methods-on-class-x-1">Methods on class X</h4>
-<table>
-<thead>
-<tr>
-<th>Returns</th>
-<th>Example method name</th>
-<th>Implementation in RM</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>void</td>
-<td>add(y)</td>
-<td><code>R(x, y, &quot;xtoy*&quot;)</code></td>
-</tr>
-<tr>
-<td>list</td>
-<td>getAll()</td>
-<td><code>PS(x, &quot;xtoy*&quot;)</code></td>
-</tr>
-<tr>
-<td>void</td>
-<td>remove(y)</td>
-<td><code>NR(x, y, &quot;xtoy*&quot;)</code></td>
-</tr>
-</tbody>
-</table>
-<h4 id="methods-on-class-y-1">Methods on class Y</h4>
-<table>
-<thead>
-<tr>
-<th>Returns</th>
-<th>Example method name</th>
-<th>Implementation in RM</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>X</td>
-<td>getBackPointer()</td>
-<td><code>B(y, &quot;xtoy*&quot;)</code></td>
-</tr>
-</tbody>
-</table>
-<p><em>and optionally setter methods &hellip;</em></p>
-<table>
-<thead>
-<tr>
-<th>Returns</th>
-<th>Example method name</th>
-<th>Implementation in RM</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>void</td>
-<td>setBackPointer(x)</td>
-<td><code>R(x, y, &quot;xtoy*&quot;)</code><br> <em>or simply call <code>x.setPointer(this)</code></em></td>
-</tr>
-<tr>
-<td>void</td>
-<td>clearBackPointer()</td>
-<td><code>NR(x, y, &quot;xtoy*&quot;)</code><br><em>or simply call <code>x._clearPointer()</code></em></td>
-</tr>
-</tbody>
-</table>
-<hr>
-<h3 id="more-on-backpointers">More on Backpointers</h3>
-<p>Backpointers are pointers on the &ldquo;receiving end&rdquo; of a relationship, so that the receiving object knows who is pointing at it.  For example when a Customer places an Order, it might be convenient for any particular order instance to know which customer ordered it.  I think you can choose to conceive of the backpointer in a few different ways:</p>
+<p>The following <a href="http://www.atug.com/andypatterns/code/proxydecorator01.zip">code</a> is a good example of how the use of RM saves you from having to explicitly maintain backpointers. P.S. To run the code you also need the support files found <a href="http://www.atug.com/downloads/pythonRmProof.zip">here</a>.  View the code below (requires the flash plugin) - showing an implementation of a Composite Pattern, with back pointer - or simply read the <a href="http://www.atug.com/downloads/rm_annotation_by_ANDY_01.PDF">pdf</a> directly.</p>
+<iframe src="/files/rm_annotation_by_ANDY_01.html" name="frame1" scrolling="yes" frameborder="yes" align="center" height = "842px" width = "800">
+</iframe>
+<p>Backpointers are pointers on the &ldquo;target end&rdquo; of a relationship, so that the target object knows who is pointing at it.  For example when a Customer places an Order, it might be convenient for any particular order instance to know which customer ordered it.  I think you can choose to conceive of the backpointer in a few different ways:</p>
 <ul>
 <li>as an extra, separate relationship or</li>
 <li>as part of the one bidirectional relationship or</li>
 <li>merely a convenience method in the implementation in the r.h.s. class</li>
 </ul>
 <p>The easiest way of implementing this backpointer without using relationship manager is to follow the Martin Fowler refactoring technique - see Martin Fowler &lsquo;Refactorings&rsquo; p. 197 &ldquo;Change Unidirectional Association to Bidirectional&rdquo; - this will ensure you get the wiring correct.  In this refactoring, you decide which class is the master and which is the slave etc.  See the before and after python pdf below for an example of the correct wiring.</p>
-<p>The way of implementing a backpointer using relationship manager is simply to call the <strong>findObjectPointingToMe(toMe, id)</strong> method.  Since a RM holds all relationships, it can answer lots of questions for free - just like SQL queries to a database.  See the before and after python pdf below for an example of using findObjectPointingToMe().</p>
-<h3 id="even-more-scraps">Even more (scraps)</h3>
-<p>If you chose to have backpointer setter methods on class Y, you need not necessarily call the wrapping methods on X in order to implement them e.g. <code>setBackPointer(x)</code> is implemented by simply calling <code>x.setPointer(this)</code> (although it is recommended that you do, since X is the &lsquo;controlling&rsquo; class for the relationship - see <a href="https://martinfowler.com/books/refactoring.html">Martin Fowler &lsquo;Refactorings&rsquo;</a> p. 197 &ldquo;Change Unidirectional Association to Bidirectional&rdquo;).</p>
-<p>You could alternatively call the relationship manager directly, thus setBackPointer(x) becomes a call to <code>R(x, y, &quot;xtoy&quot;)</code> and <code>clearBackPointer()</code>  becomes a call to <code>NR(x, y, &quot;xtoy&quot;)</code>.</p>
-<h2 id="more-examples">More Examples</h2>
-<h3 id="before-and-after---modeling-composite-design-pattern-in-python">Before and After - Modeling Composite Design Pattern  in Python</h3>
-<p>The following <a href="http://www.atug.com/andypatterns/code/proxydecorator01.zip">code</a> is a good example of how the use of RM saves you from having to explicitly maintain backpointers. P.S. To run the code you also need the support files found <a href="http://www.atug.com/downloads/pythonRmProof.zip">here</a>.  View the code below (requires the flash plugin) - showing an implementation of a Composite Pattern, with back pointer - or simply read the <a href="http://www.atug.com/downloads/rm_annotation_by_ANDY_01.PDF">pdf</a> directly.</p>
-<iframe src="/files/rm_annotation_by_ANDY_01.html" name="frame1" scrolling="yes" frameborder="yes" align="center" height = "842px" width = "800">
-</iframe>
-<h3 id="person-order-modelling-in-net">Person-Order modelling in .NET</h3>
-<p>This example uses the Boo .NET assembly, which is quite usable from other .NET langauges like C# and VB.NET etc.  Alternatively you can adapt this example to use the pure C# implementation assembly (something I should publish here at some stage).</p>
-<p>Say you want to model a Person class which has one or more Orders.  The Orders class has a backpointer back to the Person owning it.</p>
+<p>The way of implementing a backpointer using relationship manager is simply to call the <code>rm.find_source(target=self)</code> method.  Since a rm holds all relationships, it can answer lots of questions for free - just like SQL queries to a database.</p>
+<hr>
+<h2 id="bi-directional-relationships">Bi-directional relationships</h2>
+<p>A bi-directional relationship between X and Y means both sides have pointers to each other.</p>
+<p><img src="/images/uml/content/projects/patterns/uml/rm-bidirectionality.svg" alt="svg your image"></p>
+<p>or just</p>
+<p><img src="/images/uml/content/projects/patterns/uml/rm-bidirectionality2.svg" alt="svg your image"></p>
+<p>Within this seemingly obvious idea are a myriad of nuances:</p>
+<p>We must distinguish between a relationship that in its domain meaning, goes both ways, and a relationship which goes one way only.  And furthermore, implementationally, you can have RM methods on one class only, on the other class only, or on both classes.  The meaning of the relationship and the implementation (methods to create and look up those relationships) are two different things!</p>
+<ul>
+<li>As the diagram above shows, one bi-bidirectional relationship is arguably shorthand for two directional relationships.</li>
+</ul>
+<p>In fact in the Python rm implementation, when you create a bi-directional enforcement rule (e.g. Scenario 3) with a call to <code>rm.enforce(&ldquo;xy&rdquo;, &ldquo;onetoone&rdquo;, &ldquo;bidirectional&rdquo;)</code> you are actually causing rm to create <i>two</i> relationship entries in the rm. This means you can reliably use a <code>rm.find_target(source=self)</code> call from either side, knowing there is a relationship in both directions.</p>
+<ul>
+<li>The methods you implement on your classes to create and look up relationships can influence your perception of what is pointing to what.</li>
+</ul>
+<p>When you put an API (relationship manager methods) on both classes this might seem to imply that you are implementing bi-directionality - however this does <em>not mean</em> that the &ldquo;semantic relationship&rdquo; points in both directions.  The meaning of the relationship is often in one direction only, and the existence of methods on both classes merely gives you a convenient way of querying the directional relationship that exists.</p>
+<p>A rm, like a database, allows you to &lsquo;cheat&rsquo; and find out who is pointing to a class even though that class has no actual pointers implementing &lsquo;am pointed to by&rsquo;. This is accomplished by using <code>rm.find_source(target=self)</code>. But just because a rm let&rsquo;s you find out this knowledge doesn&rsquo;t mean there is a official modelling of this back-relationship in your domain.</p>
+<ul>
+<li>Back-pointer relationships are not the same thing as official, semantic relationships.</li>
+</ul>
+<p>However you may still want to declare a bidirectional relationship for its semantic value in your particular business logic domain, or for domain modelling accuracy - or even just for your own implementation preferences.</p>
+<ul>
+<li>A bi-directional relationship (pair) can be implemented more efficiently by a single directional relationship together with the magic rm back-pointer lookup call <code>rm.find_source(target=self)</code>.</li>
+</ul>
+<p>When you create a directional enforcement rule (e.g. Scenario 3A) with a call to <code>rm.enforce(&ldquo;xy&rdquo;, &ldquo;onetoone&rdquo;, &ldquo;directional&rdquo;)</code> or leave out this call altogether, you are causing rm to create <i>only</i> the relationships that you ask for. Thus classes on the &lsquo;target&rsquo; side of a relationship cannot call <code>rm.find_target(source=self)</code> to find out who is pointing to them. They can however, thanks to the back-pointer lookup magic of rm, call <code>rm.find_source(target=self)</code> to derive this information.</p>
+<p>This means bidirectional relationships never actually need to be used or declared, 😲, since an implicit back-pointer (i.e. a back reference) is <i>always deducible</i> using <code>rm.find_source()</code>, when using a Relationship Manager! In fact a bidirectional relationship creates extra entries in the rm datastructure, and slightly more overhead in performance (maintaining both relationships e.g. in the case of creation and removal).</p>
+<ul>
+<li>Name your relationships with direction in mind</li>
+<li>If you choose to implement relationship related methods on both classes use the same relationship id on both sides.</li>
+</ul>
+<p>The same relationship id should be used in both classes e.g. <code>&quot;xtoy&quot;</code> (notice the sense of directionality is built into the name of the relationship!). Even though there is an API on both classes allowing each class to find the other class, does not turn the relationship semantics to be bi-directional from the point of view of domain modelling, but only in a convenient implementation sense. </p>
+<p>Some may frown on this ability of an implementation to cheat and betray the domain model. Perhaps a flag could be set in the rm to disallow use of the back-pointer lookup magic <code>rm.find_source(target=self)</code> of rm,.</p>
+<p>In the following implementation of a one to many relationship between class X and class Y, notice the same relationship id <code>&quot;xtoy&quot;</code> must be used in both classes.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">X</span><span style="color:#000;font-weight:bold">:</span>
+    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>        <span style="color:#000">rm</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">enforce</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;xtoy&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;onetoone&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;directional&#34;</span><span style="color:#000;font-weight:bold">)</span>
+    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">setY</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">y</span><span style="color:#000;font-weight:bold">):</span>         <span style="color:#000">rm</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">add_rel</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">y</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;xtoy&#34;</span><span style="color:#000;font-weight:bold">)</span>
+    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">getY</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>     <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">rm</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">find_target</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;xtoy&#34;</span><span style="color:#000;font-weight:bold">)</span>
+    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">clearY</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>          <span style="color:#000">rm</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">remove_rel</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">getY</span><span style="color:#000;font-weight:bold">(),</span> <span style="color:#4e9a06">&#34;xtoy&#34;</span><span style="color:#000;font-weight:bold">)</span>
+
+<span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Y</span><span style="color:#000;font-weight:bold">:</span>
+    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>        <span style="color:#000">rm</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">enforce</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;xtoy&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;onetoone&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;directional&#34;</span><span style="color:#000;font-weight:bold">)</span>  <span style="color:#8f5902;font-style:italic"># probably redundant</span>
+    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">setX</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">x</span><span style="color:#000;font-weight:bold">):</span>         <span style="color:#000">rm</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">add_rel</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">x</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;xtoy&#34;</span><span style="color:#000;font-weight:bold">)</span>
+    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">getX</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>     <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">rm</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">find_source</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;xtoy&#34;</span><span style="color:#000;font-weight:bold">)</span>
+    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">clearX</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>          <span style="color:#000">rm</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">remove_rel</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">getX</span><span style="color:#000;font-weight:bold">(),</span> <span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;xtoy&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</code></pre></div><p>Note that both classes calling <code>rm.enforce</code> is possibly redundant, since its telling the rm the same information - depending on the order of initialisation of your classes.</p>
+<h2 id="examples">Examples</h2>
+<h3 id="python-example---observer-pattern">Python Example - Observer pattern</h3>
+<p>Here is an example of hiding the use of Relationship Manager,
+found in the examples folder as <code>relmgr/examples/observer.py</code> - the
+classic Subject/Observer pattern:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">relmgr</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">RelationshipManager</span>
+
+
+<span style="color:#000">rm</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">RelationshipManager</span><span style="color:#000;font-weight:bold">()</span>
+
+
+<span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Observer</span><span style="color:#000;font-weight:bold">:</span>
+   
+    <span style="color:#5c35cc;font-weight:bold">@property</span>
+    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">subject</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>
+        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">rm</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">find_target</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">)</span>
+
+    <span style="color:#5c35cc;font-weight:bold">@subject.setter</span>
+    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">subject</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">_subject</span><span style="color:#000;font-weight:bold">):</span>
+        <span style="color:#000">rm</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">add_rel</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">_subject</span><span style="color:#000;font-weight:bold">)</span>
+
+    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">notify</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">subject</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">notification_type</span><span style="color:#000;font-weight:bold">):</span>
+        <span style="color:#204a87;font-weight:bold">pass</span>  <span style="color:#8f5902;font-style:italic"># implementations override this and do something</span>
+
+
+<span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Subject</span><span style="color:#000;font-weight:bold">:</span>
+
+    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">notify_all</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">notification_type</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87">str</span><span style="color:#000;font-weight:bold">):</span>
+        <span style="color:#000">observers</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">rm</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">find_sources</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">)</span>  <span style="color:#8f5902;font-style:italic"># all things pointing at me</span>
+        <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">o</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#000">observers</span><span style="color:#000;font-weight:bold">:</span>
+            <span style="color:#000">o</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Notify</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">notification_type</span><span style="color:#000;font-weight:bold">)</span>
+
+    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">add_observer</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">observer</span><span style="color:#000;font-weight:bold">):</span>
+        <span style="color:#000">rm</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">add_rel</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">observer</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">)</span>
+
+    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">remove_observer</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">observer</span><span style="color:#000;font-weight:bold">):</span>
+        <span style="color:#000">rm</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">remove_rel</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">source</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#000">observer</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">target</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">)</span>
+
+</code></pre></div><p>When using the Subject and Observer, you use their methods without realising their functionality has been implemented using rm.  See <code>tests/python/examples/test_observer.py</code> in the <a href="https://github.com/abulka/relationship-manager">GitHub project</a> for the unit tests for this code.</p>
+<h3 id="c-example---modelling-person----order">C# Example - modelling Person &ndash;&gt;* Order</h3>
+<p>Say you want to model a Person class which has one or more Orders.  The Order class needs to have a backpointer - back to the Person owning that order.</p>
 <p><img src="http://www.atug.com/andypatterns/images/PersonToOrderUsingRM001.gif" alt=""></p>
 <p>Instead of hand coding and reinventing techniques for doing all the AddOrder() methods and GetOrders() methods etc. using ArrayLists and whatever, we can do it using the relationship manager object instead, which turns out to be simpler and faster and less error prone. </p>
 <p>The RM (relationship manager) is implemented in this particular example as a static member of the base BO (business object) class.  Thus in this situation all business objects will be using the same relationship manager.</p>
-<p>Here is the c# code to implement the above UML:</p>
+<blockquote>
+<p>Note that the use of Relationship Manager is hidden, and is a mere implementation detail.</p>
+</blockquote>
+<p>Here is the c# code to implement the above UML. This code uses the v1 API documented in the Relationship Manager <a href="https://github.com/abulka/relationship-manager">GitHub project</a>:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#204a87;font-weight:bold">using</span> <span style="color:#000">System</span><span style="color:#000;font-weight:bold">;</span>
 <span style="color:#204a87;font-weight:bold">using</span> <span style="color:#000">System.Collections</span><span style="color:#000;font-weight:bold">;</span>
-<span style="color:#204a87;font-weight:bold">using</span> <span style="color:#000">RelationshipManager55</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#204a87;font-weight:bold">using</span> <span style="color:#000">System.Collections.Generic</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#204a87;font-weight:bold">using</span> <span style="color:#000">RelationshipManager.Interfaces</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#204a87;font-weight:bold">using</span> <span style="color:#000">RelationshipManager.Turbo</span><span style="color:#000;font-weight:bold">;</span>
 
-<span style="color:#204a87;font-weight:bold">namespace</span> <span style="color:#000">WindowsApplicationUsing</span><span style="color:#a40000">\</span><span style="color:#000">_RelationshipManagerDllTest001</span> <span style="color:#000;font-weight:bold">{</span>
-  <span style="color:#8f5902;font-style:italic">///   
-</span><span style="color:#8f5902;font-style:italic"></span>  <span style="color:#8f5902;font-style:italic">/// BO is the base Business Object class which holds a single static reference  
-</span><span style="color:#8f5902;font-style:italic"></span>  <span style="color:#8f5902;font-style:italic">/// to a relationship manager. This one relationship manager is  
-</span><span style="color:#8f5902;font-style:italic"></span>  <span style="color:#8f5902;font-style:italic">/// used for managing all the relationships between Business Objects.  
-</span><span style="color:#8f5902;font-style:italic"></span>  <span style="color:#8f5902;font-style:italic">///   
-</span><span style="color:#8f5902;font-style:italic"></span>  <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">BO</span> <span style="color:#8f5902;font-style:italic">// Base business object  
-</span><span style="color:#8f5902;font-style:italic"></span>  <span style="color:#000;font-weight:bold">{</span>
-    <span style="color:#204a87;font-weight:bold">static</span> <span style="color:#204a87;font-weight:bold">protected</span> <span style="color:#000">RM1</span> <span style="color:#000">RM</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">RM1</span><span style="color:#000;font-weight:bold">();</span>
-  <span style="color:#000;font-weight:bold">}</span>
+<span style="color:#204a87;font-weight:bold">namespace</span> <span style="color:#000">Example_Person_Order_Console_App</span>
+<span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Program</span>
+    <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#204a87;font-weight:bold">static</span> <span style="color:#204a87;font-weight:bold">void</span> <span style="color:#000">Main</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">string</span><span style="color:#000;font-weight:bold">[]</span> <span style="color:#000">args</span><span style="color:#000;font-weight:bold">)</span>
+        <span style="color:#000;font-weight:bold">{</span>
+            <span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">jane</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">Person</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Jane&#34;</span><span style="color:#000;font-weight:bold">);</span>
+            <span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">order1</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">Order</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Boots&#34;</span><span style="color:#000;font-weight:bold">);</span>
+            <span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">order2</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">Order</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Clothes&#34;</span><span style="color:#000;font-weight:bold">);</span>
+            <span style="color:#000">jane</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">AddOrder</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">order1</span><span style="color:#000;font-weight:bold">);</span>
+            <span style="color:#000">jane</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">AddOrder</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">order2</span><span style="color:#000;font-weight:bold">);</span>
 
-  <span style="color:#8f5902;font-style:italic">///   
-</span><span style="color:#8f5902;font-style:italic"></span>  <span style="color:#8f5902;font-style:italic">/// Person class points to one or more orders.  
-</span><span style="color:#8f5902;font-style:italic"></span>  <span style="color:#8f5902;font-style:italic">/// Implemented using a relationship manager rather   
-</span><span style="color:#8f5902;font-style:italic"></span>  <span style="color:#8f5902;font-style:italic">/// than via pointers and arraylists etc.  
-</span><span style="color:#8f5902;font-style:italic"></span>  <span style="color:#8f5902;font-style:italic">///   
-</span><span style="color:#8f5902;font-style:italic"></span>  <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Person</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">BO</span> <span style="color:#000;font-weight:bold">{</span>
-    <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">string</span> <span style="color:#000">name</span><span style="color:#000;font-weight:bold">;</span>
+            <span style="color:#8f5902;font-style:italic">// test forward pointer wiring
+</span><span style="color:#8f5902;font-style:italic"></span>            <span style="color:#000">Console</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">WriteLine</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">jane</span> <span style="color:#000;font-weight:bold">+</span> <span style="color:#4e9a06">&#34; has &#34;</span> <span style="color:#000;font-weight:bold">+</span> <span style="color:#000">jane</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">GetOrders</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">Count</span> <span style="color:#000;font-weight:bold">+</span> <span style="color:#4e9a06">&#34; orders&#34;</span><span style="color:#000;font-weight:bold">);</span>
 
-    <span style="color:#204a87;font-weight:bold">static</span> <span style="color:#000">Person</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
-      <span style="color:#000">RM</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">ER</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;p-&gt;o&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;onetomany&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;bidirectional&#34;</span><span style="color:#000;font-weight:bold">);</span>
-    <span style="color:#000;font-weight:bold">}</span>
+            <span style="color:#8f5902;font-style:italic">// test the backpointer wiring
+</span><span style="color:#8f5902;font-style:italic"></span>            <span style="color:#204a87;font-weight:bold">foreach</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">order</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#000">jane</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">GetOrders</span><span style="color:#000;font-weight:bold">())</span>
+            <span style="color:#000;font-weight:bold">{</span>
+                <span style="color:#000">Console</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">WriteLine</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;The person who ordered &#34;</span> <span style="color:#000;font-weight:bold">+</span> <span style="color:#000">order</span> <span style="color:#000;font-weight:bold">+</span> <span style="color:#4e9a06">&#34; is &#34;</span> <span style="color:#000;font-weight:bold">+</span> <span style="color:#000">order</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">GetPerson</span><span style="color:#000;font-weight:bold">());</span>
+            <span style="color:#000;font-weight:bold">}</span>
 
-    <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#000">Person</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">string</span> <span style="color:#000">name</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-      <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">name</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000">name</span><span style="color:#000;font-weight:bold">;</span>
-    <span style="color:#000;font-weight:bold">}</span>
-    <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">override</span> <span style="color:#204a87;font-weight:bold">string</span> <span style="color:#000">ToString</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
-      <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#4e9a06">&#34;Person: &#34;</span> <span style="color:#000;font-weight:bold">+</span> <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">name</span><span style="color:#000;font-weight:bold">;</span>
-    <span style="color:#000;font-weight:bold">}</span>
+            <span style="color:#000">Console</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">WriteLine</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Done!&#34;</span><span style="color:#000;font-weight:bold">);</span>
 
-    <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">void</span> <span style="color:#000">AddOrder</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Order</span> <span style="color:#000">o</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-      <span style="color:#000">RM</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">R</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">o</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;p-&gt;o&#34;</span><span style="color:#000;font-weight:bold">);</span>
-    <span style="color:#000;font-weight:bold">}</span>
-    <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">void</span> <span style="color:#000">RemoveOrder</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Order</span> <span style="color:#000">o</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-      <span style="color:#000">RM</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">NR</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">o</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;p-&gt;o&#34;</span><span style="color:#000;font-weight:bold">);</span>
-    <span style="color:#000;font-weight:bold">}</span>
-    <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#000">IList</span> <span style="color:#000">GetOrders</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
-      <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">RM</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">PS</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;p-&gt;o&#34;</span><span style="color:#000;font-weight:bold">);</span>
-    <span style="color:#000;font-weight:bold">}</span>
-  <span style="color:#000;font-weight:bold">}</span>
+        <span style="color:#000;font-weight:bold">}</span>
 
-  <span style="color:#8f5902;font-style:italic">///   
-</span><span style="color:#8f5902;font-style:italic"></span>  <span style="color:#8f5902;font-style:italic">/// Order class points back to the person holding the order.  
-</span><span style="color:#8f5902;font-style:italic"></span>  <span style="color:#8f5902;font-style:italic">/// Implemented using a relationship manager rather             /// than via pointers and arraylists etc.  
-</span><span style="color:#8f5902;font-style:italic"></span>  <span style="color:#8f5902;font-style:italic">///   
-</span><span style="color:#8f5902;font-style:italic"></span>  <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Order</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">BO</span> <span style="color:#000;font-weight:bold">{</span>
-    <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">string</span> <span style="color:#000">description</span><span style="color:#000;font-weight:bold">;</span>
+        <span style="color:#8f5902;font-style:italic">///   
+</span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#8f5902;font-style:italic">/// BO is the base Business Object class which holds a single static reference  
+</span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#8f5902;font-style:italic">/// to a relationship manager. This one relationship manager is  
+</span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#8f5902;font-style:italic">/// used for managing all the relationships between Business Objects
+</span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#8f5902;font-style:italic">/// like Person and Order.  
+</span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#8f5902;font-style:italic">///   
+</span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">BO</span> <span style="color:#8f5902;font-style:italic">// Base business object  
+</span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#000;font-weight:bold">{</span>
+            <span style="color:#204a87;font-weight:bold">static</span> <span style="color:#204a87;font-weight:bold">protected</span> <span style="color:#000">RelationshipMgrTurbo</span> <span style="color:#000">rm</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">RelationshipMgrTurbo</span><span style="color:#000;font-weight:bold">();</span>
+        <span style="color:#000;font-weight:bold">}</span>
 
-    <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#000">Order</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">string</span> <span style="color:#000">description</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-      <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">description</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000">description</span><span style="color:#000;font-weight:bold">;</span>
-    <span style="color:#000;font-weight:bold">}</span>
-    <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">override</span> <span style="color:#204a87;font-weight:bold">string</span> <span style="color:#000">ToString</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
-      <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#4e9a06">&#34;Order Description: &#34;</span> <span style="color:#000;font-weight:bold">+</span> <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">description</span><span style="color:#000;font-weight:bold">;</span>
-    <span style="color:#000;font-weight:bold">}</span>
 
-    <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">void</span> <span style="color:#000">SetPerson</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Person</span> <span style="color:#000">p</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-      <span style="color:#000">RM</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">R</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">p</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;p-&gt;o&#34;</span><span style="color:#000;font-weight:bold">);</span> <span style="color:#8f5902;font-style:italic">// though mapping is bidirectional,  
-</span><span style="color:#8f5902;font-style:italic"></span>      <span style="color:#000">there</span> <span style="color:#204a87;font-weight:bold">is</span> <span style="color:#000">still</span> <span style="color:#000">a</span> <span style="color:#000">primary</span> <span style="color:#000">relationship</span> <span style="color:#000">direction</span> <span style="color:#000;font-weight:bold">!</span>
+        <span style="color:#8f5902;font-style:italic">///   
+</span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#8f5902;font-style:italic">/// Person class points to one or more orders.  
+</span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#8f5902;font-style:italic">/// Implemented using a relationship manager rather   
+</span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#8f5902;font-style:italic">/// than via pointers and arraylists etc.  
+</span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#8f5902;font-style:italic">///   
+</span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Person</span> <span style="color:#000;font-weight:bold">:</span> <span style="color:#000">BO</span>
+        <span style="color:#000;font-weight:bold">{</span>
+            <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">string</span> <span style="color:#000">name</span><span style="color:#000;font-weight:bold">;</span>
+
+            <span style="color:#204a87;font-weight:bold">static</span> <span style="color:#000">Person</span><span style="color:#000;font-weight:bold">()</span>
+            <span style="color:#000;font-weight:bold">{</span>
+                <span style="color:#000">rm</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">EnforceRelationship</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;p-&gt;o&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">Cardinality</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">OneToMany</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">Directionality</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">DirectionalWithBackPointer</span><span style="color:#000;font-weight:bold">);</span>
+            <span style="color:#000;font-weight:bold">}</span>
+
+            <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#000">Person</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">string</span> <span style="color:#000">name</span><span style="color:#000;font-weight:bold">)</span>
+            <span style="color:#000;font-weight:bold">{</span>
+                <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">name</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000">name</span><span style="color:#000;font-weight:bold">;</span>
+            <span style="color:#000;font-weight:bold">}</span>
+
+            <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">override</span> <span style="color:#204a87;font-weight:bold">string</span> <span style="color:#000">ToString</span><span style="color:#000;font-weight:bold">()</span>
+            <span style="color:#000;font-weight:bold">{</span>
+                <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#4e9a06">&#34;Person: &#34;</span> <span style="color:#000;font-weight:bold">+</span> <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">name</span><span style="color:#000;font-weight:bold">;</span>
+            <span style="color:#000;font-weight:bold">}</span>
+
+            <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">void</span> <span style="color:#000">AddOrder</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Order</span> <span style="color:#000">o</span><span style="color:#000;font-weight:bold">)</span>
+            <span style="color:#000;font-weight:bold">{</span>
+                <span style="color:#000">rm</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">AddRelationship</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">o</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;p-&gt;o&#34;</span><span style="color:#000;font-weight:bold">);</span>
+            <span style="color:#000;font-weight:bold">}</span>
+
+            <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">void</span> <span style="color:#000">RemoveOrder</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Order</span> <span style="color:#000">o</span><span style="color:#000;font-weight:bold">)</span>
+            <span style="color:#000;font-weight:bold">{</span>
+                <span style="color:#000">rm</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">RemoveRelationship</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">o</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;p-&gt;o&#34;</span><span style="color:#000;font-weight:bold">);</span>
+            <span style="color:#000;font-weight:bold">}</span>
+
+            <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#000">List</span><span style="color:#000;font-weight:bold">&lt;</span><span style="color:#000">Order</span><span style="color:#000;font-weight:bold">&gt;</span> <span style="color:#000">GetOrders</span><span style="color:#000;font-weight:bold">()</span>
+            <span style="color:#000;font-weight:bold">{</span>
+                <span style="color:#000">IList</span> <span style="color:#000">list</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000">rm</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">FindObjectsPointedToByMe</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;p-&gt;o&#34;</span><span style="color:#000;font-weight:bold">);</span>
+
+                <span style="color:#8f5902;font-style:italic">// cast from list of &#39;object&#39; to list of &#39;Person&#39;
+</span><span style="color:#8f5902;font-style:italic"></span>                <span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">result</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">List</span><span style="color:#000;font-weight:bold">&lt;</span><span style="color:#000">Order</span><span style="color:#000;font-weight:bold">&gt;();</span>
+                <span style="color:#204a87;font-weight:bold">foreach</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">order</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#000">list</span><span style="color:#000;font-weight:bold">)</span>
+                    <span style="color:#000">result</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Add</span><span style="color:#000;font-weight:bold">((</span><span style="color:#000">Order</span><span style="color:#000;font-weight:bold">)</span><span style="color:#000">order</span><span style="color:#000;font-weight:bold">);</span>
+
+                <span style="color:#8f5902;font-style:italic">// attempts at other simpler ways to cast a whole list
+</span><span style="color:#8f5902;font-style:italic"></span>                <span style="color:#8f5902;font-style:italic">//result = list as List&lt;Order&gt;;  // crash
+</span><span style="color:#8f5902;font-style:italic"></span>                <span style="color:#8f5902;font-style:italic">//result = new List&lt;Order&gt;(list); // syntax error?
+</span><span style="color:#8f5902;font-style:italic"></span>
+                <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">result</span><span style="color:#000;font-weight:bold">;</span>
+            <span style="color:#000;font-weight:bold">}</span>
+        <span style="color:#000;font-weight:bold">}</span>
+
+        <span style="color:#8f5902;font-style:italic">///   
+</span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#8f5902;font-style:italic">/// Order class points back to the person holding the order.  
+</span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#8f5902;font-style:italic">/// Implemented using a relationship manager rather
+</span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#8f5902;font-style:italic">/// than via pointers and arraylists etc.  
+</span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#8f5902;font-style:italic">///  
+</span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Order</span> <span style="color:#000;font-weight:bold">:</span> <span style="color:#000">BO</span>
+        <span style="color:#000;font-weight:bold">{</span>
+            <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">string</span> <span style="color:#000">description</span><span style="color:#000;font-weight:bold">;</span>
+
+            <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#000">Order</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">string</span> <span style="color:#000">description</span><span style="color:#000;font-weight:bold">)</span>
+            <span style="color:#000;font-weight:bold">{</span>
+                <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">description</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000">description</span><span style="color:#000;font-weight:bold">;</span>
+            <span style="color:#000;font-weight:bold">}</span>
+
+            <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">override</span> <span style="color:#204a87;font-weight:bold">string</span> <span style="color:#000">ToString</span><span style="color:#000;font-weight:bold">()</span>
+            <span style="color:#000;font-weight:bold">{</span>
+                <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#4e9a06">&#34;Order Description: &#34;</span> <span style="color:#000;font-weight:bold">+</span> <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">description</span><span style="color:#000;font-weight:bold">;</span>
+            <span style="color:#000;font-weight:bold">}</span>
+
+            <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">void</span> <span style="color:#000">SetPerson</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Person</span> <span style="color:#000">p</span><span style="color:#000;font-weight:bold">)</span>
+            <span style="color:#000;font-weight:bold">{</span>
+                <span style="color:#8f5902;font-style:italic">// though mapping is bidirectional, there is still a primary relationship direction!
+</span><span style="color:#8f5902;font-style:italic"></span>                <span style="color:#000">rm</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">AddRelationship</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">p</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;p-&gt;o&#34;</span><span style="color:#000;font-weight:bold">);</span>
+
+            <span style="color:#000;font-weight:bold">}</span>
+
+            <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#000">Person</span> <span style="color:#000">GetPerson</span><span style="color:#000;font-weight:bold">()</span>
+            <span style="color:#000;font-weight:bold">{</span>
+                <span style="color:#8f5902;font-style:italic">// cast from &#39;object&#39; to &#39;Person&#39;
+</span><span style="color:#8f5902;font-style:italic"></span>                <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">Person</span><span style="color:#000;font-weight:bold">)</span><span style="color:#000">rm</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">FindObjectPointingToMe</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;p-&gt;o&#34;</span><span style="color:#000;font-weight:bold">);</span>
+            <span style="color:#000;font-weight:bold">}</span>
+
+            <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">void</span> <span style="color:#000">ClearPerson</span><span style="color:#000;font-weight:bold">()</span>
+            <span style="color:#000;font-weight:bold">{</span>
+                <span style="color:#000">rm</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">RemoveRelationship</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">GetPerson</span><span style="color:#000;font-weight:bold">(),</span> <span style="color:#4e9a06">&#34;p-&gt;o&#34;</span><span style="color:#000;font-weight:bold">);</span>
+            <span style="color:#000;font-weight:bold">}</span>
+        <span style="color:#000;font-weight:bold">}</span>
 
     <span style="color:#000;font-weight:bold">}</span>
-    <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#000">Person</span> <span style="color:#000">GetPerson</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
-      <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">Person</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000">RM</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">P</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;p-&gt;o&#34;</span><span style="color:#000;font-weight:bold">);</span>
-    <span style="color:#000;font-weight:bold">}</span>
-    <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">void</span> <span style="color:#000">ClearPerson</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
-      <span style="color:#000">RM</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">NR</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">GetPerson</span><span style="color:#000;font-weight:bold">(),</span> <span style="color:#4e9a06">&#34;p-&gt;o&#34;</span><span style="color:#000;font-weight:bold">);</span>
-    <span style="color:#000;font-weight:bold">}</span>
-  <span style="color:#000;font-weight:bold">}</span>
 
 <span style="color:#000;font-weight:bold">}</span>
-</code></pre></div><p>Here is the project source code <a href="http://www.atug.com/downloads/RmBooNet/WindowsApplicationUsing%20RelationshipManagerDllTest001.rar">WindowsApplicationUsing RelationshipManagerDllTest001.rar</a> </p>
-<h2 id="appendix---constraints">Appendix - Constraints</h2>
-<p>Not sure exactly what this document is about, I&rsquo;d have to study it (it was created 20 years ago) - but it looks kind of interesting.</p>
-<iframe src="/files/rm-one to one and many maps 01.html" name="frame1" scrolling="yes" frameborder="yes" align="center" height = "842px" width = "800">
-</iframe>
-<h2 id="future-directions">Future Directions</h2>
-<p>A generics version of relationship manager would be cool - that way no casting would be required. Presently all calls to relationship manager return objects - which you have to cast to the specific type you actually have stored.</p>
+</code></pre></div><p>Output:</p>
+<pre><code>Person: Jane has 2 orders
+The person who ordered Order Description: Clothes is Person: Jane
+The person who ordered Order Description: Boots is Person: Jane
+Done!
+</code></pre><h2 id="c-future-directions">C# Future Directions</h2>
+<p>A generics version of relationship manager would be cool - that way no casting would be required. Presently all calls to relationship manager return objects or lists of objects - which you have to cast to the specific type you actually have stored. You can see this casting in the above example.</p>
 <h2 id="resources">Resources</h2>
 <ul>
 <li>
@@ -1545,7 +1484,7 @@ class Y:
 		<br />
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified October 23, 2020: <a  href="https://github.com/google/docsy-example/commit/a3787e273059e2c2878f2f60f3d40b36953e5430">cleaned up scenario table (a3787e2)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified October 28, 2020: <a  href="https://github.com/google/docsy-example/commit/34f9262f577a0fc5871796eeed8430056a1cd0b3">proper C# person-order example (34f9262)</a>
 </div>
 </div>
 

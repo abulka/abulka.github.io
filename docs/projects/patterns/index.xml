@@ -39,7 +39,7 @@ though persistence is built into Relationship Manager too.&lt;/p&gt;
 &lt;p&gt;Download as &lt;a href=&#34;https://abulka.github.io/files/rm_AndyBulkaRelationshipManagerPattern.pdf&#34;&gt;pdf&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;quick-example&#34;&gt;Quick Example&lt;/h2&gt;
 &lt;p&gt;The examples on this page use the modern v2. Python implementation.&lt;/p&gt;
-&lt;p&gt;Relationship Manager has also been implemented in Python, Boo (.net), C# (.net) and Java - see the Relationship Manager &lt;a href=&#34;https://github.com/abulka/relationship-manager&#34;&gt;GitHub project&lt;/a&gt; for all implementation source code.&lt;/p&gt;
+&lt;p&gt;Relationship Manager has also been implemented in Python, C# (.net4 and .net core) and Java - see the Relationship Manager &lt;a href=&#34;https://github.com/abulka/relationship-manager&#34;&gt;GitHub project&lt;/a&gt; for all implementation source code.&lt;/p&gt;
 &lt;h3 id=&#34;installation&#34;&gt;Installation&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;pip install relationship-manager
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;usage&#34;&gt;Usage&lt;/h3&gt;
@@ -110,8 +110,8 @@ though persistence is built into Relationship Manager too.&lt;/p&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;em&gt;one to one&lt;/em&gt;&lt;br&gt;&lt;code&gt;1 --&amp;gt; 1&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;em&gt;one to one&lt;/em&gt;&lt;br&gt;&lt;code&gt;1 &amp;lt;--&amp;gt; 1&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;_one to one_&lt;br&gt;&lt;code&gt;1 --&amp;gt; 1&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;_one to one_&lt;br&gt;&lt;code&gt;1 &amp;lt;--&amp;gt; 1&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -140,8 +140,8 @@ though persistence is built into Relationship Manager too.&lt;/p&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;em&gt;one to many&lt;/em&gt;&lt;br&gt;&lt;code&gt;1 --&amp;gt; *&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;em&gt;one to many&lt;/em&gt;&lt;br&gt;&lt;code&gt;1 &amp;lt;--&amp;gt; *&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;_one to many_&lt;br&gt;&lt;code&gt;1 --&amp;gt; *&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;_one to many_&lt;br&gt;&lt;code&gt;1 &amp;lt;--&amp;gt; *&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -164,8 +164,8 @@ though persistence is built into Relationship Manager too.&lt;/p&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;em&gt;many to one&lt;/em&gt;&lt;br&gt;&lt;code&gt;* --&amp;gt; 1&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;em&gt;many to one&lt;/em&gt;&lt;br&gt;&lt;code&gt;* &amp;lt;--&amp;gt; 1&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;_many to one_&lt;br&gt;&lt;code&gt;* --&amp;gt; 1&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;_many to one_&lt;br&gt;&lt;code&gt;* &amp;lt;--&amp;gt; 1&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -182,8 +182,8 @@ though persistence is built into Relationship Manager too.&lt;/p&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;em&gt;many to many&lt;/em&gt;&lt;br&gt;&lt;code&gt;* --&amp;gt; *&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;em&gt;many to many&lt;/em&gt;&lt;br&gt;&lt;code&gt;* &amp;lt;--&amp;gt; *&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;_many to many_&lt;br&gt;&lt;code&gt;* --&amp;gt; *&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;_many to many_&lt;br&gt;&lt;code&gt;* &amp;lt;--&amp;gt; *&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -438,16 +438,16 @@ class Y:
                 &lt;ol&gt;
                     &lt;li&gt;
                         &lt;p&gt;When you create a bi-directional enforcement rule (Scenario 3) with a call to &lt;code&gt;rm.enforce(&#34;xy&#34;, &#34;onetoone&#34;, &#34;bidirectional&#34;)&lt;/code&gt; you are actually causing rm to create &lt;i&gt;two&lt;/i&gt; relationship entries in the rm. This means
-                            you can reliably use a &lt;code&gt;rm.find_target()&lt;/code&gt; call from either side, knowing there is a relationship in both directions.&lt;/p&gt;
+                            you can reliably use a &lt;code&gt;rm.find_target(source=self)&lt;/code&gt; call from either side, knowing there is a relationship in both directions.&lt;/p&gt;
                     &lt;/li&gt;
                     &lt;li&gt;
                         &lt;p&gt;When you create a directional enforcement rule (Scenario 3A) with a call to &lt;code&gt;rm.enforce(&#34;xy&#34;, &#34;onetoone&#34;, &#34;directional&#34;)&lt;/code&gt; or leave out this call altogether, you are causing rm to create &lt;i&gt;only&lt;/i&gt; the relationships
-                            that you ask for. Thus classes on the &#39;target&#39; side of a relationship cannot call &lt;code&gt;rm.find_target()&lt;/code&gt; to find out who is pointing to them. They can however, thanks to the magic of rm, call &lt;code&gt;rm.find_source()&lt;/code&gt;                            to derive this information.
+                            that you ask for. Thus classes on the &#39;target&#39; side of a relationship cannot call &lt;code&gt;rm.find_target(source=self)&lt;/code&gt; to find out who is pointing to them. They can however, thanks to the magic of rm, call &lt;code&gt;rm.find_source()&lt;/code&gt;                            to derive this information.
                         &lt;/p&gt;
                     &lt;/li&gt;
                     &lt;li&gt;
                         &lt;p&gt;This means bidirectional relationships never actually need to be used or declared, 😲, since an implicit back-pointer (i.e. a back reference) is &lt;i&gt;always deducible&lt;/i&gt; using &lt;code&gt;rm.find_source()&lt;/code&gt;, when using a Relationship
-                            Manager! In fact a bidirectional relationships creates extra entries in the rm datastructure, and slightly more overhead in performance (maintaining both relationships e.g. in the case of creation and removal).&lt;/p&gt;
+                            Manager! In fact a bidirectional relationship creates extra entries in the rm datastructure, and slightly more overhead in performance (maintaining both relationships e.g. in the case of creation and removal).&lt;/p&gt;
                         &lt;p&gt;However you may still want to declare a bidirectional relationship for its semantic value in your particular business logic domain, or for domain modelling accuracy - or even just for your own implementation preferences.
                         &lt;/p&gt;
                     &lt;/li&gt;
@@ -811,304 +811,256 @@ class Y:
         &lt;/tr&gt;
     &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;These scenarios are all unit tested in &lt;code&gt;tests/python/test_enforcing.py&lt;/code&gt; in the Github project.&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;bi-directional-relationships&#34;&gt;Bi-directional relationships&lt;/h2&gt;
-&lt;h3 id=&#34;bi-directional-implementations-of-directional-relationships&#34;&gt;Bi-directional implementations of directional relationships&lt;/h3&gt;
-&lt;p&gt;We must distinguish between a relationship that in its meaning, goes both ways, and a relationship which goes one way only.  And furthermore, implementationally, you can have RM methods on one class only, on the other class only, or on both classes.  The meaning of the relationship and the implementation (methods to create and look up those relationships) are two different things!&lt;/p&gt;
-&lt;p&gt;Thus when you put an API (relationship manager methods) on both classes this might seem to imply that you are implementing bi-directionality.  However this does not mean that the &amp;ldquo;relationship&amp;rdquo; points in both directions.  The meaning of the relationship is often in one direction only, and the existence of methods on both classes merely gives you a convenient way of querying the relationships that exist.&lt;/p&gt;
-&lt;p&gt;Thus the same relationship id should be used in both classes e.g. &lt;code&gt;&amp;quot;xtoy&amp;quot;&lt;/code&gt; (notice the sense of directionality is built into the name of the relationship!), even though it is a bidirectional relationship in the sense that there is an API on both classes allowing each class to find the other class.  In the following implementation of a one to many relationship between class X and class Y, notice the same relationship id &lt;code&gt;&amp;quot;xtoy&amp;quot;&lt;/code&gt; must be used in both classes.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;X&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;  
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;__init__&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;):&lt;/span&gt;        &lt;span style=&#34;color:#000&#34;&gt;RM&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;ER&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;xtoy&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;onetomany&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;   
-                                     &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;bidirectional&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;  
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;addY&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;y&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;):&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;RM&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;R&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;y&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;xtoy&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;  
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;getAllY&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;):&lt;/span&gt;  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;RM&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;PS&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;xtoy&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;  
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;removeY&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;y&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;):&lt;/span&gt;      &lt;span style=&#34;color:#000&#34;&gt;RM&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;NR&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;y&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;xtoy&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;  
-    
-
-&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Y&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;  
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;setX&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;x&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;):&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;RM&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;R&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;x&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;xtoy&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;  
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;getX&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;):&lt;/span&gt;     &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;RM&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;P&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;xtoy&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;  
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;clearX&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;):&lt;/span&gt;          &lt;span style=&#34;color:#000&#34;&gt;RM&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;NR&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;getX&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(),&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;xtoy&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;  
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;more-on-directionality-and-backpointers&#34;&gt;More on Directionality and Backpointers&lt;/h3&gt;
-&lt;p&gt;Relationships are here considered directional.  So when you add a relationship with R(a,b) then &lt;strong&gt;a&lt;/strong&gt; points to &lt;strong&gt;b&lt;/strong&gt;.&lt;/p&gt;
-&lt;p&gt;Using a relationship manager you can get it deduce who is pointing at you, which means you get &amp;lsquo;back-references&amp;rsquo; for free.  However being able to determine a back-reference doesn&amp;rsquo;t mean that the model you are building &lt;em&gt;officially&lt;/em&gt; has this pointer connection.  Thus we must distinguish official pointers from deducible back references / back pointers. &lt;/p&gt;
-&lt;p&gt;To find what &lt;strong&gt;a&lt;/strong&gt; points to, use P(a).  To find out what is pointing at &lt;strong&gt;b&lt;/strong&gt;, use B(b).  &lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;API Short-hand&lt;/th&gt;
-&lt;th&gt;Description&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;P(a)&lt;/td&gt;
-&lt;td&gt;Find Pointer From&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;B(b)&lt;/td&gt;
-&lt;td&gt;Find Back Reference To&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;Thus, just because you point at something doesn&amp;rsquo;t mean it is officially pointing back at you. But, using a relationship manager you can deduce who is pointing at you.&lt;/p&gt;
-&lt;p&gt;So if&amp;hellip;&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;API Short-hand&lt;/th&gt;
-&lt;th&gt;Comment&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;R(a,b)&lt;/td&gt;
-&lt;td&gt;if you make &lt;strong&gt;a&lt;/strong&gt; point to &lt;strong&gt;b&lt;/strong&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;then&amp;hellip;&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;API Short-hand&lt;/th&gt;
-&lt;th&gt;Comment&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;P(a) == b&lt;/td&gt;
-&lt;td&gt;&lt;strong&gt;a&lt;/strong&gt; points to &lt;strong&gt;b&lt;/strong&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;B(b) == a&lt;/td&gt;
-&lt;td&gt;the thing pointing at &lt;strong&gt;b&lt;/strong&gt; is &lt;strong&gt;a&lt;/strong&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;P(b) == null&lt;/td&gt;
-&lt;td&gt;&lt;strong&gt;b&lt;/strong&gt; doesn&amp;rsquo;t point at anything&lt;br&gt; &lt;em&gt;(crucial distinction - see above line).&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;B(a) == null&lt;/td&gt;
-&lt;td&gt;nothing is pointing back at &lt;strong&gt;a&lt;/strong&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.atug.com/andypatterns/_themes/canvas/acnvrule.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;These scenarios are all unit tested in &lt;code&gt;tests/python/test_enforcing.py&lt;/code&gt; in the &lt;a href=&#34;https://github.com/abulka/relationship-manager&#34;&gt;GitHub project&lt;/a&gt;.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;back-pointers&#34;&gt;Back pointers&lt;/h2&gt;
 &lt;p&gt;One of the benefits of the relationship manager pattern is that &lt;em&gt;you don&amp;rsquo;t have to explicitly wire up and maintain back-pointers&lt;/em&gt;.  Once you add a pointer relationship, you get the back pointer relationship available, for free.  And once you delete the pointer relationship, the back-pointer relationship goes away automatically too.&lt;/p&gt;
-&lt;p&gt;However if you want to delete or change the back-pointer relationship (from Y&amp;rsquo;s perspective) then you must talk to the relationship manager in terms of the relationship &amp;ldquo;xtoy&amp;rdquo;.  If you imlplement  the back-pointer relationship as a different relationship, with a different relationshipId, then you will fall prey to the same out of synch problems that traditional spaghetti wiring techniques often fall prey to.  The trick is to treat the relationship as two sides of the &lt;em&gt;one relationshipId&lt;/em&gt;.&lt;/p&gt;
-&lt;h3 id=&#34;one-to-many&#34;&gt;One to many&lt;/h3&gt;
-&lt;p&gt; &lt;img src=&#34;http://www.atug.com/andypatterns/images/rm_the3.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;Class X points to many instances of class Y.&lt;/p&gt;
-&lt;h4 id=&#34;methods-on-class-x&#34;&gt;Methods on class X&lt;/h4&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Returns&lt;/th&gt;
-&lt;th&gt;Example method name&lt;/th&gt;
-&lt;th&gt;Implementation in RM&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;void&lt;/td&gt;
-&lt;td&gt;add(y)&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;R(x, y, &amp;quot;xtoy*&amp;quot;)&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;list&lt;/td&gt;
-&lt;td&gt;getAll()&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;PS(x, &amp;quot;xtoy*&amp;quot;)&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;void&lt;/td&gt;
-&lt;td&gt;remove(y)&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;NR(x, y, &amp;quot;xtoy*&amp;quot;)&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h4 id=&#34;methods-on-class-y&#34;&gt;Methods on class Y&lt;/h4&gt;
-&lt;p&gt;None.&lt;/p&gt;
-&lt;h4 id=&#34;notes&#34;&gt;Notes:&lt;/h4&gt;
-&lt;ol&gt;
-&lt;li&gt;Notice that the relationshipId has a &lt;code&gt;*&lt;/code&gt; symbol in it.  This means that you can add multiple relationships of that type without the relationship manager removing the prior relationship. Not sure which of my Relationship Manager implementations auto-support this - its been so long ago&amp;hellip;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;one-to-many-with-back-pointers&#34;&gt;One to many, with back pointers&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.atug.com/andypatterns/images/rm_the4.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;h4 id=&#34;methods-on-class-x-1&#34;&gt;Methods on class X&lt;/h4&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Returns&lt;/th&gt;
-&lt;th&gt;Example method name&lt;/th&gt;
-&lt;th&gt;Implementation in RM&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;void&lt;/td&gt;
-&lt;td&gt;add(y)&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;R(x, y, &amp;quot;xtoy*&amp;quot;)&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;list&lt;/td&gt;
-&lt;td&gt;getAll()&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;PS(x, &amp;quot;xtoy*&amp;quot;)&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;void&lt;/td&gt;
-&lt;td&gt;remove(y)&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;NR(x, y, &amp;quot;xtoy*&amp;quot;)&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h4 id=&#34;methods-on-class-y-1&#34;&gt;Methods on class Y&lt;/h4&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Returns&lt;/th&gt;
-&lt;th&gt;Example method name&lt;/th&gt;
-&lt;th&gt;Implementation in RM&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;X&lt;/td&gt;
-&lt;td&gt;getBackPointer()&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;B(y, &amp;quot;xtoy*&amp;quot;)&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;&lt;em&gt;and optionally setter methods &amp;hellip;&lt;/em&gt;&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Returns&lt;/th&gt;
-&lt;th&gt;Example method name&lt;/th&gt;
-&lt;th&gt;Implementation in RM&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;void&lt;/td&gt;
-&lt;td&gt;setBackPointer(x)&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;R(x, y, &amp;quot;xtoy*&amp;quot;)&lt;/code&gt;&lt;br&gt; &lt;em&gt;or simply call &lt;code&gt;x.setPointer(this)&lt;/code&gt;&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;void&lt;/td&gt;
-&lt;td&gt;clearBackPointer()&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;NR(x, y, &amp;quot;xtoy*&amp;quot;)&lt;/code&gt;&lt;br&gt;&lt;em&gt;or simply call &lt;code&gt;x._clearPointer()&lt;/code&gt;&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;hr&gt;
-&lt;h3 id=&#34;more-on-backpointers&#34;&gt;More on Backpointers&lt;/h3&gt;
-&lt;p&gt;Backpointers are pointers on the &amp;ldquo;receiving end&amp;rdquo; of a relationship, so that the receiving object knows who is pointing at it.  For example when a Customer places an Order, it might be convenient for any particular order instance to know which customer ordered it.  I think you can choose to conceive of the backpointer in a few different ways:&lt;/p&gt;
+&lt;p&gt;The following &lt;a href=&#34;http://www.atug.com/andypatterns/code/proxydecorator01.zip&#34;&gt;code&lt;/a&gt; is a good example of how the use of RM saves you from having to explicitly maintain backpointers. P.S. To run the code you also need the support files found &lt;a href=&#34;http://www.atug.com/downloads/pythonRmProof.zip&#34;&gt;here&lt;/a&gt;.  View the code below (requires the flash plugin) - showing an implementation of a Composite Pattern, with back pointer - or simply read the &lt;a href=&#34;http://www.atug.com/downloads/rm_annotation_by_ANDY_01.PDF&#34;&gt;pdf&lt;/a&gt; directly.&lt;/p&gt;
+&lt;iframe src=&#34;https://abulka.github.io/files/rm_annotation_by_ANDY_01.html&#34; name=&#34;frame1&#34; scrolling=&#34;yes&#34; frameborder=&#34;yes&#34; align=&#34;center&#34; height = &#34;842px&#34; width = &#34;800&#34;&gt;
+&lt;/iframe&gt;
+&lt;p&gt;Backpointers are pointers on the &amp;ldquo;target end&amp;rdquo; of a relationship, so that the target object knows who is pointing at it.  For example when a Customer places an Order, it might be convenient for any particular order instance to know which customer ordered it.  I think you can choose to conceive of the backpointer in a few different ways:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;as an extra, separate relationship or&lt;/li&gt;
 &lt;li&gt;as part of the one bidirectional relationship or&lt;/li&gt;
 &lt;li&gt;merely a convenience method in the implementation in the r.h.s. class&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;The easiest way of implementing this backpointer without using relationship manager is to follow the Martin Fowler refactoring technique - see Martin Fowler &amp;lsquo;Refactorings&amp;rsquo; p. 197 &amp;ldquo;Change Unidirectional Association to Bidirectional&amp;rdquo; - this will ensure you get the wiring correct.  In this refactoring, you decide which class is the master and which is the slave etc.  See the before and after python pdf below for an example of the correct wiring.&lt;/p&gt;
-&lt;p&gt;The way of implementing a backpointer using relationship manager is simply to call the &lt;strong&gt;findObjectPointingToMe(toMe, id)&lt;/strong&gt; method.  Since a RM holds all relationships, it can answer lots of questions for free - just like SQL queries to a database.  See the before and after python pdf below for an example of using findObjectPointingToMe().&lt;/p&gt;
-&lt;h3 id=&#34;even-more-scraps&#34;&gt;Even more (scraps)&lt;/h3&gt;
-&lt;p&gt;If you chose to have backpointer setter methods on class Y, you need not necessarily call the wrapping methods on X in order to implement them e.g. &lt;code&gt;setBackPointer(x)&lt;/code&gt; is implemented by simply calling &lt;code&gt;x.setPointer(this)&lt;/code&gt; (although it is recommended that you do, since X is the &amp;lsquo;controlling&amp;rsquo; class for the relationship - see &lt;a href=&#34;https://martinfowler.com/books/refactoring.html&#34;&gt;Martin Fowler &amp;lsquo;Refactorings&amp;rsquo;&lt;/a&gt; p. 197 &amp;ldquo;Change Unidirectional Association to Bidirectional&amp;rdquo;).&lt;/p&gt;
-&lt;p&gt;You could alternatively call the relationship manager directly, thus setBackPointer(x) becomes a call to &lt;code&gt;R(x, y, &amp;quot;xtoy&amp;quot;)&lt;/code&gt; and &lt;code&gt;clearBackPointer()&lt;/code&gt;  becomes a call to &lt;code&gt;NR(x, y, &amp;quot;xtoy&amp;quot;)&lt;/code&gt;.&lt;/p&gt;
-&lt;h2 id=&#34;more-examples&#34;&gt;More Examples&lt;/h2&gt;
-&lt;h3 id=&#34;before-and-after---modeling-composite-design-pattern-in-python&#34;&gt;Before and After - Modeling Composite Design Pattern  in Python&lt;/h3&gt;
-&lt;p&gt;The following &lt;a href=&#34;http://www.atug.com/andypatterns/code/proxydecorator01.zip&#34;&gt;code&lt;/a&gt; is a good example of how the use of RM saves you from having to explicitly maintain backpointers. P.S. To run the code you also need the support files found &lt;a href=&#34;http://www.atug.com/downloads/pythonRmProof.zip&#34;&gt;here&lt;/a&gt;.  View the code below (requires the flash plugin) - showing an implementation of a Composite Pattern, with back pointer - or simply read the &lt;a href=&#34;http://www.atug.com/downloads/rm_annotation_by_ANDY_01.PDF&#34;&gt;pdf&lt;/a&gt; directly.&lt;/p&gt;
-&lt;iframe src=&#34;https://abulka.github.io/files/rm_annotation_by_ANDY_01.html&#34; name=&#34;frame1&#34; scrolling=&#34;yes&#34; frameborder=&#34;yes&#34; align=&#34;center&#34; height = &#34;842px&#34; width = &#34;800&#34;&gt;
-&lt;/iframe&gt;
-&lt;h3 id=&#34;person-order-modelling-in-net&#34;&gt;Person-Order modelling in .NET&lt;/h3&gt;
-&lt;p&gt;This example uses the Boo .NET assembly, which is quite usable from other .NET langauges like C# and VB.NET etc.  Alternatively you can adapt this example to use the pure C# implementation assembly (something I should publish here at some stage).&lt;/p&gt;
-&lt;p&gt;Say you want to model a Person class which has one or more Orders.  The Orders class has a backpointer back to the Person owning it.&lt;/p&gt;
+&lt;p&gt;The way of implementing a backpointer using relationship manager is simply to call the &lt;code&gt;rm.find_source(target=self)&lt;/code&gt; method.  Since a rm holds all relationships, it can answer lots of questions for free - just like SQL queries to a database.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;bi-directional-relationships&#34;&gt;Bi-directional relationships&lt;/h2&gt;
+&lt;p&gt;A bi-directional relationship between X and Y means both sides have pointers to each other.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/images/uml/content/projects/patterns/uml/rm-bidirectionality.svg&#34; alt=&#34;svg your image&#34;&gt;&lt;/p&gt;
+&lt;p&gt;or just&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/images/uml/content/projects/patterns/uml/rm-bidirectionality2.svg&#34; alt=&#34;svg your image&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Within this seemingly obvious idea are a myriad of nuances:&lt;/p&gt;
+&lt;p&gt;We must distinguish between a relationship that in its domain meaning, goes both ways, and a relationship which goes one way only.  And furthermore, implementationally, you can have RM methods on one class only, on the other class only, or on both classes.  The meaning of the relationship and the implementation (methods to create and look up those relationships) are two different things!&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;As the diagram above shows, one bi-bidirectional relationship is arguably shorthand for two directional relationships.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In fact in the Python rm implementation, when you create a bi-directional enforcement rule (e.g. Scenario 3) with a call to &lt;code&gt;rm.enforce(&amp;ldquo;xy&amp;rdquo;, &amp;ldquo;onetoone&amp;rdquo;, &amp;ldquo;bidirectional&amp;rdquo;)&lt;/code&gt; you are actually causing rm to create &lt;i&gt;two&lt;/i&gt; relationship entries in the rm. This means you can reliably use a &lt;code&gt;rm.find_target(source=self)&lt;/code&gt; call from either side, knowing there is a relationship in both directions.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The methods you implement on your classes to create and look up relationships can influence your perception of what is pointing to what.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;When you put an API (relationship manager methods) on both classes this might seem to imply that you are implementing bi-directionality - however this does &lt;em&gt;not mean&lt;/em&gt; that the &amp;ldquo;semantic relationship&amp;rdquo; points in both directions.  The meaning of the relationship is often in one direction only, and the existence of methods on both classes merely gives you a convenient way of querying the directional relationship that exists.&lt;/p&gt;
+&lt;p&gt;A rm, like a database, allows you to &amp;lsquo;cheat&amp;rsquo; and find out who is pointing to a class even though that class has no actual pointers implementing &amp;lsquo;am pointed to by&amp;rsquo;. This is accomplished by using &lt;code&gt;rm.find_source(target=self)&lt;/code&gt;. But just because a rm let&amp;rsquo;s you find out this knowledge doesn&amp;rsquo;t mean there is a official modelling of this back-relationship in your domain.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Back-pointer relationships are not the same thing as official, semantic relationships.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;However you may still want to declare a bidirectional relationship for its semantic value in your particular business logic domain, or for domain modelling accuracy - or even just for your own implementation preferences.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A bi-directional relationship (pair) can be implemented more efficiently by a single directional relationship together with the magic rm back-pointer lookup call &lt;code&gt;rm.find_source(target=self)&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;When you create a directional enforcement rule (e.g. Scenario 3A) with a call to &lt;code&gt;rm.enforce(&amp;ldquo;xy&amp;rdquo;, &amp;ldquo;onetoone&amp;rdquo;, &amp;ldquo;directional&amp;rdquo;)&lt;/code&gt; or leave out this call altogether, you are causing rm to create &lt;i&gt;only&lt;/i&gt; the relationships that you ask for. Thus classes on the &amp;lsquo;target&amp;rsquo; side of a relationship cannot call &lt;code&gt;rm.find_target(source=self)&lt;/code&gt; to find out who is pointing to them. They can however, thanks to the back-pointer lookup magic of rm, call &lt;code&gt;rm.find_source(target=self)&lt;/code&gt; to derive this information.&lt;/p&gt;
+&lt;p&gt;This means bidirectional relationships never actually need to be used or declared, 😲, since an implicit back-pointer (i.e. a back reference) is &lt;i&gt;always deducible&lt;/i&gt; using &lt;code&gt;rm.find_source()&lt;/code&gt;, when using a Relationship Manager! In fact a bidirectional relationship creates extra entries in the rm datastructure, and slightly more overhead in performance (maintaining both relationships e.g. in the case of creation and removal).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Name your relationships with direction in mind&lt;/li&gt;
+&lt;li&gt;If you choose to implement relationship related methods on both classes use the same relationship id on both sides.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The same relationship id should be used in both classes e.g. &lt;code&gt;&amp;quot;xtoy&amp;quot;&lt;/code&gt; (notice the sense of directionality is built into the name of the relationship!). Even though there is an API on both classes allowing each class to find the other class, does not turn the relationship semantics to be bi-directional from the point of view of domain modelling, but only in a convenient implementation sense. &lt;/p&gt;
+&lt;p&gt;Some may frown on this ability of an implementation to cheat and betray the domain model. Perhaps a flag could be set in the rm to disallow use of the back-pointer lookup magic &lt;code&gt;rm.find_source(target=self)&lt;/code&gt; of rm,.&lt;/p&gt;
+&lt;p&gt;In the following implementation of a one to many relationship between class X and class Y, notice the same relationship id &lt;code&gt;&amp;quot;xtoy&amp;quot;&lt;/code&gt; must be used in both classes.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;X&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;__init__&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;):&lt;/span&gt;        &lt;span style=&#34;color:#000&#34;&gt;rm&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;enforce&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;xtoy&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;onetoone&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;directional&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;setY&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;y&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;):&lt;/span&gt;         &lt;span style=&#34;color:#000&#34;&gt;rm&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;add_rel&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;y&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;xtoy&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;getY&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;):&lt;/span&gt;     &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;rm&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;find_target&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;xtoy&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;clearY&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;):&lt;/span&gt;          &lt;span style=&#34;color:#000&#34;&gt;rm&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;remove_rel&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;getY&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(),&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;xtoy&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Y&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;__init__&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;):&lt;/span&gt;        &lt;span style=&#34;color:#000&#34;&gt;rm&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;enforce&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;xtoy&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;onetoone&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;directional&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# probably redundant&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;setX&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;x&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;):&lt;/span&gt;         &lt;span style=&#34;color:#000&#34;&gt;rm&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;add_rel&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;x&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;xtoy&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;getX&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;):&lt;/span&gt;     &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;rm&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;find_source&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;xtoy&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;clearX&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;):&lt;/span&gt;          &lt;span style=&#34;color:#000&#34;&gt;rm&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;remove_rel&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;getX&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(),&lt;/span&gt; &lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;xtoy&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Note that both classes calling &lt;code&gt;rm.enforce&lt;/code&gt; is possibly redundant, since its telling the rm the same information - depending on the order of initialisation of your classes.&lt;/p&gt;
+&lt;h2 id=&#34;examples&#34;&gt;Examples&lt;/h2&gt;
+&lt;h3 id=&#34;python-example---observer-pattern&#34;&gt;Python Example - Observer pattern&lt;/h3&gt;
+&lt;p&gt;Here is an example of hiding the use of Relationship Manager,
+found in the examples folder as &lt;code&gt;relmgr/examples/observer.py&lt;/code&gt; - the
+classic Subject/Observer pattern:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;relmgr&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;RelationshipManager&lt;/span&gt;
+
+
+&lt;span style=&#34;color:#000&#34;&gt;rm&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;RelationshipManager&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
+
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Observer&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;
+   
+    &lt;span style=&#34;color:#5c35cc;font-weight:bold&#34;&gt;@property&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;subject&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;):&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;rm&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;find_target&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+
+    &lt;span style=&#34;color:#5c35cc;font-weight:bold&#34;&gt;@subject.setter&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;subject&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;_subject&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;):&lt;/span&gt;
+        &lt;span style=&#34;color:#000&#34;&gt;rm&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;add_rel&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;_subject&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;notify&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;subject&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;notification_type&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;):&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;pass&lt;/span&gt;  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# implementations override this and do something&lt;/span&gt;
+
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Subject&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;
+
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;notify_all&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;notification_type&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87&#34;&gt;str&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;):&lt;/span&gt;
+        &lt;span style=&#34;color:#000&#34;&gt;observers&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;rm&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;find_sources&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# all things pointing at me&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;o&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;in&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;observers&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;
+            &lt;span style=&#34;color:#000&#34;&gt;o&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Notify&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;notification_type&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;add_observer&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;observer&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;):&lt;/span&gt;
+        &lt;span style=&#34;color:#000&#34;&gt;rm&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;add_rel&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;observer&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;remove_observer&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;observer&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;):&lt;/span&gt;
+        &lt;span style=&#34;color:#000&#34;&gt;rm&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;remove_rel&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;source&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;observer&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;target&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;When using the Subject and Observer, you use their methods without realising their functionality has been implemented using rm.  See &lt;code&gt;tests/python/examples/test_observer.py&lt;/code&gt; in the &lt;a href=&#34;https://github.com/abulka/relationship-manager&#34;&gt;GitHub project&lt;/a&gt; for the unit tests for this code.&lt;/p&gt;
+&lt;h3 id=&#34;c-example---modelling-person----order&#34;&gt;C# Example - modelling Person &amp;ndash;&amp;gt;* Order&lt;/h3&gt;
+&lt;p&gt;Say you want to model a Person class which has one or more Orders.  The Order class needs to have a backpointer - back to the Person owning that order.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;http://www.atug.com/andypatterns/images/PersonToOrderUsingRM001.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Instead of hand coding and reinventing techniques for doing all the AddOrder() methods and GetOrders() methods etc. using ArrayLists and whatever, we can do it using the relationship manager object instead, which turns out to be simpler and faster and less error prone. &lt;/p&gt;
 &lt;p&gt;The RM (relationship manager) is implemented in this particular example as a static member of the base BO (business object) class.  Thus in this situation all business objects will be using the same relationship manager.&lt;/p&gt;
-&lt;p&gt;Here is the c# code to implement the above UML:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Note that the use of Relationship Manager is hidden, and is a mere implementation detail.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Here is the c# code to implement the above UML. This code uses the v1 API documented in the Relationship Manager &lt;a href=&#34;https://github.com/abulka/relationship-manager&#34;&gt;GitHub project&lt;/a&gt;:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c#&#34; data-lang=&#34;c#&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;using&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;System&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
 &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;using&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;System.Collections&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;using&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;RelationshipManager55&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;using&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;System.Collections.Generic&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;using&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;RelationshipManager.Interfaces&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;using&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;RelationshipManager.Turbo&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
 
-&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;namespace&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;WindowsApplicationUsing&lt;/span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;\&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;_RelationshipManagerDllTest001&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;///   
-&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;/// BO is the base Business Object class which holds a single static reference  
-&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;/// to a relationship manager. This one relationship manager is  
-&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;/// used for managing all the relationships between Business Objects.  
-&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;///   
-&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;BO&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// Base business object  
-&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;protected&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;RM1&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;RM&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;RM1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;();&lt;/span&gt;
-  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;namespace&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Example_Person_Order_Console_App&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Program&lt;/span&gt;
+    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Main&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[]&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;args&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+        &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;jane&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Person&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Jane&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;order1&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Order&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Boots&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;order2&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Order&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Clothes&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+            &lt;span style=&#34;color:#000&#34;&gt;jane&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;AddOrder&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;order1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+            &lt;span style=&#34;color:#000&#34;&gt;jane&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;AddOrder&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;order2&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
 
-  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;///   
-&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;/// Person class points to one or more orders.  
-&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;/// Implemented using a relationship manager rather   
-&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;/// than via pointers and arraylists etc.  
-&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;///   
-&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Person&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;BO&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+            &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// test forward pointer wiring
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;            &lt;span style=&#34;color:#000&#34;&gt;Console&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;WriteLine&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;jane&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34; has &amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;jane&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;GetOrders&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;().&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Count&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34; orders&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
 
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Person&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-      &lt;span style=&#34;color:#000&#34;&gt;RM&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;ER&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;p-&amp;gt;o&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;onetomany&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;bidirectional&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
-    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+            &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// test the backpointer wiring
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;foreach&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;order&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;in&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;jane&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;GetOrders&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;())&lt;/span&gt;
+            &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+                &lt;span style=&#34;color:#000&#34;&gt;Console&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;WriteLine&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;The person who ordered &amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;order&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34; is &amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;order&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;GetPerson&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;());&lt;/span&gt;
+            &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
 
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Person&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;name&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;override&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;ToString&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Person: &amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+            &lt;span style=&#34;color:#000&#34;&gt;Console&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;WriteLine&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Done!&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
 
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;AddOrder&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Order&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;o&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-      &lt;span style=&#34;color:#000&#34;&gt;RM&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;R&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;o&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;p-&amp;gt;o&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
-    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;RemoveOrder&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Order&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;o&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-      &lt;span style=&#34;color:#000&#34;&gt;RM&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;NR&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;o&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;p-&amp;gt;o&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
-    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;IList&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;GetOrders&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;RM&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;PS&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;p-&amp;gt;o&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
-    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
-  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+        &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
 
-  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;///   
-&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;/// Order class points back to the person holding the order.  
-&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;/// Implemented using a relationship manager rather             /// than via pointers and arraylists etc.  
-&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;///   
-&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Order&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;BO&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;description&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+        &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;///   
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;        &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;/// BO is the base Business Object class which holds a single static reference  
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;        &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;/// to a relationship manager. This one relationship manager is  
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;        &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;/// used for managing all the relationships between Business Objects
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;        &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;/// like Person and Order.  
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;        &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;///   
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;BO&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// Base business object  
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;        &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;protected&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;RelationshipMgrTurbo&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;rm&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;RelationshipMgrTurbo&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;();&lt;/span&gt;
+        &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
 
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Order&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;description&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;description&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;description&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;override&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;ToString&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Order Description: &amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;description&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
 
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;SetPerson&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Person&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;p&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-      &lt;span style=&#34;color:#000&#34;&gt;RM&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;R&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;p&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;p-&amp;gt;o&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// though mapping is bidirectional,  
-&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;      &lt;span style=&#34;color:#000&#34;&gt;there&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;is&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;still&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;a&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;primary&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;relationship&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;direction&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;!&lt;/span&gt;
+        &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;///   
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;        &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;/// Person class points to one or more orders.  
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;        &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;/// Implemented using a relationship manager rather   
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;        &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;/// than via pointers and arraylists etc.  
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;        &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;///   
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Person&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;BO&lt;/span&gt;
+        &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Person&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
+            &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+                &lt;span style=&#34;color:#000&#34;&gt;rm&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;EnforceRelationship&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;p-&amp;gt;o&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Cardinality&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;OneToMany&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Directionality&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;DirectionalWithBackPointer&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+            &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Person&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+            &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+                &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;name&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+            &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;override&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;ToString&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
+            &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+                &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Person: &amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+            &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;AddOrder&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Order&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;o&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+            &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+                &lt;span style=&#34;color:#000&#34;&gt;rm&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;AddRelationship&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;o&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;p-&amp;gt;o&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+            &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;RemoveOrder&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Order&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;o&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+            &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+                &lt;span style=&#34;color:#000&#34;&gt;rm&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;RemoveRelationship&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;o&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;p-&amp;gt;o&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+            &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;List&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Order&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;GetOrders&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
+            &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+                &lt;span style=&#34;color:#000&#34;&gt;IList&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;list&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;rm&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;FindObjectsPointedToByMe&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;p-&amp;gt;o&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+
+                &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// cast from list of &amp;#39;object&amp;#39; to list of &amp;#39;Person&amp;#39;
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;                &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;result&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;List&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Order&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;gt;();&lt;/span&gt;
+                &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;foreach&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;order&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;in&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;list&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+                    &lt;span style=&#34;color:#000&#34;&gt;result&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Add&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;((&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Order&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;order&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+
+                &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// attempts at other simpler ways to cast a whole list
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;                &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;//result = list as List&amp;lt;Order&amp;gt;;  // crash
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;                &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;//result = new List&amp;lt;Order&amp;gt;(list); // syntax error?
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;
+                &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;result&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+            &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+        &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+        &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;///   
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;        &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;/// Order class points back to the person holding the order.  
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;        &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;/// Implemented using a relationship manager rather
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;        &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;/// than via pointers and arraylists etc.  
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;        &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;///  
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Order&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;BO&lt;/span&gt;
+        &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;description&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Order&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;description&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+            &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+                &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;description&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;description&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+            &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;override&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;ToString&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
+            &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+                &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Order Description: &amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;description&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+            &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;SetPerson&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Person&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;p&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+            &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+                &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// though mapping is bidirectional, there is still a primary relationship direction!
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;                &lt;span style=&#34;color:#000&#34;&gt;rm&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;AddRelationship&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;p&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;p-&amp;gt;o&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+
+            &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Person&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;GetPerson&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
+            &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+                &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// cast from &amp;#39;object&amp;#39; to &amp;#39;Person&amp;#39;
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;                &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Person&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;rm&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;FindObjectPointingToMe&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;p-&amp;gt;o&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+            &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;ClearPerson&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
+            &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+                &lt;span style=&#34;color:#000&#34;&gt;rm&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;RemoveRelationship&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;GetPerson&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(),&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;p-&amp;gt;o&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+            &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+        &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
 
     &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Person&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;GetPerson&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Person&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;RM&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;P&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;p-&amp;gt;o&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
-    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;ClearPerson&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-      &lt;span style=&#34;color:#000&#34;&gt;RM&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;NR&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;GetPerson&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(),&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;p-&amp;gt;o&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
-    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
-  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
 
 &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Here is the project source code &lt;a href=&#34;http://www.atug.com/downloads/RmBooNet/WindowsApplicationUsing%20RelationshipManagerDllTest001.rar&#34;&gt;WindowsApplicationUsing RelationshipManagerDllTest001.rar&lt;/a&gt; &lt;/p&gt;
-&lt;h2 id=&#34;appendix---constraints&#34;&gt;Appendix - Constraints&lt;/h2&gt;
-&lt;p&gt;Not sure exactly what this document is about, I&amp;rsquo;d have to study it (it was created 20 years ago) - but it looks kind of interesting.&lt;/p&gt;
-&lt;iframe src=&#34;https://abulka.github.io/files/rm-one to one and many maps 01.html&#34; name=&#34;frame1&#34; scrolling=&#34;yes&#34; frameborder=&#34;yes&#34; align=&#34;center&#34; height = &#34;842px&#34; width = &#34;800&#34;&gt;
-&lt;/iframe&gt;
-&lt;h2 id=&#34;future-directions&#34;&gt;Future Directions&lt;/h2&gt;
-&lt;p&gt;A generics version of relationship manager would be cool - that way no casting would be required. Presently all calls to relationship manager return objects - which you have to cast to the specific type you actually have stored.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Output:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Person: Jane has 2 orders
+The person who ordered Order Description: Clothes is Person: Jane
+The person who ordered Order Description: Boots is Person: Jane
+Done!
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;c-future-directions&#34;&gt;C# Future Directions&lt;/h2&gt;
+&lt;p&gt;A generics version of relationship manager would be cool - that way no casting would be required. Presently all calls to relationship manager return objects or lists of objects - which you have to cast to the specific type you actually have stored. You can see this casting in the above example.&lt;/p&gt;
 &lt;h2 id=&#34;resources&#34;&gt;Resources&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
