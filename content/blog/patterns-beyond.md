@@ -4,26 +4,19 @@ date: 2000-01-04
 draft: false
 ---
 
-This is a slightly older talk I gave at the time that I was into Delphi programming.  It discussed using the UML tool ModelMaker (now discontinued) in conjuntion with Delphi.
+How can IDE visualisation features be further enhaced by UML and Design Patterns to assist developers. It discusses using the revolutionary UML tool ModelMaker (now discontinued) in conjuntion with Delphi.
 
 ![cycleAll1.gif (11801 bytes)](http://www.atug.com/andypatterns/images/cycleAll1.gif)
 
-ADUG Presentation  
-December 1999  
-Andy Bulka  
-[andy@andypatterns.com](mailto:andy@andypatterns.com) 
+*ModelMaker allowed you to apply patterns onto your code using a UI*
 
-![](http://www.atug.com/andypatterns/_themes/canvas/acnvrule.gif)
+> This is a talk I gave at the time that I was into Delphi programming.  Presented to the Australian Delphi User Group in December 1999.
 
-Engineers use models
---------------------
+## Engineers use models
 
-*   Engineers produce plans before building bridges
-    
-*   Electrical engineers have a language of electrical symbols
-    
-*   Architects have blueprints
-
+-   Engineers produce plans before building bridges
+-   Electrical engineers have a language of electrical symbols
+-   Architects have blueprints
 
 What do software engineers / programmer for a modelling tool? 
 
@@ -45,8 +38,7 @@ We also have visual modelling in the form of hierarchical representation of clas
 
 ![codeExplorer.gif (48391 bytes)](http://www.atug.com/andypatterns/images/codeExplorer.gif)
 
-Where does UML come in?
------------------------
+## Where does UML come in?
 
 A modern IDE (Integrated Development Environments) like Delphi encourage a logical two-tier design where the data sits in the database and both the display & business logic sits in the presentation classes/components.  Really, most programmers are filling in the blanks (e.g. event code) and setting properties - the application code hangs off the IDE / Delphi / VCL / component framework. 
 
@@ -54,73 +46,58 @@ When someone asks you "where is your application code?" you typically answer in 
 
 If your application gets
 
-![bullet](http://www.atug.com/andypatterns/_themes/canvas/acnvbul1.gif)
-
-large or
-
-![bullet](http://www.atug.com/andypatterns/_themes/canvas/acnvbul1.gif)
-
-starts to create other extra classes
+- large or
+- starts to create other extra classes
 
 then you have no means of visualising your application code/classes.  Not only are they embedded behind GUI components, but they are effectively invisible to broad visualisation and organisation.
 
-Modelling to the rescue
------------------------
+## Modelling to the rescue
 
 Modelling software allows you to visualise your application code/classes, using UML as the visual symbol language.  E.g. Objects and pointers to other objects are represented by boxes and lines..
 
 When using a UML modeller, in addition to being able to visualize your extra application classes, you can also
 
-![bullet](http://www.atug.com/andypatterns/_themes/canvas/acnvbul1.gif)
+- Visualize your existing Delphi components (including forms)
 
-Visualize your existing Delphi components (including forms)
+- Take a punt and model your data as real objects instead of DB tables - that way you can give them behaviour.  They become real OO objects that model the real world domain your application is about.  Your application would then be based on a proper object model.
 
-![bullet](http://www.atug.com/andypatterns/_themes/canvas/acnvbul1.gif)
-
-Take a punt and model your data as real objects instead of DB tables - that way you can give them behaviour.  They become real OO objects that model the real world domain your application is about.  Your application would then be based on a proper object model.
-
-![bullet](http://www.atug.com/andypatterns/_themes/canvas/acnvbul1.gif)
-
-Keep application / business logic out of the GUI, and in a separate tier - called the model.  An OO model not only can model the real world domain your application is about, but can also be the engine powerhouse of your app.
+- Keep application / business logic out of the GUI, and in a separate tier - called the model.  An OO model not only can model the real world domain your application is about, but can also be the engine powerhouse of your app.
 
 ![2tier1d.gif (5982 bytes)](http://www.atug.com/andypatterns/images/2tier1d.gif)
 
-Visualising a form in UML
--------------------------
+## Visualising a form in UML
 
 A UML model can also model & incorporate GUI forms.  A simple Delphi application with a form and a button on that form can be represented in the following ways:
 
-Thus
+Thus this form containing a button
 
 ![formWithOneButtonDelphi.gif (2071 bytes)](http://www.atug.com/andypatterns/images/formWithOneButtonDelphi.gif)
 
-\=
+which is equivalent to the following Delphi code
 
-**type**  
-  TForm1 = **class** (TForm)  
+```pascal
+type  
+  TForm1 = class (TForm)  
     Hello: TButton;  
-    **procedure** HelloClick(Sender: TObject);  
-  **end**;     
+    procedure HelloClick(Sender: TObject);  
+  end;     
+```
 
-\=
+can be represented by the following UML diagram
 
 ![formWithOneButtonUML.gif (1825 bytes)](http://www.atug.com/andypatterns/images/formWithOneButtonUML.gif)
 
-Note that a form aggregates or contains a button, and this is represented by a arrow pointer.  If the button's lifetime is tied to the lifetime of the form, then the arrow should have a black diamond instead of a clear one.
+Note that a form aggregates or contains a button, and this is represented by a arrow pointer.  If the button's lifetime is tied to the lifetime of the form, then the arrow should have a black diamond instead of a clear one (if you are a stickler for correct UML).
 
-Modelmaker
-----------
+## Modelmaker
 
 ![tabulaMM1.jpg (22451 bytes)](http://www.atug.com/andypatterns/images/tabulaMM1.jpg)
 
-![](http://www.atug.com/andypatterns/_themes/canvas/acnvrule.gif)
+*ModelMaker's UI integrated code, UML and design patterns*
 
-ModelMaker benefits:
---------------------
+### ModelMaker benefits
 
-[http://www.modelmaker.demon.nl/](http://www.modelmaker.demon.nl/)
-
-ModelMaker represents a brand new way to develop classes and **component packages** for Borland Delphi (1/2/3/4/5). ModelMaker is a two-way class tree oriented **productivity** and UML-style CASE tool specifically designed for generating **native** Delphi code (in fact it was made using Delphi and ModelMaker). Delphi's Object Pascal language is fully supported by ModelMaker. From the start ModelMaker was designed to be a smart and highly productive tool. It has been used to create classes for both real-time / technical and database type applications. Versions 4 and 5 have full **reverse enginering** capabilities.
+[ModelMaker](http://www.modelmakertools.com/) (now unfortunately discontinued) represented a brand new way to develop classes and **component packages** for Borland Delphi (1/2/3/4/5). ModelMaker is a two-way class tree oriented **productivity** and UML-style CASE tool specifically designed for generating **native** Delphi code (in fact it was made using Delphi and ModelMaker). Delphi's Object Pascal language is fully supported by ModelMaker. From the start ModelMaker was designed to be a smart and highly productive tool. It has been used to create classes for both real-time / technical and database type applications. Versions 4 and 5 have full **reverse enginering** capabilities.
 
 ModelMaker supports drawing **UML style class diagrams** and from that perspective it looks much like a traditional CASE tool. The key to ModelMaker's magic, speed and power however is the **active modelling engine** which stores and maintains all relationships between classes and their members. Renaming a class or changing its ancestor will immediately propagate to the automatically generated source code. Tasks like overriding methods, adding events, properties and access methods are reduced to selecting and clicking.
 
@@ -132,61 +109,36 @@ A unique feature, currently not found in any development environment for Delphi,
 
 As a result, ModelMaker lets you:
 
-![bullet](http://www.atug.com/andypatterns/_themes/canvas/acnvbul1.gif)
+- Speed up development
+- Think more about designing instead of typing code.
+- Design without compromising and refine and experiment with designs until they feel just right.
+- Create and maintain magnitudes larger models in magnitudes less time.
+- Document you designs in UML style diagrams.
 
- Speed up development
+### Modelmaker Tutorial
 
-![bullet](http://www.atug.com/andypatterns/_themes/canvas/acnvbul1.gif)
+1. Creating classes
+1. Adding methods and properties/fields to classes
+1. Creating constructors and Destructors - MM adds the 'call inherited' code
+1. Units and code generation, two way synch.
 
-     Think of designing instead of typing code.
+A sample of Andy's Modelmaker live demo tutorials.
 
-![bullet](http://www.atug.com/andypatterns/_themes/canvas/acnvbul1.gif)
-
-     Design without compromising and refine and experiment with designs until they feel just right.
-
-![bullet](http://www.atug.com/andypatterns/_themes/canvas/acnvbul1.gif)
-
-     Create and maintain magnitudes larger models in magnitudes less time.
-
-![bullet](http://www.atug.com/andypatterns/_themes/canvas/acnvbul1.gif)
-
-     Document you designs in UML style diagrams.
-
-![](http://www.atug.com/andypatterns/_themes/canvas/acnvrule.gif)
-
-Simple Introduction
--------------------
-
-1\. Creating classes
-
-2\. Adding methods and properties/fields to classes
-
-3\. Creating constructors and Destructors - MM adds the 'call inherited' code
-
-4\. Units and code generation, two way synch.
-
-![](http://www.atug.com/andypatterns/_themes/canvas/acnvrule.gif)
-
-Sample of Andy's Modelmaker live demos
---------------------------------------
-
-### Creating a Simple Pointer property
+#### Creating a Simple Pointer property
 
 ![demo1.gif (30347 bytes)](http://www.atug.com/andypatterns/images/demo1.gif)
 
 How to create 2 new classes and have one point to the other.  Also notice how a Delphi property is automatically created to represent the pointer.  Of course you can add the property by clicking on the "Add property" toolbar button, but as demonstrated, it is sure sometimes conventient to be able to drag and draw a pointer - additionally, it makes it clear that the property represents a relationship between two classes, rather than the property merely holding a value or some sort.
 
-### Applying the Wrapper design pattern
+#### Applying the Wrapper design pattern
 
 ![demo2.gif (122461 bytes)](http://www.atug.com/andypatterns/images/demo2.gif)
 
 Notice we create a third class and add 4 methods to it.  We want to then access these methods indirectly, via the TDefault1 class.  So we duplicate the methods in the TDefault1 class, delegating / redirecting these calls to the appropriate class, where the real methods live.  This technique is known as '**wrapper pattern**'.   Note that the pattern will keep the method names up to date e.g. if you rename the wrapped class TDefault3 method 'Member1' into 'Member1A' then ModelMaker will automatically also rename TDefault1 class's method 'Member1' into 'Member1A'.
 
-< template discussion here? >
-
 Other uses of this pattern include simulating multiple inheritance (e.g. by having a class delegate out functionality to another class, you create the illusion of complex functionality coming from multiple classes). 
 
-### Initialising (Create) and owning (Destroy) objects
+#### Initialising (Create) and owning (Destroy) objects
 
 Another use of the wrapper pattern is creating composite objects out of smaller parts.   The client needs only to deal with one class, but behind the scenes there may be many classes involved.  Related to 'Facade pattern'.  There are issues of initialisation: Do you want the big class to create the sub classes?  If so, make a **Create constructor** method in the big class TDefault1 and do the creation of the subclasses (TDefault2, TDefault3) there.  Modelmaker's **creational wizard** can help build the code in the constructor automatically - and the destruction code as well. E.g.
 
@@ -194,20 +146,23 @@ Another use of the wrapper pattern is creating composite objects out of smaller 
 
 In the above demo we are creating Create and Destroy methods for the TDefault1 class, so that it both creates and destroys its 'sub-classes' when it itself is created/destroyed.  After running the ModelMaker creational wizard on the TDefault1 class, the resulting Create method is
 
-> inherited Create;  
-> FDefault2 := TDefault2.Create;  
-> FDefault3 := TDefault3.Create;
+```pascal
+inherited Create;  
+FDefault2 := TDefault2.Create;  
+FDefault3 := TDefault3.Create;
+```
 
 and the resulting Destroy method is
 
-> FDefault2.Free;  
-> FDefault3.Free;  
-> inherited Destroy;
+```pascal
+FDefault2.Free;  
+FDefault3.Free;  
+inherited Destroy;
+```
 
 Note: the 'creational wizard' only generates code if it finds a create or destroy method.  Also, the creational wizard only generates code for FIELDS that have been marked 'initialised' (this will generate the create code) or 'owned' (this will create the free code).
 
-Interfaces, Patterns, Templates
--------------------------------
+### Interfaces, Patterns, Templates
 
 After a long period of design & development, a class can end up containing many, many methods and properties. Often these methods and properties can be grouped.   Wouldn't it be great if we could name and distinguish these groups?  Well we already do!
 
@@ -219,21 +174,22 @@ Patterns are sets of methods and properties in a class, relating to methods and 
 
 Modelmaker templates are groups of methods & properties that you can save to disk and re-apply to any class.  Parametrisation means you can customise the code as you apply it.  You only get one shot at this.  After the code template is applied, you end up with raw code in your class, which you need to maintain manually.  This compares to ModelMaker's design patterns, which are more 'alive' e.g. references to a renamed method get maintained correctly within a ModelMaker pattern (e.g. Modelmaker's visitor pattern)
 
-The Future
-----------
+## The Future
 
 Working at the level of UML, 'sets/groupings of methods' and patterns, is a significantly higher level than Delphi code - which is starting to look like assembly language.  One day we will be applying colored 'LEGO' blocks that represent various groups of methods & properties - joining them together, much like the other component / bean technology we have today.
 
-e.g. Here is an example of a Composite & Proxy pattern combined, from Vlissides 'Pattern Hatching' book:
+Here is an example of a Composite & Proxy pattern combined, from the book [Pattern Hatching: Design Patterns Applied](https://www.amazon.com.au/Pattern-Hatching-John-Vlissides/dp/0201432935) by Vlissides:
 
 ![proxyComposite1.gif (59167 bytes)](http://www.atug.com/andypatterns/images/proxyComposite1.gif)
 
 More ideas for what a programming environment of the future might look like:   Adding a refactoring tool to ModelMaker + more patterns + templates.  Sequence Diagrams auto-generated from code.  Color coded groupings of patterns and methods/properties.
 
-e.g. Here is an example of a 'refactoring' from Martin Fowler's 'Refactoring' book.:
+Here is an example of a 'refactoring' from Martin Fowler's book [Refactoring: Improving the Design of Existing Code](https://www.amazon.com.au/dp/0134757599/ref=cm_sw_em_r_mt_dp_DvJOFbTKD2427):
 
 ![refactoring1.gif (15421 bytes)](http://www.atug.com/andypatterns/images/refactoring1.gif)
 
 Modelmaker can make easy work of accomplishing this refactoring using drag and drop of methods, however a built in, dedicated refactoring tool (as in Smalltalk and Java) would make the task even clearer and easier.
+
+2020 Postscript: Modern refactoring tools are now commonplace.
 
 \-Andy Bulka
