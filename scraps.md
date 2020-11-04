@@ -4,3 +4,5 @@
 
 ![bullet](http://www.atug.com/andypatterns/_themes/canvas/acnvbul1.gif)
 
+> The Patterns Movement is spearheaded by [Hillside and the Plop conferences](https://www.hillside.net/plop/2020/), held each year.
+
