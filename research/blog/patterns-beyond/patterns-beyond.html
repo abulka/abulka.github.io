@@ -1,0 +1,320 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Untitled</title>
+    <meta name="author" content="Andy Bulka">
+
+    <!-- <link rel="stylesheet" href="css/styles.css?v=1.0"> -->
+
+</head>
+
+<body>
+    <!-- <script src="js/scripts.js"></script> -->
+
+
+    <h1>Patterns, ModelMaker &amp; Beyond</h1>
+    <p>This is a slightly older talk I gave at the time that I was into Delphi programming.  It discussed using the UML tool ModelMaker in conjuntion with Delphi</p>
+    <h1> </h1>
+    <p><img src="http://www.atug.com/andypatterns/images/cycleAll1.gif" alt="cycleAll1.gif (11801 bytes)" width="176" height="92" /></p>
+    <p>ADUG Presentation <br /> December 1999<br /> Andy Bulka<br /><a href="mailto:andy@andypatterns.com">andy@andypatterns.com</a> </p>
+    <!--msthemeseparator-->
+    <p align="center"><img src="http://www.atug.com/andypatterns/_themes/canvas/acnvrule.gif" alt="" width="600" height="10" /></p>
+    <h2>
+        <!--mstheme--><span style="color: #663399;">Engineers use models</span></h2>
+    <p> </p>
+    <ul>
+        <li>
+            <p><span style="font-family: Arial,Arial,Helvetica;">Engineers produce plans before building bridges</span></p>
+        </li>
+        <li>
+            <p><span style="font-family: Arial,Arial,Helvetica;"><span style="font-family: Arial,Arial,Helvetica;">Electrical engineers have a language of electrical symbols</span></span>
+            </p>
+        </li>
+        <li>
+            <p><span style="font-family: Arial,Arial,Helvetica;"><span style="font-family: Arial,Arial,Helvetica;">Architects have blueprints</span></span>
+            </p>
+        </li>
+    </ul>
+    <table style="width: 545px; height: 2px;" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+            <tr>
+                <td valign="top" width="100%"> </td>
+            </tr>
+        </tbody>
+    </table>
+    <p><span style="font-family: Arial,Arial,Helvetica;">What do software engineers / programmer for a modelling tool?  </span></p>
+    <p><span style="font-family: Arial,Arial,Helvetica;">Do programmers necessarily need a strict visual language like other engineers?</span></p>
+    <p><span style="font-family: Arial,Arial,Helvetica;"><strong>Answer</strong>: Most programmers use visual IDE (integrated development environments) to visualize and organize their work.  For most programmers, this 'informal' modelling is sufficient for their needs.</span></p>
+    <p><span style="font-family: Arial,Arial,Helvetica;"><img src="http://www.atug.com/andypatterns/images/formDelphi1.gif" alt="formDelphi1.gif (15234 bytes)" width="913" height="357" /></span></p>
+    <p><span style="font-family: Arial,Arial,Helvetica;">Database tables have a natural visual reprentation of a grid/table e.g.</span></p>
+    <p><span style="font-family: Arial,Arial,Helvetica;"><img src="http://www.atug.com/andypatterns/images/sqlDelphi1.gif" alt="sqlDelphi1.gif (14787 bytes)" width="620" height="445" /></span></p>
+    <p><span style="font-family: Arial,Arial,Helvetica;">though when you want to visualise the often complex relationships between multiple tables, you may want to use something like the Delphi 5 Data Diagram:</span></p>
+    <p><span style="font-family: Arial,Arial,Helvetica;"><img src="http://www.atug.com/andypatterns/images/dataDiagramDelphi.gif" alt="dataDiagramDelphi.gif (17838 bytes)" width="696" height="480" /></span></p>
+    <p><span style="font-family: Arial,Arial,Helvetica;">We also have visual modelling in the form of hierarchical representation of classes (or elements of a data module, in Delphi 5).  This form of representation is extrememly useful, however, these hierarchical views do not show how objects are connected to each other.</span></p>
+    <p><span style="font-family: Arial,Arial,Helvetica;"><img src="http://www.atug.com/andypatterns/images/codeExplorer.gif" alt="codeExplorer.gif (48391 bytes)" width="696" height="583" /></span></p>
+    <h2>
+        <!--mstheme--><span style="font-family: Arial,Arial,Helvetica;"><span style="color: #663399;">Where does UML come in?<!--mstheme--></span></span>
+    </h2>
+    <p><span style="font-family: Arial,Arial,Helvetica;">A modern IDE (Integrated Development Environments) like Delphi encourage a logical two-tier design where the data sits in the database and both the display &amp; business logic sits in the presentation classes/components.  Really, most programmers are filling in the blanks (e.g. event code) and setting properties - the application code hangs off the IDE / Delphi / VCL / component framework.  </span></p>
+    <p><span style="font-family: Arial,Arial,Helvetica;">When someone asks you "where is your application code?" you typically answer in my GUI.</span></p>
+    <p><span style="font-family: Arial,Arial,Helvetica;">If your application gets </span></p>
+    <!--mstheme-->
+    <!--msthemelist-->
+    <table style="width: 100%;" border="0" cellspacing="0" cellpadding="0">
+        <!--msthemelist-->
+        <tbody>
+            <tr>
+                <td valign="baseline" width="42"><img src="http://www.atug.com/andypatterns/_themes/canvas/acnvbul1.gif" alt="bullet" width="15" height="15" hspace="13" /></td>
+                <td valign="top" width="100%">
+                    <!--mstheme--><span style="font-family: Arial,Arial,Helvetica;">large or<!--mstheme--></span>
+                    <!--msthemelist-->
+                </td>
+            </tr>
+            <!--msthemelist-->
+            <tr>
+                <td valign="baseline" width="42"><img src="http://www.atug.com/andypatterns/_themes/canvas/acnvbul1.gif" alt="bullet" width="15" height="15" hspace="13" /></td>
+                <td valign="top" width="100%">
+                    <!--mstheme--><span style="font-family: Arial,Arial,Helvetica;">starts to create other extra classes<!--mstheme--></span>
+                    <!--msthemelist-->
+                </td>
+            </tr>
+            <!--msthemelist-->
+        </tbody>
+    </table>
+    <!--mstheme-->
+    <p> </p>
+    <p>then you have no means of visualising your application code/classes.  Not only are they embedded behind GUI components, but they are effectively invisible to broad visualisation and organisation.</p>
+    <h2>
+        <!--mstheme--><span style="color: #663399;">Modelling to the rescue<!--mstheme--></span></h2>
+    <p>Modelling software allows you to visualise your application code/classes, using UML as the visual symbol language.  E.g. Objects and pointers to other objects are represented by boxes and lines..</p>
+    <!--mstheme-->
+    <p> </p>
+    <table style="width: 99%;" border="0">
+        <tbody>
+            <tr>
+                <td width="53%">
+                    <!--mstheme--><span style="font-family: Arial,Arial,Helvetica;">When using a UML modeller, in addition to being able to visualize your extra application classes, you can also <!--mstheme--></span>
+                    <!--msthemelist-->
+                    <table style="width: 100%;" border="0" cellspacing="0" cellpadding="0">
+                        <!--msthemelist-->
+                        <tbody>
+                            <tr>
+                                <td valign="baseline" width="42"><img src="http://www.atug.com/andypatterns/_themes/canvas/acnvbul1.gif" alt="bullet" width="15" height="15" hspace="13" /></td>
+                                <td valign="top" width="100%">
+                                    <!--mstheme--><span style="font-family: Arial,Arial,Helvetica;">Visualize your existing Delphi components (including forms)<!--mstheme--></span>
+                                    <!--msthemelist-->
+                                </td>
+                            </tr>
+                            <!--msthemelist-->
+                            <tr>
+                                <td valign="baseline" width="42"><img src="http://www.atug.com/andypatterns/_themes/canvas/acnvbul1.gif" alt="bullet" width="15" height="15" hspace="13" /></td>
+                                <td valign="top" width="100%">
+                                    <!--mstheme--><span style="font-family: Arial,Arial,Helvetica;">Take a punt and model your data as real objects instead of DB tables - that way you can give them behaviour.  They become real OO objects that <span style="font-size: small;">model the real world domain your application is about.  Your </span>application
+                                    would then be based on a proper object model.
+                                    <!--mstheme-->
+                                    </span>
+                                    <!--msthemelist-->
+                                </td>
+                            </tr>
+                            <!--msthemelist-->
+                            <tr>
+                                <td valign="baseline" width="42"><img src="http://www.atug.com/andypatterns/_themes/canvas/acnvbul1.gif" alt="bullet" width="15" height="15" hspace="13" /></td>
+                                <td valign="top" width="100%">
+                                    <!--mstheme--><span style="font-family: Arial,Arial,Helvetica;">K<span style="font-size: small;">eep application / business logic out of the GUI, and in a separate tier - called the model.  An OO model not only can model the real world domain your application is about, but can also be the engine powerhouse of your app. </span>
+                                    <!--mstheme-->
+                                    </span>
+                                    <!--msthemelist-->
+                                </td>
+                            </tr>
+                            <!--msthemelist-->
+                        </tbody>
+                    </table>
+                    <!--mstheme-->
+                </td>
+                <td width="60%">
+                    <!--mstheme--><span style="font-family: Arial,Arial,Helvetica;"><img src="http://www.atug.com/andypatterns/images/2tier1d.gif" alt="2tier1d.gif (5982 bytes)" width="319" height="349" /><!--mstheme--></span></td>
+            </tr>
+        </tbody>
+    </table>
+    <!--mstheme-->
+    <p> </p>
+    <h2>
+        <!--mstheme--><span style="color: #663399;">Visualising a form in UML<!--mstheme--></span></h2>
+    <p><span style="font-size: small;">A UML model can also model &amp; incorporate GUI forms</span>.  A simple Delphi application with a form and a button on that form can be represented in the following ways:</p>
+    <!--mstheme-->
+    <p> </p>
+    <table style="width: 52%;" border="0" cellspacing="4" cellpadding="10">
+        <tbody>
+            <tr>
+                <td width="8%">
+                    <!--mstheme--><span style="font-family: Arial,Arial,Helvetica;">Thus<!--mstheme--></span></td>
+                <td width="92%">
+                    <!--mstheme--><span style="font-family: Arial,Arial,Helvetica;"><img src="http://www.atug.com/andypatterns/images/formWithOneButtonDelphi.gif" alt="formWithOneButtonDelphi.gif (2071 bytes)" width="180" height="124" /><!--mstheme--></span></td>
+            </tr>
+            <tr>
+                <td width="8%">
+                    <!--mstheme--><span style="font-family: Arial,Arial,Helvetica;"><big><big><big>=</big></big></big><!--mstheme--></span></td>
+                <td width="92%">
+                    <!--mstheme-->
+                    <pre><strong>type</strong><br />  TForm1 = <strong>class</strong> (TForm)<br />    Hello: TButton;<br />    <strong>procedure</strong> HelloClick(Sender: TObject);<br />  <strong>end</strong>;     </pre>
+                    <!--mstheme-->
+                </td>
+            </tr>
+            <tr>
+                <td width="8%">
+                    <!--mstheme--><span style="font-family: Arial,Arial,Helvetica;"><big><big><big>=</big></big></big><!--mstheme--></span></td>
+                <td width="92%">
+                    <!--mstheme--><span style="font-family: Arial,Arial,Helvetica;"><img src="http://www.atug.com/andypatterns/images/formWithOneButtonUML.gif" alt="formWithOneButtonUML.gif (1825 bytes)" width="368" height="74" /><!--mstheme--></span></td>
+            </tr>
+        </tbody>
+    </table>
+    <!--mstheme-->
+    <p> </p>
+    <p>Note that a form aggregates or contains a button, and this is represented by a arrow pointer.  If the button's lifetime is tied to the lifetime of the form, then the arrow should have a black diamond instead of a clear one.</p>
+    <h2>
+        <!--mstheme--><span style="color: #663399;">Modelmaker<!--mstheme--></span></h2>
+    <p><img src="http://www.atug.com/andypatterns/images/tabulaMM1.jpg" alt="tabulaMM1.jpg (22451 bytes)" width="474" height="358" /></p>
+    <!--msthemeseparator-->
+    <p align="center"><img src="http://www.atug.com/andypatterns/_themes/canvas/acnvrule.gif" alt="" width="600" height="10" /></p>
+    <h2>
+        <!--mstheme--><span style="color: #663399;">ModelMaker benefits:<!--mstheme--></span></h2>
+    <p><a href="http://www.modelmaker.demon.nl/">http://www.modelmaker.demon.nl/</a></p>
+    <p>ModelMaker represents a brand new way to develop classes and <strong>component packages</strong> for Borland Delphi (1/2/3/4/5). ModelMaker is a two-way class tree oriented <strong>productivity</strong> and UML-style CASE tool specifically designed
+        for generating <strong>native</strong> Delphi code (in fact it was made using Delphi and ModelMaker). Delphi's Object Pascal language is fully supported by ModelMaker. From the start ModelMaker was designed to be a smart and highly productive
+        tool. It has been used to create classes for both real-time / technical and database type applications. Versions 4 and 5 have full <strong>reverse enginering</strong> capabilities.</p>
+    <p>ModelMaker supports drawing<strong> UML style class diagrams</strong> and from that perspective it looks much like a traditional CASE tool. The key to ModelMaker's magic, speed and power however is the <strong>active modelling engine</strong> which
+        stores and maintains all relationships between classes and their members. Renaming a class or changing its ancestor will immediately propagate to the automatically generated source code. Tasks like overriding methods, adding events, properties
+        and access methods are reduced to selecting and clicking.</p>
+    <p>The main difference between ModelMaker and other CASE tools is that design is strictly related to and natively expressed in Delphi code. This way there is a seamless transition from design to implementation currently not found in any other CASE tool.
+        This approach makes sure your designs remain down to earth. The main difference between ModelMaker and other Delphi code generators are it's high level overview and restructuring capabilities letting you deal with complex designs.</p>
+    <p>In ModelMaker you'll find a synergy of ideas from the cutting edge of object-oriented and component-based technology. It was inspired by the work of methodologists like Ivar Jacobson (OOSE), Ralph Johnson (design patterns) and Karl Lieberherr (adaptive
+        software).</p>
+    <p>A unique feature, currently not found in any development environment for Delphi, is the support for <strong>design patterns</strong>. A number of patterns are implemented as ‘ready to use’ active agents. A ModelMaker Pattern will not only insert Delphi
+        style code fragments to implement a specific pattern, but it also stays ‘alive’ to update this code to reflect any changes made to the design.</p>
+    <p>As a result,<span style="font-size: x-small;"> ModelMaker lets you: </span></p>
+    <!--mstheme-->
+    <p> </p>
+    <!--msthemelist-->
+    <table style="width: 100%;" border="0" cellspacing="0" cellpadding="0">
+        <!--msthemelist-->
+        <tbody>
+            <tr>
+                <td valign="baseline" width="42"><img src="http://www.atug.com/andypatterns/_themes/canvas/acnvbul1.gif" alt="bullet" width="15" height="15" hspace="13" /></td>
+                <td valign="top" width="100%">
+                    <!--mstheme-->
+                    <p style="margin-bottom: 6px; margin-top: 0px;" align="left"><span style="font-size: small;">     Speed up development</span></p>
+                    <!--msthemelist-->
+                </td>
+            </tr>
+            <!--msthemelist-->
+            <tr>
+                <td valign="baseline" width="42"><img src="http://www.atug.com/andypatterns/_themes/canvas/acnvbul1.gif" alt="bullet" width="15" height="15" hspace="13" /></td>
+                <td valign="top" width="100%">
+                    <!--mstheme-->
+                    <p style="margin-bottom: 6px; margin-top: 0px;" align="left">     Think of designing instead of typing code.</p>
+                    <!--msthemelist-->
+                </td>
+            </tr>
+            <!--msthemelist-->
+            <tr>
+                <td valign="baseline" width="42"><img src="http://www.atug.com/andypatterns/_themes/canvas/acnvbul1.gif" alt="bullet" width="15" height="15" hspace="13" /></td>
+                <td valign="top" width="100%">
+                    <!--mstheme-->
+                    <p style="margin-bottom: 6px; margin-top: 0px;" align="left">     Design without compromising and refine and experiment with designs until they feel just right.</p>
+                    <!--msthemelist-->
+                </td>
+            </tr>
+            <!--msthemelist-->
+            <tr>
+                <td valign="baseline" width="42"><img src="http://www.atug.com/andypatterns/_themes/canvas/acnvbul1.gif" alt="bullet" width="15" height="15" hspace="13" /></td>
+                <td valign="top" width="100%">
+                    <!--mstheme-->
+                    <p style="margin-bottom: 6px; margin-top: 0px;" align="left">     Create and maintain magnitudes larger models in magnitudes less time.</p>
+                    <!--msthemelist-->
+                </td>
+            </tr>
+            <!--msthemelist-->
+            <tr>
+                <td valign="baseline" width="42"><img src="http://www.atug.com/andypatterns/_themes/canvas/acnvbul1.gif" alt="bullet" width="15" height="15" hspace="13" /></td>
+                <td valign="top" width="100%">
+                    <!--mstheme-->
+                    <p style="margin-bottom: 6px; margin-top: 0px;" align="left">     Document you designs in UML style diagrams.</p>
+                    <!--msthemelist-->
+                </td>
+            </tr>
+            <!--msthemelist-->
+        </tbody>
+    </table>
+    <!--mstheme-->
+    <p> </p>
+    <p style="margin-bottom: 6px; margin-top: 0px;" align="left"><span style="font-family: Arial,Arial,Helvetica;"><span style="font-size: x-small;"> </span></span>
+    </p>
+    <p> </p>
+    <p align="center"><span style="font-family: Arial,Arial,Helvetica;"><img src="http://www.atug.com/andypatterns/_themes/canvas/acnvrule.gif" alt="" width="600" height="10" /></span></p>
+    <h2>
+        <!--mstheme--><span style="font-family: Arial,Arial,Helvetica;"><span style="color: #663399;">Simple Introduction<!--mstheme--></span></span>
+    </h2>
+    <p><span style="font-family: Arial,Arial,Helvetica;">1. Creating classes</span></p>
+    <p><span style="font-family: Arial,Arial,Helvetica;">2. Adding methods and properties/fields to classes</span></p>
+    <p><span style="font-family: Arial,Arial,Helvetica;">3. Creating constructors and Destructors - MM adds the 'call inherited' code</span></p>
+    <p><span style="font-family: Arial,Arial,Helvetica;">4. Units and code generation, two way synch.</span></p>
+    <!--msthemeseparator-->
+    <p align="center"><span style="font-family: Arial,Arial,Helvetica;"><img src="http://www.atug.com/andypatterns/_themes/canvas/acnvrule.gif" alt="" width="600" height="10" /></span></p>
+    <h2>
+        <!--mstheme--><span style="font-family: Arial,Arial,Helvetica;"><span style="color: #663399;">Sample of Andy's Modelmaker live demos<!--mstheme--></span></span>
+    </h2>
+    <h3>
+        <!--mstheme--><span style="font-family: Arial,Arial,Helvetica;"><span style="color: #663399;">Creating a Simple Pointer property<!--mstheme--></span></span>
+    </h3>
+    <p><span style="font-family: Arial,Arial,Helvetica;"><img src="http://www.atug.com/andypatterns/images/demo1.gif" alt="demo1.gif (30347 bytes)" width="563" height="382" /></span></p>
+    <p align="left"><span style="font-family: Arial,Arial,Helvetica;">How to create 2 new classes and have one point to the other.  Also notice how a Delphi property is automatically created to represent the pointer.  Of course you can add the property by clicking on the "Add property" toolbar button, but as demonstrated, it is sure sometimes conventient to be able to drag and draw a pointer - additionally, it makes it clear that the property represents a relationship between two classes, rather than the property merely holding a value or some sort.</span></p>
+    <h3>
+        <!--mstheme--><span style="font-family: Arial,Arial,Helvetica;"><span style="color: #663399;">Applying the Wrapper design pattern<!--mstheme--></span></span>
+    </h3>
+    <p><span style="font-family: Arial,Arial,Helvetica;"><img src="http://www.atug.com/andypatterns/images/demo2.gif" alt="demo2.gif (122461 bytes)" width="563" height="382" /></span></p>
+    <p><span style="font-family: Arial,Arial,Helvetica;">Notice we create a third class and add 4 methods to it.  We want to then access these methods indirectly, via the TDefault1 class.  So we duplicate the methods in the TDefault1 class, delegating / redirecting these calls to the appropriate class, where the real methods live.  This technique is known as '<strong>wrapper pattern</strong>'.   Note that the pattern will keep the method names up to date e.g. if you rename the wrapped class TDefault3 method 'Member1' into 'Member1A' then ModelMaker will automatically also rename TDefault1 class's method 'Member1' into 'Member1A'.</span></p>
+    <p><span style="font-family: Arial,Arial,Helvetica;">&lt; template discussion here? &gt;</span></p>
+    <p><span style="font-family: Arial,Arial,Helvetica;">Other uses of this pattern include simulating multiple inheritance (e.g. by having a class delegate out functionality to another class, you create the illusion of complex functionality coming from multiple classes).  </span></p>
+    <h3>
+        <!--mstheme--><span style="font-family: Arial,Arial,Helvetica;"><span style="color: #663399;">Initialising (Create) and owning (Destroy) objects<!--mstheme--></span></span>
+    </h3>
+    <p><span style="font-family: Arial,Arial,Helvetica;">Another use of the wrapper pattern is creating composite objects out of smaller parts.   The client needs only to deal with one class, but behind the scenes there may be many classes involved.  Related to 'Facade pattern'.  There are issues of initialisation: Do you want the big class to create the sub classes?  If so, make a <strong>Create constructor</strong> method in the big class TDefault1 and do the creation of the subclasses (TDefault2, TDefault3) there.  Modelmaker's <strong>creational wizard</strong> can help build the code in the constructor automatically - and the destruction code as well. E.g.</span></p>
+    <p><span style="font-family: Arial,Arial,Helvetica;"><img src="http://www.atug.com/andypatterns/images/demo3.gif" alt="demo3.gif (184426 bytes)" width="814" height="526" /></span></p>
+    <p><span style="font-family: Arial,Arial,Helvetica;">In the above demo we are creating Create and Destroy methods for the TDefault1 class, so that it both creates and destroys its 'sub-classes' when it itself is created/destroyed.  After running the ModelMaker creational wizard on the TDefault1 class, the resulting Create method is</span></p>
+    <blockquote>
+        <pre>inherited Create;<br />FDefault2 := TDefault2.Create;<br />FDefault3 := TDefault3.Create;</pre>
+        <!--mstheme-->
+    </blockquote>
+    <p><span style="font-family: Arial,Arial,Helvetica;">and the resulting Destroy method is</span></p>
+    <blockquote>
+        <pre>FDefault2.Free;<br />FDefault3.Free;<br />inherited Destroy;</pre>
+        <!--mstheme-->
+    </blockquote>
+    <p><span style="font-family: Arial,Arial,Helvetica;">Note: the 'creational wizard' only generates code if it finds a create or destroy method.  Also, the creational wizard only generates code for FIELDS that have been marked 'initialised' (this will generate the create code) or 'owned' (this will create the free code).</span></p>
+    <h2>
+        <!--mstheme--><span style="font-family: Arial,Arial,Helvetica;"><span style="color: #663399;">Interfaces, Patterns, Templates<!--mstheme--></span></span>
+    </h2>
+    <p><span style="font-family: Arial,Arial,Helvetica;">After a long period of design &amp; development, a class can end up containing many, many methods and properties. Often these methods and properties can be grouped.   Wouldn't it be great if we could name and distinguish these groups?  Well we already do!</span></p>
+    <p><span style="font-family: Arial,Arial,Helvetica;">Classes are an attempt to group functionality.  Class A supports methods 1 &amp; 2, Class B inherits from B and also supports methods 3 &amp; 4.  </span></p>
+    <p><span style="font-family: Arial,Arial,Helvetica;">Interfaces are another attempt to group functionality.  A class can support/implement multiple interfaces.</span></p>
+    <p><span style="font-family: Arial,Arial,Helvetica;">Patterns are sets of methods and properties in a class, relating to methods and properties in one or more other classes.</span></p>
+    <p><span style="font-family: Arial,Arial,Helvetica;">Modelmaker templates are groups of methods &amp; properties that you can save to disk and re-apply to any class.  Parametrisation means you can customise the code as you apply it.  You only get one shot at this.  After the code template is applied, you end up with raw code in your class, which you need to maintain manually.  This compares to ModelMaker's design patterns, which are more 'alive' e.g. references to a renamed method get maintained correctly within a ModelMaker pattern (e.g. Modelmaker's visitor pattern)</span></p>
+    <h2>
+        <!--mstheme--><span style="font-family: Arial,Arial,Helvetica;"><span style="color: #663399;">The Future<!--mstheme--></span></span>
+    </h2>
+    <p><span style="font-family: Arial,Arial,Helvetica;">Working at the level of UML, 'sets/groupings of methods' and patterns, is a significantly higher level than Delphi code - which is starting to look like assembly language.  One day we will be applying colored 'LEGO' blocks that represent various groups of methods &amp; properties - joining them together, much like the other component / bean technology we have today.</span></p>
+    <p><span style="font-family: Arial,Arial,Helvetica;">e.g. Here is an example of a Composite &amp; Proxy pattern combined, from Vlissides 'Pattern Hatching' book:</span></p>
+    <p><span style="font-family: Arial,Arial,Helvetica;"><img src="http://www.atug.com/andypatterns/images/proxyComposite1.gif" alt="proxyComposite1.gif (59167 bytes)" width="652" height="467" /></span></p>
+    <p><span style="font-family: Arial,Arial,Helvetica;">More ideas for what a programming environment of the future might look like:   Adding a refactoring tool to ModelMaker + more patterns + templates.  Sequence Diagrams auto-generated from code.  Color coded groupings of patterns and methods/properties.</span></p>
+    <p><span style="font-family: Arial,Arial,Helvetica;">e.g. Here is an example of a 'refactoring' from Martin Fowler's 'Refactoring' book.:</span></p>
+    <p><span style="font-family: Arial,Arial,Helvetica;"><img src="http://www.atug.com/andypatterns/images/refactoring1.gif" alt="refactoring1.gif (15421 bytes)" width="674" height="490" /></span></p>
+    <p><span style="font-family: Arial,Arial,Helvetica;">Modelmaker can make easy work of accomplishing this refactoring using drag and drop of methods, however a built in, dedicated refactoring tool (as in Smalltalk and Java) would make the task even clearer and easier.</span></p>
+    <p><span style="font-family: Arial,Arial,Helvetica;">-Andy Bulka</span></p>
+
+</body>
+
+</html>
