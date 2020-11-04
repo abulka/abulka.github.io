@@ -174,7 +174,11 @@ Patterns are sets of methods and properties in a class, relating to methods and 
 
 Modelmaker templates are groups of methods & properties that you can save to disk and re-apply to any class.  Parametrisation means you can customise the code as you apply it.  You only get one shot at this.  After the code template is applied, you end up with raw code in your class, which you need to maintain manually.  This compares to ModelMaker's design patterns, which are more 'alive' e.g. references to a renamed method get maintained correctly within a ModelMaker pattern (e.g. Modelmaker's visitor pattern)
 
+Whilst ModelMaker is discontinued, you can read [the manual](http://read.pudn.com/downloads27/ebook/87707/Online+PDF%20Docs/ModelMaker/usermanual620.pdf) and still [download](https://torry.net/authorsmore.php?id=4653) a trial of the old software.
+
 ## The Future
+
+*As seen from 2000's - nothing like this ever happened*
 
 Working at the level of UML, 'sets/groupings of methods' and patterns, is a significantly higher level than Delphi code - which is starting to look like assembly language.  One day we will be applying colored 'LEGO' blocks that represent various groups of methods & properties - joining them together, much like the other component / bean technology we have today.
 
