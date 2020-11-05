@@ -1,0 +1,50 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Untitled</title>
+    <meta name="author" content="Andy Bulka">
+
+    <!-- <link rel="stylesheet" href="css/styles.css?v=1.0"> -->
+
+</head>
+
+<body>
+    <!-- <script src="js/scripts.js"></script> -->
+    <h1>Object Relational Mapping Pattern - using SQLObject</h1>
+    <p>Relational databases and OO memory models use different paradigms.  Mapping between one and the other is often
+        necessary and ends up being fiddly work so an auto-mapping tool like <a href="http://www.sqlobject.org/"
+            target="_blank">SQLObject</a> (python framework) can help enormously.</p>
+    <h2>How it works</h2>
+    <p>Let's face it - a lot of developers prefer to just code classes - that's what OO is all about.  Having then to
+        persist those classes into tables creates all sorts of fiddly mapping code.  If you don't need to persist into
+        tables - fine.  But if you do need to persist into tables, one way to reduce your workload is to use a tool like
+        SQLObject - you simply write your code in a certain way and the tables are automatically maintained.</p>
+    <ul>
+        <li>Each class becomes a table.</li>
+        <li>Each attribute on a class is a column in a table.</li>
+    </ul>
+    <p>The ORM tool automatically causes the setting of attributes on objects to have a wonderful side effect: the
+        values are written to the database table.  And conversely, pulling information out from your object triggers the
+        appropriateSQL calls to retrieve the information from the table.  <strong>You don't have to deal with sql syntax
+            yourself</strong>. However you can take advantage of the fact that you now have a sql backend, to make
+        sql-like queries - thus you can save coding effort.  You have all the power of SQL at your disposal now, you
+        might as well use take advantage of it!  You don't have to use precise SQL syntax but you need to use something
+        very much like it E.g. in SQLObject you would write things like:</p>
+    <pre><span><span style="font-family: Lucida,Courier New;"><span style="color: #000000;">ps</span> <span style="color: #0000c0;">=</span> <span style="color: #000000;">Person</span><span style="color: #0000c0;">.</span><span style="color: #000000;">select</span><span style="color: #0000c0;">(</span><span style="color: #004080;">"""address.postcode LIKE '3186'"""</span><span style="color: #0000c0;">,</span><br /> <span style="color: #000000;">clauseTables</span><span style="color: #0000c0;">=</span><span style="color: #0000c0;">[</span><span style="color: #004080;">'address'</span><span style="color: #0000c0;">]</span><span style="color: #0000c0;">)</span><br /><span style="color: #c00000;">print</span> <span style="color: #000000;">list</span><span style="color: #0000c0;">(</span><span style="color: #000000;">ps</span><span style="color: #0000c0;">)</span></span></span></pre>
+    <p>Finally, ORM (object relational mapping) tools usually let you choose what style of database to use with a switch
+        - e.g. develop on sql-lite and deploy on mysql - all without changing any of your code.</p>
+
+        <p><iframe style="border: 1px solid #CCC; border-width: 1px; margin-bottom: 5px; max-width: 100%;" src="//www.slideshare.net/slideshow/embed_code/key/sfVHA5wqbCdvZl" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" width="595" height="485"> </iframe></p>
+<div style="margin-bottom: 5px;"><strong> <a title="Object Relational Mapping Pattern - using Sql Object" href="//www.slideshare.net/tcab22/object-relational-mapping-pattern-using-sql-object-presentation-948190" target="_blank">Object Relational Mapping Pattern - using Sql Object</a> </strong> from <strong><a href="https://www.slideshare.net/tcab22" target="_blank">tcab22</a></strong></div>
+
+<h2>Alternatives</h2>
+<p>You may also be interested in <a href="http://www.sqlalchemy.org/" target="_blank">Sqlalchemy</a> which seems to be getting a fair bit of mindshare.  Its similar to SQLObject and is for python.  Then there are ORM frameworks for java like hibernate and many others.  Just google for ORM.  And if you are into .NET then the "low hanging fruit" solution of <a href="http://msdn.microsoft.com/en-us/vcsharp/aa904594.aspx" target="_blank">LINQ</a> is worth looking at.</p>
+<p>The point of this article has been to get you to see the essence of what an ORM does, with the minimal amount of code.</p>
+
+</body>
+
+</html>
