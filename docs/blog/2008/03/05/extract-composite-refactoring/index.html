@@ -20,36 +20,27 @@
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
-<title>Using Design Patterns in Real Projects | Andy Bulka - Blog</title><meta property="og:title" content="Using Design Patterns in Real Projects" />
-<meta property="og:description" content="What is it like to use design pattern in real life programming?
-Do the sometimes academic patterns translate into the real world?
-The answer is yes. I will back this up with three examples of where I have used patterns in real world projects.
- Scroll down through the slides above
--Andy Bulka" />
+<title>Extract Composite Refactoring | Andy Bulka - Blog</title><meta property="og:title" content="Extract Composite Refactoring" />
+<meta property="og:description" content="Extract Composite - Refactoring to a Pattern Refactoring existing code so that it improves and conforms to a design pattern can be a good thing. Your code will be easier to understand since it follows a known &lsquo;pattern&rsquo;. Of course you have to need the change - your code will probably be uncomfortable to read and be crying out for clarification.
+This refactoring is about implementing a one to many relationship in your code more clearly by refactoring to the Composite design pattern." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://abulka.github.io/blog/2002/09/04/using-design-patterns-in-real-projects/" />
-<meta property="article:published_time" content="2002-09-04T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-11-04T16:38:54+11:00" />
-<meta itemprop="name" content="Using Design Patterns in Real Projects">
-<meta itemprop="description" content="What is it like to use design pattern in real life programming?
-Do the sometimes academic patterns translate into the real world?
-The answer is yes. I will back this up with three examples of where I have used patterns in real world projects.
- Scroll down through the slides above
--Andy Bulka">
-<meta itemprop="datePublished" content="2002-09-04T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2020-11-04T16:38:54+11:00" />
-<meta itemprop="wordCount" content="52">
+<meta property="og:url" content="https://abulka.github.io/blog/2008/03/05/extract-composite-refactoring/" />
+<meta property="article:published_time" content="2008-03-05T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-11-05T17:45:13+11:00" />
+<meta itemprop="name" content="Extract Composite Refactoring">
+<meta itemprop="description" content="Extract Composite - Refactoring to a Pattern Refactoring existing code so that it improves and conforms to a design pattern can be a good thing. Your code will be easier to understand since it follows a known &lsquo;pattern&rsquo;. Of course you have to need the change - your code will probably be uncomfortable to read and be crying out for clarification.
+This refactoring is about implementing a one to many relationship in your code more clearly by refactoring to the Composite design pattern.">
+<meta itemprop="datePublished" content="2008-03-05T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-11-05T17:45:13+11:00" />
+<meta itemprop="wordCount" content="476">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Using Design Patterns in Real Projects"/>
-<meta name="twitter:description" content="What is it like to use design pattern in real life programming?
-Do the sometimes academic patterns translate into the real world?
-The answer is yes. I will back this up with three examples of where I have used patterns in real world projects.
- Scroll down through the slides above
--Andy Bulka"/>
+<meta name="twitter:title" content="Extract Composite Refactoring"/>
+<meta name="twitter:description" content="Extract Composite - Refactoring to a Pattern Refactoring existing code so that it improves and conforms to a design pattern can be a good thing. Your code will be easier to understand since it follows a known &lsquo;pattern&rsquo;. Of course you have to need the change - your code will probably be uncomfortable to read and be crying out for clarification.
+This refactoring is about implementing a one to many relationship in your code more clearly by refactoring to the Composite design pattern."/>
 
 
 
@@ -196,7 +187,7 @@ The answer is yes. I will back this up with three examples of where I have used 
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-blog20080305extract-composite-refactoring" href="/blog/2008/03/05/extract-composite-refactoring/">Extract Composite Refactoring</a>
+      <a class="td-sidebar-link td-sidebar-link__page  active" id="m-blog20080305extract-composite-refactoring" href="/blog/2008/03/05/extract-composite-refactoring/">Extract Composite Refactoring</a>
       
       
       
@@ -244,7 +235,7 @@ The answer is yes. I will back this up with three examples of where I have used 
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page  active" id="m-blog20020904using-design-patterns-in-real-projects" href="/blog/2002/09/04/using-design-patterns-in-real-projects/">Using Design Patterns in Real Projects</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blog20020904using-design-patterns-in-real-projects" href="/blog/2002/09/04/using-design-patterns-in-real-projects/">Using Design Patterns in Real Projects</a>
       
       
       
@@ -278,8 +269,8 @@ The answer is yes. I will back this up with three examples of where I have used 
 
 
 
-<a href="https://github.com/google/docsy-example/edit/master/content/en/blog/real-world-patterns-use.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
-<a href="https://github.com/google/docsy-example/issues/new?title=Using%20Design%20Patterns%20in%20Real%20Projects" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
+<a href="https://github.com/google/docsy-example/edit/master/content/en/blog/extract-composite-refactoring.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+<a href="https://github.com/google/docsy-example/issues/new?title=Extract%20Composite%20Refactoring" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
 
 
 <a href="https://github.com/google/docsy/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
@@ -291,6 +282,29 @@ The answer is yes. I will back this up with three examples of where I have used 
 
 
 
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#presentation">Presentation</a></li>
+    <li><a href="#uml---before-and-after">UML - Before and After</a>
+      <ul>
+        <li><a href="#uml-before">UML Before</a></li>
+        <li><a href="#uml-after">UML After</a></li>
+      </ul>
+    </li>
+    <li><a href="#code---before-and-after">Code - Before and After</a>
+      <ul>
+        <li><a href="#code-before">Code Before</a></li>
+      </ul>
+    </li>
+    <li><a href="#then-we-apply-the-following-steps">Then we apply the following steps&hellip;</a>
+      <ul>
+        <li><a href="#code-after">Code After</a></li>
+        <li><a href="#does-the-refactoring-break-anything">Does the refactoring break anything?</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
 
 
           </div>
@@ -300,27 +314,138 @@ The answer is yes. I will back this up with three examples of where I have used 
             </a>
             
 <div class="td-content">
-	<h1>Using Design Patterns in Real Projects</h1>
+	<h1>Extract Composite Refactoring</h1>
 	
 	<div class="td-byline mb-4">
 		
-		<time datetime="2002-09-04" class="text-muted">Wednesday, September 04, 2002</time>
+		<time datetime="2008-03-05" class="text-muted">Wednesday, March 05, 2008</time>
 	</div>
 	
-	<p>What is it like to use design pattern in real life programming?<br>
-Do the sometimes academic patterns translate into the real world?</p>
-<p>The answer is yes. I will back this up with three examples of where I have used patterns in real world projects.</p>
-<iframe class="scribd_iframe_embed" title="Using Design Patterns in Real Projects" src="https://www.scribd.com/embeds/11154597/content?start_page=1&amp;view_mode=scroll&amp;show_recommendations=true&amp;access_key=key-2hwdc4gvp5l1dtlom3k4" frameborder="0" scrolling="no" width="100%" height="600" data-auto-height="true" data-aspect-ratio="null"></iframe>
-<p><em>Scroll down through the slides above</em></p>
-<p>-Andy Bulka</p>
+	<h1 id="extract-composite---refactoring-to-a-pattern">Extract Composite - Refactoring to a Pattern</h1>
+<p>Refactoring existing code so that it improves and conforms to a design pattern can be a good thing.  Your code will be easier to understand since it follows a known &lsquo;pattern&rsquo;.  Of course you have to need the change - your code will probably be uncomfortable to read and be crying out for clarification.</p>
+<p>This refactoring is about implementing a one to many relationship in your code more clearly by refactoring to the Composite design pattern.</p>
+<h2 id="presentation">Presentation</h2>
+<iframe style="border: 1px solid #CCC; border-width: 1px; margin-bottom: 5px; max-width: 100%;" src="//www.slideshare.net/slideshow/embed_code/key/CZeskH10aSCnUt" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" width="595" height="485"> </iframe>
+<h2 id="uml---before-and-after">UML - Before and After</h2>
+<p>Here is the situation before and after the refactoring, in hand drawn UML.</p>
+<h3 id="uml-before">UML Before</h3>
+<p><img src="/blog/images/extract-CompositeBefore.png" alt=""></p>
+<p>The <strong>problem</strong> with the &ldquo;before&rdquo; situation is:</p>
+<ul>
+<li>The child looping logic is duplicated twice - once in the <code>FormTag</code> class and again in the <code>LinkTag</code> class.  And we all know that code duplication is evil and hard to maintain.</li>
+</ul>
+<p>By refactoring, we remove the code duplication to a common base class.</p>
+<h3 id="uml-after">UML After</h3>
+<p><img src="/blog/images/extract-CompositeAfter.png" alt=""></p>
+<p>The solution:</p>
+<ul>
+<li>We use the &ldquo;extract composite&rdquo; refactoring to put the common looping behaviour in the display() method of a common composite class.</li>
+<li>We make the existing classes subclasses of this new composite class.</li>
+</ul>
+<h2 id="code---before-and-after">Code - Before and After</h2>
+<p>Here is a python example of the above refactoring.  Note that the display() method is actually called toPlainTextString() in this example.</p>
+<h3 id="code-before">Code Before</h3>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#8f5902;font-style:italic"># Before</span>
+
+<span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Node</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">object</span><span style="color:#000;font-weight:bold">):</span>
+ <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">name</span><span style="color:#000;font-weight:bold">):</span>
+ <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">name</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">name</span>
+ <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">toPlainTextString</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>
+ <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">name</span>
+
+<span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">FormTag</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Node</span><span style="color:#000;font-weight:bold">):</span>
+ <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>
+ <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">allNodesVector</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[]</span>
+ <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">toPlainTextString</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>
+ <span style="color:#000">result</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;&#34;</span>
+ <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">node</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">allNodesVector</span><span style="color:#000;font-weight:bold">:</span>
+ <span style="color:#000">result</span> <span style="color:#ce5c00;font-weight:bold">+=</span> <span style="color:#000">node</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">toPlainTextString</span><span style="color:#000;font-weight:bold">()</span>
+ <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">result</span>
+
+<span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">LinkTag</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Node</span><span style="color:#000;font-weight:bold">):</span>
+ <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>
+ <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">linkData</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[]</span>
+ <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">toPlainTextString</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>
+ <span style="color:#000">result</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;&#34;</span>
+ <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">node</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">linkData</span><span style="color:#000;font-weight:bold">:</span>
+ <span style="color:#000">result</span> <span style="color:#ce5c00;font-weight:bold">+=</span> <span style="color:#000">node</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">toPlainTextString</span><span style="color:#000;font-weight:bold">()</span>
+ <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">result</span>
+
+<span style="color:#000">f</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">FormTag</span><span style="color:#000;font-weight:bold">()</span>
+<span style="color:#000">f</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">allNodesVector</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">append</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Node</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;a&#34;</span><span style="color:#000;font-weight:bold">))</span>
+<span style="color:#000">f</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">allNodesVector</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">append</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Node</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;b&#34;</span><span style="color:#000;font-weight:bold">))</span>
+<span style="color:#000">f</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">allNodesVector</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">append</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Node</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;c&#34;</span><span style="color:#000;font-weight:bold">))</span>
+
+<span style="color:#000">l</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">LinkTag</span><span style="color:#000;font-weight:bold">()</span>
+<span style="color:#000">l</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">linkData</span> <span style="color:#ce5c00;font-weight:bold">+=</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#000">Node</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;x&#34;</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#000">Node</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;y&#34;</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#000">Node</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;z&#34;</span><span style="color:#000;font-weight:bold">)]</span>
+
+<span style="color:#204a87;font-weight:bold">print</span> <span style="color:#000">f</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">toPlainTextString</span><span style="color:#000;font-weight:bold">()</span>
+<span style="color:#204a87;font-weight:bold">print</span> <span style="color:#000">l</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">toPlainTextString</span><span style="color:#000;font-weight:bold">()</span>
+</code></pre></div><h2 id="then-we-apply-the-following-steps">Then we apply the following steps&hellip;</h2>
+<ol>
+<li>Create a Composite Class - compile</li>
+<li>Make each child container (a class in the hierarchy that contains duplicate child-handling code) a subclass of your composite - compile</li>
+<li>For each method with duplicated looping code
+<ul>
+<li>Move &amp; rename the child reference field UP to the composite using &ldquo;Pull Up Field&rdquo;</li>
+<li>Move the method UP to the composite using &ldquo;Pull Up Method&rdquo;</li>
+<li>Pull up any relevant constructor code too.</li>
+<li>Check interfaces so that client code using the old composites still works.</li>
+</ul>
+</li>
+</ol>
+<h3 id="code-after">Code After</h3>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#8f5902;font-style:italic"># After</span>
+
+<span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Node</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">object</span><span style="color:#000;font-weight:bold">):</span>
+ <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">name</span><span style="color:#000;font-weight:bold">):</span>
+ <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">name</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">name</span>
+ <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">toPlainTextString</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>
+ <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">name</span>
+
+<span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Composite</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Node</span><span style="color:#000;font-weight:bold">):</span>
+ <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>
+ <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">children</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[]</span>
+ <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">toPlainTextString</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>
+ <span style="color:#000">result</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;&#34;</span>
+ <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">node</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">children</span><span style="color:#000;font-weight:bold">:</span>
+ <span style="color:#000">result</span> <span style="color:#ce5c00;font-weight:bold">+=</span> <span style="color:#000">node</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">toPlainTextString</span><span style="color:#000;font-weight:bold">()</span>
+ <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">result</span>
+
+<span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">FormTag</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Composite</span><span style="color:#000;font-weight:bold">):</span>
+ <span style="color:#204a87;font-weight:bold">pass</span>
+
+<span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">LinkTag</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Composite</span><span style="color:#000;font-weight:bold">):</span>
+ <span style="color:#204a87;font-weight:bold">pass</span>
+
+<span style="color:#000">f</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">FormTag</span><span style="color:#000;font-weight:bold">()</span>
+<span style="color:#000">f</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">children</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">append</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Node</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;a&#34;</span><span style="color:#000;font-weight:bold">))</span>
+<span style="color:#000">f</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">children</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">append</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Node</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;b&#34;</span><span style="color:#000;font-weight:bold">))</span>
+<span style="color:#000">f</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">children</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">append</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Node</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;c&#34;</span><span style="color:#000;font-weight:bold">))</span>
+
+<span style="color:#000">l</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">LinkTag</span><span style="color:#000;font-weight:bold">()</span>
+<span style="color:#000">l</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">children</span> <span style="color:#ce5c00;font-weight:bold">+=</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#000">Node</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;x&#34;</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#000">Node</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;y&#34;</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#000">Node</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;z&#34;</span><span style="color:#000;font-weight:bold">)]</span>
+
+<span style="color:#204a87;font-weight:bold">print</span> <span style="color:#000">f</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">toPlainTextString</span><span style="color:#000;font-weight:bold">()</span>
+<span style="color:#204a87;font-weight:bold">print</span> <span style="color:#000">l</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">toPlainTextString</span><span style="color:#000;font-weight:bold">()</span>
+</code></pre></div><h3 id="does-the-refactoring-break-anything">Does the refactoring break anything?</h3>
+<p>A proper refactoring means you don&rsquo;t break anything and everything behaves as before.</p>
+<pre><code>python before.py
+abc  
+xyz
+
+python after.py
+abc  
+xyz
+</code></pre><p>Confirmed - we get the same output in both cases. :-)</p>
 
 	
 
 	<ul class="list-unstyled d-flex justify-content-between align-items-center mb-0 pt-5">
   <li>
-    <a href="/blog/2000/01/04/patterns-modelmaker-beyond/" class="btn btn-primary "><span class="mr-1">←</span> Previous</a>
+    <a href="/blog/2007/11/05/thoughts-on-closures/" class="btn btn-primary "><span class="mr-1">←</span> Previous</a>
   </li>
-    <a href="/blog/2002/10/04/null-object-pattern/" class="btn btn-primary ">Next <span class="ml-1">→</span></a>
+    <a href="/blog/2011/04/06/uml-layout/" class="btn btn-primary ">Next <span class="ml-1">→</span></a>
   </li>
 </ul>
 

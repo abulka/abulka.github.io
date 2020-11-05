@@ -191,6 +191,208 @@ Snapshot 6 [1] LL  0   NN pre rm overlaps 10   LN  5   scale 2.0   bounds 18  (4
     </item>
     
     <item>
+      <title>Blog: Extract Composite Refactoring</title>
+      <link>https://abulka.github.io/blog/2008/03/05/extract-composite-refactoring/</link>
+      <pubDate>Wed, 05 Mar 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://abulka.github.io/blog/2008/03/05/extract-composite-refactoring/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;extract-composite---refactoring-to-a-pattern&#34;&gt;Extract Composite - Refactoring to a Pattern&lt;/h1&gt;
+&lt;p&gt;Refactoring existing code so that it improves and conforms to a design pattern can be a good thing.  Your code will be easier to understand since it follows a known &amp;lsquo;pattern&amp;rsquo;.  Of course you have to need the change - your code will probably be uncomfortable to read and be crying out for clarification.&lt;/p&gt;
+&lt;p&gt;This refactoring is about implementing a one to many relationship in your code more clearly by refactoring to the Composite design pattern.&lt;/p&gt;
+&lt;h2 id=&#34;presentation&#34;&gt;Presentation&lt;/h2&gt;
+&lt;iframe style=&#34;border: 1px solid #CCC; border-width: 1px; margin-bottom: 5px; max-width: 100%;&#34; src=&#34;//www.slideshare.net/slideshow/embed_code/key/CZeskH10aSCnUt&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; width=&#34;595&#34; height=&#34;485&#34;&gt; &lt;/iframe&gt;
+&lt;h2 id=&#34;uml---before-and-after&#34;&gt;UML - Before and After&lt;/h2&gt;
+&lt;p&gt;Here is the situation before and after the refactoring, in hand drawn UML.&lt;/p&gt;
+&lt;h3 id=&#34;uml-before&#34;&gt;UML Before&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/extract-CompositeBefore.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;problem&lt;/strong&gt; with the &amp;ldquo;before&amp;rdquo; situation is:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The child looping logic is duplicated twice - once in the &lt;code&gt;FormTag&lt;/code&gt; class and again in the &lt;code&gt;LinkTag&lt;/code&gt; class.  And we all know that code duplication is evil and hard to maintain.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;By refactoring, we remove the code duplication to a common base class.&lt;/p&gt;
+&lt;h3 id=&#34;uml-after&#34;&gt;UML After&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/extract-CompositeAfter.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;The solution:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;We use the &amp;ldquo;extract composite&amp;rdquo; refactoring to put the common looping behaviour in the display() method of a common composite class.&lt;/li&gt;
+&lt;li&gt;We make the existing classes subclasses of this new composite class.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;code---before-and-after&#34;&gt;Code - Before and After&lt;/h2&gt;
+&lt;p&gt;Here is a python example of the above refactoring.  Note that the display() method is actually called toPlainTextString() in this example.&lt;/p&gt;
+&lt;h3 id=&#34;code-before&#34;&gt;Code Before&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Before&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Node&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;object&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;):&lt;/span&gt;
+ &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;__init__&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;):&lt;/span&gt;
+ &lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;name&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;name&lt;/span&gt;
+ &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;toPlainTextString&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;):&lt;/span&gt;
+ &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;name&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;FormTag&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Node&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;):&lt;/span&gt;
+ &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;__init__&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;):&lt;/span&gt;
+ &lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;allNodesVector&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[]&lt;/span&gt;
+ &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;toPlainTextString&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;):&lt;/span&gt;
+ &lt;span style=&#34;color:#000&#34;&gt;result&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
+ &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;node&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;in&lt;/span&gt; &lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;allNodesVector&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;
+ &lt;span style=&#34;color:#000&#34;&gt;result&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;+=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;node&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;toPlainTextString&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
+ &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;result&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;LinkTag&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Node&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;):&lt;/span&gt;
+ &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;__init__&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;):&lt;/span&gt;
+ &lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;linkData&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[]&lt;/span&gt;
+ &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;toPlainTextString&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;):&lt;/span&gt;
+ &lt;span style=&#34;color:#000&#34;&gt;result&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
+ &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;node&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;in&lt;/span&gt; &lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;linkData&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;
+ &lt;span style=&#34;color:#000&#34;&gt;result&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;+=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;node&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;toPlainTextString&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
+ &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;result&lt;/span&gt;
+
+&lt;span style=&#34;color:#000&#34;&gt;f&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;FormTag&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;f&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;allNodesVector&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;append&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Node&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;a&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;))&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;f&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;allNodesVector&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;append&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Node&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;b&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;))&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;f&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;allNodesVector&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;append&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Node&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;c&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;))&lt;/span&gt;
+
+&lt;span style=&#34;color:#000&#34;&gt;l&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;LinkTag&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;l&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;linkData&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;+=&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Node&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;x&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;),&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Node&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;y&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;),&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Node&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;z&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)]&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;print&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;f&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;toPlainTextString&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;print&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;l&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;toPlainTextString&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;then-we-apply-the-following-steps&#34;&gt;Then we apply the following steps&amp;hellip;&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Create a Composite Class - compile&lt;/li&gt;
+&lt;li&gt;Make each child container (a class in the hierarchy that contains duplicate child-handling code) a subclass of your composite - compile&lt;/li&gt;
+&lt;li&gt;For each method with duplicated looping code
+&lt;ul&gt;
+&lt;li&gt;Move &amp;amp; rename the child reference field UP to the composite using &amp;ldquo;Pull Up Field&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;Move the method UP to the composite using &amp;ldquo;Pull Up Method&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;Pull up any relevant constructor code too.&lt;/li&gt;
+&lt;li&gt;Check interfaces so that client code using the old composites still works.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;code-after&#34;&gt;Code After&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# After&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Node&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;object&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;):&lt;/span&gt;
+ &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;__init__&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;):&lt;/span&gt;
+ &lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;name&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;name&lt;/span&gt;
+ &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;toPlainTextString&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;):&lt;/span&gt;
+ &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;name&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Composite&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Node&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;):&lt;/span&gt;
+ &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;__init__&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;):&lt;/span&gt;
+ &lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;children&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[]&lt;/span&gt;
+ &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;toPlainTextString&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;):&lt;/span&gt;
+ &lt;span style=&#34;color:#000&#34;&gt;result&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
+ &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;node&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;in&lt;/span&gt; &lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;children&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;
+ &lt;span style=&#34;color:#000&#34;&gt;result&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;+=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;node&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;toPlainTextString&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
+ &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;result&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;FormTag&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Composite&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;):&lt;/span&gt;
+ &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;pass&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;LinkTag&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Composite&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;):&lt;/span&gt;
+ &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;pass&lt;/span&gt;
+
+&lt;span style=&#34;color:#000&#34;&gt;f&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;FormTag&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;f&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;children&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;append&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Node&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;a&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;))&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;f&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;children&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;append&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Node&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;b&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;))&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;f&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;children&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;append&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Node&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;c&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;))&lt;/span&gt;
+
+&lt;span style=&#34;color:#000&#34;&gt;l&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;LinkTag&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;l&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;children&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;+=&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Node&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;x&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;),&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Node&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;y&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;),&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Node&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;z&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)]&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;print&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;f&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;toPlainTextString&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;print&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;l&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;toPlainTextString&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;does-the-refactoring-break-anything&#34;&gt;Does the refactoring break anything?&lt;/h3&gt;
+&lt;p&gt;A proper refactoring means you don&amp;rsquo;t break anything and everything behaves as before.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;python before.py
+abc  
+xyz
+
+python after.py
+abc  
+xyz
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Confirmed - we get the same output in both cases. :-)&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Blog: Thoughts on Closures</title>
+      <link>https://abulka.github.io/blog/2007/11/05/thoughts-on-closures/</link>
+      <pubDate>Mon, 05 Nov 2007 00:00:00 +0000</pubDate>
+      
+      <guid>https://abulka.github.io/blog/2007/11/05/thoughts-on-closures/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;thoughts-on-closures&#34;&gt;Thoughts on Closures&lt;/h1&gt;
+&lt;p&gt;It seems like closures are all the rage in software development circles.  Ruby and Groovy have them and then C# got them.  Python had a form of them but are they really closures?  What are closures anyway - do we need them?&lt;/p&gt;
+&lt;p&gt;In this presentation I argue that anything you can do with closures you can do without closures.  Often not as elegantly, but often just as clearly.  What do you think?&lt;/p&gt;
+&lt;h2 id=&#34;presentation&#34;&gt;Presentation&lt;/h2&gt;
+&lt;iframe style=&#34;border: 1px solid #CCC; border-width: 1px; margin-bottom: 5px; max-width: 100%;&#34; src=&#34;//www.slideshare.net/slideshow/embed_code/key/EbZETLRZZskkDU&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; width=&#34;595&#34; height=&#34;485&#34;&gt; &lt;/iframe&gt;
+&lt;h2 id=&#34;comments&#34;&gt;Comments&lt;/h2&gt;
+&lt;h3 id=&#34;posted-by-lakisha-on-dec-29th-2014&#34;&gt;Posted by Lakisha on Dec 29th, 2014&lt;/h3&gt;
+&lt;p&gt;I appreciate you taking to time to contribute That&amp;rsquo;s very helpful.&lt;/p&gt;
+&lt;h3 id=&#34;posted-by-celiane-on-jan-10th-2015&#34;&gt;Posted by Celiane on Jan 10th, 2015&lt;/h3&gt;
+&lt;p&gt;Ah just what I&amp;rsquo;m looking for! I could not find this operator documented on the Groovy site. Excellent topics too btw, makes my learning idiomatic Groovy way easier. Thanks.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Blog: Teaching 23 Patterns</title>
+      <link>https://abulka.github.io/blog/2007/01/23/teaching-23-patterns/</link>
+      <pubDate>Tue, 23 Jan 2007 00:00:00 +0000</pubDate>
+      
+      <guid>https://abulka.github.io/blog/2007/01/23/teaching-23-patterns/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;teaching-23-patterns-in-3-days&#34;&gt;Teaching 23 patterns in 3 days&lt;/h1&gt;
+&lt;p&gt;I have been running a &lt;a href=&#34;http://www.andypatterns.com/index.php?cID=64&#34; title=&#34;Design Patterns Training Courses&#34;&gt;design patterns course&lt;/a&gt; for several years where I teach 23 design pattern patterns in 3 days.  I cover all the GOF (Gang of Four) patterns plus more.  Here are some tales from the front lines!&lt;/p&gt;
+&lt;h2 id=&#34;history&#34;&gt;History&lt;/h2&gt;
+&lt;p&gt;Having attended Melbourne Patterns Group meetings for quite a few years (what wonderful discussions we have there!), and having written up three design patterns of my own, I decided to teach a design patterns course and offer it commercially.&lt;/p&gt;
+&lt;p&gt;The course has been running for over four years now (now is 2007) with between six to twelve attendees.  Often a company will send a couple of employees to the same course so there are groups of students who already know each other – which is often interesting as they sometimes have discussions in front of the whole group about how a particular pattern could be applied to the software they are both working on in their companies.&lt;/p&gt;
+&lt;h2 id=&#34;how-i-start-the-course&#34;&gt;How I start the course&lt;/h2&gt;
+&lt;p&gt;I begin with a PowerPoint presentation where I run through the basics of what patterns are and where they came from.  I stress their benefit in communicating and transferring wisdom between programmers.  I place a low emphasis on “pattern culture” and refrain from telling tales about Christopher Alexander (the architect who started the patterns movement in architecture) – it is more of a practical course.&lt;/p&gt;
+&lt;p&gt;I have found that it is critical to revise a bit of OO (Object Oriented Programming) at the beginning of the course, as most of the patterns rely on OO concepts.   And it sort of warms everybody up and gets everybody on the same page in terms of concepts like interfaces, inheritance, composition, polymorphism etc.  I also do a session on basic UML - as all the patterns I present are expressed in this notation.&lt;/p&gt;
+&lt;h2 id=&#34;history-of-the-course-materials&#34;&gt;History of the Course Materials&lt;/h2&gt;
+&lt;p&gt;I provide a 300+ page course manual which I edit and improve before each course.  During the course I make notes to myself relating to anything that is unclear, typos or any new ideas that come up during the course that I can incorporate back into the course manual.&lt;/p&gt;
+&lt;p&gt;Historically, writing a training course manual is a major part of getting a course going - it took me many months to write.  I began with a handwritten brainstorming outline of all the GOF design patterns – here is an ancient extract from my original starting notes:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/teaching-23-OldNotes.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;I then massaged everything into a proper Microsoft Publisher document, adding content, tips and code examples.  I later had to shift to using Microsoft Word 2007 because I needed a dynamic table of contents facility which for some reason Publisher doesn’t support. &lt;/p&gt;
+&lt;p&gt;Here is an example of what the course manual looks like now:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/teaching-23-NewNotes1.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/teaching-23-NewNotes2.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;how-i-present&#34;&gt;How I present&lt;/h2&gt;
+&lt;p&gt;For each design pattern, I get each student to read the first page of the pattern from the course notes.  This way each student ‘owns’ a pattern or two (we usually cycle around the students at least twice to get through the 23 patterns).  It also engages the students a bit more keeping them awake (and possible terrified or excited). &lt;/p&gt;
+&lt;p&gt;I follow that by a whiteboard presentation followed by my leaping onto a computer and building a code example from scratch.  &lt;/p&gt;
+&lt;p&gt;I used to select patterns at random, depending on my mood and on what I thought the students would relate to best next.  For example some patterns flow on from other patterns e.g. you need to understand the strategy design pattern early, as a lot of other patterns use this technique.  The feedback I got sometimes expressed the preference for a fixed order of presentation so that it matched the order of the printed course materials.  So from then on I changed the way I did things.  I settled on a teaching order based on the reasoning of Joshua Kerievsky  in his &lt;a href=&#34;http://www.industriallogic.com/papers/learning.html&#34;&gt;A Learning Guide To Design Patterns&lt;/a&gt; – which meant rearranging the teaching manual etc.  I got no more complaints then and quite possibly the course is more effective because of the way the patterns build upon each other.&lt;/p&gt;
+&lt;h2 id=&#34;code-examples&#34;&gt;Code Examples&lt;/h2&gt;
+&lt;p&gt;I quite often start building the examples from a UML diagramming tool like &lt;a href=&#34;http://www.bluej.org/about/what.html&#34;&gt;BlueJ&lt;/a&gt; in order to create the classes – then I fill out the code.  This way we keep our attention on the high level design pattern usage.  My code examples are in Java, C# and occasionally in Python – in my training courses you never know what the preferred development language of the students is – so my examples are evenly mixed between C# and Java with the occasional Python example thrown in to add something new into to the mix.&lt;/p&gt;
+&lt;p&gt;When building a code example – I like to do it from scratch – as I believe that pre-canned code examples are murky and mysterious – better to have everyone understand and see everything – and that means building examples from the beginning.  I used to pride myself on “jamming” (like jazz improvisation) and used to code live in front of the class - but due to the stress and amount of code involved, especially in some of the more complex examples, I now copy and paste code from the student notes using a keyboard macro facility which types the code slowly – as if I am typing it.  This alleviates the stress, allows me to commentate and doesn’t bore the audience with my typos.  &lt;/p&gt;
+&lt;p&gt;I always build examples that compile and run – either achieving some result or passing some set of unit tests.  Sometimes I adapt the examples as needed with variable names and method names invented by the group, so that the code feels more personalized and meaningful, and sometimes also we jam with the code a little to experiment with variations, in order to learn more.  At the end of the training course I provide all the code we develop to anyone who wants it - on USB stick or via email.&lt;/p&gt;
+&lt;h2 id=&#34;puzzles&#34;&gt;Puzzles&lt;/h2&gt;
+&lt;p&gt;Sometimes I preceded the presentation of a pattern with a puzzle and ask student to sketch out a solution to a problem themselves which gives the students some personal time to think and design.  And when I present the elegant solution using the relevant design pattern, the student appreciates it better because he or she has struggled with the problem themselves.  Note that I don’t actually have students using laptops as this is a recipe for students becoming distracted – it’s all done on paper.  If I ever get to expand (or rather get paid for a presenting) my 3 day course to 4 days, then there will be more time for these useful puzzle sessions.&lt;/p&gt;
+&lt;h2 id=&#34;from-a-teaching-point-of-view&#34;&gt;From a teaching point of view&lt;/h2&gt;
+&lt;p&gt;Teaching these courses requires a lot of energy as we move at a rate of seven patterns a day.  You have to engage the room and make it entertaining - filled with insight and technical detail.  I’m not sure about the students, but after the course finishes on the 3rd night I usually collapse into a deep coma sleep well into the next morning.  It’s a lot for students to absorb too, though most good programmers handle the amount of information presented well and come away excited.&lt;/p&gt;
+&lt;p&gt;As programmers are a highly intelligent bunch, I constantly have to handle probing questions – which I try to answer as honestly as I can.  I&amp;rsquo;ve tried to become more precise over the years – answering the exact question rather than converting it into yet another convenient question which helps in the learning process.  During some earlier courses I felt I was answering questions like a politician, especially if I felt the questions were half-baked and that our time was better spent answering a more profound question.  But I didn’t like the feeling of being a politician so I try to answer every question as it stands.  There is also a delicate balance between being an authority and my not knowing.  Whilst there are situations (especially in the wide and wonderful world of design patterns and OO design) where there is no clear answer to a question, too much uncertainty is not good for a training course where certainty is expected.&lt;/p&gt;
+&lt;p&gt;I encourage a certain amount of group discussion.  Its powerful letting students think and debate for themselves.  I put clues and questions their way during the discussion in order to facilitate the learning outcomes.  You have to not let it go on too long and stay on schedule.&lt;br&gt;
+Students have different personalities - there are active students who get right into it and then you get the quiet ones who just listen most of the time (until they have to read their pattern!).  And funnily enough the cross-section of the groups always seem to form a similar pattern: usually two or three positive and really bright sparks, one or two slower students, always one slightly grumpy negative student, and the rest are just normal.&lt;/p&gt;
+&lt;h2 id=&#34;future-directions&#34;&gt;Future Directions&lt;/h2&gt;
+&lt;p&gt;Last time I wrote a &amp;ldquo;future directions&amp;rdquo; section (in an earlier version of this blog) I promised to present patterns in a known order - exactly matching the training manual – this I now do and it has been a worthwhile change.  I also promised that I would add more code samples – and this is now the case – every pattern has at least one code example.  &lt;/p&gt;
+&lt;p&gt;In terms of the future, I would love to actually deliver more of these courses, and would like to try a 4 day course so that we get more time for puzzles etc. and spend more time exploring UML tools that support design pattern automation etc.  Most employers don’t like to lose their programmer for so long - even three days is pretty long, so a shorter course – a 2 day course – is something I am also offering now.  I’ve done one day course before too, but in the end my favorite course is the classic 3 day course where we get to cover all the basic 23 GOF design patterns.&lt;/p&gt;
+&lt;p&gt;-Andy&lt;/p&gt;
+&lt;p&gt;For details on my course click &lt;a href=&#34;http://www.andypatterns.com/index.php?cID=64&#34; title=&#34;Design Patterns Training Courses&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Blog: Tooled Composite Pattern</title>
       <link>https://abulka.github.io/blog/2006/03/01/tooled-composite-pattern/</link>
       <pubDate>Wed, 01 Mar 2006 00:00:00 +0000</pubDate>
