@@ -181,3 +181,10 @@ Welcome to my blackboard system
 371
 done
 ```
+
+## Example - UML Layout
+
+Another real world example of this pattern being used in is my 
+open source [Python UML tool](http://www.pynsource.com "Pynsource - UML tool for Python") where I used this pattern to evaluate numerous attempts at laying out a UML diagram, scoring the result and then choosing the best layout.  
+
+Here is the [source code](https://github.com/abulka/pynsource/blob/master/src/layout/blackboard.py) of that Python module on GitHub.
