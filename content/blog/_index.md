@@ -10,6 +10,9 @@ menu:
 This is the **blog** section. It has two categories: News and Releases.
 
 Talks given but unfortunately no website presentation materials
+
+- 2007 July - Object Role Modeling - What is it?
+- 2006 October - More on UML Pattern Tools
 - 2004 October - Design Patterns found in the C# Language
 - 2004 June - Object Thinking - Book Review
 - 2003 Aug - Pattern Automation and UML
