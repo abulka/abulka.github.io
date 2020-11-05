@@ -190,6 +190,67 @@ Snapshot 6 [1] LL  0   NN pre rm overlaps 10   LN  5   scale 2.0   bounds 18  (4
     </item>
     
     <item>
+      <title>Blog: Tooled Composite Pattern</title>
+      <link>https://abulka.github.io/blog/2006/03/01/tooled-composite-pattern/</link>
+      <pubDate>Wed, 01 Mar 2006 00:00:00 +0000</pubDate>
+      
+      <guid>https://abulka.github.io/blog/2006/03/01/tooled-composite-pattern/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Ever wanted to create a &amp;ldquo;direct manipulation&amp;rdquo; program where you select various tools and manipulate stuff on a workspace?  These sorts of applications are quite difficult to build due to the many possible combinations of behavior that is needed.  Every tool must know what to do with each type of object.  How do we manage this sort of complexity?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;How do you represent shapes?&lt;/li&gt;
+&lt;li&gt;How do you represent tools?&lt;/li&gt;
+&lt;li&gt;How do tools and shapes interact?&lt;/li&gt;
+&lt;li&gt;How do you enhance the editor with new shapes and tools?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;tooled-composite---architectural-design-pattern&#34;&gt;Tooled Composite - Architectural Design Pattern&lt;/h2&gt;
+&lt;p&gt;The GOF (gang of four) author John Vlissides documented this pattern in &lt;a href=&#34;https://web.archive.org/web/20061230172238/http://www.research.ibm.com/designpatterns/pubs/ph-sep99.pdf&#34;&gt;this paper&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/tooled-composite-uml.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Tooled Composite Pattern UML&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;presentation&#34;&gt;Presentation&lt;/h2&gt;
+&lt;p&gt;Here is a presentation I gave at the Melbourne Patterns Group about using this pattern in the implementation of the software &lt;a href=&#34;http://www.austhink.com&#34;&gt;Rationale&lt;/a&gt; where I was Chief Software Architect.  It ended up being a success, though we did learn a few things along the way (see below).&lt;/p&gt;
+&lt;iframe style=&#34;border: 1px solid #CCC; border-width: 1px; margin-bottom: 5px; max-width: 100%;&#34; src=&#34;//www.slideshare.net/slideshow/embed_code/key/a8GdaypJN6uM9p&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; width=&#34;595&#34; height=&#34;485&#34;&gt; &lt;/iframe&gt;
+&lt;h2 id=&#34;what-we-learned&#34;&gt;What we learned&lt;/h2&gt;
+&lt;p&gt;Whilst implementing this pattern basically saved our bacon, in terms of getting the job done, having the pattern rely on visitor so much did add a layer of complexity that was tiresome to maintain. &lt;/p&gt;
+&lt;p&gt;Here are some some things we learnt after living with this pattern for a few years:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Classic approach&lt;/th&gt;
+&lt;th&gt;Possibly a more Practical approach&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;visitor design pattern&lt;/td&gt;
+&lt;td&gt;use RTTI (or equivalent e.g. have each shape return a shapeType enum) for better comprehensibility.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3D table of possibilities, with events, shapes, tools on each axis.&lt;/td&gt;
+&lt;td&gt;table too sparse and complex, so just code for the cases you want.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;some blend of visitShape() / visitEdge() etc methods and mouse event methods, within each tool&lt;/td&gt;
+&lt;td&gt;skip most of the visit methods and do the logic in the mouse handling methods.  Generalise the mouse handling into one event (mouseAction) and use if statements to catch the situations of interest.  You know what the current shape is by having a pointer to it (set up for you by the tool or something).&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;use tooled composite for all interactivity&lt;/td&gt;
+&lt;td&gt;have pockets of interactivity where a component takes over and looks after the gui instead of doing everything the tooled composite way (more explanation below)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;With regards to the last point, what we were doing was considering the idea of creating self contained components that had their own little world inside themselves, that was totally independent of the tool/visit system.  This way we didn&amp;rsquo;t have to use this architectural pattern for absolutely everything, since that was getting really intricate and tedious. &lt;/p&gt;
+&lt;p&gt;We considered for example building a box (shape with text in it with various sub editable parts like titles and radio buttons) editor using the regular .NET component system and use their well understood way of handling events, and editing etc. - rather than coding visitors and miniscule tool interactions.  So the idea was that as we went into say, &amp;ldquo;edit mode&amp;rdquo;, we would switch away from the tooled composite pattern and into the world of .NET - just during the edit.&lt;/p&gt;
+&lt;h2 id=&#34;final-verdict&#34;&gt;Final Verdict&lt;/h2&gt;
+&lt;p&gt;Make no mistake, we desperately needed the Tooled Composite Pattern approach to hold everything together, and to be the default system in play.  The .NET component approach (described above) definitely wasn&amp;rsquo;t suited to a deep and complex drawing tool like &lt;a href=&#34;http://www.austhink.com&#34;&gt;Rationale&lt;/a&gt;, with zooming, mini maps, panning, layout algorithms etc. In fact we found in experiments / spikes of a fully .NET component approach that .NET events would fire all over the place causing too much screen refreshing. &lt;/p&gt;
+&lt;p&gt;So in the end a we used Tooled Composite for mostly everything, and dropped into .NET components only when needed eg. the text editor that you get when you double click on a workspace box in order to edit the text inside it was a pure .NET text control.  We never got to push this hybrid approach any further - we wanted to write a super fancy text editor component (with hover zones, places for specifying urls and bold headings etc.) ourselves purely in .NET - we just didn&amp;rsquo;t have the time - thus we mostly stayed completely within the classic Tooled Composite Pattern.  And I&amp;rsquo;m not sure what we would have done without it!&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Blog: ORM Pattern</title>
       <link>https://abulka.github.io/blog/2005/07/01/orm-pattern/</link>
       <pubDate>Fri, 01 Jul 2005 00:00:00 +0000</pubDate>
