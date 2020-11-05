@@ -12,7 +12,7 @@ This is an exploration of how to swap implementations of objects within our soft
 
 We want to be flexible in our architecture.  We want to be able to swap implementations of objects/classes easily e.g. between using class `A` or class `B`.  
 
-![](http://www.atug.com/andypatterns/images/PathToBridge_AorB.gif)
+![](/blog/images/swapping-PathToBridge_AorB.gif)
 
 We want to:
 - Build to anticipate and celebrate change.
@@ -37,7 +37,7 @@ where #3 is achieved using Strategy, Adapter and Proxy, which ultimately leads u
 
 Alternative implementations of an interface. Instantiate one or the other implementation of that interface. The code that uses the object is unaware of which object it is using. "Program to an interface"
 
-![](http://www.atug.com/andypatterns/images/PathToBridge_Interface01.gif)
+![](/blog/images/swapping-PathToBridge_Interface01.gif)
 
 ```java
 Worker o = new A()  
@@ -67,7 +67,7 @@ Factory class is the only class to refer to concrete products. The client refers
 
 We are still talking directly to the concrete object (either an A or a B).
 
-![](http://www.atug.com/andypatterns/images/PathToBridge_Factory.gif)
+![](/blog/images/swapping-PathToBridge_Factory.gif)
 
 There are a number of factory method variants:
 
@@ -79,7 +79,7 @@ Factory class is the only class that refers directly to concrete products. Clien
 
 The choice is made via conditional code.
 
-![](http://www.atug.com/andypatterns/images/PathToBridge_FactorySimple.gif)
+![](/blog/images/swapping-PathToBridge_FactorySimple.gif)
 
 ```java
 Factory f = new SimpleFactory()  
@@ -95,7 +95,7 @@ Factory class is the only class that refers directly to concrete products. Clien
 
 The choice is made via registry key.
 
-![](http://www.atug.com/andypatterns/images/PathToBridge_FactoryRegistry.gif)
+![](/blog/images/swapping-PathToBridge_FactoryRegistry.gif)
 
 ```java
 key = 'worker a'   // in setup code somewhere
@@ -114,7 +114,7 @@ Factory class is the only class that refers directly to concrete products. Clien
 
 The choice is made via polymorphic override.
 
-![](http://www.atug.com/andypatterns/images/PathToBridge_FactoryMethodGOF_01.gif)
+![](/blog/images/swapping-PathToBridge_FactoryMethodGOF_01.gif)
 
 Note that the choice as to which Work Manager (MgrA or MgrB) to instantiate in the first place is going to be an issue, but is not the point of this example.  The point is that once you have a particular brand of work manager, then you will get a related brand of of worker via the suitably overriden CreateWorker factory method.
 
@@ -126,7 +126,7 @@ o.DoSomething()    // we don't know if its an A or a B.  Everything works ok.
 
 There will be parallel hierarchies, e.g. the WorkManager and the Worker hierarchies closely match, with A and B versions of their subclasses.  Start to think of a _family_ of classes.
 
-My further thoughts, including a more detailed example of Factory Method [here](http://www.atug.com/andypatterns/factory_method_example.htm).
+My further thoughts, including a more detailed example of Factory Method [here](https://www.atug.com/andypatterns/factory_method_example.htm).
 
 ### Abstract Factory
 
@@ -143,7 +143,7 @@ Client programs against interfaces thus can switch between A or B.  Specificall
 - IProduct2 
 - IProduct3 
 
-![](http://www.atug.com/andypatterns/images/PathToBridge_AbsFactory_01.gif)
+![](/blog/images/swapping-PathToBridge_AbsFactory_01.gif)
 
 ```java
 IAbstractProductFactory f = new ProductFactoryVersionA()   
@@ -155,9 +155,9 @@ IProduct3 p3 = f.CreateProduct3()
 
 All products p1, p2, p3 are in the above example A versions, and compatible with each other.
 
-My further thoughts on Abstract Factory [here](http://www.atug.com/andypatterns/abstract_factory_thoughts.htm).
+My further thoughts on Abstract Factory [here](https://www.atug.com/andypatterns/abstract_factory_thoughts.htm).
 
-![](http://www.atug.com/andypatterns/_themes/canvas/acnvrule.gif)
+![](https://www.atug.com/andypatterns/_themes/canvas/acnvrule.gif)
 
 ## Indirection Patterns
 
@@ -165,11 +165,11 @@ Getting to implementation A or B via intermediary.
 
 Rather than instantiate A or B and refer to them directly (albiet via a flexible interface variable), another approach is to refer to the same object all the time and hide the switching _behind_ that object.
 
-![](http://www.atug.com/andypatterns/images/PathToBridge_Indirection01.gif)
+![](/blog/images/swapping-PathToBridge_Indirection01.gif)
 
 Now, because what is behind the intermediate object is hidden (and rightly so), you no longer need to program to the Strategy interface.
 
-![](http://www.atug.com/andypatterns/images/PathToBridge_Indirection02.gif)
+![](/blog/images/swapping-PathToBridge_Indirection02.gif)
 
 If you want to still program to an interface (good idea) then program to the Intermediary interface.  If you want to run free and wild, program to the intermediary object api.
 
@@ -179,7 +179,7 @@ Variants are as follows:
 
 A methodless indirection using "demeter" referencing.
 
-![](http://www.atug.com/andypatterns/images/PathToBridge_IndirectionStrategyPoorMans.gif)
+![](/blog/images/swapping-PathToBridge_IndirectionStrategyPoorMans.gif)
 
 Responsibility of the client to know the API of the strategy.  So still programming to the strategy interface.  You have to since the intermediary has no methods, or rather, has no methods specifically related to accessing the A & B classes.
 
@@ -193,7 +193,7 @@ o.impl.DoSomething()
 
 Proper Strategy.
 
-![](http://www.atug.com/andypatterns/images/PathToBridge_IndirectionStrategy01.gif)
+![](/blog/images/swapping-PathToBridge_IndirectionStrategy01.gif)
 
 ```java
 o = new Intermediary()  
@@ -212,13 +212,13 @@ o.DoSomething()        // different behaviour or different implementation occurs
 
 If your implementation has a slightly different API than the one your client code wants to use, then you can adapt it at the same time as you are strategizing...
 
-![](http://www.atug.com/andypatterns/images/PathToBridge_IndirectionStrategyAdapter.gif)
+![](/blog/images/swapping-PathToBridge_IndirectionStrategyAdapter.gif)
 
 ### Proxy v2 - going all the way
 
 If your only have the same methods in your intermediary object as you have in your implementation, then you can have the intermediary inherit from the abstract implementation interface.  This turns the pattern into proxy, and lets you optionally, program to the Strategy interface again.
 
-![](http://www.atug.com/andypatterns/images/PathToBridge_IndirectionProxy.gif)
+![](/blog/images/swapping-PathToBridge_IndirectionProxy.gif)
 
 The proxy, whilst _inheriting_ from Strategy, can also implement extra methods, though this is diverging a little from the intent of Proxy.  
 
@@ -235,7 +235,7 @@ Same as strategy except there is
 - Massive subclassing going on on the lhs (the 'context' side).
 - The nature of the lhs methods are more compositional, adaptive and far reaching (not just a simply strategy delegation)
 
-![](http://www.atug.com/andypatterns/images/PathToBridge_Bridge01.gif)
+![](/blog/images/swapping-PathToBridge_Bridge01.gif)
 
 ### Massive subclassing
 
@@ -311,7 +311,7 @@ There seem to be three types of MicroKernel:
 
 3.  Dependency Injection Microkernel, where all object attributes refering to other objects (dependencies) are injected for you by a framework.  Rather than setting up these references yourself manually, as normal programming style dictates, you leave it to magic - which allows other implementations to be swapped in. You must of course program to interfaces not to concrete classes, in order for this trick to work.  **Style of programming:** normal, you just call methods on objects that you have references to.  The fact that the references have been wired up by a framework (which consults a plugin directory & setup file telling us which plugins are active) is hidden from us.
 
-Maybe one or more of the above three descriptions of a Microkernel is not actually a microkernel - I am just learning about this stuff.  But I have seen references that suggest my analysis is correct. E.g. The [Castle](http://www.castleproject.org/castle/show/Windsor+Container) IOC framework for .NET calls itself a microkernel.  
+Maybe one or more of the above three descriptions of a Microkernel is not actually a microkernel - I am just learning about this stuff.  But I have seen references that suggest my analysis is correct. E.g. The [Castle](https://www.castleproject.org/castle/show/Windsor+Container) IOC framework for .NET calls itself a microkernel.  
 
 ### Variables as indirection
 
