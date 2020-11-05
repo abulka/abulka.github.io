@@ -7,7 +7,6 @@
 
 <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
 
-<link rel="alternate" type="application/rss&#43;xml" href="https://abulka.github.io/blog/index.xml">
 
 
 <link rel="shortcut icon" href="/favicons/favicon.ico" >
@@ -21,16 +20,30 @@
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
-<title>Docsy Blog | Andy Bulka - Blog</title><meta property="og:title" content="Docsy Blog" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://abulka.github.io/blog/" />
+<title>Null Object Pattern | Andy Bulka - Blog</title><meta property="og:title" content="Null Object Pattern" />
+<meta property="og:description" content="Null Object Design Pattern Sometimes I make the joke that design patterns are all about getting rid of if-else statements from your code. The null object pattern is an example of a pattern that does just that - check out the code at the bottom for details.
+What is it? A Null Object provides a surrogate for another object that shares the same interface, but does nothing.
+ This pattern was originally written up by Bobby Wolf, in Pattern Languages of Program Design 3." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://abulka.github.io/blog/2002/10/04/null-object-pattern/" />
+<meta property="article:published_time" content="2002-10-04T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-11-05T10:21:58+11:00" />
+<meta itemprop="name" content="Null Object Pattern">
+<meta itemprop="description" content="Null Object Design Pattern Sometimes I make the joke that design patterns are all about getting rid of if-else statements from your code. The null object pattern is an example of a pattern that does just that - check out the code at the bottom for details.
+What is it? A Null Object provides a surrogate for another object that shares the same interface, but does nothing.
+ This pattern was originally written up by Bobby Wolf, in Pattern Languages of Program Design 3.">
+<meta itemprop="datePublished" content="2002-10-04T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-11-05T10:21:58+11:00" />
+<meta itemprop="wordCount" content="553">
 
-<meta itemprop="name" content="Docsy Blog">
-<meta itemprop="description" content="">
+
+
+<meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Docsy Blog"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:title" content="Null Object Pattern"/>
+<meta name="twitter:description" content="Null Object Design Pattern Sometimes I make the joke that design patterns are all about getting rid of if-else statements from your code. The null object pattern is an example of a pattern that does just that - check out the code at the bottom for details.
+What is it? A Null Object provides a surrogate for another object that shares the same interface, but does nothing.
+ This pattern was originally written up by Bobby Wolf, in Pattern Languages of Program Design 3."/>
 
 
 
@@ -54,7 +67,7 @@
 
 
   </head>
-  <body class="td-section td-blog">
+  <body class="td-page td-blog">
     <header>
       
 <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
@@ -183,7 +196,7 @@
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-blog20021004null-object-pattern" href="/blog/2002/10/04/null-object-pattern/">Null Object Pattern</a>
+      <a class="td-sidebar-link td-sidebar-link__page  active" id="m-blog20021004null-object-pattern" href="/blog/2002/10/04/null-object-pattern/">Null Object Pattern</a>
       
       
       
@@ -223,8 +236,8 @@
 
 
 
-<a href="https://github.com/google/docsy-example/edit/master/content/en/blog/_index.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
-<a href="https://github.com/google/docsy-example/issues/new?title=Docsy%20Blog" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
+<a href="https://github.com/google/docsy-example/edit/master/content/en/blog/null-object-pattern.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+<a href="https://github.com/google/docsy-example/issues/new?title=Null%20Object%20Pattern" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
 
 
 <a href="https://github.com/google/docsy/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
@@ -236,6 +249,23 @@
 
 
 
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#null-object-design-pattern">Null Object Design Pattern</a></li>
+    <li><a href="#what-is-it">What is it?</a></li>
+    <li><a href="#uml">UML</a></li>
+    <li><a href="#have-i-used-it">Have I used it?</a></li>
+    <li><a href="#documentation">Documentation</a></li>
+    <li><a href="#example-code">Example Code</a>
+      <ul>
+        <li><a href="#without-null-object">Without Null Object</a></li>
+        <li><a href="#with-null-object">With Null Object</a></li>
+        <li><a href="#output">Output</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
 
 
           </div>
@@ -244,125 +274,147 @@
               RSS <i class="fa fa-rss ml-2 "></i>
             </a>
             
-
-
-
-
-
-
-
-<div class="row">
-	<div class="col-12">
+<div class="td-content">
+	<h1>Null Object Pattern</h1>
+	
+	<div class="td-byline mb-4">
 		
-		<h2>Posts in 2011</h2>
-		<ul class="list-unstyled mt-4">
-			
-			<li class="media mb-4">
-				<div class="media-body">
-					<h5 class="mt-0 mb-1"><a href="/blog/2011/04/06/uml-layout/">UML Diagram Layout</a></h5>
-					<p class="mb-2 mb-md-3"><small class="text-muted">Wednesday, April 06, 2011 in Blog</small></p>
-					
-
-
-
-
-
-					<p class="pt-0 mt-0">Developing a Layout Algorithm for UML diagrams Intro Presented to the Melbourne Patterns Group, Wednesday 6th April 2011 6:30 PM
-The Problem: Untangling UML Diagrams Terms  Nodes – these are the shapes/rectangles Edges – these are the lines …</p>
-					<p class="pt-0"><a href="/blog/2011/04/06/uml-layout/">Read more</a></p>
-				</div>
-			</li>
-			
-		</ul>
-		
-		<h2>Posts in 2004</h2>
-		<ul class="list-unstyled mt-4">
-			
-			<li class="media mb-4">
-				<div class="media-body">
-					<h5 class="mt-0 mb-1"><a href="/blog/2004/08/05/blackboard-pattern/">Blackboard Pattern</a></h5>
-					<p class="mb-2 mb-md-3"><small class="text-muted">Thursday, August 05, 2004 in Blog</small></p>
-					
-
-
-
-
-
-					<p class="pt-0 mt-0">Blackboard Architectural Pattern The Blackboard Architectural Pattern is useful for problems for which no deterministic solution strategies are known. In Blackboard several specialised sub-systems assemble their knowledge to build a possibly partial …</p>
-					<p class="pt-0"><a href="/blog/2004/08/05/blackboard-pattern/">Read more</a></p>
-				</div>
-			</li>
-			
-		</ul>
-		
-		<h2>Posts in 2002</h2>
-		<ul class="list-unstyled mt-4">
-			
-			<li class="media mb-4">
-				<div class="media-body">
-					<h5 class="mt-0 mb-1"><a href="/blog/2002/10/04/null-object-pattern/">Null Object Pattern</a></h5>
-					<p class="mb-2 mb-md-3"><small class="text-muted">Friday, October 04, 2002 in Blog</small></p>
-					
-
-
-
-
-
-					<p class="pt-0 mt-0">Null Object Design Pattern Sometimes I make the joke that design patterns are all about getting rid of if-else statements from your code. The null object pattern is an example of a pattern that does just that - check out the code at the bottom for …</p>
-					<p class="pt-0"><a href="/blog/2002/10/04/null-object-pattern/">Read more</a></p>
-				</div>
-			</li>
-			
-			<li class="media mb-4">
-				<div class="media-body">
-					<h5 class="mt-0 mb-1"><a href="/blog/2002/09/04/using-design-patterns-in-real-projects/">Using Design Patterns in Real Projects</a></h5>
-					<p class="mb-2 mb-md-3"><small class="text-muted">Wednesday, September 04, 2002 in Blog</small></p>
-					
-
-
-
-
-
-					<p class="pt-0 mt-0">What is it like to use design pattern in real life programming?
-Do the sometimes academic patterns translate into the real world?
-The answer is yes. I will back this up with three examples of where I have used patterns in real world projects.
- Scroll …</p>
-					<p class="pt-0"><a href="/blog/2002/09/04/using-design-patterns-in-real-projects/">Read more</a></p>
-				</div>
-			</li>
-			
-		</ul>
-		
-		<h2>Posts in 2000</h2>
-		<ul class="list-unstyled mt-4">
-			
-			<li class="media mb-4">
-				<div class="media-body">
-					<h5 class="mt-0 mb-1"><a href="/blog/2000/01/04/patterns-modelmaker-beyond/">Patterns, ModelMaker &amp; Beyond</a></h5>
-					<p class="mb-2 mb-md-3"><small class="text-muted">Tuesday, January 04, 2000 in Blog</small></p>
-					
-
-
-
-
-
-					<p class="pt-0 mt-0">How can IDE visualisation features be further enhaced by UML and Design Patterns to assist developers. It discusses using the revolutionary UML tool ModelMaker (now discontinued) in conjuntion with Delphi.
-ModelMaker allowed you to apply patterns …</p>
-					<p class="pt-0"><a href="/blog/2000/01/04/patterns-modelmaker-beyond/">Read more</a></p>
-				</div>
-			</li>
-			
-		</ul>
-		
+		<time datetime="2002-10-04" class="text-muted">Friday, October 04, 2002</time>
 	</div>
-</div>
-<div class="row pl-2 pt-2">
-	<div class="col">
-		
+	
+	<h2 id="null-object-design-pattern">Null Object Design Pattern</h2>
+<p>Sometimes I make the joke that design patterns are all about getting rid of if-else statements from your code. The null object pattern is an example of a pattern that does just that - check out the code at the bottom for details.</p>
+<h2 id="what-is-it">What is it?</h2>
+<p>A Null Object provides a surrogate for another object that shares the same interface, but does nothing.</p>
+<blockquote>
+<p><em>This pattern was originally written up by Bobby Wolf, in Pattern Languages of Program Design 3.</em></p>
+</blockquote>
+<h2 id="uml">UML</h2>
+<p><img src="http://www.andypatterns.com/files/27251232690646nullobjectUML.png" alt="null objject uml"></p>
+<p><em>Null Object Pattern</em></p>
+<h2 id="have-i-used-it">Have I used it?</h2>
+<p>Yes, I have used this pattern a few times in my work.  You have to be a little bit careful about managing the swapping of null obect for the real thing.  If bits of your code are pointing to the null object then you can&rsquo;t easily swap in the real thing.  Better to put the null object / real object behind a proxy so that nobody knows what you are doing!</p>
+<h2 id="documentation">Documentation</h2>
+<iframe style="border: 1px solid #CCC; border-width: 1px; margin-bottom: 5px; max-width: 100%;"
+            src="//www.slideshare.net/slideshow/embed_code/key/rLP5FBttyUUc7B" frameborder="0" marginwidth="0"
+            marginheight="0" scrolling="no" width="668" height="714"> </iframe>
+<p><em>Scroll down through the course pages above - or use the page next/previous buttons.</em></p>
+<p><a href="//www.slideshare.net/tcab22/null-object-design-pattern-presentation" title="Null Object Design Pattern">Null Object Design Pattern</a> chapter from <a href="https://www.slideshare.net/tcab22">Andy Bulka&rsquo;s</a> Design Patterns course book.</p>
+<h2 id="example-code">Example Code</h2>
+<p>Here is a Python example.  The class named <code>API</code> is a real class with real functionality in it (note the name of this class could be anything, and not have anything to do with API&rsquo;s).</p>
+<p>We decide that we want to <em>optionally</em> log calls to our API class using a <code>Logger</code> class. So we modify our API class to call out to the <code>Logger</code> class.</p>
+<h3 id="without-null-object">Without Null Object</h3>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">time</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">asctime</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">localtime</span>
 
+<span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">AbstractObject</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">pass</span>   <span style="color:#8f5902;font-style:italic"># pretend python has abstract classes</span>
 
-	</div>
+<span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">RealLogging</span><span style="color:#000;font-weight:bold">:</span>
+    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">Log</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">msg</span><span style="color:#000;font-weight:bold">):</span>
+        <span style="color:#204a87;font-weight:bold">print</span> <span style="color:#4e9a06">&#39;Logged at&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">asctime</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">localtime</span><span style="color:#000;font-weight:bold">()),</span> <span style="color:#000">msg</span>
+
+<span style="color:#8f5902;font-style:italic"># Proxy / wrapper around either null or real logger. </span>
+
+<span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Logger</span><span style="color:#000;font-weight:bold">:</span>
+    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>
+        <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">logger</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">RealLogging</span><span style="color:#000;font-weight:bold">()</span>
+    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">Log</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">msg</span><span style="color:#000;font-weight:bold">):</span>
+        <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">logger</span><span style="color:#000;font-weight:bold">:</span>
+            <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">logger</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Log</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">msg</span><span style="color:#000;font-weight:bold">)</span>
+    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">On</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>
+        <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">logger</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">RealLogging</span><span style="color:#000;font-weight:bold">()</span>
+    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">Off</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>
+        <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">logger</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#3465a4">None</span>
+<span style="color:#000">Logger</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">Logger</span><span style="color:#000;font-weight:bold">()</span>
+
+<span style="color:#8f5902;font-style:italic"># Usage: </span>
+
+<span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">API</span><span style="color:#000;font-weight:bold">:</span>
+    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">doA</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>
+        <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">Logger</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">logger</span><span style="color:#000;font-weight:bold">:</span>
+            <span style="color:#000">Logger</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Log</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;Am calling A&#39;</span><span style="color:#000;font-weight:bold">)</span>
+        <span style="color:#204a87;font-weight:bold">print</span> <span style="color:#4e9a06">&#39;A done.&#39;</span>
+    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">doB</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>
+        <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">Logger</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">logger</span><span style="color:#000;font-weight:bold">:</span>
+            <span style="color:#000">Logger</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Log</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;Am calling B&#39;</span><span style="color:#000;font-weight:bold">)</span>
+        <span style="color:#204a87;font-weight:bold">print</span> <span style="color:#4e9a06">&#39;B done.&#39;</span>
+
+<span style="color:#000">o</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">API</span><span style="color:#000;font-weight:bold">()</span>
+<span style="color:#000">o</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">doA</span><span style="color:#000;font-weight:bold">()</span>
+<span style="color:#000">o</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">doB</span><span style="color:#000;font-weight:bold">()</span>
+
+<span style="color:#000">Logger</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Off</span><span style="color:#000;font-weight:bold">()</span>
+<span style="color:#000">o</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">doA</span><span style="color:#000;font-weight:bold">()</span>
+<span style="color:#000">o</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">doB</span><span style="color:#000;font-weight:bold">()</span>
+</code></pre></div><h3 id="with-null-object">With Null Object</h3>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#8f5902;font-style:italic"># Null Object Pattern </span>
+
+<span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">AbstractLogging</span><span style="color:#000;font-weight:bold">:</span>
+    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">Log</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">msg</span><span style="color:#000;font-weight:bold">):</span> <span style="color:#204a87;font-weight:bold">pass</span>
+
+<span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">time</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">asctime</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">localtime</span>
+
+<span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">RealLogging</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">AbstractObject</span><span style="color:#000;font-weight:bold">):</span>
+    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">Log</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">msg</span><span style="color:#000;font-weight:bold">):</span>
+        <span style="color:#204a87;font-weight:bold">print</span> <span style="color:#4e9a06">&#39;Logged at&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">asctime</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">localtime</span><span style="color:#000;font-weight:bold">()),</span> <span style="color:#000">msg</span>
+
+<span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">NullLogging</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">AbstractObject</span><span style="color:#000;font-weight:bold">):</span>
+    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">Log</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">msg</span><span style="color:#000;font-weight:bold">):</span>
+        <span style="color:#204a87;font-weight:bold">return</span>
+
+<span style="color:#8f5902;font-style:italic"># Proxy / wrapper around either null or real logger. </span>
+
+<span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Logger</span><span style="color:#000;font-weight:bold">:</span>
+    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>
+        <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">On</span><span style="color:#000;font-weight:bold">()</span>
+    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">Log</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">msg</span><span style="color:#000;font-weight:bold">):</span>
+        <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">logger</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Log</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">msg</span><span style="color:#000;font-weight:bold">)</span>
+    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">On</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>
+        <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">logger</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">RealLogging</span><span style="color:#000;font-weight:bold">()</span>
+    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">Off</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>
+        <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">logger</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">NullLogging</span><span style="color:#000;font-weight:bold">()</span>
+<span style="color:#000">Logger</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">Logger</span><span style="color:#000;font-weight:bold">()</span>
+
+<span style="color:#8f5902;font-style:italic"># Usage: </span>
+
+<span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">API</span><span style="color:#000;font-weight:bold">:</span>
+    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">doA</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>
+        <span style="color:#000">Logger</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Log</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;Am calling A&#39;</span><span style="color:#000;font-weight:bold">)</span>
+        <span style="color:#204a87;font-weight:bold">print</span> <span style="color:#4e9a06">&#39;A done.&#39;</span>
+    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">doB</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>
+        <span style="color:#000">Logger</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Log</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;Am calling B&#39;</span><span style="color:#000;font-weight:bold">)</span>
+        <span style="color:#204a87;font-weight:bold">print</span> <span style="color:#4e9a06">&#39;B done.&#39;</span>
+
+<span style="color:#000">o</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">API</span><span style="color:#000;font-weight:bold">()</span>
+<span style="color:#000">o</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">doA</span><span style="color:#000;font-weight:bold">()</span>
+<span style="color:#000">o</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">doB</span><span style="color:#000;font-weight:bold">()</span>
+
+<span style="color:#000">Logger</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Off</span><span style="color:#000;font-weight:bold">()</span>
+<span style="color:#000">o</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">doA</span><span style="color:#000;font-weight:bold">()</span>
+<span style="color:#000">o</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">doB</span><span style="color:#000;font-weight:bold">()</span>
+</code></pre></div><h3 id="output">Output</h3>
+<p>Without logging:</p>
+<pre><code>A done.
+B done.
+</code></pre><p>With logging:</p>
+<pre><code>Logged at Fri Jan 23 17:28:01 2009 Am calling A
+A done.
+Logged at Fri Jan 23 17:28:01 2009 Am calling B
+B done.
+</code></pre><p>Notice that in the null object implementation, there are no &ldquo;if statements&rdquo; in the client code (API class), which means we turn on logging by injecting in a different instance of <code>Logger</code> rather than checking a flag. Arguably this is more flexible and cleaner. You even have more options to swap (or inject) different kind of <code>Logger</code> classes with this pattern.</p>
+<p>The Null Object pattern is about switching in a <code>Logger</code> class that does nothing.</p>
+
+	
+
+	<ul class="list-unstyled d-flex justify-content-between align-items-center mb-0 pt-5">
+  <li>
+    <a href="/blog/2002/09/04/using-design-patterns-in-real-projects/" class="btn btn-primary "><span class="mr-1">←</span> Previous</a>
+  </li>
+    <a href="/blog/2004/08/05/blackboard-pattern/" class="btn btn-primary ">Next <span class="ml-1">→</span></a>
+  </li>
+</ul>
+
 </div>
+
 
           </main>
         </div>
