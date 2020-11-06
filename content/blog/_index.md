@@ -54,5 +54,8 @@ Talks given but unfortunately no website presentation materials
 - 2002 September - Using Design Patterns in Real Projects
 - 2000 January - Patterns, ModelMaker & Beyond
 
+Slideshare slides https://www2.slideshare.net/tcab22/edit_my_uploads
+Scribd pdfs https://www.scribd.com/user/5064053/tcab22
+
 Files in these directories will be listed in reverse chronological order.
 
