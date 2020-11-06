@@ -191,6 +191,529 @@ Snapshot 6 [1] LL  0   NN pre rm overlaps 10   LN  5   scale 2.0   bounds 18  (4
     </item>
     
     <item>
+      <title>Blog: Visualising Software</title>
+      <link>https://abulka.github.io/blog/2009/01/22/visualising-software/</link>
+      <pubDate>Thu, 22 Jan 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://abulka.github.io/blog/2009/01/22/visualising-software/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Ways of Visualising Software Designs&lt;/p&gt;
+&lt;p&gt;This blog article explores the novel ways of developing software more visually and in visualising software generally - that is without coding.  It also explores ways of visualising software designs and of watching software execute. &lt;a href=&#34;http://en.wikipedia.org/wiki/Visual_programming_language&#34;&gt;Visual Programming&lt;/a&gt; and &lt;a href=&#34;http://en.wikipedia.org/wiki/Executable_UML&#34;&gt;Executable UML&lt;/a&gt; are the closest terms that describe this area.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Some of these projects have failed and others continue to thrive (e.g. Scratch). As of 2020 the new big thing in this area is &lt;a href=&#34;https://www.google.com/search?sxsrf=ALeKk00YHpag-SrvKTLZbTzhPv3fQXe2FQ%3A1604617901453&amp;amp;ei=rYakX6ybG8Ce4-EP09qsiAE&amp;amp;q=nocode+low+code&amp;amp;oq=nocode+low+code&amp;amp;gs_lcp=CgZwc3ktYWIQAzIFCAAQyQMyBggAEBYQHjIGCAAQFhAeMgYIABAWEB4yBggAEBYQHjIICAAQFhAKEB4yBggAEBYQHjIGCAAQFhAeMgYIABAWEB4yBggAEBYQHjoECAAQRzoFCAAQkQI6CwgAELEDEIMBEJECOggIABCxAxCDAToFCC4QsQM6AgguOg4ILhCxAxCDARDHARCjAjoICC4QxwEQowI6BAgAEEM6BAguEEM6CwguELEDEMcBEKMCOgIIADoNCC4QsQMQyQMQQxCTAjoHCAAQsQMQQzoFCAAQsQM6CggAELEDEMkDEEM6BAgAEApQrdHvDFjG4-8MYJHl7wxoAHACeACAAZMCiAHlF5IBBTAuOS42mAEAoAEBqgEHZ3dzLXdpesgBCMABAQ&amp;amp;sclient=psy-ab&amp;amp;ved=0ahUKEwjspZDAw-zsAhVAzzgGHVMtCxEQ4dUDCA0&amp;amp;uact=5&#34;&gt;low code and no-code&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;model-driven-design-uml-and-case-tools&#34;&gt;Model Driven Design, UML and Case Tools&lt;/h2&gt;
+&lt;p&gt;Creating software in a visual way would arguably lift the level of abstraction in how we create software.  Whether its MDA (model driven architecture) with UML or Case tools from the past - this has clearly been a dream for a long time.  Martin Fowler considers the viability of MSA in an interesting &lt;a href=&#34;http://martinfowler.com/bliki/ModelDrivenArchitecture.html&#34;&gt;blog entry&lt;/a&gt; - also providing links to other peoples&#39; opinions in this area.  For example there are some that argue UML (even the latest 2.0 version) is not computationally complete, or that programming visually is not all that its cracked up to be and and may not be as efficient as textual coding techniques.  Here is yet another &lt;a href=&#34;http://www.ifi.uzh.ch/rerg/fileadmin/downloads/publications/papers/IWSSD-10.pdf&#34;&gt;critique&lt;/a&gt; of UML as a modelling tool good enough to generate code.  These sorts of critiques certainly don&amp;rsquo;t stop the vendors - there are a lot of MDA tools e.g. [here is a list](#Links to MDA tools).&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m an optimist and part of me wants to see some sort of MDA / Executable UML approach work.  However it may not look like existing solutions - we need to look outside the box and find a blend of metaphors that are trully innovative. That&amp;rsquo;s why this page exists - lets explore what programming visually looks like.&lt;/p&gt;
+&lt;h3 id=&#34;the-world-of-cells-metaphor&#34;&gt;The &amp;ldquo;world of cells&amp;rdquo; metaphor&lt;/h3&gt;
+&lt;p&gt;The most complex systems on earth, including the human body, are composed of biological cells amongst other things.  Shouldn&amp;rsquo;t we be looking to biology for metaphors for programming?&lt;/p&gt;
+&lt;p&gt;Here is a thought experiment for you.  Imagine running software as a collection of biological cells, each cell representing an instance of a class.  Each object / cell lives in a community of objects, sending messages to other objects, storing data and providing behaviour exposed as methods.  It might look something like this:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/visualising_software_eggs1.gif&#34; alt=&#34;eggs1.gif (189234 bytes)&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;OO software as biological cells?&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Like in UML, the top half of the cells are storage (primitive data including pointers to other cells) and the bottom half represents the available public methods of the object.&lt;/p&gt;
+&lt;p&gt;The red lighting symbol&lt;img src=&#34;https://abulka.github.io/blog/images/visualising_software_redligtningFromCellEgg.gif&#34; alt=&#34;redligtningFromCellEgg.gif (854 bytes)&#34;&gt;next to a method name represents a method being invoked.&lt;/p&gt;
+&lt;p&gt;Imagine being able to pan around and view different aspects of this running software model.  The technique used by the information organiser &lt;a href=&#34;http://www.thebrain.com/&#34;&gt;the brain&lt;/a&gt; might be one cool way to browsing, navigate and perhaps organise such &amp;ldquo;computational space&amp;rdquo;.&lt;/p&gt;
+&lt;h3 id=&#34;executable-uml&#34;&gt;Executable UML&lt;/h3&gt;
+&lt;p&gt;There are only a couple of high end tools that get into the territory of being able to draw UML diagrams and generate code - which is executable.  The idea is that it saves implementation time and round trip engineering where you suck the implementation back into a UML model and to and fro and to and fro with all the synchronisation nightmares that entails. &lt;/p&gt;
+&lt;p&gt;UML is not expressive enough to cover all that code needs to do, so some of these tools come with a language that you have to use anyway.&lt;/p&gt;
+&lt;p&gt;There are a couple of books in this area.  One is called &lt;a href=&#34;http://www.cambridge.org/uk/catalogue/catalogue.asp?isbn=0521537711&#34;&gt;Model Driven Architecture with Executable UML&lt;/a&gt; which is linked to the Keneddy Carter tool (see below) and the other is called &lt;a href=&#34;http://www.amazon.com/Executable-UML-Model-Driven-Architecture-Addison-Wesley/dp/0201748045/ref=pd_bbs_sr_1?ie=UTF8&amp;amp;s=books&amp;amp;qid=1232316418&amp;amp;sr=8-1&#34;&gt;Executable UML: A Foundation for Model-Driven Architecture&lt;/a&gt; which illustrates its examples using the BridgePoint tool.&lt;/p&gt;
+&lt;p&gt;The software tools I have found are&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.mentor.com/products/sm/uml_suite/&#34;&gt;BridgePoint tool&lt;/a&gt; suite from Project Technology.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.kc.com/&#34;&gt;iUML Modeller and Simulator&lt;/a&gt; from Kennedy Carter&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.ilogix.com/products/rhapsody/developer.cfm&#34;&gt;Rhapsody&lt;/a&gt; by IBM (formerly by ILogix Telelogic)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The great thing about some of these tools is that you can in some cases actually watch your UML &lt;em&gt;execute&lt;/em&gt; -they call it &amp;ldquo;executable UML-based application development&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m about to run the latest trials of these products.  I&amp;rsquo;d be interested to see how they handle sequence diagrams, since sequence diagrams are not syntactically expressive enough to precisely model for loops and if statements to a practical, executable level.  In UML you can use OCL (object constraint language) and a few UML indicators to indicate looping etc. but to cover all the coding possibilities you need more.&lt;/p&gt;
+&lt;h3 id=&#34;simpler-approaches&#34;&gt;Simpler Approaches&lt;/h3&gt;
+&lt;p&gt;Executable UML is currently not for the faint of heart - its pretty complicated stuff but I hope that will change.  For a simplified programming environment check out &lt;a href=&#34;https://scratch.mit.edu/&#34;&gt;Scratch&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdm.link/app/uploads/2018/01/Roland_GO-KEYS_ScratchX_Extension.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Scratch - programming for students&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;With Scratch you can drag and drop your coding fragments, no typing.  Its truly amazing and whicls tit caters to kids, I really wish they would expose an object oriented, serious version.  In the current version you can define objects and broadcast and respond to messages, so its no slouch in the OO stakes, however you need to be able to define classes and instantiate them - at the moment you cannot instantiate arbitrary &amp;lsquo;sprites&amp;rsquo; easily.&lt;/p&gt;
+&lt;p&gt;Apple&amp;rsquo;s &lt;a href=&#34;https://support.apple.com/en-au/guide/automator/welcome/mac&#34;&gt;automator&lt;/a&gt; is a visual programming system for intra-application workflow.  It comes bundled with all Mac&amp;rsquo;s, though in order to automate MS Office you need to buy the business version not the home edition.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/visualising_software_11321233034707appleautomatorworkflow.gif&#34; alt=&#34;11321233034707appleautomatorworkflow.gif&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Apple&amp;rsquo;s Automator - for workflow&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;the-wiring-paradigm&#34;&gt;The Wiring Paradigm&lt;/h2&gt;
+&lt;p&gt;Another interesting system is Synopsis which lets you wire together your entire program without writing code.  You can drag and drop if statements and plus everything together.  You can group components and subsume them into a sub component - which reduces clutter and helps organise your work.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.codemorphis.com/articles/tip1/sample_event_prog.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;The Synopsis application development environment - no text coding!&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Trying it out I found it fascinating, though it sorely needs the more sophisticated thumbnail bread trail that SynthMaker (see below) has.  The wires are auto routed (thankfully) but things get pretty messy quickly.  I found that there was not enough information visible on the components themselves to figure out what was going on - you keep having to hover over components or double clicking on them to investigate the deeper logic.  Finally it gets quite tiresome doing if-then logic using wires.  I suspect that a touch of the Scratch metaphor (see above) would be better for those sorts of tasks, within a larger system of wiring.  A mixed metaphor approach?  Anyway, a brave effort.&lt;/p&gt;
+&lt;p&gt;Another similar effort along the same lines (plug together syntax with wiring) is &lt;a href=&#34;http://www.scripps.edu/~stoffler/proj/ViPEr/viper.html&#34;&gt;ViPEr&lt;/a&gt;: a visual programming environment for Python, which &amp;ldquo;allows non-programmers to interactively build networks describing novel combinations of computational methods, and yielding new visualizations of their data without actually writing code&amp;rdquo;.  It seems to be part of something called MGLTools now - here is a screenshot:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/visualising_software_40531234827676viper1.png&#34; alt=&#34;40531234827676viper1.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;ViPEr - visual programming for visualisation research.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;The music software industry (synthesizer plugins, audo processing, music making) is light years ahead when it comes to visual interfaces.  And in terms of programming visually, &lt;a href=&#34;http://synthmaker.co.uk/&#34;&gt;SynthMaker&lt;/a&gt; is state of the art, especially with regards to making the wiring more friendly and usable.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/visualising_software_42141233034874synthmakers2.png&#34; alt=&#34;42141233034874synthmakers2.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;SynthEdit- synthesizer maker&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;SynthMaker allows you to program without writing code, linking together components. Interstingly you can drill inside components - worlds within worlds, and a &amp;ldquo;breadcrumb&amp;rdquo; screenshot panel at the top of the interface helps to give you a sense of where you have been and where you are now.  Clicking on a screenshot takes you back to the component/world.  This product is not just theoretical or academic - people make real synthesisers with this tool and even sell them commercially.&lt;/p&gt;
+&lt;h2 id=&#34;build-your-own-visual-language&#34;&gt;Build your own Visual Language&lt;/h2&gt;
+&lt;p&gt;An interesting effort to build a compiler &amp;ldquo;compiler&amp;rdquo; for visual languages is &lt;a href=&#34;http://www.cs.ioc.ee/cocovila/&#34;&gt;CoCoViLa&lt;/a&gt;.  Here you can draw shapes on a wrokspace to define the elements of your visual language.  You define ports for how these elements connect to each other using wires.  You can add java code to define what actually gets done when your shapes are connected to each other.  For example you could define an &amp;ldquo;ADD&amp;rdquo; shape with two inputs and one output and then feed a pair of numbers into it to get an output.  Connecting the output into the input of another shape would similarly chain on extra computation steps.  The beauty here is that you can define your own shapes and logic.  This is a phd project but hopefully will grow into something bigger and better, like an open source &lt;a href=&#34;http://www.metacase.com/&#34;&gt;MetaCase&lt;/a&gt;.  Here is an example of one of the &amp;ldquo;domain languages&amp;rdquo; that comes as an example:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.cs.ioc.ee/cocovila/images/dif.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;CoCoViLa - define your own shapes and how they join together.&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;debuggers-as-visualisers&#34;&gt;Debuggers as visualisers&lt;/h2&gt;
+&lt;p&gt;Of course debuggers are the most obvious tools we have today for watching software execute.  We can watch variables and see the current execution point etc.&lt;/p&gt;
+&lt;p&gt;There is a &lt;a href=&#34;http://www.compuware.com/products/numega/dps/java/jc.htm&#34;&gt;java visualisation debugger&lt;/a&gt; that is amazing when watching multiple threads.&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&#34;http://www.python.org/windows/pythonwin/guienvironment.html&#34;&gt;python for windows&lt;/a&gt; debugger is pretty amazing too.  You can drill inside namespaces, objects and classes ad-infinitum. Even methods are objects, which have properties.  Its not animation but its an interesting hierarchical visualisation of computational space and name space. P.S. What sort of interesting &amp;ldquo;spaces&amp;rdquo; are there in software?   The &lt;a href=&#34;http://www.amazon.com/exec/obidos/ASIN/076453114X/qid=998548289/sr=2-1/ref=aps_sr_b_1_1/102-0823202-5511330&#34;&gt;Jbuilder 2 Bible&lt;/a&gt; by Armstrong has some fantastic descriptions of how software and objects operate and interact.&lt;/p&gt;
+&lt;h3 id=&#34;visualisations-using-gui-components&#34;&gt;Visualisations using gui components&lt;/h3&gt;
+&lt;p&gt;In my old &lt;a href=&#34;http://www.asymetrix.com.au/&#34;&gt;Multimedia Toolbook&lt;/a&gt; programming days, if I was prototyping an application and I needed a datastructure to hold a list of strings, and if that data was something I might want to watch change during program execution then I would use a visual GUI component to hold that data.  This way I could always &amp;lsquo;see the data&amp;rsquo; and watch it change. After development I simple made the GUI elements (that would make no sense to the user) invisible but still operational.&lt;/p&gt;
+&lt;p&gt;Normally a programmer would choose a non visual datastructure, which would of course be many times more efficient than storing the data in a GUI component. It is also considered bad practice to couple your &amp;lsquo;model&amp;rsquo; with GUI.  However for prototyping, the advantages are instant and often beautiful visualisations, since you can also change the fonts, colors and placement of such GUI elements to produce pleasing visualisation layouts.&lt;/p&gt;
+&lt;p&gt;Note: this technique of using gui components as data structures is just a thought provoking idea of how to achieve visualisation of program innards and program behaviour.   I am not advocating that you build your serious programs in this way.&lt;/p&gt;
+&lt;h3 id=&#34;static-representaion-of-wiring&#34;&gt;Static representaion of &amp;ldquo;wiring&amp;rdquo;&lt;/h3&gt;
+&lt;p&gt;I always liked the idea of &lt;a href=&#34;http://en.wikipedia.org/wiki/IBM_VisualAge&#34;&gt;Visual Age&lt;/a&gt; for Java technology.  You draw links between components, both visual and non visual.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://web.archive.org/web/20101203121657if_/http://www.javaworld.com/javaworld/jw-01-2000/images/jw-01-beans3.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Visual Age for Java - radical ideas, but now discontinued.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;UML lets you visualise classes etc. but doesn&amp;rsquo;t cover this sort of &amp;lsquo;real world&amp;rsquo; representation of the wiring between GUI components on a form and objects in your model/application.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/visualising_software_vaTutorialWirePic.gif&#34; alt=&#34;vaTutorialWirePic.jpg (11334 bytes)&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Visual Age style programming&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m not sure why Visual Age was discontinued in favour of the more traditional Eclipse tool.  Perhaps in use it was too cumbersome, or perhaps the particular implementation too complex?  Or is the whole idea of visual programming too radical for popular acceptance?&lt;/p&gt;
+&lt;p&gt;Another slightly radical tool for representing hitherto &amp;lsquo;hidden&amp;rsquo; and unvisualised information visually is the &lt;a href=&#34;https://www.embarcadero.com/products/delphi&#34;&gt;Delphi 6&lt;/a&gt; data diagram and form diagrams.  Both data diagrams and form designer have an extra tab, which lets you view your components schematically and see the wiring between them.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/visualising_software_BorlandADO_Image72.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Delphi - form diagram - shows the connections between visual components.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/visualising_software_BorlandADO_Image60.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Delphi - data diagram - shows the connections between database and visual components.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Note that Delphi (and most IDE&amp;rsquo;s) has always let you &amp;ldquo;wire&amp;rdquo; components together by setting a property on a component, with appropriate hinting in drop down combos - you select an object from a combo box in order to make the wiring (ie. set the property) - the combobox for each property lists all the valid components on the enclosing form that the property could possibly point / be wired to. To make these wiring connections with visual lines rather than combo boxes I guess is just another metaphor.&lt;/p&gt;
+&lt;h3 id=&#34;software-visualisation&#34;&gt;Software Visualisation&lt;/h3&gt;
+&lt;p&gt;There seems to be some serious work being done in this field. Check out &lt;a href=&#34;http://www.atug.com/andypatterns/www.ftp.cl.cam.ac.uk/ftp/papers/reports/TR511-camg100-software-visualization-in-prolog.pdf&#34;&gt;Software Visualization in Prolog&lt;/a&gt; by Calum A. McK. Grant (as a Dissertation submitted for the degree of Doctor of Philosophy) which has astonishing pictures of software visualisation tools and visual programming systems e.g.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/visualising_software_egg.ht1.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/visualising_software_egg.ht2.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;The quicksort algorithm written in ProGraph.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Also check out  Vmax  &lt;a href=&#34;http://www.cl.cam.ac.uk/Research/Rainbow/vmax/sshot.html&#34;&gt;http://www.cl.cam.ac.uk/Research/Rainbow/vmax/sshot.html&lt;/a&gt; &lt;br&gt;
+Vmax is a programmer&amp;rsquo;s text editor combined with a graphical browsing window for powerful visualization of source code and run-time behaviour e.g.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/visualising_software_egg.ht3.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Another interesting tool I recently found was &lt;a href=&#34;http://cs.joensuu.fi/jeliot/index.php&#34;&gt;Jeliot 3&lt;/a&gt; which plays an animation of your java source code executing.  Its quite amazing, though there are limitations on what you can feed it (all classes must be in the same source file etc.).  Here is a screenshot:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/visualising_software_54961233276533jeliot.png&#34; alt=&#34;54961233276533jeliot.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Jeliot 3: This was a screenshot I took during the animated playback of some java code&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;code-bubbles-and-spatial-development-environments&#34;&gt;Code Bubbles and Spatial Development Environments&lt;/h2&gt;
+&lt;p&gt;As of 2010 you&amp;rsquo;d think we had come a long way in terms of the visualising of software.  And I think we have.  I&amp;rsquo;ve just learned about &lt;a href=&#34;http://cs.brown.edu/~spr/codebubbles/&#34;&gt;Code Bubbles&lt;/a&gt;, a way of exploring code which displays relevant methods (of source code) in coloured bubbles, which you can glue together with other bubbles, to form islands of code that is related.  Lines show what is expanded from what.  Search functions let you fill bubbles with search results.  Watching the &lt;a href=&#34;https://www.youtube.com/watch?v=PsPX0nElJ0k&#34;&gt;video&lt;/a&gt; is the best way to get the idea. Old paper &lt;a href=&#34;https://web.archive.org/web/20101211162913/http://www.cs.brown.edu/people/acb/codebubbles_site.htm&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/visualising_software_CodeBubbles1.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Code Bubbles Java IDE and Explorer&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;You can make memo notes, edit code, add icons (like the bug symbol).  You can zoom out.  Even more amazing, you can run debug sessions and create bubbles of methods as you execute code - so that you can see the trail of execution.  A bubble can contain variables - or the state of the program at that point.  All this is persisted in your bubbles diagram, for comparison purposes or later reference.&lt;/p&gt;
+&lt;p&gt;Lastly, you have a huge workspace to play with.  Notice the bar along the top of the screen in the following screenshot:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/visualising_software_CodeBubbles2B.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Code Bubbles Java IDE and Explorer&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;The bar along the top is a high level minimap running horizontally.  Clicking on this minimap area scrolls the main workspace to show those bubbles.  Ableton Live and many DAW (Digital Audio Workstation) apps have such horizontal minimaps.  It also reminds me a little of SynthMaker (see above, near the start of this article) where you get thumbnail representations of a more complex workspace.  What is interesting with Code Bubbles is that you can drag out the minimap area to mark a region, and label it.&lt;/p&gt;
+&lt;p&gt;Code Bubbles seems to visualise what goes on in my mind when I code - I deal with a collection of related code and code fragments - or a path of execution through specific code fragments / methods.  Code Bubbles respects what is going on in my mind.  Instead of bookmarking, switching tabs, scrolling constantly - Code Bubbles chunks together all related code fragments into the one place.  This is truly a breakthrough and I can&amp;rsquo;t wait to try out the beta.&lt;/p&gt;
+&lt;p&gt;Another related tool comes from Microsoft Research, its called &lt;a href=&#34;http://blogs.msdn.com/kaelr/&#34;&gt;Code Canvas&lt;/a&gt; which is&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;an experimental research platform for building a spatial development environment. It lets us explore design alternatives when dealing with source code on an infinitely scalable two-dimensional surface.&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Basically you get a high level view of the files in a project and as you zoom in you start seeing class and method names, and you can keep zooming until you see actual code - which you can edit &lt;em&gt;in situ&lt;/em&gt;.  Relationships like inheritance and references (e.g. who is calling a particular method) are indicated with appropriate lines.  Its a nice experiment.  It doesn&amp;rsquo;t chunk the information like Code Bubbles does, but does provide infinite zooming - from super high level where you even see apps and packages right down to code level.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/visualising_software_code_canvas_menagerie_3.png&#34; alt=&#34;&#34;&gt;
+&lt;em&gt;Code Canvas, from Microsoft Research&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;summary&#34;&gt;Summary&lt;/h2&gt;
+&lt;p&gt;Ideally I would like to see approaches like Executable UML simplified down and incorporate the simple coding ideas of Scratch, albiet taken to a serious object oriented level (Scratch is really for kids at the moment).  Design Pattern support would also be woven in - e.g. Netbeans 6 has a visual way of creating design patterns - see my Feb 2009 &lt;a href=&#34;http://www.andypatterns.com/index.php?cID=82&#34; title=&#34;UML and Design Pattern Support in Netbeans 6.5&#34;&gt;blog post&lt;/a&gt; on this.  The visual form designing capabilities of Visual Age (now defunct, unfortunately) and Delphi form diagrams would complete are new lego was of building software.  Of course &lt;a href=&#34;http://en.wikipedia.org/wiki/Case_tools&#34;&gt;case tools&lt;/a&gt; have always been around and to some extent people have become a bit cynical about them over the decades as no breakthrough application has ever appeared.  We should still keep trying though as I can see progress on many fronts and can see all the wonderful pieces of the puzzle - they just need to be unified into a single compelling open source product. &lt;/p&gt;
+&lt;h2 id=&#34;my-personal-vision&#34;&gt;My personal vision&lt;/h2&gt;
+&lt;p&gt;My own vision is of a UML tool which doesn&amp;rsquo;t adhere strictly to UML in its committe born detail but takes a few risks (e.g. the way Visual Studio UML tool does) in order to innovate.  You type code into the UML tool itself, without opening a window - its all right there on the workspace.  Enterprise Architect displays code inside UML diagrams, so you can get a taste of how this might look. The potential clutter of code and UML in the one diagram would be alleviated by collapsable regions so that with all methods collapsed, all you see is a regular UML diagram with just methods listed.&lt;/p&gt;
+&lt;p&gt;And when I say type, I mean use Scratch type drag and drop to assemble code.  You apply design patterns like in Netbeans and IBM Rational, and you can specify design pattern roles not only to the level of granularity of classes and methods but also to the level of code &lt;em&gt;lines&lt;/em&gt; - that&amp;rsquo;s why its important to model and reify &lt;em&gt;code&lt;/em&gt; lines into objects, so that they are more easily referred to by &amp;ldquo;active&amp;rdquo; design patterns (like in ModelMaker). &lt;/p&gt;
+&lt;p&gt;The design patterns themselves would operate at the level of classes, as is normal.  There would also be dozens of language idiom patterns to assist with coding - e.g. iterating through a list is a pattern.  Lets treat language idiom patterns the same way as we do design patterns at a class level - all in the same interface.  Both class design and language coding becomes the same thing - pattern based lego.&lt;/p&gt;
+&lt;p&gt;You should be able to easily group UML objects into components which are like symbols in Flash.  You can then define the connection types and plug them together.  If you can&amp;rsquo;t plug them together directly then you might be able to drop in various adapters to help.  We might be using protocols similar to the way genes and enzymes talk to each other. Speaking of grouping, you should be able to group components and subsume them into sub modules, hiding away all the detail.  Then you double click to drill into that module - leaving a SynthMaker style breadscrumb of screenshots to help tell you where you are and where you have come from, and help you get back (just click on a relevant screenshot).&lt;/p&gt;
+&lt;p&gt;Method calls would be made using messages.  Messages are a more powerful metaphor for talking between objects - you can send messages to specific objects like a normal method call but also broadcasting messages broadly - there are are even books on messaging patterns (see patterns of enterprise architecture). Relationships would be modelled using an ORM style Relationship Manager so that you just specify what sort of relationships you want between two classes and its done.  Furthermore, you can leverage SQL or LINQ style queries without having to write custom looping code etc.&lt;/p&gt;
+&lt;p&gt;There should be an integrated GUI builder that caters to various styles of application: web, form based with controls and menus, workspace based with draggable widgets and sprite based for game type approaches.  A MVC framework would be built in so that you know where to put all your code and so that a proper separation between model and presentation is achieved.  No more guessing - its all defined for you.&lt;/p&gt;
+&lt;p&gt;How can this sort of vision compete against the well funded and expensive MDA and Executable UML tools industry?  I don&amp;rsquo;t know - my feeling is that MDA tools are stuck in a bit of a rut and aren&amp;rsquo;t taking advantage of more radical approaches that I have been talking about here.  I have only scratched the surface and there is lots of detail to be worked out, I know.  Its fun speculating about it anyway. I even have some screen designs if you wish to &lt;a href=&#34;http://www.andypatterns.com/index.php?cID=34&#34; title=&#34;Contact&#34;&gt;contact me&lt;/a&gt; about them!&lt;/p&gt;
+&lt;h3 id=&#34;appendix-links-to-various-mda-tools&#34;&gt;Appendix: Links to various MDA tools&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.software-pointers.com/en-mda-tools.html&#34;&gt;http://www.software-pointers.com/en-mda-tools.html&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.modelbased.net/mda_tools.html&#34;&gt;http://www.modelbased.net/mda_tools.html&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Dr Dobbs &lt;a href=&#34;http://www.ddj.com/architect/184415500&#34;&gt;MDA tools list and commentary&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Choosing MDA tools - &lt;a href=&#34;http://www.ibm.com/developerworks/architecture/library/wi-arch18.html&#34;&gt;IBM article&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;comments&#34;&gt;Comments&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Posted by J. Alkub on Jan 18th, 2009&lt;/strong&gt;&lt;br&gt;
+Debuggers are dynamic, automated ways of producing model-view-controller visualisations of your data, except they attach to ANY software application and reveal it, visually&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;Posted by Mike Davis on Feb 9th, 2009&lt;/strong&gt;&lt;br&gt;
+Have you looked at ECO IV and V from CapableObjects? (&lt;a href=&#34;http://www.capableobjects.com&#34;&gt;www.capableobjects.com&lt;/a&gt;). Is is a UML modeler which uses an extension to OCL for triggered actions and state diagrams for object state models to generate syncronized C# and VB.NET (version V) only.&lt;/p&gt;
+&lt;p&gt;It really only builds the business layer and the data layer but integrates them quite seamlessly so that the developer can concentrate on the UI and Business Model alone&amp;hellip;&lt;/p&gt;
+&lt;p&gt;mike&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;Posted by AndrewBoldman on Sep 22nd, 2009&lt;/strong&gt;&lt;br&gt;
+Hi, good post. I have been wondering about this issue,so thanks for posting.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;Posted by John Smythe on Sep 22nd, 2009&lt;/strong&gt;&lt;br&gt;
+Check out xdepend - visualises dependencies in java programs&lt;br&gt;
+&lt;a href=&#34;http://xdepend.com/&#34;&gt;http://xdepend.com/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;XDepend lets you extract, visualize, seek and control the structure of your applications and frameworks. XDepend provides complementary and interactive views on the same information. A Tree-Map view helps you easily identify the big one from the small one. The dependency matrix, the graph view and the detailed view help you gain insight in your code base.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;Posted by K M Nur on Feb 11th, 2010&lt;/strong&gt;&lt;br&gt;
+I am doing my masters thesis on software visualization / software comprehension and so far considered, bluej, jeliot3, jgrasp, javavis, jive, ville. I am looking for more tools for software visualization. Please inform me if you have any more ideas.&lt;/p&gt;
+&lt;p&gt;Regards,&lt;br&gt;
+KMN&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;Posted by Norm on Dec 29th, 2014&lt;/strong&gt;&lt;br&gt;
+I&amp;rsquo;ll try to put this to good use immediately.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Blog: State Pattern in Flex</title>
+      <link>https://abulka.github.io/blog/2008/09/11/state-pattern-in-flex/</link>
+      <pubDate>Thu, 11 Sep 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://abulka.github.io/blog/2008/09/11/state-pattern-in-flex/</guid>
+      <description>
+        
+        
+        &lt;p&gt;A tutorial on how to implement the State design pattern in Flex 3.  We are going to have a traffic light move through several states (red, orange, green).  Of course there are other states the traffic light might be in, as well as transitional states (green and orange at the same time), but lets keep things simple!&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Note Flex and Flash are discontinued technologies. You can still run &lt;code&gt;.swf&lt;/code&gt; files locally on your computer using &lt;a href=&#34;https://www.online-tech-tips.com/computer-tips/flash-player-in-chrome-is-dead-in-2020-how-to-play-flash-files/#:~:text=Using%20The%20Adobe%20Flash%20Player,projector%20content%20debugger%20from%20Adobe.&#34;&gt;these&lt;/a&gt; instructions.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;There are four approaches discussed here.  The first approach (version 1) uses flash for the graphics and flex for the logic.  The second approach (version 2)  uses two additional techniques within flex itself (no flash) to decouple graphics from logic.  My thanks for Carl de Jager for his assistance in talking through these designs with me and helping to code them.&lt;/p&gt;
+&lt;iframe src=&#34;//www.slideshare.net/slideshow/embed_code/key/9bRXxnPSo2f7tc&#34; width=&#34;595&#34; height=&#34;485&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&#34; allowfullscreen&gt; &lt;/iframe&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;//www.slideshare.net/tcab22/state-pattern-in-flex&#34; title=&#34;State Pattern In Flex&#34;&gt;State Pattern In Flex&lt;/a&gt;&lt;/strong&gt; by &lt;strong&gt;&lt;a href=&#34;https://www.slideshare.net/tcab22&#34;&gt;Andy&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;state-design-pattern&#34;&gt;State Design Pattern&lt;/h2&gt;
+&lt;p&gt;I&amp;rsquo;m not going to go into the intricate details of state design pattern here, but at least here is the basic classic UML&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/state-pattern-in-flex-stateuml.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;In our case the states will offer a &lt;code&gt;Display()&lt;/code&gt; method and an &lt;code&gt;EmitSound()&lt;/code&gt; method. &lt;/p&gt;
+&lt;p&gt;Each concrete state will impement these differently.  The client code only knows about the &amp;lsquo;context&amp;rsquo; class on the left - it is up to the context class to track which state it is in by holding a reference to a concrete state instance, and switching to a different concrete state instance when the state changes.  Client method calls (in our case &lt;code&gt;Display()&lt;/code&gt; and &lt;code&gt;EmitSound()&lt;/code&gt;) to the context class (in our case called &lt;code&gt;TrafficLightController&lt;/code&gt;) are routed to the concrete state instance that happens to be there at the time, resulting in different behaviour depending on the state.  Thus we do away with messy if then else logic and as a bonus can plug in future extra states easily without recoding any if else statements.&lt;/p&gt;
+&lt;h2 id=&#34;version-1&#34;&gt;Version 1&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/state-pattern-in-flex-swf-demo1.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;The embedded flash object (showing our demo) is unable to run in modern browsers so an animation is playing instead.&lt;/em&gt;&lt;/p&gt;
+&lt;h3 id=&#34;implementation-steps&#34;&gt;Implementation Steps&lt;/h3&gt;
+&lt;p&gt;So what we do in version 1 is to create both a Flex project and a Flash project. We leverage Flash&amp;rsquo;s ability to create nice graphics and animations etc. and leave the logic for the superior Flex environment (actionscript 3, more modern architecture, IDE suited for serious OO programmers etc) to handle.&lt;/p&gt;
+&lt;p&gt;On the flash side of things we create&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Traffic light graphics (red, green and orange circles plus a background)&lt;/li&gt;
+&lt;li&gt;Reify a circle graphic as a symbol named &amp;lsquo;light&amp;rsquo;.  Create 3 instances of this and change the color accordingly.  Name the instances mc_red_light, mc_orange_light and mc_green_light&lt;/li&gt;
+&lt;li&gt;Create a combined symbol named &amp;lsquo;TrafficLight&amp;rsquo; containing the three lights and a background graphic.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/state-pattern-in-flex-stateinflexvers1flash01.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;So that we can refer to the flash symbol from Flex ensure that the TrafficLight symbol in the Library is marked as inheriting from our custom Flex class &lt;code&gt;com.TrafficLightController&lt;/code&gt; class (which we will create below, and which itself inherits from &lt;code&gt;mx.flash.UIMovieClip)&lt;/code&gt;.  &lt;em&gt;In Flash, you can right click on the symbol name in the Library pane to open the Linkage Properties dialog box to see this settings.&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/state-pattern-in-flex-stateinflexvers1flash02.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;We then need to include the flash &lt;strong&gt;trafficlight.swc&lt;/strong&gt; as an asset in our flex project so that we can refer to it from our flex code. &lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/state-pattern-in-flex-stateinflexvers1flash03.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Now we switch over to Flex for the rest of the coding process.&lt;/p&gt;
+&lt;h3 id=&#34;here-is-the-main-flex-code&#34;&gt;Here is the main flex code&lt;/h3&gt;
+&lt;p&gt;Fire up the main MXML form and enter the following:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;main.mxml&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;utf-8&amp;#34;?&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;mx:Application&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;xmlns:mx=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;http://www.adobe.com/2006/mxml&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;layout=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;vertical&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;xmlns:local=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;*&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;creationComplete=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;init()&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;width=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;186&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;height=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;300&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;gt;&lt;/span&gt;
+	&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;local:TrafficLight&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;id=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;trafficLight&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;width=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;59&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;height=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;138&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;/&amp;gt;&lt;/span&gt;
+	
+	&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;mx:HBox&amp;gt;&lt;/span&gt;
+		&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;mx:VBox&amp;gt;&lt;/span&gt;
+			&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;mx:Button&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;label=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;show red light&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;width=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;100%&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;click=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;trafficLight.setState(TrafficLightStates.RED_STATE)&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;/&amp;gt;&lt;/span&gt;
+			&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;mx:Button&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;label=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;show orange light&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;width=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;100%&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;click=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;trafficLight.setState(TrafficLightStates.ORANGE_STATE)&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;/&amp;gt;&lt;/span&gt;
+			&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;mx:Button&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;label=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;show green light&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;width=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;100%&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;click=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;trafficLight.setState(TrafficLightStates.GREEN_STATE)&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;/&amp;gt;&lt;/span&gt;
+		&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;/mx:VBox&amp;gt;&lt;/span&gt;
+	&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;/mx:HBox&amp;gt;&lt;/span&gt;
+	
+	&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;mx:Script&amp;gt;&lt;/span&gt;
+		&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&amp;lt;![CDATA[
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt; import com.TrafficLightStates;
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt; 
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt; private function init():void
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt; {
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;    trafficLight.setState(TrafficLightStates.RED_STATE);
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt; }
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt; ]]&amp;gt;&lt;/span&gt;
+	&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;/mx:Script&amp;gt;&lt;/span&gt;
+	
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;/mx:Application&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Note that we refer to the flash object with the phrase&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;local:TrafficLight&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;id=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;trafficLight&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;width=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;59&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;height=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;138&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;controller-code&#34;&gt;Controller code&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;TrafficLightController.as&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;com&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+	&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;flash&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;display&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;MovieClip&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+	
+	&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;mx&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;flash&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;UIMovieClip&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+	
+	&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;TrafficLightController&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;extends&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;UIMovieClip&lt;/span&gt;
+	&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+		&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;_states&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;Array&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#204a87&#34;&gt;Array&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;();&lt;/span&gt;
+		&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;_state&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;ITrafficLightState&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+		
+		&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;TrafficLightController&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
+		&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+			&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;super&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;();&lt;/span&gt;
+			
+			&lt;span style=&#34;color:#000&#34;&gt;_states&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#204a87&#34;&gt;Array&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;();&lt;/span&gt;
+			&lt;span style=&#34;color:#000&#34;&gt;_states&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;TrafficLightStates&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;RED_STATE&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;RedState&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+			&lt;span style=&#34;color:#000&#34;&gt;_states&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;TrafficLightStates&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;ORANGE_STATE&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;OrangeState&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+			&lt;span style=&#34;color:#000&#34;&gt;_states&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;TrafficLightStates&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;GREEN_STATE&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;GreenState&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+		&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+		
+		&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// ------------------------------------------------
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;		&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// COMMANDS
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;		&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// ------------------------------------------------
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;		
+		&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;setState&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;String&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;void&lt;/span&gt;
+		&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+			&lt;span style=&#34;color:#000&#34;&gt;_state&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;_states&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;];&lt;/span&gt;
+			&lt;span style=&#34;color:#000&#34;&gt;display&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;();&lt;/span&gt;
+		&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+		
+		&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;display&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;void&lt;/span&gt;
+		&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+			&lt;span style=&#34;color:#000&#34;&gt;switchOffAllLights&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;();&lt;/span&gt;
+			&lt;span style=&#34;color:#000&#34;&gt;_state&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;display&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;();&lt;/span&gt;
+		&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+		
+		&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;emitSound&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;void&lt;/span&gt;
+		&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+			&lt;span style=&#34;color:#000&#34;&gt;_state&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;emitSound&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;();&lt;/span&gt;
+		&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+		
+		&lt;span style=&#34;color:#000&#34;&gt;internal&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;switchOffAllLights&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;void&lt;/span&gt;
+		&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+			&lt;span style=&#34;color:#000&#34;&gt;red_light&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;visible&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+			&lt;span style=&#34;color:#000&#34;&gt;orange_light&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;visible&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+			&lt;span style=&#34;color:#000&#34;&gt;green_light&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;visible&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+		&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+		&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// ------------------------------------------------
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;		&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// QUERIES
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;		&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// ------------------------------------------------
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;		
+		&lt;span style=&#34;color:#000&#34;&gt;internal&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;get&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;red_light&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;MovieClip&lt;/span&gt;
+		&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+			&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;getChildByName&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;mc_red_light&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;as&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;MovieClip&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+		&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+		
+		&lt;span style=&#34;color:#000&#34;&gt;internal&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;get&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;orange_light&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;MovieClip&lt;/span&gt;
+		&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+			&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;getChildByName&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;mc_orange_light&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;as&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;MovieClip&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+		&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+		
+		&lt;span style=&#34;color:#000&#34;&gt;internal&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;get&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;green_light&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;MovieClip&lt;/span&gt;
+		&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+			&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;getChildByName&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;mc_green_light&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;as&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;MovieClip&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+		&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+		
+	&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;traffic-light-states&#34;&gt;Traffic Light States&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;TrafficLightStates.as&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;com&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+	&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;TrafficLightStates&lt;/span&gt;
+
+	&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+		&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;RED_STATE&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;String&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;RED_STATE&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+		&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;ORANGE_STATE&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;String&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;ORANGE_STATE&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+		&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;GREEN_STATE&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;String&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;GREEN_STATE&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+	&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;itrafficlightstate-interface&#34;&gt;ITrafficLightState interface&lt;/h3&gt;
+&lt;p&gt;Traffic Light States all follow this interface&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;ITrafficLightState.as&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;com&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+	&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;interface&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;ITrafficLightState&lt;/span&gt;
+	&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+		&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;display&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;void&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+		&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;emitSound&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;void&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+		
+		&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;get&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;context&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;TrafficLightController&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+	&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;concrete-states&#34;&gt;Concrete states&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;RedState.as&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;com&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+	&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;RedState&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;implements&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;ITrafficLightState&lt;/span&gt;
+	&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+		&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;_context&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;TrafficLightController&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+		
+		&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;RedState&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;context&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;TrafficLightController&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+		&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+			&lt;span style=&#34;color:#000&#34;&gt;_context&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;context&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+		&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+		
+		&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;get&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;context&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;TrafficLightController&lt;/span&gt;
+		&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+			&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;_context&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+		&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+		
+		&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;display&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;void&lt;/span&gt;
+		&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+			&lt;span style=&#34;color:#000&#34;&gt;context&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;red_light&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;visible&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+		&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+		
+		&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;emitSound&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;void&lt;/span&gt;
+		&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+		&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+	&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;GreenState.as&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;com&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+ &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;GreenState&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;implements&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;ITrafficLightState&lt;/span&gt;
+ &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+ &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;_context&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;TrafficLightController&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+ 
+ &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;GreenState&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;context&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;TrafficLightController&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+ &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+ &lt;span style=&#34;color:#000&#34;&gt;_context&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;context&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+ &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+ 
+ &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;get&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;context&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;TrafficLightController&lt;/span&gt;
+ &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+ &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;_context&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+ &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+ 
+ &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;display&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;void&lt;/span&gt;
+ &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+ &lt;span style=&#34;color:#000&#34;&gt;context&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;green_light&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;visible&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+ &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+ 
+ &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;emitSound&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;void&lt;/span&gt;
+ &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+ &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+ &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;OrangeState.as&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;com&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+ &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;OrangeState&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;implements&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;ITrafficLightState&lt;/span&gt;
+ &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+ &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;_context&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;TrafficLightController&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+ 
+ &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;OrangeState&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;context&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;TrafficLightController&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+ &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+ &lt;span style=&#34;color:#000&#34;&gt;_context&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;context&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+ &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+ 
+ &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;get&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;context&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;TrafficLightController&lt;/span&gt;
+ &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+ &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;_context&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+ &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+ 
+ &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;display&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;void&lt;/span&gt;
+ &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+ &lt;span style=&#34;color:#000&#34;&gt;context&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;orange_light&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;visible&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+ &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+ 
+ &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;emitSound&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;void&lt;/span&gt;
+ &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+ &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+ &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;how-it-works&#34;&gt;How it works&lt;/h3&gt;
+&lt;p&gt;The flex code within the concrete state classes ends up setting the visibility of the individual flash graphic components.  Remember the flash graphics are really dumb and have no logic in them.  The flex code refers to the flash graphic symbols with the following technique&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;return&lt;/strong&gt; getChildByName(&amp;ldquo;mc_red_light&amp;rdquo;) as MovieClip;&lt;/p&gt;
+&lt;p&gt;which dynamically looks up the graphic and hands it to the flex code which then sets the &lt;strong&gt;.visible&lt;/strong&gt; property as needed. Ironically the code that drives the flash color changing lives in the TrafficLightController class, as a bunch of utility methods that the concrete state classes call upon.  Note also that the EmitSound() method is not implemented in this project.&lt;/p&gt;
+&lt;h3 id=&#34;uml&#34;&gt;UML&lt;/h3&gt;
+&lt;p&gt;Here is the UML of the solution.  Click for larger image.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://abulka.github.io/blog/images/state-pattern-in-flex-juststatepart-simplevers.png&#34;&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/state-pattern-in-flex-juststatepart-simplevers.png&#34; alt=&#34;&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://abulka.github.io/blog/images/state-pattern-in-flex-flexflashUML.png&#34;&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/state-pattern-in-flex-flexflashUML.png&#34; alt=&#34;&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Note how the user drives the flex MXML form which holds a reference to the flash object.  See how the flash object inherits from the TrafficLightController class thereby we auto-magically graft on smart behaviour to the dumb flash symbol.&lt;/p&gt;
+&lt;p&gt;The TrafficLightControllerclass is the &amp;lsquo;context&amp;rsquo; in our State design pattern and holds an instance of a state object.  The states are singletons kept in an array, so that we don&amp;rsquo;t have to keep creating and deleting state instances (this is a common implementation trick when implementing state pattern).&lt;/p&gt;
+&lt;h2 id=&#34;version-2&#34;&gt;Version 2&lt;/h2&gt;
+&lt;p&gt;Just to be bold and learn flex more deeply, here are another three solutions to implementing the traffic light using design state pattern in flash and flex. I have created three different implementations within the one architecture.  We use the following techniques:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Accessing a flash component (as before) but now with skinning&lt;/li&gt;
+&lt;li&gt;Pure Flex solution with the graphics as images assembled purely in MXML, code inside the mxml file&lt;/li&gt;
+&lt;li&gt;Pure Flex solution, graphics in MXML, code in a separate proper flex class - using a technique known as &amp;lsquo;code behind&amp;rsquo;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Here is the resulting flash application - &lt;del&gt;go on and click on the buttons!&lt;/del&gt;
+&lt;em&gt;The embedded flash object (showing our demo) is unable to run in modern browsers so an animation is playing instead.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/state-pattern-in-flex-swf-demo2.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;implementation-steps-1&#34;&gt;Implementation Steps&lt;/h3&gt;
+&lt;p&gt;I won&amp;rsquo;t list all the code, however here is the MXML file for the all in one solution version&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;utf-8&amp;#34;?&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;mx:Canvas&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;xmlns:mx=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;http://www.adobe.com/2006/mxml&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;implements=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;com.ITrafficLightView&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;width=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;59&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;height=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;138&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;initialize=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;init()&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;gt;&lt;/span&gt;
+
+	&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;mx:Image&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;x=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;0&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;y=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;0&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;source=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;TrafficLightSkin_box&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;/&amp;gt;&lt;/span&gt;
+	&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;mx:Image&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;id=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;red_light&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;x=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;19&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;y=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;36&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;source=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;TrafficLightSkin_red_light&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;/&amp;gt;&lt;/span&gt;
+	&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;mx:Image&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;id=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;orange_light&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;x=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;19&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;y=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;69&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;source=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;TrafficLightSkin_orange_light&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;/&amp;gt;&lt;/span&gt;
+	&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;mx:Image&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;id=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;green_light&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;x=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;19&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;y=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;103&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;source=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;TrafficLightSkin_green_light&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;/&amp;gt;&lt;/span&gt;
+	
+	&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;mx:Script&amp;gt;&lt;/span&gt;
+		&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&amp;lt;![CDATA[
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;			
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;			private var _controller:TrafficLightController;
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;			
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;			private function init():void
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;			{
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;				setController(new TrafficLightController(this));
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;			}
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;			
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;			public function setController(val:TrafficLightController):void
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;			{
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;				_controller = val;
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;			}
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;	
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;			public function setState(val:String):void
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;			{
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;				_controller.setState(val);
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;			}
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;			
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;			public function emitSound():void
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;			{
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;				_controller.emitSound();
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;			}
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;			
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;			public function display():void
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;			{
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;				_controller.display();
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;			}
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;			
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;			public function getController():TrafficLightController
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;			{
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;				return null;
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;			}
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;			
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;			public function setRed():void
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;			{
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;				switchOffAllLights();
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;				red_light.visible = true;
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;			}
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;			
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;			public function setOrange():void
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;			{
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;				switchOffAllLights();
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;				orange_light.visible = true;
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;			}
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;			
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;			public function setGreen():void
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;			{
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;				switchOffAllLights();
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;				green_light.visible = true;
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;			}
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;			
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;			// HELPERS
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;			
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;			internal function switchOffAllLights():void
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;			{
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;				red_light.visible = false;
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;				orange_light.visible = false;
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;				green_light.visible = false;
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;			}
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;		]]&amp;gt;&lt;/span&gt;
+	&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;/mx:Script&amp;gt;&lt;/span&gt;
+	
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;/mx:Canvas&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;uml-1&#34;&gt;UML&lt;/h3&gt;
+&lt;p&gt;Here is the UML of the solution.  Click for larger image.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://abulka.github.io/blog/images/state-pattern-in-flex-juststatepatternforflex3.png&#34;&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/state-pattern-in-flex-juststatepatternforflex3.png&#34; alt=&#34;&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://abulka.github.io/blog/images/state-pattern-in-flex-complexStateFlexUml1.png&#34;&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/state-pattern-in-flex-complexStateFlexUml1.png&#34; alt=&#34;&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;why-is-the-above-uml-so-complex&#34;&gt;Why is the above UML so complex?&lt;/h3&gt;
+&lt;p&gt;Because we are trying to implement three different techniques in the one example, the UML gets complex. In all cases the state design pattern model logic is the same, which is good code reuse.  We use adapters (another design pattern) to accommodate three different implementations within the one architecture, which itself is pretty cool.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/state-pattern-in-flex-stateinflexv2flash02.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the classes handling the graphics display (red/orange/green lights and associated buttons) are actually fairly lightweight, and indicated in dark yellow.&lt;/p&gt;
+&lt;p&gt;The complexity is really in the &amp;ldquo;adapter&amp;rdquo; classes above them which house the code to implement the ITrafficView interface (allowing for our 3 variant implementations in the one architecture approach) and which allows the graphic classes to remain dumb and small.&lt;/p&gt;
+&lt;p&gt;The benefit of this approach (besides learning about how to do the same thing in different ways within flex and thereby understanding flex better) is that we can change the graphic implementation at any time without changing our core business logic model, and our state design pattern (which resides in the model) also remains stable.&lt;/p&gt;
+&lt;h2 id=&#34;resources&#34;&gt;Resources&lt;/h2&gt;
+&lt;p&gt;Flex Project &lt;a href=&#34;https://abulka.github.io/files/state-pattern-in-flex-TrafficState2.zip&#34;&gt;zip&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Blog: Extract Composite Refactoring</title>
       <link>https://abulka.github.io/blog/2008/03/05/extract-composite-refactoring/</link>
       <pubDate>Wed, 05 Mar 2008 00:00:00 +0000</pubDate>
