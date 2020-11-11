@@ -10,13 +10,23 @@ This blog article explores the novel ways of developing software more visually a
 
 > Some of these projects have failed and others continue to thrive (e.g. Scratch). As of 2020 the new big thing in this area is [low code and no-code](https://www.google.com/search?sxsrf=ALeKk00YHpag-SrvKTLZbTzhPv3fQXe2FQ%3A1604617901453&ei=rYakX6ybG8Ce4-EP09qsiAE&q=nocode+low+code&oq=nocode+low+code&gs_lcp=CgZwc3ktYWIQAzIFCAAQyQMyBggAEBYQHjIGCAAQFhAeMgYIABAWEB4yBggAEBYQHjIICAAQFhAKEB4yBggAEBYQHjIGCAAQFhAeMgYIABAWEB4yBggAEBYQHjoECAAQRzoFCAAQkQI6CwgAELEDEIMBEJECOggIABCxAxCDAToFCC4QsQM6AgguOg4ILhCxAxCDARDHARCjAjoICC4QxwEQowI6BAgAEEM6BAguEEM6CwguELEDEMcBEKMCOgIIADoNCC4QsQMQyQMQQxCTAjoHCAAQsQMQQzoFCAAQsQM6CggAELEDEMkDEEM6BAgAEApQrdHvDFjG4-8MYJHl7wxoAHACeACAAZMCiAHlF5IBBTAuOS42mAEAoAEBqgEHZ3dzLXdpesgBCMABAQ&sclient=psy-ab&ved=0ahUKEwjspZDAw-zsAhVAzzgGHVMtCxEQ4dUDCA0&uact=5).
 
-## Model Driven Design, UML and Case Tools
+## Introduction
 
-Creating software in a visual way would arguably lift the level of abstraction in how we create software.  Whether its MDA (model driven architecture) with UML or Case tools from the past - this has clearly been a dream for a long time.  Martin Fowler considers the viability of MSA in an interesting [blog entry](http://martinfowler.com/bliki/ModelDrivenArchitecture.html) - also providing links to other peoples' opinions in this area.  For example there are some that argue UML (even the latest 2.0 version) is not computationally complete, or that programming visually is not all that its cracked up to be and and may not be as efficient as textual coding techniques.  Here is yet another [critique](http://www.ifi.uzh.ch/rerg/fileadmin/downloads/publications/papers/IWSSD-10.pdf) of UML as a modelling tool good enough to generate code.  These sorts of critiques certainly don't stop the vendors - there are a lot of MDA tools e.g. [here is a list](#Links to MDA tools).
+Creating software in a visual way would arguably lift the level of abstraction in how we create software.  Is it even possible?
+
+### Model Driven Design
+
+Whether its MDA (model driven architecture) with UML or Case tools from the past - this has clearly been a dream for a long time.  Martin Fowler considers the viability of MSA in an interesting [blog entry](http://martinfowler.com/bliki/ModelDrivenArchitecture.html) - also providing links to other peoples' opinions in this area.  
+
+For example there are some that argue UML (even the latest 2.0 version) is not computationally complete, or that programming visually is not all that its cracked up to be and and may not be as efficient as textual coding techniques.  Here is yet another [critique](http://www.ifi.uzh.ch/rerg/fileadmin/downloads/publications/papers/IWSSD-10.pdf) of UML as a modelling tool good enough to generate code.  These sorts of critiques certainly don't stop the vendors - there are a lot of MDA tools e.g. [here is a list](#Links to MDA tools).
+
+### Case Tools
 
 I'm an optimist and part of me wants to see some sort of MDA / Executable UML approach work.  However it may not look like existing solutions - we need to look outside the box and find a blend of metaphors that are trully innovative. That's why this page exists - lets explore what programming visually looks like.
 
-### The "world of cells" metaphor
+### OO as Biological Cells
+
+I once came up with the idea of OO programming being like a "world of cells".
 
 The most complex systems on earth, including the human body, are composed of biological cells amongst other things.  Shouldn't we be looking to biology for metaphors for programming?
 
