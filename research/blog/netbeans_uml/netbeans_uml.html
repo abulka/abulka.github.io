@@ -1,0 +1,111 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Untitled</title>
+    <meta name="author" content="Andy Bulka">
+
+    <!-- <link rel="stylesheet" href="css/styles.css?v=1.0"> -->
+
+</head>
+
+<body>
+    <!-- <script src="js/scripts.js"></script> -->
+
+    <h1>UML and Design Pattern Support in Netbeans 6.5</h1>
+<p>Netbeans is an opensource IDE from Sun and is gaining a lot of developer support. I've certainly abandoned Eclipse and switched, as the java facilities are just as good (for me) and importantly Netbeans offers a wonderful GUI form designer plus UML facilities, which Eclipse doesn't come bundled with for free.  Let's take a look at the UML and design pattern support in Netbeans and investigate Netbean's cool ability to build "custom" design patterns - visually.</p>
+<h2>The UML diagrammer</h2>
+<p>The UML diagramming in quite good.  You drag out objects from a palette or use the "hover palette" next to a class to drag out links to either existing or new classes.  This gui metaphor is nice to use and saves you constantly returning to a palette on the side of the screen in order to add objects and connections.</p>
+<p style="text-align: center;"><img src="{CCM:BASE_URL}/files/62021233793272netbeanspic01.png" alt="62021233793272netbeanspic01.png" width="589" height="207" /></p>
+<p style="text-align: center;"><em>Use the "hover palette" next to a class to drag out links to either existing or new classes.</em></p>
+<p>Of course you need a nice palette of UML objects too:</p>
+<p style="text-align: center;"><img src="{CCM:BASE_URL}/files/99041233793360netbeanspic02.png" alt="99041233793360netbeanspic02.png" width="407" height="266" /></p>
+<p style="text-align: center;"><em>Netbean's UML palette </em></p>
+<h2>The UML "Model"</h2>
+<p>Any UML you do in Netbeans requires you to create a special "UML project".  This contains a model of your classes and methods etc. as objects.  The UML view is driven off the model.</p>
+<ul>
+<li>You can generate code OUT into another project</li>
+<li>You can reverse engineer code IN from another project</li>
+</ul>
+<p>UML markers in the code help code sync e.g.</p>
+<p style="text-align: center;"><img src="{CCM:BASE_URL}/files/64891233793556netbeanspic03.png" alt="64891233793556netbeanspic03.png" width="264" height="188" /></p>
+<p style="text-align: center;"><em>Markers in generated code - careful not to delete them <br />unless you know what you are doing!</em></p>
+<p>which actually comprise comments with a unique guid e.g.</p>
+<pre>// <br />// #[regen=yes,id=DCE.548B84AB-2DF4-1944-BA69-85F33CA61C99]<br />// </pre>
+<h2>UML code generation</h2>
+<p>UML generates classes, interfaces, enums, methods and attributes No substantive code is generated Attributes can be one to many etc. When you click on a association line, select properties and select multiplicity, you get a choice of implementation e.g.</p>
+<p style="text-align: center;"><img src="{CCM:BASE_URL}/files/12741233793699netbeanspic04.png" alt="12741233793699netbeanspic04.png" width="238" height="185" /></p>
+<p style="text-align: center;"><em>A choice of one to many implementations</em></p>
+<p>A lot of language make do with one list and one hash type and build it into thelanguage (e.g. python, ruby, groovy, javascript).  Hey but this is Java and you can't make it too easy!  Of course there are special needs for different collection types, so this is a pretty cool way of picking the implementationn that you want.</p>
+<p>Note that you must specify the association as “navigable” to get an "arrow" on your line and to get any code generated for that association.</p>
+<p>Attribute code generation seems a bit buggy and often doesn’t compile E.g. Here is a class X having a one to many association with class Z</p>
+<pre>import java.util.ArrayList;     <strong>// ok </strong><br />private Z mZ;    <strong>// surely Z should be ArrayList </strong></pre>
+<pre> public ArrayList getZ () {<br />     return mZ;<br /> }<br /> public void setZ (ArrayList val) {<br />     this.mZ = val;<br /> }</pre>
+<p>And in the above code you don't get your X.Add(z) method you instead get some strange setter which accepts an entire arraylist - as if anyone does that.</p>
+<h2>UML code generation using Freemarker templates</h2>
+<p>You can build code generation templates to generate more substantial code.  Netbeans uses this templating system throughout itself e.g. the default java class stub you get when you create a new java class is a freemarker template.</p>
+<p>To generate code using freemarker via UML you need to mark your UML classes with stereotypes and associate those stereotypes with a template. </p>
+<p>Unfortunately the whole code generation aspect is currently poorly documented and there is no API published except a code class interface that one is meant to decipher. The one <a href="http://www.netbeans.org/kb/61/uml/codegen.html" target="_blank">tutorial</a> uses a 441 line freemarker template to generate a couple of lines of code !!  And the Sun developers in this area claim there are no resources to provide any more documentation.  <img title="Cry" src="{CCM:BASE_URL}/concrete/js/tiny_mce_309/plugins/emotions/img/smiley-cry.gif" alt="Cry" border="0" />  View the forum discussion <a href="http://markmail.org/search/?q=uml+code+generation+pattern#query:uml%20code%20generation%20pattern+page:1+mid:dvdtp22m2f7qq4hb+state:results" target="_blank">here</a>.</p>
+<h2>Design Pattern Support</h2>
+<p>All GOF patterns supplied as templates which you can graft into your workspace:</p>
+<p style="text-align: center;"><img src="{CCM:BASE_URL}/files/19881233794183netbeanspic05.png" alt="19881233794183netbeanspic05.png" width="322" height="391" /></p>
+<p style="text-align: center;"><em>Invoking the design pattern wizard.</em></p>
+<p>You can specify existing classes as fulfilling roles, or have the wizard create new classes for those roles:</p>
+<p style="text-align: center;"><img src="{CCM:BASE_URL}/files/24371233794247netbeanspic06.png" alt="24371233794247netbeanspic06.png" width="526" height="434" /></p>
+<p style="text-align: center;"><em>Mapping design pattern roles to existing or new classes.</em></p>
+<p>Again, only the basic structure of the pattern is created – you get no actual substantive code.  For example with the Singleton pattern you get the getInstance() method generated but there is no code inside! Here is the class before and after:</p>
+<p style="text-align: center;"><img src="{CCM:BASE_URL}/files/98491233794359netbeanspic07.png" alt="98491233794359netbeanspic07.png" width="494" height="243" /></p>
+<p style="text-align: center;"><em>Before and after applying the Singleton design pattern.</em></p>
+<p>And the code that was generated:</p>
+<pre>public class WhiteHouse {</pre>
+<pre>     private static WhiteHouse uniqueInstance; <strong>// correct</strong></pre>
+<pre>     private int singletonData; </pre>
+<pre>     public WhiteHouse () {        <strong>// should have been made private</strong> <br />     }                                       <strong>// to prevent multiple instantiations</strong></pre>
+<pre>     public static WhiteHouse instance () {         <strong>// correct declaratation</strong><br />         return null;   <strong>// but sorely needs functional code here...instead of returning null !</strong><br />     }</pre>
+<pre>     public void singletonOperation () {<br />     }</pre>
+<pre>     public int getSingletonData () {<br />          return 0;                       <strong>// huh? Shouldn't this return this.singletonData ?</strong><br />     } <br />} </pre>
+<p>It seems that when generating sub methods, if the method returns a value, there is some default code generation which returns null or 0 or something that will allow the generated code to compile.  However this might confuse newcomers who perhaps see this generate code as properly functinal in some way.  Let me repeat, there is no code generation of body code from design patterns except for the default return values that you normally get with UML code generation.</p>
+<p>Yes you can generate code from UML but that requires that you write FreeMarker templates and associate these templates with stereotypes (just set the stereotype property of a uml class or method).  The design patterns don't apply these stereotypes, nor do they provide any freemarker code generation templates.</p>
+<p>Without code generation the design patterns are of limited value.  Code generation is extremely difficult, relying on Freemarker template technology and next to no documentation.  I am hoping that "marking" design pattern related classes with stereotypes will solve the code generation problem - but nobody seems to have actually done it<br />The code generation that exists is buggy anyway esp. with multiplicity of attributes.</p>
+<h2>Custom Design Patterns</h2>
+<p>One really nice thing is being able to create your own design patterns.  No coding or compilation is needed, just draw the diagram and save.  From the Tools/Other menus select the UML design centre:</p>
+<p style="text-align: center;"><img src="{CCM:BASE_URL}/files/26961233795033netbeanspic08.png" alt="26961233795033netbeanspic08.png" width="240" height="159" /></p>
+<p style="text-align: center;"><em>Invoking the UML Design Centre from a menu</em><em><br /></em></p>
+<p>Here you can view the existing patterns in the patterns "design centre".  It is very easy to create a folder and add your own patterns. </p>
+<p style="text-align: center;"><img src="{CCM:BASE_URL}/files/31261233795173netbeanspic09.png" alt="31261233795173netbeanspic09.png" width="248" height="472" /></p>
+<p style="text-align: center;"><em>The UML Design Centre, where you can add your own patterns.</em></p>
+<p>To create your own pattern simply draw a diagram of your pattern classes using a few special diagram objects - the collaboration and role objects:</p>
+<p style="text-align: center;"><img src="{CCM:BASE_URL}/files/54611233795260netbeanspic10.png" alt="54611233795260netbeanspic10.png" width="404" height="68" /></p>
+<p style="text-align: center;"><em>The UML palette relating to design patterns.</em></p>
+<p><br />You can only use the UML palette relating to design patterns whilst in the UML design centre, despite it being visible during normal UML operations.  This is a little confusing, especially as I'd love to be able to document my patterns once they have been applied, using the collaboration object - dragging a named role line to each class involved in the pattern...</p>
+<p>When building a design pattern, instead of adding a class you add a "class role" object from this special design pattern palette.  The role objects are placeholders for a new or existing classes (or use cases or interfaces etc.), which you can fill in using combo drop downs etc. when the pattern is finally applied via the design pattern wizard.</p>
+<p>You link all the roles together with a collaboration object and you are done.  The collaboration object lets you name your pattern and becomes the anchor for all the roles.  Its a pity you don't get collaboration object in regular diagramming in order to document your patterns once they have been applied.  You can instead use notes with multiple links (though this doesn't let you label the links) or make do with tagging your UML classes with stereotypes, indicating the roles e.g. Adapter, Adaptee, Client etc.</p>
+<p>Here is a pattern I created:</p>
+<p style="text-align: center;"><img src="{CCM:BASE_URL}/files/64361233795523netbeanspic11.png" alt="64361233795523netbeanspic11.png" width="501" height="292" /></p>
+<p style="text-align: center;"><em>An example custom design pattern!</em></p>
+<p>The example is a bit contrived, but you get the idea.  Once you build your pattern you can immediately go back to your normal workspace and apply it:</p>
+<p style="text-align: center;"><img src="{CCM:BASE_URL}/files/25671233795780netbeanspic12.png" alt="25671233795780netbeanspic12.png" width="620" height="228" /></p>
+<p style="text-align: center;"><em>Applying my new pattern to my workspace.</em></p>
+<p> </p>
+<h2>Design Pattern Gotchas</h2>
+<p>Be careful when using design pattern "automation".  The particular pattern implementation may not suit you situation.  For example "Adapter" is a object adapter not a class adapter. You need to understand patterns anyway to use these tools.</p>
+<h2>Appendix: UML annoyances</h2>
+<ul>
+<li>In UML new classes are always created in the package in which the diagram resides, so you may need to move them to the correct package</li>
+<li>Right click shows disabled items in popup menu then right click again at slightly different pixel position and items are enabled again</li>
+<li>Can't copy and paste methods and attributes</li>
+<li>Weird keyboard combinations e.g. CTRL-ALT-SHIFT-N for pan</li>
+<li>Newly generated code java files don't always appear in the project so you have to close and reopen the target project or wait till some emergency timer refresh kicks in.</li>
+<li>Synch to and fro is a pain and error prone. Whilst code rarely gets clobbered you can get unexpected multiple declarations of variables, loss of associations in your UML diagrams when re-reverse engineering (esp if generated by design pattern workflow)</li>
+<li>Code generation concepts "Add Merge Markers to Existing Source Elements" and "Generate Markers for Source File Merging" too complex, IMO.</li>
+<li>Apply a design pattern twice and you get two generalisation relationships between classes and other silly bugs</li>
+</ul>
+<h2>Final Thoughts</h2>
+<p>I found Netbeans to be generally very cool, fast and stable.  The UML tool is generally nice to use.  Its really a pity that the UML code generation is a bit buggy and that UML custom code generation is undocumented and uber complex.  The Design Patterns support and customization in Netbeans is outstanding (not at the level of IBM Rational though).  Again its a pity there is no design patterns code generation support, and that this part of Sun's roadmap seems to be a dead end.  They even say on their UML plugin home page that if you want more - use the Visual Paradigm plugin for Netbeans. I live in hope that this opensource tool can be improved though.  Maybe I should start looking at the code base myself... :-)</p>
+
+</body>
+
+</html>
