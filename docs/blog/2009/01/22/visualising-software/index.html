@@ -27,14 +27,14 @@ This blog article explores the novel ways of developing software more visually a
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://abulka.github.io/blog/2009/01/22/visualising-software/" />
 <meta property="article:published_time" content="2009-01-22T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-11-06T18:03:30+11:00" />
+<meta property="article:modified_time" content="2020-11-11T11:49:59+11:00" />
 <meta itemprop="name" content="Visualising Software">
 <meta itemprop="description" content="Ways of Visualising Software Designs
 This blog article explores the novel ways of developing software more visually and in visualising software generally - that is without coding. It also explores ways of visualising software designs and of watching software execute. Visual Programming and Executable UML are the closest terms that describe this area.
  Some of these projects have failed and others continue to thrive (e.g. Scratch). As of 2020 the new big thing in this area is low code and no-code.">
 <meta itemprop="datePublished" content="2009-01-22T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2020-11-06T18:03:30+11:00" />
-<meta itemprop="wordCount" content="3738">
+<meta itemprop="dateModified" content="2020-11-11T11:49:59+11:00" />
+<meta itemprop="wordCount" content="3756">
 
 
 
@@ -122,7 +122,7 @@ This blog article explores the novel ways of developing software more visually a
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.12dcbe6e95d780c1bcffe89a856bed6e3d89573c704239b8156b94119430c51583fba9a740cd82333f7a80563efe34fec0f692a6d5cc821b57c6509ff02d4357.json"
+  data-offline-search-index-json-src="/offline-search-index.1469f5f962f49d8e71014af147db8ff91dfd099fb11cbb1bf67b0c4c41b23086823cf6602819fe1915b043d09ae700a1e37ceee717bff037be0224463996fb04.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -153,7 +153,7 @@ This blog article explores the novel ways of developing software more visually a
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.12dcbe6e95d780c1bcffe89a856bed6e3d89573c704239b8156b94119430c51583fba9a740cd82333f7a80563efe34fec0f692a6d5cc821b57c6509ff02d4357.json"
+  data-offline-search-index-json-src="/offline-search-index.1469f5f962f49d8e71014af147db8ff91dfd099fb11cbb1bf67b0c4c41b23086823cf6602819fe1915b043d09ae700a1e37ceee717bff037be0224463996fb04.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -185,6 +185,12 @@ This blog article explores the novel ways of developing software more visually a
       
       
       <a class="td-sidebar-link td-sidebar-link__page " id="m-blog20110406uml-layout" href="/blog/2011/04/06/uml-layout/">UML Diagram Layout</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blog20090211netbeans-uml" href="/blog/2009/02/11/netbeans-uml/">Netbeans Uml</a>
       
       
       
@@ -272,36 +278,17 @@ This blog article explores the novel ways of developing software more visually a
           </div>
           <div class="d-none d-xl-block col-xl-2 td-toc d-print-none">
             
-
-
-
-
-
-
-<div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
-
-
-
-
-
-<a href="https://github.com/google/docsy-example/edit/master/content/en/blog/visualising_software.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
-<a href="https://github.com/google/docsy-example/issues/new?title=Visualising%20Software" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
-
-
-<a href="https://github.com/google/docsy/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
-
-</div>
-
-
-
+            
 
 
 
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#model-driven-design-uml-and-case-tools">Model Driven Design, UML and Case Tools</a>
+    <li><a href="#introduction">Introduction</a>
       <ul>
-        <li><a href="#the-world-of-cells-metaphor">The &ldquo;world of cells&rdquo; metaphor</a></li>
+        <li><a href="#model-driven-design">Model Driven Design</a></li>
+        <li><a href="#case-tools">Case Tools</a></li>
+        <li><a href="#oo-as-biological-cells">OO as Biological Cells</a></li>
         <li><a href="#executable-uml">Executable UML</a></li>
         <li><a href="#simpler-approaches">Simpler Approaches</a></li>
       </ul>
@@ -347,10 +334,15 @@ This blog article explores the novel ways of developing software more visually a
 <blockquote>
 <p>Some of these projects have failed and others continue to thrive (e.g. Scratch). As of 2020 the new big thing in this area is <a href="https://www.google.com/search?sxsrf=ALeKk00YHpag-SrvKTLZbTzhPv3fQXe2FQ%3A1604617901453&amp;ei=rYakX6ybG8Ce4-EP09qsiAE&amp;q=nocode+low+code&amp;oq=nocode+low+code&amp;gs_lcp=CgZwc3ktYWIQAzIFCAAQyQMyBggAEBYQHjIGCAAQFhAeMgYIABAWEB4yBggAEBYQHjIICAAQFhAKEB4yBggAEBYQHjIGCAAQFhAeMgYIABAWEB4yBggAEBYQHjoECAAQRzoFCAAQkQI6CwgAELEDEIMBEJECOggIABCxAxCDAToFCC4QsQM6AgguOg4ILhCxAxCDARDHARCjAjoICC4QxwEQowI6BAgAEEM6BAguEEM6CwguELEDEMcBEKMCOgIIADoNCC4QsQMQyQMQQxCTAjoHCAAQsQMQQzoFCAAQsQM6CggAELEDEMkDEEM6BAgAEApQrdHvDFjG4-8MYJHl7wxoAHACeACAAZMCiAHlF5IBBTAuOS42mAEAoAEBqgEHZ3dzLXdpesgBCMABAQ&amp;sclient=psy-ab&amp;ved=0ahUKEwjspZDAw-zsAhVAzzgGHVMtCxEQ4dUDCA0&amp;uact=5">low code and no-code</a>.</p>
 </blockquote>
-<h2 id="model-driven-design-uml-and-case-tools">Model Driven Design, UML and Case Tools</h2>
-<p>Creating software in a visual way would arguably lift the level of abstraction in how we create software.  Whether its MDA (model driven architecture) with UML or Case tools from the past - this has clearly been a dream for a long time.  Martin Fowler considers the viability of MSA in an interesting <a href="http://martinfowler.com/bliki/ModelDrivenArchitecture.html">blog entry</a> - also providing links to other peoples' opinions in this area.  For example there are some that argue UML (even the latest 2.0 version) is not computationally complete, or that programming visually is not all that its cracked up to be and and may not be as efficient as textual coding techniques.  Here is yet another <a href="http://www.ifi.uzh.ch/rerg/fileadmin/downloads/publications/papers/IWSSD-10.pdf">critique</a> of UML as a modelling tool good enough to generate code.  These sorts of critiques certainly don&rsquo;t stop the vendors - there are a lot of MDA tools e.g. [here is a list](#Links to MDA tools).</p>
+<h2 id="introduction">Introduction</h2>
+<p>Creating software in a visual way would arguably lift the level of abstraction in how we create software.  Is it even possible?</p>
+<h3 id="model-driven-design">Model Driven Design</h3>
+<p>Whether its MDA (model driven architecture) with UML or Case tools from the past - this has clearly been a dream for a long time.  Martin Fowler considers the viability of MSA in an interesting <a href="http://martinfowler.com/bliki/ModelDrivenArchitecture.html">blog entry</a> - also providing links to other peoples' opinions in this area. </p>
+<p>For example there are some that argue UML (even the latest 2.0 version) is not computationally complete, or that programming visually is not all that its cracked up to be and and may not be as efficient as textual coding techniques.  Here is yet another <a href="http://www.ifi.uzh.ch/rerg/fileadmin/downloads/publications/papers/IWSSD-10.pdf">critique</a> of UML as a modelling tool good enough to generate code.  These sorts of critiques certainly don&rsquo;t stop the vendors - there are a lot of MDA tools e.g. [here is a list](#Links to MDA tools).</p>
+<h3 id="case-tools">Case Tools</h3>
 <p>I&rsquo;m an optimist and part of me wants to see some sort of MDA / Executable UML approach work.  However it may not look like existing solutions - we need to look outside the box and find a blend of metaphors that are trully innovative. That&rsquo;s why this page exists - lets explore what programming visually looks like.</p>
-<h3 id="the-world-of-cells-metaphor">The &ldquo;world of cells&rdquo; metaphor</h3>
+<h3 id="oo-as-biological-cells">OO as Biological Cells</h3>
+<p>I once came up with the idea of OO programming being like a &ldquo;world of cells&rdquo;.</p>
 <p>The most complex systems on earth, including the human body, are composed of biological cells amongst other things.  Shouldn&rsquo;t we be looking to biology for metaphors for programming?</p>
 <p>Here is a thought experiment for you.  Imagine running software as a collection of biological cells, each cell representing an instance of a class.  Each object / cell lives in a community of objects, sending messages to other objects, storing data and providing behaviour exposed as methods.  It might look something like this:</p>
 <p><img src="/blog/images/visualising_software_eggs1.gif" alt="eggs1.gif (189234 bytes)"></p>
@@ -500,7 +492,7 @@ I&rsquo;ll try to put this to good use immediately.</p>
   <li>
     <a href="/blog/2008/09/11/state-pattern-in-flex/" class="btn btn-primary "><span class="mr-1">←</span> Previous</a>
   </li>
-    <a href="/blog/2011/04/06/uml-layout/" class="btn btn-primary ">Next <span class="ml-1">→</span></a>
+    <a href="/blog/2009/02/11/netbeans-uml/" class="btn btn-primary ">Next <span class="ml-1">→</span></a>
   </li>
 </ul>
 

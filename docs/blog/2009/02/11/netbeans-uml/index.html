@@ -20,27 +20,33 @@
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
-<title>Extract Composite Refactoring | Andy Bulka - Blog</title><meta property="og:title" content="Extract Composite Refactoring" />
-<meta property="og:description" content="Extract Composite - Refactoring to a Pattern Refactoring existing code so that it improves and conforms to a design pattern can be a good thing. Your code will be easier to understand since it follows a known &lsquo;pattern&rsquo;. Of course you have to need the change - your code will probably be uncomfortable to read and be crying out for clarification.
-This refactoring is about implementing a one to many relationship in your code more clearly by refactoring to the Composite design pattern." />
+<title>Netbeans Uml | Andy Bulka - Blog</title><meta property="og:title" content="Netbeans Uml" />
+<meta property="og:description" content="Let&rsquo;s take a look at the UML and design pattern support in Netbeans and investigate Netbean&rsquo;s cool ability to build &ldquo;custom&rdquo; design patterns - visually.
+Introduction UML and Design Pattern Support in Netbeans 6.5
+Netbeans is an opensource IDE from Sun and importantly Netbeans offers a wonderful GUI form designer plus UML facilities, which Eclipse doesn&rsquo;t come bundled with out of the box.
+ Unfortunately the UML support described in this article has been removed from later versions of Netbeans." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://abulka.github.io/blog/2008/03/05/extract-composite-refactoring/" />
-<meta property="article:published_time" content="2008-03-05T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-11-05T17:45:13+11:00" />
-<meta itemprop="name" content="Extract Composite Refactoring">
-<meta itemprop="description" content="Extract Composite - Refactoring to a Pattern Refactoring existing code so that it improves and conforms to a design pattern can be a good thing. Your code will be easier to understand since it follows a known &lsquo;pattern&rsquo;. Of course you have to need the change - your code will probably be uncomfortable to read and be crying out for clarification.
-This refactoring is about implementing a one to many relationship in your code more clearly by refactoring to the Composite design pattern.">
-<meta itemprop="datePublished" content="2008-03-05T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2020-11-05T17:45:13+11:00" />
-<meta itemprop="wordCount" content="476">
+<meta property="og:url" content="https://abulka.github.io/blog/2009/02/11/netbeans-uml/" />
+<meta property="article:published_time" content="2009-02-11T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-11-11T12:42:30+11:00" />
+<meta itemprop="name" content="Netbeans Uml">
+<meta itemprop="description" content="Let&rsquo;s take a look at the UML and design pattern support in Netbeans and investigate Netbean&rsquo;s cool ability to build &ldquo;custom&rdquo; design patterns - visually.
+Introduction UML and Design Pattern Support in Netbeans 6.5
+Netbeans is an opensource IDE from Sun and importantly Netbeans offers a wonderful GUI form designer plus UML facilities, which Eclipse doesn&rsquo;t come bundled with out of the box.
+ Unfortunately the UML support described in this article has been removed from later versions of Netbeans.">
+<meta itemprop="datePublished" content="2009-02-11T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-11-11T12:42:30+11:00" />
+<meta itemprop="wordCount" content="1755">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Extract Composite Refactoring"/>
-<meta name="twitter:description" content="Extract Composite - Refactoring to a Pattern Refactoring existing code so that it improves and conforms to a design pattern can be a good thing. Your code will be easier to understand since it follows a known &lsquo;pattern&rsquo;. Of course you have to need the change - your code will probably be uncomfortable to read and be crying out for clarification.
-This refactoring is about implementing a one to many relationship in your code more clearly by refactoring to the Composite design pattern."/>
+<meta name="twitter:title" content="Netbeans Uml"/>
+<meta name="twitter:description" content="Let&rsquo;s take a look at the UML and design pattern support in Netbeans and investigate Netbean&rsquo;s cool ability to build &ldquo;custom&rdquo; design patterns - visually.
+Introduction UML and Design Pattern Support in Netbeans 6.5
+Netbeans is an opensource IDE from Sun and importantly Netbeans offers a wonderful GUI form designer plus UML facilities, which Eclipse doesn&rsquo;t come bundled with out of the box.
+ Unfortunately the UML support described in this article has been removed from later versions of Netbeans."/>
 
 
 
@@ -187,7 +193,7 @@ This refactoring is about implementing a one to many relationship in your code m
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-blog20090211netbeans-uml" href="/blog/2009/02/11/netbeans-uml/">Netbeans Uml</a>
+      <a class="td-sidebar-link td-sidebar-link__page  active" id="m-blog20090211netbeans-uml" href="/blog/2009/02/11/netbeans-uml/">Netbeans Uml</a>
       
       
       
@@ -205,7 +211,7 @@ This refactoring is about implementing a one to many relationship in your code m
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page  active" id="m-blog20080305extract-composite-refactoring" href="/blog/2008/03/05/extract-composite-refactoring/">Extract Composite Refactoring</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blog20080305extract-composite-refactoring" href="/blog/2008/03/05/extract-composite-refactoring/">Extract Composite Refactoring</a>
       
       
       
@@ -281,24 +287,18 @@ This refactoring is about implementing a one to many relationship in your code m
 
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#presentation">Presentation</a></li>
-    <li><a href="#uml---before-and-after">UML - Before and After</a>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#the-uml-diagrammer">The UML diagrammer</a></li>
+    <li><a href="#the-uml-model">The UML &ldquo;Model&rdquo;</a></li>
+    <li><a href="#code-generation">Code generation</a>
       <ul>
-        <li><a href="#uml-before">UML Before</a></li>
-        <li><a href="#uml-after">UML After</a></li>
+        <li><a href="#freemarker-templates">Freemarker templates</a></li>
       </ul>
     </li>
-    <li><a href="#code---before-and-after">Code - Before and After</a>
-      <ul>
-        <li><a href="#code-before">Code Before</a></li>
-      </ul>
-    </li>
-    <li><a href="#then-we-apply-the-following-steps">Then we apply the following steps&hellip;</a>
-      <ul>
-        <li><a href="#code-after">Code After</a></li>
-        <li><a href="#does-the-refactoring-break-anything">Does the refactoring break anything?</a></li>
-      </ul>
-    </li>
+    <li><a href="#design-pattern-support">Design Pattern Support</a></li>
+    <li><a href="#custom-design-patterns">Custom Design Patterns</a></li>
+    <li><a href="#annoyances">Annoyances</a></li>
+    <li><a href="#final-thoughts">Final Thoughts</a></li>
   </ul>
 </nav>
 
@@ -311,138 +311,146 @@ This refactoring is about implementing a one to many relationship in your code m
             </a>
             
 <div class="td-content">
-	<h1>Extract Composite Refactoring</h1>
+	<h1>Netbeans Uml</h1>
 	
 	<div class="td-byline mb-4">
 		
-		<time datetime="2008-03-05" class="text-muted">Wednesday, March 05, 2008</time>
+		<time datetime="2009-02-11" class="text-muted">Wednesday, February 11, 2009</time>
 	</div>
 	
-	<h1 id="extract-composite---refactoring-to-a-pattern">Extract Composite - Refactoring to a Pattern</h1>
-<p>Refactoring existing code so that it improves and conforms to a design pattern can be a good thing.  Your code will be easier to understand since it follows a known &lsquo;pattern&rsquo;.  Of course you have to need the change - your code will probably be uncomfortable to read and be crying out for clarification.</p>
-<p>This refactoring is about implementing a one to many relationship in your code more clearly by refactoring to the Composite design pattern.</p>
-<h2 id="presentation">Presentation</h2>
-<iframe style="border: 1px solid #CCC; border-width: 1px; margin-bottom: 5px; max-width: 100%;" src="//www.slideshare.net/slideshow/embed_code/key/CZeskH10aSCnUt" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" width="595" height="485"> </iframe>
-<h2 id="uml---before-and-after">UML - Before and After</h2>
-<p>Here is the situation before and after the refactoring, in hand drawn UML.</p>
-<h3 id="uml-before">UML Before</h3>
-<p><img src="/blog/images/extract-CompositeBefore.png" alt=""></p>
-<p>The <strong>problem</strong> with the &ldquo;before&rdquo; situation is:</p>
+	<p>Let&rsquo;s take a look at the UML and design pattern support in Netbeans and investigate Netbean&rsquo;s cool ability to build &ldquo;custom&rdquo; design patterns - visually.</p>
+<h2 id="introduction">Introduction</h2>
+<p>UML and Design Pattern Support in Netbeans 6.5</p>
+<p><img src="/blog/images/netbeans_uml_bgnetbeans01.jpg" alt=""></p>
+<p>Netbeans is an opensource IDE from Sun and importantly Netbeans offers a wonderful GUI form designer plus UML facilities, which Eclipse doesn&rsquo;t come bundled with out of the box.</p>
+<blockquote>
+<p>Unfortunately the UML support described in this article <em>has been removed</em> from later versions of Netbeans. This article should be considered a historical article where we can learn from how this fascinating UML tool once worked. See also my <a href="https://abulka.github.io/blog/2000/01/04/patterns-modelmaker-beyond/" title="Patterns, ModelMaker &amp; Beyond">blog post on ModelMaker</a> (another discontinued tool) for a similarly groundbreaking UML tool.</p>
+</blockquote>
+<blockquote>
+<p>Update: It seems there is <a href="http://hg.netbeans.org/community-uml">some activity</a> on reviving this tool in 2020</p>
+</blockquote>
+<h2 id="the-uml-diagrammer">The UML diagrammer</h2>
+<p>The UML diagramming is quite good.  You drag out objects from a palette or use the &ldquo;hover palette&rdquo; next to a class to drag out links to either existing or new classes.  This gui metaphor is nice to use and saves you constantly returning to a palette on the side of the screen in order to add objects and connections.</p>
+<p><img src="/blog/images/netbeans_uml_01.png" alt="62021233793272netbeanspic01.png"></p>
+<p><em>Use the &ldquo;hover palette&rdquo; next to a class to drag out links to either existing or new classes.</em></p>
+<p>Of course you need a nice palette of UML objects too:</p>
+<p><img src="/blog/images/netbeans_uml_02.png" alt="99041233793360netbeanspic02.png"></p>
+<p><em>Netbean&rsquo;s UML palette</em></p>
+<h2 id="the-uml-model">The UML &ldquo;Model&rdquo;</h2>
+<p>Any UML you do in Netbeans requires you to create a special &ldquo;UML project&rdquo;.  This contains a model of your classes and methods etc. as objects.  The UML view is driven off the model.</p>
 <ul>
-<li>The child looping logic is duplicated twice - once in the <code>FormTag</code> class and again in the <code>LinkTag</code> class.  And we all know that code duplication is evil and hard to maintain.</li>
+<li>You can generate code OUT into another project</li>
+<li>You can reverse engineer code IN from another project</li>
 </ul>
-<p>By refactoring, we remove the code duplication to a common base class.</p>
-<h3 id="uml-after">UML After</h3>
-<p><img src="/blog/images/extract-CompositeAfter.png" alt=""></p>
-<p>The solution:</p>
+<p>UML markers in the code help code sync e.g.</p>
+<p><img src="/blog/images/netbeans_uml_03.png" alt="64891233793556netbeanspic03.png"></p>
+<p><em>Markers in generated code - careful not to delete them<br>
+unless you know what you are doing!</em></p>
+<p>which actually comprise comments with a unique guid e.g.</p>
+<pre><code>//   
+// #\[regen=yes,id=DCE.548B84AB-2DF4-1944-BA69-85F33CA61C99\]  
+// 
+</code></pre><h2 id="code-generation">Code generation</h2>
+<p>UML generates classes, interfaces, enums, methods and attributes No substantive code is generated Attributes can be one to many etc. When you click on a association line, select properties and select multiplicity, you get a choice of implementation e.g.</p>
+<p><img src="/blog/images/netbeans_uml_04.png" alt="12741233793699netbeanspic04.png"></p>
+<p><em>A choice of one to many implementations</em></p>
+<p>A lot of language make do with one list and one hash type and build it into thelanguage (e.g. python, ruby, groovy, javascript).  Hey but this is Java and you can&rsquo;t make it too easy!  Of course there are special needs for different collection types, so this is a pretty cool way of picking the implementationn that you want.</p>
+<p>Note that you must specify the association as “navigable” to get an &ldquo;arrow&rdquo; on your line and to get any code generated for that association.</p>
+<p>Attribute code generation seems a bit buggy and often doesn’t compile E.g. Here is a class X having a one to many association with class Z</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">java.util.ArrayList</span><span style="color:#ce5c00;font-weight:bold">;</span>     <span style="color:#8f5902;font-style:italic">// ok
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#204a87;font-weight:bold">private</span> <span style="color:#000">Z</span> <span style="color:#000">mZ</span><span style="color:#ce5c00;font-weight:bold">;</span>    <span style="color:#8f5902;font-style:italic">// surely Z should be ArrayList
+</span><span style="color:#8f5902;font-style:italic"></span>
+ <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#000">ArrayList</span> <span style="color:#000">getZ</span> <span style="color:#ce5c00;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">{</span>  
+     <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">mZ</span><span style="color:#ce5c00;font-weight:bold">;</span>  
+ <span style="color:#ce5c00;font-weight:bold">}</span>  
+ <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">void</span> <span style="color:#000">setZ</span> <span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">ArrayList</span> <span style="color:#000">val</span><span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">{</span>  
+     <span style="color:#204a87;font-weight:bold">this</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">mZ</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">val</span><span style="color:#ce5c00;font-weight:bold">;</span>  
+ <span style="color:#ce5c00;font-weight:bold">}</span>
+</code></pre></div><p>And in the above code you don&rsquo;t get your X.Add(z) method you instead get some strange setter which accepts an entire arraylist - as if anyone does that.</p>
+<h3 id="freemarker-templates">Freemarker templates</h3>
+<p>Code generation using Freemarker templates.</p>
+<p>You can build code generation templates to generate more substantial code.  Netbeans uses this templating system throughout itself e.g. the default java class stub you get when you create a new java class is a freemarker template.</p>
+<p>To generate code using freemarker via UML you need to mark your UML classes with stereotypes and associate those stereotypes with a template. </p>
+<p>Unfortunately the whole code generation aspect is currently poorly documented and there is no API published except a code class interface that one is meant to decipher. The one <a href="http://www.netbeans.org/kb/61/uml/codegen.html">tutorial</a> uses a 441 line freemarker template to generate a couple of lines of code !!  And the Sun developers in this area claim there are no resources to provide any more documentation.  <img src="%7BCCM:BASE_URL%7D/concrete/js/tiny_mce_309/plugins/emotions/img/smiley-cry.gif" alt="Cry" title="Cry">  View the forum discussion <a href="http://markmail.org/search/?q=uml+code+generation+pattern#query:uml%20code%20generation%20pattern+page:1+mid:dvdtp22m2f7qq4hb+state:results">here</a>.</p>
+<h2 id="design-pattern-support">Design Pattern Support</h2>
+<p>All GOF patterns supplied as templates which you can graft into your workspace:</p>
+<p><img src="/blog/images/netbeans_uml_05.png" alt="19881233794183netbeanspic05.png"></p>
+<p><em>Invoking the design pattern wizard.</em></p>
+<p>You can specify existing classes as fulfilling roles, or have the wizard create new classes for those roles:</p>
+<p><img src="/blog/images/netbeans_uml_06.png" alt="24371233794247netbeanspic06.png"></p>
+<p><em>Mapping design pattern roles to existing or new classes.</em></p>
+<p>Again, only the basic structure of the pattern is created – you get no actual substantive code.  For example with the Singleton pattern you get the getInstance() method generated but there is no code inside! Here is the class before and after:</p>
+<p><img src="/blog/images/netbeans_uml_07.png" alt="98491233794359netbeanspic07.png"></p>
+<p><em>Before and after applying the Singleton design pattern.</em></p>
+<p>And the code that was generated:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">WhiteHouse</span> <span style="color:#ce5c00;font-weight:bold">{</span>
+
+     <span style="color:#204a87;font-weight:bold">private</span> <span style="color:#204a87;font-weight:bold">static</span> <span style="color:#000">WhiteHouse</span> <span style="color:#000">uniqueInstance</span><span style="color:#ce5c00;font-weight:bold">;</span>  <span style="color:#8f5902;font-style:italic">// correct
+</span><span style="color:#8f5902;font-style:italic"></span>
+     <span style="color:#204a87;font-weight:bold">private</span> <span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">singletonData</span><span style="color:#ce5c00;font-weight:bold">;</span> 
+
+     <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#000">WhiteHouse</span> <span style="color:#ce5c00;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">{</span>  <span style="color:#8f5902;font-style:italic">// should have been made private   
+</span><span style="color:#8f5902;font-style:italic"></span>     <span style="color:#ce5c00;font-weight:bold">}</span>                       <span style="color:#8f5902;font-style:italic">// to prevent multiple instantiations
+</span><span style="color:#8f5902;font-style:italic"></span>
+     <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">static</span> <span style="color:#000">WhiteHouse</span> <span style="color:#000">instance</span> <span style="color:#ce5c00;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">{</span>  <span style="color:#8f5902;font-style:italic">// correct declaratation  
+</span><span style="color:#8f5902;font-style:italic"></span>         <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#204a87;font-weight:bold">null</span><span style="color:#ce5c00;font-weight:bold">;</span>   <span style="color:#8f5902;font-style:italic">// but sorely needs functional code here...instead of returning null !  
+</span><span style="color:#8f5902;font-style:italic"></span>     <span style="color:#ce5c00;font-weight:bold">}</span>
+
+     <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">void</span> <span style="color:#000">singletonOperation</span> <span style="color:#ce5c00;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">{</span>  
+     <span style="color:#ce5c00;font-weight:bold">}</span>
+
+     <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">getSingletonData</span> <span style="color:#ce5c00;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">{</span>  
+          <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">0</span><span style="color:#ce5c00;font-weight:bold">;</span>  <span style="color:#8f5902;font-style:italic">// huh? Shouldn&#39;t this return this.singletonData ?
+</span><span style="color:#8f5902;font-style:italic"></span>     <span style="color:#ce5c00;font-weight:bold">}</span>   
+<span style="color:#ce5c00;font-weight:bold">}</span> 
+</code></pre></div><p>It seems that when generating sub methods, if the method returns a value, there is some default code generation which returns null or 0 or something that will allow the generated code to compile.  However this might confuse newcomers who perhaps see this generate code as properly functinal in some way.  Let me repeat, there is no code generation of body code from design patterns except for the default return values that you normally get with UML code generation.</p>
+<p>Yes you can generate code from UML but that requires that you write FreeMarker templates and associate these templates with stereotypes (just set the stereotype property of a uml class or method).  The design patterns don&rsquo;t apply these stereotypes, nor do they provide any freemarker code generation templates.</p>
+<p>Without code generation the design patterns are of limited value.  Code generation is extremely difficult, relying on Freemarker template technology and next to no documentation.  I am hoping that &ldquo;marking&rdquo; design pattern related classes with stereotypes will solve the code generation problem - but nobody seems to have actually done it<br>
+The code generation that exists is buggy anyway esp. with multiplicity of attributes.</p>
+<h2 id="custom-design-patterns">Custom Design Patterns</h2>
+<p>One really nice thing is being able to create your own design patterns.  No coding or compilation is needed, just draw the diagram and save.  From the Tools/Other menus select the UML design centre:</p>
+<p><img src="/blog/images/netbeans_uml_08.png" alt="26961233795033netbeanspic08.png"></p>
+<p><em>Invoking the UML Design Centre from a menu</em></p>
+<p>Here you can view the existing patterns in the patterns &ldquo;design centre&rdquo;.  It is very easy to create a folder and add your own patterns. </p>
+<p><img src="/blog/images/netbeans_uml_09.png" alt="31261233795173netbeanspic09.png"></p>
+<p><em>The UML Design Centre, where you can add your own patterns.</em></p>
+<p>To create your own pattern simply draw a diagram of your pattern classes using a few special diagram objects - the collaboration and role objects:</p>
+<p><img src="/blog/images/netbeans_uml_10.png" alt="54611233795260netbeanspic10.png"></p>
+<p><em>The UML palette relating to design patterns.</em></p>
+<p>You can only use the UML palette relating to design patterns whilst in the UML design centre, despite it being visible during normal UML operations.  This is a little confusing, especially as I&rsquo;d love to be able to document my patterns once they have been applied, using the collaboration object - dragging a named role line to each class involved in the pattern&hellip;</p>
+<p>When building a design pattern, instead of adding a class you add a &ldquo;class role&rdquo; object from this special design pattern palette.  The role objects are placeholders for a new or existing classes (or use cases or interfaces etc.), which you can fill in using combo drop downs etc. when the pattern is finally applied via the design pattern wizard.</p>
+<p>You link all the roles together with a collaboration object and you are done.  The collaboration object lets you name your pattern and becomes the anchor for all the roles.  Its a pity you don&rsquo;t get collaboration object in regular diagramming in order to document your patterns once they have been applied.  You can instead use notes with multiple links (though this doesn&rsquo;t let you label the links) or make do with tagging your UML classes with stereotypes, indicating the roles e.g. Adapter, Adaptee, Client etc.</p>
+<p>Here is a pattern I created:</p>
+<p><img src="/blog/images/netbeans_uml_11.png" alt="64361233795523netbeanspic11.png"></p>
+<p><em>An example custom design pattern!</em></p>
+<p>The example is a bit contrived, but you get the idea.  Once you build your pattern you can immediately go back to your normal workspace and apply it:</p>
+<p><img src="/blog/images/netbeans_uml_12.png" alt="25671233795780netbeanspic12.png"></p>
+<p><em>Applying my new pattern to my workspace.</em></p>
+<h2 id="annoyances">Annoyances</h2>
 <ul>
-<li>We use the &ldquo;extract composite&rdquo; refactoring to put the common looping behaviour in the display() method of a common composite class.</li>
-<li>We make the existing classes subclasses of this new composite class.</li>
+<li>In UML new classes are always created in the package in which the diagram resides, so you may need to move them to the correct package</li>
+<li>Right click shows disabled items in popup menu then right click again at slightly different pixel position and items are enabled again</li>
+<li>Can&rsquo;t copy and paste methods and attributes</li>
+<li>Weird keyboard combinations e.g. CTRL-ALT-SHIFT-N for pan</li>
+<li>Newly generated code java files don&rsquo;t always appear in the project so you have to close and reopen the target project or wait till some emergency timer refresh kicks in.</li>
+<li>Synch to and fro is a pain and error prone. Whilst code rarely gets clobbered you can get unexpected multiple declarations of variables, loss of associations in your UML diagrams when re-reverse engineering (esp if generated by design pattern workflow)</li>
+<li>Code generation concepts &ldquo;Add Merge Markers to Existing Source Elements&rdquo; and &ldquo;Generate Markers for Source File Merging&rdquo; too complex, IMO.</li>
+<li>Apply a design pattern twice and you get two generalisation relationships between classes and other silly bugs</li>
+<li>Be careful when using design pattern &ldquo;automation&rdquo;.  The particular pattern implementation may not suit you situation.  For example &ldquo;Adapter&rdquo; is a object adapter not a class adapter. You need to understand patterns anyway to use these tools.</li>
 </ul>
-<h2 id="code---before-and-after">Code - Before and After</h2>
-<p>Here is a python example of the above refactoring.  Note that the display() method is actually called toPlainTextString() in this example.</p>
-<h3 id="code-before">Code Before</h3>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#8f5902;font-style:italic"># Before</span>
-
-<span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Node</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">object</span><span style="color:#000;font-weight:bold">):</span>
- <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">name</span><span style="color:#000;font-weight:bold">):</span>
- <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">name</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">name</span>
- <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">toPlainTextString</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>
- <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">name</span>
-
-<span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">FormTag</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Node</span><span style="color:#000;font-weight:bold">):</span>
- <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>
- <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">allNodesVector</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[]</span>
- <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">toPlainTextString</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>
- <span style="color:#000">result</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;&#34;</span>
- <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">node</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">allNodesVector</span><span style="color:#000;font-weight:bold">:</span>
- <span style="color:#000">result</span> <span style="color:#ce5c00;font-weight:bold">+=</span> <span style="color:#000">node</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">toPlainTextString</span><span style="color:#000;font-weight:bold">()</span>
- <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">result</span>
-
-<span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">LinkTag</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Node</span><span style="color:#000;font-weight:bold">):</span>
- <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>
- <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">linkData</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[]</span>
- <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">toPlainTextString</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>
- <span style="color:#000">result</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;&#34;</span>
- <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">node</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">linkData</span><span style="color:#000;font-weight:bold">:</span>
- <span style="color:#000">result</span> <span style="color:#ce5c00;font-weight:bold">+=</span> <span style="color:#000">node</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">toPlainTextString</span><span style="color:#000;font-weight:bold">()</span>
- <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">result</span>
-
-<span style="color:#000">f</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">FormTag</span><span style="color:#000;font-weight:bold">()</span>
-<span style="color:#000">f</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">allNodesVector</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">append</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Node</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;a&#34;</span><span style="color:#000;font-weight:bold">))</span>
-<span style="color:#000">f</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">allNodesVector</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">append</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Node</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;b&#34;</span><span style="color:#000;font-weight:bold">))</span>
-<span style="color:#000">f</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">allNodesVector</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">append</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Node</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;c&#34;</span><span style="color:#000;font-weight:bold">))</span>
-
-<span style="color:#000">l</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">LinkTag</span><span style="color:#000;font-weight:bold">()</span>
-<span style="color:#000">l</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">linkData</span> <span style="color:#ce5c00;font-weight:bold">+=</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#000">Node</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;x&#34;</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#000">Node</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;y&#34;</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#000">Node</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;z&#34;</span><span style="color:#000;font-weight:bold">)]</span>
-
-<span style="color:#204a87;font-weight:bold">print</span> <span style="color:#000">f</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">toPlainTextString</span><span style="color:#000;font-weight:bold">()</span>
-<span style="color:#204a87;font-weight:bold">print</span> <span style="color:#000">l</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">toPlainTextString</span><span style="color:#000;font-weight:bold">()</span>
-</code></pre></div><h2 id="then-we-apply-the-following-steps">Then we apply the following steps&hellip;</h2>
-<ol>
-<li>Create a Composite Class - compile</li>
-<li>Make each child container (a class in the hierarchy that contains duplicate child-handling code) a subclass of your composite - compile</li>
-<li>For each method with duplicated looping code
-<ul>
-<li>Move &amp; rename the child reference field UP to the composite using &ldquo;Pull Up Field&rdquo;</li>
-<li>Move the method UP to the composite using &ldquo;Pull Up Method&rdquo;</li>
-<li>Pull up any relevant constructor code too.</li>
-<li>Check interfaces so that client code using the old composites still works.</li>
-</ul>
-</li>
-</ol>
-<h3 id="code-after">Code After</h3>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#8f5902;font-style:italic"># After</span>
-
-<span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Node</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">object</span><span style="color:#000;font-weight:bold">):</span>
- <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">name</span><span style="color:#000;font-weight:bold">):</span>
- <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">name</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">name</span>
- <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">toPlainTextString</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>
- <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">name</span>
-
-<span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Composite</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Node</span><span style="color:#000;font-weight:bold">):</span>
- <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>
- <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">children</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[]</span>
- <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">toPlainTextString</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>
- <span style="color:#000">result</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;&#34;</span>
- <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">node</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">children</span><span style="color:#000;font-weight:bold">:</span>
- <span style="color:#000">result</span> <span style="color:#ce5c00;font-weight:bold">+=</span> <span style="color:#000">node</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">toPlainTextString</span><span style="color:#000;font-weight:bold">()</span>
- <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">result</span>
-
-<span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">FormTag</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Composite</span><span style="color:#000;font-weight:bold">):</span>
- <span style="color:#204a87;font-weight:bold">pass</span>
-
-<span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">LinkTag</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Composite</span><span style="color:#000;font-weight:bold">):</span>
- <span style="color:#204a87;font-weight:bold">pass</span>
-
-<span style="color:#000">f</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">FormTag</span><span style="color:#000;font-weight:bold">()</span>
-<span style="color:#000">f</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">children</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">append</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Node</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;a&#34;</span><span style="color:#000;font-weight:bold">))</span>
-<span style="color:#000">f</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">children</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">append</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Node</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;b&#34;</span><span style="color:#000;font-weight:bold">))</span>
-<span style="color:#000">f</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">children</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">append</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Node</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;c&#34;</span><span style="color:#000;font-weight:bold">))</span>
-
-<span style="color:#000">l</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">LinkTag</span><span style="color:#000;font-weight:bold">()</span>
-<span style="color:#000">l</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">children</span> <span style="color:#ce5c00;font-weight:bold">+=</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#000">Node</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;x&#34;</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#000">Node</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;y&#34;</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#000">Node</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;z&#34;</span><span style="color:#000;font-weight:bold">)]</span>
-
-<span style="color:#204a87;font-weight:bold">print</span> <span style="color:#000">f</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">toPlainTextString</span><span style="color:#000;font-weight:bold">()</span>
-<span style="color:#204a87;font-weight:bold">print</span> <span style="color:#000">l</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">toPlainTextString</span><span style="color:#000;font-weight:bold">()</span>
-</code></pre></div><h3 id="does-the-refactoring-break-anything">Does the refactoring break anything?</h3>
-<p>A proper refactoring means you don&rsquo;t break anything and everything behaves as before.</p>
-<pre><code>python before.py
-abc  
-xyz
-
-python after.py
-abc  
-xyz
-</code></pre><p>Confirmed - we get the same output in both cases. :-)</p>
+<h2 id="final-thoughts">Final Thoughts</h2>
+<p>I found Netbeans to be generally very cool, fast and stable.  The UML tool is generally nice to use.  Its really a pity that the UML code generation is a bit buggy and that UML custom code generation is undocumented and uber complex.  The Design Patterns support and customization in Netbeans is outstanding (not at the level of IBM Rational though).  Again its a pity there is no design patterns code generation support, and that this part of Sun&rsquo;s roadmap seems to be a dead end.  They even say on their <a href="http://plugins.netbeans.org/plugin/1801/netbeans-uml">UML plugin home page</a> that if you want more - use the Visual Paradigm plugin for Netbeans. I live in hope that this opensource tool can be improved though.  Maybe I should start looking at the code base myself&hellip; :-)</p>
+<blockquote>
+<p>Seems there is <a href="http://hg.netbeans.org/community-uml">some activity</a> on reviving this tool in 2020</p>
+</blockquote>
 
 	
 
 	<ul class="list-unstyled d-flex justify-content-between align-items-center mb-0 pt-5">
   <li>
-    <a href="/blog/2007/11/05/thoughts-on-closures/" class="btn btn-primary "><span class="mr-1">←</span> Previous</a>
+    <a href="/blog/2009/01/22/visualising-software/" class="btn btn-primary "><span class="mr-1">←</span> Previous</a>
   </li>
-    <a href="/blog/2008/09/11/state-pattern-in-flex/" class="btn btn-primary ">Next <span class="ml-1">→</span></a>
+    <a href="/blog/2011/04/06/uml-layout/" class="btn btn-primary ">Next <span class="ml-1">→</span></a>
   </li>
 </ul>
 
