@@ -1,0 +1,72 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Untitled</title>
+    <meta name="author" content="Andy Bulka">
+
+    <!-- <link rel="stylesheet" href="css/styles.css?v=1.0"> -->
+
+</head>
+
+<body>
+    <!-- <script src="js/scripts.js"></script> -->
+
+    <h1>Python list comprehensions vs. the way Ruby does things</h1>
+<p><strong>Intent:</strong> Loop through a list of numbers and pick out the ones greater than 5, and multiply them by 100.  Return them as a list.</p>
+<h2>The Python way...</h2>
+
+<code>
+    #!/usr/bin/env python
+ 
+# Long explicit way:
+result = []
+for n in range(1,8):
+    if n > 5:
+        result.append(n*100)
+print result
+# result [600, 700]
+ 
+# Concise way:
+print [n*100 for n in [1,2,3,4,5,6,7] if n > 5]
+# result [600, 700]
+</code>
+
+And the ruby way...
+
+<code>
+#!/usr/bin/env ruby
+ 
+# Long explicit way:
+result = []
+(1...8).each do |n|
+    if n > 5
+        result << n*100
+    end
+end
+p result
+# result [600, 700]
+ 
+# Concise way:
+p [1,2,3,4,5,6,7].select{|n| n > 5}.map{|n| n*100}
+# result [600, 700]
+</code>
+
+<p> </p>
+<p class="MsoNormal"><strong><span style="font-size: 11pt;">Thoughts:</span></strong></p>
+<p class="MsoNormal"><span style="font-size: 11pt;">It seems to me that the puzzle (such that it is) consists of two distinct stages.  </span></p>
+<p class="MsoNormal"><span style="font-size: 11pt;">The first stage is to select items from the list and the second stage is to apply a transformation onto each selected element.  </span></p>
+<blockquote>
+<p class="MsoNormal"><span style="font-size: medium;">I used to think that the python syntax was superior, but once you get around the idea of the two stages, the ruby syntax makes perfect sense too. </span></p>
+</blockquote>
+<p class="MsoNormal"><span style="font-size: 11pt;">Also, I guess the “select + map idiom” is so common that the special python syntax wins in that it isn’t telling you how anything is being done – the “list comprehension” just reads better.  </span></p>
+<p class="MsoNormal"><span style="font-size: 11pt;">The ruby version is a little more cryptic to the newcomer I guess and is telling you how everything is being done.  </span></p>
+<p class="MsoNormal"><span style="font-size: 11pt;">The ruby version on the other hand is more general, and would allow other varieties of select/transform/manipulate to get plugged in, and you can have as many as you like e.g.</span></p>
+
+
+</body>
+
+</html>
