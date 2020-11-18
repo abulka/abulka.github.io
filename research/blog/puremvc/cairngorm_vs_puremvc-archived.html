@@ -1,0 +1,33 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Untitled</title>
+    <meta name="author" content="Andy Bulka">
+
+    <!-- <link rel="stylesheet" href="css/styles.css?v=1.0"> -->
+
+</head>
+
+<body>
+    <!-- <script src="js/scripts.js"></script> -->
+
+    <h1>Communicating events from Model to the view - Cairngorm vs. PureMVC</h1>
+<p>The <a href="https://web.archive.org/web/20150324030609/http://umcairngorm.riaforge.org/">universal mind extensions</a> to Cairngorm introduce a callback facility.  The main use for this is to allow view controls to be notified of events outside of the normal model-&gt;view "data binding" mechanism.  View controls can subscribe to all sorts of events via the callback mechanism thus allowing e.g. buttons to disable/enable etc.  <br /><br />Of course you can achieve the same effect by having an event trigger a command which changes some part of the model.  A view control that is bound to that property in the model will thus get notified via this Flex data binding mechanism.  The universal mind callback extensions to Cairngorm provide a more direct way of doing the same thing.</p>
+
+<p>image</p>
+
+<p><em>The above illustrates the normal control flow in Cairngorm.</em></p>
+<p>If you are using Cairngorm and if you want to bypass the model and get to the view directly (without having to set a state on the model in order to communicate via data binding to the view) then you need to use the universal mind cairngorm callback extensions.  </p>
+<p>With PureMVC this is not necessary.</p>
+<h2>The PureMVC approach</h2>
+<p>Such callback extensions are not necessary in PureMVC because the view (via the mediator) already can generate and listen for <strong>any even</strong>t in the pureMVC system. </p>
+<p>In fact mediators rely on the fact that they listen to events from the model in order to update the view.  This is especially true because in PureMVC there is no reliance on "data binding" to get information from the model to the view - the view (via the mediators) must manually listen for events from the model.  If view mediators can listen to events from the model, then they can<a href="http://www.andypatterns.com/index.php?cID=87">Update</a> listen to events from other parts of the system. </p>
+<p>Thus the more generic PureMVC architecture doesn't need fancy universal mind type callback extensions - it sort of comes for free.</p>
+
+</body>
+
+</html>
