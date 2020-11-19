@@ -1,0 +1,53 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Untitled</title>
+    <meta name="author" content="Andy Bulka">
+
+    <!-- <link rel="stylesheet" href="css/styles.css?v=1.0"> -->
+
+</head>
+
+<body>
+    <!-- <script src="js/scripts.js"></script> -->
+
+    <h1>Easy Dependency Injection and Mocking in Ruby</h1>
+<p>Here is a simple technique where you can inject mock methods into a class that you are unit testing.</p>
+<p>Given you have a class <strong>classA</strong></p>
+<div>
+<div>
+<div class="ruby" style="font-family: monospace; color: #006; border: 1px solid #d0d0d0; background-color: #f0f0f0;"><span style="color: #9966cc; font-weight: bold;">class</span> ClassA<br />   <span style="color: #9966cc; font-weight: bold;">def</span> hi<br />     <span style="color: #996600;">"hi"</span><br />   <span style="color: #9966cc; font-weight: bold;">end</span><br /> <span style="color: #9966cc; font-weight: bold;">end</span></div>
+<p class="MsoNormal">You can replace the "hi" method from your unit test, without editing the source code of ClassA at all.  You can inject mock methods - whatever.</p>
+<div class="ruby" style="font-family: monospace; color: #006; border: 1px solid #d0d0d0; background-color: #f0f0f0;"><span style="color: #9966cc; font-weight: bold;">def</span> test_2<br />   ClassA.<span style="color: #9900cc;">class_eval</span> <span style="color: #9966cc; font-weight: bold;">do</span> <span style="color: #008000; font-style: italic;"># injecting into ClassA class</span><br />     <span style="color: #9966cc; font-weight: bold;">def</span> hi<br />       <span style="color: #996600;">"hello"</span><br />     <span style="color: #9966cc; font-weight: bold;">end</span><br />   <span style="color: #9966cc; font-weight: bold;">end</span><br />   a = ClassA.<span style="color: #9900cc;">new</span><br />   assert_equal <span style="color: #996600;">"hello"</span>, a.<span style="color: #9900cc;">hi</span><br /> <span style="color: #9966cc; font-weight: bold;">end</span></div>
+</div>
+<div>
+<div>
+<p class="MsoNormal">The trouble with <strong>class_eval</strong> is that it alters the class permanently, which is not so good for repeated unit testing where you may be injecting different things in different tests, or not injecting anything at all in some tests etc.  I couldn’t figure out how to restore a class in setup/teardown so....<strong>instance_eval</strong> is probably better as it only affects an instance. Viz:</p>
+</div>
+<div class="ruby" style="font-family: monospace; color: #006; border: 1px solid #d0d0d0; background-color: #f0f0f0;"><span style="color: #9966cc; font-weight: bold;">def</span> test_2<br />   a = ClassA.<span style="color: #9900cc;">new</span><br />   a.<span style="color: #9900cc;">instance_eval</span> <span style="color: #9966cc; font-weight: bold;">do</span> <span style="color: #008000; font-style: italic;"># injecting into ClassA instance</span><br />     <span style="color: #9966cc; font-weight: bold;">def</span> hi<br />       <span style="color: #996600;">"hello"</span><br />     <span style="color: #9966cc; font-weight: bold;">end</span><br />   <span style="color: #9966cc; font-weight: bold;">end</span><br />   assert_equal <span style="color: #996600;">"hello"</span>, a.<span style="color: #9900cc;">hi</span><br /> <span style="color: #9966cc; font-weight: bold;">end</span></div>
+<div>
+<div><br /> The above injection (replacement of the 'hi' method with a different 'hi' method) does not affect the class, but the instance ONLY.</div>
+</div>
+</div>
+</div>
+<p><a href="http://bit.ly/gHbzTj">Source code</a></p>
+<h1> </h1>
+<h1>Comments</h1>
+<p> </p>
+<div class="guestBook-entry authorPost ">
+<p class="contentByLine"><strong>Posted by <span class="userName">RB </span>on <span class="contentDate">Feb 17th, 2011</span></strong></p>
+<p class="contentByLine">Your example and use-case looks good.</p>
+</div>
+<p class="guestBook-entry authorPost ">However, it might be nice to have a Ruby testing framework that completely resets your environment after each unit test. Then you could safely use class_eval and have the comfort of only thinking about one unit at a time.<br /><br />Rails unit testing doesn't do environment resetting (afaik) (on the code level) - but it does do it on the database level. After each unit-test, the database transaction is rolled-back, so each unit-test is not dependent or influenced by other unit tests.<br /><br />There will also be other unit-testing situations where you will have to use class_eval. For example, you may be testing a method that builds many objects of a class.<br /><br />Or, arguably, if using instance_eval, you would have to assume too much about how the code you are testing is written. In testing, all you want to do it test the interface: the high-level view from the outside. You shouldn't be able to know if the tested code is making new instances of classes containing the method you want to inject or fake-out. Eg a method in an object could make a new instance of its own class, without you knowing!<br /><br />-RB</p>
+<div class="guestBook-entry authorPost ">
+<p class="guestBook-manage-links"><strong>Posted by <span class="userName">Jason </span>on <span class="contentDate">Feb 20th, 2011</span></strong></p>
+<p class="guestBook-manage-links"><span class="contentDate">I wonder what the best mocking tool is for Ruby and how it would fit into the above dependency injection scheme. Perhaps this technique is simple enough so you don't need a mocking framework - just create the mocks as regular classes inside the unit test and away you go.</span></p>
+</div>
+
+</body>
+
+</html>
