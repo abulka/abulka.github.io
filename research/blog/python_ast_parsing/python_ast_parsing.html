@@ -1,0 +1,35 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Untitled</title>
+    <meta name="author" content="Andy Bulka">
+
+    <!-- <link rel="stylesheet" href="css/styles.css?v=1.0"> -->
+
+</head>
+
+<body>
+    <!-- <script src="js/scripts.js"></script> -->
+
+    <p><span>How I used the Python AST capabilities to build the <a href="https://pyrpn.atug.com/" target="_blank">Python to Rpn converter</a>.</span></p>
+    <p><span>My program works at the AST stage of the compilation pipeline:</span><br /><br /><img src="https://image.slidesharecdn.com/suhaspyconde20171-171221085658/95/hacking-python-asts-pycon-de-2017-suhas-21-638.jpg?cb=1513846800" alt="[Image: hacking-python-asts-pycon-de-2017-suhas-...1513846800]" border="0" /><br /><br /><span>The converter does rely on the Python compiler. Specifically my approach has been to use Python's built in ability to parse itself into an AST </span><a href="https://en.wikipedia.org/wiki/Abstract_syntax_tree" rel="nofollow" target="_blank">Abstract Syntax Tree</a><span>, then to traverse this tree using the visitor design pattern to generate the RPN.</span><br /><br /><span>For example, the following Python code:</span></p>
+    <div class="codeblock">
+    <div class="title">Code:</div>
+    <div class="body" dir="ltr"><code>import ast<br />import astunparse<br />print(astunparse.dump(ast.parse('x = 1 + 2')))</code></div>
+    </div>
+    <p><span><br /></span></p>
+    <p><span>will generate the following AST data structure representing </span><span>x = 1 + 2</span><span>:</span></p>
+    <div class="codeblock">
+    <div class="title">Code:</div>
+    <div class="body" dir="ltr"><code>Module(body=[Assign(<br />  targets=[Name(<br />    id='x',<br />    ctx=Store())],<br />  value=BinOp(<br />    left=Num(n=1),<br />    op=Add(),<br />    right=Num(n=2)))])</code></div>
+    </div>
+    <p><br /><span>If you are interested, here are </span><a href="https://docs.google.com/presentation/d/1_qNKLofUwPhs_LsF-AQM-0WstS2jeYrusU5El4RLfnc/edit?usp=sharing" rel="nofollow" target="_blank">the slides</a><span> of a recent talk I gave to a local Python User Group in Melbourne, Australia, about how I used the Python AST capabilities to build the Python to Rpn converter. The reception to the talk was good, but became fun and buoyant once the audience realised I had targeted an old HP calculator with this fancy Python technology - especially when I pulled out my HP calcs for all to see and touch.</span><br /><br /><span>-Andy Bulka</span></p>
+        
+
+</body>
+
+</html>
