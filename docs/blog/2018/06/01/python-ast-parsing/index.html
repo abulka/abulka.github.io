@@ -20,36 +20,33 @@
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
-<title>Using Design Patterns in Real Projects | Andy Bulka - Blog</title><meta property="og:title" content="Using Design Patterns in Real Projects" />
-<meta property="og:description" content="What is it like to use design pattern in real life programming?
-Do the sometimes academic patterns translate into the real world?
-The answer is yes. I will back this up with three examples of where I have used patterns in real world projects.
- Scroll down through the slides above
--Andy Bulka" />
+<title>Python AST Parsing | Andy Bulka - Blog</title><meta property="og:title" content="Python AST Parsing" />
+<meta property="og:description" content="How I used the Python AST capabilities to build the Python to Rpn converter.
+Python compilation pipeline My program works at the AST stage of the compilation pipeline:
+Specifically my approach has been to use Python&rsquo;s built in ability to parse itself into an AST Abstract Syntax Tree, then to traverse this tree using the visitor design pattern to generate the RPN.
+ The Python AST parser is built into Python and thus requires that you be running Python to use it." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://abulka.github.io/blog/2002/09/04/using-design-patterns-in-real-projects/" />
-<meta property="article:published_time" content="2002-09-04T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-11-04T16:38:54+11:00" />
-<meta itemprop="name" content="Using Design Patterns in Real Projects">
-<meta itemprop="description" content="What is it like to use design pattern in real life programming?
-Do the sometimes academic patterns translate into the real world?
-The answer is yes. I will back this up with three examples of where I have used patterns in real world projects.
- Scroll down through the slides above
--Andy Bulka">
-<meta itemprop="datePublished" content="2002-09-04T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2020-11-04T16:38:54+11:00" />
-<meta itemprop="wordCount" content="52">
+<meta property="og:url" content="https://abulka.github.io/blog/2018/06/01/python-ast-parsing/" />
+<meta property="article:published_time" content="2018-06-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-11-19T11:49:28+11:00" />
+<meta itemprop="name" content="Python AST Parsing">
+<meta itemprop="description" content="How I used the Python AST capabilities to build the Python to Rpn converter.
+Python compilation pipeline My program works at the AST stage of the compilation pipeline:
+Specifically my approach has been to use Python&rsquo;s built in ability to parse itself into an AST Abstract Syntax Tree, then to traverse this tree using the visitor design pattern to generate the RPN.
+ The Python AST parser is built into Python and thus requires that you be running Python to use it.">
+<meta itemprop="datePublished" content="2018-06-01T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-11-19T11:49:28+11:00" />
+<meta itemprop="wordCount" content="234">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Using Design Patterns in Real Projects"/>
-<meta name="twitter:description" content="What is it like to use design pattern in real life programming?
-Do the sometimes academic patterns translate into the real world?
-The answer is yes. I will back this up with three examples of where I have used patterns in real world projects.
- Scroll down through the slides above
--Andy Bulka"/>
+<meta name="twitter:title" content="Python AST Parsing"/>
+<meta name="twitter:description" content="How I used the Python AST capabilities to build the Python to Rpn converter.
+Python compilation pipeline My program works at the AST stage of the compilation pipeline:
+Specifically my approach has been to use Python&rsquo;s built in ability to parse itself into an AST Abstract Syntax Tree, then to traverse this tree using the visitor design pattern to generate the RPN.
+ The Python AST parser is built into Python and thus requires that you be running Python to use it."/>
 
 
 
@@ -190,7 +187,7 @@ The answer is yes. I will back this up with three examples of where I have used 
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-blog20180601python-ast-parsing" href="/blog/2018/06/01/python-ast-parsing/">Python AST Parsing</a>
+      <a class="td-sidebar-link td-sidebar-link__page  active" id="m-blog20180601python-ast-parsing" href="/blog/2018/06/01/python-ast-parsing/">Python AST Parsing</a>
       
       
       
@@ -304,7 +301,7 @@ The answer is yes. I will back this up with three examples of where I have used 
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page  active" id="m-blog20020904using-design-patterns-in-real-projects" href="/blog/2002/09/04/using-design-patterns-in-real-projects/">Using Design Patterns in Real Projects</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blog20020904using-design-patterns-in-real-projects" href="/blog/2002/09/04/using-design-patterns-in-real-projects/">Using Design Patterns in Real Projects</a>
       
       
       
@@ -330,6 +327,15 @@ The answer is yes. I will back this up with three examples of where I have used 
 
 
 
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#python-compilation-pipeline">Python compilation pipeline</a></li>
+    <li><a href="#example">Example</a></li>
+    <li><a href="#reception-to-the-talk">Reception to the talk</a></li>
+    <li><a href="#resources">Resources</a></li>
+  </ul>
+</nav>
+
 
 
           </div>
@@ -339,27 +345,53 @@ The answer is yes. I will back this up with three examples of where I have used 
             </a>
             
 <div class="td-content">
-	<h1>Using Design Patterns in Real Projects</h1>
+	<h1>Python AST Parsing</h1>
 	
 	<div class="td-byline mb-4">
 		
-		<time datetime="2002-09-04" class="text-muted">Wednesday, September 04, 2002</time>
+		<time datetime="2018-06-01" class="text-muted">Friday, June 01, 2018</time>
 	</div>
 	
-	<p>What is it like to use design pattern in real life programming?<br>
-Do the sometimes academic patterns translate into the real world?</p>
-<p>The answer is yes. I will back this up with three examples of where I have used patterns in real world projects.</p>
-<iframe class="scribd_iframe_embed" title="Using Design Patterns in Real Projects" src="https://www.scribd.com/embeds/11154597/content?start_page=1&amp;view_mode=scroll&amp;show_recommendations=true&amp;access_key=key-2hwdc4gvp5l1dtlom3k4" frameborder="0" scrolling="no" width="100%" height="600" data-auto-height="true" data-aspect-ratio="null"></iframe>
-<p><em>Scroll down through the slides above</em></p>
+	<p>How I used the Python AST capabilities to build the <a href="https://pyrpn.atug.com/">Python to Rpn converter</a>.</p>
+<h2 id="python-compilation-pipeline">Python compilation pipeline</h2>
+<p>My program works at the AST stage of the compilation pipeline:</p>
+<p><img src="/blog/images/python_ast_parsing_design_of_compiler.jpg" alt="Image: hacking-python-asts-pycon-de-2017-suhas"></p>
+<p>Specifically my approach has been to use Python&rsquo;s built in ability to parse itself into an AST <a href="https://en.wikipedia.org/wiki/Abstract_syntax_tree">Abstract Syntax Tree</a>, then to traverse this tree using the visitor design pattern to generate the RPN.</p>
+<blockquote>
+<p>The Python AST parser is built into Python and thus requires that you be running Python to use it.</p>
+</blockquote>
+<h2 id="example">Example</h2>
+<p>For example, parsing the following Python code with <code>ast.parse</code>:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">ast</span>
+<span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">astunparse</span>
+<span style="color:#204a87;font-weight:bold">print</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">astunparse</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">dump</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">ast</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">parse</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;x = 1 + 2&#39;</span><span style="color:#000;font-weight:bold">)))</span>
+</code></pre></div><p>will generate the following AST data structure representing <code>x = 1 + 2</code></p>
+<pre><code>Module(body=[Assign(
+  targets=[Name(
+    id='x',
+    ctx=Store())],
+  value=BinOp(
+    left=Num(n=1),
+    op=Add(),
+    right=Num(n=2)))])
+</code></pre><h2 id="reception-to-the-talk">Reception to the talk</h2>
+<p>The reception to the talk entitled &ldquo;Leveraging the Python AST, Python’s hidden DOM&rdquo; was good, but became fun and buoyant once the audience realised I had targeted an old HP calculator !</p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/b/bb/Hp42s_face.jpeg" alt="old HP calculator"></p>
+<p>with this fancy Python technology - especially when I pulled out my HP calculator collection for all to see and touch. 😄</p>
 <p>-Andy Bulka</p>
+<h2 id="resources">Resources</h2>
+<ul>
+<li><a href="https://docs.google.com/presentation/d/1_qNKLofUwPhs_LsF-AQM-0WstS2jeYrusU5El4RLfnc/edit?usp=sharing">Python AST talk slides</a> of the talk I gave to a local Python User Group in Melbourne, Australia, about how I used the Python AST capabilities to build the Python to Rpn converter.</li>
+<li><a href="https://pyrpn.atug.com/">Python to Rpn converter</a> which uses these AST conversion capabilities to convert Python code into HP calculator RPN code.</li>
+</ul>
 
 	
 
 	<ul class="list-unstyled d-flex justify-content-between align-items-center mb-0 pt-5">
   <li>
-    <a href="/blog/2000/01/04/patterns-modelmaker-beyond/" class="btn btn-primary "><span class="mr-1">←</span> Previous</a>
+    <a href="/blog/2011/04/06/uml-layout/" class="btn btn-primary "><span class="mr-1">←</span> Previous</a>
   </li>
-    <a href="/blog/2002/10/04/null-object-pattern/" class="btn btn-primary ">Next <span class="ml-1">→</span></a>
+    <a  class="btn btn-primary  disabled">Next <span class="ml-1">→</span></a>
   </li>
 </ul>
 
