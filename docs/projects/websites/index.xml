@@ -1,0 +1,82 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Andy Bulka - Blog – Websites</title>
+    <link>https://abulka.github.io/projects/websites/</link>
+    <description>Recent content in Websites on Andy Bulka - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	  <atom:link href="https://abulka.github.io/projects/websites/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Projects: Python to Rpn</title>
+      <link>https://abulka.github.io/projects/websites/python-rpn-converter/</link>
+      <pubDate>Mon, 23 Nov 2020 12:13:21 +1100</pubDate>
+      
+      <guid>https://abulka.github.io/projects/websites/python-rpn-converter/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Check out &lt;a href=&#34;http://www.pyrpn.atug.com&#34;&gt;Python to RPN&lt;/a&gt; if you have an old vintage HP Calculator that you want to program in Python!  Impossible?  See also my blog post &lt;a href=&#34;http://www.andypatterns.com/index.php/blog/ast-parsing-python-generate-hp-calculator-rpn/&#34; title=&#34;AST Parsing with Python to generate HP Calculator RPN&#34;&gt;How I used the Python AST capabilities to build a Python to Rpn converter&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I am pleased to announce the Python to HP42S RPN converter website is online.&lt;br&gt;
+&lt;a href=&#34;http://www.pyrpn.atug.com&#34;&gt;www.pyrpn.atug.com&lt;/a&gt; &lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.dropbox.com/s/nqfq01xaxvi4xnv/python_rpn_ui_01.png?raw=1&#34; alt=&#34;[Image: python_rpn_ui_01.png?raw=1]&#34;&gt;&lt;/p&gt;
+&lt;p&gt;You write code in a high level structured language (which happens to be Python 3 syntax), hit a button and RPN is generated. &lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.dropbox.com/s/3xcmxfxraxc6wej/python_rpn_ui_02small.png?raw=1&#34; alt=&#34;[Image: python_rpn_ui_02small.png?raw=1]&#34;&gt;&lt;/p&gt;
+&lt;p&gt;You then paste the RPN into Free42 or transfer it to your DM42 (by &lt;a href=&#34;https://www.swissmicros.com/dm42/decoder/&#34;&gt;creating a raw&lt;/a&gt;) - and it runs.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Examples: &lt;a href=&#34;http://www.pyrpn.atug.com/examples&#34;&gt;http://www.pyrpn.atug.com/examples&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;User Guide: &lt;a href=&#34;http://www.pyrpn.atug.com/help&#34;&gt;http://www.pyrpn.atug.com/help&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Canvas for 42S Simulator: &lt;a href=&#34;http://www.pyrpn.atug.com/canvas&#34;&gt;http://www.pyrpn.atug.com/canvas&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;List of HP42S Commands Supported Reference: &lt;a href=&#34;http://www.pyrpn.atug.com/cmds&#34;&gt;http://www.pyrpn.atug.com/cmds&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The converter supports core Python syntax (which is very powerful), but does not implement the built in Python libraries that you would get in desktop Python. You have to rely on the ability to call HP42S commands from Python to do your work - which of course you can do. Specifically, it has the following capabilities:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Variables&lt;/li&gt;
+&lt;li&gt;Functions, Multiple functions, nested functions&lt;/li&gt;
+&lt;li&gt;Parameter passing, receiving return values, multiple return values&lt;/li&gt;
+&lt;li&gt;if elif else&lt;/li&gt;
+&lt;li&gt;Comparison operators == != &amp;gt; &amp;lt; &amp;gt;= &amp;lt;=&lt;/li&gt;
+&lt;li&gt;Booleans True, False and operators not or and&lt;/li&gt;
+&lt;li&gt;for loops, range(), for..in iteration through lists and dictionary keys&lt;/li&gt;
+&lt;li&gt;while loops, while&amp;hellip;else&lt;/li&gt;
+&lt;li&gt;continue and break operations in for loops and while loops&lt;/li&gt;
+&lt;li&gt;Lists and Dictionaries (basic operations only).&lt;/li&gt;
+&lt;li&gt;Matrices, Pythonic matrix element access syntax [row,col]&lt;/li&gt;
+&lt;li&gt;NumPy compatible slicing syntax for sub-matrices&lt;/li&gt;
+&lt;li&gt;Complex numbers using either 42S or Python native syntax&lt;/li&gt;
+&lt;li&gt;Expressions involving nested brackets&lt;/li&gt;
+&lt;li&gt;assert&lt;/li&gt;
+&lt;li&gt;Testing and clearing of flags&lt;/li&gt;
+&lt;li&gt;Access most HP42S commands as function calls e.g. FIX(2)&lt;/li&gt;
+&lt;li&gt;Some enhanced functions to make life easier e.g. varmenu() automates and simplifies the generation of MVAR based code.&lt;/li&gt;
+&lt;/ol&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Projects: Gituml</title>
+      <link>https://abulka.github.io/projects/websites/gituml/</link>
+      <pubDate>Mon, 23 Nov 2020 12:11:22 +1100</pubDate>
+      
+      <guid>https://abulka.github.io/projects/websites/gituml/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;gituml&#34;&gt;GitUML&lt;/h2&gt;
+&lt;p&gt;UML visualisation for Git repositories &lt;em&gt;(website app)&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Understand code quickly: Automatically generate UML class diagrams from source code residing in git repositories. Diagrams automatically update when you push code using git.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.gituml.com/static/home2/images_home/2017-10-19_09-43-34.bf679c329661.gif&#34; alt=&#34;point and click&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Visit &lt;a href=&#34;http://www.gituml.com&#34;&gt;GitUML&lt;/a&gt; now, create a free account and begin creating UML diagrams and documentation.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

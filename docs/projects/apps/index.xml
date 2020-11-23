@@ -1,0 +1,82 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Andy Bulka - Blog – Apps</title>
+    <link>https://abulka.github.io/projects/apps/</link>
+    <description>Recent content in Apps on Andy Bulka - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	  <atom:link href="https://abulka.github.io/projects/apps/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Projects: Brew Moments</title>
+      <link>https://abulka.github.io/projects/apps/brew-moments/</link>
+      <pubDate>Mon, 23 Nov 2020 12:21:55 +1100</pubDate>
+      
+      <guid>https://abulka.github.io/projects/apps/brew-moments/</guid>
+      <description>
+        
+        
+        &lt;p&gt;I&amp;rsquo;ve recently learned mobile app development using Flutter.  Here is my first app.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://abulka.github.io/brew-moments/&#34;&gt;https://abulka.github.io/brew-moments/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://play.google.com/store/apps/details?id=com.wware.brew_moments&#34;&gt;&lt;img src=&#34;https://abulka.github.io/files/cache/43f1dcf5a9ca2ae45b81aecb82779474_f432.png&#34; alt=&#34;visit google playstore page&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Projects: Print42</title>
+      <link>https://abulka.github.io/projects/apps/print42/</link>
+      <pubDate>Mon, 23 Nov 2020 12:18:07 +1100</pubDate>
+      
+      <guid>https://abulka.github.io/projects/apps/print42/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&lt;a href=&#34;http://www.print42.atug.com&#34;&gt;Print42&lt;/a&gt; is a log tailing GUI program which optionally echoes log lines to thermal printer tape. Its like a modern thermal printer version of a ticker tape for tailing log files. It features display font size options, search and filtering. You can also annotate the output with text fragments that you type in - or screenshots that you paste in.&lt;/p&gt;
+&lt;p&gt;The video is 13 minutes long and covers the basic use cases, history of the project etc.&lt;/p&gt;
+&lt;p&gt;As well as physically printing from Free42, the Print42 software can also be used to print HP Prime screenshots (from either the emulator or real HP Prime hardware via the HP connectivity kit).&lt;/p&gt;
+&lt;p&gt;Outside the world of calculators, Print42 can be used to &amp;lsquo;tail&amp;rsquo; log files (programmers take note) and to print graphic snippets from the web. Useful if you want to rapidly print information to stuff into your pocket or to study and annotate printouts of complex information, at your desk.&lt;/p&gt;
+&lt;p&gt;If you are looking for a useful, fun new gadget, you might want to consider buying an Epson thermal printer and trying Print42. However you can also use Print42 with your regular desktop printer, for free.&lt;/p&gt;
+&lt;p&gt;The website for downloads and further information is &lt;a href=&#34;http://www.print42.atug.com/&#34;&gt;www.print42.atug.com&lt;/a&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Projects: Pynsource</title>
+      <link>https://abulka.github.io/projects/apps/pynsource/</link>
+      <pubDate>Mon, 23 Nov 2020 12:12:30 +1100</pubDate>
+      
+      <guid>https://abulka.github.io/projects/apps/pynsource/</guid>
+      <description>
+        
+        
+        &lt;p&gt;UML tool for Python &lt;em&gt;(Desktop App for Mac, Window, Linux)&lt;/em&gt; - brand new version. &lt;/p&gt;
+&lt;p&gt;Zoom in and out. PlantUML view. Auto Layout. Import Python 3 code.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.pynsource.com&#34;&gt;Version 1.71&lt;/a&gt; - new for 2019&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://i.imgur.com/C8WrRDf.png&#34; alt=&#34;Pynsource hero&#34; title=&#34;Pynsource Hero&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Visit the brand new dedicated website &lt;a href=&#34;http://www.pynsource.com&#34;&gt;pynsource.com.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Buy the &lt;a href=&#34;http://www.pynsource.com/pricing.html&#34;&gt;Pro Edition&lt;/a&gt; for $20 to unlock the zoom feature.  Community Edition is fully functional and open source - check out the &lt;a href=&#34;https://github.com/abulka/pynsource&#34;&gt;github repository&lt;/a&gt;.  Donate to support this project &lt;em&gt;(donate link coming soon)&lt;/em&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;pynsource&#34;&gt;Pynsource&lt;/h3&gt;
+&lt;p&gt;UML tool for Python source code - visit &lt;a href=&#34;https://pynsource.com&#34;&gt;www.pynsource.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Version 1.76 - released Apr 22, 2020&lt;/p&gt;
+&lt;p&gt;- &lt;strong&gt;Zoom&lt;/strong&gt;, zoom to fit&lt;/p&gt;
+&lt;p&gt;- Python 3 compatibility&lt;/p&gt;
+&lt;p&gt;- New accurate &lt;strong&gt;AST based&lt;/strong&gt; python parser&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;- Layout algorithm&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;- &lt;strong&gt;Ascii UML&lt;/strong&gt; view built into the GUI, including an innovative Ascii UML layout&lt;/p&gt;
+&lt;p&gt;- &lt;strong&gt;PlantUML&lt;/strong&gt; view for beautiful renderings of UML&lt;/p&gt;
+&lt;p&gt;- &lt;strong&gt;Colour&lt;/strong&gt; sibling nodes&lt;/p&gt;
+&lt;p&gt;- Open Source&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

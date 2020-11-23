@@ -14,6 +14,231 @@
     
     
     <item>
+      <title>Projects: Literate Code Mapping</title>
+      <link>https://abulka.github.io/projects/big-ideas/lcodemaps/</link>
+      <pubDate>Mon, 23 Nov 2020 12:43:14 +1100</pubDate>
+      
+      <guid>https://abulka.github.io/projects/big-ideas/lcodemaps/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&lt;em&gt;Diagramming Methodology Specification&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Literate Code Maps are diagrams which help programmers understand the structure and behaviour of source code.&lt;/p&gt;
+&lt;h2 id=&#34;example&#34;&gt;Example&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/abulka/lcodemaps/master/images/example-01.svg?sanitize=true&#34; alt=&#34;code map example 01&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Code Map diagrams differ from UML diagrams in that they
+focus on real source code fragments and lots of
+rich-text formatted story-telling narrative.
+They combine class and sequence diagrams into the same
+diagram, offering step by step numbering to follow the behaviour of a use case story.&lt;/p&gt;
+&lt;h2 id=&#34;the-5-laws-of-literate-code-mapping&#34;&gt;The 5 laws of literate code mapping&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Boxes represent any scope or namespace - be creative&lt;/li&gt;
+&lt;li&gt;Show structure and behaviour in the same diagram&lt;/li&gt;
+&lt;li&gt;Code compartments in boxes contain code fragments and richly formatted narrative&lt;/li&gt;
+&lt;li&gt;Lines representing function calls between boxes are numbered to tell a story&lt;/li&gt;
+&lt;li&gt;Cross reference numbers can appear anywhere to associate ideas&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Think of literate code maps like UML class diagrams where the classes are now boxes which can represent more things, and lines represent function calls as well as structure.  Boxes contain one or more extra compartments containing real code fragments and rich narrative.&lt;/p&gt;
+&lt;p&gt;See full website dedicated to Literate Code Mapping &lt;a href=&#34;https://github.com/abulka/lcodemaps&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Projects: Contracting</title>
+      <link>https://abulka.github.io/projects/consulting/contracting/</link>
+      <pubDate>Mon, 23 Nov 2020 12:34:08 +1100</pubDate>
+      
+      <guid>https://abulka.github.io/projects/consulting/contracting/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;general-software-architecture-consulting&#34;&gt;General Software Architecture Consulting&lt;/h2&gt;
+&lt;p&gt;I will work with you to plan your next software project, ensuring you are using the latest practices and technologies.&lt;/p&gt;
+&lt;p&gt;I was CTO of Austhink Software and oversaw the building of a large software application and technical team.&lt;/p&gt;
+&lt;p&gt;Multiple roles in industry building teams and effective software solutions.&lt;/p&gt;
+&lt;h2 id=&#34;rapid-staff-onboarding-service&#34;&gt;Rapid &amp;lsquo;Staff Onboarding&amp;rsquo; Service&lt;/h2&gt;
+&lt;p&gt;We will work with your team - hands on, to&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Oversee the documentation of your critical project creating:&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;An engaging project overview and architecture summary document (five pages).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Five key GitUML project diagrams incl. some as &lt;a href=&#34;http://bit.ly/lcodemaps&#34;&gt;Literate Code Maps&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Two quality tutorials.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Develop &lt;strong&gt;rapid onboarding programs&lt;/strong&gt; for new staff that use this documentation, together with traditional onboarding through handovers, working with automated tests etc.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Ensure knowledge is captured when staff leave&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;We can audit your project documentation to protect your company IP and to support governance&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Our consulting pays for itself through increased programmer productivity and the ability to scale projects more rapidly.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Projects: Design Patterns Training</title>
+      <link>https://abulka.github.io/projects/consulting/training/</link>
+      <pubDate>Mon, 23 Nov 2020 12:30:33 +1100</pubDate>
+      
+      <guid>https://abulka.github.io/projects/consulting/training/</guid>
+      <description>
+        
+        
+        &lt;p&gt;OO &amp;amp; Design Patterns Training&lt;/p&gt;
+&lt;p&gt;Elevate the &lt;strong&gt;effectiveness of your entire programming team&lt;/strong&gt; - Andy can deliver his existing or a customised Design Patterns Course to your entire programming team - at your company&amp;rsquo;s premises.  Check out the &lt;a href=&#34;https://abulka.github.io/index.php/products/design_patterns_courses/&#34; title=&#34;Design Patterns Courses&#34;&gt;details&lt;/a&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Addendum:&lt;/p&gt;
+&lt;p&gt;If you would like me to run a design patterns course or consult on your next software design, please check out my &lt;a href=&#34;https://abulka.github.io/index.php/products/&#34; title=&#34;Products&#34;&gt;product&lt;/a&gt; page.  There is also an open source &lt;a href=&#34;http://www.pynsource.com&#34; title=&#34;Pynsource - UML tool for Python&#34;&gt;Python UML tool&lt;/a&gt; you might be interested in, plus references to products I have developed over the years esp. the worldclass argumentation visualisation software Rationale and bCisive.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Projects: Brew Moments</title>
+      <link>https://abulka.github.io/projects/apps/brew-moments/</link>
+      <pubDate>Mon, 23 Nov 2020 12:21:55 +1100</pubDate>
+      
+      <guid>https://abulka.github.io/projects/apps/brew-moments/</guid>
+      <description>
+        
+        
+        &lt;p&gt;I&amp;rsquo;ve recently learned mobile app development using Flutter.  Here is my first app.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://abulka.github.io/brew-moments/&#34;&gt;https://abulka.github.io/brew-moments/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://play.google.com/store/apps/details?id=com.wware.brew_moments&#34;&gt;&lt;img src=&#34;https://abulka.github.io/files/cache/43f1dcf5a9ca2ae45b81aecb82779474_f432.png&#34; alt=&#34;visit google playstore page&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Projects: Print42</title>
+      <link>https://abulka.github.io/projects/apps/print42/</link>
+      <pubDate>Mon, 23 Nov 2020 12:18:07 +1100</pubDate>
+      
+      <guid>https://abulka.github.io/projects/apps/print42/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&lt;a href=&#34;http://www.print42.atug.com&#34;&gt;Print42&lt;/a&gt; is a log tailing GUI program which optionally echoes log lines to thermal printer tape. Its like a modern thermal printer version of a ticker tape for tailing log files. It features display font size options, search and filtering. You can also annotate the output with text fragments that you type in - or screenshots that you paste in.&lt;/p&gt;
+&lt;p&gt;The video is 13 minutes long and covers the basic use cases, history of the project etc.&lt;/p&gt;
+&lt;p&gt;As well as physically printing from Free42, the Print42 software can also be used to print HP Prime screenshots (from either the emulator or real HP Prime hardware via the HP connectivity kit).&lt;/p&gt;
+&lt;p&gt;Outside the world of calculators, Print42 can be used to &amp;lsquo;tail&amp;rsquo; log files (programmers take note) and to print graphic snippets from the web. Useful if you want to rapidly print information to stuff into your pocket or to study and annotate printouts of complex information, at your desk.&lt;/p&gt;
+&lt;p&gt;If you are looking for a useful, fun new gadget, you might want to consider buying an Epson thermal printer and trying Print42. However you can also use Print42 with your regular desktop printer, for free.&lt;/p&gt;
+&lt;p&gt;The website for downloads and further information is &lt;a href=&#34;http://www.print42.atug.com/&#34;&gt;www.print42.atug.com&lt;/a&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Projects: Python to Rpn</title>
+      <link>https://abulka.github.io/projects/websites/python-rpn-converter/</link>
+      <pubDate>Mon, 23 Nov 2020 12:13:21 +1100</pubDate>
+      
+      <guid>https://abulka.github.io/projects/websites/python-rpn-converter/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Check out &lt;a href=&#34;http://www.pyrpn.atug.com&#34;&gt;Python to RPN&lt;/a&gt; if you have an old vintage HP Calculator that you want to program in Python!  Impossible?  See also my blog post &lt;a href=&#34;http://www.andypatterns.com/index.php/blog/ast-parsing-python-generate-hp-calculator-rpn/&#34; title=&#34;AST Parsing with Python to generate HP Calculator RPN&#34;&gt;How I used the Python AST capabilities to build a Python to Rpn converter&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I am pleased to announce the Python to HP42S RPN converter website is online.&lt;br&gt;
+&lt;a href=&#34;http://www.pyrpn.atug.com&#34;&gt;www.pyrpn.atug.com&lt;/a&gt; &lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.dropbox.com/s/nqfq01xaxvi4xnv/python_rpn_ui_01.png?raw=1&#34; alt=&#34;[Image: python_rpn_ui_01.png?raw=1]&#34;&gt;&lt;/p&gt;
+&lt;p&gt;You write code in a high level structured language (which happens to be Python 3 syntax), hit a button and RPN is generated. &lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.dropbox.com/s/3xcmxfxraxc6wej/python_rpn_ui_02small.png?raw=1&#34; alt=&#34;[Image: python_rpn_ui_02small.png?raw=1]&#34;&gt;&lt;/p&gt;
+&lt;p&gt;You then paste the RPN into Free42 or transfer it to your DM42 (by &lt;a href=&#34;https://www.swissmicros.com/dm42/decoder/&#34;&gt;creating a raw&lt;/a&gt;) - and it runs.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Examples: &lt;a href=&#34;http://www.pyrpn.atug.com/examples&#34;&gt;http://www.pyrpn.atug.com/examples&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;User Guide: &lt;a href=&#34;http://www.pyrpn.atug.com/help&#34;&gt;http://www.pyrpn.atug.com/help&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Canvas for 42S Simulator: &lt;a href=&#34;http://www.pyrpn.atug.com/canvas&#34;&gt;http://www.pyrpn.atug.com/canvas&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;List of HP42S Commands Supported Reference: &lt;a href=&#34;http://www.pyrpn.atug.com/cmds&#34;&gt;http://www.pyrpn.atug.com/cmds&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The converter supports core Python syntax (which is very powerful), but does not implement the built in Python libraries that you would get in desktop Python. You have to rely on the ability to call HP42S commands from Python to do your work - which of course you can do. Specifically, it has the following capabilities:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Variables&lt;/li&gt;
+&lt;li&gt;Functions, Multiple functions, nested functions&lt;/li&gt;
+&lt;li&gt;Parameter passing, receiving return values, multiple return values&lt;/li&gt;
+&lt;li&gt;if elif else&lt;/li&gt;
+&lt;li&gt;Comparison operators == != &amp;gt; &amp;lt; &amp;gt;= &amp;lt;=&lt;/li&gt;
+&lt;li&gt;Booleans True, False and operators not or and&lt;/li&gt;
+&lt;li&gt;for loops, range(), for..in iteration through lists and dictionary keys&lt;/li&gt;
+&lt;li&gt;while loops, while&amp;hellip;else&lt;/li&gt;
+&lt;li&gt;continue and break operations in for loops and while loops&lt;/li&gt;
+&lt;li&gt;Lists and Dictionaries (basic operations only).&lt;/li&gt;
+&lt;li&gt;Matrices, Pythonic matrix element access syntax [row,col]&lt;/li&gt;
+&lt;li&gt;NumPy compatible slicing syntax for sub-matrices&lt;/li&gt;
+&lt;li&gt;Complex numbers using either 42S or Python native syntax&lt;/li&gt;
+&lt;li&gt;Expressions involving nested brackets&lt;/li&gt;
+&lt;li&gt;assert&lt;/li&gt;
+&lt;li&gt;Testing and clearing of flags&lt;/li&gt;
+&lt;li&gt;Access most HP42S commands as function calls e.g. FIX(2)&lt;/li&gt;
+&lt;li&gt;Some enhanced functions to make life easier e.g. varmenu() automates and simplifies the generation of MVAR based code.&lt;/li&gt;
+&lt;/ol&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Projects: Pynsource</title>
+      <link>https://abulka.github.io/projects/apps/pynsource/</link>
+      <pubDate>Mon, 23 Nov 2020 12:12:30 +1100</pubDate>
+      
+      <guid>https://abulka.github.io/projects/apps/pynsource/</guid>
+      <description>
+        
+        
+        &lt;p&gt;UML tool for Python &lt;em&gt;(Desktop App for Mac, Window, Linux)&lt;/em&gt; - brand new version. &lt;/p&gt;
+&lt;p&gt;Zoom in and out. PlantUML view. Auto Layout. Import Python 3 code.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.pynsource.com&#34;&gt;Version 1.71&lt;/a&gt; - new for 2019&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://i.imgur.com/C8WrRDf.png&#34; alt=&#34;Pynsource hero&#34; title=&#34;Pynsource Hero&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Visit the brand new dedicated website &lt;a href=&#34;http://www.pynsource.com&#34;&gt;pynsource.com.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Buy the &lt;a href=&#34;http://www.pynsource.com/pricing.html&#34;&gt;Pro Edition&lt;/a&gt; for $20 to unlock the zoom feature.  Community Edition is fully functional and open source - check out the &lt;a href=&#34;https://github.com/abulka/pynsource&#34;&gt;github repository&lt;/a&gt;.  Donate to support this project &lt;em&gt;(donate link coming soon)&lt;/em&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;pynsource&#34;&gt;Pynsource&lt;/h3&gt;
+&lt;p&gt;UML tool for Python source code - visit &lt;a href=&#34;https://pynsource.com&#34;&gt;www.pynsource.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Version 1.76 - released Apr 22, 2020&lt;/p&gt;
+&lt;p&gt;- &lt;strong&gt;Zoom&lt;/strong&gt;, zoom to fit&lt;/p&gt;
+&lt;p&gt;- Python 3 compatibility&lt;/p&gt;
+&lt;p&gt;- New accurate &lt;strong&gt;AST based&lt;/strong&gt; python parser&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;- Layout algorithm&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;- &lt;strong&gt;Ascii UML&lt;/strong&gt; view built into the GUI, including an innovative Ascii UML layout&lt;/p&gt;
+&lt;p&gt;- &lt;strong&gt;PlantUML&lt;/strong&gt; view for beautiful renderings of UML&lt;/p&gt;
+&lt;p&gt;- &lt;strong&gt;Colour&lt;/strong&gt; sibling nodes&lt;/p&gt;
+&lt;p&gt;- Open Source&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Projects: Gituml</title>
+      <link>https://abulka.github.io/projects/websites/gituml/</link>
+      <pubDate>Mon, 23 Nov 2020 12:11:22 +1100</pubDate>
+      
+      <guid>https://abulka.github.io/projects/websites/gituml/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;gituml&#34;&gt;GitUML&lt;/h2&gt;
+&lt;p&gt;UML visualisation for Git repositories &lt;em&gt;(website app)&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Understand code quickly: Automatically generate UML class diagrams from source code residing in git repositories. Diagrams automatically update when you push code using git.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.gituml.com/static/home2/images_home/2017-10-19_09-43-34.bf679c329661.gif&#34; alt=&#34;point and click&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Visit &lt;a href=&#34;http://www.gituml.com&#34;&gt;GitUML&lt;/a&gt; now, create a free account and begin creating UML diagrams and documentation.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Projects: Relationship Manager - Design Pattern</title>
       <link>https://abulka.github.io/projects/patterns/relationship-manager/</link>
       <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>

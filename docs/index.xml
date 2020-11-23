@@ -13,6 +13,121 @@
     
     
     <item>
+      <title>Blog: TodoMVC implemented using a game architecture — ECS</title>
+      <link>https://abulka.github.io/blog/2020/05/18/todomvc-implemented-using-a-game-architecture-ecs/</link>
+      <pubDate>Mon, 18 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://abulka.github.io/blog/2020/05/18/todomvc-implemented-using-a-game-architecture-ecs/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Building traditional GUIs with the Entity Component System.&lt;/p&gt;
+&lt;p&gt;Is the &lt;a href=&#34;https://en.wikipedia.org/wiki/Entity_component_system&#34;&gt;Entity Component System&lt;/a&gt; any good for building traditional GUIs?&lt;/p&gt;
+&lt;p&gt;It turns out that the answer is yes! Whilst ECS is most commonly used in building games, it can also be used for building a traditional web “form” style application like TodoMVC. However you will need to radically rethink how models, their data and behaviour is organised.&lt;/p&gt;
+&lt;p&gt;This is arguably a refreshing, mind-blowing lesson in GUI programming! 🤯😉&lt;/p&gt;
+&lt;p&gt;See full article on Medium &lt;a href=&#34;https://medium.com/@abulka/todomvc-implemented-using-a-game-architecture-ecs-88bb86ea5e98&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Blog: TodoMVC implemented using traditional OO, Controllers and Events</title>
+      <link>https://abulka.github.io/blog/2020/05/18/todomvc-implemented-using-traditional-oo-controllers-and-events/</link>
+      <pubDate>Mon, 18 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://abulka.github.io/blog/2020/05/18/todomvc-implemented-using-traditional-oo-controllers-and-events/</guid>
+      <description>
+        
+        
+        &lt;p&gt;TodoMVC implemented in a classic Object Oriented way.&lt;/p&gt;
+&lt;p&gt;The classic Javascript TodoMVC app implemented without a framework, using plain Object Oriented programming + a traditional MVC design pattern. Distinct, mediating Controller objects are the key to this implementation.&lt;/p&gt;
+&lt;p&gt;Running demo &lt;a href=&#34;https://abulka.github.io/todomvc-oo/index.html&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;See full article on Medium &lt;a href=&#34;https://medium.com/@abulka/todomvc-implemented-using-traditional-oo-controllers-and-events-5e4c09f80cd4&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Blog: Django View logging is back-the-front</title>
+      <link>https://abulka.github.io/blog/2019/09/04/django-view-logging-is-back-the-front/</link>
+      <pubDate>Wed, 04 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://abulka.github.io/blog/2019/09/04/django-view-logging-is-back-the-front/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Have you ever looked through your Django log files and console messages, felt something was out of order and didn’t make sense, but couldn’t quite put your finger on it?&lt;/p&gt;
+&lt;p&gt;Here is an example of what I mean. Here is some view code:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;diagramz_list&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;request&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;template_name&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;list.html&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;):&lt;/span&gt;
+    &lt;span style=&#34;color:#000&#34;&gt;log&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;info&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;diagramz_list has been called&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;...&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;render&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;request&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;template_name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;object_list&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;diagrams&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;})&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;that gets routed via &lt;code&gt;url(r”^listz$”, views.diagramz_list, name=”listall”)&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Let’s look at the log file and console messages that get generated when you do the usual python manage.py runserver and using the browser, visit endpoint /listz:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[2018–10–20 14:42:50] [INFO] diagramz_list has been called
+[2018–10–20 14:42:51] [INFO] “GET /listz HTTP/1.1” 200 119585
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Can you see the problem?&lt;/p&gt;
+&lt;p&gt;Right — the hit on the endpoint /listz gets logged &lt;em&gt;after&lt;/em&gt; the output of the logging statement which says “diagramz_list has been called”.
+That’s counterintuitive for me when I do logfile analysis.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;IMO — the Django endpoint call should be logged immediately.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;See full article on Medium &lt;a href=&#34;https://medium.com/@abulka/django-view-logging-is-back-the-front-7f9701d501de&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Blog: Getting wxPython apps into the Ubuntu app store</title>
+      <link>https://abulka.github.io/blog/2019/04/06/getting-wxpython-apps-into-the-ubuntu-app-store/</link>
+      <pubDate>Sat, 06 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://abulka.github.io/blog/2019/04/06/getting-wxpython-apps-into-the-ubuntu-app-store/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Have you ever dreamt of getting your own apps in the Ubuntu app store? Here’s how.&lt;/p&gt;
+&lt;p&gt;I wanted to get my UML tool for Python, Pynsource, into the Ubuntu/Snapcraft app store for a long time. This is the story of how I made that happen.&lt;/p&gt;
+&lt;p&gt;It certainly wasn’t easy. It took me a week of work, struggling with the concepts, documentation and various bugs in the tooling to finally get my app listed.
+Hopefully I can save you some time getting your Python command line app or wxPython GUI app published.&lt;/p&gt;
+&lt;p&gt;See full article on Medium &lt;a href=&#34;https://medium.com/@abulka/getting-python-and-wxpython-apps-into-the-ubuntu-app-store-ccca7ae537a3&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Blog: Async/await for wxPython</title>
+      <link>https://abulka.github.io/blog/2019/03/02/async/await-for-wxpython/</link>
+      <pubDate>Sat, 02 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://abulka.github.io/blog/2019/03/02/async/await-for-wxpython/</guid>
+      <description>
+        
+        
+        &lt;p&gt;How to build Python 3 GUI apps with asynchronous functionality.&lt;/p&gt;
+&lt;p&gt;Python 3’s support of async/await is the new hotness, allowing cooperative computation with reduced complexity and without needing threads — as long as you use async compatible libraries like aiohttp etc. You can’t use the famous requests library because it is not async aware and will block, but not to worry, those other libraries have you covered.&lt;/p&gt;
+&lt;p&gt;See full article on Medium &lt;a href=&#34;https://medium.com/@abulka/async-await-for-wxpython-c78c667e0872&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Blog: Building a Python-Electron App</title>
+      <link>https://abulka.github.io/blog/2018/10/03/building-a-python-electron-app/</link>
+      <pubDate>Wed, 03 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://abulka.github.io/blog/2018/10/03/building-a-python-electron-app/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Building a normal, deployable application for Mac or Windows, using Python 3 is hard. There is nothing like Visual Studio or Delphi (remember that?) for Python where you can drag and drop to design a GUI, press a button and get an .exe or .app to give people. Sad.
+The closest you can get is to follow a long recipe of steps — which I propose to outline here.&lt;/p&gt;
+&lt;p&gt;See full article on Medium &lt;a href=&#34;https://medium.com/@abulka/electron-python-4e8c807bfa5e&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Blog: Python AST Parsing</title>
       <link>https://abulka.github.io/blog/2018/06/01/python-ast-parsing/</link>
       <pubDate>Fri, 01 Jun 2018 00:00:00 +0000</pubDate>

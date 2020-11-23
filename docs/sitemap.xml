@@ -3,18 +3,98 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://abulka.github.io/projects/apps/</loc>
+    <lastmod>2020-11-24T10:28:56+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://abulka.github.io/projects/big-ideas/</loc>
+    <lastmod>2020-11-24T10:28:56+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://abulka.github.io/projects/consulting/</loc>
+    <lastmod>2020-11-24T10:28:56+11:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://abulka.github.io/projects/patterns/</loc>
     <lastmod>2020-10-09T18:13:46+11:00</lastmod>
   </url>
   
   <url>
-    <loc>https://abulka.github.io/projects/misc/</loc>
-    <lastmod>2020-10-09T18:13:46+11:00</lastmod>
+    <loc>https://abulka.github.io/projects/websites/</loc>
+    <lastmod>2020-11-24T10:28:56+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://abulka.github.io/projects/big-ideas/lcodemaps/</loc>
+    <lastmod>2020-11-24T10:28:56+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://abulka.github.io/projects/consulting/contracting/</loc>
+    <lastmod>2020-11-24T10:28:56+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://abulka.github.io/projects/consulting/training/</loc>
+    <lastmod>2020-11-24T10:28:56+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://abulka.github.io/projects/apps/brew-moments/</loc>
+    <lastmod>2020-11-24T10:28:56+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://abulka.github.io/projects/apps/print42/</loc>
+    <lastmod>2020-11-24T10:28:56+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://abulka.github.io/projects/websites/python-rpn-converter/</loc>
+    <lastmod>2020-11-24T10:28:56+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://abulka.github.io/projects/apps/pynsource/</loc>
+    <lastmod>2020-11-24T10:28:56+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://abulka.github.io/projects/websites/gituml/</loc>
+    <lastmod>2020-11-24T10:28:56+11:00</lastmod>
   </url>
   
   <url>
     <loc>https://abulka.github.io/projects/patterns/relationship-manager/</loc>
     <lastmod>2020-10-28T13:44:54+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://abulka.github.io/blog/2020/05/18/todomvc-implemented-using-a-game-architecture-ecs/</loc>
+    <lastmod>2020-11-23T11:43:55+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://abulka.github.io/blog/2020/05/18/todomvc-implemented-using-traditional-oo-controllers-and-events/</loc>
+    <lastmod>2020-11-23T11:43:55+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://abulka.github.io/blog/2019/09/04/django-view-logging-is-back-the-front/</loc>
+    <lastmod>2020-11-23T11:43:55+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://abulka.github.io/blog/2019/04/06/getting-wxpython-apps-into-the-ubuntu-app-store/</loc>
+    <lastmod>2020-11-23T11:43:55+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://abulka.github.io/blog/2019/03/02/async/await-for-wxpython/</loc>
+    <lastmod>2020-11-23T11:43:55+11:00</lastmod>
   </url>
   
   <url>
@@ -30,6 +110,11 @@
   <url>
     <loc>https://abulka.github.io/projects/patterns/transformation-interface/</loc>
     <lastmod>2020-10-09T18:13:46+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://abulka.github.io/blog/2018/10/03/building-a-python-electron-app/</loc>
+    <lastmod>2020-11-23T11:43:55+11:00</lastmod>
   </url>
   
   <url>
@@ -149,7 +234,7 @@
   
   <url>
     <loc>https://abulka.github.io/blog/</loc>
-    <lastmod>2020-11-06T14:26:27+11:00</lastmod>
+    <lastmod>2020-11-24T10:28:56+11:00</lastmod>
   </url>
   
   <url>
@@ -159,7 +244,7 @@
   
   <url>
     <loc>https://abulka.github.io/projects/</loc>
-    <lastmod>2020-10-09T18:13:46+11:00</lastmod>
+    <lastmod>2020-11-24T10:28:56+11:00</lastmod>
   </url>
   
   <url>

@@ -1,0 +1,80 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Andy Bulka - Blog – Consulting</title>
+    <link>https://abulka.github.io/projects/consulting/</link>
+    <description>Recent content in Consulting on Andy Bulka - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	  <atom:link href="https://abulka.github.io/projects/consulting/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Projects: Contracting</title>
+      <link>https://abulka.github.io/projects/consulting/contracting/</link>
+      <pubDate>Mon, 23 Nov 2020 12:34:08 +1100</pubDate>
+      
+      <guid>https://abulka.github.io/projects/consulting/contracting/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;general-software-architecture-consulting&#34;&gt;General Software Architecture Consulting&lt;/h2&gt;
+&lt;p&gt;I will work with you to plan your next software project, ensuring you are using the latest practices and technologies.&lt;/p&gt;
+&lt;p&gt;I was CTO of Austhink Software and oversaw the building of a large software application and technical team.&lt;/p&gt;
+&lt;p&gt;Multiple roles in industry building teams and effective software solutions.&lt;/p&gt;
+&lt;h2 id=&#34;rapid-staff-onboarding-service&#34;&gt;Rapid &amp;lsquo;Staff Onboarding&amp;rsquo; Service&lt;/h2&gt;
+&lt;p&gt;We will work with your team - hands on, to&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Oversee the documentation of your critical project creating:&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;An engaging project overview and architecture summary document (five pages).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Five key GitUML project diagrams incl. some as &lt;a href=&#34;http://bit.ly/lcodemaps&#34;&gt;Literate Code Maps&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Two quality tutorials.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Develop &lt;strong&gt;rapid onboarding programs&lt;/strong&gt; for new staff that use this documentation, together with traditional onboarding through handovers, working with automated tests etc.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Ensure knowledge is captured when staff leave&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;We can audit your project documentation to protect your company IP and to support governance&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Our consulting pays for itself through increased programmer productivity and the ability to scale projects more rapidly.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Projects: Design Patterns Training</title>
+      <link>https://abulka.github.io/projects/consulting/training/</link>
+      <pubDate>Mon, 23 Nov 2020 12:30:33 +1100</pubDate>
+      
+      <guid>https://abulka.github.io/projects/consulting/training/</guid>
+      <description>
+        
+        
+        &lt;p&gt;OO &amp;amp; Design Patterns Training&lt;/p&gt;
+&lt;p&gt;Elevate the &lt;strong&gt;effectiveness of your entire programming team&lt;/strong&gt; - Andy can deliver his existing or a customised Design Patterns Course to your entire programming team - at your company&amp;rsquo;s premises.  Check out the &lt;a href=&#34;https://abulka.github.io/index.php/products/design_patterns_courses/&#34; title=&#34;Design Patterns Courses&#34;&gt;details&lt;/a&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Addendum:&lt;/p&gt;
+&lt;p&gt;If you would like me to run a design patterns course or consult on your next software design, please check out my &lt;a href=&#34;https://abulka.github.io/index.php/products/&#34; title=&#34;Products&#34;&gt;product&lt;/a&gt; page.  There is also an open source &lt;a href=&#34;http://www.pynsource.com&#34; title=&#34;Pynsource - UML tool for Python&#34;&gt;Python UML tool&lt;/a&gt; you might be interested in, plus references to products I have developed over the years esp. the worldclass argumentation visualisation software Rationale and bCisive.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

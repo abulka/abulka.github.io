@@ -1,0 +1,49 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Andy Bulka - Blog – Big Ideas</title>
+    <link>https://abulka.github.io/projects/big-ideas/</link>
+    <description>Recent content in Big Ideas on Andy Bulka - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	  <atom:link href="https://abulka.github.io/projects/big-ideas/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Projects: Literate Code Mapping</title>
+      <link>https://abulka.github.io/projects/big-ideas/lcodemaps/</link>
+      <pubDate>Mon, 23 Nov 2020 12:43:14 +1100</pubDate>
+      
+      <guid>https://abulka.github.io/projects/big-ideas/lcodemaps/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&lt;em&gt;Diagramming Methodology Specification&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Literate Code Maps are diagrams which help programmers understand the structure and behaviour of source code.&lt;/p&gt;
+&lt;h2 id=&#34;example&#34;&gt;Example&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/abulka/lcodemaps/master/images/example-01.svg?sanitize=true&#34; alt=&#34;code map example 01&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Code Map diagrams differ from UML diagrams in that they
+focus on real source code fragments and lots of
+rich-text formatted story-telling narrative.
+They combine class and sequence diagrams into the same
+diagram, offering step by step numbering to follow the behaviour of a use case story.&lt;/p&gt;
+&lt;h2 id=&#34;the-5-laws-of-literate-code-mapping&#34;&gt;The 5 laws of literate code mapping&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Boxes represent any scope or namespace - be creative&lt;/li&gt;
+&lt;li&gt;Show structure and behaviour in the same diagram&lt;/li&gt;
+&lt;li&gt;Code compartments in boxes contain code fragments and richly formatted narrative&lt;/li&gt;
+&lt;li&gt;Lines representing function calls between boxes are numbered to tell a story&lt;/li&gt;
+&lt;li&gt;Cross reference numbers can appear anywhere to associate ideas&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Think of literate code maps like UML class diagrams where the classes are now boxes which can represent more things, and lines represent function calls as well as structure.  Boxes contain one or more extra compartments containing real code fragments and rich narrative.&lt;/p&gt;
+&lt;p&gt;See full website dedicated to Literate Code Mapping &lt;a href=&#34;https://github.com/abulka/lcodemaps&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>
