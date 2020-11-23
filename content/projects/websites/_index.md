@@ -1,6 +1,6 @@
 ---
-title: "Misc"
-linkTitle: "Misc"
+title: "Websites"
+linkTitle: "Websites"
 weight: 20
 ---
 

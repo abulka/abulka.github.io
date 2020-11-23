@@ -1,6 +1,6 @@
 ---
-title: "GitUML"
-linkTitle: "GitUML"
+title: "test page g"
+linkTitle: "test page g"
 weight: 4
 draft: true
 description: >
