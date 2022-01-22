@@ -92,7 +92,7 @@ id = "UA-00000000-0"
 # Everything below this are Site Params
 
 [params]
-copyright = "The Docsy Authors"
+copyright = "Andy Bulka"
 privacy_policy = "https://policies.google.com/privacy"
 
 # First one is picked as the Twitter card image if not set on page.

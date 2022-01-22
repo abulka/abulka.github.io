@@ -1,13 +1,12 @@
-
 ---
 title: "Design Patterns"
 linkTitle: "Design Patterns"
 weight: 20
 ---
 
-## Introduction
+## Andy's Published Design Patterns
 
-Andy's Published Design Patterns
+
 These four papers are substantial works which have been presented at KoalaPlop (Asian Pacific Conference on Pattern Languages of Programs) in both 2000 and 2001.  My shepherds (paper peer reviewers) were:
 
 - Jim Coplien (MGM pattern)
@@ -41,3 +40,6 @@ The Transformation Interface is both a design pattern and an architectural patte
 As design patterns become more mainstream, various IDE's (Integrated Development Environments) and UML modelling software environments have begun to introduce support for design patterns. For example,…
 
 -->
+
+## Musings on Design Patterns
+
