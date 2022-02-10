@@ -27,3 +27,10 @@ We will work with your team - hands on, to
 *   We can audit your project documentation to protect your company IP and to support governance
 *   Our consulting pays for itself through increased programmer productivity and the ability to scale projects more rapidly.
 
+## Developer Story
+
+Andy Bulka's Developer Story:
+
+![Andy Bulka's Developer Story](/projects/consulting/images/Andy-Bulka-StackOverflow-Developer-Story.png)
+
+Andy Bulka's Developer Story as [pdf](/projects/consulting/images/Andy-Bulka-StackOverflow-Developer-Story.pdf)
