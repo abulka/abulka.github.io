@@ -20,20 +20,20 @@
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
-<title>Hexmvc | Andy Bulka - Blog</title><meta property="og:title" content="Hexmvc" />
-<meta property="og:description" content="A new, lightweight, architectural pattern for building applications based on the Hexagonal layered architecture pattern &#43; MVC" />
+<title>HexMVC | Andy Bulka - Blog</title><meta property="og:title" content="HexMVC" />
+<meta property="og:description" content="Hexagonal Architecture pattern &#43; Model View Controller (MVC)" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://abulka.github.io/projects/patterns/hexmvc/" /><meta property="article:section" content="projects" />
-<meta property="article:published_time" content="2020-11-23T12:59:37+11:00" />
-<meta property="article:modified_time" content="2022-01-22T15:16:05+11:00" />
+<meta property="article:published_time" content="2012-11-23T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-02-11T11:07:48+11:00" />
 
-<meta itemprop="name" content="Hexmvc">
-<meta itemprop="description" content="A new, lightweight, architectural pattern for building applications based on the Hexagonal layered architecture pattern &#43; MVC"><meta itemprop="datePublished" content="2020-11-23T12:59:37+11:00" />
-<meta itemprop="dateModified" content="2022-01-22T15:16:05+11:00" />
-<meta itemprop="wordCount" content="27">
+<meta itemprop="name" content="HexMVC">
+<meta itemprop="description" content="Hexagonal Architecture pattern &#43; Model View Controller (MVC)"><meta itemprop="datePublished" content="2012-11-23T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-02-11T11:07:48+11:00" />
+<meta itemprop="wordCount" content="5267">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Hexmvc"/>
-<meta name="twitter:description" content="A new, lightweight, architectural pattern for building applications based on the Hexagonal layered architecture pattern &#43; MVC"/>
+<meta name="twitter:title" content="HexMVC"/>
+<meta name="twitter:description" content="Hexagonal Architecture pattern &#43; Model View Controller (MVC)"/>
 
 
 
@@ -112,7 +112,7 @@
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.fabc561768d61119faa246b9d2394622b0aeaa5ac8a58470ee25eb2faafac0d486dd60c177419f3ad5d2973dff0d410ffa8c992a7aa2e5c79ef81557c47f412a.json"
+  data-offline-search-index-json-src="/offline-search-index.7ebe151a10d6426923971ad237756f35f3e58d11a9cbefe1e0e8305ea3d566756c533dc1f76a0ebcd26d49f56601d5b23d96052e4bd0eb2e60fbd0e0e55e00cc.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -143,7 +143,7 @@
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.fabc561768d61119faa246b9d2394622b0aeaa5ac8a58470ee25eb2faafac0d486dd60c177419f3ad5d2973dff0d410ffa8c992a7aa2e5c79ef81557c47f412a.json"
+  data-offline-search-index-json-src="/offline-search-index.7ebe151a10d6426923971ad237756f35f3e58d11a9cbefe1e0e8305ea3d566756c533dc1f76a0ebcd26d49f56601d5b23d96052e4bd0eb2e60fbd0e0e55e00cc.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -286,7 +286,7 @@
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/projects/patterns/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Design Patterns</a>
+    <a  href="/projects/patterns/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">My Design Patterns</a>
   </li>
   <ul>
     <li class="collapse show" id="projectspatterns">
@@ -297,12 +297,6 @@
       
       
       <a class="td-sidebar-link td-sidebar-link__page " id="m-projectspatternsmusings-on-patterns" href="/projects/patterns/musings-on-patterns/">Opinion - Musings on Design Patterns</a>
-      
-      
-      
-      
-      
-      <a class="td-sidebar-link td-sidebar-link__page  active" id="m-projectspatternshexmvc" href="/projects/patterns/hexmvc/">Hexmvc</a>
       
       
       
@@ -326,7 +320,31 @@
       
       
       
+      <a class="td-sidebar-link td-sidebar-link__page  active" id="m-projectspatternshexmvc" href="/projects/patterns/hexmvc/">HexMVC</a>
+      
+      
+      
+      
+      
       <a class="td-sidebar-link td-sidebar-link__page " id="m-projectspatternsdesign-pattern-automation" href="/projects/patterns/design-pattern-automation/">Design Pattern Automation</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-projectspatternshexmvc-adapters" href="/projects/patterns/hexmvc-adapters/"></a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-projectspatternshexmvc-eventing" href="/projects/patterns/hexmvc-eventing/"></a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-projectspatternshexmvc-scraps" href="/projects/patterns/hexmvc-scraps/"></a>
       
       
     </li>
@@ -406,6 +424,54 @@
 
 
 
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#abstract">Abstract</a></li>
+    <li><a href="#example---python">Example - Python</a></li>
+    <li><a href="#example---javascript">Example - Javascript</a></li>
+    <li><a href="#hexmvc-history">HexMvc History</a>
+      <ul>
+        <li><a href="#mgm-days">MGM days</a></li>
+        <li><a href="#next-steps">Next steps</a></li>
+        <li><a href="#hexmvc-in-a-nutshell">HexMVC in a nutshell</a></li>
+        <li><a href="#rules-and-roles">Rules and Roles:</a></li>
+      </ul>
+    </li>
+    <li><a href="#layered-architectures">Layered Architectures</a></li>
+    <li><a href="#hexmvc-fundamentals">HexMVC Fundamentals</a>
+      <ul>
+        <li><a href="#app-in-the-centre">App in the centre</a></li>
+        <li><a href="#hexmvc-control-flow">HexMvc Control flow</a></li>
+        <li><a href="#controller">Controller</a></li>
+        <li><a href="#eventing">Eventing</a></li>
+        <li><a href="#the-bootstrapper">The Bootstrapper</a></li>
+        <li><a href="#dependency-injection">Dependency Injection</a></li>
+      </ul>
+    </li>
+    <li><a href="#hexmvc-in-detail">HexMvc in Detail</a>
+      <ul>
+        <li><a href="#app-to-gui-boundary">App to GUI boundary</a></li>
+        <li><a href="#view">View</a></li>
+        <li><a href="#app-to-model-boundary">App to Model boundary</a></li>
+        <li><a href="#model-to-persistence-boundary">Model to Persistence boundary</a></li>
+        <li><a href="#app-to-server-boundary">App to Server boundary</a></li>
+      </ul>
+    </li>
+    <li><a href="#appendix">Appendix</a>
+      <ul>
+        <li><a href="#adapters">Adapters</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#hexmvc-source-code">HexMVC Source Code</a></li>
+      </ul>
+    </li>
+    <li><a href="#presentation-in-2012">Presentation in 2012</a>
+      <ul>
+        <li><a href="#post-presentation-clarifications">Post Presentation Clarifications</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
 
 
 <p>andy bottom of toc</p>
@@ -437,14 +503,14 @@
 
 
 <li class="breadcrumb-item" >
-	<a href="https://abulka.github.io/projects/patterns/">Design Patterns</a>
+	<a href="https://abulka.github.io/projects/patterns/">My Design Patterns</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="https://abulka.github.io/projects/patterns/hexmvc/">Hexmvc</a>
+	<a href="https://abulka.github.io/projects/patterns/hexmvc/">HexMVC</a>
 </li>
 
 	</ol>
@@ -452,11 +518,468 @@
 
             
 <div class="td-content">
-	<h1>Hexmvc</h1>
-    <div class="lead">A new, lightweight, architectural pattern for building applications based on the Hexagonal layered architecture pattern + MVC</div>
+	<h1>HexMVC</h1>
+    <div class="lead">Hexagonal Architecture pattern + Model View Controller (MVC)</div>
 	       
-	<p><strong>HexMVC</strong> - A new, lightweight, architectural pattern for building applications based on the Hexagonal layered architecture pattern + MVC – presented by Andy Bulka.</p>
-<p>To be published.</p>
+	<p>Andy Bulka,<br>
+March 2012</p>
+<p>A new, architectural pattern for building multi-platform, scalable applications based on ideas from the Hexagonal Architecture pattern + Model View Controller (MVC).</p>
+<p><strong>TLDR:</strong> Write the application layer but don&rsquo;t import or use any libraries directly.  Wrap all library calls with Adapter objects, so that you can switch to other libraries easily.</p>
+<h1 id="projectspatternsimageshexmvcimage16png"><img src="/projects/patterns/images/hexmvc/image16.png" alt=""></h1>
+<blockquote>
+<p>This is a draft article, written in 2012. It could do with some further editing, but I&rsquo;ve never gotten around to it, so finally decided to publish it anyway, in 2022.</p>
+</blockquote>
+<h2 id="abstract">Abstract</h2>
+<p>HexMVC - This is my name for an architectural pattern that has arisen out of some long term research into PureMVC and ways to simplify it. Its also an attempt to fix some of the unsatisfactory aspects of traditional layered architectures by incorporating some core ideas out of the mysterious Hexagonal Architecture pattern.  The hexagonal structure allows us to put the model on a more equal footing with other layers - rather than always having the model ‘at the bottom’.  Its a rejection of a complex &lsquo;event&rsquo;-ing framework in favour of multicast delegation based on interfaces. It uses dependency injection to configure apps to use different libraries and frameworks, whilst keeping the core app the same.</p>
+<p>I will present a fully functional example code which can be configured to run under pure python or under .NET using a choice of different GUI libraries (wxpython or windows forms or wpf), different server libraries (bottle or .NET). Everything is switchable using config files. The persistence layer is also switchable and the servers implement REST APIs consistent with the services offered by the core App.</p>
+<p>Note that the example code needs no framework code whatsoever, thus could be considered an architectural pattern - an abstract idea that can be implemented in any language and used in any project.  The pattern lets you develop a core application and swap in &amp; out alternate gui&rsquo;s, persistence and services.  It prescribes how to add app functionality whilst keeping your design clean.</p>
+<h2 id="example---python">Example - Python</h2>
+<p>Here is a real configuration Python file which assembles, injects and launches my sample application. The application consists of a GUI, a Server, a model with application logic.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">ModelOo</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">Model</span>
+<span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">ModelOoAdapter</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">ModelOoAdapter</span>
+
+<span style="color:#8f5902;font-style:italic">#from PersistenceOoPickle import Persistence</span>
+<span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">PersistenceOoHomegrown</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">Persistence</span>
+
+<span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">ServerBottleAdapter</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">Server</span>
+<span style="color:#8f5902;font-style:italic">#from ServerMockAdapter import Server</span>
+
+<span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">ViewWxAdapter</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">MyWxApp</span>
+<span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">wx</span>
+<span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">UtilRandomStdpythonAdapter</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">RandomIntFunction</span>
+<span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">UtilJsonStdpythonAdapter</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">JsonFromDictFunction</span>
+<span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">App</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">App</span>
+
+<span style="color:#8f5902;font-style:italic"># Create Model - Object Oriented instances in memory</span>
+<span style="color:#000">model_oo</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">Model</span><span style="color:#000;font-weight:bold">()</span>
+<span style="color:#000">persistence</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">Persistence</span><span style="color:#000;font-weight:bold">()</span>
+<span style="color:#000">model</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">ModelOoAdapter</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">model_oo</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">persistence</span><span style="color:#000;font-weight:bold">)</span>
+
+<span style="color:#8f5902;font-style:italic"># Create Server</span>
+<span style="color:#000">server</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">Server</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">host</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#39;localhost&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">port</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">8081</span><span style="color:#000;font-weight:bold">)</span>
+
+<span style="color:#8f5902;font-style:italic"># Create Gui</span>
+<span style="color:#000">wxapp</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">MyWxApp</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">redirect</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#204a87;font-weight:bold">False</span><span style="color:#000;font-weight:bold">)</span>
+<span style="color:#000">gui</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">wxapp</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">myframe</span>  <span style="color:#8f5902;font-style:italic"># gui mediator inherits from gui rather than wrapping it</span>
+
+<span style="color:#8f5902;font-style:italic"># Hook up Utility adapters</span>
+<span style="color:#000">gui</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">random</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">RandomIntFunction</span>
+<span style="color:#000">server</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">json_from_dict</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">JsonFromDictFunction</span>
+
+<span style="color:#8f5902;font-style:italic"># Create Core Hexagon App and inject adapters</span>
+<span style="color:#000">app</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">App</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">model</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">server</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">gui</span><span style="color:#000;font-weight:bold">)</span>
+<span style="color:#000">wx</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">CallAfter</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">app</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Boot</span><span style="color:#000;font-weight:bold">)</span>
+
+<span style="color:#8f5902;font-style:italic"># Start Gui</span>
+<span style="color:#000">wxapp</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">MainLoop</span><span style="color:#000;font-weight:bold">()</span> 
+</code></pre></div><h2 id="example---javascript">Example - Javascript</h2>
+<p>Here is a Todo app implementation in Javascript <a href="https://www.google.com/url?q=http://jsfiddle.net/tcab/mC5qA/&amp;sa=D&amp;source=editors&amp;ust=1644533497537306&amp;usg=AOvVaw2IyZvhDC0eV65oxs-1pTn-">http://jsfiddle.net/tcab/mC5qA/</a></p>
+<p><img src="/projects/patterns/images/hexmvc/javascript-impl-add.png" alt="javascript-impl-add"></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">select</span> <span style="color:#c4a000">id</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;list&#34;</span> <span style="color:#c4a000">size</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;10&#34;</span> <span style="color:#c4a000">style</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;width: 15em&#34;</span><span style="color:#000;font-weight:bold">&gt;&lt;/</span><span style="color:#204a87;font-weight:bold">select</span><span style="color:#000;font-weight:bold">&gt;&lt;</span><span style="color:#204a87;font-weight:bold">br</span><span style="color:#000;font-weight:bold">/&gt;</span>
+<span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">button</span> <span style="color:#c4a000">id</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;plusBtn&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>  +  <span style="color:#000;font-weight:bold">&lt;/</span><span style="color:#204a87;font-weight:bold">button</span><span style="color:#000;font-weight:bold">&gt;</span>
+<span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">button</span> <span style="color:#c4a000">id</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;minusBtn&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>  -  <span style="color:#000;font-weight:bold">&lt;/</span><span style="color:#204a87;font-weight:bold">button</span><span style="color:#000;font-weight:bold">&gt;</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#8f5902;font-style:italic">/*
+</span><span style="color:#8f5902;font-style:italic">MODEL
+</span><span style="color:#8f5902;font-style:italic">*/</span>
+
+<span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">ListModel</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">function</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">items</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">_items</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">items</span><span style="color:#000;font-weight:bold">;</span>
+    <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">_selectedIndex</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000;font-weight:bold">};</span>
+ 
+<span style="color:#000">ListModel</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">prototype</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span>
+ 
+    <span style="color:#000">getItems</span> <span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">function</span> <span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">[].</span><span style="color:#000">concat</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">_items</span><span style="color:#000;font-weight:bold">);</span>
+    <span style="color:#000;font-weight:bold">},</span>
+ 
+    <span style="color:#000">addItem</span> <span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">function</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">item</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">_items</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">push</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">item</span><span style="color:#000;font-weight:bold">);</span>
+    <span style="color:#000;font-weight:bold">},</span>
+ 
+    <span style="color:#000">removeItemAt</span> <span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">function</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">index</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">item</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">_items</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">index</span><span style="color:#000;font-weight:bold">];</span>
+        <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">_items</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">splice</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">index</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">);</span>
+        <span style="color:#000">maxindex</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">_items</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">length</span> <span style="color:#ce5c00;font-weight:bold">-</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">;</span>
+        <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">_selectedIndex</span> <span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#000">maxindex</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+            <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">setSelectedIndex</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">maxindex</span><span style="color:#000;font-weight:bold">);</span>
+        <span style="color:#000;font-weight:bold">}</span>
+        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">item</span><span style="color:#000;font-weight:bold">;</span>
+    <span style="color:#000;font-weight:bold">},</span>
+    
+    <span style="color:#000">getSelectedIndex</span> <span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">function</span> <span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">_selectedIndex</span><span style="color:#000;font-weight:bold">;</span>
+    <span style="color:#000;font-weight:bold">},</span>
+ 
+    <span style="color:#000">setSelectedIndex</span> <span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">function</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">index</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">_selectedIndex</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">index</span><span style="color:#000;font-weight:bold">;</span>
+    <span style="color:#000;font-weight:bold">}</span>
+ 
+<span style="color:#000;font-weight:bold">};</span>
+
+<span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">ListModelAdapter</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">function</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">model</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">_model</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">model</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000;font-weight:bold">};</span>
+
+<span style="color:#000">ListModelAdapter</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">prototype</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span>
+ 
+    <span style="color:#000">getItems</span> <span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">function</span> <span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">_model</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">getItems</span><span style="color:#000;font-weight:bold">();</span>
+    <span style="color:#000;font-weight:bold">},</span>
+ 
+    <span style="color:#000">addItem</span> <span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">function</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">item</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">_model</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">addItem</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">item</span><span style="color:#000;font-weight:bold">);</span>
+        <span style="color:#000">$</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">document</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">trigger</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;MODEL_THING_ADDED&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000;font-weight:bold">{</span><span style="color:#000">item</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000">item</span><span style="color:#000;font-weight:bold">});</span>
+    <span style="color:#000;font-weight:bold">},</span>
+ 
+    <span style="color:#000">removeItemAt</span> <span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">function</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">index</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">item</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">_model</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">removeItemAt</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">index</span><span style="color:#000;font-weight:bold">);</span>
+        <span style="color:#000">$</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">document</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">trigger</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;MODEL_CHANGED&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000;font-weight:bold">{</span><span style="color:#000">item</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000">item</span><span style="color:#000;font-weight:bold">});</span>
+    <span style="color:#000;font-weight:bold">},</span>
+    
+    <span style="color:#000">getSelectedIndex</span> <span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">function</span> <span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">_model</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">getSelectedIndex</span><span style="color:#000;font-weight:bold">();</span>
+    <span style="color:#000;font-weight:bold">},</span>
+ 
+    <span style="color:#000">setSelectedIndex</span> <span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">function</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">index</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">previousIndex</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">_selectedIndex</span><span style="color:#000;font-weight:bold">;</span>
+        <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">_model</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">setSelectedIndex</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">index</span><span style="color:#000;font-weight:bold">);</span>
+        <span style="color:#000">$</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">document</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">trigger</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;MODEL_SELECTION_CHANGED&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000;font-weight:bold">{</span><span style="color:#000">previous</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000">previousIndex</span><span style="color:#000;font-weight:bold">});</span>
+    <span style="color:#000;font-weight:bold">}</span>
+    
+<span style="color:#000;font-weight:bold">};</span>
+
+
+<span style="color:#8f5902;font-style:italic">/* 
+</span><span style="color:#8f5902;font-style:italic">VIEW 
+</span><span style="color:#8f5902;font-style:italic">*/</span>
+
+<span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">ListViewAdapter</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">function</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">model</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">_model</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">model</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000;font-weight:bold">};</span>
+ 
+<span style="color:#000">ListViewAdapter</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">prototype</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span>
+ 
+    <span style="color:#000">show</span> <span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">function</span> <span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">rebuildList</span><span style="color:#000;font-weight:bold">();</span>
+    <span style="color:#000;font-weight:bold">},</span>
+ 
+    <span style="color:#000">rebuildList</span> <span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">function</span> <span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#000">console</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">log</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;VIEW REBUILD with index at &#34;</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">_model</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">getSelectedIndex</span><span style="color:#000;font-weight:bold">());</span>            
+        <span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">list</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">$</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;#list&#39;</span><span style="color:#000;font-weight:bold">);</span>
+        <span style="color:#000">list</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">html</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;&#39;</span><span style="color:#000;font-weight:bold">);</span>
+        <span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">items</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">_model</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">getItems</span><span style="color:#000;font-weight:bold">();</span>
+        <span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">i</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span>
+        <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">key</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#000">items</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+            <span style="color:#000">list</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">append</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">$</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;&lt;option value=&#34;&#39;</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#000">i</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#4e9a06">&#39;&#34;&gt;&#39;</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#000">items</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">key</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#4e9a06">&#39;&lt;/option&gt;&#39;</span><span style="color:#000;font-weight:bold">));</span> 
+            <span style="color:#000">i</span><span style="color:#ce5c00;font-weight:bold">++</span><span style="color:#000;font-weight:bold">;</span>
+        <span style="color:#000;font-weight:bold">}</span>
+        <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">updateSelected</span><span style="color:#000;font-weight:bold">();</span>
+    <span style="color:#000;font-weight:bold">},</span>
+    
+    <span style="color:#000">updateSelected</span> <span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">function</span> <span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#000">console</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">log</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;VIEW updateSelected &#34;</span>  <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">_model</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">getSelectedIndex</span><span style="color:#000;font-weight:bold">());</span>
+        <span style="color:#000">$</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;#list&#39;</span><span style="color:#000;font-weight:bold">)[</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">].</span><span style="color:#000">value</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">_model</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">getSelectedIndex</span><span style="color:#000;font-weight:bold">();</span>
+    <span style="color:#000;font-weight:bold">},</span>
+    
+    <span style="color:#000">onAdd</span> <span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">function</span> <span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#000">$</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">document</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">trigger</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;CMD_ADD_ITEM&#39;</span><span style="color:#000;font-weight:bold">);</span>
+    <span style="color:#000;font-weight:bold">},</span>
+    
+    <span style="color:#000">onDelete</span> <span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">function</span> <span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#000">$</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">document</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">trigger</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;CMD_DELETE_ITEM&#39;</span><span style="color:#000;font-weight:bold">);</span>
+    <span style="color:#000;font-weight:bold">},</span>
+    
+    <span style="color:#000">onListSelectionChanged</span> <span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">function</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">e</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#000">$</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">document</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">trigger</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;CMD_SELECTION_CHANGED&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">e</span><span style="color:#000;font-weight:bold">);</span>
+    <span style="color:#000;font-weight:bold">},</span>
+    
+<span style="color:#000;font-weight:bold">};</span>
+
+<span style="color:#8f5902;font-style:italic">/* 
+</span><span style="color:#8f5902;font-style:italic">CONTROLLER
+</span><span style="color:#8f5902;font-style:italic">*/</span>
+
+<span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">ListController</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">function</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">model</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">_model</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">model</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000;font-weight:bold">};</span>
+ 
+<span style="color:#000">ListController</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">prototype</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span>
+ 
+    <span style="color:#000">cmdAddItem</span> <span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">function</span> <span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">item</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">prompt</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;Add item:&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#39;&#39;</span><span style="color:#000;font-weight:bold">);</span>
+        <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">item</span><span style="color:#000;font-weight:bold">)</span>
+            <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">_model</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">addItem</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">item</span><span style="color:#000;font-weight:bold">);</span>
+    <span style="color:#000;font-weight:bold">},</span>
+ 
+    <span style="color:#000">cmdDelItem</span> <span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">function</span> <span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">index</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">_model</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">getSelectedIndex</span><span style="color:#000;font-weight:bold">();</span>
+        <span style="color:#000">console</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">log</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;controller delItem &#34;</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#000">index</span><span style="color:#000;font-weight:bold">);</span>
+        <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">index</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span>
+            <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">_model</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">removeItemAt</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">_model</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">getSelectedIndex</span><span style="color:#000;font-weight:bold">());</span>
+    <span style="color:#000;font-weight:bold">},</span>
+ 
+    <span style="color:#000">cmdUpdateSelected</span> <span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">function</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">e</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#000">console</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">log</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;CONTROLLER updateSelected &#34;</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#000">e</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">target</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">selectedIndex</span><span style="color:#000;font-weight:bold">);</span>
+        <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">_model</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">setSelectedIndex</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">e</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">target</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">selectedIndex</span><span style="color:#000;font-weight:bold">);</span>
+    <span style="color:#000;font-weight:bold">},</span>
+    
+<span style="color:#000;font-weight:bold">};</span>
+
+<span style="color:#8f5902;font-style:italic">/*
+</span><span style="color:#8f5902;font-style:italic">Bootstrap
+</span><span style="color:#8f5902;font-style:italic">*/</span>
+
+<span style="color:#000">$</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">function</span> <span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#8f5902;font-style:italic">//var model = new ListModel([&#39;aaa&#39;, &#39;bbb&#39;, &#39;ccc&#39;, &#39;ddddd&#39;]);
+</span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">model</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">ListModelAdapter</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">ListModel</span><span style="color:#000;font-weight:bold">([</span><span style="color:#4e9a06">&#39;aaa&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#39;bbb&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#39;ccc&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#39;ddddd&#39;</span><span style="color:#000;font-weight:bold">]));</span>
+    <span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">view</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">ListViewAdapter</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">model</span><span style="color:#000;font-weight:bold">);</span>
+    <span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">controller</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">ListController</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">model</span><span style="color:#000;font-weight:bold">);</span>  <span style="color:#8f5902;font-style:italic">// can also pass in view if you need it.
+</span><span style="color:#8f5902;font-style:italic"></span>                                               
+    <span style="color:#8f5902;font-style:italic">// Private eventing between gui and gui adapter
+</span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#000">$</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;#plusBtn&#39;</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">click</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">function</span> <span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span> <span style="color:#000">view</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">onAdd</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">});</span>
+    <span style="color:#000">$</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;#minusBtn&#39;</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">click</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">function</span> <span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span> <span style="color:#000">view</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">onDelete</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">});</span>
+    <span style="color:#000">$</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;#list&#39;</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">change</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">function</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">e</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span> <span style="color:#000">view</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">onListSelectionChanged</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">e</span><span style="color:#000;font-weight:bold">);</span> <span style="color:#000;font-weight:bold">});</span>
+    <span style="color:#8f5902;font-style:italic">// More abstract application eventing
+</span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#000">$</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">document</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">bind</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;CMD_ADD_ITEM&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">function</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">e</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span> <span style="color:#000">controller</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">cmdAddItem</span><span style="color:#000;font-weight:bold">();</span> <span style="color:#000;font-weight:bold">});</span>
+    <span style="color:#000">$</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">document</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">bind</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;CMD_DELETE_ITEM&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">function</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">e</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span> <span style="color:#000">controller</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">cmdDelItem</span><span style="color:#000;font-weight:bold">();</span> <span style="color:#000;font-weight:bold">});</span>
+    <span style="color:#000">$</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">document</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">bind</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;CMD_SELECTION_CHANGED&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">function</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">e</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">info</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span> <span style="color:#000">controller</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">cmdUpdateSelected</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">info</span><span style="color:#000;font-weight:bold">);</span> <span style="color:#000;font-weight:bold">});</span>                                           
+    <span style="color:#000">$</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">document</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">bind</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;MODEL_THING_ADDED&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">function</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">e</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">info</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span> <span style="color:#000">view</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">rebuildList</span><span style="color:#000;font-weight:bold">();</span> <span style="color:#000;font-weight:bold">});</span>
+    <span style="color:#000">$</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">document</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">bind</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;MODEL_CHANGED&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">function</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">e</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">info</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span> <span style="color:#000">view</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">rebuildList</span><span style="color:#000;font-weight:bold">();</span> <span style="color:#000;font-weight:bold">});</span>
+    <span style="color:#000">$</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">document</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">bind</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;MODEL_SELECTION_CHANGED&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">function</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">e</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">info</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span> <span style="color:#000">view</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">updateSelected</span><span style="color:#000;font-weight:bold">();</span> <span style="color:#000;font-weight:bold">});</span>
+                                                 
+    <span style="color:#000">view</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">show</span><span style="color:#000;font-weight:bold">();</span>
+<span style="color:#000;font-weight:bold">});</span>
+</code></pre></div><blockquote>
+<p>There are more source code implementations in <a href="/projects/patterns/hexmvc/#hexmvc-source-code">the appendix</a></p>
+</blockquote>
+<h2 id="hexmvc-history">HexMvc History</h2>
+<h3 id="mgm-days">MGM days</h3>
+<p>My initial simplification and re-telling of MVC came with my <a href="/projects/patterns/mvca-pattern/">MGM pattern</a> where I simply said (well perhaps not so simply, given that it was a paper for a design patterns conference) was that in these (more modern) days where we have proper, sophisticated GUI widgets with eventing and self rendering - there was a need to retell the MVC story - which was traditionally also looking after all eventing, user interaction and even rendering of the GUI.</p>
+<p>So I came up with MGM (model-gui-mediator) where the mediator took on the roles of intercepting events from the GUI widget, sticking info into the model, and also of populating the GUI with fresh information.  The “mediator” class (the last “M” in MGM - although visually it sat more in the middle - between the model and the gui) was a controller and view adapter in one - whereas these days I would separate these two roles, as you will see in HexMVC.  </p>
+<p>The benefit of this variation of the MVC design pattern was that was practical and minimalist.  It dealt with the reality of modern gui widgets, whether they be GUI widgets or html DOM elements and created only a single class that mediated with a model.  In a sense it was the simplest MVC possible, whilst retaining model and gui separation.</p>
+<h3 id="next-steps">Next steps</h3>
+<p>As I learned more about the roles involved in MVC, and encountered variants that teased apart those roles more fully (like pureMVC) I became interested in upscaling my MVC approach a little so that it was more all encompassing and took into account whole-application considerations, like providing a central controller layer for housing many ‘commands’.  </p>
+<p>Then I became interested in bootstrapping the wiring of whole apps with MVC architectures, and eventually in the swappability of guis and models - which led to HexMVC.</p>
+<h3 id="hexmvc-in-a-nutshell">HexMVC in a nutshell</h3>
+<blockquote>
+<p><strong>TLDR:</strong> Write the application layer but don&rsquo;t import or use any libraries directly.  Wrap all library calls with Adapter objects, so that you can switch to other libraries easily.</p>
+</blockquote>
+<p>HexMVC says that there must be a view class that looks after the off the shelf GUI widget (or in the case of the browser, the DOM element).  In the wild, the term “view” is ambiguous and sometimes means the gui adapter or the gui or both.  I use the term view adapter for the class that looks after the widget/DOM element.</p>
+<p>So far this is not controversial.  HexMVC then goes on to say a few more interesting things:</p>
+<ul>
+<li>
+<p>Firstly, that models and GUI widgets should be treated on an equal footing, and be “adapted”.</p>
+</li>
+<li>
+<p>Secondly, that generic, application eventing should occur between adapters and a central controller - any private eventing between the gui and its adapter should remain private. In the case of model adapters, they implement all the eventing and the models remain pure.  </p>
+</li>
+<li>
+<p>Lastly, the application and controller are bound together as the “application hub”, which may be split into many command objects. The application layer talks to the orbiting sattelite functionality via the adapter interfaces, and thus the application is insulated from changes in the “implementation”.  Adapters can, more efficiently, also talk to each other directly, but again, only through the adapter interfaces.</p>
+</li>
+</ul>
+<p>More broadly, the HexMVC approach is wired up through dependency injection and eventing and as you may have noticed, the use of adapters - more specifically families of adapters - so that different implementations can be plugged in without the application noticing.  An adapter is essentially a ‘driver’ you install for a particular implementation being used - like a new printer driver for a new printer.  That’s where the ‘hex’ comes into it, from the ‘hexagonal’ architecture pattern idea (later renamed “ports and adapters”).</p>
+<h3 id="rules-and-roles">Rules and Roles:</h3>
+<p>Note: when I say ‘notifies’ I mean via notifications via eventing - which is managed/wired up by dependency injection - and not through layers actually knowing about each other.</p>
+<ul>
+<li>view layer notifies controller, model layer usually does not notify controller, but it could.</li>
+<li>model layer often efficiently notifies view layer directly, yes.</li>
+<li>view layer can read from model later directly, yes - but not modify it.</li>
+<li>controller can manipulate both model and view layers.</li>
+</ul>
+<h2 id="layered-architectures">Layered Architectures</h2>
+<p>I had always been fascinated by the idea of pluggable, modular application designs where you could plug in decoupled services/functionality into an app.  Its a truth that adding functionality adds complexity almost exponentially - it becomes harder and harder to add features without introducing problems and inteference.  I wanted a way out of that.</p>
+<p>Simple layering:</p>
+<p><img src="/projects/patterns/images/hexmvc/image8.png" alt=""></p>
+<p>A recent talk I gave on layered architectures reinforced the benefits of layering. However I found numerous people talking about the limitations of having the model ‘at the bottom’ of the layering stack.  Plus lots of people were introducing an ‘infrastructure layer’ which stood vertically and had access to all layers.  </p>
+<p><img src="/projects/patterns/images/hexmvc/image1.png" alt=""></p>
+<p>Finally, there were all these techniques for breaking out of layers, like broadcast notifications, eventing and dependency injection.  So I got to thinking that maybe a different metaphor was needed, something a bit less vertical, and more like a circle.</p>
+<p><img src="/projects/patterns/images/hexmvc/image10.png" alt=""></p>
+<p><em>Possible evolution of layering</em></p>
+<p>When teaching design patterns courses including sessions about the adapter pattern, I would always end that particular session with the idea of using adapters as a way of insulating an app from the ‘bad outside world’ and adapt all external libraries.  It was a radical, intriguiing idea - possibly a bit impractical and theoretical. So I ended up trying to build such a system anyway.</p>
+<p><img src="/projects/patterns/images/hexmvc/image18.png" alt=""></p>
+<p>Alistair Cockburn described a <a href="https://www.google.com/url?q=http://alistair.cockburn.us/Hexagonal%2Barchitecture&amp;sa=D&amp;source=editors&amp;ust=1644533497539284&amp;usg=AOvVaw2f2mT_1Zk2v3iJ84jJRrNP">hexagonal architecture</a> (later renamed Ports and Adapters pattern) which had services, gui’s, db, etc. around a central app.  The application talked to adapters.  </p>
+<p><img src="/projects/patterns/images/hexmvc/image24.gif" alt=""></p>
+<p><em>The hexagonal architecture</em></p>
+<blockquote>
+</blockquote>
+<p>This was the architecture I was intrigued by, but there were no reference implementations, and a lot of the writing on the webpage seemed theoretical and sketchy - like a half baked idea that nobody had actually tried.  So I went ahead and built something similar - as simply as possible.</p>
+<p>I had always liked the <a href="https://www.google.com/url?q=http://puremvc.org/&amp;sa=D&amp;source=editors&amp;ust=1644533497539894&amp;usg=AOvVaw0krRSlmvdpyy7V-x2aGNRS">PureMvc</a> pattern, which was a bold retelling of the mvc architecture pattern.  It described all the roles in an mvc architecture, and provided strict rules as to who knows who and how the sequence of interactions went.  I wrote a number of <a href="https://www.google.com/url?q=http://www.andypatterns.com/index.php/blog/puremvc_refactor/&amp;sa=D&amp;source=editors&amp;ust=1644533497540127&amp;usg=AOvVaw1wOxO1elRARnO7oLGybGMF">articles</a> about it.</p>
+<p><img src="/projects/patterns/images/hexmvc/image2.png" alt=""></p>
+<p>It is a framework and has been ported to most languages.  In practice I found it effective though tedious because of all the rules and registrations - and with its home grown eventing system it is tedious to declare event types, register handlers etc.  I wanted something simpler, whilst keeping the good stuff.  When I implemented an early/partial HexMvc version of a minimal PureMvc sample app, I was able to remove all references to the PureMvc framework and simplify the resulting application - the cost was a dozen extra lines of code to get it working the same.  But being able to remove an entire framework and get the the same result was certainly encouraging.</p>
+<h2 id="hexmvc-fundamentals">HexMVC Fundamentals</h2>
+<h3 id="app-in-the-centre">App in the centre</h3>
+<p>We start the basic hexagonal architecture with the idea of application in the core.</p>
+<p>The application talks to interfaces, which are implemented by adapters.</p>
+<p><img src="/projects/patterns/images/hexmvc/image11.png" alt=""></p>
+<p><em>The controller too, lives inside the central app hub.</em></p>
+<h4 id="the-app">The App</h4>
+<ul>
+<li>Holds refs to the core adapters (server, gui, model)</li>
+<li>Wires the core adapters so they know about the app</li>
+<li>App has job of housing the domain logic and app logic and thus the controller/commands.</li>
+<li>App sometimes mediates - calls come in and the app sends them out again. Defines one or two methods that an adapter may need (e.g. for that adapter to communicate some info to or get some info from another adapter)  Mediation role.</li>
+<li>Defines Boot() and Shutdown()</li>
+<li>Injects multicast dependencies</li>
+</ul>
+<p>Note the app does not instantiate objects - this is done by the bootstrapper.</p>
+<h4 id="layers-as-slices-through-the-app-circle">Layers as slices through the App circle.</h4>
+<p>Thus we have taken top down layering and making it round a “Application Hub” instead.  If you follow one particular event flow e.g. from gui to model and back again, you get a traditional view-controller-model top down layered cake.</p>
+<p><img src="/projects/patterns/images/hexmvc/image17.png" alt=""></p>
+<p>But by allowing for more event flows and more services plugged in to a hub, we get a more flexible and interesting architecture, which is still a layered one.  Thus you can get different layers depending on where you start and where you finish.  Nobody is ‘on top’ or ‘on the bottom’.</p>
+<p>E.g. I add a server layer which provides REST services to the web, as an example of another significant layer.</p>
+<h4 id="interfaces-everywhere">Interfaces Everywhere</h4>
+<p>As GOF says in its introduction, one of the main two OO principles is “Program to an interface, not an implementation”.  This allows clients to be decoupled from the implementation.</p>
+<h4 id="adpaters-everywhere">Adpaters Everywhere</h4>
+<p>In HexMvc we write adapters to implement the interfaces. The adapters’ purpose is to provide a level of indirection between the application logic and the substantive thing the application is talking to.</p>
+<h3 id="hexmvc-control-flow">HexMvc Control flow</h3>
+<p>In HexMvc I pretty much follow the PureMvc rules and call sequences.</p>
+<h4 id="the-rules">The rules</h4>
+<ul>
+<li>The Model notifies, but doesn&rsquo;t listen and ultimately knows nothing about anything else in the system.</li>
+<li>View sends messages to controller and listens for incoming messages from model.</li>
+<li>Controller commands are created and invoked by certain messages and they send out messages if they want to.</li>
+</ul>
+<h4 id="the-typical-call-sequence">The typical call sequence</h4>
+<p>Here the gui adapter raises command events and listens for notification events.  A command event is an event that causes the controller to do something (which may then indirectly instantiate a command object to the work).  A notification event would be e.g. the model layer saying ‘something has changed’.  Controllers act directly on the model / model adapter layer and don’t typically raise events.  The model layer doesn’t listen for events, but can generate notification events.</p>
+<p><img src="/projects/patterns/images/hexmvc/image15.png" alt=""></p>
+<h3 id="controller">Controller</h3>
+<p>The controller makes available an abstract chunk of information that the view renders, so in that sense a HexMvc controller is like a traditional web controller class.</p>
+<ul>
+<li>
+<p>Controller listens for GUI command messages</p>
+</li>
+<li>
+<p>Responds by implementing the business logic  - optionally uses command objects to do the work</p>
+</li>
+<li>
+<p>Talks to the model adapter and other adapters</p>
+</li>
+<li>
+<p>Offers other functionality that can get invoked directly (not just from eventing) e.g. from the server service. Provides information as implementation independent, abstract chunks e.g. dictionaries, datastructures, vanilla app objects.</p>
+</li>
+</ul>
+<p>Note that controllers shouldn’t get too ‘view specific’ - these roles are performed by the View Adapter.  Choosing templates and constructing juicy, view specific data structures are not jobs for the controller.</p>
+<h3 id="eventing">Eventing</h3>
+<p>I use a simplified eventing system (see in depth discussion on eventing later in this document).</p>
+<h4 id="application-specific-eventing-vs-gui-eventing">Application specific eventing vs gui eventing</h4>
+<p>The adapters is where you implement application specific eventing.  The Gui itself may have some eventing but this is gui implementation specific and not to be confused with the eventing that the application uses.  Its the gui adapter for example, that intercepts gui specific eventing and rasies the appropriate application event.  The gui adapater similarly listens for the appropriate application event and does something with it, like poke values into controls on a windows form.</p>
+<h3 id="the-bootstrapper">The Bootstrapper</h3>
+<p>Instantiation of adapters and the things they adapt (the ‘ring’ objects) should be outside the App.  Theoretically you inject different ring adapters into the app and the app will still work.  That’s the whole point.</p>
+<ul>
+<li>Instantiates all instances of objects</li>
+<li>Injects normal dependencies, wires up the ring adapters to talk to each other if needed</li>
+<li>Can be considered configuration</li>
+</ul>
+<h3 id="dependency-injection">Dependency Injection</h3>
+<p>The bootstrapper has aspects of a factory in that it instantiates the correct objects.</p>
+<p>It then uses dependency injection config bootup everywhere to configure</p>
+<p>When you wire up your objects to point to each other you are doing dependency injection - as long as the objects are not instantiating instances of the objects they are pointing to themselves, and the injection is done from ‘outside’. The objects being injected are thus depending on an abstraction or interface - which is injected later.</p>
+<h2 id="hexmvc-in-detail">HexMvc in Detail</h2>
+<p><img src="/projects/patterns/images/hexmvc/image6.png" alt=""></p>
+<p>All in One HexMvc Diagram</p>
+<h3 id="app-to-gui-boundary">App to GUI boundary</h3>
+<p>Swappable guis, just rewrite the gui adapter</p>
+<p><img src="/projects/patterns/images/hexmvc/image23.png" alt=""></p>
+<h3 id="view">View</h3>
+<p>We should distinguish between the view adapter and the view ‘renderer’/controls.  The latter ‘ring object’ can be hand crafted by code or built by nice high level form building tools - and should have absolutely no knowledge of the app.</p>
+<ul>
+<li>Views renderers are totally dumb.  </li>
+<li>View Adapter on the other hand know both about the dirty details of view controls and how to populate them.</li>
+<li>The View Adapter binds to or overrides GUI specific events and translates these into application events.  Conversely the GUI adapter listens for relevant application events (e.g. model ‘I have changed’) and responds by updating the real GUI.</li>
+<li>The View Adapter talks directly to the app/controller to get information.  Just as with the server adapter, this information is made available as an abstract chunk of information that is independent of the view.  Its up to the view or ther server to ‘render’ it appropriately.</li>
+</ul>
+<p>For example, its the gui adapters that recieve events from e.g. the model, regarding things that change and need to be re-rendered. Anytime you switch GUI implementations, you put in place a different adapter - ensuring it hooks into and participates in the same eventing infrastructure.</p>
+<p>The interface to your alternate gui adapters is, of course, the same.  </p>
+<p>Its the gui adapters that recieve events from e.g. the model, regarding things that change and need to be re-rendered. Anytime you switch GUI implementations, you put in place a different adapter - ensuring it hooks into and participates in the same eventing infrastructure.</p>
+<p>Typically the gui adapter listens for application events and updates the particular gui in a particular way.</p>
+<h3 id="app-to-model-boundary">App to Model boundary</h3>
+<h4 id="model">Model</h4>
+<p>The Model contains the raw domain classes and their relationships.  The model adapter interface is what the app deals with.</p>
+<p>HexMvc favours a thin model approach where the majority of domain and business logic is kept in the  controller because</p>
+<ul>
+<li>A thin model means you can rebuild a model rapidly as needed, for different implementations (see more info on this below).  You preserve the hard domain and business logic in the controller, which never changes.  The App and Controller are the core which never changes.</li>
+<li>A centralised coordinated domain logic with undo/redo in a central place is something I’m trying out at this stage of my programming!</li>
+</ul>
+<p><img src="/projects/patterns/images/hexmvc/image5.png" alt=""></p>
+<p>Here you can see that when the application talks to the model, it talks via an adapter, via an interface.</p>
+<h4 id="eventing-in-the-model-adapter">Eventing in the model adapter</h4>
+<p>Similarly the model adapter is the where model ‘onchange’ application events are raised.  The model remains pure and simple.  The model’s “Add Some Entity” operation is implemented by the model adapter, which pokes the information into the pure model and then its the model adapter which raises the relevant onchange application notification event.</p>
+<h4 id="model-no-longer-at-the-bottom">Model no longer at the bottom</h4>
+<p>It may seem strange to have the model as a sattelite rather than in the heart of the application.  But to put the model inside the app centre would to make the same ‘mistake’ as putting the model at the bottom of the traditional layer cake.  Its not necessarily wrong, its just inflexible and not in the spirit of pluggability.</p>
+<h4 id="why-have-multiple-model-implementations">Why have multiple model implementations?</h4>
+<p>This lets you switch out the model for a differently implemented model.  Now this may sound strange - swapping out a different model, as the model is typically a core part of an application and independent of any particular implementation.  But you need to be able to do this because I found that when implementing a ORM model which auto persists to a db, I had to annotate my classes with a certain syntax.  In my regular OO model, none of this syntax was needed. So I couldn’t use the same source code for my model - my model was not ‘pure’ enough. Implementation details were, rightly or wrongly, creeping into my pure model.  Further evidence of this was that my model implementations operated differently - my OO version had to work harder to store collections, whereas the ORM model had that functionality for free, due to the underlying SQL db.</p>
+<p>Thus switching model implementations is no different to switching out gui implementations.</p>
+<p>That’s why models are out on the ring and not in the centre - they are not reified but are just another application service.  This also means that a thin model approach is best, so that business logic is not duplicated, and can be kept in the core app - which is where I like it best these days anyway.</p>
+<h4 id="different-back-ends-to-a-model">Different ‘back ends’ to a model</h4>
+<p>Model swappability is not to be confused with the idea of different ‘back ends’ to a model.  When you keep the model code the same and switch in different persistence or database backends - that is merely a nice feature of a particular model implementation.  Its an implementation which has some persistence flexibility.  But if I don’t want to conform to that particular e.g. Ruby ActiveRecord paradigm, with its particular model annotations and syntax - I don’t have to.  HexMvc allows me to swap in a totaly different model paradigm, with entirely different model syntax and annotations - its completely flexible.</p>
+<h3 id="model-to-persistence-boundary">Model to Persistence boundary</h3>
+<p>As we said earlier, the model adapter provides the overall interface to the &lsquo;model subsystem&rsquo;. The model adapter methods include model manipulation and access methods, as well as persistence methods. e.g.</p>
+<p><img src="/projects/patterns/images/hexmvc/image7.png" alt=""></p>
+<p>Behind the model adapter is the pure model and possibly a persistence object.  The persistence class is itself adapted behind an interface, so that different persistence techniques can be used.  The model adapter coordinates both the pure model and the swappable persistence class.</p>
+<p><img src="/projects/patterns/images/hexmvc/image20.png" alt=""></p>
+<p>The persistence class knows about the model, it has to, in order to get persistence data in and out of it.</p>
+<p>The underlying real model class provides the model methods, obviously.</p>
+<p>The underlying real persistence class provides the persistence methods.</p>
+<h4 id="different-persistence-techniques">Different persistence techniques</h4>
+<p>Typically you do not need an explicitly coded persistence object ‘backend’ if your model already uses the ORM pattern, and persistes automatically to a db.  And usually you can choose the db vendor through config files.</p>
+<p>But if you are hand-crafting your own persistence backend mechanism which can be swapped for other persistence mechanisms, then the following design seems a reasonable approach.<img src="/projects/patterns/images/hexmvc/image13.png" alt=""></p>
+<h4 id="is-an-abstract-persistence-interface-possible">Is an abstract persistence interface possible?</h4>
+<p>An alternative ‘swappable persistence backend approach’ I tried was to have the model communicate with an abstract persistence interface which you can swap - this prooved too hard. But again, if you can pull it off, that&rsquo;s fine. Just hide all this stuff behind the Model Adapter.</p>
+<h4 id="switchable-db-persistence-backends-to-a-particular-model">Switchable db persistence backends to a ‘particular’ model.</h4>
+<p>Here we are talking about a model that has swappable persistence backends.  As mentioned earlier, the idea of different persistence/implementation ‘back ends’ to a model is to be distinguished from swapping entire model implementations.  </p>
+<ul>
+<li>When you swap model implementations your model code changes and has different code syntax annotations and implementation logic.</li>
+<li>When you swap persistence back-ends, the model code stays the same and a configuration file lets you switch in different a persistence / database backend.</li>
+</ul>
+<h4 id="on-file-names-and-connection-strings">On file names and connection strings</h4>
+<p>The Model Adapter LoadAll() optionally does take a filename as a parameter e.g. LoadAll(‘mydata.txt’). This is fine for when the app wants to specify a persistence file to load/save to and is the common case catered for.  </p>
+<p>If you are e.g. persisting to a database using a connection string, there is now more information to be specified than a mere filename e.g. database name, username, password etc.  We arguably should not contaminate the interface of ModelAdapter with all sorts of Persistence specific methods and parameters - after all, the ModelAdapter must be a straightforward interface that can be implemented by various persistence implementations - so that persistence implementations can be swapped in/out seamlessly.</p>
+<p>The solution is to move this problem into the configuration/wiring/bootup stage where the Persistance object is instantiated and configured. For example, In the case of Sql database persistence, a Persistence class is not needed since the Model is auto persisted.  In this case the ModelSqlAdapter implements the required LoadAll methods by doing nothing. And the connection string etc. is done in the configuration.</p>
+<h3 id="app-to-server-boundary">App to Server boundary</h3>
+<p>Server thread is like another gui layer, just write a different server adapter</p>
+<p><img src="/projects/patterns/images/hexmvc/image22.png" alt=""></p>
+<h4 id="careful-with-your-call-sequence">Careful with your call sequence</h4>
+<p>A slightly different call sequence is needed when providing a server interface to your app.</p>
+<ul>
+<li>You can’t simply have the server subscribe to model onchange notifications, because the server must prepare and return a response immediately - at the end of the incoming request.  </li>
+<li>You can’t can’t have the server raise an application event which the controller then picks up and acts on, because you typically want an immediate response so that a response object can be built.</li>
+</ul>
+<p>This means the server must call directly into the controller and get the information it needs, and the controller must call directly into the model (adapter) to make changes and get results.  This is not strange, this is simply the web mvc approach.</p>
+<p><img src="/projects/patterns/images/hexmvc/image19.png" alt=""></p>
+<h4 id="its-not-necesssarily-a-synchronous--asynchronous-issue">Its not necesssarily a synchronous / asynchronous issue</h4>
+<p>Note that this is not a synchronous / asynchronous issue - since most eventing whilst appearing semantically asynchronous is actually all implemented synchronously.  Its more an issue of incoming function calls on the server needing to do all their work within the same function call, whereas with an eventing approach, work is broken up across several function calls and returned using several function calls.</p>
+<h4 id="implications">Implications</h4>
+<p>This all means that controller commands must be able to be invoked directly or invocable as a result of an event being raised.</p>
+<p>Note that the model can still send its onChange notifications, its just that the server is not hooked up to them - but other subsystems might be.  So this allows for webpages to indirectly affect a desktop GUI view - neat.</p>
+<p><img src="/projects/patterns/images/hexmvc/image3.png" alt=""></p>
+<p>Example of using the REST api via a web browser.  The GUI updates itself simultaneously!</p>
+<p>Aside: Threading introduces a bit of complexity, watch out for communication between threads, added a mutex method on the app, which can do anything needed</p>
+<h2 id="appendix">Appendix</h2>
+<h3 id="adapters">Adapters</h3>
+<p>More elaboration on <a href="/projects/patterns/hexmvc-adapters">HexMVC adapters</a> and Adapter Patterns in general.</p>
+<h3 id="events">Events</h3>
+<p>More elaboration on <a href="/projects/patterns/hexmvc-eventing">HexMVC eventing</a> and Event Patterns in general.</p>
+<h3 id="hexmvc-source-code">HexMVC Source Code</h3>
+<p>Here is the directory of code used to develop the ideas in this article. It contains various versions of implementations, mainly in Python and .NET.  I need to document it sometime.</p>
+<p><a href="https://github.com/abulka/pynsource/tree/master/Research/hexmvc">https://github.com/abulka/pynsource/tree/master/Research/hexmvc</a></p>
+<p>P.S. There is no reason it is located in the <code>pynsource</code> GitHub project directory - it just happened that way. It should be moved to its own repository.</p>
+<h2 id="presentation-in-2012">Presentation in 2012</h2>
+<p>I presented the HexMVC pattern to the Melbourne Patterns Group in 2012.</p>
+<p>Re the talk - yeah it was full on 1.75 hours, 10 people - quite a complex topic.  I got some useful feedback re points that could be clearer etc. A couple of heart felt applauses and one guy came up to me and shook my hand with enthusiasm.   A few others didn&rsquo;t say as much as I hoped - I guess I was looking for a bit more feedback. I probably didn&rsquo;t pause enough and allow audience participation like I normally do - I just barrelled through the material a bit.  Its not easy, esp. - when presenting something complex and new-ish for the first time.</p>
+<h3 id="post-presentation-clarifications">Post Presentation Clarifications</h3>
+<p>Thanks for those who came and listened to my HexMvc talk last night. If anyone is interested in accessing and commenting on the google doc which will soon be an article on my website, please <a href="mailto:abulka@gmail.com">email me</a> for access.  I was also hoping for some ‘peer review’ on my talk so please send me your thoughts if you get time - I would really appreciate the feedback.</p>
+<p>Meanwhile here are some more considered responses to a few of last night’s questions:</p>
+<h4 id="q-whats-the-distinction-between-the-model-and-the-model-adapter">Q: ‘What’s the distinction between the model and the model adapter’</h4>
+<p>A: The application should treat the model adapter as if it were the model. And as Stewart reminded me of my own point (thanks!), the adapter adds the application eventing so that the model is not contaminated with that eventing infrastructure stuff. The adapter also hides model specific operations that are done in different ways e.g. FindThings() lives in the model adapter and is implemented totally differently in the OO model adapter implementation vs. the SQL model adapter implementation (which utilises a fast sql query).  Yes, there seems to be some flexibility re whether you put model subsystem functionality into the model or its model adapter. Certainly business rules and exceptions I would put in the controller, and keep the model subsystem thin.</p>
+<h4 id="q-the-server-becomes-just-another-view">Q: ‘The server becomes just another view’</h4>
+<p>A: Yes - and yey - it all turns out to be very symmetrical.  Though because the services offered by the server REST api are available via http then you might access these services without any sort of browser/view - just trawling for data and making command calls into the application.  Perhaps this subsystem should be called ‘services’ not server?  Done, I’ve renamed it.</p>
+<h4 id="q-why-in-the-diagram-does-the-app-point-to-the-gui-but-in-fact-the-gui-gets-updated-directly-from-the-model-via-notifications">Q: ‘Why in the diagram does the App point to the GUI but in fact the GUI gets updated directly from the model via notifications’</h4>
+<p>A: Good point, my ‘arrows’ and their directions could have been made clearer.  The connection between the core app and the gui is one of composition and rarely used.  Its the eventing from view to controller and from model to view that forms 90% of the communication with the view.  My sequence diagrams showed this, but my overal structural diagram was, let us say, a bit more abstract and loose re this point.  Here is an updated diagram that should make things clearer:</p>
+<p><img src="/projects/patterns/images/hexmvc/image11.png" alt=""></p>
+<p>POST TALK THOUGHTS:</p>
+<p>Look at the ideas of <a href="https://www.google.com/url?q=http://obvious.retromocha.com/&amp;sa=D&amp;source=editors&amp;ust=1644533497596031&amp;usg=AOvVaw3G_JvaDfacMb4Ki6Z4oU07">‘obvious’ framework</a> which is based on Uncle Bob’s thoughts. It has an independent APP and a plugs/jacks approach.</p>
+<p>Asked for more info in a <a href="https://www.google.com/url?q=https://github.com/RetroMocha/obvious/issues/2&amp;sa=D&amp;source=editors&amp;ust=1644533497596383&amp;usg=AOvVaw1J3id81clTw9cpbH3F_u04">github post.</a></p>
 
 	
 		<style>
@@ -520,7 +1043,7 @@
 		<br />
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified January 22, 2022: <a  href="https://github.com/google/docsy-example/commit/ec7ef8dc2ca9fb365ca46c382eeb25f51dfd7dce">major cleanup of home and about pages (ec7ef8d)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified February 11, 2022: <a  href="https://github.com/google/docsy-example/commit/6c1e9f0b785ef98d5ea225f63d1f567ca91bf14d">hexmvc pattern added (6c1e9f0)</a>
 </div>
 </div>
 

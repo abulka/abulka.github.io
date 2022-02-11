@@ -57,21 +57,6 @@ I muse a bit about this in my blog entry on &lt;a href=&#34;https://abulka.githu
     </item>
     
     <item>
-      <title>Projects: Hexmvc</title>
-      <link>https://abulka.github.io/projects/patterns/hexmvc/</link>
-      <pubDate>Mon, 23 Nov 2020 12:59:37 +1100</pubDate>
-      
-      <guid>https://abulka.github.io/projects/patterns/hexmvc/</guid>
-      <description>
-        
-        
-        &lt;p&gt;&lt;strong&gt;HexMVC&lt;/strong&gt; - A new, lightweight, architectural pattern for building applications based on the Hexagonal layered architecture pattern + MVC – presented by Andy Bulka.&lt;/p&gt;
-&lt;p&gt;To be published.&lt;/p&gt;
-
-      </description>
-    </item>
-    
-    <item>
       <title>Projects: Literate Code Mapping</title>
       <link>https://abulka.github.io/projects/big-ideas/lcodemaps/</link>
       <pubDate>Mon, 23 Nov 2020 12:43:14 +1100</pubDate>
@@ -1974,6 +1959,478 @@ Another example is during bootup - some permanent Controllers need to be created
     </item>
     
     <item>
+      <title>Projects: HexMVC</title>
+      <link>https://abulka.github.io/projects/patterns/hexmvc/</link>
+      <pubDate>Fri, 23 Nov 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://abulka.github.io/projects/patterns/hexmvc/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Andy Bulka,&lt;br&gt;
+March 2012&lt;/p&gt;
+&lt;p&gt;A new, architectural pattern for building multi-platform, scalable applications based on ideas from the Hexagonal Architecture pattern + Model View Controller (MVC).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;TLDR:&lt;/strong&gt; Write the application layer but don&amp;rsquo;t import or use any libraries directly.  Wrap all library calls with Adapter objects, so that you can switch to other libraries easily.&lt;/p&gt;
+&lt;h1 id=&#34;projectspatternsimageshexmvcimage16png&#34;&gt;&lt;img src=&#34;https://abulka.github.io/projects/patterns/images/hexmvc/image16.png&#34; alt=&#34;&#34;&gt;&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;This is a draft article, written in 2012. It could do with some further editing, but I&amp;rsquo;ve never gotten around to it, so finally decided to publish it anyway, in 2022.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;abstract&#34;&gt;Abstract&lt;/h2&gt;
+&lt;p&gt;HexMVC - This is my name for an architectural pattern that has arisen out of some long term research into PureMVC and ways to simplify it. Its also an attempt to fix some of the unsatisfactory aspects of traditional layered architectures by incorporating some core ideas out of the mysterious Hexagonal Architecture pattern.  The hexagonal structure allows us to put the model on a more equal footing with other layers - rather than always having the model ‘at the bottom’.  Its a rejection of a complex &amp;lsquo;event&amp;rsquo;-ing framework in favour of multicast delegation based on interfaces. It uses dependency injection to configure apps to use different libraries and frameworks, whilst keeping the core app the same.&lt;/p&gt;
+&lt;p&gt;I will present a fully functional example code which can be configured to run under pure python or under .NET using a choice of different GUI libraries (wxpython or windows forms or wpf), different server libraries (bottle or .NET). Everything is switchable using config files. The persistence layer is also switchable and the servers implement REST APIs consistent with the services offered by the core App.&lt;/p&gt;
+&lt;p&gt;Note that the example code needs no framework code whatsoever, thus could be considered an architectural pattern - an abstract idea that can be implemented in any language and used in any project.  The pattern lets you develop a core application and swap in &amp;amp; out alternate gui&amp;rsquo;s, persistence and services.  It prescribes how to add app functionality whilst keeping your design clean.&lt;/p&gt;
+&lt;h2 id=&#34;example---python&#34;&gt;Example - Python&lt;/h2&gt;
+&lt;p&gt;Here is a real configuration Python file which assembles, injects and launches my sample application. The application consists of a GUI, a Server, a model with application logic.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;ModelOo&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Model&lt;/span&gt;
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;ModelOoAdapter&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;ModelOoAdapter&lt;/span&gt;
+
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;#from PersistenceOoPickle import Persistence&lt;/span&gt;
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;PersistenceOoHomegrown&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Persistence&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;ServerBottleAdapter&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Server&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;#from ServerMockAdapter import Server&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;ViewWxAdapter&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;MyWxApp&lt;/span&gt;
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;wx&lt;/span&gt;
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;UtilRandomStdpythonAdapter&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;RandomIntFunction&lt;/span&gt;
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;UtilJsonStdpythonAdapter&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;JsonFromDictFunction&lt;/span&gt;
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;App&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;App&lt;/span&gt;
+
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Create Model - Object Oriented instances in memory&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;model_oo&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Model&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;persistence&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Persistence&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;model&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;ModelOoAdapter&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;model_oo&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;persistence&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Create Server&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;server&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Server&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;host&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;localhost&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;port&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;8081&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Create Gui&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;wxapp&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;MyWxApp&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;redirect&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;False&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;gui&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;wxapp&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;myframe&lt;/span&gt;  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# gui mediator inherits from gui rather than wrapping it&lt;/span&gt;
+
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Hook up Utility adapters&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;gui&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;random&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;RandomIntFunction&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;server&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;json_from_dict&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;JsonFromDictFunction&lt;/span&gt;
+
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Create Core Hexagon App and inject adapters&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;app&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;App&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;model&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;server&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;gui&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;wx&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;CallAfter&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;app&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Boot&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Start Gui&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;wxapp&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;MainLoop&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;example---javascript&#34;&gt;Example - Javascript&lt;/h2&gt;
+&lt;p&gt;Here is a Todo app implementation in Javascript &lt;a href=&#34;https://www.google.com/url?q=http://jsfiddle.net/tcab/mC5qA/&amp;amp;sa=D&amp;amp;source=editors&amp;amp;ust=1644533497537306&amp;amp;usg=AOvVaw2IyZvhDC0eV65oxs-1pTn-&#34;&gt;http://jsfiddle.net/tcab/mC5qA/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/patterns/images/hexmvc/javascript-impl-add.png&#34; alt=&#34;javascript-impl-add&#34;&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;select&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;id&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;list&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;size&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;10&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;style&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;width: 15em&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;select&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;br&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;button&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;id&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;plusBtn&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;gt;&lt;/span&gt;  +  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;button&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;button&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;id&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;minusBtn&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;gt;&lt;/span&gt;  -  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;button&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;/*
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;MODEL
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;*/&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;ListModel&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;items&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;_items&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;items&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;_selectedIndex&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;};&lt;/span&gt;
+ 
+&lt;span style=&#34;color:#000&#34;&gt;ListModel&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;prototype&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+ 
+    &lt;span style=&#34;color:#000&#34;&gt;getItems&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[].&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;concat&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;_items&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;},&lt;/span&gt;
+ 
+    &lt;span style=&#34;color:#000&#34;&gt;addItem&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;item&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;_items&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;push&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;item&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;},&lt;/span&gt;
+ 
+    &lt;span style=&#34;color:#000&#34;&gt;removeItemAt&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;index&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;item&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;_items&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;index&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;];&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;_items&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;splice&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;index&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+        &lt;span style=&#34;color:#000&#34;&gt;maxindex&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;_items&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;length&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;_selectedIndex&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;maxindex&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;setSelectedIndex&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;maxindex&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+        &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;item&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;},&lt;/span&gt;
+    
+    &lt;span style=&#34;color:#000&#34;&gt;getSelectedIndex&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;_selectedIndex&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;},&lt;/span&gt;
+ 
+    &lt;span style=&#34;color:#000&#34;&gt;setSelectedIndex&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;index&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;_selectedIndex&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;index&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+ 
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;};&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;ListModelAdapter&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;model&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;_model&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;model&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;};&lt;/span&gt;
+
+&lt;span style=&#34;color:#000&#34;&gt;ListModelAdapter&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;prototype&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+ 
+    &lt;span style=&#34;color:#000&#34;&gt;getItems&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;_model&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;getItems&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;();&lt;/span&gt;
+    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;},&lt;/span&gt;
+ 
+    &lt;span style=&#34;color:#000&#34;&gt;addItem&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;item&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;_model&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;addItem&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;item&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+        &lt;span style=&#34;color:#000&#34;&gt;$&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;document&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;).&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;trigger&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;MODEL_THING_ADDED&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;item&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;item&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;});&lt;/span&gt;
+    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;},&lt;/span&gt;
+ 
+    &lt;span style=&#34;color:#000&#34;&gt;removeItemAt&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;index&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;item&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;_model&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;removeItemAt&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;index&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+        &lt;span style=&#34;color:#000&#34;&gt;$&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;document&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;).&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;trigger&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;MODEL_CHANGED&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;item&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;item&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;});&lt;/span&gt;
+    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;},&lt;/span&gt;
+    
+    &lt;span style=&#34;color:#000&#34;&gt;getSelectedIndex&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;_model&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;getSelectedIndex&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;();&lt;/span&gt;
+    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;},&lt;/span&gt;
+ 
+    &lt;span style=&#34;color:#000&#34;&gt;setSelectedIndex&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;index&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;previousIndex&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;_selectedIndex&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;_model&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;setSelectedIndex&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;index&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+        &lt;span style=&#34;color:#000&#34;&gt;$&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;document&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;).&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;trigger&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;MODEL_SELECTION_CHANGED&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;previous&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;previousIndex&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;});&lt;/span&gt;
+    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+    
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;};&lt;/span&gt;
+
+
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;/* 
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;VIEW 
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;*/&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;ListViewAdapter&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;model&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;_model&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;model&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;};&lt;/span&gt;
+ 
+&lt;span style=&#34;color:#000&#34;&gt;ListViewAdapter&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;prototype&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+ 
+    &lt;span style=&#34;color:#000&#34;&gt;show&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;rebuildList&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;();&lt;/span&gt;
+    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;},&lt;/span&gt;
+ 
+    &lt;span style=&#34;color:#000&#34;&gt;rebuildList&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color:#000&#34;&gt;console&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;log&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;VIEW REBUILD with index at &amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;_model&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;getSelectedIndex&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;());&lt;/span&gt;            
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;list&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;#list&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+        &lt;span style=&#34;color:#000&#34;&gt;list&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;html&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;items&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;_model&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;getItems&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;();&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;key&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;in&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;items&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+            &lt;span style=&#34;color:#000&#34;&gt;list&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;append&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;$&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;&amp;lt;option value=&amp;#34;&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;&amp;#34;&amp;gt;&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;items&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;key&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;&amp;lt;/option&amp;gt;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;));&lt;/span&gt; 
+            &lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;++&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+        &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;updateSelected&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;();&lt;/span&gt;
+    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;},&lt;/span&gt;
+    
+    &lt;span style=&#34;color:#000&#34;&gt;updateSelected&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color:#000&#34;&gt;console&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;log&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;VIEW updateSelected &amp;#34;&lt;/span&gt;  &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;_model&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;getSelectedIndex&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;());&lt;/span&gt;
+        &lt;span style=&#34;color:#000&#34;&gt;$&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;#list&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)[&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;].&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;value&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;_model&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;getSelectedIndex&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;();&lt;/span&gt;
+    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;},&lt;/span&gt;
+    
+    &lt;span style=&#34;color:#000&#34;&gt;onAdd&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color:#000&#34;&gt;$&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;document&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;).&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;trigger&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;CMD_ADD_ITEM&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;},&lt;/span&gt;
+    
+    &lt;span style=&#34;color:#000&#34;&gt;onDelete&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color:#000&#34;&gt;$&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;document&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;).&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;trigger&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;CMD_DELETE_ITEM&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;},&lt;/span&gt;
+    
+    &lt;span style=&#34;color:#000&#34;&gt;onListSelectionChanged&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color:#000&#34;&gt;$&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;document&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;).&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;trigger&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;CMD_SELECTION_CHANGED&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;},&lt;/span&gt;
+    
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;};&lt;/span&gt;
+
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;/* 
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;CONTROLLER
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;*/&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;ListController&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;model&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;_model&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;model&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;};&lt;/span&gt;
+ 
+&lt;span style=&#34;color:#000&#34;&gt;ListController&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;prototype&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+ 
+    &lt;span style=&#34;color:#000&#34;&gt;cmdAddItem&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;item&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;prompt&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;Add item:&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;item&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;_model&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;addItem&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;item&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;},&lt;/span&gt;
+ 
+    &lt;span style=&#34;color:#000&#34;&gt;cmdDelItem&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;index&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;_model&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;getSelectedIndex&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;();&lt;/span&gt;
+        &lt;span style=&#34;color:#000&#34;&gt;console&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;log&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;controller delItem &amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;index&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;index&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;_model&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;removeItemAt&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;_model&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;getSelectedIndex&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;());&lt;/span&gt;
+    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;},&lt;/span&gt;
+ 
+    &lt;span style=&#34;color:#000&#34;&gt;cmdUpdateSelected&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color:#000&#34;&gt;console&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;log&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;CONTROLLER updateSelected &amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;target&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;selectedIndex&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;_model&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;setSelectedIndex&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;target&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;selectedIndex&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;},&lt;/span&gt;
+    
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;};&lt;/span&gt;
+
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;/*
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;Bootstrap
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;*/&lt;/span&gt;
+
+&lt;span style=&#34;color:#000&#34;&gt;$&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;//var model = new ListModel([&amp;#39;aaa&amp;#39;, &amp;#39;bbb&amp;#39;, &amp;#39;ccc&amp;#39;, &amp;#39;ddddd&amp;#39;]);
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;model&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;ListModelAdapter&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;ListModel&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;([&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;aaa&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;bbb&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;ccc&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;ddddd&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]));&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;view&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;ListViewAdapter&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;model&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;controller&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;ListController&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;model&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// can also pass in view if you need it.
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;                                               
+    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// Private eventing between gui and gui adapter
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#000&#34;&gt;$&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;#plusBtn&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;).&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;click&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;view&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;onAdd&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;});&lt;/span&gt;
+    &lt;span style=&#34;color:#000&#34;&gt;$&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;#minusBtn&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;).&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;click&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;view&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;onDelete&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;});&lt;/span&gt;
+    &lt;span style=&#34;color:#000&#34;&gt;$&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;#list&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;).&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;change&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;view&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;onListSelectionChanged&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;});&lt;/span&gt;
+    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// More abstract application eventing
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#000&#34;&gt;$&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;document&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;).&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;bind&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;CMD_ADD_ITEM&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;controller&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;cmdAddItem&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;();&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;});&lt;/span&gt;
+    &lt;span style=&#34;color:#000&#34;&gt;$&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;document&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;).&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;bind&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;CMD_DELETE_ITEM&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;controller&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;cmdDelItem&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;();&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;});&lt;/span&gt;
+    &lt;span style=&#34;color:#000&#34;&gt;$&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;document&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;).&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;bind&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;CMD_SELECTION_CHANGED&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;info&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;controller&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;cmdUpdateSelected&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;info&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;});&lt;/span&gt;                                           
+    &lt;span style=&#34;color:#000&#34;&gt;$&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;document&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;).&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;bind&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;MODEL_THING_ADDED&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;info&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;view&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;rebuildList&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;();&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;});&lt;/span&gt;
+    &lt;span style=&#34;color:#000&#34;&gt;$&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;document&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;).&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;bind&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;MODEL_CHANGED&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;info&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;view&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;rebuildList&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;();&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;});&lt;/span&gt;
+    &lt;span style=&#34;color:#000&#34;&gt;$&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;document&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;).&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;bind&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;MODEL_SELECTION_CHANGED&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;info&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;view&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;updateSelected&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;();&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;});&lt;/span&gt;
+                                                 
+    &lt;span style=&#34;color:#000&#34;&gt;view&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;show&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;();&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;});&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;There are more source code implementations in &lt;a href=&#34;https://abulka.github.io/projects/patterns/hexmvc/#hexmvc-source-code&#34;&gt;the appendix&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;hexmvc-history&#34;&gt;HexMvc History&lt;/h2&gt;
+&lt;h3 id=&#34;mgm-days&#34;&gt;MGM days&lt;/h3&gt;
+&lt;p&gt;My initial simplification and re-telling of MVC came with my &lt;a href=&#34;https://abulka.github.io/projects/patterns/mvca-pattern/&#34;&gt;MGM pattern&lt;/a&gt; where I simply said (well perhaps not so simply, given that it was a paper for a design patterns conference) was that in these (more modern) days where we have proper, sophisticated GUI widgets with eventing and self rendering - there was a need to retell the MVC story - which was traditionally also looking after all eventing, user interaction and even rendering of the GUI.&lt;/p&gt;
+&lt;p&gt;So I came up with MGM (model-gui-mediator) where the mediator took on the roles of intercepting events from the GUI widget, sticking info into the model, and also of populating the GUI with fresh information.  The “mediator” class (the last “M” in MGM - although visually it sat more in the middle - between the model and the gui) was a controller and view adapter in one - whereas these days I would separate these two roles, as you will see in HexMVC.  &lt;/p&gt;
+&lt;p&gt;The benefit of this variation of the MVC design pattern was that was practical and minimalist.  It dealt with the reality of modern gui widgets, whether they be GUI widgets or html DOM elements and created only a single class that mediated with a model.  In a sense it was the simplest MVC possible, whilst retaining model and gui separation.&lt;/p&gt;
+&lt;h3 id=&#34;next-steps&#34;&gt;Next steps&lt;/h3&gt;
+&lt;p&gt;As I learned more about the roles involved in MVC, and encountered variants that teased apart those roles more fully (like pureMVC) I became interested in upscaling my MVC approach a little so that it was more all encompassing and took into account whole-application considerations, like providing a central controller layer for housing many ‘commands’.  &lt;/p&gt;
+&lt;p&gt;Then I became interested in bootstrapping the wiring of whole apps with MVC architectures, and eventually in the swappability of guis and models - which led to HexMVC.&lt;/p&gt;
+&lt;h3 id=&#34;hexmvc-in-a-nutshell&#34;&gt;HexMVC in a nutshell&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;TLDR:&lt;/strong&gt; Write the application layer but don&amp;rsquo;t import or use any libraries directly.  Wrap all library calls with Adapter objects, so that you can switch to other libraries easily.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;HexMVC says that there must be a view class that looks after the off the shelf GUI widget (or in the case of the browser, the DOM element).  In the wild, the term “view” is ambiguous and sometimes means the gui adapter or the gui or both.  I use the term view adapter for the class that looks after the widget/DOM element.&lt;/p&gt;
+&lt;p&gt;So far this is not controversial.  HexMVC then goes on to say a few more interesting things:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Firstly, that models and GUI widgets should be treated on an equal footing, and be “adapted”.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Secondly, that generic, application eventing should occur between adapters and a central controller - any private eventing between the gui and its adapter should remain private. In the case of model adapters, they implement all the eventing and the models remain pure.  &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Lastly, the application and controller are bound together as the “application hub”, which may be split into many command objects. The application layer talks to the orbiting sattelite functionality via the adapter interfaces, and thus the application is insulated from changes in the “implementation”.  Adapters can, more efficiently, also talk to each other directly, but again, only through the adapter interfaces.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;More broadly, the HexMVC approach is wired up through dependency injection and eventing and as you may have noticed, the use of adapters - more specifically families of adapters - so that different implementations can be plugged in without the application noticing.  An adapter is essentially a ‘driver’ you install for a particular implementation being used - like a new printer driver for a new printer.  That’s where the ‘hex’ comes into it, from the ‘hexagonal’ architecture pattern idea (later renamed “ports and adapters”).&lt;/p&gt;
+&lt;h3 id=&#34;rules-and-roles&#34;&gt;Rules and Roles:&lt;/h3&gt;
+&lt;p&gt;Note: when I say ‘notifies’ I mean via notifications via eventing - which is managed/wired up by dependency injection - and not through layers actually knowing about each other.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;view layer notifies controller, model layer usually does not notify controller, but it could.&lt;/li&gt;
+&lt;li&gt;model layer often efficiently notifies view layer directly, yes.&lt;/li&gt;
+&lt;li&gt;view layer can read from model later directly, yes - but not modify it.&lt;/li&gt;
+&lt;li&gt;controller can manipulate both model and view layers.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;layered-architectures&#34;&gt;Layered Architectures&lt;/h2&gt;
+&lt;p&gt;I had always been fascinated by the idea of pluggable, modular application designs where you could plug in decoupled services/functionality into an app.  Its a truth that adding functionality adds complexity almost exponentially - it becomes harder and harder to add features without introducing problems and inteference.  I wanted a way out of that.&lt;/p&gt;
+&lt;p&gt;Simple layering:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/patterns/images/hexmvc/image8.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;A recent talk I gave on layered architectures reinforced the benefits of layering. However I found numerous people talking about the limitations of having the model ‘at the bottom’ of the layering stack.  Plus lots of people were introducing an ‘infrastructure layer’ which stood vertically and had access to all layers.  &lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/patterns/images/hexmvc/image1.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Finally, there were all these techniques for breaking out of layers, like broadcast notifications, eventing and dependency injection.  So I got to thinking that maybe a different metaphor was needed, something a bit less vertical, and more like a circle.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/patterns/images/hexmvc/image10.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Possible evolution of layering&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;When teaching design patterns courses including sessions about the adapter pattern, I would always end that particular session with the idea of using adapters as a way of insulating an app from the ‘bad outside world’ and adapt all external libraries.  It was a radical, intriguiing idea - possibly a bit impractical and theoretical. So I ended up trying to build such a system anyway.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/patterns/images/hexmvc/image18.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Alistair Cockburn described a &lt;a href=&#34;https://www.google.com/url?q=http://alistair.cockburn.us/Hexagonal%2Barchitecture&amp;amp;sa=D&amp;amp;source=editors&amp;amp;ust=1644533497539284&amp;amp;usg=AOvVaw2f2mT_1Zk2v3iJ84jJRrNP&#34;&gt;hexagonal architecture&lt;/a&gt; (later renamed Ports and Adapters pattern) which had services, gui’s, db, etc. around a central app.  The application talked to adapters.  &lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/patterns/images/hexmvc/image24.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;The hexagonal architecture&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;This was the architecture I was intrigued by, but there were no reference implementations, and a lot of the writing on the webpage seemed theoretical and sketchy - like a half baked idea that nobody had actually tried.  So I went ahead and built something similar - as simply as possible.&lt;/p&gt;
+&lt;p&gt;I had always liked the &lt;a href=&#34;https://www.google.com/url?q=http://puremvc.org/&amp;amp;sa=D&amp;amp;source=editors&amp;amp;ust=1644533497539894&amp;amp;usg=AOvVaw0krRSlmvdpyy7V-x2aGNRS&#34;&gt;PureMvc&lt;/a&gt; pattern, which was a bold retelling of the mvc architecture pattern.  It described all the roles in an mvc architecture, and provided strict rules as to who knows who and how the sequence of interactions went.  I wrote a number of &lt;a href=&#34;https://www.google.com/url?q=http://www.andypatterns.com/index.php/blog/puremvc_refactor/&amp;amp;sa=D&amp;amp;source=editors&amp;amp;ust=1644533497540127&amp;amp;usg=AOvVaw1wOxO1elRARnO7oLGybGMF&#34;&gt;articles&lt;/a&gt; about it.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/patterns/images/hexmvc/image2.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;It is a framework and has been ported to most languages.  In practice I found it effective though tedious because of all the rules and registrations - and with its home grown eventing system it is tedious to declare event types, register handlers etc.  I wanted something simpler, whilst keeping the good stuff.  When I implemented an early/partial HexMvc version of a minimal PureMvc sample app, I was able to remove all references to the PureMvc framework and simplify the resulting application - the cost was a dozen extra lines of code to get it working the same.  But being able to remove an entire framework and get the the same result was certainly encouraging.&lt;/p&gt;
+&lt;h2 id=&#34;hexmvc-fundamentals&#34;&gt;HexMVC Fundamentals&lt;/h2&gt;
+&lt;h3 id=&#34;app-in-the-centre&#34;&gt;App in the centre&lt;/h3&gt;
+&lt;p&gt;We start the basic hexagonal architecture with the idea of application in the core.&lt;/p&gt;
+&lt;p&gt;The application talks to interfaces, which are implemented by adapters.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/patterns/images/hexmvc/image11.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;The controller too, lives inside the central app hub.&lt;/em&gt;&lt;/p&gt;
+&lt;h4 id=&#34;the-app&#34;&gt;The App&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Holds refs to the core adapters (server, gui, model)&lt;/li&gt;
+&lt;li&gt;Wires the core adapters so they know about the app&lt;/li&gt;
+&lt;li&gt;App has job of housing the domain logic and app logic and thus the controller/commands.&lt;/li&gt;
+&lt;li&gt;App sometimes mediates - calls come in and the app sends them out again. Defines one or two methods that an adapter may need (e.g. for that adapter to communicate some info to or get some info from another adapter)  Mediation role.&lt;/li&gt;
+&lt;li&gt;Defines Boot() and Shutdown()&lt;/li&gt;
+&lt;li&gt;Injects multicast dependencies&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Note the app does not instantiate objects - this is done by the bootstrapper.&lt;/p&gt;
+&lt;h4 id=&#34;layers-as-slices-through-the-app-circle&#34;&gt;Layers as slices through the App circle.&lt;/h4&gt;
+&lt;p&gt;Thus we have taken top down layering and making it round a “Application Hub” instead.  If you follow one particular event flow e.g. from gui to model and back again, you get a traditional view-controller-model top down layered cake.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/patterns/images/hexmvc/image17.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;But by allowing for more event flows and more services plugged in to a hub, we get a more flexible and interesting architecture, which is still a layered one.  Thus you can get different layers depending on where you start and where you finish.  Nobody is ‘on top’ or ‘on the bottom’.&lt;/p&gt;
+&lt;p&gt;E.g. I add a server layer which provides REST services to the web, as an example of another significant layer.&lt;/p&gt;
+&lt;h4 id=&#34;interfaces-everywhere&#34;&gt;Interfaces Everywhere&lt;/h4&gt;
+&lt;p&gt;As GOF says in its introduction, one of the main two OO principles is “Program to an interface, not an implementation”.  This allows clients to be decoupled from the implementation.&lt;/p&gt;
+&lt;h4 id=&#34;adpaters-everywhere&#34;&gt;Adpaters Everywhere&lt;/h4&gt;
+&lt;p&gt;In HexMvc we write adapters to implement the interfaces. The adapters’ purpose is to provide a level of indirection between the application logic and the substantive thing the application is talking to.&lt;/p&gt;
+&lt;h3 id=&#34;hexmvc-control-flow&#34;&gt;HexMvc Control flow&lt;/h3&gt;
+&lt;p&gt;In HexMvc I pretty much follow the PureMvc rules and call sequences.&lt;/p&gt;
+&lt;h4 id=&#34;the-rules&#34;&gt;The rules&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;The Model notifies, but doesn&amp;rsquo;t listen and ultimately knows nothing about anything else in the system.&lt;/li&gt;
+&lt;li&gt;View sends messages to controller and listens for incoming messages from model.&lt;/li&gt;
+&lt;li&gt;Controller commands are created and invoked by certain messages and they send out messages if they want to.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;the-typical-call-sequence&#34;&gt;The typical call sequence&lt;/h4&gt;
+&lt;p&gt;Here the gui adapter raises command events and listens for notification events.  A command event is an event that causes the controller to do something (which may then indirectly instantiate a command object to the work).  A notification event would be e.g. the model layer saying ‘something has changed’.  Controllers act directly on the model / model adapter layer and don’t typically raise events.  The model layer doesn’t listen for events, but can generate notification events.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/patterns/images/hexmvc/image15.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;controller&#34;&gt;Controller&lt;/h3&gt;
+&lt;p&gt;The controller makes available an abstract chunk of information that the view renders, so in that sense a HexMvc controller is like a traditional web controller class.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Controller listens for GUI command messages&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Responds by implementing the business logic  - optionally uses command objects to do the work&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Talks to the model adapter and other adapters&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Offers other functionality that can get invoked directly (not just from eventing) e.g. from the server service. Provides information as implementation independent, abstract chunks e.g. dictionaries, datastructures, vanilla app objects.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Note that controllers shouldn’t get too ‘view specific’ - these roles are performed by the View Adapter.  Choosing templates and constructing juicy, view specific data structures are not jobs for the controller.&lt;/p&gt;
+&lt;h3 id=&#34;eventing&#34;&gt;Eventing&lt;/h3&gt;
+&lt;p&gt;I use a simplified eventing system (see in depth discussion on eventing later in this document).&lt;/p&gt;
+&lt;h4 id=&#34;application-specific-eventing-vs-gui-eventing&#34;&gt;Application specific eventing vs gui eventing&lt;/h4&gt;
+&lt;p&gt;The adapters is where you implement application specific eventing.  The Gui itself may have some eventing but this is gui implementation specific and not to be confused with the eventing that the application uses.  Its the gui adapter for example, that intercepts gui specific eventing and rasies the appropriate application event.  The gui adapater similarly listens for the appropriate application event and does something with it, like poke values into controls on a windows form.&lt;/p&gt;
+&lt;h3 id=&#34;the-bootstrapper&#34;&gt;The Bootstrapper&lt;/h3&gt;
+&lt;p&gt;Instantiation of adapters and the things they adapt (the ‘ring’ objects) should be outside the App.  Theoretically you inject different ring adapters into the app and the app will still work.  That’s the whole point.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Instantiates all instances of objects&lt;/li&gt;
+&lt;li&gt;Injects normal dependencies, wires up the ring adapters to talk to each other if needed&lt;/li&gt;
+&lt;li&gt;Can be considered configuration&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;dependency-injection&#34;&gt;Dependency Injection&lt;/h3&gt;
+&lt;p&gt;The bootstrapper has aspects of a factory in that it instantiates the correct objects.&lt;/p&gt;
+&lt;p&gt;It then uses dependency injection config bootup everywhere to configure&lt;/p&gt;
+&lt;p&gt;When you wire up your objects to point to each other you are doing dependency injection - as long as the objects are not instantiating instances of the objects they are pointing to themselves, and the injection is done from ‘outside’. The objects being injected are thus depending on an abstraction or interface - which is injected later.&lt;/p&gt;
+&lt;h2 id=&#34;hexmvc-in-detail&#34;&gt;HexMvc in Detail&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/patterns/images/hexmvc/image6.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;All in One HexMvc Diagram&lt;/p&gt;
+&lt;h3 id=&#34;app-to-gui-boundary&#34;&gt;App to GUI boundary&lt;/h3&gt;
+&lt;p&gt;Swappable guis, just rewrite the gui adapter&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/patterns/images/hexmvc/image23.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;view&#34;&gt;View&lt;/h3&gt;
+&lt;p&gt;We should distinguish between the view adapter and the view ‘renderer’/controls.  The latter ‘ring object’ can be hand crafted by code or built by nice high level form building tools - and should have absolutely no knowledge of the app.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Views renderers are totally dumb.  &lt;/li&gt;
+&lt;li&gt;View Adapter on the other hand know both about the dirty details of view controls and how to populate them.&lt;/li&gt;
+&lt;li&gt;The View Adapter binds to or overrides GUI specific events and translates these into application events.  Conversely the GUI adapter listens for relevant application events (e.g. model ‘I have changed’) and responds by updating the real GUI.&lt;/li&gt;
+&lt;li&gt;The View Adapter talks directly to the app/controller to get information.  Just as with the server adapter, this information is made available as an abstract chunk of information that is independent of the view.  Its up to the view or ther server to ‘render’ it appropriately.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For example, its the gui adapters that recieve events from e.g. the model, regarding things that change and need to be re-rendered. Anytime you switch GUI implementations, you put in place a different adapter - ensuring it hooks into and participates in the same eventing infrastructure.&lt;/p&gt;
+&lt;p&gt;The interface to your alternate gui adapters is, of course, the same.  &lt;/p&gt;
+&lt;p&gt;Its the gui adapters that recieve events from e.g. the model, regarding things that change and need to be re-rendered. Anytime you switch GUI implementations, you put in place a different adapter - ensuring it hooks into and participates in the same eventing infrastructure.&lt;/p&gt;
+&lt;p&gt;Typically the gui adapter listens for application events and updates the particular gui in a particular way.&lt;/p&gt;
+&lt;h3 id=&#34;app-to-model-boundary&#34;&gt;App to Model boundary&lt;/h3&gt;
+&lt;h4 id=&#34;model&#34;&gt;Model&lt;/h4&gt;
+&lt;p&gt;The Model contains the raw domain classes and their relationships.  The model adapter interface is what the app deals with.&lt;/p&gt;
+&lt;p&gt;HexMvc favours a thin model approach where the majority of domain and business logic is kept in the  controller because&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A thin model means you can rebuild a model rapidly as needed, for different implementations (see more info on this below).  You preserve the hard domain and business logic in the controller, which never changes.  The App and Controller are the core which never changes.&lt;/li&gt;
+&lt;li&gt;A centralised coordinated domain logic with undo/redo in a central place is something I’m trying out at this stage of my programming!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/patterns/images/hexmvc/image5.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Here you can see that when the application talks to the model, it talks via an adapter, via an interface.&lt;/p&gt;
+&lt;h4 id=&#34;eventing-in-the-model-adapter&#34;&gt;Eventing in the model adapter&lt;/h4&gt;
+&lt;p&gt;Similarly the model adapter is the where model ‘onchange’ application events are raised.  The model remains pure and simple.  The model’s “Add Some Entity” operation is implemented by the model adapter, which pokes the information into the pure model and then its the model adapter which raises the relevant onchange application notification event.&lt;/p&gt;
+&lt;h4 id=&#34;model-no-longer-at-the-bottom&#34;&gt;Model no longer at the bottom&lt;/h4&gt;
+&lt;p&gt;It may seem strange to have the model as a sattelite rather than in the heart of the application.  But to put the model inside the app centre would to make the same ‘mistake’ as putting the model at the bottom of the traditional layer cake.  Its not necessarily wrong, its just inflexible and not in the spirit of pluggability.&lt;/p&gt;
+&lt;h4 id=&#34;why-have-multiple-model-implementations&#34;&gt;Why have multiple model implementations?&lt;/h4&gt;
+&lt;p&gt;This lets you switch out the model for a differently implemented model.  Now this may sound strange - swapping out a different model, as the model is typically a core part of an application and independent of any particular implementation.  But you need to be able to do this because I found that when implementing a ORM model which auto persists to a db, I had to annotate my classes with a certain syntax.  In my regular OO model, none of this syntax was needed. So I couldn’t use the same source code for my model - my model was not ‘pure’ enough. Implementation details were, rightly or wrongly, creeping into my pure model.  Further evidence of this was that my model implementations operated differently - my OO version had to work harder to store collections, whereas the ORM model had that functionality for free, due to the underlying SQL db.&lt;/p&gt;
+&lt;p&gt;Thus switching model implementations is no different to switching out gui implementations.&lt;/p&gt;
+&lt;p&gt;That’s why models are out on the ring and not in the centre - they are not reified but are just another application service.  This also means that a thin model approach is best, so that business logic is not duplicated, and can be kept in the core app - which is where I like it best these days anyway.&lt;/p&gt;
+&lt;h4 id=&#34;different-back-ends-to-a-model&#34;&gt;Different ‘back ends’ to a model&lt;/h4&gt;
+&lt;p&gt;Model swappability is not to be confused with the idea of different ‘back ends’ to a model.  When you keep the model code the same and switch in different persistence or database backends - that is merely a nice feature of a particular model implementation.  Its an implementation which has some persistence flexibility.  But if I don’t want to conform to that particular e.g. Ruby ActiveRecord paradigm, with its particular model annotations and syntax - I don’t have to.  HexMvc allows me to swap in a totaly different model paradigm, with entirely different model syntax and annotations - its completely flexible.&lt;/p&gt;
+&lt;h3 id=&#34;model-to-persistence-boundary&#34;&gt;Model to Persistence boundary&lt;/h3&gt;
+&lt;p&gt;As we said earlier, the model adapter provides the overall interface to the &amp;lsquo;model subsystem&amp;rsquo;. The model adapter methods include model manipulation and access methods, as well as persistence methods. e.g.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/patterns/images/hexmvc/image7.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Behind the model adapter is the pure model and possibly a persistence object.  The persistence class is itself adapted behind an interface, so that different persistence techniques can be used.  The model adapter coordinates both the pure model and the swappable persistence class.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/patterns/images/hexmvc/image20.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;The persistence class knows about the model, it has to, in order to get persistence data in and out of it.&lt;/p&gt;
+&lt;p&gt;The underlying real model class provides the model methods, obviously.&lt;/p&gt;
+&lt;p&gt;The underlying real persistence class provides the persistence methods.&lt;/p&gt;
+&lt;h4 id=&#34;different-persistence-techniques&#34;&gt;Different persistence techniques&lt;/h4&gt;
+&lt;p&gt;Typically you do not need an explicitly coded persistence object ‘backend’ if your model already uses the ORM pattern, and persistes automatically to a db.  And usually you can choose the db vendor through config files.&lt;/p&gt;
+&lt;p&gt;But if you are hand-crafting your own persistence backend mechanism which can be swapped for other persistence mechanisms, then the following design seems a reasonable approach.&lt;img src=&#34;https://abulka.github.io/projects/patterns/images/hexmvc/image13.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h4 id=&#34;is-an-abstract-persistence-interface-possible&#34;&gt;Is an abstract persistence interface possible?&lt;/h4&gt;
+&lt;p&gt;An alternative ‘swappable persistence backend approach’ I tried was to have the model communicate with an abstract persistence interface which you can swap - this prooved too hard. But again, if you can pull it off, that&amp;rsquo;s fine. Just hide all this stuff behind the Model Adapter.&lt;/p&gt;
+&lt;h4 id=&#34;switchable-db-persistence-backends-to-a-particular-model&#34;&gt;Switchable db persistence backends to a ‘particular’ model.&lt;/h4&gt;
+&lt;p&gt;Here we are talking about a model that has swappable persistence backends.  As mentioned earlier, the idea of different persistence/implementation ‘back ends’ to a model is to be distinguished from swapping entire model implementations.  &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;When you swap model implementations your model code changes and has different code syntax annotations and implementation logic.&lt;/li&gt;
+&lt;li&gt;When you swap persistence back-ends, the model code stays the same and a configuration file lets you switch in different a persistence / database backend.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;on-file-names-and-connection-strings&#34;&gt;On file names and connection strings&lt;/h4&gt;
+&lt;p&gt;The Model Adapter LoadAll() optionally does take a filename as a parameter e.g. LoadAll(‘mydata.txt’). This is fine for when the app wants to specify a persistence file to load/save to and is the common case catered for.  &lt;/p&gt;
+&lt;p&gt;If you are e.g. persisting to a database using a connection string, there is now more information to be specified than a mere filename e.g. database name, username, password etc.  We arguably should not contaminate the interface of ModelAdapter with all sorts of Persistence specific methods and parameters - after all, the ModelAdapter must be a straightforward interface that can be implemented by various persistence implementations - so that persistence implementations can be swapped in/out seamlessly.&lt;/p&gt;
+&lt;p&gt;The solution is to move this problem into the configuration/wiring/bootup stage where the Persistance object is instantiated and configured. For example, In the case of Sql database persistence, a Persistence class is not needed since the Model is auto persisted.  In this case the ModelSqlAdapter implements the required LoadAll methods by doing nothing. And the connection string etc. is done in the configuration.&lt;/p&gt;
+&lt;h3 id=&#34;app-to-server-boundary&#34;&gt;App to Server boundary&lt;/h3&gt;
+&lt;p&gt;Server thread is like another gui layer, just write a different server adapter&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/patterns/images/hexmvc/image22.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h4 id=&#34;careful-with-your-call-sequence&#34;&gt;Careful with your call sequence&lt;/h4&gt;
+&lt;p&gt;A slightly different call sequence is needed when providing a server interface to your app.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;You can’t simply have the server subscribe to model onchange notifications, because the server must prepare and return a response immediately - at the end of the incoming request.  &lt;/li&gt;
+&lt;li&gt;You can’t can’t have the server raise an application event which the controller then picks up and acts on, because you typically want an immediate response so that a response object can be built.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This means the server must call directly into the controller and get the information it needs, and the controller must call directly into the model (adapter) to make changes and get results.  This is not strange, this is simply the web mvc approach.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/patterns/images/hexmvc/image19.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h4 id=&#34;its-not-necesssarily-a-synchronous--asynchronous-issue&#34;&gt;Its not necesssarily a synchronous / asynchronous issue&lt;/h4&gt;
+&lt;p&gt;Note that this is not a synchronous / asynchronous issue - since most eventing whilst appearing semantically asynchronous is actually all implemented synchronously.  Its more an issue of incoming function calls on the server needing to do all their work within the same function call, whereas with an eventing approach, work is broken up across several function calls and returned using several function calls.&lt;/p&gt;
+&lt;h4 id=&#34;implications&#34;&gt;Implications&lt;/h4&gt;
+&lt;p&gt;This all means that controller commands must be able to be invoked directly or invocable as a result of an event being raised.&lt;/p&gt;
+&lt;p&gt;Note that the model can still send its onChange notifications, its just that the server is not hooked up to them - but other subsystems might be.  So this allows for webpages to indirectly affect a desktop GUI view - neat.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/patterns/images/hexmvc/image3.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Example of using the REST api via a web browser.  The GUI updates itself simultaneously!&lt;/p&gt;
+&lt;p&gt;Aside: Threading introduces a bit of complexity, watch out for communication between threads, added a mutex method on the app, which can do anything needed&lt;/p&gt;
+&lt;h2 id=&#34;appendix&#34;&gt;Appendix&lt;/h2&gt;
+&lt;h3 id=&#34;adapters&#34;&gt;Adapters&lt;/h3&gt;
+&lt;p&gt;More elaboration on &lt;a href=&#34;https://abulka.github.io/projects/patterns/hexmvc-adapters&#34;&gt;HexMVC adapters&lt;/a&gt; and Adapter Patterns in general.&lt;/p&gt;
+&lt;h3 id=&#34;events&#34;&gt;Events&lt;/h3&gt;
+&lt;p&gt;More elaboration on &lt;a href=&#34;https://abulka.github.io/projects/patterns/hexmvc-eventing&#34;&gt;HexMVC eventing&lt;/a&gt; and Event Patterns in general.&lt;/p&gt;
+&lt;h3 id=&#34;hexmvc-source-code&#34;&gt;HexMVC Source Code&lt;/h3&gt;
+&lt;p&gt;Here is the directory of code used to develop the ideas in this article. It contains various versions of implementations, mainly in Python and .NET.  I need to document it sometime.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/abulka/pynsource/tree/master/Research/hexmvc&#34;&gt;https://github.com/abulka/pynsource/tree/master/Research/hexmvc&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;P.S. There is no reason it is located in the &lt;code&gt;pynsource&lt;/code&gt; GitHub project directory - it just happened that way. It should be moved to its own repository.&lt;/p&gt;
+&lt;h2 id=&#34;presentation-in-2012&#34;&gt;Presentation in 2012&lt;/h2&gt;
+&lt;p&gt;I presented the HexMVC pattern to the Melbourne Patterns Group in 2012.&lt;/p&gt;
+&lt;p&gt;Re the talk - yeah it was full on 1.75 hours, 10 people - quite a complex topic.  I got some useful feedback re points that could be clearer etc. A couple of heart felt applauses and one guy came up to me and shook my hand with enthusiasm.   A few others didn&amp;rsquo;t say as much as I hoped - I guess I was looking for a bit more feedback. I probably didn&amp;rsquo;t pause enough and allow audience participation like I normally do - I just barrelled through the material a bit.  Its not easy, esp. - when presenting something complex and new-ish for the first time.&lt;/p&gt;
+&lt;h3 id=&#34;post-presentation-clarifications&#34;&gt;Post Presentation Clarifications&lt;/h3&gt;
+&lt;p&gt;Thanks for those who came and listened to my HexMvc talk last night. If anyone is interested in accessing and commenting on the google doc which will soon be an article on my website, please &lt;a href=&#34;mailto:abulka@gmail.com&#34;&gt;email me&lt;/a&gt; for access.  I was also hoping for some ‘peer review’ on my talk so please send me your thoughts if you get time - I would really appreciate the feedback.&lt;/p&gt;
+&lt;p&gt;Meanwhile here are some more considered responses to a few of last night’s questions:&lt;/p&gt;
+&lt;h4 id=&#34;q-whats-the-distinction-between-the-model-and-the-model-adapter&#34;&gt;Q: ‘What’s the distinction between the model and the model adapter’&lt;/h4&gt;
+&lt;p&gt;A: The application should treat the model adapter as if it were the model. And as Stewart reminded me of my own point (thanks!), the adapter adds the application eventing so that the model is not contaminated with that eventing infrastructure stuff. The adapter also hides model specific operations that are done in different ways e.g. FindThings() lives in the model adapter and is implemented totally differently in the OO model adapter implementation vs. the SQL model adapter implementation (which utilises a fast sql query).  Yes, there seems to be some flexibility re whether you put model subsystem functionality into the model or its model adapter. Certainly business rules and exceptions I would put in the controller, and keep the model subsystem thin.&lt;/p&gt;
+&lt;h4 id=&#34;q-the-server-becomes-just-another-view&#34;&gt;Q: ‘The server becomes just another view’&lt;/h4&gt;
+&lt;p&gt;A: Yes - and yey - it all turns out to be very symmetrical.  Though because the services offered by the server REST api are available via http then you might access these services without any sort of browser/view - just trawling for data and making command calls into the application.  Perhaps this subsystem should be called ‘services’ not server?  Done, I’ve renamed it.&lt;/p&gt;
+&lt;h4 id=&#34;q-why-in-the-diagram-does-the-app-point-to-the-gui-but-in-fact-the-gui-gets-updated-directly-from-the-model-via-notifications&#34;&gt;Q: ‘Why in the diagram does the App point to the GUI but in fact the GUI gets updated directly from the model via notifications’&lt;/h4&gt;
+&lt;p&gt;A: Good point, my ‘arrows’ and their directions could have been made clearer.  The connection between the core app and the gui is one of composition and rarely used.  Its the eventing from view to controller and from model to view that forms 90% of the communication with the view.  My sequence diagrams showed this, but my overal structural diagram was, let us say, a bit more abstract and loose re this point.  Here is an updated diagram that should make things clearer:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/patterns/images/hexmvc/image11.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;POST TALK THOUGHTS:&lt;/p&gt;
+&lt;p&gt;Look at the ideas of &lt;a href=&#34;https://www.google.com/url?q=http://obvious.retromocha.com/&amp;amp;sa=D&amp;amp;source=editors&amp;amp;ust=1644533497596031&amp;amp;usg=AOvVaw3G_JvaDfacMb4Ki6Z4oU07&#34;&gt;‘obvious’ framework&lt;/a&gt; which is based on Uncle Bob’s thoughts. It has an independent APP and a plugs/jacks approach.&lt;/p&gt;
+&lt;p&gt;Asked for more info in a &lt;a href=&#34;https://www.google.com/url?q=https://github.com/RetroMocha/obvious/issues/2&amp;amp;sa=D&amp;amp;source=editors&amp;amp;ust=1644533497596383&amp;amp;usg=AOvVaw1J3id81clTw9cpbH3F_u04&#34;&gt;github post.&lt;/a&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Projects: Design Pattern Automation</title>
       <link>https://abulka.github.io/projects/patterns/design-pattern-automation/</link>
       <pubDate>Fri, 04 Jan 2002 00:00:00 +0000</pubDate>
@@ -2001,6 +2458,407 @@ Another example is during bootup - some permanent Controllers need to be created
 &lt;p&gt;As part of my Design Pattern Automation - Part 2 talk, I recorded some of that session.  Here is a youtube &lt;a href=&#34;http://www.youtube.com/watch?v=IjKClDX2dUU&#34;&gt;video&lt;/a&gt; of how to apply design patterns using IBM&amp;rsquo;s &lt;a href=&#34;http://www-01.ibm.com/software/rational/uml/products.html&#34;&gt;Rational&lt;/a&gt; tool.  Apologies about the sound quality - just look at the pictures!&lt;/p&gt;
 &lt;p&gt;Demonstration of Patterns in IBM&amp;rsquo;s Rational tool.
 &lt;a href=&#34;http://www.youtube.com/watch?v=IjKClDX2dUU&#34;&gt;http://www.youtube.com/watch?v=IjKClDX2dUU&lt;/a&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Projects: </title>
+      <link>https://abulka.github.io/projects/patterns/hexmvc-adapters/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://abulka.github.io/projects/patterns/hexmvc-adapters/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;hexmvc-adapters---appendix&#34;&gt;Hexmvc Adapters - Appendix&lt;/h1&gt;
+&lt;p&gt;Andy Bulka,&lt;br&gt;
+March 2012&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://abulka.github.io/projects/patterns/hexmvc/#appendix&#34;&gt;Back&lt;/a&gt; to main HexMVC Pattern.&lt;/p&gt;
+&lt;h2 id=&#34;adapter-design-patterns&#34;&gt;Adapter Design Patterns&lt;/h2&gt;
+&lt;p&gt;In HexMvc the adapter implementing interfaces is everywhere.  What pattern is this?  Obviously Adapter Pattern is a leading candidate.&lt;/p&gt;
+&lt;h3 id=&#34;talking-to-interfaces-vs-adapter-pattern&#34;&gt;Talking to Interfaces vs Adapter Pattern&lt;/h3&gt;
+&lt;p&gt;You could just call it the talking to Interfaces pattern.  As GOF says in its introduction, one of the main two OO principles is “Program to an interface, not an implementation” (&lt;a href=&#34;https://www.google.com/url?q=http://en.wikipedia.org/wiki/Design_Patterns&amp;amp;sa=D&amp;amp;source=editors&amp;amp;ust=1644533497554983&amp;amp;usg=AOvVaw30KiM_D9_kzY0M2auYsYp0&#34;&gt;Gang of Four&lt;/a&gt; 1995:18).  This allows clients to be decoupled from the implementation.&lt;/p&gt;
+&lt;p&gt;The swappability of implementation we gain in ‘talking to interfaces’ is not enough for HexMvc purposes.  Adapters give us more flexibility e.g. the Adaptee need not know about our HexMvc architecture and can remain dumb.  This is critical.  The Adaptee (e.g. a model, a gui form, a utility class) shouldn’t need to change in order to participate in HexMvc.&lt;/p&gt;
+&lt;p&gt;Let’s take a step back&amp;hellip;&lt;/p&gt;
+&lt;p&gt;Both the talking to an interface pattern and the adapter pattern have some aspects of strategy.   With strategy pattern, the client talks to a ‘context’ class which uses different strategy objects to delegate the work to.&lt;/p&gt;
+&lt;p&gt;Talking to an interface is a type of strategy pattern viz. the ‘context’ that the client talks to is the interface abstraction and the strategy is the choice of implementation.  &lt;/p&gt;
+&lt;p&gt;With adapter pattern, the ‘context’ that the client talks to is the adapter class (which may or may not implement an interface abstraction) and the strategy is some concrete code the adapter refers to (either by delegation or by inheritance).&lt;/p&gt;
+&lt;p&gt;There are differences in when the strategy gets swapped in.  With classic strategy you can swap strategies at runtime, whilst talking to the same context object all the time.  With talking to an interface pattern you swap ‘interface implementation’ strategies at compile time only.  With a family of adapters pattern, this too is typically compile time only - you choose one adapter or another for your client code to talk to.  Of course in dynamic languages there is a little bit more flexibility - but that’s the gist of the intents involved with these patterns.&lt;/p&gt;
+&lt;p&gt;The adapter pattern allows for some absorbtion/level of indirection between the client code and the implementation code - whereas the talking to interfaces pattern does not.  &lt;/p&gt;
+&lt;p&gt;The adapter pattern, classically, allows us to adapt the implementation into a more useful interface that the client sees. This may turn out to mean a larger or smaller number of methods than the underlying implementation - depending on the situation.  Furthermore, it allows for added value in the adapter, for example a higher level function in the adapter that loops and repeatedly calls a lower level function in the implementation.&lt;/p&gt;
+&lt;p&gt;Sure you could add this high level functionality into the implementation directly and not bother with the adapter pattern, sticking with the talking to an interface pattern. You may not need the&lt;/p&gt;
+&lt;p&gt;‘absorbtion/level of indirection’ between the client code and the implementation.  Often it turns out that this absorbtion/level of indirection is critical, because often we don’t want to touch our implementation code.  In the case of GUIs the view code is often generated by a third party tool, thus cannot be altered anyway, so the adapter gives us a place for adding our own view logic. Also the view adapter is a great place to translate from GUI events to application eventing.  In the case of Models, the adapter code is a great place to add application eventing/broadcasting without contaminating the models with this stuff.  In Services, the adapter is running in the same thread as the application whereas the server services thread is catering for incoming requests.&lt;/p&gt;
+&lt;p&gt;Arguably the adding of eventing is really more of a proxy pattern, as we are not so much changing an interface but adding a transparent layer of eventing around it.  We might even be said to be decorating it.  Then as we find ourselves adding further functionality to our adapter, we could say our adapters are in fact mediating not just adapting - PureMvc argues this.  There is a valid point here e.g. my model oo adapter coordinates the underlying model and persistence objects.  And the view adapter will often coordinate and update several gui controls in response to a update application event.  Then as our adapters take on even more functionality, they perhaps become less adapters or mediators and become fully fledged classes doing heavy work.  But pushing back on the argument a little from the other direction - just because a class becomes complex doesn’t mean it loses its ‘nature’ and role in terms of design patterns.  You can have simple or complex mediators.  You can have a class that performs the role of a mediator whilst at the same time performing other roles - multiple roles per class is perfectly ok.  Similarly, you could argue that a thick adapter is still an adapter, and that an adapter that mediates is still an adapter - as long as the essential role of adaptation is is being performed somewhere.&lt;/p&gt;
+&lt;p&gt;The adapter pattern may be at first glance only for thin adaptation of one api for another.  But when you get into the idea of a family of adapters implementing a common interface, then you are starting to get into ‘Bridge Pattern’ territory where adapters become more like ‘drivers’.  When you swap out an implementation you swap out its driver as well.  Then you swap in a new driver that supports some other implementation - and the rest of the system is none the wiser.  This use of adapter fits perfectly with the use of adapter in HexMvc.&lt;/p&gt;
+&lt;p&gt;The adapter is the place where you implement the promised functionality of the adapter interface - only you do it in different ways depending on the implementation.  Try doing that with a mere ‘talking to interfaces’ pattern - you would have to actually get into your implementation code and add the promised methods to it - a big ask.  You may not have access to the adaptee implementation source code, or you may not want to change it.  On the other hand with an adapter absorbing these differences, you are saved.  E.g. my model adapter actually hides model specific operations that are done in different ways e.g. FindThings() lives in the model adapter and is implemented totally differently in the OO model adapter implementation vs. the SQL model adapter implementation (which utilises a fast sql query).&lt;/p&gt;
+&lt;h4 id=&#34;adapter-pattern-sequence-diagram&#34;&gt;Adapter Pattern sequence diagram&lt;/h4&gt;
+&lt;p&gt;Here is the Adapter Pattern sequence diagram:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/patterns/images/hexmvc/image12.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;You must use a different adapter whenever you have a different implementation behind it.  What stays the same is the rest of the app which simply expects the interface of the adapter to be there.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;adapter-design-pattern&#34;&gt;Adapter Design Pattern&lt;/h3&gt;
+&lt;p&gt;There are two classic implementations of adapter – inheritance vs. delegation.  Adapt by&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Class Adapter - inheriting or&lt;/li&gt;
+&lt;li&gt;Object Adapter - composition/wrapping   more common&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/patterns/images/hexmvc/image4.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;typically the latter is used. This is all explained in the GOF design pattern book.&lt;/p&gt;
+&lt;h3 id=&#34;object-adapter-vs-class-adapter&#34;&gt;Object Adapter vs. Class Adapter&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Object Adapter adapts through delegation.  Class Adapter adapts through subclassing.  Sometimes known as the delegation flavour and the inheritance flavor.&lt;/li&gt;
+&lt;li&gt;Class Adapter: Why inherit – well, target may have attributes and other methods that we still want to use.  Thus in the new adapter class we get to use, the old methods are still available (both a benefit and a liability).  &lt;/li&gt;
+&lt;li&gt;Though… class adaption may not work if you are not able to inherit from the old class (e.g. the adapter already iherits from something).  Typically the new adapter class inherits from the old class (the one you are adapting) and implements the new adapter interface.&lt;/li&gt;
+&lt;li&gt;Class Adapter lets you update to a smarter API without existing client code knowing (since the old methods are still there).&lt;/li&gt;
+&lt;li&gt;Object Adapter: Wrapper.  Gets its work done by forwarding requests to the helper/adaptee.  Delegation.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;a-family-of-adapters---strategy-pattern&#34;&gt;A ‘family of adapters’ - Strategy Pattern&lt;/h3&gt;
+&lt;p&gt;Having a an adapter implement an interface is not necessary for the adapter pattern - though it is common (known as the ‘Target’).&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/patterns/images/hexmvc/image14.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;You can go further and have a family of adapters implementing an interface:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/patterns/images/hexmvc/image27.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Using a family of adapters - each concrete adapter adapts a specific class.  &lt;br&gt;
+Client talks to the Adapter interface.&lt;/p&gt;
+&lt;p&gt;When you do have a family of adapters implementing an interface, you get the potential ability to swap out adapter implementations. Thus we end up with something that has an aspect of strategy pattern here. The adapter can act as a strategy.&lt;/p&gt;
+&lt;p&gt;Just take several classes implementing the same functionality, write adapters for them, and ensure that the adapters are implementing the same interface.&lt;/p&gt;
+&lt;p&gt;We can then replace the adapters objects at run time because they implements the same interface.  Client code talks to the concrete adapter through the Adapter Interface (or Adapter Base class) and thus is insulated from change – you can swap in different implementations without the client code knowing.&lt;/p&gt;
+&lt;h4 id=&#34;related-patterns&#34;&gt;Related Patterns&lt;/h4&gt;
+&lt;p&gt;The family of adapters strategy pattern  is not a creational pattern like the &lt;a href=&#34;https://www.google.com/url?q=http://en.wikipedia.org/wiki/Factory_object&amp;amp;sa=D&amp;amp;source=editors&amp;amp;ust=1644533497560171&amp;amp;usg=AOvVaw300HQdGpCMIQc8XTy_-XSL&#34;&gt;Factory Method&lt;/a&gt; design pattern, although the creation of the objects might be done using factory design pattern - nor is it &lt;a href=&#34;https://www.google.com/url?q=http://en.wikipedia.org/wiki/Abstract_factory_pattern&amp;amp;sa=D&amp;amp;source=editors&amp;amp;ust=1644533497560521&amp;amp;usg=AOvVaw39AuZZW0r_HMuqSV671peV&#34;&gt;Abstract Factory&lt;/a&gt; design pattern. Its more of a behavioural or structural pattern.  Strategy is behavioural.&lt;/p&gt;
+&lt;p&gt;There are some similarities to the &lt;a href=&#34;https://www.google.com/url?q=https://www.google.com.au/search?sourceid%3Dchrome%26ie%3DUTF-8%26q%3Dwikipedia%2Bbridge%2Bpattern&amp;amp;sa=D&amp;amp;source=editors&amp;amp;ust=1644533497560941&amp;amp;usg=AOvVaw0MnEiIYqvxtGDDqa1p9z0k&#34;&gt;Bridge&lt;/a&gt; design pattern (structural) which is traditionally used for hooking up different ‘drivers’ to a system. In fact each ‘driver instance’ is an implementation of the Adapter pattern - so that fits. But HexMvc doesn’t have Bridge’s abstraction of the l.h.s. client side of things (which allows for both the client and services to vary independently) - so perhaps we are using a half-bridge, or “Bridge Essentials” pattern.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/patterns/images/hexmvc/image26.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;thick-adapters&#34;&gt;Thick Adapters&lt;/h3&gt;
+&lt;p&gt;But then these are not always simple adapters - they can be complex implementations of an interface.  How thin does an adapter have to be to be called an adapter?  Probably my model and view adapters are too complex to be called mere adapters.  The smaller utility adapters are proper adapters.  The larger adapters are doing a lot more work, and are therefore not mere adapters.&lt;/p&gt;
+&lt;p&gt;But I’ll continue to use the word adapters.&lt;/p&gt;
+&lt;h4 id=&#34;puremvc-calls-them-proxys-and-mediators&#34;&gt;PureMvc calls them proxys and mediators&lt;/h4&gt;
+&lt;p&gt;Note that PureMvc shares a love of adapters, except it calls adapters by many different names.  In PureMvc the model is wrapped by a proxy, the gui is wrapped by a mediator.  In HexMvc I drop these distinctions and name them all adapters.  We may lose some nuanced meanings (which people debate anyway - is a view mediator really a mediator and is it any different to the role done by a model proxy - is that really a proxy too?)  Its simpler and more orthogonal to just make everything an adapter.  Yes, adapters shouldn’t do too much work and should only adapt - so in some cases mediation would be a better word etc.  But hey, its worth it to get the symmetry.&lt;/p&gt;
+&lt;h2 id=&#34;further-adapter-discussion&#34;&gt;Further Adapter Discussion&lt;/h2&gt;
+&lt;p&gt;Types of Adapters in HexMvc&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Major Adapters - these are Adapters for ring objects - real deep functionality e.g. two different servers or two different guis&lt;/li&gt;
+&lt;li&gt;Minor Adapters - which wrap slightly different class libraries - insulating the app from the cold hard implementation world.&lt;/li&gt;
+&lt;li&gt;Mock adapters - can be anywhere - even mocking a major GUI adapter is possible.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;common-functionality-in-adapter-base-classes&#34;&gt;Common functionality in Adapter Base classes&lt;/h4&gt;
+&lt;p&gt;If you find that different adapters are doing the same thing, Adapter Base classes can reduce duplication.  &lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/patterns/images/hexmvc/image21.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;The Adapter Base class can house common implementation or virtual methods that need to be overridden by concrete adapters.&lt;/p&gt;
+&lt;h4 id=&#34;common-functionality-in-the-controller&#34;&gt;Common functionality in the controller&lt;/h4&gt;
+&lt;p&gt;Another, possibly even more important place for common functionality is in the controller.  For example in my sample implementation of server addapters - they don’t share a base class.  Instead the controller houses deep, commong functionality like getting model info into a suitable structure for the server adpaters.  &lt;/p&gt;
+&lt;p&gt;The server adapters also use utility functions for converting to json or xml etc.&lt;/p&gt;
+&lt;h4 id=&#34;smaller-adapters-not-plugged-into-the-hub&#34;&gt;Smaller Adapters not plugged into the hub&lt;/h4&gt;
+&lt;p&gt;Worlds within worlds, moons&amp;hellip;&lt;/p&gt;
+&lt;p&gt;Only the main adapters are attached directly to the central app hub - otherwise there are localised injections of adapters directly where they are needed.&lt;/p&gt;
+&lt;p&gt;Thus you sort of replicate an adapter ring around sattelite adapters, as needed.  It perhaps doesn’t have the same semantics as the overall architecture, but there is some degree of similarity in that the core talks to interfaces, and those interfaces are implemented by adapters, which can be swapped in and out.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/patterns/images/hexmvc/image25.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;As you can see in the gui adapters (as well as in the server case, and also in the persistence case) - there are smaller adapters throughout HexMvc which are not plugged into the central hub.  Examples are random functionality, json conversion, xml conversion, persistence functionality etc.  These are all injected as needed into the subsystem that needs it.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://abulka.github.io/projects/patterns/hexmvc/#appendix&#34;&gt;Back&lt;/a&gt; to main HexMVC Pattern.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Projects: </title>
+      <link>https://abulka.github.io/projects/patterns/hexmvc-eventing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://abulka.github.io/projects/patterns/hexmvc-eventing/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;appendix---hexmvc-events&#34;&gt;Appendix - Hexmvc Events&lt;/h1&gt;
+&lt;p&gt;Andy Bulka,&lt;br&gt;
+March 2012&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://abulka.github.io/projects/patterns/hexmvc/#appendix&#34;&gt;Back&lt;/a&gt; to main HexMVC Pattern.&lt;/p&gt;
+&lt;h2 id=&#34;on-eventing&#34;&gt;On Eventing&lt;/h2&gt;
+&lt;p&gt;Eventing is up to you to implement any way you like.  You need to be able to broadcast ‘events’ which cause methods to be run on an arbitrary number of observers.  The broadcaster is ignorant of the exact identity of the observers.  Its the observer pattern.&lt;/p&gt;
+&lt;h4 id=&#34;a-lightweight-synchronous-eventing-system&#34;&gt;A lightweight synchronous, eventing system&lt;/h4&gt;
+&lt;p&gt;I recommend a lightweight synchronous, eventing system / observer pattern that is based on method calling on objects.  It&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;does not require event objects&lt;/li&gt;
+&lt;li&gt;does not require registrations of interest&lt;/li&gt;
+&lt;li&gt;does not have complex if then else statements figuring out what to do&lt;/li&gt;
+&lt;li&gt;does not need classes to implement subject or observer functionaltiy&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;All you need is a multicast object type, which holds an array of interested listener objects.  When you call a method on that object, the method is called on all interested listener objects.  The method name you are calling is deemed to be the ‘event’.&lt;/p&gt;
+&lt;p&gt;In the following example, observers is a variable of type ‘multicast’.&lt;/p&gt;
+&lt;p&gt;e.g.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#000&#34;&gt;observers&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;+=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;obj1&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;observers&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;+=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;obj2&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;observers&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;NOTIFY&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The call to observers.NOTIFY() will cause&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#000&#34;&gt;obj1&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;NOTIFY&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;obj2&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;NOTIFY&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;I am assuming a dynamic language like python or ruby here.  Conceptually, the observer being called must adhere to some expected interface, so that the method/event being called actually exists!  In a dynamic language you don’t need an interface - it can be a convention - ‘duck typing’.&lt;/p&gt;
+&lt;h4 id=&#34;dependency-injection---one-to-one-one-to-many&#34;&gt;Dependency Injection - one to one, one to many&lt;/h4&gt;
+&lt;p&gt;One insight at this point might be that wiring up one-to-one pointers and wiring up one-to-many pointers/observers in this way are just variations of the same thing.&lt;/p&gt;
+&lt;p&gt;When you wire up your objects to point to each other you are doing dependency injection - as long as the objects are not instantiating instances of the objects they are pointing to themselves, and the injection is done from ‘outside’. The objects being injected are thus depending on an abstraction or interface - which is injected later.&lt;/p&gt;
+&lt;p&gt;Similarly, when you wire up the observers of an object, by adding them repeatedly using += to a list in a multicast variable, you are also doing dependency injection, except with a multicast flavour.&lt;/p&gt;
+&lt;p&gt;Its all just wiring.  Its just that some wires are one-to-one and others are one-to-many.&lt;/p&gt;
+&lt;h3 id=&#34;eventing-is-just-method-calling&#34;&gt;Eventing is just method calling&lt;/h3&gt;
+&lt;p&gt;Eventing becomes just method calling on multiple objects&lt;/p&gt;
+&lt;p&gt;This leads to another insight.  Eventing is just method calling.  Objective C I think sees the world in this way.  And Ruby.  Possibly this is obvious to some people and some languages, but when you do eventing this sort of lightweight multicast technique, it becomes much more obvious.&lt;/p&gt;
+&lt;p&gt;Whether a method call on an object results in one method call or many method calls is irrelevant.  You could say that calling a method on an object is the same thing as a single event call.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;observer = obj1
+observer.DoSomething()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;vs&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;observers += obj1
+observers.DoSomething()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If you adopt an meaningful name and perhaps an uppercase naming convention on method names which are being called in an event style, then it becomes even more obvious e.g.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;observers.NOTIFY_SOMETHING()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;When a method is in uppercase, it looks more like an event, to me.  So that’s why I do it.  When I see a method in upper case I know that it is being called as part of an observer eventing pattern call.  In other words calling methods in this way, this IS the way you broadcast events.&lt;/p&gt;
+&lt;p&gt;It nice that eventing and method calling become the same thing because you don’t have to learn anything new.  You can pass information in parameters just as you would with a method call.&lt;/p&gt;
+&lt;p&gt;Its all just method invocation, which is all just eventing - and vice versa - in a sense.  As long as its all hooked up using the principles of dependency injection, which insists on depending only on abstractions/interfaces.  &lt;/p&gt;
+&lt;p&gt;Its a neat symmetry that lightweight eventing, dependency injection and adapters satisfying interfaces all work together within the HexMvc framework.  The high level architectural concepts and the low level implementation idioms are similar, forming a powerful, cohesive, interrelated yet simple architecture.&lt;/p&gt;
+&lt;h2 id=&#34;advanced-footnotes-on-eventing&#34;&gt;Advanced Footnotes on Eventing&lt;/h2&gt;
+&lt;h3 id=&#34;eventing-vs-method-calling&#34;&gt;Eventing vs. Method Calling&lt;/h3&gt;
+&lt;p&gt;In the end, whether an event object is being created and passed to an eventing framework - or whether a piece of code has the knowledge to call a particular method - its all ‘knowledge’ and thus a ‘dependency’.  Knowing what sort of event to raise or register is no less coupled than simply knowing what method to call.  &lt;/p&gt;
+&lt;p&gt;This argument assumes that you have sufficiently decoupled things by using interfaces and abstractions.  For example, some degree of decoupling occurs when you call methods via eventing, since the caller/raiser doesn’t know what particular objects are ultimately being called.  The same level of loose coupling can also be achieved with ‘mere’ method calls, as long as the object whose method you are calling has been abstractly injected, so that the caller has no idea who is implementing that interface.&lt;/p&gt;
+&lt;p&gt;The benefit of a multicast method calling approach over an eventing approach is that it is simpler and avoids too much syntax, declaration, duplication and registration etc.  If you already have a nice eventing system and are happy with it, then by all means use it.&lt;/p&gt;
+&lt;h4 id=&#34;functions-instead-of-objects&#34;&gt;Functions instead of objects&lt;/h4&gt;
+&lt;p&gt;A single or multicast notification approach can be done with references to functions (as opposed to references to objects).  You can have a single reference to a function or a reference to an array of functions.&lt;/p&gt;
+&lt;p&gt;Whilst lists of functions are usable in some situations, I haven’t really thought about eventing in HexMvc using functions only - because it seems to me that functions only give you one shot at calling a method, whilst having a list of objects that implement an interface, gives you an unlimited set of methods you can call on those objects.&lt;/p&gt;
+&lt;p&gt;This sort of eventing will probably work ok in C# and other .net languages too, using delegates - though there will be the usual type declaration dance needed.  And note that I am assuming the multicast object points to a list of objects, not functions - not sure if this is possible in .net delegates?&lt;/p&gt;
+&lt;h3 id=&#34;synchronous-vs-asynchronous&#34;&gt;Synchronous vs Asynchronous&lt;/h3&gt;
+&lt;p&gt;A synchronous call from view to controller to model, and an immediate calling chain back again in order to construct an immediate response object - this is web mvc.  A partial downside of this approach is that the model doesn’t get a chance to broadcast updates to other sub-systems of the app. If we allow the opportunity for the model to broadcast a message, then other sub-systems like GUI views (not web view related) can update with information.  In other words, a controller setting info on a model silently is a bit limiting - a controller that sets info on a model via a model adapter will trigger other update notifications, which can be a good thing.&lt;/p&gt;
+&lt;p&gt;All based on synchronous calls - even if it looks like eventing.  Not addressing asynchronous, except in the limited context of server threading.&lt;/p&gt;
+&lt;h3 id=&#34;observer-based-eventing&#34;&gt;Observer based Eventing&lt;/h3&gt;
+&lt;p&gt;A bit of history on Observer based Eventing&lt;/p&gt;
+&lt;p&gt;This is a bit of a tangent, and may form part of another talk.&lt;/p&gt;
+&lt;h4 id=&#34;regular-observer-pattern&#34;&gt;Regular observer pattern&lt;/h4&gt;
+&lt;p&gt;With the regular observer pattern, you have a ‘subject’ object which contains a list of observer objects. The subject then loops and calls a particular method on all these observer objects when a notification is required.  That’s the basic idea. You can pass paramters in the notification call, incl. strings to tell the observers of different actions to take.  Optionally add some type safety if you like, to ensure both observer and  and ensure both observers follow some interface (to ensure the observers have a OnNotify() method and to ensure subjects have an AddObserver(o) method etc.  Optionally even add some functionality in a subject base class so that your looping NotifyAll() method only has to be implemented once.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/patterns/images/hexmvc/image9.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;implementations&#34;&gt;Implementations&lt;/h2&gt;
+&lt;h3 id=&#34;java&#34;&gt;Java&lt;/h3&gt;
+&lt;p&gt;Java’s ActionListener with their ActionPerformed methods is essentially the Observer pattern, built into the language/libraries.  It might be a bit cumbersome for normal usage in your app - being very GUI widget centric, but the essential point I want to make is that observers are lists of objects not functions.&lt;/p&gt;
+&lt;h3 id=&#34;net&#34;&gt;.NET&lt;/h3&gt;
+&lt;p&gt;C# and .NET introduced the idea of observer pattern broadcasting using multicast delegates, which are lists of typed functions.  A benefit of this approach is that it doesn’t matter what the observer’s class is or what interface an observer implements - all that matters is that the functions which are added to a subject’s observers list follow the same method signature.  The list of oservers is a multicast delegate object, also pretty much the same thing as an event.  Thus observers hook into some subject’s event in this way.&lt;/p&gt;
+&lt;p&gt;A possbile downside (or upside, depending on your point of view) of moving from lists of objects to lists of functions is that if there are 10 events you need 10 events on the subject, and 10 functions on each observer.  With the regular observer pattern, you need only have one subscription by an observer, then the observer has to figure out what out of the 10 things happened, usually by a string passed as a parameter e.g. observer.Notify(what) and then an if-then-else statement to perform the relevant code.&lt;/p&gt;
+&lt;h4 id=&#34;birgers-thoughts-on-multicast-in-net&#34;&gt;Birger&amp;rsquo;s thoughts on ‘multicast’ in .NET&lt;/h4&gt;
+&lt;p&gt;I sent an email to my colleague Birger who is an expert in .NET&lt;/p&gt;
+&lt;p&gt;Hi Birger,&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m wondering if I could ask you a .NET question that would add some colour to my talk next week. I&amp;rsquo;ll be talking about observer pattern and possibly mentioning using .NET events / multicast delegates. Is there something in .NET that allows for lists of OBJECTS (not functions) to be += to some sort of delegate object so that I can invoke a variety of different functions on that list of objects?&lt;/p&gt;
+&lt;p&gt;Im looking for something built into .NET that would work like my python example below where &amp;lsquo;observers&amp;rsquo;  is a variable of type ‘multicast’ and holds a list of OBJECTS.&lt;/p&gt;
+&lt;p&gt;e.g.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#000&#34;&gt;observers&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;+=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;obj1&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;observers&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;+=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;obj2&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;observers&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;NOTIFY&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The call to observers.NOTIFY() will cause&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#000&#34;&gt;obj1&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;NOTIFY&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;obj2&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;NOTIFY&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Thanks for any thoughts,&lt;/p&gt;
+&lt;p&gt;Cheers,&lt;br&gt;
+Andy&lt;/p&gt;
+&lt;h4 id=&#34;birgers-response&#34;&gt;Birger&amp;rsquo;s response&lt;/h4&gt;
+&lt;p&gt;Hi Andy,&lt;/p&gt;
+&lt;p&gt;There&amp;rsquo;s nothing like you describe built-in that I can think of. The
+preferred way is to use delegates, at least in UI code.
+However, I can think of three or four things you may want to consider&amp;hellip;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;There&amp;rsquo;s nothing preventing you from implementing the observer
+pattern the way it would be done in Java. (e.g. adding an object
+implementing the ActionListener interface to a button:
+&lt;a href=&#34;https://www.google.com/url?q=http://docs.oracle.com/javase/tutorial/uiswing/events/actionlistener.html&amp;amp;sa=D&amp;amp;source=editors&amp;amp;ust=1644533497583940&amp;amp;usg=AOvVaw22CiJscUKnhNk0L7KNMElE&#34;&gt;http://docs.oracle.com/javase/tutorial/uiswing/events/actionlistener.html&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Unlike Java, C# supports operator overloading. You can&amp;rsquo;t explicitly
+overload the += operator but you could overload the + operator where
+your Subject is on the left hand side, your Observer is on the right
+hand side and the return value is the same type as your Subject. Then
+effectively+= would do what you want. C# won&amp;rsquo;t allow your Subject to
+be an interface because operators are essentially static methods and
+interfaces don&amp;rsquo;t allow you to define method implementation (and
+Microsoft have decided against supporting this via extension methods).
+Your Subject would have to be an abstract or concrete class.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Since .NET 4.0 Microsoft has included generic IObserver and
+IObservable interfaces.&lt;br&gt;
+The IObservable interface has a Subscribe method which does what I
+think you want the += to do. There is no Unsubscribe method. Instead
+the Subscribe method returns an IDisposable object which when disposed
+(by calling Dispose) should unsubscribe the Observer. The IObserver
+has three methods: OnNext, OnError and OnCompleted. OnNext is the
+standard notification method, OnError is to notify the observer of
+exceptions and OnCompleted would be the last event (e.g. when the
+Observable has finished iterating through a collection, reached the
+end of a file or the UI object generating the events has been
+disposed).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;(&lt;a href=&#34;https://www.google.com/url?q=http://msdn.microsoft.com/en-us/library/dd990377(v%3Dvs.103).aspx&amp;amp;sa=D&amp;amp;source=editors&amp;amp;ust=1644533497585327&amp;amp;usg=AOvVaw2OcMrE_yS1oBjT41fBDvx_&#34;&gt;http://msdn.microsoft.com/en-us/library/dd990377(v=vs.103).aspx&lt;/a&gt; and&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.google.com/url?q=http://msdn.microsoft.com/en-us/library/dd783449.aspx&amp;amp;sa=D&amp;amp;source=editors&amp;amp;ust=1644533497585638&amp;amp;usg=AOvVaw0DB9nL90L1ooFbbzMVJ6ZT&#34;&gt;http://msdn.microsoft.com/en-us/library/dd783449.aspx&lt;/a&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;WPF has something called ObservableCollections. I don&amp;rsquo;t know much
+about WPF but this would be more of a library feature than a language
+feature and it would be tied to WPF UIs.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Hope my thoughts can help with your presentation.&lt;/p&gt;
+&lt;p&gt;Cheers,&lt;br&gt;
+Birger&lt;/p&gt;
+&lt;h3 id=&#34;python-multicast&#34;&gt;Python Multicast&lt;/h3&gt;
+&lt;p&gt;I contend that the python multicast class is another even better way to do eventing.&lt;/p&gt;
+&lt;p&gt;This multicast object technique is not a feature of python but can be done in any dynamic language e.g. Ruby.&lt;/p&gt;
+&lt;p&gt;In the following example, observers is a variable of type ‘multicast’.&lt;/p&gt;
+&lt;p&gt;e.g.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#000&#34;&gt;observers&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;+=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;obj1&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;observers&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;+=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;obj2&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;observers&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;NOTIFY&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The call to observers.NOTIFY() will cause&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#000&#34;&gt;obj1&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;NOTIFY&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;obj2&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;NOTIFY&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;In this implementation the subject has a list of objects - so its more a traditional observer pattern implemnentation.  What makes it unique is that the looping/broadcasting code is built into the multicast object, so there is no need to worry about subject base classes or subject interfaces.  All you do is create a multicast object as a variable/property of your class and you are good to go.&lt;/p&gt;
+&lt;p&gt;The other benefit of this implementation is that observers simply add themselves to the multicast object and the calls into the observer happen as normal method calls.  If you call observers.FRED() then all observers which have a method FRED() will have that method called.  You can have any number of method calls, and this doesn’t have to be agreed upon in advance with interfaces etc - though you could add that layer of type safety if you really insisited.&lt;/p&gt;
+&lt;p&gt;Also the method calls can take parameters.  Eventing just becomes method calling - same technology, same techniques - nothing new to learn.  If your observer doesn’t declare a particular method then it will be silently skipped (depending on the nuances of your implementation, you could change this default behaviour).&lt;/p&gt;
+&lt;h4 id=&#34;the-big-picture&#34;&gt;The big picture&lt;/h4&gt;
+&lt;p&gt;Notice that when we have a normal reference to an object e.g. self.other = o1 you perform a method call on that other object with the usual self.other.Blah().&lt;/p&gt;
+&lt;p&gt;Notice that in our multicast situation, you have a reference to a number of objects e.g. self.observers += o1; self.observers += o2; you perform a method call / event broadcast on those other objects with self.observers.Blah().&lt;/p&gt;
+&lt;p&gt;Its the same thing.  Singular or plural.  Method calling and eventing.  It all collapses into the same thing.&lt;/p&gt;
+&lt;p&gt;What this means is that&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;method calls are just events&lt;/li&gt;
+&lt;li&gt;normal method calls are just one-to-one eventing&lt;/li&gt;
+&lt;li&gt;multicast method calls are one-to-many eventing&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;ruby-implementation&#34;&gt;Ruby implementation&lt;/h3&gt;
+&lt;p&gt;The python implementation looks like:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.google.com/url?q=http://code.activestate.com/recipes/52289-multicasting-on-objects/&amp;amp;sa=D&amp;amp;source=editors&amp;amp;ust=1644533497574267&amp;amp;usg=AOvVaw2ayhabkbgc971XLzqzOOAA&#34;&gt;http://code.activestate.com/recipes/52289-multicasting-on-objects/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;the core of which is:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;__call__&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;args&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;**&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;kwargs&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;):&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Invoke method attributes and return results through another multicast&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#204a87&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;__class__&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;alias&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;obj&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;args&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;**&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;kwargs&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; 
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;alias&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;obj&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;in&lt;/span&gt; &lt;span style=&#34;color:#204a87&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;items&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;callable&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;obj&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;A ruby implementation might be &lt;a href=&#34;https://www.google.com/url?q=http://codepad.org/6tgNK8Fz&amp;amp;sa=D&amp;amp;source=editors&amp;amp;ust=1644533497575343&amp;amp;usg=AOvVaw1sN5eDXk8tUUGyBzHRVWy0&#34;&gt;http://codepad.org/6tgNK8Fz&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I haven&amp;rsquo;t addressed the multicast attribute access yet. And I haven&amp;rsquo;t addressed the return values issue, though I don&amp;rsquo;t see how a multicast can return values - unless some sort of list of return values is constructed and returned.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Beginnings of a &amp;#39;Multicast&amp;#39; class to multiplex messages/attribute requests  &lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# to objects which share the same interface.  &lt;/span&gt;
+  
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Fred&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;hi&lt;/span&gt;   &lt;span style=&#34;color:#204a87&#34;&gt;puts&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;hi from Fred&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;end&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;count&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;n&lt;/span&gt;  
+   &lt;span style=&#34;color:#000&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;times&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;|&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#204a87&#34;&gt;puts&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;end&lt;/span&gt;  
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;end&lt;/span&gt;  
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Mary&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;hi&lt;/span&gt;   &lt;span style=&#34;color:#204a87&#34;&gt;puts&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;hi from Mary&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;end&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;count&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;n&lt;/span&gt;  
+   &lt;span style=&#34;color:#000&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;times&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;|&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#204a87&#34;&gt;puts&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;100&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;end&lt;/span&gt;  
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;end&lt;/span&gt;  
+  
+  
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;MulticastObjects&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;initialize&lt;/span&gt;  
+   &lt;span style=&#34;color:#000&#34;&gt;@objects&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;\&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;\&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;end&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;add&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;o&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;  
+   &lt;span style=&#34;color:#000&#34;&gt;@objects&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;o&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;end&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;method&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;\&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;_missing&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;meth&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;\&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;args&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;block&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;  
+   &lt;span style=&#34;color:#000&#34;&gt;@objects&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;each&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;do&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;|&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;o&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;|&lt;/span&gt;  
+     &lt;span style=&#34;color:#000&#34;&gt;o&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;send&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;meth&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;\&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;args&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;block&lt;/span&gt;   &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;end&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;end&lt;/span&gt;  
+&lt;span style=&#34;color:#000&#34;&gt;endobservers&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;MulticastObjects&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;new&lt;/span&gt;  
+&lt;span style=&#34;color:#000&#34;&gt;observers&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;add&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Fred&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;new&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;  
+&lt;span style=&#34;color:#000&#34;&gt;observers&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;add&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Mary&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;new&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;  
+  
+&lt;span style=&#34;color:#000&#34;&gt;observers&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;hi&lt;/span&gt;  
+&lt;span style=&#34;color:#000&#34;&gt;observers&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;count&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;5&lt;/span&gt;  
+  
+&lt;span style=&#34;color:#204a87&#34;&gt;puts&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;done&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;output&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;hi from Fred  
+hi from Mary  
+0  
+1  
+2  
+3  
+4  
+100  
+101  
+102  
+103  
+104  
+done
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;a href=&#34;https://abulka.github.io/projects/patterns/hexmvc/#appendix&#34;&gt;Back&lt;/a&gt; to main HexMVC Pattern.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Projects: </title>
+      <link>https://abulka.github.io/projects/patterns/hexmvc-scraps/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://abulka.github.io/projects/patterns/hexmvc-scraps/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;scraps&#34;&gt;Scraps&lt;/h1&gt;
+&lt;h3 id=&#34;renamings-of-puremvc-terms-to-adapter&#34;&gt;Renamings of pureMvc terms to &amp;ldquo;Adapter&amp;rdquo;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;PureMvc uses the term one or more &amp;ldquo;mediators&amp;rdquo; in front of gui plumbing - all sitting behind the term &amp;ldquo;View&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;PureMvc uses the term one or more &amp;ldquo;proxies&amp;rdquo; in front of model plumbing - all sitting behind the term &amp;ldquo;Model&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;PureMvc talks about many &amp;ldquo;commands&amp;rdquo; objects which all sit behind the term &amp;ldquo;Controller&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;The Application &amp;ldquo;facade&amp;rdquo; is the centre.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The problem with these terms are that is debatable that these things are really proxies and mediators etc.  I rename them Adapters.&lt;/p&gt;
+&lt;p&gt;The other problem in puremvc is that additional plug in parts of the architecture (which is not catered for anyway) need pattern names too, so by using the generic name Adapter we can have infinite numbers of Adapters composing a system.&lt;/p&gt;
+&lt;p&gt;Plus Adapters are more conducive to the idea of interfaces.  Adapters offer the same interface, whilst the behind the scenes implementation changes - this is the very essence of what an Adapter is.  And its the very essence of what an interface is, and thus the injecting of adapters that conform to some interface is a good thing to do.  &lt;/p&gt;
+&lt;p&gt;You can further break controller functionality into command objects if you wish.&lt;/p&gt;
+&lt;p&gt;        ModelSqlAdapter&lt;/p&gt;
+&lt;p&gt;         |&lt;/p&gt;
+&lt;p&gt;         |  SQLObject&lt;/p&gt;
+&lt;p&gt;         |   .&lt;/p&gt;
+&lt;p&gt;         |  /_\&lt;/p&gt;
+&lt;p&gt;         v   |  &lt;/p&gt;
+&lt;p&gt;        ModelSql&lt;/p&gt;
+&lt;h3 id=&#34;single-vs-multicast---a-neat-symmetry&#34;&gt;single vs. multicast - a neat symmetry&lt;/h3&gt;
+&lt;p&gt;Multicasting via object delegates, single, multiple.  Ocassionally use direct function injections too (which can be single or multicast too).&lt;/p&gt;
+&lt;p&gt;Three different types of multicast injection&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Inject a single object to a var (destination expects an interface to be adhered to, doesn&amp;rsquo;t care about the object)&lt;/li&gt;
+&lt;li&gt;Inject append to a multicast var (destination expects an interface to be adhered to, doesn&amp;rsquo;t care about the object). Calls on the object&amp;rsquo;s method are the same as if it was a single object.  The multicasting is hidden.  But same philosophy.  Thus we dispense with eventing and anything complex.  Its all just function calls on objects, where the object is anything that satisfies an interface/convention.&lt;/li&gt;
+&lt;li&gt;Inject just a function - not an object (e.g. see my random function).  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Sometimes, instead of a ring object calling a method on a delegate attribute (which is either a single object, multicast object or a function itself) you might just have the ring object call a method on a another object - where you know the nature of the other object. E.g. server calling an app method.  But even this is just calling a single object method that has been injected.  Its just that it looks like app.CmdBlah rather than observers.CMD_BLAH in other words it amounts to the same thing.&lt;/p&gt;
+&lt;p&gt;-&amp;ndash;&lt;/p&gt;
+&lt;p&gt;An event is a message sent by an object to signal the occurrence of an action. The action could be caused by user interaction, such as a mouse click, or it could be triggered by some other program logic. The object that raises the event is called the event sender. The object that captures the event and responds to it is called the event receiver.&lt;/p&gt;
+&lt;p&gt;In event communication, the event sender class does not know which object or method will receive (handle) the events it raises. What is needed is an intermediary (or pointer-like mechanism) between the source and the receiver. The .NET Framework defines a special type (Delegate) that provides the functionality of a function pointer.&lt;/p&gt;
+&lt;p&gt;A delegate is a class that can hold a reference to a method. Unlike other classes, a delegate class has a signature, and it can hold references only to methods that match its signature. A delegate is thus equivalent to a type-safe function pointer or a callback. While delegates have other uses, the discussion here focuses on the event handling functionality of delegates. A delegate declaration is sufficient to define a delegate class. The declaration supplies the signature of the delegate, and the common language runtime provides the implementation. The following example shows an event delegate declaration.&lt;/p&gt;
+&lt;p&gt;# &lt;a href=&#34;http://www.scribd.com/doc/53516831/22/Observer&#34;&gt;http://www.scribd.com/doc/53516831/22/Observer&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Define a one-to-many dependency between objects so that when oneobject changes state, all its dependents are notified and updated automatically.&lt;/p&gt;
+&lt;p&gt;The .NET optimized code demonstrates the same code as above but uses moremodern, built-in .NET features. This example uses .NET multicast delegates which arean implementation of the Observer pattern. Delegates are type safe function pointers that have the ability to call a method. Multicast delegates are comprised of multiple methods that are called serially in the order in which they were added using the C# +=operator.&lt;/p&gt;
+&lt;p&gt;The Observer design pattern is one of two Gang-of-Four design patterns (the other is theIterator pattern) that have found their way, not only into the .NET Framework libraries,but also in the .NET languages themselves. When programming an ASP.NET or aWindows application you are most likely working with events and event handlers.Events and Delegates, which are first class language features, act as the subject andobservers respectively as defined in the Observer pattern.&lt;/p&gt;
+&lt;p&gt;The Observer pattern emphasizes good object-oriented programming in that it promotes loose coupling. Observers register and unregister themselves with subjects that maintain a list of interested observers. The subject does not depend on any particular observer, as long as the delegates are of the correct type for the event. The event and delegate paradigm in .NET represents an elegant and powerful implementation of the Observer design pattern.&lt;/p&gt;
+&lt;p&gt;# &lt;a href=&#34;http://en.wikipedia.org/wiki/Delegation&#34;&gt;http://en.wikipedia.org/wiki/Delegation&lt;/a&gt;_(programming)&lt;/p&gt;
+&lt;p&gt;In object-oriented programming, a multicast delegate is a delegate that points to several methods.[2][3] Multicast delegation is a mechanism that provides functionality to execute more than one method. There is a list of delegates maintained internally, and when the multicast delegate is invoked, the list of delegates is executed.&lt;/p&gt;
+&lt;p&gt;# &lt;a href=&#34;http://stackoverflow.com/questions/5583623/delegates-vs-observer-patterns&#34;&gt;http://stackoverflow.com/questions/5583623/delegates-vs-observer-patterns&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;One advantage of the observer pattern is that if you have a large number even events that are generally always subscribed to by an interested party, then passing a single object into a method to subscribe to the events is much easier than subscribing to each event individually. With C#&amp;rsquo;s lack of specifying interfaces and methods for anonymous classes as can be done with Java, implementing the observer pattern becomes a bit more laborious so most opt for using events anyway.&lt;/p&gt;
+&lt;p&gt;Another benefit of the traditional observer pattern is that it handles better in cases where you need to interrogate the subscriber for some reason. I&amp;rsquo;ve come across this need with objects that pass a web-service boundary where there are problems with delegates whereas the observer pattern is just simply a reference to another object so it works fine as long as your serialization keeps integrity of references within the object graph like the NetDataContractSerializer does. In these cases it&amp;rsquo;s possible to discriminate between subscribers that should be removed before making the service boundary based on whether the referenced subscriber is also within the same object graph.&lt;/p&gt;
+&lt;p&gt;-&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;-&lt;/p&gt;
+&lt;p&gt;GUI event going to model and back again.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.google.com/url?q=https://docs.google.com/file/d/0B4pSq5nm19n4VEVaZm1YRTlRMW0yVDBEbWJyM2R1UQ/edit&amp;amp;sa=D&amp;amp;source=editors&amp;amp;ust=1644533497589481&amp;amp;usg=AOvVaw39H_137A7_IdD39EBTIr95&#34;&gt;https://docs.google.com/file/d/0B4pSq5nm19n4VEVaZm1YRTlRMW0yVDBEbWJyM2R1UQ/edit&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;-&amp;mdash;-&lt;/p&gt;
+&lt;h1 id=&#34;the-roles&#34;&gt;The roles&lt;/h1&gt;
+&lt;p&gt;Its often useful to look at the roles/responsibilities that various classes and layers take on in a design.  HexMvc takes an ‘opinion’ on who does what - its not necessarily truth, its just a particular opinion.  &lt;/p&gt;
+&lt;p&gt;Furthermore, by looking at roles, it helps us get concrete about what each class/word means.  Being a ‘controller’ means different things to different people.  And depending on what decade’s technology you are using, ‘view’ can mean different things too - e.g. low level drawing code in the 60’s or perhaps windows forms filled with smart widget controls of the 90’s all the way to the modern browsers of the 2000’s.&lt;/p&gt;
+&lt;p&gt;-&amp;ndash;&lt;/p&gt;
+&lt;p&gt;Actually ‘implementations of an interface’ are everywhere - not necessarily always an adapter.  There is something that is wrapped or delegated to, so there is a strong sense of adapter though.&lt;/p&gt;
+&lt;p&gt;-&amp;ndash;&lt;/p&gt;
+&lt;p&gt;One insight at this point might be that wiring up one-to-one pointers and wiring up one-to-many pointers/observers in this way are just variations of the same thing.&lt;/p&gt;
+&lt;p&gt;Similarly, when you wire up the observers of an object, by adding them repeatedly using += to a list in a multicast variable, you are also doing dependency injection, except with a multicast flavour.&lt;/p&gt;
+&lt;p&gt;Its all just wiring.  Its just that some wires are one-to-one and others are one-to-many.&lt;/p&gt;
+&lt;p&gt;-&amp;ndash;&lt;/p&gt;
+&lt;p&gt;and reeven Cannot use Model Adapter notifications for rendering server views because the same server method that received the request must prepare response.&lt;/p&gt;
+&lt;p&gt;With a server situation, you can use events as long as they are implemented synchronously.&lt;/p&gt;
+&lt;p&gt;After you dispatch the event you are blocked till the return stack of function calls exhausts itself, then you continue and reply with the response object.&lt;/p&gt;
+&lt;p&gt;you don&amp;rsquo;t want model layer really knowing about the layer above.  model typically broadcasts very abstract notifications.  and you don&amp;rsquo;t want lower later talking upwards.&lt;/p&gt;
+&lt;p&gt;its ok for gui adapter to know about the app/controller and use a very specific notification/function call because its a higher layer talking downwards.  Plus you have no choice, the controller must call functionality deeper down - whether that its raising an event or making a function call.&lt;/p&gt;
+&lt;p&gt;-&amp;mdash;&amp;ndash;&lt;/p&gt;
+&lt;p&gt;Ironic that even though HexMvc &amp;lsquo;flattens&amp;rsquo; out our layering and makes its a ring, we still don&amp;rsquo;t want models knowing about the app.  Ok for gui&amp;rsquo;s to know about the app though.  So there&amp;rsquo;s an asymmetry in our symmetry!&lt;/p&gt;
+&lt;p&gt;-&amp;mdash;&amp;mdash;&amp;ndash;&lt;/p&gt;
+&lt;p&gt;My wx pure minimalist gui adapter is an example of a wrapping (compositional) adapter.&lt;/p&gt;
+&lt;p&gt;My wx architecture 3 gui adapter is an example of an inheritance based adapter.&lt;/p&gt;
+&lt;p&gt;-&amp;mdash;&lt;/p&gt;
+&lt;p&gt;The Application is only really talking to and presuming that something implements an interface - e.g. a gui layer interface, which is supplied by one adapter or another, and implemented in whatever way each particular adapter sees fit (e.g. one gui framework or another).&lt;/p&gt;
+&lt;p&gt;--&lt;/p&gt;
 
       </description>
     </item>
