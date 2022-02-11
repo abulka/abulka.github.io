@@ -20,29 +20,29 @@
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
-<title>Pynsource | Andy Bulka - Blog</title><meta property="og:title" content="Pynsource" />
-<meta property="og:description" content="UML tool for Python (Desktop App for Mac, Window, Linux) - brand new version. Zoom in and out. PlantUML view. Auto Layout. Import Python 3 code.
-Version 1.71 - new for 2019
-Visit the brand new dedicated website pynsource.com.
-Buy the Pro Edition for $20 to unlock the zoom feature. Community Edition is fully functional and open source - check out the github repository. Donate to support this project (donate link coming soon)." />
+<title>GUI Showdown | Andy Bulka - Blog</title><meta property="og:title" content="GUI Showdown" />
+<meta property="og:description" content="Andy&rsquo;s GUI Showdown - The same application, implemented in various ways - which is better, cleaner, more understandable etc?
+Like the TodoMVC &ldquo;Rosetta Stone&rdquo; project, but uses a different example application, and includes Python as well as Javascript implementations.
+ This project was originally intended to see if an ECS (Entity Component System), which is commonly used in building games, could be used to implement a &ldquo;normal&rdquo; GUI application.
+ Five Javascript implementations: Live Demo of all Javascript implementations." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://abulka.github.io/projects/apps/pynsource/" /><meta property="article:section" content="projects" />
-<meta property="article:published_time" content="2020-11-23T12:12:30+11:00" />
-<meta property="article:modified_time" content="2020-11-24T10:28:56+11:00" />
+<meta property="og:url" content="https://abulka.github.io/blog/2022/02/11/gui-showdown/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2022-02-11T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-02-11T12:56:26+11:00" />
 
-<meta itemprop="name" content="Pynsource">
-<meta itemprop="description" content="UML tool for Python (Desktop App for Mac, Window, Linux) - brand new version. Zoom in and out. PlantUML view. Auto Layout. Import Python 3 code.
-Version 1.71 - new for 2019
-Visit the brand new dedicated website pynsource.com.
-Buy the Pro Edition for $20 to unlock the zoom feature. Community Edition is fully functional and open source - check out the github repository. Donate to support this project (donate link coming soon)."><meta itemprop="datePublished" content="2020-11-23T12:12:30+11:00" />
-<meta itemprop="dateModified" content="2020-11-24T10:28:56+11:00" />
-<meta itemprop="wordCount" content="138">
+<meta itemprop="name" content="GUI Showdown">
+<meta itemprop="description" content="Andy&rsquo;s GUI Showdown - The same application, implemented in various ways - which is better, cleaner, more understandable etc?
+Like the TodoMVC &ldquo;Rosetta Stone&rdquo; project, but uses a different example application, and includes Python as well as Javascript implementations.
+ This project was originally intended to see if an ECS (Entity Component System), which is commonly used in building games, could be used to implement a &ldquo;normal&rdquo; GUI application.
+ Five Javascript implementations: Live Demo of all Javascript implementations."><meta itemprop="datePublished" content="2022-02-11T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-02-11T12:56:26+11:00" />
+<meta itemprop="wordCount" content="436">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Pynsource"/>
-<meta name="twitter:description" content="UML tool for Python (Desktop App for Mac, Window, Linux) - brand new version. Zoom in and out. PlantUML view. Auto Layout. Import Python 3 code.
-Version 1.71 - new for 2019
-Visit the brand new dedicated website pynsource.com.
-Buy the Pro Edition for $20 to unlock the zoom feature. Community Edition is fully functional and open source - check out the github repository. Donate to support this project (donate link coming soon)."/>
+<meta name="twitter:title" content="GUI Showdown"/>
+<meta name="twitter:description" content="Andy&rsquo;s GUI Showdown - The same application, implemented in various ways - which is better, cleaner, more understandable etc?
+Like the TodoMVC &ldquo;Rosetta Stone&rdquo; project, but uses a different example application, and includes Python as well as Javascript implementations.
+ This project was originally intended to see if an ECS (Entity Component System), which is commonly used in building games, could be used to implement a &ldquo;normal&rdquo; GUI application.
+ Five Javascript implementations: Live Demo of all Javascript implementations."/>
 
 
 
@@ -66,7 +66,7 @@ Buy the Pro Edition for $20 to unlock the zoom feature. Community Edition is fu
 
 
   </head>
-  <body class="td-page">
+  <body class="td-page td-blog">
     <header>
       
 <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
@@ -94,7 +94,7 @@ Buy the Pro Edition for $20 to unlock the zoom feature. Community Edition is fu
 				
 				
 				
-				<a class="nav-link" href="/blog/" ><span>Blog</span></a>
+				<a class="nav-link active" href="/blog/" ><span class="active">Blog</span></a>
 			</li>
 			
 			<li class="nav-item mr-4 mb-2 mb-lg-0">
@@ -104,7 +104,7 @@ Buy the Pro Edition for $20 to unlock the zoom feature. Community Edition is fu
 				
 				
 				
-				<a class="nav-link active" href="/projects/" ><span class="active">Projects</span></a>
+				<a class="nav-link" href="/projects/" ><span>Projects</span></a>
 			</li>
 			
 			
@@ -173,228 +173,185 @@ Buy the Pro Edition for $20 to unlock the zoom feature. Community Edition is fu
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/projects/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Projects</a>
+    <a  href="/blog/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Blog</a>
   </li>
   <ul>
-    <li class="collapse show" id="projects">
+    <li class="collapse show" id="blog">
       
       
       
       
       
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/projects/apps/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Apps</a>
-  </li>
-  <ul>
-    <li class="collapse show" id="projectsapps">
       
+      <a class="td-sidebar-link td-sidebar-link__page  active" id="m-blog20220211gui-showdown" href="/blog/2022/02/11/gui-showdown/">GUI Showdown</a>
       
       
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-projectsappsbrew-moments" href="/projects/apps/brew-moments/">Brew Moments</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blog20220121history-of-this-blog" href="/blog/2022/01/21/history-of-this-blog/">History of this Blog</a>
       
       
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-projectsappsprint42" href="/projects/apps/print42/">Print42</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blog20200518todomvc-implemented-using-a-game-architecture-ecs" href="/blog/2020/05/18/todomvc-implemented-using-a-game-architecture-ecs/">TodoMVC implemented using a game architecture — ECS</a>
       
       
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page  active" id="m-projectsappspynsource" href="/projects/apps/pynsource/">Pynsource</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blog20200518todomvc-implemented-using-traditional-oo-controllers-and-events" href="/blog/2020/05/18/todomvc-implemented-using-traditional-oo-controllers-and-events/">TodoMVC implemented using traditional OO, Controllers and Events</a>
       
       
-    </li>
-  </ul>
-</ul>
-
       
       
       
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blog20190904django-view-logging-is-back-the-front" href="/blog/2019/09/04/django-view-logging-is-back-the-front/">Django View logging is back-the-front</a>
       
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/projects/big-ideas/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Big Ideas</a>
-  </li>
-  <ul>
-    <li class="collapse " id="projectsbig-ideas">
       
       
       
       
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blog20190406getting-wxpython-apps-into-the-ubuntu-app-store" href="/blog/2019/04/06/getting-wxpython-apps-into-the-ubuntu-app-store/">Getting wxPython apps into the Ubuntu app store</a>
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-projectsbig-ideaslcodemaps" href="/projects/big-ideas/lcodemaps/">Literate Code Mapping</a>
       
       
-    </li>
-  </ul>
-</ul>
-
       
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blog20190302asyncawait-for-wxpython" href="/blog/2019/03/02/async/await-for-wxpython/">Async/await for wxPython</a>
       
       
       
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/projects/consulting/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Consulting</a>
-  </li>
-  <ul>
-    <li class="collapse " id="projectsconsulting">
       
       
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blog20181003building-a-python-electron-app" href="/blog/2018/10/03/building-a-python-electron-app/">Building a Python-Electron App</a>
       
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-projectsconsultingcontracting" href="/projects/consulting/contracting/">Contracting</a>
       
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blog20180601python-ast-parsing" href="/blog/2018/06/01/python-ast-parsing/">Python AST Parsing</a>
       
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-projectsconsultingtraining" href="/projects/consulting/training/">Design Patterns Training</a>
       
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blog20110406uml-layout" href="/blog/2011/04/06/uml-layout/">UML Diagram Layout</a>
       
-    </li>
-  </ul>
-</ul>
-
       
       
       
       
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/projects/patterns/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">My Design Patterns</a>
-  </li>
-  <ul>
-    <li class="collapse " id="projectspatterns">
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blog20110319mocking-in-ruby" href="/blog/2011/03/19/mocking-in-ruby/">Mocking in Ruby</a>
       
       
       
       
       
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blog20110301cloning-directories-in-ruby" href="/blog/2011/03/01/cloning-directories-in-ruby/">Cloning Directories in Ruby</a>
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-projectspatternsmusings-on-patterns" href="/projects/patterns/musings-on-patterns/">Opinion - Musings on Design Patterns</a>
       
       
       
       
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blog20101118ruby-vs-python-list-comprehensions" href="/blog/2010/11/18/ruby-vs-python-list-comprehensions/">Ruby vs Python list comprehensions</a>
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-projectspatternsrelationship-manager" href="/projects/patterns/relationship-manager/">Relationship Manager</a>
       
       
       
       
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blog20090401refactoring-to-puremvc" href="/blog/2009/04/01/refactoring-to-puremvc/">Refactoring to PureMVC</a>
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-projectspatternsmvca-pattern" href="/projects/patterns/mvca-pattern/">MVC-App Pattern</a>
       
       
       
       
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blog20090301puremvc" href="/blog/2009/03/01/puremvc/">PureMVC</a>
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-projectspatternstransformation-interface" href="/projects/patterns/transformation-interface/">Transformation Interface</a>
       
       
       
       
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blog20090212central-patterns-repository" href="/blog/2009/02/12/central-patterns-repository/">Central Patterns Repository</a>
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-projectspatternshexmvc" href="/projects/patterns/hexmvc/">HexMVC</a>
       
       
       
       
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blog20090211netbeans-uml" href="/blog/2009/02/11/netbeans-uml/">Netbeans Uml</a>
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-projectspatternsdesign-pattern-automation" href="/projects/patterns/design-pattern-automation/">Design Pattern Automation</a>
       
       
       
       
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blog20090122visualising-software" href="/blog/2009/01/22/visualising-software/">Visualising Software</a>
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-projectspatternshexmvc-adapters" href="/projects/patterns/hexmvc-adapters/"></a>
       
       
       
       
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blog20080911state-pattern-in-flex" href="/blog/2008/09/11/state-pattern-in-flex/">State Pattern in Flex</a>
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-projectspatternshexmvc-eventing" href="/projects/patterns/hexmvc-eventing/"></a>
       
       
       
       
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blog20080305extract-composite-refactoring" href="/blog/2008/03/05/extract-composite-refactoring/">Extract Composite Refactoring</a>
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-projectspatternshexmvc-scraps" href="/projects/patterns/hexmvc-scraps/"></a>
       
       
-    </li>
-  </ul>
-</ul>
-
       
       
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blog20071105thoughts-on-closures" href="/blog/2007/11/05/thoughts-on-closures/">Thoughts on Closures</a>
       
       
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/projects/websites/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Websites</a>
-  </li>
-  <ul>
-    <li class="collapse " id="projectswebsites">
       
       
       
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blog20070123teaching-23-patterns" href="/blog/2007/01/23/teaching-23-patterns/">Teaching 23 Patterns</a>
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-projectswebsitespython-rpn-converter" href="/projects/websites/python-rpn-converter/">Python to Rpn</a>
       
       
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blog20060301tooled-composite-pattern" href="/blog/2006/03/01/tooled-composite-pattern/">Tooled Composite Pattern</a>
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-projectswebsitesgituml" href="/projects/websites/gituml/">Gituml</a>
       
       
-    </li>
-  </ul>
-</ul>
-
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blog20050701orm-pattern" href="/blog/2005/07/01/orm-pattern/">ORM Pattern</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blog20050305swapping-implementations" href="/blog/2005/03/05/swapping-implementations/">Swapping Implementations</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blog20040805blackboard-pattern" href="/blog/2004/08/05/blackboard-pattern/">Blackboard Pattern</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blog20021004null-object-pattern" href="/blog/2002/10/04/null-object-pattern/">Null Object Pattern</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blog20020904using-design-patterns-in-real-projects" href="/blog/2002/09/04/using-design-patterns-in-real-projects/">Using Design Patterns in Real Projects</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blog20000104patterns-modelmaker-beyond" href="/blog/2000/01/04/patterns-modelmaker-beyond/">Patterns, ModelMaker &amp; Beyond</a>
       
       
     </li>
@@ -409,161 +366,147 @@ Buy the Pro Edition for $20 to unlock the zoom feature. Community Edition is fu
 
           </div>
           <div class="d-none d-xl-block col-xl-2 td-toc d-print-none">
-            <p>andy top of toc</p>
-
-
-
-
-
-
-
-<div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
-
-
-
-
-
-
-
-
-</div>
-
-
-
-
-
-
-
-
-<p>andy bottom of toc</p>
-
             
+            
+
+
+
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#five-javascript-implementations">Five Javascript implementations:</a></li>
+    <li><a href="#two-wxpython-implementations">Two wxPython implementations:</a></li>
+    <li><a href="#the-application-being-implemented">The Application being implemented</a>
+      <ul>
+        <li><a href="#specification">Specification</a></li>
+      </ul>
+    </li>
+    <li><a href="#commentary">Commentary</a></li>
+  </ul>
+</nav>
+
+
+
           </div>
-          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
-            
-  
-
-            <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
-	<ol class="breadcrumb spb-1">
-		
-
-
-
-
-
-
-
-
-
-
-<li class="breadcrumb-item" >
-	<a href="https://abulka.github.io/projects/">Projects</a>
-</li>
-
-
-
-
-<li class="breadcrumb-item" >
-	<a href="https://abulka.github.io/projects/apps/">Apps</a>
-</li>
-
-
-
-
-<li class="breadcrumb-item active" aria-current="page">
-	<a href="https://abulka.github.io/projects/apps/pynsource/">Pynsource</a>
-</li>
-
-	</ol>
-</nav	>
-
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5 pr-md-4" role="main">
+            <a class="btn btn-lg -bg-orange td-rss-button d-none d-lg-block" href="https://abulka.github.io/blog/index.xml" target="_blank">
+              RSS <i class="fa fa-rss ml-2 "></i>
+            </a>
             
 <div class="td-content">
-	<h1>Pynsource</h1>
-    
-	       
-	<p>UML tool for Python <em>(Desktop App for Mac, Window, Linux)</em> - brand new version. </p>
-<p>Zoom in and out. PlantUML view. Auto Layout. Import Python 3 code.</p>
-<p><a href="http://www.pynsource.com">Version 1.71</a> - new for 2019</p>
-<p><img src="https://i.imgur.com/C8WrRDf.png" alt="Pynsource hero" title="Pynsource Hero"></p>
-<p>Visit the brand new dedicated website <a href="http://www.pynsource.com">pynsource.com.</a></p>
-<p>Buy the <a href="http://www.pynsource.com/pricing.html">Pro Edition</a> for $20 to unlock the zoom feature.  Community Edition is fully functional and open source - check out the <a href="https://github.com/abulka/pynsource">github repository</a>.  Donate to support this project <em>(donate link coming soon)</em>.</p>
-<h3 id="pynsource">Pynsource</h3>
-<p>UML tool for Python source code - visit <a href="https://pynsource.com">www.pynsource.com</a></p>
-<p>Version 1.76 - released Apr 22, 2020</p>
-<p>- <strong>Zoom</strong>, zoom to fit</p>
-<p>- Python 3 compatibility</p>
-<p>- New accurate <strong>AST based</strong> python parser</p>
-<p><strong>- Layout algorithm</strong></p>
-<p>- <strong>Ascii UML</strong> view built into the GUI, including an innovative Ascii UML layout</p>
-<p>- <strong>PlantUML</strong> view for beautiful renderings of UML</p>
-<p>- <strong>Colour</strong> sibling nodes</p>
-<p>- Open Source</p>
+	<h1>GUI Showdown</h1>
+	
+	<div class="td-byline mb-4">
+		
+		<time datetime="2022-02-11" class="text-muted">Friday, February 11, 2022</time>
+	</div>
+	
+	<p>Andy&rsquo;s <a href="https://abulka.github.io/gui-showdown">GUI Showdown</a> - The same application, implemented in various ways - which is better, cleaner, more understandable etc?</p>
+<p>Like the TodoMVC &ldquo;Rosetta Stone&rdquo; project, but uses a different example application, and includes Python as well as Javascript implementations.</p>
+<blockquote>
+<p>This project was originally intended to see if an ECS (Entity Component System), which is commonly used in building games, could be used to implement a &ldquo;normal&rdquo; GUI application.</p>
+</blockquote>
+<h2 id="five-javascript-implementations">Five Javascript implementations:</h2>
+<p><a href="http://abulka.github.io/gui-showdown">Live Demo</a> of all Javascript implementations.</p>
+<table>
+<thead>
+<tr>
+<th>Technique</th>
+<th>Lines</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OO</td>
+<td>279</td>
+<td>Gui wired via OO (Object Oriented Models with Observer)</td>
+</tr>
+<tr>
+<td>MVCA</td>
+<td>383</td>
+<td>Gui wired via <a href="https://github.com/abulka/todomvc-oo">MVCA</a> Architectural Pattern 🆕!!</td>
+</tr>
+<tr>
+<td>ECS</td>
+<td>228</td>
+<td>Gui wired via ECS (Entity Component System)</td>
+</tr>
+<tr>
+<td>PLAIN</td>
+<td>154</td>
+<td>Gui wired via plain JQuery</td>
+</tr>
+<tr>
+<td>VUE</td>
+<td>58</td>
+<td>Gui wired via Vue.js</td>
+</tr>
+</tbody>
+</table>
+<h2 id="two-wxpython-implementations">Two wxPython implementations:</h2>
+<table>
+<thead>
+<tr>
+<th>Technique</th>
+<th>Lines</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ECS</td>
+<td>344</td>
+<td>Gui wired via ECS (Entity Component System)</td>
+</tr>
+<tr>
+<td>OO</td>
+<td>290</td>
+<td>Gui wired via OO (Object Oriented Models with Observer)</td>
+</tr>
+</tbody>
+</table>
+<!-- P.S. Why is the python ESC version bigger than OO, yet the js ESC version is **smaller** than js OO!?? -->
+<p>Counting the number of lines is approximate.  Implementation code that is a convenient extension to a library or framework is not counted.  E.g. Vue.js itself is not counted, obviously.  ECS uses Jecs library, which is not counted, nor are some extension functions I added.  OO technique uses an observer design pattern, whose short implementation code is not counted - its the least I could do to help the OO approach which came in at a whopping 300 lines.</p>
+<p>There is an index.html launch page to get to all these implementations, as well as a debug view showing models in real time as you work with the GUI.</p>
+<h2 id="the-application-being-implemented">The Application being implemented</h2>
+<p><img src="https://github.com/abulka/gui-showdown/raw/master/docs/images/2019-07-17_11-41-03.gif" alt="The UI"></p>
+<h3 id="specification">Specification</h3>
+<p>Whilst not that complex, this application has a few interesting nuances which challenge any implementation. The main nuance is that whilst the &ldquo;model&rdquo; can be edited and manipulated (made uppercase, set to certain phrases) the top header area displays the model according to various &ldquo;display options&rdquo;.  Changing the display options changes how to top area appears but does not change the model.</p>
+<p>Specifically, the behaviour we are implementing is:</p>
+<p>Model:</p>
+<ul>
+<li>a <strong>welcome message</strong>, default &ldquo;Welcome&rdquo;</li>
+<li>a <strong>user</strong>, with a <code>firstname</code> and <code>surname</code>, default &ldquo;Sam Smith&rdquo;</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#000">model</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span><span style="color:#4e9a06">&#34;welcome_msg&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Welcome&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;user&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span><span style="color:#4e9a06">&#34;firstname&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Sam&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;surname&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Smith&#34;</span><span style="color:#000;font-weight:bold">}}</span>
+</code></pre></div><p>The GUI displays:</p>
+<ul>
+<li>the welcome message twice
+<ul>
+<li>top left: pure message</li>
+<li>top right: message + user</li>
+</ul>
+</li>
+<li>text entry, which allows editing of the welcome message</li>
+<li>text entry, which allows editing of the user name and surname</li>
+<li>checkbox1, which toggles the model welcome message uppercase/lowercase</li>
+<li>checkbox2, which toggles the top right user to uppercase (not via model)</li>
+<li>button1, which resets the welcome message to &ldquo;Hi&rdquo;</li>
+<li>button2, which resets the user to &ldquo;Fred Flinstone&rdquo;</li>
+</ul>
+<h2 id="commentary">Commentary</h2>
+<p>More commentary and evaluation of the techniques to come.</p>
 
 	
-		<style>
-  .feedback--answer {
-    display: inline-block;
-  }
-  .feedback--answer-no {
-    margin-left: 1em;
-  }
-  .feedback--response {
-    display: none;
-    margin-top: 1em;
-  }
-  .feedback--response__visible {
-    display: block;
-  }
-</style>
-<h2 class="feedback--title">Feedback</h2>
-<p class="feedback--question">Was this page helpful?</p>
-<button class="feedback--answer feedback--answer-yes">Yes</button>
-<button class="feedback--answer feedback--answer-no">No</button>
-<p class="feedback--response feedback--response-yes">
-  Glad to hear it! Please <a href="https://github.com/USERNAME/REPOSITORY/issues/new">tell us how we can improve</a>.
-</p>
-<p class="feedback--response feedback--response-no">
-  Sorry to hear that. Please <a href="https://github.com/USERNAME/REPOSITORY/issues/new">tell us how we can improve</a>.
-</p>
-<script>
-  const yesButton = document.querySelector('.feedback--answer-yes');
-  const noButton = document.querySelector('.feedback--answer-no');
-  const yesResponse = document.querySelector('.feedback--response-yes');
-  const noResponse = document.querySelector('.feedback--response-no');
-  const disableButtons = () => {
-    yesButton.disabled = true;
-    noButton.disabled = true;
-  };
-  const sendFeedback = (value) => {
-    if (typeof ga !== 'function') return;
-    const args = {
-      command: 'send',
-      hitType: 'event',
-      category: 'Helpful',
-      action: 'click',
-      label: window.location.pathname,
-      value: value
-    };
-    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
-  };
-  yesButton.addEventListener('click', () => {
-    yesResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(1);
-  });
-  noButton.addEventListener('click', () => {
-    noResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(0);
-  });
-</script>
 
-		<br />
-	
-	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified November 24, 2020: <a  href="https://github.com/google/docsy-example/commit/306d4f81939b374d0bd4767699d382cbc1dd90aa">added projects (306d4f8)</a>
-</div>
+	<ul class="list-unstyled d-flex justify-content-between align-items-center mb-0 pt-5">
+  <li>
+    <a href="/blog/2022/01/21/history-of-this-blog/" class="btn btn-primary "><span class="mr-1">←</span> Previous</a>
+  </li>
+    <a  class="btn btn-primary  disabled">Next <span class="ml-1">→</span></a>
+  </li>
+</ul>
+
 </div>
 
 

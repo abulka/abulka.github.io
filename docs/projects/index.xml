@@ -1915,7 +1915,16 @@ Another example is during bootup - some permanent Controllers need to be created
 &lt;ul&gt;
 &lt;li&gt;Official &lt;a href=&#34;http://todomvc.com/&#34;&gt;TodoMVC project&lt;/a&gt; with other TodoMVC implementations (e.g. Vue, Angular, React etc.)&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/abulka/todomvc-ecs&#34;&gt;TodoMVC-ECS&lt;/a&gt; - My &amp;ldquo;Entity Component System&amp;rdquo; implementation of TodoMVC&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://abulka.github.io/gui-showdown/main_mvca.html&#34;&gt;GUI Showdown MVCA&lt;/a&gt; another example of an app implemented using the MVCA architecture (Javascript, open source)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://abulka.github.io/gui-showdown/main_mvca.html&#34;&gt;MVCA&lt;/a&gt; another example of an app implemented using the MVCA architecture (Javascript, open source)&lt;/li&gt;
+&lt;li&gt;Andy&amp;rsquo;s &lt;a href=&#34;https://abulka.github.io/gui-showdown&#34;&gt;GUI Showdown&lt;/a&gt; The same application, implemented in various ways - which is better, cleaner, more understandable etc. (Javascript, open source)
+&lt;ul&gt;
+&lt;li&gt;OO&lt;/li&gt;
+&lt;li&gt;MVCA&lt;/li&gt;
+&lt;li&gt;ECS&lt;/li&gt;
+&lt;li&gt;PLAIN&lt;/li&gt;
+&lt;li&gt;VUE&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;docs_other/mgm.md&#34;&gt;MGM&lt;/a&gt; pattern (older version of MVCA, presented at a Patterns Conference)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;!-- - [Used by](https://github.com/abulka/todomvc-oo) --&gt;
@@ -1970,7 +1979,8 @@ Another example is during bootup - some permanent Controllers need to be created
         &lt;p&gt;Andy Bulka,&lt;br&gt;
 March 2012&lt;/p&gt;
 &lt;p&gt;A new, architectural pattern for building multi-platform, scalable applications based on ideas from the Hexagonal Architecture pattern + Model View Controller (MVC).&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;TLDR:&lt;/strong&gt; Write the application layer but don&amp;rsquo;t import or use any libraries directly.  Wrap all library calls with Adapter objects, so that you can switch to other libraries easily.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;TLDR:&lt;/strong&gt; Write the application layer but don&amp;rsquo;t import or use any libraries directly.  Wrap all &amp;ldquo;library&amp;rdquo; calls with Adapter objects, so that you can switch to other libraries easily.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;TLDR:&lt;/strong&gt; &amp;ldquo;Libraries&amp;rdquo; can amazingly, include the application data Model itself, Database and persistence layers, the entire GUI and all calls to server APIs. Plug and play everything with this architecture!&lt;/p&gt;
 &lt;h1 id=&#34;projectspatternsimageshexmvcimage16png&#34;&gt;&lt;img src=&#34;https://abulka.github.io/projects/patterns/images/hexmvc/image16.png&#34; alt=&#34;&#34;&gt;&lt;/h1&gt;
 &lt;blockquote&gt;
 &lt;p&gt;This is a draft article, written in 2012. It could do with some further editing, but I&amp;rsquo;ve never gotten around to it, so finally decided to publish it anyway, in 2022.&lt;/p&gt;

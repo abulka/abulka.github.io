@@ -10,7 +10,9 @@ March 2012
 
 A new, architectural pattern for building multi-platform, scalable applications based on ideas from the Hexagonal Architecture pattern + Model View Controller (MVC).
 
-**TLDR:** Write the application layer but don't import or use any libraries directly.  Wrap all library calls with Adapter objects, so that you can switch to other libraries easily.
+**TLDR:** Write the application layer but don't import or use any libraries directly.  Wrap all "library" calls with Adapter objects, so that you can switch to other libraries easily. 
+
+**TLDR:** "Libraries" can amazingly, include the application data Model itself, Database and persistence layers, the entire GUI and all calls to server APIs. Plug and play everything with this architecture!
 
 # ![](/projects/patterns/images/hexmvc/image16.png)
 

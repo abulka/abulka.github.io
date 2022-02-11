@@ -30,7 +30,7 @@
 <meta itemprop="name" content="HexMVC">
 <meta itemprop="description" content="Hexagonal Architecture pattern &#43; Model View Controller (MVC)"><meta itemprop="datePublished" content="2012-11-23T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-02-11T11:07:48+11:00" />
-<meta itemprop="wordCount" content="5267">
+<meta itemprop="wordCount" content="5297">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="HexMVC"/>
 <meta name="twitter:description" content="Hexagonal Architecture pattern &#43; Model View Controller (MVC)"/>
@@ -112,7 +112,7 @@
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.7ebe151a10d6426923971ad237756f35f3e58d11a9cbefe1e0e8305ea3d566756c533dc1f76a0ebcd26d49f56601d5b23d96052e4bd0eb2e60fbd0e0e55e00cc.json"
+  data-offline-search-index-json-src="/offline-search-index.2a843124c3f5572a92a16fd486764f2b6df23537fe67721b273e05f95b9894d37fdab978d3ccd3bc8c8b100df0da20130b91beacc627a5b1178289b172a35b9b.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -143,7 +143,7 @@
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.7ebe151a10d6426923971ad237756f35f3e58d11a9cbefe1e0e8305ea3d566756c533dc1f76a0ebcd26d49f56601d5b23d96052e4bd0eb2e60fbd0e0e55e00cc.json"
+  data-offline-search-index-json-src="/offline-search-index.2a843124c3f5572a92a16fd486764f2b6df23537fe67721b273e05f95b9894d37fdab978d3ccd3bc8c8b100df0da20130b91beacc627a5b1178289b172a35b9b.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -524,7 +524,8 @@
 	<p>Andy Bulka,<br>
 March 2012</p>
 <p>A new, architectural pattern for building multi-platform, scalable applications based on ideas from the Hexagonal Architecture pattern + Model View Controller (MVC).</p>
-<p><strong>TLDR:</strong> Write the application layer but don&rsquo;t import or use any libraries directly.  Wrap all library calls with Adapter objects, so that you can switch to other libraries easily.</p>
+<p><strong>TLDR:</strong> Write the application layer but don&rsquo;t import or use any libraries directly.  Wrap all &ldquo;library&rdquo; calls with Adapter objects, so that you can switch to other libraries easily.</p>
+<p><strong>TLDR:</strong> &ldquo;Libraries&rdquo; can amazingly, include the application data Model itself, Database and persistence layers, the entire GUI and all calls to server APIs. Plug and play everything with this architecture!</p>
 <h1 id="projectspatternsimageshexmvcimage16png"><img src="/projects/patterns/images/hexmvc/image16.png" alt=""></h1>
 <blockquote>
 <p>This is a draft article, written in 2012. It could do with some further editing, but I&rsquo;ve never gotten around to it, so finally decided to publish it anyway, in 2022.</p>
