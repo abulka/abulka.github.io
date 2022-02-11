@@ -268,7 +268,13 @@ In this implementation, I notice that footer renders too early rather than right
 
 - Official [TodoMVC project](http://todomvc.com/) with other TodoMVC implementations (e.g. Vue, Angular, React etc.)
 - [TodoMVC-ECS](https://github.com/abulka/todomvc-ecs) - My "Entity Component System" implementation of TodoMVC
-- [GUI Showdown MVCA](https://abulka.github.io/gui-showdown/main_mvca.html) another example of an app implemented using the MVCA architecture (Javascript, open source)
+- [MVCA](https://abulka.github.io/gui-showdown/main_mvca.html) another example of an app implemented using the MVCA architecture (Javascript, open source)
+- Andy's [GUI Showdown](https://abulka.github.io/gui-showdown) The same application, implemented in various ways - which is better, cleaner, more understandable etc. (Javascript, open source)
+  - OO
+  - MVCA
+  - ECS
+  - PLAIN
+  - VUE
 - [MGM](docs_other/mgm.md) pattern (older version of MVCA, presented at a Patterns Conference)
 <!-- - [Used by](https://github.com/abulka/todomvc-oo) -->
 <!-- - [Website](https://www.gituml.com/editz/134) -->
