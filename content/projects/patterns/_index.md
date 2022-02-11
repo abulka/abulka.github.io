@@ -1,6 +1,6 @@
 ---
 title: "Design Patterns"
-linkTitle: "Design Patterns"
+linkTitle: "My Design Patterns"
 weight: 20
 ---
 
