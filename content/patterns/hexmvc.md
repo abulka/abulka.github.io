@@ -1,7 +1,8 @@
 ---
 title: "HexMVC"
-date: 2012-11-23
+date: 2022-02-12
 draft: false
+type: projects
 description: "Hexagonal Architecture pattern + Model View Controller (MVC)"
 ---
 
@@ -14,7 +15,7 @@ A new, architectural pattern for building multi-platform, scalable applications 
 
 **TLDR:** "Libraries" can amazingly, include the application data Model itself, Database and persistence layers, the entire GUI and all calls to server APIs. Plug and play everything with this architecture!
 
-# ![](/projects/patterns/images/hexmvc/image16.png)
+# ![](/patterns/images/hexmvc/image16.png)
 
 > This is a draft article, written in 2012. It could do with some further editing, but I've never gotten around to it, so finally decided to publish it anyway, in 2022.
 
@@ -75,7 +76,7 @@ wxapp.MainLoop()
 
 Here is a Todo app implementation in Javascript [http://jsfiddle.net/tcab/mC5qA/](https://www.google.com/url?q=http://jsfiddle.net/tcab/mC5qA/&sa=D&source=editors&ust=1644533497537306&usg=AOvVaw2IyZvhDC0eV65oxs-1pTn-)
 
-![javascript-impl-add](/projects/patterns/images/hexmvc/javascript-impl-add.png)
+![javascript-impl-add](/patterns/images/hexmvc/javascript-impl-add.png)
 
 ```html
 <select id="list" size="10" style="width: 15em"></select><br/>
@@ -258,13 +259,13 @@ $(function () {
 });
 ```
 
-> There are more source code implementations in [the appendix](/projects/patterns/hexmvc/#hexmvc-source-code)
+> There are more source code implementations in [the appendix](/patterns/hexmvc/#hexmvc-source-code)
 
 ## HexMvc History
 
 ### MGM days
 
-My initial simplification and re-telling of MVC came with my [MGM pattern](/projects/patterns/mvca-pattern/) where I simply said (well perhaps not so simply, given that it was a paper for a design patterns conference) was that in these (more modern) days where we have proper, sophisticated GUI widgets with eventing and self rendering - there was a need to retell the MVC story - which was traditionally also looking after all eventing, user interaction and even rendering of the GUI.
+My initial simplification and re-telling of MVC came with my [MGM pattern](/patterns/mvca-pattern/) where I simply said (well perhaps not so simply, given that it was a paper for a design patterns conference) was that in these (more modern) days where we have proper, sophisticated GUI widgets with eventing and self rendering - there was a need to retell the MVC story - which was traditionally also looking after all eventing, user interaction and even rendering of the GUI.
 
 So I came up with MGM (model-gui-mediator) where the mediator took on the roles of intercepting events from the GUI widget, sticking info into the model, and also of populating the GUI with fresh information.  The “mediator” class (the last “M” in MGM - although visually it sat more in the middle - between the model and the gui) was a controller and view adapter in one - whereas these days I would separate these two roles, as you will see in HexMVC.  
 
@@ -308,25 +309,25 @@ I had always been fascinated by the idea of pluggable, modular application desig
 
 Simple layering:
 
-![](/projects/patterns/images/hexmvc/image8.png)
+![](/patterns/images/hexmvc/image8.png)
 
 A recent talk I gave on layered architectures reinforced the benefits of layering. However I found numerous people talking about the limitations of having the model ‘at the bottom’ of the layering stack.  Plus lots of people were introducing an ‘infrastructure layer’ which stood vertically and had access to all layers.  
 
-![](/projects/patterns/images/hexmvc/image1.png)
+![](/patterns/images/hexmvc/image1.png)
 
 Finally, there were all these techniques for breaking out of layers, like broadcast notifications, eventing and dependency injection.  So I got to thinking that maybe a different metaphor was needed, something a bit less vertical, and more like a circle.
 
-![](/projects/patterns/images/hexmvc/image10.png)
+![](/patterns/images/hexmvc/image10.png)
 
 *Possible evolution of layering*
 
 When teaching design patterns courses including sessions about the adapter pattern, I would always end that particular session with the idea of using adapters as a way of insulating an app from the ‘bad outside world’ and adapt all external libraries.  It was a radical, intriguiing idea - possibly a bit impractical and theoretical. So I ended up trying to build such a system anyway.
 
-![](/projects/patterns/images/hexmvc/image18.png)
+![](/patterns/images/hexmvc/image18.png)
 
 Alistair Cockburn described a [hexagonal architecture](https://www.google.com/url?q=http://alistair.cockburn.us/Hexagonal%2Barchitecture&sa=D&source=editors&ust=1644533497539284&usg=AOvVaw2f2mT_1Zk2v3iJ84jJRrNP) (later renamed Ports and Adapters pattern) which had services, gui’s, db, etc. around a central app.  The application talked to adapters.  
 
-![](/projects/patterns/images/hexmvc/image24.gif)
+![](/patterns/images/hexmvc/image24.gif)
 
 *The hexagonal architecture*
 
@@ -335,7 +336,7 @@ This was the architecture I was intrigued by, but there were no reference implem
 
 I had always liked the [PureMvc](https://www.google.com/url?q=http://puremvc.org/&sa=D&source=editors&ust=1644533497539894&usg=AOvVaw0krRSlmvdpyy7V-x2aGNRS) pattern, which was a bold retelling of the mvc architecture pattern.  It described all the roles in an mvc architecture, and provided strict rules as to who knows who and how the sequence of interactions went.  I wrote a number of [articles](https://www.google.com/url?q=http://www.andypatterns.com/index.php/blog/puremvc_refactor/&sa=D&source=editors&ust=1644533497540127&usg=AOvVaw1wOxO1elRARnO7oLGybGMF) about it.
 
-![](/projects/patterns/images/hexmvc/image2.png)
+![](/patterns/images/hexmvc/image2.png)
 
 It is a framework and has been ported to most languages.  In practice I found it effective though tedious because of all the rules and registrations - and with its home grown eventing system it is tedious to declare event types, register handlers etc.  I wanted something simpler, whilst keeping the good stuff.  When I implemented an early/partial HexMvc version of a minimal PureMvc sample app, I was able to remove all references to the PureMvc framework and simplify the resulting application - the cost was a dozen extra lines of code to get it working the same.  But being able to remove an entire framework and get the the same result was certainly encouraging.
 
@@ -347,7 +348,7 @@ We start the basic hexagonal architecture with the idea of application in the co
 
 The application talks to interfaces, which are implemented by adapters.
 
-![](/projects/patterns/images/hexmvc/image11.png)
+![](/patterns/images/hexmvc/image11.png)
 
 *The controller too, lives inside the central app hub.*
 
@@ -366,7 +367,7 @@ Note the app does not instantiate objects - this is done by the bootstrapper.
 
 Thus we have taken top down layering and making it round a “Application Hub” instead.  If you follow one particular event flow e.g. from gui to model and back again, you get a traditional view-controller-model top down layered cake.
 
-![](/projects/patterns/images/hexmvc/image17.png)
+![](/patterns/images/hexmvc/image17.png)
 
 But by allowing for more event flows and more services plugged in to a hub, we get a more flexible and interesting architecture, which is still a layered one.  Thus you can get different layers depending on where you start and where you finish.  Nobody is ‘on top’ or ‘on the bottom’.
 
@@ -394,7 +395,7 @@ In HexMvc I pretty much follow the PureMvc rules and call sequences.
 
 Here the gui adapter raises command events and listens for notification events.  A command event is an event that causes the controller to do something (which may then indirectly instantiate a command object to the work).  A notification event would be e.g. the model layer saying ‘something has changed’.  Controllers act directly on the model / model adapter layer and don’t typically raise events.  The model layer doesn’t listen for events, but can generate notification events.
 
-![](/projects/patterns/images/hexmvc/image15.png)
+![](/patterns/images/hexmvc/image15.png)
 
 ### Controller
 
@@ -434,7 +435,7 @@ When you wire up your objects to point to each other you are doing dependency in
 
 ## HexMvc in Detail
 
-![](/projects/patterns/images/hexmvc/image6.png)
+![](/patterns/images/hexmvc/image6.png)
 
 All in One HexMvc Diagram
 
@@ -442,7 +443,7 @@ All in One HexMvc Diagram
 
 Swappable guis, just rewrite the gui adapter
 
-![](/projects/patterns/images/hexmvc/image23.png)
+![](/patterns/images/hexmvc/image23.png)
 
 ### View
 
@@ -472,7 +473,7 @@ HexMvc favours a thin model approach where the majority of domain and business l
 *   A thin model means you can rebuild a model rapidly as needed, for different implementations (see more info on this below).  You preserve the hard domain and business logic in the controller, which never changes.  The App and Controller are the core which never changes.
 *   A centralised coordinated domain logic with undo/redo in a central place is something I’m trying out at this stage of my programming!
 
-![](/projects/patterns/images/hexmvc/image5.png)
+![](/patterns/images/hexmvc/image5.png)
 
 Here you can see that when the application talks to the model, it talks via an adapter, via an interface.
 
@@ -500,11 +501,11 @@ Model swappability is not to be confused with the idea of different ‘back ends
 
 As we said earlier, the model adapter provides the overall interface to the 'model subsystem'. The model adapter methods include model manipulation and access methods, as well as persistence methods. e.g.
 
-![](/projects/patterns/images/hexmvc/image7.png)
+![](/patterns/images/hexmvc/image7.png)
 
 Behind the model adapter is the pure model and possibly a persistence object.  The persistence class is itself adapted behind an interface, so that different persistence techniques can be used.  The model adapter coordinates both the pure model and the swappable persistence class.
 
-![](/projects/patterns/images/hexmvc/image20.png)
+![](/patterns/images/hexmvc/image20.png)
 
 The persistence class knows about the model, it has to, in order to get persistence data in and out of it.
 
@@ -516,7 +517,7 @@ The underlying real persistence class provides the persistence methods.
 
 Typically you do not need an explicitly coded persistence object ‘backend’ if your model already uses the ORM pattern, and persistes automatically to a db.  And usually you can choose the db vendor through config files.
 
-But if you are hand-crafting your own persistence backend mechanism which can be swapped for other persistence mechanisms, then the following design seems a reasonable approach.![](/projects/patterns/images/hexmvc/image13.png)
+But if you are hand-crafting your own persistence backend mechanism which can be swapped for other persistence mechanisms, then the following design seems a reasonable approach.![](/patterns/images/hexmvc/image13.png)
 
 #### Is an abstract persistence interface possible?
 
@@ -541,7 +542,7 @@ The solution is to move this problem into the configuration/wiring/bootup stage 
 
 Server thread is like another gui layer, just write a different server adapter
 
-![](/projects/patterns/images/hexmvc/image22.png)
+![](/patterns/images/hexmvc/image22.png)
 
 #### Careful with your call sequence
 
@@ -552,7 +553,7 @@ A slightly different call sequence is needed when providing a server interface t
 
 This means the server must call directly into the controller and get the information it needs, and the controller must call directly into the model (adapter) to make changes and get results.  This is not strange, this is simply the web mvc approach.
 
-![](/projects/patterns/images/hexmvc/image19.png)
+![](/patterns/images/hexmvc/image19.png)
 
 #### Its not necesssarily a synchronous / asynchronous issue
 
@@ -564,7 +565,7 @@ This all means that controller commands must be able to be invoked directly or i
 
 Note that the model can still send its onChange notifications, its just that the server is not hooked up to them - but other subsystems might be.  So this allows for webpages to indirectly affect a desktop GUI view - neat.
 
-![](/projects/patterns/images/hexmvc/image3.png)
+![](/patterns/images/hexmvc/image3.png)
 
 Example of using the REST api via a web browser.  The GUI updates itself simultaneously!
 
@@ -574,11 +575,11 @@ Aside: Threading introduces a bit of complexity, watch out for communication bet
 
 ### Adapters
 
-More elaboration on [HexMVC adapters](/projects/patterns/hexmvc-adapters) and Adapter Patterns in general.
+More elaboration on [HexMVC adapters](/patterns/hexmvc-adapters) and Adapter Patterns in general.
 
 ### Events
 
-More elaboration on [HexMVC eventing](/projects/patterns/hexmvc-eventing) and Event Patterns in general.
+More elaboration on [HexMVC eventing](/patterns/hexmvc-eventing) and Event Patterns in general.
 
 ### HexMVC Source Code
 
@@ -612,7 +613,7 @@ A: Yes - and yey - it all turns out to be very symmetrical.  Though because the
 
 A: Good point, my ‘arrows’ and their directions could have been made clearer.  The connection between the core app and the gui is one of composition and rarely used.  Its the eventing from view to controller and from model to view that forms 90% of the communication with the view.  My sequence diagrams showed this, but my overal structural diagram was, let us say, a bit more abstract and loose re this point.  Here is an updated diagram that should make things clearer:
 
-![](/projects/patterns/images/hexmvc/image11.png)
+![](/patterns/images/hexmvc/image11.png)
 
 POST TALK THOUGHTS:
 

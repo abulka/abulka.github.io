@@ -3,7 +3,7 @@
 Andy Bulka,  
 March 2012
 
-[Back](/projects/patterns/hexmvc/#appendix) to main HexMVC Pattern.
+[Back](/patterns/hexmvc/#appendix) to main HexMVC Pattern.
 
 
 ## On Eventing
@@ -112,7 +112,7 @@ This is a bit of a tangent, and may form part of another talk.
 
 With the regular observer pattern, you have a ‘subject’ object which contains a list of observer objects. The subject then loops and calls a particular method on all these observer objects when a notification is required.  That’s the basic idea. You can pass paramters in the notification call, incl. strings to tell the observers of different actions to take.  Optionally add some type safety if you like, to ensure both observer and  and ensure both observers follow some interface (to ensure the observers have a OnNotify() method and to ensure subjects have an AddObserver(o) method etc.  Optionally even add some functionality in a subject base class so that your looping NotifyAll() method only has to be implemented once.
 
-![](/projects/patterns/images/hexmvc/image9.png)
+![](/patterns/images/hexmvc/image9.png)
 
 ## Implementations
 
@@ -312,5 +312,5 @@ output
     104  
     done
 
-[Back](/projects/patterns/hexmvc/#appendix) to main HexMVC Pattern.
+[Back](/patterns/hexmvc/#appendix) to main HexMVC Pattern.
 

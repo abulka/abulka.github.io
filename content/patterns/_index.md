@@ -1,20 +1,19 @@
 ---
-title: "Design Patterns"
+title: "Andy Bulka's Design Patterns"
 linkTitle: "My Design Patterns"
-weight: 20
+# type: docs
+type: projects
+# type: swagger
+# type: blog
+# type: community
+menu:
+  main:
+    weight: 42
 ---
 
-## Andy's Published Design Patterns
+These are Design Patterns that I have either discovered and documented or which I have invented.
 
-
-These four papers are substantial works which have been presented at KoalaPlop (Asian Pacific Conference on Pattern Languages of Programs) in both 2000 and 2001.  My shepherds (paper peer reviewers) were:
-
-- Jim Coplien (MGM pattern)
-- Ali Arsanjani (TI pattern)
-- James Noble (RM pattern).  
-- (Design Pattern Automation) was not peer reviewed before being presented and published.
-
-These final versions also incorporate comments and reviews from the attendees of KoalaPlop 2000 and 2001.
+The four patterns MGM, RM, TI and Pattern Automation have been peer reviewed and published in the proceedings of KoalaPlop (Asian Pacific Conference on Pattern Languages of Programs).
 
 <!--
 
@@ -40,6 +39,4 @@ The Transformation Interface is both a design pattern and an architectural patte
 As design patterns become more mainstream, various IDE's (Integrated Development Environments) and UML modelling software environments have begun to introduce support for design patterns. For example,…
 
 -->
-
-## Musings on Design Patterns
 

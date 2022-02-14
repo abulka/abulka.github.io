@@ -2,6 +2,7 @@
 title: "Design Pattern Automation"
 linkTitle: "Design Pattern Automation"
 date: 2002-01-04
+type: projects
 description: >
   Tooling and Design Patterns in IDEs. 
   As design patterns become more mainstream, various IDE's (Integrated Development Environments) and UML modelling software environments have begun to introduce support for design patterns.

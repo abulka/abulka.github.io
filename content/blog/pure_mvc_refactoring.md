@@ -21,7 +21,7 @@ There are many variants of MVC, and people use different terminology to mean the
 Some History.
 
 I once wrote up a pattern called 
-[MGM (Model Gui Mediator)]({{< ref "/projects/patterns/mvca-pattern" >}}) 
+[MGM (Model Gui Mediator)]({{< ref "/patterns/mvca-pattern" >}}) 
 which describes a version of MVC that I thought made sense in today's modern programming age. Today, GUI views were usually comprised of sophisticated controls/widgets rather than laboriously handcrafted graphic code that needed custom controller code to handle the intricate details of interacting with the view/GUI. Most of that low level controller interaction is now built in to the off the shelf widgets/controls.
 
 The controller is now just a mediator between model and view – hence the “M” in MGM (Model-Gui-Mediator). You might prefer to think of the mediator as the controller, so the pattern could well have been called MGC (Model-Gui-Controller). Many modern variants of MVC e.g. MVP (Model View Presenter) and PAC (Presentation Abstraction Controller) and others probably fit into the basic idea of MGM.

@@ -1,6 +1,7 @@
 ---
-title: "Opinion - Musings on Design Patterns"
-date: 2022-01-21T12:59:37+11:00
+title: "Appendix: Musings on Design Patterns"
+date: 1900
+type: projects
 description: "Are design patterns dead?"
 draft: false
 ---

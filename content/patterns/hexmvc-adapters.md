@@ -3,7 +3,7 @@
 Andy Bulka,  
 March 2012
 
-[Back](/projects/patterns/hexmvc/#appendix) to main HexMVC Pattern.
+[Back](/patterns/hexmvc/#appendix) to main HexMVC Pattern.
 
 ## Adapter Design Patterns
 
@@ -43,7 +43,7 @@ The adapter is the place where you implement the promised functionality of the a
 
 Here is the Adapter Pattern sequence diagram:
 
-![](/projects/patterns/images/hexmvc/image12.png)
+![](/patterns/images/hexmvc/image12.png)
 
 > You must use a different adapter whenever you have a different implementation behind it.  What stays the same is the rest of the app which simply expects the interface of the adapter to be there.
 
@@ -54,7 +54,7 @@ There are two classic implementations of adapter – inheritance vs. delegation.
 *   Class Adapter - inheriting or
 *   Object Adapter - composition/wrapping   more common
 
-![](/projects/patterns/images/hexmvc/image4.png)
+![](/patterns/images/hexmvc/image4.png)
 
 typically the latter is used. This is all explained in the GOF design pattern book.
 
@@ -70,11 +70,11 @@ typically the latter is used. This is all explained in the GOF design pattern bo
 
 Having a an adapter implement an interface is not necessary for the adapter pattern - though it is common (known as the ‘Target’).
 
-![](/projects/patterns/images/hexmvc/image14.png)
+![](/patterns/images/hexmvc/image14.png)
 
 You can go further and have a family of adapters implementing an interface:
 
-![](/projects/patterns/images/hexmvc/image27.png)
+![](/patterns/images/hexmvc/image27.png)
 
 Using a family of adapters - each concrete adapter adapts a specific class.    
 Client talks to the Adapter interface.
@@ -91,7 +91,7 @@ The family of adapters strategy pattern  is not a creational pattern like the [
 
 There are some similarities to the [Bridge](https://www.google.com/url?q=https://www.google.com.au/search?sourceid%3Dchrome%26ie%3DUTF-8%26q%3Dwikipedia%2Bbridge%2Bpattern&sa=D&source=editors&ust=1644533497560941&usg=AOvVaw0MnEiIYqvxtGDDqa1p9z0k) design pattern (structural) which is traditionally used for hooking up different ‘drivers’ to a system. In fact each ‘driver instance’ is an implementation of the Adapter pattern - so that fits. But HexMvc doesn’t have Bridge’s abstraction of the l.h.s. client side of things (which allows for both the client and services to vary independently) - so perhaps we are using a half-bridge, or “Bridge Essentials” pattern.
 
-![](/projects/patterns/images/hexmvc/image26.png)
+![](/patterns/images/hexmvc/image26.png)
 
 ### Thick Adapters
 
@@ -115,7 +115,7 @@ Types of Adapters in HexMvc
 
 If you find that different adapters are doing the same thing, Adapter Base classes can reduce duplication.  
 
-![](/projects/patterns/images/hexmvc/image21.png)
+![](/patterns/images/hexmvc/image21.png)
 
 The Adapter Base class can house common implementation or virtual methods that need to be overridden by concrete adapters.
 
@@ -133,9 +133,9 @@ Only the main adapters are attached directly to the central app hub - otherwise 
 
 Thus you sort of replicate an adapter ring around sattelite adapters, as needed.  It perhaps doesn’t have the same semantics as the overall architecture, but there is some degree of similarity in that the core talks to interfaces, and those interfaces are implemented by adapters, which can be swapped in and out.
 
-![](/projects/patterns/images/hexmvc/image25.png)
+![](/patterns/images/hexmvc/image25.png)
 
 As you can see in the gui adapters (as well as in the server case, and also in the persistence case) - there are smaller adapters throughout HexMvc which are not plugged into the central hub.  Examples are random functionality, json conversion, xml conversion, persistence functionality etc.  These are all injected as needed into the subsystem that needs it.
 
-[Back](/projects/patterns/hexmvc/#appendix) to main HexMVC Pattern.
+[Back](/patterns/hexmvc/#appendix) to main HexMVC Pattern.
 

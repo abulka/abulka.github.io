@@ -2,6 +2,7 @@
 title: "Relationship Manager - Design Pattern"
 linkTitle: "Relationship Manager"
 date: 2020-10-22
+type: projects
 description: >
   A central mediating class which records all the one-to-one, one-to-many and many-to-many relationships between a group of selected classes.
 ---
@@ -193,11 +194,11 @@ The way of implementing a backpointer using relationship manager is simply to ca
 
 A bi-directional relationship between X and Y means both sides have pointers to each other.
 
-![svg your image](/images/uml/content/projects/patterns/uml/rm-bidirectionality.svg)
+![svg your image](/images/uml/content/patterns/uml/rm-bidirectionality.svg)
 
 or just
 
-![svg your image](/images/uml/content/projects/patterns/uml/rm-bidirectionality2.svg)
+![svg your image](/images/uml/content/patterns/uml/rm-bidirectionality2.svg)
 
 Within this seemingly obvious idea are a myriad of nuances:
 
@@ -470,5 +471,5 @@ A generics version of relationship manager would be cool - that way no casting w
 
 - See [original andypatterns page](http://www.andypatterns.com/index.php?cID=44)
 
-- Official [Relationship Manager Pattern](https://abulka.github.io/projects/patterns/relationship-manager/) page incl. academic paper by Andy Bulka (this page).
+- Official [Relationship Manager Pattern](https://abulka.github.io/patterns/relationship-manager/) page incl. academic paper by Andy Bulka (this page).
 

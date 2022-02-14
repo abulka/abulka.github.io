@@ -2,6 +2,7 @@
 title: "Transformation Interface Design Pattern"
 linkTitle: "Transformation Interface"
 date: 2019-01-04
+type: projects
 description: >
   An interface or layer, which offers services to transform an object into another format and back again.
 ---
