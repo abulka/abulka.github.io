@@ -4,9 +4,15 @@ date: 2020-11-23T12:21:55+11:00
 draft: false
 ---
 
-I've recently learned mobile app development using Flutter.  Here is my first app.
+## Brew Moments
 
-[https://abulka.github.io/brew-moments/](https://abulka.github.io/brew-moments/)
+Coffee Ratio Calculation App for Android phones and tablets, built using Dart and Flutter.
 
-[![visit google playstore page](/files/cache/43f1dcf5a9ca2ae45b81aecb82779474_f432.png)](https://play.google.com/store/apps/details?id=com.wware.brew_moments)
+![pic](/projects/websites/images/brew-moments.png)
 
+- Visit the Brew Moments [home page](https://abulka.github.io/brew-moments/)
+- Visit the Brew Moments [playstore page](https://play.google.com/store/apps/details?id=com.wware.brew_moments)
+
+# Status
+
+Free to download.

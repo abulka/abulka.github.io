@@ -1,5 +1,5 @@
 ---
-title: "Design Patterns Training"
+title: "Training"
 date: 2020-11-23T12:30:33+11:00
 draft: false
 ---
@@ -8,7 +8,11 @@ Obect Oriented Programming & Design Patterns Training Courses
 
 ![Full Width Page Type Image](/projects/consulting/images/92271233042635bgDSC4384.jpeg)
 
-Elevate the **effectiveness of your entire programming team** - Andy can deliver his existing or a customised Design Patterns Course to your entire programming team - at your company's premises. Consulting and Mentoring is also available.  Contact [Andy](mailto:abulka@gmail.com) for availability.
+Elevate the **effectiveness of your entire programming team** - Andy can deliver his existing or a customised Design Patterns Course to your entire programming team - at your company's premises or via Zoom.
+
+I have delivered training courses across Australia incl. at [The Australian Synchrotron](https://www.ansto.gov.au/research/facilities/australian-synchrotron/overview).
+
+Consulting and Mentoring is also available.  Contact [Andy](mailto:abulka@gmail.com) for availability.
 
 ## Course 1: Design Patterns
 

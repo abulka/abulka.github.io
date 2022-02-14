@@ -28,4 +28,4 @@ diagram, offering step by step numbering to follow the behaviour of a use case s
 
 Think of literate code maps like UML class diagrams where the classes are now boxes which can represent more things, and lines represent function calls as well as structure.  Boxes contain one or more extra compartments containing real code fragments and rich narrative.
 
-See full website dedicated to Literate Code Mapping [here](https://github.com/abulka/lcodemaps).
+See full website dedicated to Literate Code Mapping [here](https://abulka.github.io/lcodemaps/).

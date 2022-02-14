@@ -4,20 +4,24 @@ linkTitle: "Consulting"
 weight: 20
 ---
 
-I offer OO and Design Patterns training, Staff onboarding and documentation consulting through 
+Wware Consulting offers:
+- Object Oriented Programming Training
+- Design Patterns training
+- Staff onboarding consulting
+- Developer Documentation consulting
 
-**Wware Consulting**
+**Principal Consultant** Andy Bulka  
+**Email**: abulka@gmail.com  
+**Address**  
+Wware Consulting  
+34/271 Collins st  
+Melbourne, Australia  
+**Phone**: +61412-759186  
 
-34/271 Collins st
+## Andy Bulka's Developer Story
 
-Melbourne, Australia
+Selected resume and project moments as a timeline:
 
-Ph: CTO Andy Bulka +61412-759186
+![Andy Bulka's Developer Story](/projects/consulting/images/Andy-Bulka-StackOverflow-Developer-Story.png)
 
-### My Developer Story
-
-This stackoverflow timeline is like a resume - except its more fun and useful to look at.
-
-*   [Story view](https://stackoverflow.com/story/andybulka)
-*   [Traditional view](https://stackoverflow.com/cv/andybulka) 
-
+Andy Bulka's Developer Story as [pdf](/projects/consulting/images/Andy-Bulka-StackOverflow-Developer-Story.pdf)
