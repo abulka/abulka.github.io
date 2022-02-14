@@ -40,7 +40,41 @@ diagram, offering step by step numbering to follow the behaviour of a use case s
 &lt;li&gt;Cross reference numbers can appear anywhere to associate ideas&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Think of literate code maps like UML class diagrams where the classes are now boxes which can represent more things, and lines represent function calls as well as structure.  Boxes contain one or more extra compartments containing real code fragments and rich narrative.&lt;/p&gt;
-&lt;p&gt;See full website dedicated to Literate Code Mapping &lt;a href=&#34;https://github.com/abulka/lcodemaps&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;See full website dedicated to Literate Code Mapping &lt;a href=&#34;https://abulka.github.io/lcodemaps/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Projects: Medium Articles</title>
+      <link>https://abulka.github.io/projects/big-ideas/medium-articles/</link>
+      <pubDate>Sat, 23 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://abulka.github.io/projects/big-ideas/medium-articles/</guid>
+      <description>
+        
+        
+        &lt;p&gt;I&amp;rsquo;ve been publishing a lot on Medium recently. Why? Because the articles seems to get more widely read, and the Medium editor is so simple and produces beautifully formatted articles.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://medium.com/@abulka/electron-python-4e8c807bfa5e&#34;&gt;Building a deployable Python-Electron App&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Building a normal, deployable application for Mac or Windows, using Python 3 is hard. There is nothing like Visual Studio or Delphi (remember that?) for Python where you can drag and drop to design a GUI, press a button and get an .exe or .app to give people. Sad. The closest you can get is to follow a long recipe of steps - which I outline here.&lt;/p&gt;
+&lt;p&gt;Its about how to use Electron as a GUI front end to Python 3. It gets over 1,000 reads a week for some reason, more than any of my other articles.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://medium.com/@abulka/async-await-for-wxpython-c78c667e0872&#34;&gt;Async/await for wxPython&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Python 3 GUI apps with asynchronous functionality&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://medium.com/@abulka/getting-python-and-wxpython-apps-into-the-ubuntu-app-store-ccca7ae537a3&#34;&gt;Getting Python and wxPython apps into the Ubuntu app store&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Have you ever dreamt of getting your own apps in the Ubuntu app store? Here’s how.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://medium.com/@abulka/django-view-logging-is-back-the-front-7f9701d501de&#34;&gt;Django View logging is back-the-front&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;How the order of view request log messages in Django apps might be confusing, and how to fix it.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;todomvc-implementation-articles&#34;&gt;TodoMVC implementation articles&lt;/h3&gt;
+&lt;p&gt;Here are my two recent articles implementing the classic Javascript TodoMVC app in various ways. These two articles shows you how to design apps. Its an alternative to using a modern javascript framework like Vue, Angular or React.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://medium.com/@abulka/todomvc-implemented-using-traditional-oo-controllers-and-events-5e4c09f80cd4&#34;&gt;Classic&lt;/a&gt; - OO, Controllers and Events&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://medium.com/@abulka/todomvc-implemented-using-a-game-architecture-ecs-88bb86ea5e98&#34;&gt;ECS&lt;/a&gt; - using a game architecture&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://medium.com/@abulka/todomvc-implemented-using-traditional-oo-controllers-and-events-5e4c09f80cd4&#34;&gt;TodoMVC implemented using traditional OO, Controllers and Events.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;TodoMVC implemented in a classic Object Oriented way - which includes running code you can run in your browser.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://medium.com/@abulka/todomvc-implemented-using-a-game-architecture-ecs-88bb86ea5e98&#34;&gt;TodoMVC implemented using a game architecture — ECS.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Building traditional GUIs with the Entity Component System&lt;/p&gt;
 
       </description>
     </item>

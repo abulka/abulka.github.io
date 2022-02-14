@@ -840,7 +840,7 @@ Snapshot 6 [1] LL  0   NN pre rm overlaps 10   LN  5   scale 2.0   bounds 18  (4
 &lt;h3 id=&#34;model-gui-mediator&#34;&gt;Model Gui Mediator&lt;/h3&gt;
 &lt;p&gt;Some History.&lt;/p&gt;
 &lt;p&gt;I once wrote up a pattern called
-&lt;a href=&#34;https://abulka.github.io/projects/patterns/mvca-pattern/&#34;&gt;MGM (Model Gui Mediator)&lt;/a&gt;
+&lt;a href=&#34;https://abulka.github.io/patterns/mvca-pattern/&#34;&gt;MGM (Model Gui Mediator)&lt;/a&gt;
 which describes a version of MVC that I thought made sense in today&amp;rsquo;s modern programming age. Today, GUI views were usually comprised of sophisticated controls/widgets rather than laboriously handcrafted graphic code that needed custom controller code to handle the intricate details of interacting with the view/GUI. Most of that low level controller interaction is now built in to the off the shelf widgets/controls.&lt;/p&gt;
 &lt;p&gt;The controller is now just a mediator between model and view – hence the “M” in MGM (Model-Gui-Mediator). You might prefer to think of the mediator as the controller, so the pattern could well have been called MGC (Model-Gui-Controller). Many modern variants of MVC e.g. MVP (Model View Presenter) and PAC (Presentation Abstraction Controller) and others probably fit into the basic idea of MGM.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/puremvcfussMGM.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;

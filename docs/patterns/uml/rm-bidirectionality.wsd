@@ -1,0 +1,30 @@
+@startuml "rm-bidirectionality"
+
+skinparam backgroundcolor Ivory/Azure
+
+X -> Y
+X <- Y
+
+class X {
+}
+
+class Y {
+}
+
+@enduml
+
+@startuml "rm-bidirectionality2"
+
+skinparam backgroundcolor Ivory/Azure
+
+X <-> Y
+
+class X {
+
+}
+
+class Y {
+
+}
+
+@enduml

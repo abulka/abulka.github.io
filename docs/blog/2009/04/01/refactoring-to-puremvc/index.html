@@ -26,12 +26,12 @@ Introduction MVC Architectural Pattern I have long been fascinated by the MVC (M
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://abulka.github.io/blog/2009/04/01/refactoring-to-puremvc/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2009-04-01T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-11-17T11:37:33+11:00" />
+<meta property="article:modified_time" content="2022-02-14T11:07:35+11:00" />
 
 <meta itemprop="name" content="Refactoring to PureMVC">
 <meta itemprop="description" content="Let&rsquo;s look at how to refactor an existing architecture to the PureMVC architecture. Your application requires that you display &lsquo;model&rsquo; data in some sort of UI &lsquo;view&rsquo;.
 Introduction MVC Architectural Pattern I have long been fascinated by the MVC (Model View Controller) architectural pattern, first conceived in the 1960&rsquo;s. What it promises, to those who can fathom its mysteries, is an orderly way of organising your application architecture. You define a de-coupled domain/business model that is oblivious to any GUI that might be displaying it."><meta itemprop="datePublished" content="2009-04-01T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2020-11-17T11:37:33+11:00" />
+<meta itemprop="dateModified" content="2022-02-14T11:07:35+11:00" />
 <meta itemprop="wordCount" content="7014">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Refactoring to PureMVC"/>
@@ -78,16 +78,6 @@ Introduction MVC Architectural Pattern I have long been fascinated by the MVC (M
 				
 				
 				
-				<a class="nav-link" href="/about/" ><span>About</span></a>
-			</li>
-			
-			<li class="nav-item mr-4 mb-2 mb-lg-0">
-				
-				
-				
-				
-				
-				
 				<a class="nav-link active" href="/blog/" ><span class="active">Blog</span></a>
 			</li>
 			
@@ -99,6 +89,26 @@ Introduction MVC Architectural Pattern I have long been fascinated by the MVC (M
 				
 				
 				<a class="nav-link" href="/projects/" ><span>Projects</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/patterns/" ><span>My Design Patterns</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/about/" ><span>About</span></a>
 			</li>
 			
 			
@@ -115,7 +125,7 @@ Introduction MVC Architectural Pattern I have long been fascinated by the MVC (M
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.2a843124c3f5572a92a16fd486764f2b6df23537fe67721b273e05f95b9894d37fdab978d3ccd3bc8c8b100df0da20130b91beacc627a5b1178289b172a35b9b.json"
+  data-offline-search-index-json-src="/offline-search-index.465f2b9207c39e901e03422197e5f2311a0029643d5e792704282b9bfe80e559eb1471f368fc1b0b0ef156dc449a8f92ba9a5638fc84061ef47d1e3ce6840179.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -146,7 +156,7 @@ Introduction MVC Architectural Pattern I have long been fascinated by the MVC (M
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.2a843124c3f5572a92a16fd486764f2b6df23537fe67721b273e05f95b9894d37fdab978d3ccd3bc8c8b100df0da20130b91beacc627a5b1178289b172a35b9b.json"
+  data-offline-search-index-json-src="/offline-search-index.465f2b9207c39e901e03422197e5f2311a0029643d5e792704282b9bfe80e559eb1471f368fc1b0b0ef156dc449a8f92ba9a5638fc84061ef47d1e3ce6840179.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -446,7 +456,7 @@ Introduction MVC Architectural Pattern I have long been fascinated by the MVC (M
 <h3 id="model-gui-mediator">Model Gui Mediator</h3>
 <p>Some History.</p>
 <p>I once wrote up a pattern called
-<a href="https://abulka.github.io/projects/patterns/mvca-pattern/">MGM (Model Gui Mediator)</a>
+<a href="https://abulka.github.io/patterns/mvca-pattern/">MGM (Model Gui Mediator)</a>
 which describes a version of MVC that I thought made sense in today&rsquo;s modern programming age. Today, GUI views were usually comprised of sophisticated controls/widgets rather than laboriously handcrafted graphic code that needed custom controller code to handle the intricate details of interacting with the view/GUI. Most of that low level controller interaction is now built in to the off the shelf widgets/controls.</p>
 <p>The controller is now just a mediator between model and view – hence the “M” in MGM (Model-Gui-Mediator). You might prefer to think of the mediator as the controller, so the pattern could well have been called MGC (Model-Gui-Controller). Many modern variants of MVC e.g. MVP (Model View Presenter) and PAC (Presentation Abstraction Controller) and others probably fit into the basic idea of MGM.</p>
 <p><img src="/blog/images/puremvcfussMGM.png" alt=""></p>
