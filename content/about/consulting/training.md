@@ -1,12 +1,13 @@
 ---
 title: "Training"
 date: 2020-11-23T12:30:33+11:00
+type: projects
 draft: false
 ---
 
 Obect Oriented Programming & Design Patterns Training Courses
 
-![Full Width Page Type Image](/projects/consulting/images/92271233042635bgDSC4384.jpeg)
+![Full Width Page Type Image](/about/consulting/images/92271233042635bgDSC4384.jpeg)
 
 Elevate the **effectiveness of your entire programming team** - Andy can deliver his existing or a customised Design Patterns Course to your entire programming team - at your company's premises or via Zoom.
 
@@ -25,11 +26,11 @@ Consulting and Mentoring is also available.  Contact [Andy](mailto:abulka@gmail.
 
 **Course materials**:  Are supplied (approx 320 pages) - option for client to print and bind if that is more convenient.  Contains code examples, whiteboard screenshots, tips, UML diagrams, advanced discussions etc.
 
-![](/projects/consulting/images/traini1.png)
+![](/about/consulting/images/traini1.png)
 
 _The front cover of the comprehensive training materials supplied during this course._
 
-![](/projects/consulting/images/traini3.gif)![](/projects/consulting/images/traini4.jpeg)![](/projects/consulting/images/traini5.gif)
+![](/about/consulting/images/traini3.gif)![](/about/consulting/images/traini4.jpeg)![](/about/consulting/images/traini5.gif)
 
  _Sample pages from the course manual._
 
@@ -261,7 +262,7 @@ _Note: Some of the advanced patterns and topics, above, are subject to time cons
 * * *
 
 
-![Full Width Page Type Image](/projects/consulting/images/92271233042635bgDSC4384.jpeg)
+![Full Width Page Type Image](/about/consulting/images/92271233042635bgDSC4384.jpeg)
 
 ## Course 2: Object Oriented Programming and Design
 
@@ -316,7 +317,7 @@ Introduction to OO, UML and Design Patterns Course
 
 ## About the Trainer:
 
-![Andy Bulka - Trainer](/projects/consulting/images/Andy-Bulka-about-the-trainer.jpeg)
+![Andy Bulka - Trainer](/about/consulting/images/Andy-Bulka-about-the-trainer.jpeg)
 
 Andy Bulka has been teaching design patterns for five years, running three day workshops covering all the 23 GOF patterns. 
 

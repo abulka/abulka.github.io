@@ -1,6 +1,7 @@
 ---
 title: "Contracting"
 date: 2020-11-23T12:34:08+11:00
+type: projects
 draft: false
 ---
 
