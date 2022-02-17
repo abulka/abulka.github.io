@@ -118,7 +118,7 @@
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.465f2b9207c39e901e03422197e5f2311a0029643d5e792704282b9bfe80e559eb1471f368fc1b0b0ef156dc449a8f92ba9a5638fc84061ef47d1e3ce6840179.json"
+  data-offline-search-index-json-src="/offline-search-index.d8ce2a5b57ad016b966c31a319eaf4e753f555176eed5b87caaff904a8980b4f9cfb567d6346ca5b7f9faef0b37c6fae985bf56ced545304e313e470bbd2f50e.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -149,7 +149,7 @@
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.465f2b9207c39e901e03422197e5f2311a0029643d5e792704282b9bfe80e559eb1471f368fc1b0b0ef156dc449a8f92ba9a5638fc84061ef47d1e3ce6840179.json"
+  data-offline-search-index-json-src="/offline-search-index.d8ce2a5b57ad016b966c31a319eaf4e753f555176eed5b87caaff904a8980b4f9cfb567d6346ca5b7f9faef0b37c6fae985bf56ced545304e313e470bbd2f50e.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -345,23 +345,31 @@
   <ul>
     <li><a href="#gituml">GitUML</a></li>
     <li><a href="#python-to-rpn">Python to RPN</a></li>
-    <li><a href="#prophet6-bank-editor">Prophet6 Bank editor</a></li>
     <li><a href="#online-programmable-rpn-calculators">Online Programmable RPN calculators</a>
       <ul>
         <li><a href="#rpn-calc">Rpn-calc</a></li>
         <li><a href="#rpn-calc2">Rpn-calc2</a></li>
       </ul>
     </li>
-    <li><a href="#jupyter-notebook-calculators">Jupyter Notebook Calculators</a>
+    <li><a href="#jupyter-notebooks">Jupyter Notebooks</a>
       <ul>
-        <li><a href="#python-notebook-calculator-playground">Python Notebook Calculator Playground</a></li>
-        <li><a href="#google-notebook-version">Google Notebook version</a></li>
+        <li><a href="#scrolling-textareas">Scrolling Textareas</a></li>
+        <li><a href="#google-colaboratory">Google Colaboratory</a></li>
       </ul>
     </li>
-    <li><a href="#toolback---low-code">Toolback - Low Code</a>
+    <li><a href="#toolback---app-builder">Toolback - App Builder</a>
       <ul>
         <li><a href="#toolback">Toolback</a></li>
         <li><a href="#toolback-lite">Toolback Lite</a></li>
+      </ul>
+    </li>
+    <li><a href="#chord-jammer">Chord Jammer</a>
+      <ul>
+        <li><a href="#sample-config">Sample config</a></li>
+        <li><a href="#single-finger-chords">Single finger Chords</a></li>
+        <li><a href="#scale-switching-whilst-playing">Scale Switching whilst playing</a></li>
+        <li><a href="#left-hand-black-key-modifiers">Left hand black key modifiers</a></li>
+        <li><a href="#config-customisations-supported">Config customisations supported</a></li>
       </ul>
     </li>
   </ul>
@@ -446,12 +454,11 @@
 <li>Access most HP42S commands as function calls e.g. FIX(2)</li>
 <li>Some enhanced functions to make life easier e.g. varmenu() automates and simplifies the generation of MVAR based code.</li>
 </ol>
-<h2 id="prophet6-bank-editor">Prophet6 Bank editor</h2>
-<p>Unfinished</p>
-<p>Where is the screenshot?</p>
 <h2 id="online-programmable-rpn-calculators">Online Programmable RPN calculators</h2>
 <h3 id="rpn-calc">Rpn-calc</h3>
 <p><img src="/projects/websites/images/rpn-calc-1.png" alt="rpn-calc-1"></p>
+<p>Here is the built in Javascript code editor.</p>
+<p>Parameters to Javascript functions are taken off the RPN stack. Return values from Javascript functions are pushed onto the RPN stack.</p>
 <p><img src="/projects/websites/images/rpn-calc-2.png" alt="rpn-calc-2"></p>
 <p><a href="https://atug.com/jsrpncalc-web/">https://atug.com/jsrpncalc-web/</a></p>
 <h3 id="rpn-calc2">Rpn-calc2</h3>
@@ -459,19 +466,125 @@
 <p><img src="/projects/websites/images/rpn-calc2-1.png" alt="rpn-calc2-1"></p>
 <p><img src="/projects/websites/images/rpn-calc2-2.png" alt="rpn-calc2-2"></p>
 <p><a href="https://atug.com/jsrpncalc2/">https://atug.com/jsrpncalc2/</a></p>
-<h2 id="jupyter-notebook-calculators">Jupyter Notebook Calculators</h2>
-<p>A way of implementing complex calculators incl. UI widgets within Jupyter Notebooks.</p>
-<h3 id="python-notebook-calculator-playground">Python Notebook Calculator Playground</h3>
-<p>screenshots todo</p>
-<h3 id="google-notebook-version">Google Notebook version</h3>
-<p>screenshots todo</p>
-<h2 id="toolback---low-code">Toolback - Low Code</h2>
+<h2 id="jupyter-notebooks">Jupyter Notebooks</h2>
+<p>A way of implementing complex calculators incl. scrolling text area UI widgets within Jupyter Notebooks.</p>
+<h3 id="scrolling-textareas">Scrolling Textareas</h3>
+<p>Scrolling Textareas in a Python Jupyter Notebook, allows building a kind of &ldquo;Calculator Playground&rdquo;.</p>
+<p><img src="/projects/websites/images/jupyter-calc-pi.gif" alt=""></p>
+<p>Various Jupyter Notebooks at <a href="https://bitbucket.org/abulka/jupyter_play/src/master/">https://bitbucket.org/abulka/jupyter_play/src/master/</a> (private)</p>
+<p>Gist of the scrolling textarea technique: <a href="https://gist.github.com/abulka/3043e8a4d78d2e26f872542524a0aa3e">https://gist.github.com/abulka/3043e8a4d78d2e26f872542524a0aa3e</a> (public)</p>
+<h3 id="google-colaboratory">Google Colaboratory</h3>
+<p>A way of implementing UI scrolling regions within Google Colaboratory Notebooks.
+Google Colaboratory, or &ldquo;Colab&rdquo; for short, is a version of Jupyter Notebooks, and allows you to write and execute Python in your browser.</p>
+<p>This <a href="https://colab.research.google.com/drive/1_R4DAqhVgfPc4113N5VxHVeUJ9oxDMKM#scrollTo=bz9ue7M7cRPq">Colab project</a> is a simpler version of the scrolling text area idea above, and needs to be fleshed out a little more fully to match the native Jupyter notebook functionality above.</p>
+<p><img src="/projects/websites/images/jupyter-google-colab-1.gif" alt="jupyter-google-colab-1"></p>
+<h2 id="toolback---app-builder">Toolback - App Builder</h2>
 <p>An online programming environment, with low code features.  Drag and drop a UI and add scripts directly to components.  Generate websites and desktop apps (electron based) with a click of a button.</p>
 <h3 id="toolback">Toolback</h3>
-<p>screenshots todo</p>
+<p>Toolback is the drag and drop UI builder and online, Low Code, app building IDE.</p>
+<!-- ![toolback-1](/projects/websites/images/toolback-1.png) -->
+<p><img src="/projects/websites/images/toolback-2.png" alt="toolback-2"></p>
+<p><img src="/projects/websites/images/toolback-7-drag-drop.png" alt="toolback-7"></p>
+<p><img src="/projects/websites/images/toolback-3.png" alt="toolback-3"></p>
+<p><img src="/projects/websites/images/toolback-4.png" alt="toolback-4"></p>
+<p>Preview your app with a key press.</p>
+<p><img src="/projects/websites/images/toolback-5-menus.gif" alt="toolback-5"></p>
+<p>Export to a website or electron app - one click!</p>
+<p><img src="/projects/websites/images/toolback-6-electron.png" alt="toolback-6"></p>
 <h3 id="toolback-lite">Toolback Lite</h3>
-<p>screenshots todo</p>
+<p>Toolback-Lite is a lightweight drag and drop UI builder and online app building IDE. The drag and drop is done on a grid rather than using the the complex <a href="https://grapesjs.com/">grapes-js</a> html builder library, which Toolback uses.</p>
+<p><img src="/projects/websites/images/toolback-lite-1.gif" alt="toolback-lite-1"></p>
+<h2 id="chord-jammer">Chord Jammer</h2>
+<p>A midi web app that lets you play chords with 1 finger in the left hand
+and jam safely in the right hand.
+As you change chords, the rh notes are filtered so you always play good sounding notes.</p>
+<p><img src="/projects/websites/images/chord-jammer-1.png" alt="screenshot"></p>
+<p>
+    MIDI powered by <a href="https://webmidijs.org/docs/">WebMidi.js</a>
+    GUI powered by <a href="http://g200kg.github.io/webaudio-controls/docs/index.html">webaudio-controls</a>
+    Scales powered by <a href="https://github.com/tonaljs/tonal">tonaljs</a> - A functional music theory library for
+    Javascript.
+</p>
+<pre><code>~/Devel/midi-play/webmidijs-play
+</code></pre>
+<h3 id="sample-config">Sample config</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#204a87;font-weight:bold">export</span> <span style="color:#204a87;font-weight:bold">let</span> <span style="color:#000">project</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#000">chords</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#4e9a06">&#39;C3&#39;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+            <span style="color:#000">lhchord</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000">Em7Chord</span><span style="color:#000;font-weight:bold">,</span>
+            <span style="color:#000">rhnotes</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000">EmScaleMelodic</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#000;font-weight:bold">},</span>
+        <span style="color:#4e9a06">&#39;D3&#39;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+            <span style="color:#000">lhchord</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000">AmAdd9Chord</span><span style="color:#000;font-weight:bold">,</span>
+            <span style="color:#000">rhnotes</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000">EmScaleNatural</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#000;font-weight:bold">},</span>
+        <span style="color:#4e9a06">&#39;E3&#39;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+            <span style="color:#000">lhchord</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000">CM9Chord</span><span style="color:#000;font-weight:bold">,</span>
+            <span style="color:#000">rhnotes</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000">EmScaleNatural</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#000;font-weight:bold">},</span>
+        <span style="color:#4e9a06">&#39;F3&#39;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+            <span style="color:#000">lhchord</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000">BmAdd11ChordInversion1</span><span style="color:#000;font-weight:bold">,</span>
+            <span style="color:#000">rhnotes</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000">EmScaleNatural</span><span style="color:#000;font-weight:bold">,</span>
+            <span style="color:#000">rhnotes2</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000">EmScaleHarmonic</span><span style="color:#000;font-weight:bold">,</span>
+            <span style="color:#000">rhnotes3</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000">EmBlues</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#000;font-weight:bold">}</span>
+    <span style="color:#000;font-weight:bold">}</span>
+<span style="color:#000;font-weight:bold">}</span>
+</code></pre></div><h3 id="single-finger-chords">Single finger Chords</h3>
+<p>With the project config above</p>
+<ul>
+<li>Play C3 to trigger chord <code>Em7Chord</code> and jam in default scale <code>EmScaleMelodic</code></li>
+<li>Play D3 to trigger chord <code>AmAdd9Chord</code> and jam in default scale <code>EmScaleNatural</code></li>
+<li>Play E3 to trigger chord <code>CM9Chord</code> and jam in default scale <code>EmScaleNatural</code></li>
+<li>Play F3 to trigger chord <code>BmAdd11ChordInversion1</code> and jam in default scale <code>EmScaleNatural</code></li>
+</ul>
+<p>Jamming notes are <code>G3</code> to <code>C5</code> and are filtered to be in the default scale for that chord.</p>
+<h3 id="scale-switching-whilst-playing">Scale Switching whilst playing</h3>
+<p>You can switch to e.g. the pentatonic scale for the current chord by pressing D#4.  Switch back to the default scale by pressing C#4.</p>
+<p>Here is a list of <em>modifier keys</em> and what they do to the rh scale:</p>
+<ul>
+<li>C#4 default scale, <code>rhnotes</code> in config</li>
+<li>D#4 <code>rhnotes2</code> scale in config</li>
+<li>F#4 <code>rhnotes3</code> scale in config</li>
+<li>G#4 transpose rh scale by <code>options.transposeUpAmount</code> semitones</li>
+<li>A#4 transpose rh scale down by <code>options.transposeDownAmount</code> semitones</li>
+</ul>
+<p>You can customise the transposition amounts for a given project via config e.g.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#204a87;font-weight:bold">export</span> <span style="color:#204a87;font-weight:bold">let</span> <span style="color:#000">project</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#000">chords</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{...},</span>
+    <span style="color:#000">options</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#000">transposeUpAmount</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">4</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#000">transposeDownAmount</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">,</span>
+    <span style="color:#000;font-weight:bold">}</span>
+<span style="color:#000;font-weight:bold">}</span>
+</code></pre></div><p>Potentially other customisations via config will be supported in the future:</p>
+<ul>
+<li>Being able to specify which scales to switch to, instead of pentatonic and blues.</li>
+<li>Being able to change what the modifier keys actually are (unlikely).</li>
+</ul>
+<h3 id="left-hand-black-key-modifiers">Left hand black key modifiers</h3>
+<p>The octave containing the left hand chord trigger notes will have its black keys used as modifiers.
+The <code>C#</code> acts as a SHIFT, so</p>
+<ul>
+<li><code>C#</code> hold down to engage SHIFT mode</li>
+<li><code>D#</code> cmdSetScaleFiltering(false)</li>
+<li><code>F#</code> cmdSetScaleFiltering(true)</li>
+<li><code>G#</code> transposeChord down a semitone</li>
+<li><code>A#</code> transposeChord up a semitone</li>
+<li>SHIFT <code>D#</code> stopAllNotes()</li>
+<li>SHIFT <code>F#</code> scaleFilteringModificationSticky toggle</li>
+<li>SHIFT <code>G#</code> reset chord transpose - todo</li>
+<li>SHIFT <code>A#</code> reset chord transpose - todo</li>
+</ul>
+<h3 id="config-customisations-supported">Config customisations supported</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#204a87;font-weight:bold">export</span> <span style="color:#204a87;font-weight:bold">let</span> <span style="color:#000">project</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#000">chords</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{...},</span>
+    <span style="color:#000">options</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{...},</span>
 
+    <span style="color:#000">splitNote</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#39;C3&#39;</span><span style="color:#000;font-weight:bold">,</span>         <span style="color:#8f5902;font-style:italic">// Where the root note is (see explanation below)
+</span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#000">rhStartOctave</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">,</span>        <span style="color:#8f5902;font-style:italic">// To which octave to start mapping notes to
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000;font-weight:bold">}</span>
+</code></pre></div>
         <div class="section-index">
     
     
@@ -567,7 +680,7 @@
 	
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified February 14, 2022: <a  href="https://github.com/google/docsy-example/commit/ea4ad1e515f235dd31f39166e2852a6df86b2f56">projects subsite re-organised (ea4ad1e)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified February 17, 2022: <a  href="https://github.com/google/docsy-example/commit/2973ced056adeb26a30e914de9eecd6bb4db90c5">Gist of the scrolling textarea technique (2973ced)</a>
 </div>
 </div>
 
