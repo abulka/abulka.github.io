@@ -81,25 +81,36 @@ A completely new implementation, also programmable in Javascript. Define interac
 
 https://atug.com/jsrpncalc2/
 
-## Jupyter Notebook Calculators
+## Jupyter Notebooks
 
-A way of implementing complex calculators incl. UI widgets within Jupyter Notebooks. 
+A way of implementing complex calculators incl. scrolling text area UI widgets within Jupyter Notebooks. 
 
-### Python Notebook Calculator Playground
+### Scrolling Textareas
 
-screenshots todo
+Scrolling Textareas in a Python Jupyter Notebook, allows building a kind of "Calculator Playground".
 
-### Google Notebook version
+![](/projects/websites/images/jupyter-calc-pi.gif)
 
-screenshots todo
+Notebook at https://bitbucket.org/abulka/jupyter_play/src/master/
 
-## Toolback - Low Code App Builder
+
+
+### Google Colaboratory
+
+A way of implementing UI scrolling regions within Google Colaboratory Notebooks. 
+Google Colaboratory, or "Colab" for short, is a version of Jupyter Notebooks, and allows you to write and execute Python in your browser.
+
+This [Colab project](https://colab.research.google.com/drive/1_R4DAqhVgfPc4113N5VxHVeUJ9oxDMKM#scrollTo=bz9ue7M7cRPq) is a simpler version of the scrolling text area idea above, and needs to be fleshed out a little more fully to match the native Jupyter notebook functionality above.
+
+![jupyter-google-colab-1](/projects/websites/images/jupyter-google-colab-1.gif)
+
+## Toolback - App Builder
 
 An online programming environment, with low code features.  Drag and drop a UI and add scripts directly to components.  Generate websites and desktop apps (electron based) with a click of a button.
 
 ### Toolback
 
-Toolback is the drag and drop UI builder and online app building IDE.
+Toolback is the drag and drop UI builder and online, Low Code, app building IDE.
 
 <!-- ![toolback-1](/projects/websites/images/toolback-1.png) -->
 
@@ -127,3 +138,111 @@ Toolback-Lite is a lightweight drag and drop UI builder and online app building 
 ![toolback-lite-1](/projects/websites/images/toolback-lite-1.gif)
 
 
+## Chord Jammer
+
+A midi web app that lets you play chords with 1 finger in the left hand
+and jam safely in the right hand. 
+As you change chords, the rh notes are filtered so you always play good sounding notes.
+
+![screenshot](/projects/websites/images/chord-jammer-1.png)
+
+<p>
+    MIDI powered by <a href="https://webmidijs.org/docs/">WebMidi.js</a>
+    GUI powered by <a href="http://g200kg.github.io/webaudio-controls/docs/index.html">webaudio-controls</a>
+    Scales powered by <a href="https://github.com/tonaljs/tonal">tonaljs</a> - A functional music theory library for
+    Javascript.
+</p>
+
+    ~/Devel/midi-play/webmidijs-play
+
+### Sample config
+
+```javascript
+export let project = {
+    chords: {
+        'C3': {
+            lhchord: Em7Chord,
+            rhnotes: EmScaleMelodic,
+        },
+        'D3': {
+            lhchord: AmAdd9Chord,
+            rhnotes: EmScaleNatural,
+        },
+        'E3': {
+            lhchord: CM9Chord,
+            rhnotes: EmScaleNatural,
+        },
+        'F3': {
+            lhchord: BmAdd11ChordInversion1,
+            rhnotes: EmScaleNatural,
+            rhnotes2: EmScaleHarmonic,
+            rhnotes3: EmBlues,
+        }
+    }
+}
+```
+### Single finger Chords
+
+With the project config above
+
+- Play C3 to trigger chord `Em7Chord` and jam in default scale `EmScaleMelodic`
+- Play D3 to trigger chord `AmAdd9Chord` and jam in default scale `EmScaleNatural`
+- Play E3 to trigger chord `CM9Chord` and jam in default scale `EmScaleNatural`
+- Play F3 to trigger chord `BmAdd11ChordInversion1` and jam in default scale `EmScaleNatural`
+
+Jamming notes are `G3` to `C5` and are filtered to be in the default scale for that chord.
+
+### Scale Switching whilst playing
+
+You can switch to e.g. the pentatonic scale for the current chord by pressing D#4.  Switch back to the default scale by pressing C#4.  
+
+Here is a list of *modifier keys* and what they do to the rh scale:
+
+- C#4 default scale, `rhnotes` in config
+- D#4 `rhnotes2` scale in config
+- F#4 `rhnotes3` scale in config
+- G#4 transpose rh scale by `options.transposeUpAmount` semitones
+- A#4 transpose rh scale down by `options.transposeDownAmount` semitones
+
+You can customise the transposition amounts for a given project via config e.g.
+
+```javascript
+export let project = {
+    chords: {...},
+    options: {
+        transposeUpAmount: 4,
+        transposeDownAmount: -2,
+    }
+}
+```
+
+Potentially other customisations via config will be supported in the future:
+- Being able to specify which scales to switch to, instead of pentatonic and blues.
+- Being able to change what the modifier keys actually are (unlikely).
+
+### Left hand black key modifiers
+
+The octave containing the left hand chord trigger notes will have its black keys used as modifiers.
+The `C#` acts as a SHIFT, so
+
+  - `C#` hold down to engage SHIFT mode
+  - `D#` cmdSetScaleFiltering(false)
+  - `F#` cmdSetScaleFiltering(true)
+  - `G#` transposeChord down a semitone
+  - `A#` transposeChord up a semitone
+  - SHIFT `D#` stopAllNotes()
+  - SHIFT `F#` scaleFilteringModificationSticky toggle
+  - SHIFT `G#` reset chord transpose - todo
+  - SHIFT `A#` reset chord transpose - todo
+
+### Config customisations supported
+
+```js
+export let project = {
+    chords: {...},
+    options: {...},
+
+    splitNote: 'C3',         // Where the root note is (see explanation below)
+    rhStartOctave: 3,        // To which octave to start mapping notes to
+}
+```
