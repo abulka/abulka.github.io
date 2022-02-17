@@ -91,8 +91,9 @@ Scrolling Textareas in a Python Jupyter Notebook, allows building a kind of "Cal
 
 ![](/projects/websites/images/jupyter-calc-pi.gif)
 
-Notebook at https://bitbucket.org/abulka/jupyter_play/src/master/
+Various Jupyter Notebooks at https://bitbucket.org/abulka/jupyter_play/src/master/ (private)
 
+Gist of the scrolling textarea technique: https://gist.github.com/abulka/3043e8a4d78d2e26f872542524a0aa3e (public)
 
 
 ### Google Colaboratory
