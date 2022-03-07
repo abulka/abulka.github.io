@@ -939,7 +939,7 @@ though persistence is built into Relationship Manager too.&lt;/p&gt;
 &lt;p&gt;Note this pattern was written and presented in 2001 - quite a while ago! In 2020 the API of the &lt;a href=&#34;https://github.com/abulka/relationship-manager&#34;&gt;Python Relationship Manager&lt;/a&gt; implementation was revised and improved - see full &lt;a href=&#34;https://abulka.github.io/relationship-manager/relmgr/index.html&#34;&gt;API documentation&lt;/a&gt;.&lt;/p&gt;
 &lt;iframe src=&#34;https://abulka.github.io/files/andybulkarelationshipmanagerpattern.html&#34; name=&#34;frame1&#34; scrolling=&#34;yes&#34; frameborder=&#34;yes&#34; align=&#34;center&#34; height = &#34;842px&#34; width = &#34;800&#34;&gt;
 &lt;/iframe&gt;
-&lt;p&gt;Download as &lt;a href=&#34;https://abulka.github.io/files/rm_AndyBulkaRelationshipManagerPattern.pdf&#34;&gt;pdf&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Download as &lt;a href=&#34;https://abulka.github.io/files/pdfs/AndyBulkaRelationshipManagerPattern.pdf&#34;&gt;pdf&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;quick-example&#34;&gt;Quick Example&lt;/h2&gt;
 &lt;p&gt;The examples on this page use the modern v2. Python implementation.&lt;/p&gt;
 &lt;p&gt;Relationship Manager has also been implemented in Python, C# (.net4 and .net core) and Java - see the Relationship Manager &lt;a href=&#34;https://github.com/abulka/relationship-manager&#34;&gt;GitHub project&lt;/a&gt; for all implementation source code.&lt;/p&gt;
@@ -2039,6 +2039,7 @@ This is arguably the traditional MVC pattern with terminology tweaked and clarif
 &lt;h2 id=&#34;the-pattern&#34;&gt;The Pattern&lt;/h2&gt;
 &lt;iframe src=&#34;https://abulka.github.io/files/andybulkamodelguimediatorpattern.html&#34; name=&#34;frame1&#34; scrolling=&#34;yes&#34; frameborder=&#34;yes&#34; align=&#34;center&#34; height = &#34;842px&#34; width = &#34;800&#34;&gt;
 &lt;/iframe&gt;
+&lt;p&gt;Download as &lt;a href=&#34;https://abulka.github.io/files/pdfs/AndyBulkaModelGuiMediatorPattern.pdf&#34;&gt;pdf&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;comments&#34;&gt;Comments&lt;/h2&gt;
 &lt;p&gt;Comments now disabled due to spam.&lt;/p&gt;
 &lt;h3 id=&#34;posted-onjan-18th-2009&#34;&gt;Posted on Jan 18th, 2009&lt;/h3&gt;
@@ -2111,8 +2112,9 @@ It has a cheaper form of mgm which I just whipped up, in order to demonstrate th
         &lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;For the original MGM pattern see &lt;a href=&#34;https://abulka.github.io/patterns/mgm-pattern/&#34;&gt;MGM pattern&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;todomvc-oo&#34;&gt;TodoMVC-OO&lt;/h2&gt;
-&lt;p&gt;The classic Javascript &lt;a href=&#34;https://github.com/tastejs/todomvc&#34;&gt;TodoMVC app&lt;/a&gt; implemented without a framework, using plain Object Oriented programming + a traditional MVC design pattern. Distinct, mediating Controller objects are the key to this implementation.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://github.com/tastejs/todomvc-app-css/raw/master/screenshot.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;This is the classic Javascript &lt;a href=&#34;https://github.com/tastejs/todomvc&#34;&gt;TodoMVC app&lt;/a&gt; implemented &lt;strong&gt;without a framework&lt;/strong&gt; 😄, simply using plain Object Oriented programming + a traditional MVC design pattern.&lt;/p&gt;
+&lt;p&gt;Distinct, mediating &lt;code&gt;Controller&lt;/code&gt; classes are the key to this implementation.&lt;/p&gt;
+&lt;img src=&#34;https://github.com/tastejs/todomvc-app-css/raw/master/screenshot.png&#34; width=&#34;500&#34;&gt;
 &lt;p&gt;Running demo &lt;a href=&#34;https://abulka.github.io/todomvc-oo/index.html&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;mvca-architectural-pattern&#34;&gt;MVCA Architectural Pattern&lt;/h2&gt;
@@ -2354,6 +2356,7 @@ Another example is during bootup - some permanent Controllers need to be created
 &lt;h2 id=&#34;the-pattern&#34;&gt;The Pattern&lt;/h2&gt;
 &lt;iframe src=&#34;https://abulka.github.io/files/andybulkatransformationinterfacepattern.html&#34; name=&#34;frame1&#34; scrolling=&#34;yes&#34; frameborder=&#34;yes&#34; align=&#34;center&#34; height = &#34;842px&#34; width = &#34;800&#34;&gt;
 &lt;/iframe&gt;
+&lt;p&gt;Download as &lt;a href=&#34;https://abulka.github.io/files/pdfs/AndyBulkaTransformationInterfacePattern.pdf&#34;&gt;pdf&lt;/a&gt;.&lt;/p&gt;
 
       </description>
     </item>
@@ -2398,18 +2401,25 @@ Another example is during bootup - some permanent Controllers need to be created
         &lt;p&gt;&lt;img src=&#34;http://www.andypatterns.com/files/56881233035290bgDSC1195.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;As design patterns become more mainstream, various IDE&amp;rsquo;s (Integrated Development Environments) and UML modelling software environments have begun to introduce support for design patterns. For example, developers browse through a catalog of design patterns and drop one onto a UML workspace, whereupon various classes appear with the appropriate methods and attributes inserted. Usually there is an interface whereby roles in the design pattern can be mapped onto existing classes, or alternatively, new classes are created for you. This paper explores the state of pattern automation software, discusses the pros and cons of various approaches and then goes on to discusses the broader issues raised by the attempt to automate something which some argue, in principle, perhaps should not be automated at all..&lt;/p&gt;
-&lt;p&gt;Note: The pattern automation paper was followed up a few years later with a talk entitled &lt;a href=&#34;http://www.andypatterns.com/index.php/design_patterns/pattern_automation/&#34;&gt;design pattern automation - part 2&lt;/a&gt; SEE BELOW which reviews the current crop of UML tools circa 2006.  Fot a review of Netbeans 6 design pattern support - stay tuned for a blog posting after I give my talk to the Melbourne Patterns Group in Feb 2009.&lt;/p&gt;
-&lt;p&gt;This paper is a revision of one that appeared at KoalaPLoP 2002 – the ThirdAsia-Pacific Conference on Pattern Languages of Programmes.  Conferences in Research and Practice in Information Technology,Vol. 13. J. Noble, Ed. Reproduction for academic, not-for profit purposes permitted provided this text is included.&lt;/p&gt;
+&lt;h3 id=&#34;history-of-these-papers-and-talks&#34;&gt;History of these papers and talks&lt;/h3&gt;
+&lt;p&gt;My pattern automation paper
+&lt;a href=&#34;#early-tools-and-the-philosophy-of-pattern-automation&#34;&gt;Early tools and the philosophy of pattern automation&lt;/a&gt; (below) was followed a few years later with a talk entitled:
+&lt;a href=&#34;#design-pattern-tools-as-of-2006&#34;&gt;Design Pattern Tools as of 2006&lt;/a&gt; (below) which reviewed the current crop of UML tools circa 2006. For a specific review of Netbeans 6 design pattern support - see
+&lt;a href=&#34;https://abulka.github.io/blog/2009/02/11/netbeans-uml/&#34;&gt;Netbeans UML&lt;/a&gt; blog post, created after I gave that talk to the Melbourne Patterns Group in Feb 2009.&lt;/p&gt;
 &lt;h2 id=&#34;design-pattern-automation--uml-tool-support&#34;&gt;Design Pattern Automation &amp;amp; UML Tool Support&lt;/h2&gt;
 &lt;p&gt;Various UML Tools support design pattern usage.  You typically drag and drop patterns onto your workspace and they appear as UML classes.  Its a bit more complicated than this, and raises all sorts of interesting issues.  Read the pdf (part 1) and then read the powerpoint and watch the video (part 2).&lt;/p&gt;
-&lt;h3 id=&#34;part-1---early-tools-and-the-philosophy-of-pattern-automation&#34;&gt;Part 1 - Early tools and the philosophy of pattern automation&lt;/h3&gt;
+&lt;h3 id=&#34;early-tools-and-the-philosophy-of-pattern-automation&#34;&gt;Early tools and the philosophy of pattern automation&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;This paper is a revision of one that appeared at KoalaPLoP 2002 – the Third Asia-Pacific Conference on Pattern Languages of Programmes.  Conferences in Research and Practice in Information Technology,Vol. 13. J. Noble, Ed. Reproduction for academic, not-for profit purposes permitted provided this text is included.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;iframe src=&#34;https://abulka.github.io/files/andybulkapatternautomation.html&#34; name=&#34;frame1&#34; scrolling=&#34;yes&#34; frameborder=&#34;yes&#34; align=&#34;center&#34; height = &#34;842px&#34; width = &#34;800&#34;&gt;
 &lt;/iframe&gt;
-&lt;h3 id=&#34;part-2---design-pattern-tools-as-of-2006&#34;&gt;Part 2 - Design Pattern Tools as of 2006&lt;/h3&gt;
+&lt;p&gt;Download as &lt;a href=&#34;https://abulka.github.io/files/pdfs/AndyBulkaPatternAutomation.pdf&#34;&gt;pdf&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;design-pattern-tools-as-of-2006&#34;&gt;Design Pattern Tools as of 2006&lt;/h3&gt;
 &lt;p&gt;Here are the slides from a talk entitled &amp;ldquo;Design Pattern support in UML tools - part II&amp;rdquo; which I gave in October 2006 to the Melbourne Patterns Group, Australia.&lt;/p&gt;
 &lt;iframe src=&#34;https://abulka.github.io/files/representingpatternsinumlandybulkaoct2006.html&#34; name=&#34;frame1&#34; scrolling=&#34;yes&#34; frameborder=&#34;yes&#34; align=&#34;center&#34; height = &#34;842px&#34; width = &#34;800&#34;&gt;
 &lt;/iframe&gt;
-&lt;p&gt;Alternatively, &lt;a href=&#34;http://www.slideshare.net/tcab22/representing-design-patterns-in-uml-andy-bulka-oct2006-presentation?type=powerpoint&#34;&gt;view the above powerpoint on slideshare&lt;/a&gt; or download the powerpoint &lt;strong&gt;.ppt&lt;/strong&gt; directly:&lt;/p&gt;
+&lt;p&gt;View the above powerpoint &lt;a href=&#34;http://www.slideshare.net/tcab22/representing-design-patterns-in-uml-andy-bulka-oct2006-presentation?type=powerpoint&#34;&gt;on slideshare&lt;/a&gt; or download the &lt;a href=&#34;https://abulka.github.io/files/ppt/RepresentingPatternsInUMLAndyBulkaOct2006.ppt&#34;&gt;powerpoint directly&lt;/a&gt;:&lt;/p&gt;
 &lt;h2 id=&#34;addendum&#34;&gt;Addendum&lt;/h2&gt;
 &lt;p&gt;As part of my Design Pattern Automation - Part 2 talk, I recorded some of that session.  Here is a youtube &lt;a href=&#34;http://www.youtube.com/watch?v=IjKClDX2dUU&#34;&gt;video&lt;/a&gt; of how to apply design patterns using IBM&amp;rsquo;s &lt;a href=&#34;http://www-01.ibm.com/software/rational/uml/products.html&#34;&gt;Rational&lt;/a&gt; tool.  Apologies about the sound quality - just look at the pictures!&lt;/p&gt;
 &lt;p&gt;Demonstration of Patterns in IBM&amp;rsquo;s Rational tool.

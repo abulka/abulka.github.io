@@ -26,13 +26,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://abulka.github.io/patterns/design-pattern-automation/" /><meta property="article:section" content="patterns" />
 <meta property="article:published_time" content="2002-01-04T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-02-14T11:07:35+11:00" />
+<meta property="article:modified_time" content="2022-03-07T14:14:23+11:00" />
 
 <meta itemprop="name" content="Design Pattern Automation">
 <meta itemprop="description" content="Tooling and Design Patterns in IDEs.  As design patterns become more mainstream, various IDE&#39;s (Integrated Development Environments) and UML modelling software environments have begun to introduce support for design patterns.
 "><meta itemprop="datePublished" content="2002-01-04T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-02-14T11:07:35+11:00" />
-<meta itemprop="wordCount" content="404">
+<meta itemprop="dateModified" content="2022-03-07T14:14:23+11:00" />
+<meta itemprop="wordCount" content="413">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Design Pattern Automation"/>
 <meta name="twitter:description" content="Tooling and Design Patterns in IDEs.  As design patterns become more mainstream, various IDE&#39;s (Integrated Development Environments) and UML modelling software environments have begun to introduce support for design patterns.
@@ -125,7 +125,7 @@
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.d8ce2a5b57ad016b966c31a319eaf4e753f555176eed5b87caaff904a8980b4f9cfb567d6346ca5b7f9faef0b37c6fae985bf56ced545304e313e470bbd2f50e.json"
+  data-offline-search-index-json-src="/offline-search-index.621c12a744f01b242bbf33029180cfae892391204482b21fc76d7bc22062a17b81c14ef820c5f26578c8dfd4a15c003bfdba74e97e00e39b00ef0a927bf3aa20.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -156,7 +156,7 @@
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.d8ce2a5b57ad016b966c31a319eaf4e753f555176eed5b87caaff904a8980b4f9cfb567d6346ca5b7f9faef0b37c6fae985bf56ced545304e313e470bbd2f50e.json"
+  data-offline-search-index-json-src="/offline-search-index.621c12a744f01b242bbf33029180cfae892391204482b21fc76d7bc22062a17b81c14ef820c5f26578c8dfd4a15c003bfdba74e97e00e39b00ef0a927bf3aa20.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -282,11 +282,15 @@
 
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#introduction">Introduction</a>
+      <ul>
+        <li><a href="#history-of-these-papers-and-talks">History of these papers and talks</a></li>
+      </ul>
+    </li>
     <li><a href="#design-pattern-automation--uml-tool-support">Design Pattern Automation &amp; UML Tool Support</a>
       <ul>
-        <li><a href="#part-1---early-tools-and-the-philosophy-of-pattern-automation">Part 1 - Early tools and the philosophy of pattern automation</a></li>
-        <li><a href="#part-2---design-pattern-tools-as-of-2006">Part 2 - Design Pattern Tools as of 2006</a></li>
+        <li><a href="#early-tools-and-the-philosophy-of-pattern-automation">Early tools and the philosophy of pattern automation</a></li>
+        <li><a href="#design-pattern-tools-as-of-2006">Design Pattern Tools as of 2006</a></li>
       </ul>
     </li>
     <li><a href="#addendum">Addendum</a></li>
@@ -335,18 +339,25 @@
 	<p><img src="http://www.andypatterns.com/files/56881233035290bgDSC1195.jpg" alt=""></p>
 <h2 id="introduction">Introduction</h2>
 <p>As design patterns become more mainstream, various IDE&rsquo;s (Integrated Development Environments) and UML modelling software environments have begun to introduce support for design patterns. For example, developers browse through a catalog of design patterns and drop one onto a UML workspace, whereupon various classes appear with the appropriate methods and attributes inserted. Usually there is an interface whereby roles in the design pattern can be mapped onto existing classes, or alternatively, new classes are created for you. This paper explores the state of pattern automation software, discusses the pros and cons of various approaches and then goes on to discusses the broader issues raised by the attempt to automate something which some argue, in principle, perhaps should not be automated at all..</p>
-<p>Note: The pattern automation paper was followed up a few years later with a talk entitled <a href="http://www.andypatterns.com/index.php/design_patterns/pattern_automation/">design pattern automation - part 2</a> SEE BELOW which reviews the current crop of UML tools circa 2006.  Fot a review of Netbeans 6 design pattern support - stay tuned for a blog posting after I give my talk to the Melbourne Patterns Group in Feb 2009.</p>
-<p>This paper is a revision of one that appeared at KoalaPLoP 2002 – the ThirdAsia-Pacific Conference on Pattern Languages of Programmes.  Conferences in Research and Practice in Information Technology,Vol. 13. J. Noble, Ed. Reproduction for academic, not-for profit purposes permitted provided this text is included.</p>
+<h3 id="history-of-these-papers-and-talks">History of these papers and talks</h3>
+<p>My pattern automation paper
+<a href="#early-tools-and-the-philosophy-of-pattern-automation">Early tools and the philosophy of pattern automation</a> (below) was followed a few years later with a talk entitled:
+<a href="#design-pattern-tools-as-of-2006">Design Pattern Tools as of 2006</a> (below) which reviewed the current crop of UML tools circa 2006. For a specific review of Netbeans 6 design pattern support - see
+<a href="/blog/2009/02/11/netbeans-uml/">Netbeans UML</a> blog post, created after I gave that talk to the Melbourne Patterns Group in Feb 2009.</p>
 <h2 id="design-pattern-automation--uml-tool-support">Design Pattern Automation &amp; UML Tool Support</h2>
 <p>Various UML Tools support design pattern usage.  You typically drag and drop patterns onto your workspace and they appear as UML classes.  Its a bit more complicated than this, and raises all sorts of interesting issues.  Read the pdf (part 1) and then read the powerpoint and watch the video (part 2).</p>
-<h3 id="part-1---early-tools-and-the-philosophy-of-pattern-automation">Part 1 - Early tools and the philosophy of pattern automation</h3>
+<h3 id="early-tools-and-the-philosophy-of-pattern-automation">Early tools and the philosophy of pattern automation</h3>
+<blockquote>
+<p>This paper is a revision of one that appeared at KoalaPLoP 2002 – the Third Asia-Pacific Conference on Pattern Languages of Programmes.  Conferences in Research and Practice in Information Technology,Vol. 13. J. Noble, Ed. Reproduction for academic, not-for profit purposes permitted provided this text is included.</p>
+</blockquote>
 <iframe src="/files/andybulkapatternautomation.html" name="frame1" scrolling="yes" frameborder="yes" align="center" height = "842px" width = "800">
 </iframe>
-<h3 id="part-2---design-pattern-tools-as-of-2006">Part 2 - Design Pattern Tools as of 2006</h3>
+<p>Download as <a href="/files/pdfs/AndyBulkaPatternAutomation.pdf">pdf</a>.</p>
+<h3 id="design-pattern-tools-as-of-2006">Design Pattern Tools as of 2006</h3>
 <p>Here are the slides from a talk entitled &ldquo;Design Pattern support in UML tools - part II&rdquo; which I gave in October 2006 to the Melbourne Patterns Group, Australia.</p>
 <iframe src="/files/representingpatternsinumlandybulkaoct2006.html" name="frame1" scrolling="yes" frameborder="yes" align="center" height = "842px" width = "800">
 </iframe>
-<p>Alternatively, <a href="http://www.slideshare.net/tcab22/representing-design-patterns-in-uml-andy-bulka-oct2006-presentation?type=powerpoint">view the above powerpoint on slideshare</a> or download the powerpoint <strong>.ppt</strong> directly:</p>
+<p>View the above powerpoint <a href="http://www.slideshare.net/tcab22/representing-design-patterns-in-uml-andy-bulka-oct2006-presentation?type=powerpoint">on slideshare</a> or download the <a href="/files/ppt/RepresentingPatternsInUMLAndyBulkaOct2006.ppt">powerpoint directly</a>:</p>
 <h2 id="addendum">Addendum</h2>
 <p>As part of my Design Pattern Automation - Part 2 talk, I recorded some of that session.  Here is a youtube <a href="http://www.youtube.com/watch?v=IjKClDX2dUU">video</a> of how to apply design patterns using IBM&rsquo;s <a href="http://www-01.ibm.com/software/rational/uml/products.html">Rational</a> tool.  Apologies about the sound quality - just look at the pictures!</p>
 <p>Demonstration of Patterns in IBM&rsquo;s Rational tool.
@@ -414,7 +425,7 @@
 		<br />
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified February 14, 2022: <a  href="https://github.com/google/docsy-example/commit/7370661b9452cf150ee6b6ce1869d2e388d75e55">made patterns a top level menu (7370661)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified March 7, 2022: <a  href="https://github.com/google/docsy-example/commit/90dd13b0222c74cf4879ea9361d34242004b05ab">added pdfs of my design patterns (90dd13b)</a>
 </div>
 </div>
 
