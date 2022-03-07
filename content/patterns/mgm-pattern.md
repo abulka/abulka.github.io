@@ -28,6 +28,9 @@ This is arguably the traditional MVC pattern with terminology tweaked and clarif
 <iframe src="/files/andybulkamodelguimediatorpattern.html" name="frame1" scrolling="yes" frameborder="yes" align="center" height = "842px" width = "800">
 </iframe>
 
+Download as [pdf](/files/pdfs/AndyBulkaModelGuiMediatorPattern.pdf).
+
+
 ## Comments
 
 Comments now disabled due to spam.

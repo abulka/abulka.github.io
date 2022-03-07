@@ -30,7 +30,7 @@ Note this pattern was written and presented in 2001 - quite a while ago! In 2020
 <iframe src="/files/andybulkarelationshipmanagerpattern.html" name="frame1" scrolling="yes" frameborder="yes" align="center" height = "842px" width = "800">
 </iframe>
 
-Download as [pdf](/files/rm_AndyBulkaRelationshipManagerPattern.pdf).
+Download as [pdf](/files/pdfs/AndyBulkaRelationshipManagerPattern.pdf).
 
 ## Quick Example
 

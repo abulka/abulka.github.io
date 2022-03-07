@@ -13,9 +13,11 @@ For the original MGM pattern see [MGM pattern]({{< ref "/patterns/mgm-pattern.md
 
 ## TodoMVC-OO
 
-The classic Javascript [TodoMVC app](https://github.com/tastejs/todomvc) implemented without a framework, using plain Object Oriented programming + a traditional MVC design pattern. Distinct, mediating Controller objects are the key to this implementation.
+This is the classic Javascript [TodoMVC app](https://github.com/tastejs/todomvc) implemented **without a framework** 😄, simply using plain Object Oriented programming + a traditional MVC design pattern. 
 
-![](https://github.com/tastejs/todomvc-app-css/raw/master/screenshot.png)
+Distinct, mediating `Controller` classes are the key to this implementation.
+
+<img src="https://github.com/tastejs/todomvc-app-css/raw/master/screenshot.png" width="500">
 
 Running demo [here](https://abulka.github.io/todomvc-oo/index.html).
 

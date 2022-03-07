@@ -19,5 +19,6 @@ The Transformation Interface is both a design pattern and an architectural patte
 </iframe>
 
 
+Download as [pdf](/files/pdfs/AndyBulkaTransformationInterfacePattern.pdf).
 
 
