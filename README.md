@@ -8,6 +8,12 @@ This site is ready to be viewed at https://abulka.github.io/.
 
     /content  --build-step-->  /docs
 
+static content can go into e.g.
+
+    /static/files
+
+and be referred as `/files/pdfs/blah.pdf`.
+
 ### Adding a directory
 
 
