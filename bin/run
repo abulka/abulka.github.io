@@ -1,1 +1,5 @@
-hugo server
+# hugo server
+
+# Enable google analytics
+env HUGO_ENV="production" hugo server
+
