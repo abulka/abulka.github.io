@@ -1,8 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Andy Bulka - Blog – Andy&#39;s Blog</title>
+    <title>Andy Bulka – Andy&#39;s Blog</title>
     <link>https://abulka.github.io/blog/</link>
-    <description>Recent content in Andy&#39;s Blog on Andy Bulka - Blog</description>
+    <description>Recent content in Andy&#39;s Blog on Andy Bulka</description>
     <generator>Hugo -- gohugo.io</generator>
     
 	  <atom:link href="https://abulka.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
@@ -402,20 +402,23 @@ it seemed to me that one needs to run an &lt;em&gt;overlap removal algorithm&lt;
 &lt;li&gt;Developed a GUI sandbox test app for development&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;overlap-removal---before-and-after&#34;&gt;Overlap Removal - Before and After&lt;/h2&gt;
-&lt;figure&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/uml-layout-before.png#floatleft&#34;
-         alt=&#34;before&#34;/&gt;&lt;figcaption&gt;
+&lt;figure&gt;
+    &lt;img src=&#34;https://abulka.github.io/blog/images/uml-layout-before.png#floatleft&#34;
+         alt=&#34;before&#34;/&gt; &lt;figcaption&gt;
             &lt;p&gt;before&lt;/p&gt;
         &lt;/figcaption&gt;
 &lt;/figure&gt;
-&lt;figure&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/uml-layout-after.png#floatright&#34;
-         alt=&#34;after applying layout&#34;/&gt;&lt;figcaption&gt;
+&lt;figure&gt;
+    &lt;img src=&#34;https://abulka.github.io/blog/images/uml-layout-after.png#floatright&#34;
+         alt=&#34;after applying layout&#34;/&gt; &lt;figcaption&gt;
             &lt;p&gt;after applying layout&lt;/p&gt;
         &lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;h2 id=&#34;unit-testing&#34;&gt;Unit Testing&lt;/h2&gt;
 &lt;p&gt;Extensive unit tests were created to keep on top of the layout algorithm results.  A word document containing annotated screenshots for each test helped me enormously.&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/uml-layout-unit-testing.png&#34;
-         alt=&#34;an overlap removal use case which became a unit test&#34;/&gt;&lt;figcaption&gt;
+&lt;figure&gt;
+    &lt;img src=&#34;https://abulka.github.io/blog/images/uml-layout-unit-testing.png&#34;
+         alt=&#34;an overlap removal use case which became a unit test&#34;/&gt; &lt;figcaption&gt;
             &lt;p&gt;an overlap removal use case which became a unit test&lt;/p&gt;
         &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -450,15 +453,17 @@ it seemed to me that one needs to run an &lt;em&gt;overlap removal algorithm&lt;
     &lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;assertTrue&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;_ensureXorder&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;D13&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;D97&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;D98&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;))&lt;/span&gt;
     &lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;assertEqual&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;oldD97pos&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;d97&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;left&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;d97&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;top&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;))&lt;/span&gt;  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# ensure D97 hasn&amp;#39;t been pushed&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Running the tests:&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/uml-layout-test-run.png&#34;
-         alt=&#34;An example test run&#34;/&gt;&lt;figcaption&gt;
+&lt;figure&gt;
+    &lt;img src=&#34;https://abulka.github.io/blog/images/uml-layout-test-run.png&#34;
+         alt=&#34;An example test run&#34;/&gt; &lt;figcaption&gt;
             &lt;p&gt;An example test run&lt;/p&gt;
         &lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;p&gt;Having a huge bank of unit tests helped in refactoring, too.  Imagine testing all the necessary scenarios by hand!&lt;/p&gt;
 &lt;p&gt;The final Results were pretty good!&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/uml-layout-final-result-good.png&#34;
-         alt=&#34;A UML diagram after overlap removal&#34;/&gt;&lt;figcaption&gt;
+&lt;figure&gt;
+    &lt;img src=&#34;https://abulka.github.io/blog/images/uml-layout-final-result-good.png&#34;
+         alt=&#34;A UML diagram after overlap removal&#34;/&gt; &lt;figcaption&gt;
             &lt;p&gt;A UML diagram after overlap removal&lt;/p&gt;
         &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -521,13 +526,15 @@ Snapshot 6 [1] LL  0   NN pre rm overlaps 10   LN  5   scale 2.0   bounds 18  (4
 &lt;p&gt;&lt;img src=&#34;https://abulka.github.io/images/uml/fred-uml.png&#34; alt=&#34;png your image&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/uml-layout-before.png&#34; alt=&#34;&#34;&gt;
 &lt;img src=&#34;https://abulka.github.io/blog/images/uml-layout-after.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/uml-layout-before.png#floatleft&#34;
-         alt=&#34;before&#34;/&gt;&lt;figcaption&gt;
+&lt;figure&gt;
+    &lt;img src=&#34;https://abulka.github.io/blog/images/uml-layout-before.png#floatleft&#34;
+         alt=&#34;before&#34;/&gt; &lt;figcaption&gt;
             &lt;p&gt;before&lt;/p&gt;
         &lt;/figcaption&gt;
 &lt;/figure&gt;
-&lt;figure&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/uml-layout-after.png#floatright&#34;
-         alt=&#34;after applying layout&#34;/&gt;&lt;figcaption&gt;
+&lt;figure&gt;
+    &lt;img src=&#34;https://abulka.github.io/blog/images/uml-layout-after.png#floatright&#34;
+         alt=&#34;after applying layout&#34;/&gt; &lt;figcaption&gt;
             &lt;p&gt;after applying layout&lt;/p&gt;
         &lt;/figcaption&gt;
 &lt;/figure&gt;

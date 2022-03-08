@@ -1,8 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Andy Bulka - Blog – Consulting</title>
+    <title>Andy Bulka – Consulting</title>
     <link>https://abulka.github.io/about/consulting/</link>
-    <description>Recent content in Consulting on Andy Bulka - Blog</description>
+    <description>Recent content in Consulting on Andy Bulka</description>
     <generator>Hugo -- gohugo.io</generator>
     
 	  <atom:link href="https://abulka.github.io/about/consulting/index.xml" rel="self" type="application/rss+xml" />
