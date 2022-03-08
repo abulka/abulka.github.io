@@ -1,7 +1,7 @@
 ---
 title: "Appendix: Musings on Design Patterns"
 date: 1900
-type: projects
+type: docs
 description: "Are design patterns dead?"
 draft: false
 ---

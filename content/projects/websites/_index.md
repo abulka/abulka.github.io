@@ -1,6 +1,7 @@
 ---
 title: "Websites"
 linkTitle: "Web Apps"
+type: docs
 weight: 20
 ---
 

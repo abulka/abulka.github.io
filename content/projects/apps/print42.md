@@ -1,6 +1,7 @@
 ---
 title: "Print42"
 date: 2020-11-23T12:18:07+11:00
+type: docs
 draft: false
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "Appendix: My KoalaPlop Patterns"
 date: 1900
-type: projects
+type: docs
 description: "Peer review notes for my KoalaPlop Patterns"
 draft: false
 ---

@@ -1,8 +1,8 @@
 ---
 title: "Andy Bulka's Design Patterns"
 linkTitle: "My Design Patterns"
-# type: docs
-type: projects
+type: docs
+# type: projects
 # type: swagger
 # type: blog
 # type: community

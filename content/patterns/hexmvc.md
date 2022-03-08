@@ -2,7 +2,7 @@
 title: "HexMVC"
 date: 2022-02-12
 draft: false
-type: projects
+type: docs
 description: "Hexagonal Architecture pattern + Model View Controller (MVC)"
 ---
 

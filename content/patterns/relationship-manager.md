@@ -2,7 +2,7 @@
 title: "Relationship Manager - Design Pattern"
 linkTitle: "Relationship Manager"
 date: 2020-10-22
-type: projects
+type: docs
 description: >
   A central mediating class which records all the one-to-one, one-to-many and many-to-many relationships between a group of selected classes.
 ---

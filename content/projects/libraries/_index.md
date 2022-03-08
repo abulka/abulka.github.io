@@ -1,6 +1,7 @@
 ---
 title: "Libraries & Tools"
 linkTitle: "Libraries & Tools"
+type: docs
 weight: 20
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: "Prophet 6 Librarian"
 date: 2016-11-01
+type: docs
 draft: false
 ---
 

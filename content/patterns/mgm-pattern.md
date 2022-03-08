@@ -3,7 +3,7 @@ title: "MGM Pattern"
 linkTitle: "MGM Pattern"
 date: 2019-01-04
 toc_hide: true
-type: projects
+type: docs
 description: >
   Model-Gui-Mediator Pattern - the original version of [MVCA Architectural Pattern](/patterns/mvca-pattern)
   The MGM pattern is a variation of MVC (model view controller) or MVP (Model View Presenter) but takes into account the use of modern off the shelf GUI controls.

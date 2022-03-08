@@ -1,6 +1,7 @@
 ---
 title: "Pynsource"
 date: 2022-02-14
+type: docs
 draft: false
 ---
 

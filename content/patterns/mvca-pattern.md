@@ -2,7 +2,7 @@
 title: "MVCA Architectural Pattern"
 linkTitle: "MVC-App Pattern"
 date: 2019-01-04
-type: projects
+type: docs
 description: >
   MVCA simply means "Model View Controller Application" - all four roles are necessary to any implementation.
 ---

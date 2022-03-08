@@ -14,7 +14,11 @@ static content can go into e.g.
 
 and be referred as `/files/pdfs/blah.pdf`.
 
-### Adding a directory
+## Updating Docsy submodule
+
+    git submodule update --init --recursive
+
+## Adding a directory
 
 
 Add it under `/content` and either create a correspondingly names dir in `/layouts` which is a custom overriding version of `/themes/layouts` or simply explicitly specify the type e.g. `type: projects` in each of the pages.

@@ -1,6 +1,7 @@
 ---
 title: "Medium Articles"
 date: 2019-11-23
+type: docs
 draft: false
 ---
 

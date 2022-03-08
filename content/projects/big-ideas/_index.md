@@ -1,6 +1,7 @@
 ---
 title: "Big Ideas"
 linkTitle: "Big Ideas"
+type: docs
 weight: 20
 ---
 
