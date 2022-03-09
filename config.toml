@@ -40,9 +40,6 @@ pygmentsUseClassic = false
 # See https://help.farbox.com/pygments.html
 pygmentsStyle = "tango"
 
-googleAnalytics = 'G-MZYK2N2SEQ'
-
-
 # Configure how URLs look like per section.
 [permalinks]
 blog = "/:section/:year/:month/:day/:slug/"
@@ -62,8 +59,12 @@ anchor = "smart"
 
 [services]
 [services.googleAnalytics]
-# Comment out the next line to disable GA tracking. Also disables the feature described in [params.ui.feedback].
-id = "UA-00000000-0"
+# Comment out the 'id' line to disable GA tracking. Also disables the feature described in [params.ui.feedback].
+# There is no need to set another config variable called 'googleAnalytics'
+# Set id to either an old style `UA-xxxxxxxx` tracking code or a newer `G-xxxxxxxxxxx` measurement id 
+# Note tracking codes are deprecated, though can still be generate it under google analytics advanced options
+# id = "UA-00000000-0"
+id = "G-X0GNQ7330T"
 
 # Language configuration
 
