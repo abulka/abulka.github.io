@@ -29,7 +29,20 @@ enableGitInfo = true
 # # Useful when translating.
 # enableMissingTranslationPlaceholders = true
 
-disableKinds = ["taxonomy", "taxonomyTerm"]
+# disableKinds = ["taxonomy", "taxonomyTerm"]
+[taxonomies]
+tag = "tags"
+# category = "categories"
+# project = "projects"
+
+[params.taxonomy]
+# taxonomyCloud = ["projects", "tags", "categories"] # set taxonomyCloud = [] to hide taxonomy clouds
+# taxonomyCloudTitle = ["Our Projects", "Tag Cloud", "Categories"] # if used, must have same lang as taxonomyCloud
+# taxonomyPageHeader = ["tags", "categories"] # set taxonomyPageHeader = [] to hide taxonomies on the page headers
+taxonomyCloud = ["tags"] # set taxonomyCloud = [] to hide taxonomy clouds
+taxonomyCloudTitle = ["Tag Cloud"] # if used, must have same lang as taxonomyCloud
+taxonomyPageHeader = ["tags"] # set taxonomyPageHeader = [] to hide taxonomies on the page headers
+
 
 # Highlighting config
 pygmentsCodeFences = true

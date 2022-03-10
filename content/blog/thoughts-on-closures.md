@@ -2,6 +2,7 @@
 title: "Thoughts on Closures"
 date: 2007-11-05
 draft: false
+tags: ["Thoughts", "Ruby", "Python"]
 ---
 
 # Thoughts on Closures

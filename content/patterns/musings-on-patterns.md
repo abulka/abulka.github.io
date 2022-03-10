@@ -4,6 +4,7 @@ date: 1900
 type: docs
 description: "Are design patterns dead?"
 draft: false
+tags: ["Design Patterns", "Thoughts"]
 ---
 
 Capturing hard-won software design experience in the form of design patterns and

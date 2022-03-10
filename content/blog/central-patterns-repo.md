@@ -2,6 +2,7 @@
 title: "Central Patterns Repository"
 date: 2009-02-12
 draft: false
+tags: ["Design Patterns", "Thoughts"]
 ---
 
 Towards a central repository of Design Patterns

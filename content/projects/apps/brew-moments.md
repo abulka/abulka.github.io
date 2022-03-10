@@ -3,6 +3,7 @@ title: "Brew Moments"
 date: 2020-11-23T12:21:55+11:00
 type: docs
 draft: false
+tags: ["Flutter", "Software Product"]
 ---
 
 ## Brew Moments

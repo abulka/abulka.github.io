@@ -2,6 +2,7 @@
 title: "Visualising Software"
 date: 2009-01-22
 draft: false
+tags: ["Thoughts", "Diagramming", "UML"]
 ---
 
 Ways of Visualising Software Designs

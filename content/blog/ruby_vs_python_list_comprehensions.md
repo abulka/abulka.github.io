@@ -2,6 +2,7 @@
 title: "Ruby vs Python list comprehensions"
 date: 2010-11-18
 draft: false
+tags: ["Ruby", "Python"]
 ---
 
 Let's compare Python list comprehensions vs. the way Ruby achieves the same thing thing.

@@ -4,6 +4,7 @@ linkTitle: "UML Diagram Layout"
 date: 2011-04-06
 description: >
   Developing a Layout Algorithm for UML diagrams
+tags: ["UML", "Diagramming"]
 ---
 
 # Developing a Layout Algorithm for UML diagrams

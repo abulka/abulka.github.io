@@ -4,6 +4,7 @@ date: 1900
 type: docs
 description: "Peer review notes for my KoalaPlop Patterns"
 draft: false
+tags: ["Design Patterns"]
 ---
 
 ## Andy's Published Design Patterns

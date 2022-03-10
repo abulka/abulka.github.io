@@ -2,6 +2,7 @@
 title: "GUI Showdown"
 date: 2022-02-11
 draft: false
+tags: ["Design Patterns", "GUI", "Controllers", "Javascript", "Python", "Vuejs", "Observer", "MVC"]
 ---
 
 Andy's [GUI Showdown](https://abulka.github.io/gui-showdown) - The same application, implemented in various ways - which is better, cleaner, more understandable etc? 

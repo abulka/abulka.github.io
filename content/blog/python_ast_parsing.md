@@ -2,6 +2,8 @@
 title: "Python AST Parsing"
 date: 2018-06-01
 draft: false
+tags: ["Python", "Calculators"]
+
 ---
 
 How I used the Python AST capabilities to build the [Python to Rpn converter](https://pyrpn.atug.com/).

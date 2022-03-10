@@ -2,6 +2,7 @@
 title: "Patterns, ModelMaker & Beyond"
 date: 2000-01-04
 draft: false
+tags: ["Design Patterns", "Thoughts"]
 ---
 
 How can IDE visualisation features be further enhaced by UML and Design Patterns to assist developers. It discusses using the revolutionary UML tool ModelMaker (now discontinued) in conjuntion with Delphi.

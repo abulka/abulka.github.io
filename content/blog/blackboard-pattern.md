@@ -2,6 +2,7 @@
 title: "Blackboard Pattern"
 date: 2004-08-05
 draft: false
+tags: ["Design Patterns", "Python", "UML"]
 ---
 
 ## Blackboard Architectural Pattern

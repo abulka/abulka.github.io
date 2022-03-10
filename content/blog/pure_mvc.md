@@ -2,6 +2,7 @@
 title: "PureMVC"
 date: 2009-03-01
 draft: false
+tags: ["Design Patterns", "GUI", "MVC", "Controllers", "Python", "wxPython", "Observer"]
 ---
 
 PureMVC - Architectural Pattern incl. a minimal wxPython example.

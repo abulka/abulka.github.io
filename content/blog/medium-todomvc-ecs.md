@@ -2,6 +2,7 @@
 title: "TodoMVC implemented using a game architecture — ECS"
 date: 2020-05-18
 draft: false
+tags: ["GUI", "Javascript", "MVC"]
 ---
 
 Building traditional GUIs with the Entity Component System.

@@ -5,6 +5,7 @@ date: 2019-01-04
 type: docs
 description: >
   An interface or layer, which offers services to transform an object into another format and back again.
+tags: ["Design Patterns"]
 ---
 
 ![](http://www.andypatterns.com/files/71241233039311bgDSC1068.jpg)

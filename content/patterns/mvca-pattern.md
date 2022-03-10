@@ -5,6 +5,7 @@ date: 2019-01-04
 type: docs
 description: >
   MVC-App simply means "Model View Controller Application" - all four roles are necessary to any implementation.
+tags: ["Design Patterns", "GUI", "MVC", "Controllers", "Javascript", "Observer", "Refactoring"]
 ---
 
 ## Introduction

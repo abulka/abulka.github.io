@@ -2,6 +2,7 @@
 title: "Async/await for wxPython"
 date: 2019-03-02
 draft: false
+tags: ["Async", "GUI", "Controllers", "Python", "wxPython"]
 ---
 
 How to build Python 3 GUI apps with asynchronous functionality.

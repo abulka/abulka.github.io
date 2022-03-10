@@ -2,6 +2,7 @@
 title: "Using Design Patterns in Real Projects"
 date: 2002-09-04
 draft: false
+tags: ["Design Patterns", "Thoughts"]
 ---
 
 What is it like to use design pattern in real life programming?  

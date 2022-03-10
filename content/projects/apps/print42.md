@@ -3,6 +3,7 @@ title: "Print42"
 date: 2020-11-23T12:18:07+11:00
 type: docs
 draft: false
+tags: ["Software Product", "Calculators"]
 ---
 
 [Print42](http://www.print42.atug.com) is a log tailing GUI program which optionally echoes log lines to thermal printer tape. Its like a modern thermal printer version of a ticker tape for tailing log files. It features display font size options, search and filtering. You can also annotate the output with text fragments that you type in - or screenshots that you paste in. 

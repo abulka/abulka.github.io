@@ -2,6 +2,7 @@
 title: "Extract Composite Refactoring"
 date: 2008-03-05
 draft: false
+tags: ["Design Patterns", "Python", "UML", "Refactoring"]
 ---
 
 # Extract Composite - Refactoring to a Pattern

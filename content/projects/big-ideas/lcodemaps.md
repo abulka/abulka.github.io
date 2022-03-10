@@ -3,6 +3,7 @@ title: "Literate Code Mapping"
 date: 2020-11-23T12:43:14+11:00
 type: docs
 draft: false
+tags: ["Diagramming", "Thoughts", "UML"]
 ---
 
 *Diagramming Methodology Specification*

@@ -2,6 +2,7 @@
 title: "Teaching 23 Patterns"
 date: 2007-01-23
 draft: false
+tags: ["Design Patterns", "Thoughts"]
 ---
 
 # Teaching 23 patterns in 3 days

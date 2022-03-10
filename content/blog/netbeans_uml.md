@@ -2,6 +2,7 @@
 title: "Netbeans Uml"
 date: 2009-02-11
 draft: false
+tags: ["Design Patterns", "UML"]
 ---
 
 Let's take a look at the UML and design pattern support in Netbeans and investigate Netbean's cool ability to build "custom" design patterns - visually.

@@ -2,6 +2,7 @@
 title: "Django View logging is back-the-front"
 date: 2019-09-04
 draft: false
+tags: ["Django", "Python"]
 ---
 
 Have you ever looked through your Django log files and console messages, felt something was out of order and didn’t make sense, but couldn’t quite put your finger on it?

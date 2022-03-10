@@ -2,6 +2,7 @@
 title: "Mocking in Ruby"
 date: 2011-03-19
 draft: false
+tags: ["Ruby"]
 ---
 
 Easy Dependency Injection and Mocking in Ruby

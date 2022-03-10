@@ -2,6 +2,7 @@
 title: "Tooled Composite Pattern"
 date: 2006-03-01
 draft: false
+tags: ["Design Patterns", "GUI"]
 ---
 
 Ever wanted to create a "direct manipulation" program where you select various tools and manipulate stuff on a workspace?  These sorts of applications are quite difficult to build due to the many possible combinations of behavior that is needed.  Every tool must know what to do with each type of object.  How do we manage this sort of complexity?

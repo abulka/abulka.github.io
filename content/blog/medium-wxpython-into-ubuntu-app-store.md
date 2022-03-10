@@ -2,6 +2,7 @@
 title: "Getting wxPython apps into the Ubuntu app store"
 date: 2019-04-06
 draft: false
+tags: ["Python", "wxPython", "Ubuntu"]
 ---
 
 Have you ever dreamt of getting your own apps in the Ubuntu app store? Here’s how.

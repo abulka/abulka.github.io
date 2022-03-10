@@ -2,6 +2,7 @@
 title: "TodoMVC implemented using traditional OO, Controllers and Events"
 date: 2020-05-18
 draft: false
+tags: ["GUI", "Controllers", "Javascript", "Observer", "MVC"]
 ---
 
 TodoMVC implemented in a classic Object Oriented way.

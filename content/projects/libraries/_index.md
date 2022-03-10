@@ -3,6 +3,7 @@ title: "Libraries & Tools"
 linkTitle: "Libraries & Tools"
 type: docs
 weight: 20
+tags: ["Software Product", "Vscode", "Electron", "Flask", "SQL"]
 ---
 
 ## Snippet Creator
@@ -65,7 +66,7 @@ https://pub.dev/packages/dedent
 
 ## Relationship Manager
 
- A lightweight Object Database class for Python 3
+ A lightweight Object Database (no SQL used) class for Python 3
 
 https://pypi.org/project/relationship-manager/
 

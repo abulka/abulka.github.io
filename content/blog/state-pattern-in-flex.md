@@ -2,6 +2,7 @@
 title: "State Pattern in Flex"
 date: 2008-09-11
 draft: false
+tags: ["Design Patterns"]
 ---
 
 A tutorial on how to implement the State design pattern in Flex 3.  We are going to have a traffic light move through several states (red, orange, green).  Of course there are other states the traffic light might be in, as well as transitional states (green and orange at the same time), but lets keep things simple!

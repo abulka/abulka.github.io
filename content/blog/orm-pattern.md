@@ -2,6 +2,7 @@
 title: "ORM Pattern"
 date: 2005-07-01
 draft: false
+tags: ["Design Patterns", "SQL", "ORM", "Python"]
 ---
 
 Relational databases and OO memory models use different paradigms.  Mapping between one and the other is often necessary but usually ends up being fiddly unless an auto-mapping ORM tool is used.

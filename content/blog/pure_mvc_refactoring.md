@@ -2,6 +2,7 @@
 title: "Refactoring to PureMVC"
 date: 2009-04-01
 draft: false
+tags: ["Design Patterns", "GUI", "MVC", "Controllers", "Python", "wxPython", "Observer", "Refactoring"]
 ---
 
 Let's look at how to refactor an existing architecture to the PureMVC architecture. Your application requires that you display 'model' data in some sort of UI 'view'.

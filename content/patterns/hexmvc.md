@@ -4,6 +4,8 @@ date: 2022-02-12
 draft: false
 type: docs
 description: "Hexagonal Architecture pattern + Model View Controller (MVC)"
+tags: ["Design Patterns", "MVC", "Controllers", "Javascript"]
+
 ---
 
 Andy Bulka,  

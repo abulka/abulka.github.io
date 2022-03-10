@@ -6,7 +6,7 @@ type: docs
 description: >
   Tooling and Design Patterns in IDEs. 
   As design patterns become more mainstream, various IDE's (Integrated Development Environments) and UML modelling software environments have begun to introduce support for design patterns.
-
+tags: ["Design Patterns", "Thoughts"]
 ---
 
 ![](http://www.andypatterns.com/files/56881233035290bgDSC1195.jpg)

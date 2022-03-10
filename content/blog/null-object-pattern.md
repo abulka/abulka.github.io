@@ -2,6 +2,7 @@
 title: "Null Object Pattern"
 date: 2002-10-04
 draft: false
+tags: ["Design Patterns", "UML", "Python"]
 ---
 
 ## Null Object Design Pattern

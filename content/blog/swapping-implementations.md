@@ -2,6 +2,7 @@
 title: "Swapping Implementations"
 date: 2005-03-05
 draft: false
+tags: ["Design Patterns", "Java", "Refactoring"]
 ---
 
 This is an exploration of how to swap implementations of objects within our software architectures using patterns like the Interface, Factory, Strategy, Proxy, Adapter, and finally to the full blown Bridge Design Pattern.  

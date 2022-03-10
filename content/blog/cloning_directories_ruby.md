@@ -2,6 +2,7 @@
 title: "Cloning Directories in Ruby"
 date: 2011-03-01
 draft: false
+tags: ["Ruby"]
 ---
 
 Recursively Cloning Directories in Ruby using Hard Links

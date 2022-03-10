@@ -3,6 +3,7 @@ title: "Websites"
 linkTitle: "Web Apps"
 type: docs
 weight: 20
+tags: ["Software Product", "Calculators", "Python", "Jupyter", "Music", "Diagramming"]
 ---
 
 ## GitUML

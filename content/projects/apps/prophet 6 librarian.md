@@ -3,6 +3,7 @@ title: "Prophet 6 Librarian"
 date: 2016-11-01
 type: docs
 draft: false
+tags: ["Software Product", "Music"]
 ---
 
 Midi patch converter and patch librarian for the Prophet 6 synthesizer.

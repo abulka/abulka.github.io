@@ -4,6 +4,9 @@ linkTitle: "MGM Pattern"
 date: 2019-01-04
 toc_hide: true
 hide_summary: true
+tags: ["Design Patterns", "GUI", "Controllers"]
+# categories: ["Taxonomies"]
+# projects: ["FredProj"]
 type: docs
 description: >
   Model-Gui-Mediator Pattern - the original version of [MVCA Architectural Pattern](/patterns/mvca-pattern)

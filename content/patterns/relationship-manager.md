@@ -5,6 +5,7 @@ date: 2020-10-22
 type: docs
 description: >
   A central mediating class which records all the one-to-one, one-to-many and many-to-many relationships between a group of selected classes.
+tags: ["Design Patterns", "Python", "SQL"]
 ---
 
 ![](http://www.andypatterns.com/files/62371233035718bgDSC1367.jpg)
