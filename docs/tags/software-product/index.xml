@@ -1,0 +1,368 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Andy Bulka – Software Product</title>
+    <link>https://abulka.github.io/tags/software-product/</link>
+    <description>Recent content in Software Product on Andy Bulka</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 14 Feb 2022 00:00:00 +0000</lastBuildDate>
+    
+	  <atom:link href="https://abulka.github.io/tags/software-product/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Projects: Libraries &amp; Tools</title>
+      <link>https://abulka.github.io/projects/libraries/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://abulka.github.io/projects/libraries/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;snippet-creator&#34;&gt;Snippet Creator&lt;/h2&gt;
+&lt;p&gt;This extension helps to automate snippet creation. Select the code you want to create snippet from and use command &lt;code&gt;Create Snippet&lt;/code&gt; from the command palette or your custom keybind.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/abulka/vscode-snippet-creator&#34;&gt;https://github.com/abulka/vscode-snippet-creator&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;snippets-explorer&#34;&gt;Snippets Explorer&lt;/h2&gt;
+&lt;p&gt;Visual Studio Code extension which displays all available language snippets in a TreeView&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/abulka/vscode-snippets-explorer/issues&#34;&gt;https://github.com/abulka/vscode-snippets-explorer&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/abulka/vscode-snippets-explorer/master/images/videos/demo1.gif&#34; alt=&#34;demo&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;electron-flask-app-generator&#34;&gt;Electron-Flask App Generator&lt;/h2&gt;
+&lt;p&gt;Yoeman project generator to create an Electron app running a Flask server inside itself. Deployable via PyInstaller and Electron Forge packager.&lt;/p&gt;
+&lt;p&gt;Create an Electron App project that auto-starts a Flask server the electron app can call for services. Deployable as a single App that users can double click on and run.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/abulka/generator-electron-flask&#34;&gt;https://github.com/abulka/generator-electron-flask&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;     _-----_     ╭──────────────────────────╮
+    |       |    │  Welcome to the amazing  │
+    |--(o)--|    │ generator-electron-flask │
+   `---------´   │        generator!        │
+    ( _´U`_ )    ╰──────────────────────────╯
+    /___A___\   /
+     |  ~  |     
+   __&#39;.___.&#39;__   
+ ´   `  |° ´ Y ` 
+
+? App Name myapp
+? Description My Electron application description
+? Author&#39;s Name Fred Smith
+? Author&#39;s Email fred@example.com
+? license: Apache 2.0
+? Package keywords (comma to split) python, js, great-app
+? Run flask on port number? 5000
+? Initial flask url (e.g. /hello or /hello-vue) to display? / hello
+? Choose from misc options (Press &amp;lt;space&amp;gt; to select, &amp;lt;a&amp;gt; to toggle all, &amp;lt;i&amp;gt; to invert selection)
+❯◉ Electron logging
+◯ Print current working directory on startup
+◯ Print node and electron versions on starrtup
+◉ Fully quit on Mac on exit (without needing CMD-Q)
+◉ Open Electron/Chrome DevTools in final app
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Example of generated app:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://github.com/abulka/generator-electron-flask/raw/main/doco/electron-flask-demo1.gif&#34; alt=&#34;app running&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;dedent-for-dart&#34;&gt;Dedent for Dart&lt;/h2&gt;
+&lt;p&gt;Dedent - Remove any common leading whitespace from every line in text. Ported from Python.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://pub.dev/packages/dedent&#34;&gt;https://pub.dev/packages/dedent&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;relationship-manager&#34;&gt;Relationship Manager&lt;/h2&gt;
+&lt;p&gt;A lightweight Object Database (no SQL used) class for Python 3&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://pypi.org/project/relationship-manager/&#34;&gt;https://pypi.org/project/relationship-manager/&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;image-presenter&#34;&gt;Image Presenter&lt;/h2&gt;
+&lt;p&gt;An image presentation tool, where you can click and zoom into various parts of a single image.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/libraries/images/image-presenter.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Relevant text notes associated with each sub-area would appear when zoomed in.  Arrow keys/buttons allow you to step through a narrated sequence of zooms, so that you get can be carefully guided through an art image, or diagram.&lt;/p&gt;
+&lt;p&gt;Two demo prototype versions, using different underlying technologies:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://atug.com/image_presenter/layerjs/&#34;&gt;https://atug.com/image_presenter/layerjs/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://atug.com/image_presenter/zoomooz/&#34;&gt;https://atug.com/image_presenter/zoomooz/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Source code currently unreleased.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Projects: Websites</title>
+      <link>https://abulka.github.io/projects/websites/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://abulka.github.io/projects/websites/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;gituml&#34;&gt;GitUML&lt;/h2&gt;
+&lt;p&gt;UML visualisation for Git repositories &lt;em&gt;(website app)&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Understand code quickly: Automatically generate UML class diagrams from source code residing in git repositories. Diagrams automatically update when you push code using git.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.gituml.com/static/home2/images_home/2017-10-19_09-43-34.bf679c329661.gif&#34; alt=&#34;point and click&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Visit &lt;a href=&#34;http://www.gituml.com&#34;&gt;GitUML&lt;/a&gt; now, create a free account and begin creating UML diagrams and documentation.&lt;/p&gt;
+&lt;h2 id=&#34;python-to-rpn&#34;&gt;Python to RPN&lt;/h2&gt;
+&lt;p&gt;Check out &lt;a href=&#34;http://www.pyrpn.atug.com&#34;&gt;Python to RPN&lt;/a&gt; if you have an old vintage HP Calculator that you want to program in Python!  Impossible?  See also my blog post &lt;a href=&#34;http://www.andypatterns.com/index.php/blog/ast-parsing-python-generate-hp-calculator-rpn/&#34; title=&#34;AST Parsing with Python to generate HP Calculator RPN&#34;&gt;How I used the Python AST capabilities to build a Python to Rpn converter&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I am pleased to announce the Python to HP42S RPN converter website is online.&lt;br&gt;
+&lt;a href=&#34;http://www.pyrpn.atug.com&#34;&gt;www.pyrpn.atug.com&lt;/a&gt; &lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.dropbox.com/s/nqfq01xaxvi4xnv/python_rpn_ui_01.png?raw=1&#34; alt=&#34;[Image: python_rpn_ui_01.png?raw=1]&#34;&gt;&lt;/p&gt;
+&lt;p&gt;You write code in a high level structured language (which happens to be Python 3 syntax), hit a button and RPN is generated. &lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.dropbox.com/s/3xcmxfxraxc6wej/python_rpn_ui_02small.png?raw=1&#34; alt=&#34;[Image: python_rpn_ui_02small.png?raw=1]&#34;&gt;&lt;/p&gt;
+&lt;p&gt;You then paste the RPN into Free42 or transfer it to your DM42 (by &lt;a href=&#34;https://www.swissmicros.com/dm42/decoder/&#34;&gt;creating a raw&lt;/a&gt;) - and it runs.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Examples: &lt;a href=&#34;http://www.pyrpn.atug.com/examples&#34;&gt;http://www.pyrpn.atug.com/examples&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;User Guide: &lt;a href=&#34;http://www.pyrpn.atug.com/help&#34;&gt;http://www.pyrpn.atug.com/help&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Canvas for 42S Simulator: &lt;a href=&#34;http://www.pyrpn.atug.com/canvas&#34;&gt;http://www.pyrpn.atug.com/canvas&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;List of HP42S Commands Supported Reference: &lt;a href=&#34;http://www.pyrpn.atug.com/cmds&#34;&gt;http://www.pyrpn.atug.com/cmds&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The converter supports core Python syntax (which is very powerful), but does not implement the built in Python libraries that you would get in desktop Python. You have to rely on the ability to call HP42S commands from Python to do your work - which of course you can do. Specifically, it has the following capabilities:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Variables&lt;/li&gt;
+&lt;li&gt;Functions, Multiple functions, nested functions&lt;/li&gt;
+&lt;li&gt;Parameter passing, receiving return values, multiple return values&lt;/li&gt;
+&lt;li&gt;if elif else&lt;/li&gt;
+&lt;li&gt;Comparison operators == != &amp;gt; &amp;lt; &amp;gt;= &amp;lt;=&lt;/li&gt;
+&lt;li&gt;Booleans True, False and operators not or and&lt;/li&gt;
+&lt;li&gt;for loops, range(), for..in iteration through lists and dictionary keys&lt;/li&gt;
+&lt;li&gt;while loops, while&amp;hellip;else&lt;/li&gt;
+&lt;li&gt;continue and break operations in for loops and while loops&lt;/li&gt;
+&lt;li&gt;Lists and Dictionaries (basic operations only).&lt;/li&gt;
+&lt;li&gt;Matrices, Pythonic matrix element access syntax [row,col]&lt;/li&gt;
+&lt;li&gt;NumPy compatible slicing syntax for sub-matrices&lt;/li&gt;
+&lt;li&gt;Complex numbers using either 42S or Python native syntax&lt;/li&gt;
+&lt;li&gt;Expressions involving nested brackets&lt;/li&gt;
+&lt;li&gt;assert&lt;/li&gt;
+&lt;li&gt;Testing and clearing of flags&lt;/li&gt;
+&lt;li&gt;Access most HP42S commands as function calls e.g. FIX(2)&lt;/li&gt;
+&lt;li&gt;Some enhanced functions to make life easier e.g. varmenu() automates and simplifies the generation of MVAR based code.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;online-programmable-rpn-calculators&#34;&gt;Online Programmable RPN calculators&lt;/h2&gt;
+&lt;h3 id=&#34;rpn-calc&#34;&gt;Rpn-calc&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/websites/images/rpn-calc-1.png&#34; alt=&#34;rpn-calc-1&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Here is the built in Javascript code editor.&lt;/p&gt;
+&lt;p&gt;Parameters to Javascript functions are taken off the RPN stack. Return values from Javascript functions are pushed onto the RPN stack.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/websites/images/rpn-calc-2.png&#34; alt=&#34;rpn-calc-2&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://atug.com/jsrpncalc-web/&#34;&gt;https://atug.com/jsrpncalc-web/&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;rpn-calc2&#34;&gt;Rpn-calc2&lt;/h3&gt;
+&lt;p&gt;A completely new implementation, also programmable in Javascript. Define interactive UI buttons and sliders.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/websites/images/rpn-calc2-1.png&#34; alt=&#34;rpn-calc2-1&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/websites/images/rpn-calc2-2.png&#34; alt=&#34;rpn-calc2-2&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://atug.com/jsrpncalc2/&#34;&gt;https://atug.com/jsrpncalc2/&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;jupyter-notebooks&#34;&gt;Jupyter Notebooks&lt;/h2&gt;
+&lt;p&gt;A way of implementing complex calculators incl. scrolling text area UI widgets within Jupyter Notebooks.&lt;/p&gt;
+&lt;h3 id=&#34;scrolling-textareas&#34;&gt;Scrolling Textareas&lt;/h3&gt;
+&lt;p&gt;Scrolling Textareas in a Python Jupyter Notebook, allows building a kind of &amp;ldquo;Calculator Playground&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/websites/images/jupyter-calc-pi.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Various Jupyter Notebooks at &lt;a href=&#34;https://bitbucket.org/abulka/jupyter_play/src/master/&#34;&gt;https://bitbucket.org/abulka/jupyter_play/src/master/&lt;/a&gt; (private)&lt;/p&gt;
+&lt;p&gt;Gist of the scrolling textarea technique: &lt;a href=&#34;https://gist.github.com/abulka/3043e8a4d78d2e26f872542524a0aa3e&#34;&gt;https://gist.github.com/abulka/3043e8a4d78d2e26f872542524a0aa3e&lt;/a&gt; (public)&lt;/p&gt;
+&lt;h3 id=&#34;google-colaboratory&#34;&gt;Google Colaboratory&lt;/h3&gt;
+&lt;p&gt;A way of implementing UI scrolling regions within Google Colaboratory Notebooks.
+Google Colaboratory, or &amp;ldquo;Colab&amp;rdquo; for short, is a version of Jupyter Notebooks, and allows you to write and execute Python in your browser.&lt;/p&gt;
+&lt;p&gt;This &lt;a href=&#34;https://colab.research.google.com/drive/1_R4DAqhVgfPc4113N5VxHVeUJ9oxDMKM#scrollTo=bz9ue7M7cRPq&#34;&gt;Colab project&lt;/a&gt; is a simpler version of the scrolling text area idea above, and needs to be fleshed out a little more fully to match the native Jupyter notebook functionality above.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/websites/images/jupyter-google-colab-1.gif&#34; alt=&#34;jupyter-google-colab-1&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;toolback---app-builder&#34;&gt;Toolback - App Builder&lt;/h2&gt;
+&lt;p&gt;An online programming environment, with low code features.  Drag and drop a UI and add scripts directly to components.  Generate websites and desktop apps (electron based) with a click of a button.&lt;/p&gt;
+&lt;h3 id=&#34;toolback&#34;&gt;Toolback&lt;/h3&gt;
+&lt;p&gt;Toolback is the drag and drop UI builder and online, Low Code, app building IDE.&lt;/p&gt;
+&lt;!-- ![toolback-1](/projects/websites/images/toolback-1.png) --&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/websites/images/toolback-2.png&#34; alt=&#34;toolback-2&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/websites/images/toolback-7-drag-drop.png&#34; alt=&#34;toolback-7&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/websites/images/toolback-3.png&#34; alt=&#34;toolback-3&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/websites/images/toolback-4.png&#34; alt=&#34;toolback-4&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Preview your app with a key press.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/websites/images/toolback-5-menus.gif&#34; alt=&#34;toolback-5&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Export to a website or electron app - one click!&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/websites/images/toolback-6-electron.png&#34; alt=&#34;toolback-6&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;toolback-lite&#34;&gt;Toolback Lite&lt;/h3&gt;
+&lt;p&gt;Toolback-Lite is a lightweight drag and drop UI builder and online app building IDE. The drag and drop is done on a grid rather than using the the complex &lt;a href=&#34;https://grapesjs.com/&#34;&gt;grapes-js&lt;/a&gt; html builder library, which Toolback uses.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/websites/images/toolback-lite-1.gif&#34; alt=&#34;toolback-lite-1&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;chord-jammer&#34;&gt;Chord Jammer&lt;/h2&gt;
+&lt;p&gt;A midi web app that lets you play chords with 1 finger in the left hand
+and jam safely in the right hand.
+As you change chords, the rh notes are filtered so you always play good sounding notes.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/websites/images/chord-jammer-1.png&#34; alt=&#34;screenshot&#34;&gt;&lt;/p&gt;
+&lt;p&gt;
+    MIDI powered by &lt;a href=&#34;https://webmidijs.org/docs/&#34;&gt;WebMidi.js&lt;/a&gt;
+    GUI powered by &lt;a href=&#34;http://g200kg.github.io/webaudio-controls/docs/index.html&#34;&gt;webaudio-controls&lt;/a&gt;
+    Scales powered by &lt;a href=&#34;https://github.com/tonaljs/tonal&#34;&gt;tonaljs&lt;/a&gt; - A functional music theory library for
+    Javascript.
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;~/Devel/midi-play/webmidijs-play
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;sample-config&#34;&gt;Sample config&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;let&lt;/span&gt; project &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    chords&lt;span style=&#34;color:#ff79c6&#34;&gt;:&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;C3&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;:&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            lhchord&lt;span style=&#34;color:#ff79c6&#34;&gt;:&lt;/span&gt; Em7Chord,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            rhnotes&lt;span style=&#34;color:#ff79c6&#34;&gt;:&lt;/span&gt; EmScaleMelodic,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;D3&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;:&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            lhchord&lt;span style=&#34;color:#ff79c6&#34;&gt;:&lt;/span&gt; AmAdd9Chord,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            rhnotes&lt;span style=&#34;color:#ff79c6&#34;&gt;:&lt;/span&gt; EmScaleNatural,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;E3&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;:&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            lhchord&lt;span style=&#34;color:#ff79c6&#34;&gt;:&lt;/span&gt; CM9Chord,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            rhnotes&lt;span style=&#34;color:#ff79c6&#34;&gt;:&lt;/span&gt; EmScaleNatural,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;F3&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;:&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            lhchord&lt;span style=&#34;color:#ff79c6&#34;&gt;:&lt;/span&gt; BmAdd11ChordInversion1,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            rhnotes&lt;span style=&#34;color:#ff79c6&#34;&gt;:&lt;/span&gt; EmScaleNatural,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            rhnotes2&lt;span style=&#34;color:#ff79c6&#34;&gt;:&lt;/span&gt; EmScaleHarmonic,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            rhnotes3&lt;span style=&#34;color:#ff79c6&#34;&gt;:&lt;/span&gt; EmBlues,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;single-finger-chords&#34;&gt;Single finger Chords&lt;/h3&gt;
+&lt;p&gt;With the project config above&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Play C3 to trigger chord &lt;code&gt;Em7Chord&lt;/code&gt; and jam in default scale &lt;code&gt;EmScaleMelodic&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Play D3 to trigger chord &lt;code&gt;AmAdd9Chord&lt;/code&gt; and jam in default scale &lt;code&gt;EmScaleNatural&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Play E3 to trigger chord &lt;code&gt;CM9Chord&lt;/code&gt; and jam in default scale &lt;code&gt;EmScaleNatural&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Play F3 to trigger chord &lt;code&gt;BmAdd11ChordInversion1&lt;/code&gt; and jam in default scale &lt;code&gt;EmScaleNatural&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Jamming notes are &lt;code&gt;G3&lt;/code&gt; to &lt;code&gt;C5&lt;/code&gt; and are filtered to be in the default scale for that chord.&lt;/p&gt;
+&lt;h3 id=&#34;scale-switching-whilst-playing&#34;&gt;Scale Switching whilst playing&lt;/h3&gt;
+&lt;p&gt;You can switch to e.g. the pentatonic scale for the current chord by pressing D#4.  Switch back to the default scale by pressing C#4.&lt;/p&gt;
+&lt;p&gt;Here is a list of &lt;em&gt;modifier keys&lt;/em&gt; and what they do to the rh scale:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;C#4 default scale, &lt;code&gt;rhnotes&lt;/code&gt; in config&lt;/li&gt;
+&lt;li&gt;D#4 &lt;code&gt;rhnotes2&lt;/code&gt; scale in config&lt;/li&gt;
+&lt;li&gt;F#4 &lt;code&gt;rhnotes3&lt;/code&gt; scale in config&lt;/li&gt;
+&lt;li&gt;G#4 transpose rh scale by &lt;code&gt;options.transposeUpAmount&lt;/code&gt; semitones&lt;/li&gt;
+&lt;li&gt;A#4 transpose rh scale down by &lt;code&gt;options.transposeDownAmount&lt;/code&gt; semitones&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You can customise the transposition amounts for a given project via config e.g.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;let&lt;/span&gt; project &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    chords&lt;span style=&#34;color:#ff79c6&#34;&gt;:&lt;/span&gt; {...},
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    options&lt;span style=&#34;color:#ff79c6&#34;&gt;:&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        transposeUpAmount&lt;span style=&#34;color:#ff79c6&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;4&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        transposeDownAmount&lt;span style=&#34;color:#ff79c6&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;2&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Potentially other customisations via config will be supported in the future:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Being able to specify which scales to switch to, instead of pentatonic and blues.&lt;/li&gt;
+&lt;li&gt;Being able to change what the modifier keys actually are (unlikely).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;left-hand-black-key-modifiers&#34;&gt;Left hand black key modifiers&lt;/h3&gt;
+&lt;p&gt;The octave containing the left hand chord trigger notes will have its black keys used as modifiers.
+The &lt;code&gt;C#&lt;/code&gt; acts as a SHIFT, so&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;C#&lt;/code&gt; hold down to engage SHIFT mode&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;D#&lt;/code&gt; cmdSetScaleFiltering(false)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;F#&lt;/code&gt; cmdSetScaleFiltering(true)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;G#&lt;/code&gt; transposeChord down a semitone&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;A#&lt;/code&gt; transposeChord up a semitone&lt;/li&gt;
+&lt;li&gt;SHIFT &lt;code&gt;D#&lt;/code&gt; stopAllNotes()&lt;/li&gt;
+&lt;li&gt;SHIFT &lt;code&gt;F#&lt;/code&gt; scaleFilteringModificationSticky toggle&lt;/li&gt;
+&lt;li&gt;SHIFT &lt;code&gt;G#&lt;/code&gt; reset chord transpose - todo&lt;/li&gt;
+&lt;li&gt;SHIFT &lt;code&gt;A#&lt;/code&gt; reset chord transpose - todo&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;config-customisations-supported&#34;&gt;Config customisations supported&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;let&lt;/span&gt; project &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    chords&lt;span style=&#34;color:#ff79c6&#34;&gt;:&lt;/span&gt; {...},
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    options&lt;span style=&#34;color:#ff79c6&#34;&gt;:&lt;/span&gt; {...},
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    splitNote&lt;span style=&#34;color:#ff79c6&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;C3&amp;#39;&lt;/span&gt;,         &lt;span style=&#34;color:#6272a4&#34;&gt;// Where the root note is (see explanation below)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;    rhStartOctave&lt;span style=&#34;color:#ff79c6&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;3&lt;/span&gt;,        &lt;span style=&#34;color:#6272a4&#34;&gt;// To which octave to start mapping notes to
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;rationale&#34;&gt;Rationale&lt;/h2&gt;
+&lt;p&gt;As CTO of Austhink, I technically managed and helped architect &lt;code&gt;Rationale&lt;/code&gt; - an argument mapping application, written in C# and .NET.
+This was done together with a great team of developers and thinkers incl. the CEO &lt;a href=&#34;https://timvangelder.com/about/&#34;&gt;Tim van Gelder&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/websites/images/rationale-02.png&#34; alt=&#34;rationale&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Rationale - the desktop app&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Rationale is now available as an online web app at &lt;a href=&#34;https://www.rationaleonline.com/&#34;&gt;https://www.rationaleonline.com/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;🎗 Disclaimer: The web version of Rationale was developed by another team, using the source code and design of the desktop Rationale as a base.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Also at Austhink, we developed the online debating and argument mapping website the &lt;code&gt;Hive&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/websites/images/rationale-01.png&#34; alt=&#34;hive&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Hive - online debating and argument mapping website&lt;/em&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Projects: Pynsource</title>
+      <link>https://abulka.github.io/projects/apps/pynsource/</link>
+      <pubDate>Mon, 14 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://abulka.github.io/projects/apps/pynsource/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Visit &lt;a href=&#34;http://www.pynsource.com&#34;&gt;pynsource.com.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Pynsource is a UML tool for Python a desktop App for Mac, Window and Linux.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://i.imgur.com/C8WrRDf.png&#34; alt=&#34;Pynsource hero&#34; title=&#34;Pynsource Hero&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Pynsource imports Python code and features zoom, Ascii and PlantUML views and Auto Layout&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Community Edition is free, fully functional and open source - check out the &lt;a href=&#34;https://github.com/abulka/pynsource&#34;&gt;Pynsource GitHub repository&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Buy the &lt;a href=&#34;http://www.pynsource.com/pricing.html&#34;&gt;Pro Edition&lt;/a&gt; for $20 to unlock the zoom feature and other pro features.&lt;/p&gt;
+&lt;p&gt;Visit the &lt;a href=&#34;http://www.pynsource.com&#34;&gt;Pynsource Home Page&lt;/a&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Projects: Brew Moments</title>
+      <link>https://abulka.github.io/projects/apps/brew-moments/</link>
+      <pubDate>Mon, 23 Nov 2020 12:21:55 +1100</pubDate>
+      
+      <guid>https://abulka.github.io/projects/apps/brew-moments/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;brew-moments&#34;&gt;Brew Moments&lt;/h2&gt;
+&lt;p&gt;Coffee Ratio Calculation App for Android phones and tablets, built using Dart and Flutter.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/websites/images/brew-moments.png&#34; alt=&#34;pic&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Visit the Brew Moments &lt;a href=&#34;https://abulka.github.io/brew-moments/&#34;&gt;home page&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Visit the Brew Moments &lt;a href=&#34;https://play.google.com/store/apps/details?id=com.wware.brew_moments&#34;&gt;playstore page&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;status&#34;&gt;Status&lt;/h1&gt;
+&lt;p&gt;Free to download.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Projects: Print42</title>
+      <link>https://abulka.github.io/projects/apps/print42/</link>
+      <pubDate>Mon, 23 Nov 2020 12:18:07 +1100</pubDate>
+      
+      <guid>https://abulka.github.io/projects/apps/print42/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&lt;a href=&#34;http://www.print42.atug.com&#34;&gt;Print42&lt;/a&gt; is a log tailing GUI program which optionally echoes log lines to thermal printer tape. Its like a modern thermal printer version of a ticker tape for tailing log files. It features display font size options, search and filtering. You can also annotate the output with text fragments that you type in - or screenshots that you paste in.&lt;/p&gt;
+&lt;p&gt;As well as physically printing from Free42, the Print42 software can also be used to print HP Prime screenshots (from either the emulator or real HP Prime hardware via the HP connectivity kit).&lt;/p&gt;
+&lt;p&gt;Outside the world of calculators, Print42 can be used to &amp;rsquo;tail&amp;rsquo; log files (programmers take note) and to print graphic snippets from the web. Useful if you want to rapidly print information to stuff into your pocket or to study and annotate printouts of complex information, at your desk.&lt;/p&gt;
+&lt;p&gt;If you are looking for a useful, fun new gadget, you might want to consider buying an Epson thermal printer and trying Print42. However you can also use Print42 with your regular desktop printer, for free.&lt;/p&gt;
+&lt;p&gt;The website for downloads and further information is &lt;a href=&#34;http://www.print42.atug.com/&#34;&gt;www.print42.atug.com&lt;/a&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Projects: Prophet 6 Librarian</title>
+      <link>https://abulka.github.io/projects/apps/prophet-6-librarian/</link>
+      <pubDate>Tue, 01 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://abulka.github.io/projects/apps/prophet-6-librarian/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Midi patch converter and patch librarian for the Prophet 6 synthesizer.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/apps/images/prophet6-screenshot1.png&#34; alt=&#34;prophet 6 synth&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/apps/images/prophet6-editor-Screen-Shot-2016-09-18.png&#34; alt=&#34;screenshot&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;features&#34;&gt;Features&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;listens for sysex messages from prophet 6&lt;/li&gt;
+&lt;li&gt;records them in a list, marked as &amp;lsquo;raw&amp;rsquo;&lt;/li&gt;
+&lt;li&gt;click a button (or perhaps its done automatically) and convert them into &amp;lsquo;audition&amp;rsquo; style&lt;/li&gt;
+&lt;li&gt;click on either raw or audition button to &lt;strong&gt;send&lt;/strong&gt; patch back to the prophet 6&lt;/li&gt;
+&lt;li&gt;UI of the Prophet 6 knobs and buttons (as pictured) adjusts patches in real time&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;status&#34;&gt;Status&lt;/h2&gt;
+&lt;p&gt;Unreleased, on hold.&lt;/p&gt;
+&lt;h2 id=&#34;resources&#34;&gt;Resources&lt;/h2&gt;
+&lt;p&gt;Project Repository: &lt;a href=&#34;https://bitbucket.org/abulka/electron1/src/master/&#34;&gt;https://bitbucket.org/abulka/electron1/src/master/&lt;/a&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

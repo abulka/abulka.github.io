@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.92.0" />
+<meta name="generator" content="Hugo 0.93.3" />
 <meta name="robots" content="index, follow">
 
 
@@ -18,25 +18,25 @@
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
-<title>MVCA Architectural Pattern | Andy Bulka</title>
-<meta name="description" content="MVCA simply means &#34;Model View Controller Application&#34; - all four roles are necessary to any implementation.
+<title>MVC-App Architectural Pattern | Andy Bulka</title>
+<meta name="description" content="MVC-App simply means &#34;Model View Controller Application&#34; - all four roles are necessary to any implementation.
 ">
-<meta property="og:title" content="MVCA Architectural Pattern" />
-<meta property="og:description" content="MVCA simply means &#34;Model View Controller Application&#34; - all four roles are necessary to any implementation.
+<meta property="og:title" content="MVC-App Architectural Pattern" />
+<meta property="og:description" content="MVC-App simply means &#34;Model View Controller Application&#34; - all four roles are necessary to any implementation.
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://abulka.github.io/patterns/mvca-pattern/" /><meta property="article:section" content="patterns" />
 <meta property="article:published_time" content="2019-01-04T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-03-08T15:24:51+11:00" />
+<meta property="article:modified_time" content="2022-03-10T13:25:22+11:00" />
 
-<meta itemprop="name" content="MVCA Architectural Pattern">
-<meta itemprop="description" content="MVCA simply means &#34;Model View Controller Application&#34; - all four roles are necessary to any implementation.
+<meta itemprop="name" content="MVC-App Architectural Pattern">
+<meta itemprop="description" content="MVC-App simply means &#34;Model View Controller Application&#34; - all four roles are necessary to any implementation.
 "><meta itemprop="datePublished" content="2019-01-04T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-03-08T15:24:51+11:00" />
-<meta itemprop="wordCount" content="2337">
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="MVCA Architectural Pattern"/>
-<meta name="twitter:description" content="MVCA simply means &#34;Model View Controller Application&#34; - all four roles are necessary to any implementation.
+<meta itemprop="dateModified" content="2022-03-10T13:25:22+11:00" />
+<meta itemprop="wordCount" content="2397">
+<meta itemprop="keywords" content="Design Patterns,GUI,MVC,Controllers,Javascript,Observer,Refactoring," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="MVC-App Architectural Pattern"/>
+<meta name="twitter:description" content="MVC-App simply means &#34;Model View Controller Application&#34; - all four roles are necessary to any implementation.
 "/>
 
 
@@ -136,7 +136,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.776c822f296e236cb9c3d581f2e32871.json"
+  data-offline-search-index-json-src="/offline-search-index.ac860f082e5d6bbf6ec932fe84593fe9.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -158,7 +158,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.776c822f296e236cb9c3d581f2e32871.json"
+  data-offline-search-index-json-src="/offline-search-index.ac860f082e5d6bbf6ec932fe84593fe9.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -176,7 +176,7 @@ if (!doNotTrack) {
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-patternsrelationship-manager-li">
   <a href="/patterns/relationship-manager/" title="Relationship Manager - Design Pattern" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-patternsrelationship-manager"><span class="">Relationship Manager</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-patternsmvca-pattern-li">
-  <a href="/patterns/mvca-pattern/" title="MVCA Architectural Pattern" class="align-left pl-0 active td-sidebar-link td-sidebar-link__page" id="m-patternsmvca-pattern"><span class="td-sidebar-nav-active-item">MVC-App Pattern</span></a>
+  <a href="/patterns/mvca-pattern/" title="MVC-App Architectural Pattern" class="align-left pl-0 active td-sidebar-link td-sidebar-link__page" id="m-patternsmvca-pattern"><span class="td-sidebar-nav-active-item">MVC-App Pattern</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-patternstransformation-interface-li">
   <a href="/patterns/transformation-interface/" title="Transformation Interface Design Pattern" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-patternstransformation-interface"><span class="">Transformation Interface</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-patternsdesign-pattern-automation-li">
@@ -205,7 +205,7 @@ if (!doNotTrack) {
 <a href="https://github.com/abulka/abulka.github.io/tree/master/content/en/patterns/mvca-pattern.md" class="td-page-meta--view" target="_blank" rel="noopener"><i class="fa fa-file-alt fa-fw"></i> View page source</a>
   <a href="https://github.com/abulka/abulka.github.io/edit/master/content/en/patterns/mvca-pattern.md" class="td-page-meta--edit" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
   <a href="https://github.com/abulka/abulka.github.io/new/master/content/en/patterns/mvca-pattern.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Create child page</a>
-  <a href="https://github.com/abulka/abulka.github.io/issues/new?title=MVCA%20Architectural%20Pattern" class="td-page-meta--issue" target="_blank" rel="noopener"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
+  <a href="https://github.com/abulka/abulka.github.io/issues/new?title=MVC-App%20Architectural%20Pattern" class="td-page-meta--issue" target="_blank" rel="noopener"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
   <a href="https://github.com/abulka/abulka.github.io/issues/new" class="td-page-meta--project-issue" target="_blank" rel="noopener"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
   
 </div>
@@ -245,20 +245,84 @@ if (!doNotTrack) {
 
 	
 		
+			
+				
+			
+			
 
 
 
   
   
+    <div class="taxonomy taxonomy-terms-cloud taxo-tags">
+      
+        <h5 class="taxonomy-title">Tag Cloud</h5>
+      
+      <ul class="taxonomy-terms">
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/async/" data-taxonomy-term="async"><span class="taxonomy-label">Async</span><span class="taxonomy-count">1</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/calculators/" data-taxonomy-term="calculators"><span class="taxonomy-label">Calculators</span><span class="taxonomy-count">3</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/controllers/" data-taxonomy-term="controllers"><span class="taxonomy-label">Controllers</span><span class="taxonomy-count">8</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/design-patterns/" data-taxonomy-term="design-patterns"><span class="taxonomy-label">Design Patterns</span><span class="taxonomy-count">23</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/dev-ops/" data-taxonomy-term="dev-ops"><span class="taxonomy-label">Dev Ops</span><span class="taxonomy-count">1</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/diagramming/" data-taxonomy-term="diagramming"><span class="taxonomy-label">Diagramming</span><span class="taxonomy-count">5</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/django/" data-taxonomy-term="django"><span class="taxonomy-label">Django</span><span class="taxonomy-count">1</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/electron/" data-taxonomy-term="electron"><span class="taxonomy-label">Electron</span><span class="taxonomy-count">2</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/flask/" data-taxonomy-term="flask"><span class="taxonomy-label">Flask</span><span class="taxonomy-count">1</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/flutter/" data-taxonomy-term="flutter"><span class="taxonomy-label">Flutter</span><span class="taxonomy-count">1</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/gui/" data-taxonomy-term="gui"><span class="taxonomy-label">GUI</span><span class="taxonomy-count">10</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/java/" data-taxonomy-term="java"><span class="taxonomy-label">Java</span><span class="taxonomy-count">1</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/javascript/" data-taxonomy-term="javascript"><span class="taxonomy-label">Javascript</span><span class="taxonomy-count">6</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/jupyter/" data-taxonomy-term="jupyter"><span class="taxonomy-label">Jupyter</span><span class="taxonomy-count">1</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/music/" data-taxonomy-term="music"><span class="taxonomy-label">Music</span><span class="taxonomy-count">2</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/mvc/" data-taxonomy-term="mvc"><span class="taxonomy-label">MVC</span><span class="taxonomy-count">7</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/observer/" data-taxonomy-term="observer"><span class="taxonomy-label">Observer</span><span class="taxonomy-count">5</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/orm/" data-taxonomy-term="orm"><span class="taxonomy-label">ORM</span><span class="taxonomy-count">1</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/python/" data-taxonomy-term="python"><span class="taxonomy-label">Python</span><span class="taxonomy-count">17</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/refactoring/" data-taxonomy-term="refactoring"><span class="taxonomy-label">Refactoring</span><span class="taxonomy-count">4</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/ruby/" data-taxonomy-term="ruby"><span class="taxonomy-label">Ruby</span><span class="taxonomy-count">4</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/software-product/" data-taxonomy-term="software-product"><span class="taxonomy-label">Software Product</span><span class="taxonomy-count">6</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/sql/" data-taxonomy-term="sql"><span class="taxonomy-label">SQL</span><span class="taxonomy-count">3</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/thoughts/" data-taxonomy-term="thoughts"><span class="taxonomy-label">Thoughts</span><span class="taxonomy-count">9</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/ubuntu/" data-taxonomy-term="ubuntu"><span class="taxonomy-label">Ubuntu</span><span class="taxonomy-count">1</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/uml/" data-taxonomy-term="uml"><span class="taxonomy-label">UML</span><span class="taxonomy-count">8</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/vscode/" data-taxonomy-term="vscode"><span class="taxonomy-label">Vscode</span><span class="taxonomy-count">1</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/vuejs/" data-taxonomy-term="vuejs"><span class="taxonomy-label">Vuejs</span><span class="taxonomy-count">1</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/wxpython/" data-taxonomy-term="wxpython"><span class="taxonomy-label">wxPython</span><span class="taxonomy-count">4</span></a></li>
+        
+      </ul>
+    </div>
+  
 
-	
 		
-
-
-
-  
-  
-
 	
 
           </aside>
@@ -278,25 +342,47 @@ if (!doNotTrack) {
 </nav>
             
 <div class="td-content">
-	<h1>MVCA Architectural Pattern</h1>
-	<div class="lead">MVCA simply means &ldquo;Model View Controller Application&rdquo; - all four roles are necessary to any implementation.</div>
+	<h1>MVC-App Architectural Pattern</h1>
+	<div class="lead">MVC-App simply means &ldquo;Model View Controller Application&rdquo; - all four roles are necessary to any implementation.</div>
 	<header class="article-meta">
 		
 
   
     
+      
 
 
-  
+<div class="taxonomy taxonomy-terms-article taxo-tags">
+  <h5 class="taxonomy-title">Tags:</h5>
+  <ul class="taxonomy-terms">
     
+      <li><a class="taxonomy-term" href="https://abulka.github.io/tags/design-patterns/" data-taxonomy-term="design-patterns"><span class="taxonomy-label">Design Patterns</span></a></li>
+    
+      <li><a class="taxonomy-term" href="https://abulka.github.io/tags/gui/" data-taxonomy-term="gui"><span class="taxonomy-label">GUI</span></a></li>
+    
+      <li><a class="taxonomy-term" href="https://abulka.github.io/tags/mvc/" data-taxonomy-term="mvc"><span class="taxonomy-label">MVC</span></a></li>
+    
+      <li><a class="taxonomy-term" href="https://abulka.github.io/tags/controllers/" data-taxonomy-term="controllers"><span class="taxonomy-label">Controllers</span></a></li>
+    
+      <li><a class="taxonomy-term" href="https://abulka.github.io/tags/javascript/" data-taxonomy-term="javascript"><span class="taxonomy-label">Javascript</span></a></li>
+    
+      <li><a class="taxonomy-term" href="https://abulka.github.io/tags/observer/" data-taxonomy-term="observer"><span class="taxonomy-label">Observer</span></a></li>
+    
+      <li><a class="taxonomy-term" href="https://abulka.github.io/tags/refactoring/" data-taxonomy-term="refactoring"><span class="taxonomy-label">Refactoring</span></a></li>
+    
+  </ul>
+</div>
 
-
+    
   
 
 		
 	</header>    
 	<h2 id="introduction">Introduction</h2>
-<p>For the original MGM pattern see <a href="https://abulka.github.io/patterns/mgm-pattern/">MGM pattern</a></p>
+<p>This article describes the &ldquo;MVC-App Architectural Pattern&rdquo; which you can use to design your software applications, when you need to support a GUI.  It is not a framework, it is a small set of principles which let you build sane, modular GUIs in any language, using any off the shelf UI components.</p>
+<blockquote>
+<p>For the original, deprecated, MGM pattern which initially inspired this &ldquo;MVC-App Pattern&rdquo; pattern, see <a href="https://abulka.github.io/patterns/mgm-pattern/">MGM pattern</a></p>
+</blockquote>
 <h2 id="todomvc-oo">TodoMVC-OO</h2>
 <p>This is the classic Javascript <a href="https://github.com/tastejs/todomvc">TodoMVC app</a> implemented <strong>without a framework</strong> 😄, simply using plain Object Oriented programming + a traditional MVC design pattern.</p>
 <p>Distinct, mediating <code>Controller</code> classes are the key to this implementation.</p>
@@ -329,64 +415,64 @@ if (!doNotTrack) {
 <h3 id="model">Model</h3>
 <p>The <strong>Model</strong> is traditional, may contain some business logic, and may broadcast events when its attributes change.</p>
 <p>By traditional, I mean the Model does not know about anything else except perhaps other models. Its the core model of your data, the domain of the what the application is all about. In the case of the Todo application, it is a collection of Todo items, which can be marked completed.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">TodoItem</span> <span style="color:#000;font-weight:bold">{</span>
-    <span style="color:#000">constructor</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">title</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">id</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">completed</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-        <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">_title</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">title</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#204a87;font-weight:bold">undefined</span> <span style="color:#ce5c00;font-weight:bold">?</span> <span style="color:#4e9a06">&#34;&#34;</span> <span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000">title</span><span style="color:#000;font-weight:bold">;</span>
-        <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">_completed</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">completed</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#204a87;font-weight:bold">undefined</span> <span style="color:#ce5c00;font-weight:bold">?</span> <span style="color:#204a87;font-weight:bold">false</span> <span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000">completed</span><span style="color:#000;font-weight:bold">;</span>
-        <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">id</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">id</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#204a87;font-weight:bold">undefined</span> <span style="color:#ce5c00;font-weight:bold">?</span> <span style="color:#000">util</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">uuid</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000">id</span><span style="color:#000;font-weight:bold">;</span>  <span style="color:#8f5902;font-style:italic">// no getter/setter needed
-</span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#000;font-weight:bold">}</span>
-
-    <span style="color:#000">get</span> <span style="color:#000">title</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
-        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">_title</span><span style="color:#000;font-weight:bold">;</span>
-    <span style="color:#000;font-weight:bold">}</span>
-
-    <span style="color:#000">set</span> <span style="color:#000">title</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">v</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-        <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">_title</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">v</span><span style="color:#000;font-weight:bold">;</span>
-        <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">dirty</span><span style="color:#000;font-weight:bold">()</span>
-    <span style="color:#000;font-weight:bold">}</span>
-
-    <span style="color:#000">get</span> <span style="color:#000">completed</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
-        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">_completed</span><span style="color:#000;font-weight:bold">;</span>
-    <span style="color:#000;font-weight:bold">}</span>
-
-    <span style="color:#000">set</span> <span style="color:#000">completed</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">v</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-        <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">_completed</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">v</span><span style="color:#000;font-weight:bold">;</span>
-        <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">dirty</span><span style="color:#000;font-weight:bold">()</span>
-    <span style="color:#000;font-weight:bold">}</span>
-
-    <span style="color:#000">get</span> <span style="color:#000">as_dict</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
-        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">{</span>
-            <span style="color:#000">id</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">id</span><span style="color:#000;font-weight:bold">,</span>
-            <span style="color:#000">title</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">title</span><span style="color:#000;font-weight:bold">,</span>
-            <span style="color:#000">completed</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">completed</span>
-        <span style="color:#000;font-weight:bold">}</span>
-    <span style="color:#000;font-weight:bold">}</span>
-
-    <span style="color:#204a87;font-weight:bold">delete</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
-        <span style="color:#000">notify_all</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;deleted todoitem&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">)</span>
-    <span style="color:#000;font-weight:bold">}</span>
-
-    <span style="color:#000">dirty</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
-        <span style="color:#000">notify_all</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;modified todoitem&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000;font-weight:bold">{</span><span style="color:#000">during_load</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">})</span>
-    <span style="color:#000;font-weight:bold">}</span>
-<span style="color:#000;font-weight:bold">}</span>
-</code></pre></div><p>The Model is usually broken into many smaller interconnected models in an attempt to reflect the real world domain being implemented as software. The Model can be implemented as mere objects in memory or a full-fledged database model, or a <a href="https://en.wikipedia.org/wiki/Object-relational_mapping">ORM</a> mapping between the two.  In our case, we have a pure memory model, which gets persisted into local browser storage as JSON.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#ff79c6">class</span> TodoItem {
+</span></span><span style="display:flex;"><span>    constructor(title, id, completed) {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">this</span>._title <span style="color:#ff79c6">=</span> title <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">undefined</span> <span style="color:#ff79c6">?</span> <span style="color:#f1fa8c">&#34;&#34;</span> <span style="color:#ff79c6">:</span> title;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">this</span>._completed <span style="color:#ff79c6">=</span> completed <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">undefined</span> <span style="color:#ff79c6">?</span> <span style="color:#ff79c6">false</span> <span style="color:#ff79c6">:</span> completed;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">this</span>.id <span style="color:#ff79c6">=</span> id <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">undefined</span> <span style="color:#ff79c6">?</span> util.uuid() <span style="color:#ff79c6">:</span> id;  <span style="color:#6272a4">// no getter/setter needed
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    get title() {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">this</span>._title;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    set title(v) {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">this</span>._title <span style="color:#ff79c6">=</span> v;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">this</span>.dirty()
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    get completed() {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">this</span>._completed;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    set completed(v) {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">this</span>._completed <span style="color:#ff79c6">=</span> v;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">this</span>.dirty()
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    get as_dict() {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> {
+</span></span><span style="display:flex;"><span>            id<span style="color:#ff79c6">:</span> <span style="color:#ff79c6">this</span>.id,
+</span></span><span style="display:flex;"><span>            title<span style="color:#ff79c6">:</span> <span style="color:#ff79c6">this</span>.title,
+</span></span><span style="display:flex;"><span>            completed<span style="color:#ff79c6">:</span> <span style="color:#ff79c6">this</span>.completed
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">delete</span>() {
+</span></span><span style="display:flex;"><span>        notify_all(<span style="color:#f1fa8c">&#34;deleted todoitem&#34;</span>, <span style="color:#ff79c6">this</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    dirty() {
+</span></span><span style="display:flex;"><span>        notify_all(<span style="color:#f1fa8c">&#34;modified todoitem&#34;</span>, <span style="color:#ff79c6">this</span>, {during_load<span style="color:#ff79c6">:</span> <span style="color:#ff79c6">false</span>})
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The Model is usually broken into many smaller interconnected models in an attempt to reflect the real world domain being implemented as software. The Model can be implemented as mere objects in memory or a full-fledged database model, or a <a href="https://en.wikipedia.org/wiki/Object-relational_mapping">ORM</a> mapping between the two.  In our case, we have a pure memory model, which gets persisted into local browser storage as JSON.</p>
 <p>You will find that some &lsquo;model&rsquo; concepts are more about how the information is presented in the GUI, thus I recommend these are kept as attributes of the Application class, and referred to as the <em>view state</em> or <em>view model</em>. The attribute <code>filter</code> is an example of such view state.  The Application class can also hold collections of models which is what we do in this project:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Application</span> <span style="color:#000;font-weight:bold">{</span>
-    <span style="color:#000">constructor</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">config</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-        <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">todos</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[]</span>  <span style="color:#8f5902;font-style:italic">// model collection
-</span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">filter</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#39;all&#39;</span>  <span style="color:#8f5902;font-style:italic">// view model, options are: &#39;all&#39;, &#39;active&#39;, &#39;completed&#39;
-</span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#000;font-weight:bold">...</span>
-    <span style="color:#000;font-weight:bold">}</span>
-</code></pre></div><p>The model can be fat or thin - a fat model will have more business logic in the model. A thin model will most business or application logic in the Application class, treating the model as just data structures.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#ff79c6">class</span> Application {
+</span></span><span style="display:flex;"><span>    constructor(config) {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">this</span>.todos <span style="color:#ff79c6">=</span> []  <span style="color:#6272a4">// model collection
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>        <span style="color:#ff79c6">this</span>.filter <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;all&#39;</span>  <span style="color:#6272a4">// view model, options are: &#39;all&#39;, &#39;active&#39;, &#39;completed&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>        ...
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><p>The model can be fat or thin - a fat model will have more business logic in the model. A thin model will most business or application logic in the Application class, treating the model as just data structures.</p>
 <p>Finally, the Model needs to participate in the internal eventing system. Whenever an attribute changes it should send out a notification event - this is why most attributes of our <code>TodoItem</code> class are accessed via getter and setter methods. For example setting <code>title</code> or <code>completed</code> will trigger an internal event to whoever may be listening. This internal eventing mechanism is how Controllers know to update the GUI with updated model information.</p>
 <h3 id="view">View</h3>
 <p>The <strong>View</strong> means a modern GUI framework, and as such is already available to be used by the programmer.
 In our case, our modern GUI framework is the browser DOM which you can build in HTML:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#000;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">input</span> <span style="color:#c4a000">id</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;toggle-all&#34;</span> <span style="color:#c4a000">class</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;toggle-all&#34;</span> <span style="color:#c4a000">type</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;checkbox&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
-</code></pre></div><p>then Controllers use the GUI native eventing system to listen for interesting events</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">gui</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">$toggle_all</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">on</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;change&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">handler</span><span style="color:#000;font-weight:bold">)</span>
-</code></pre></div><h3 id="controller">Controller</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff79c6">input</span> <span style="color:#50fa7b">id</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;toggle-all&#34;</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;toggle-all&#34;</span> <span style="color:#50fa7b">type</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;checkbox&#34;</span>&gt;
+</span></span></code></pre></div><p>then Controllers use the GUI native eventing system to listen for interesting events</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#ff79c6">this</span>.gui.$toggle_all.on(<span style="color:#f1fa8c">&#39;change&#39;</span>, handler)
+</span></span></code></pre></div><h3 id="controller">Controller</h3>
 <p>The Controller is the most interesting aspect of MVC.</p>
 <p>In many software designs, the Controller isn&rsquo;t necessarily a single thing. A bunch of stray GUI event handler functions are in reality, part of the &lsquo;controller role&rsquo;. Code that copies data from the model into the GUI/DOM is also part of the Controller role.
 I feel the challenge of GUI architectures is to tame the role of Controller into some semblance of coherance and symmetric organisation. Which is why MVCA prescribes creating Controller classes.</p>
@@ -441,49 +527,49 @@ I feel the challenge of GUI architectures is to tame the role of Controller into
 <h2 id="application-bootstrapping">Application Bootstrapping</h2>
 <p>To get things running, some bootstrapping code will create an instance of the Application which in turn creates all the Controllers and loads the Model.
 The bootstrapping in TodoMVC-OO is done in <code>app.js</code> which creates an instance of Application which is defined in <code>application.js</code>.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">function</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">window</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-    <span style="color:#204a87;font-weight:bold">let</span> <span style="color:#000">config</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{...}</span>
-    <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">Application</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">config</span><span style="color:#000;font-weight:bold">)</span>
-<span style="color:#000;font-weight:bold">})(</span><span style="color:#204a87">window</span><span style="color:#000;font-weight:bold">);</span>
-</code></pre></div><p>Notice that a <code>config</code> object with a list of callback methods is passed into the Application.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>(<span style="color:#8be9fd;font-style:italic">function</span> (<span style="color:#8be9fd;font-style:italic">window</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">let</span> config <span style="color:#ff79c6">=</span> {...}
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">new</span> Application(config)
+</span></span><span style="display:flex;"><span>})(<span style="color:#8be9fd;font-style:italic">window</span>);
+</span></span></code></pre></div><p>Notice that a <code>config</code> object with a list of callback methods is passed into the Application.</p>
 <p>Giving the Application class knowledge of individual Controller classes and all the GUI view elements they need is arguably contaminating the Application class with too much GUI view and Controller knowledge.</p>
 <p>The solution I use is to pass the Application a <code>config</code> object which contains a bunch of callbacks. Each callback function will magically create a Controller instance, wired to look after its GUI elements. Each callback function hides, within itself, references to the DOM - which we don&rsquo;t want the Application to have. In this way, the bootstrapping code and the Controller code are the only parts of the architecture that know about the View specifics (which we want to restrict).</p>
 <p>Thus whenever the Application needs to instantiate a Controller (e.g. each time a TodoItem is created) it calls a <code>config</code> callback function.
 Another example is during bootup - some permanent Controllers need to be created, like the Controller looking after the header area, so the Application calls
 <code>this.callback_config.cb_header(this)</code> which creates an instance of the <code>ControllerHeader</code> wired to <code>$('.new-todo')</code> and <code>$('.toggle-all')</code>.  The Application only needs to know the callback function names and thus remains pure.</p>
 <p>Notice in the <code>config</code> object below that each callback refers to the view through JQuery syntax e.g. <code>$('ul.todo-list')</code> and passes these references into the contructor of the Controller:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#204a87;font-weight:bold">let</span> <span style="color:#000">config</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span>
-    <span style="color:#8f5902;font-style:italic">// Callback to create the todo item controllers - are added as needed
-</span><span style="color:#8f5902;font-style:italic"></span>
-    <span style="color:#000">cb_todo</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">function</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">app</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">todo</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-        <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">ControllerTodoItem</span><span style="color:#000;font-weight:bold">(</span>
-            <span style="color:#000">app</span><span style="color:#000;font-weight:bold">,</span>
-            <span style="color:#000">todo</span><span style="color:#000;font-weight:bold">,</span>
-            <span style="color:#000;font-weight:bold">{</span> <span style="color:#000">$todolist</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000">$</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;ul.todo-list&#39;</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">}</span>
-        <span style="color:#000;font-weight:bold">)</span>
-    <span style="color:#000;font-weight:bold">},</span>
-
-    <span style="color:#8f5902;font-style:italic">// Callbacks to create the permanent controllers
-</span><span style="color:#8f5902;font-style:italic"></span>
-    <span style="color:#000">cb_header</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">function</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">app</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-        <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">ControllerHeader</span><span style="color:#000;font-weight:bold">(</span>
-            <span style="color:#000">app</span><span style="color:#000;font-weight:bold">,</span>
-            <span style="color:#000;font-weight:bold">{</span>
-                <span style="color:#000">$input</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000">$</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;.new-todo&#39;</span><span style="color:#000;font-weight:bold">),</span>
-                <span style="color:#000">$toggle_all</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000">$</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;.toggle-all&#39;</span><span style="color:#000;font-weight:bold">)</span>
-            <span style="color:#000;font-weight:bold">}</span>
-        <span style="color:#000;font-weight:bold">)</span>
-    <span style="color:#000;font-weight:bold">},</span>
-    <span style="color:#000">cb_footer</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">function</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">app</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-        <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">ControllerFooter</span><span style="color:#000;font-weight:bold">(</span>
-            <span style="color:#000">app</span><span style="color:#000;font-weight:bold">,</span>
-            <span style="color:#000;font-weight:bold">{</span>
-                <span style="color:#000">$footer</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000">$</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;footer&#39;</span><span style="color:#000;font-weight:bold">),</span>
-                <span style="color:#000">$footer_interactive_area</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000">$</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;.footer&#39;</span><span style="color:#000;font-weight:bold">)</span>
-            <span style="color:#000;font-weight:bold">})</span>
-    <span style="color:#000;font-weight:bold">}</span>
-<span style="color:#000;font-weight:bold">}</span>
-</code></pre></div><p>Of course the Controller itself will have further references to View DOM elements, however these references should be based on searching <em>within</em> the outer DOM element passed to the Controller - thus achieving some degree of &lsquo;component-isation&rsquo; and re-use. For example the same Controller could be used to look after different DOM elements with different element id&rsquo;s.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">let</span> config <span style="color:#ff79c6">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// Callback to create the todo item controllers - are added as needed
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
+</span></span><span style="display:flex;"><span>    cb_todo<span style="color:#ff79c6">:</span> <span style="color:#8be9fd;font-style:italic">function</span> (app, todo) {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">new</span> ControllerTodoItem(
+</span></span><span style="display:flex;"><span>            app,
+</span></span><span style="display:flex;"><span>            todo,
+</span></span><span style="display:flex;"><span>            { $todolist<span style="color:#ff79c6">:</span> $(<span style="color:#f1fa8c">&#39;ul.todo-list&#39;</span>) }
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// Callbacks to create the permanent controllers
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
+</span></span><span style="display:flex;"><span>    cb_header<span style="color:#ff79c6">:</span> <span style="color:#8be9fd;font-style:italic">function</span> (app) {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">new</span> ControllerHeader(
+</span></span><span style="display:flex;"><span>            app,
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                $input<span style="color:#ff79c6">:</span> $(<span style="color:#f1fa8c">&#39;.new-todo&#39;</span>),
+</span></span><span style="display:flex;"><span>                $toggle_all<span style="color:#ff79c6">:</span> $(<span style="color:#f1fa8c">&#39;.toggle-all&#39;</span>)
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    cb_footer<span style="color:#ff79c6">:</span> <span style="color:#8be9fd;font-style:italic">function</span> (app) {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">new</span> ControllerFooter(
+</span></span><span style="display:flex;"><span>            app,
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                $footer<span style="color:#ff79c6">:</span> $(<span style="color:#f1fa8c">&#39;footer&#39;</span>),
+</span></span><span style="display:flex;"><span>                $footer_interactive_area<span style="color:#ff79c6">:</span> $(<span style="color:#f1fa8c">&#39;.footer&#39;</span>)
+</span></span><span style="display:flex;"><span>            })
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Of course the Controller itself will have further references to View DOM elements, however these references should be based on searching <em>within</em> the outer DOM element passed to the Controller - thus achieving some degree of &lsquo;component-isation&rsquo; and re-use. For example the same Controller could be used to look after different DOM elements with different element id&rsquo;s.</p>
 <h2 id="todomvc-oo-conclusion">TodoMVC-OO Conclusion</h2>
 <p>This project fully implements the TodoMVC specification and is implemented without a framework, using plain Object Oriented programming + MVCA architectural design pattern, as described above.</p>
 <p>Running demo <a href="https://abulka.github.io/todomvc-oo/index.html">here</a>.</p>
@@ -589,7 +675,7 @@ Another example is during bootup - some permanent Controllers need to be created
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified March 8, 2022: <a href="https://github.com/abulka/abulka.github.io/commit/e87d3adbc1163246d7f9411399351f360d33d76e">made project and patterns pages use docs layout, instead use scss to hide page-meta-links (e87d3ad)</a>
+  Last modified March 10, 2022: <a href="https://github.com/abulka/abulka.github.io/commit/9c1d0fd813e93ab2c2862b73dd0d54bd3d9db82f">added tag cloud (9c1d0fd)</a>
 </div>
 
 </div>
@@ -681,7 +767,7 @@ Another example is during bootup - some permanent Controllers need to be created
 
 
 
-<script src="/js/main.min.8ab8f81ff7e1454d30024cd6f956d4d341c3a97e2a673f988065f2ee4e147922.js" integrity="sha256-irj4H/fhRU0wAkzW&#43;VbU00HDqX4qZz&#43;YgGXy7k4UeSI=" crossorigin="anonymous"></script>
+<script src="/js/main.min.fc1551b8c1b40a6eaa08f3cb9c76f12ccd9aebc436cecdaf2341c890206d024a.js" integrity="sha256-/BVRuMG0Cm6qCPPLnHbxLM2a68Q2zs2vI0HIkCBtAko=" crossorigin="anonymous"></script>
 
 
 

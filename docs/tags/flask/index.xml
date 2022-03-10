@@ -1,0 +1,84 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Andy Bulka – Flask</title>
+    <link>https://abulka.github.io/tags/flask/</link>
+    <description>Recent content in Flask on Andy Bulka</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	  <atom:link href="https://abulka.github.io/tags/flask/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Projects: Libraries &amp; Tools</title>
+      <link>https://abulka.github.io/projects/libraries/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://abulka.github.io/projects/libraries/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;snippet-creator&#34;&gt;Snippet Creator&lt;/h2&gt;
+&lt;p&gt;This extension helps to automate snippet creation. Select the code you want to create snippet from and use command &lt;code&gt;Create Snippet&lt;/code&gt; from the command palette or your custom keybind.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/abulka/vscode-snippet-creator&#34;&gt;https://github.com/abulka/vscode-snippet-creator&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;snippets-explorer&#34;&gt;Snippets Explorer&lt;/h2&gt;
+&lt;p&gt;Visual Studio Code extension which displays all available language snippets in a TreeView&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/abulka/vscode-snippets-explorer/issues&#34;&gt;https://github.com/abulka/vscode-snippets-explorer&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/abulka/vscode-snippets-explorer/master/images/videos/demo1.gif&#34; alt=&#34;demo&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;electron-flask-app-generator&#34;&gt;Electron-Flask App Generator&lt;/h2&gt;
+&lt;p&gt;Yoeman project generator to create an Electron app running a Flask server inside itself. Deployable via PyInstaller and Electron Forge packager.&lt;/p&gt;
+&lt;p&gt;Create an Electron App project that auto-starts a Flask server the electron app can call for services. Deployable as a single App that users can double click on and run.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/abulka/generator-electron-flask&#34;&gt;https://github.com/abulka/generator-electron-flask&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;     _-----_     ╭──────────────────────────╮
+    |       |    │  Welcome to the amazing  │
+    |--(o)--|    │ generator-electron-flask │
+   `---------´   │        generator!        │
+    ( _´U`_ )    ╰──────────────────────────╯
+    /___A___\   /
+     |  ~  |     
+   __&#39;.___.&#39;__   
+ ´   `  |° ´ Y ` 
+
+? App Name myapp
+? Description My Electron application description
+? Author&#39;s Name Fred Smith
+? Author&#39;s Email fred@example.com
+? license: Apache 2.0
+? Package keywords (comma to split) python, js, great-app
+? Run flask on port number? 5000
+? Initial flask url (e.g. /hello or /hello-vue) to display? / hello
+? Choose from misc options (Press &amp;lt;space&amp;gt; to select, &amp;lt;a&amp;gt; to toggle all, &amp;lt;i&amp;gt; to invert selection)
+❯◉ Electron logging
+◯ Print current working directory on startup
+◯ Print node and electron versions on starrtup
+◉ Fully quit on Mac on exit (without needing CMD-Q)
+◉ Open Electron/Chrome DevTools in final app
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Example of generated app:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://github.com/abulka/generator-electron-flask/raw/main/doco/electron-flask-demo1.gif&#34; alt=&#34;app running&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;dedent-for-dart&#34;&gt;Dedent for Dart&lt;/h2&gt;
+&lt;p&gt;Dedent - Remove any common leading whitespace from every line in text. Ported from Python.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://pub.dev/packages/dedent&#34;&gt;https://pub.dev/packages/dedent&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;relationship-manager&#34;&gt;Relationship Manager&lt;/h2&gt;
+&lt;p&gt;A lightweight Object Database (no SQL used) class for Python 3&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://pypi.org/project/relationship-manager/&#34;&gt;https://pypi.org/project/relationship-manager/&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;image-presenter&#34;&gt;Image Presenter&lt;/h2&gt;
+&lt;p&gt;An image presentation tool, where you can click and zoom into various parts of a single image.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/libraries/images/image-presenter.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Relevant text notes associated with each sub-area would appear when zoomed in.  Arrow keys/buttons allow you to step through a narrated sequence of zooms, so that you get can be carefully guided through an art image, or diagram.&lt;/p&gt;
+&lt;p&gt;Two demo prototype versions, using different underlying technologies:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://atug.com/image_presenter/layerjs/&#34;&gt;https://atug.com/image_presenter/layerjs/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://atug.com/image_presenter/zoomooz/&#34;&gt;https://atug.com/image_presenter/zoomooz/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Source code currently unreleased.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

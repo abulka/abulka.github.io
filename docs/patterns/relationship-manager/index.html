@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.92.0" />
+<meta name="generator" content="Hugo 0.93.3" />
 <meta name="robots" content="index, follow">
 
 
@@ -27,14 +27,14 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://abulka.github.io/patterns/relationship-manager/" /><meta property="article:section" content="patterns" />
 <meta property="article:published_time" content="2020-10-22T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-03-08T15:24:51+11:00" />
+<meta property="article:modified_time" content="2022-03-10T13:25:22+11:00" />
 
 <meta itemprop="name" content="Relationship Manager - Design Pattern">
 <meta itemprop="description" content="A central mediating class which records all the one-to-one, one-to-many and many-to-many relationships between a group of selected classes.
 "><meta itemprop="datePublished" content="2020-10-22T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-03-08T15:24:51+11:00" />
+<meta itemprop="dateModified" content="2022-03-10T13:25:22+11:00" />
 <meta itemprop="wordCount" content="4292">
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Design Patterns,Python,SQL," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Relationship Manager - Design Pattern"/>
 <meta name="twitter:description" content="A central mediating class which records all the one-to-one, one-to-many and many-to-many relationships between a group of selected classes.
 "/>
@@ -136,7 +136,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.776c822f296e236cb9c3d581f2e32871.json"
+  data-offline-search-index-json-src="/offline-search-index.ac860f082e5d6bbf6ec932fe84593fe9.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -158,7 +158,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.776c822f296e236cb9c3d581f2e32871.json"
+  data-offline-search-index-json-src="/offline-search-index.ac860f082e5d6bbf6ec932fe84593fe9.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -176,7 +176,7 @@ if (!doNotTrack) {
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-patternsrelationship-manager-li">
   <a href="/patterns/relationship-manager/" title="Relationship Manager - Design Pattern" class="align-left pl-0 active td-sidebar-link td-sidebar-link__page" id="m-patternsrelationship-manager"><span class="td-sidebar-nav-active-item">Relationship Manager</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-patternsmvca-pattern-li">
-  <a href="/patterns/mvca-pattern/" title="MVCA Architectural Pattern" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-patternsmvca-pattern"><span class="">MVC-App Pattern</span></a>
+  <a href="/patterns/mvca-pattern/" title="MVC-App Architectural Pattern" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-patternsmvca-pattern"><span class="">MVC-App Pattern</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-patternstransformation-interface-li">
   <a href="/patterns/transformation-interface/" title="Transformation Interface Design Pattern" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-patternstransformation-interface"><span class="">Transformation Interface</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-patternsdesign-pattern-automation-li">
@@ -253,20 +253,84 @@ if (!doNotTrack) {
 
 	
 		
+			
+				
+			
+			
 
 
 
   
   
+    <div class="taxonomy taxonomy-terms-cloud taxo-tags">
+      
+        <h5 class="taxonomy-title">Tag Cloud</h5>
+      
+      <ul class="taxonomy-terms">
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/async/" data-taxonomy-term="async"><span class="taxonomy-label">Async</span><span class="taxonomy-count">1</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/calculators/" data-taxonomy-term="calculators"><span class="taxonomy-label">Calculators</span><span class="taxonomy-count">3</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/controllers/" data-taxonomy-term="controllers"><span class="taxonomy-label">Controllers</span><span class="taxonomy-count">8</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/design-patterns/" data-taxonomy-term="design-patterns"><span class="taxonomy-label">Design Patterns</span><span class="taxonomy-count">23</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/dev-ops/" data-taxonomy-term="dev-ops"><span class="taxonomy-label">Dev Ops</span><span class="taxonomy-count">1</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/diagramming/" data-taxonomy-term="diagramming"><span class="taxonomy-label">Diagramming</span><span class="taxonomy-count">5</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/django/" data-taxonomy-term="django"><span class="taxonomy-label">Django</span><span class="taxonomy-count">1</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/electron/" data-taxonomy-term="electron"><span class="taxonomy-label">Electron</span><span class="taxonomy-count">2</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/flask/" data-taxonomy-term="flask"><span class="taxonomy-label">Flask</span><span class="taxonomy-count">1</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/flutter/" data-taxonomy-term="flutter"><span class="taxonomy-label">Flutter</span><span class="taxonomy-count">1</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/gui/" data-taxonomy-term="gui"><span class="taxonomy-label">GUI</span><span class="taxonomy-count">10</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/java/" data-taxonomy-term="java"><span class="taxonomy-label">Java</span><span class="taxonomy-count">1</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/javascript/" data-taxonomy-term="javascript"><span class="taxonomy-label">Javascript</span><span class="taxonomy-count">6</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/jupyter/" data-taxonomy-term="jupyter"><span class="taxonomy-label">Jupyter</span><span class="taxonomy-count">1</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/music/" data-taxonomy-term="music"><span class="taxonomy-label">Music</span><span class="taxonomy-count">2</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/mvc/" data-taxonomy-term="mvc"><span class="taxonomy-label">MVC</span><span class="taxonomy-count">7</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/observer/" data-taxonomy-term="observer"><span class="taxonomy-label">Observer</span><span class="taxonomy-count">5</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/orm/" data-taxonomy-term="orm"><span class="taxonomy-label">ORM</span><span class="taxonomy-count">1</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/python/" data-taxonomy-term="python"><span class="taxonomy-label">Python</span><span class="taxonomy-count">17</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/refactoring/" data-taxonomy-term="refactoring"><span class="taxonomy-label">Refactoring</span><span class="taxonomy-count">4</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/ruby/" data-taxonomy-term="ruby"><span class="taxonomy-label">Ruby</span><span class="taxonomy-count">4</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/software-product/" data-taxonomy-term="software-product"><span class="taxonomy-label">Software Product</span><span class="taxonomy-count">6</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/sql/" data-taxonomy-term="sql"><span class="taxonomy-label">SQL</span><span class="taxonomy-count">3</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/thoughts/" data-taxonomy-term="thoughts"><span class="taxonomy-label">Thoughts</span><span class="taxonomy-count">9</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/ubuntu/" data-taxonomy-term="ubuntu"><span class="taxonomy-label">Ubuntu</span><span class="taxonomy-count">1</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/uml/" data-taxonomy-term="uml"><span class="taxonomy-label">UML</span><span class="taxonomy-count">8</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/vscode/" data-taxonomy-term="vscode"><span class="taxonomy-label">Vscode</span><span class="taxonomy-count">1</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/vuejs/" data-taxonomy-term="vuejs"><span class="taxonomy-label">Vuejs</span><span class="taxonomy-count">1</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/wxpython/" data-taxonomy-term="wxpython"><span class="taxonomy-label">wxPython</span><span class="taxonomy-count">4</span></a></li>
+        
+      </ul>
+    </div>
+  
 
-	
 		
-
-
-
-  
-  
-
 	
 
           </aside>
@@ -293,12 +357,23 @@ if (!doNotTrack) {
 
   
     
+      
 
 
-  
+<div class="taxonomy taxonomy-terms-article taxo-tags">
+  <h5 class="taxonomy-title">Tags:</h5>
+  <ul class="taxonomy-terms">
     
+      <li><a class="taxonomy-term" href="https://abulka.github.io/tags/design-patterns/" data-taxonomy-term="design-patterns"><span class="taxonomy-label">Design Patterns</span></a></li>
+    
+      <li><a class="taxonomy-term" href="https://abulka.github.io/tags/python/" data-taxonomy-term="python"><span class="taxonomy-label">Python</span></a></li>
+    
+      <li><a class="taxonomy-term" href="https://abulka.github.io/tags/sql/" data-taxonomy-term="sql"><span class="taxonomy-label">SQL</span></a></li>
+    
+  </ul>
+</div>
 
-
+    
   
 
 		
@@ -322,17 +397,17 @@ though persistence is built into Relationship Manager too.</p>
 <p>The examples on this page use the modern v2. Python implementation.</p>
 <p>Relationship Manager has also been implemented in Python, C# (.net4 and .net core) and Java - see the Relationship Manager <a href="https://github.com/abulka/relationship-manager">GitHub project</a> for all implementation source code.</p>
 <h3 id="installation">Installation</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">pip install relationship-manager
-</code></pre></div><h3 id="usage">Usage</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">relmgr</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">RelationshipManager</span>
-  
-<span style="color:#000">rm</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">RelationshipManager</span><span style="color:#000;font-weight:bold">()</span>
-<span style="color:#000">rm</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">enforce</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;xtoy&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;onetoone&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;directional&#34;</span><span style="color:#000;font-weight:bold">)</span>
-<span style="color:#000">x</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87">object</span><span style="color:#000;font-weight:bold">()</span>
-<span style="color:#000">y</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87">object</span><span style="color:#000;font-weight:bold">()</span>
-<span style="color:#000">rm</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">add_rel</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">x</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">y</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;xtoy&#34;</span><span style="color:#000;font-weight:bold">)</span>
-<span style="color:#204a87;font-weight:bold">assert</span> <span style="color:#000">rm</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">find_target</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">x</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;xtoy&#34;</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#000">y</span>
-</code></pre></div><h2 id="benefits">Benefits</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>pip install relationship-manager
+</span></span></code></pre></div><h3 id="usage">Usage</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">from</span> relmgr <span style="color:#ff79c6">import</span> RelationshipManager
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>rm <span style="color:#ff79c6">=</span> RelationshipManager()
+</span></span><span style="display:flex;"><span>rm<span style="color:#ff79c6">.</span>enforce(<span style="color:#f1fa8c">&#34;xtoy&#34;</span>, <span style="color:#f1fa8c">&#34;onetoone&#34;</span>, <span style="color:#f1fa8c">&#34;directional&#34;</span>)
+</span></span><span style="display:flex;"><span>x <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">object</span>()
+</span></span><span style="display:flex;"><span>y <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">object</span>()
+</span></span><span style="display:flex;"><span>rm<span style="color:#ff79c6">.</span>add_rel(x, y, <span style="color:#f1fa8c">&#34;xtoy&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">assert</span> rm<span style="color:#ff79c6">.</span>find_target(x, <span style="color:#f1fa8c">&#34;xtoy&#34;</span>) <span style="color:#ff79c6">==</span> y
+</span></span></code></pre></div><h2 id="benefits">Benefits</h2>
 <ul>
 <li>Modelling relationships is easy and consistent</li>
 <li>Back pointer are free</li>
@@ -343,17 +418,17 @@ though persistence is built into Relationship Manager too.</p>
 <p>Programmers often use ORM mappers to get the best of both worlds - objects which also have a representation in a database. Relationship Manager is another solution to being able to more easily model and query your objects - without needing a database.</p>
 <h3 id="queries">Queries</h3>
 <p>You can make queries on the Relationship Manager instance:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#8f5902;font-style:italic"># query API</span>
-<span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">find_targets</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">source</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">rel_id</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">-&gt;</span> <span style="color:#000">List</span><span style="color:#000;font-weight:bold">:</span>
-<span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">find_target</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">source</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">rel_id</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">-&gt;</span> <span style="color:#204a87">object</span><span style="color:#000;font-weight:bold">:</span>
-<span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">find_sources</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">target</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">rel_id</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">-&gt;</span> <span style="color:#000">List</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#8f5902;font-style:italic"># Back pointer query</span>
-<span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">find_source</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">target</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">rel_id</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">-&gt;</span> <span style="color:#204a87">object</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#8f5902;font-style:italic"># Back pointer query</span>
-<span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">find_rels</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">source</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">target</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">-&gt;</span> <span style="color:#000">List</span><span style="color:#000;font-weight:bold">:</span>
-<span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">is_rel</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">source</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">target</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">rel_id</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">-&gt;</span> <span style="color:#204a87">bool</span><span style="color:#000;font-weight:bold">:</span>
-</code></pre></div><h3 id="constrained-relationships">Constrained Relationships</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#6272a4"># query API</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">find_targets</span>(self, source, rel_id) <span style="color:#ff79c6">-&gt;</span> List:
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">find_target</span>(self, source, rel_id) <span style="color:#ff79c6">-&gt;</span> <span style="color:#8be9fd;font-style:italic">object</span>:
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">find_sources</span>(self, target, rel_id) <span style="color:#ff79c6">-&gt;</span> List: <span style="color:#6272a4"># Back pointer query</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">find_source</span>(self, target, rel_id) <span style="color:#ff79c6">-&gt;</span> <span style="color:#8be9fd;font-style:italic">object</span>: <span style="color:#6272a4"># Back pointer query</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">find_rels</span>(self, source, target) <span style="color:#ff79c6">-&gt;</span> List:
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">is_rel</span>(self, source, target, rel_id<span style="color:#ff79c6">=</span><span style="color:#bd93f9">1</span>) <span style="color:#ff79c6">-&gt;</span> <span style="color:#8be9fd;font-style:italic">bool</span>:
+</span></span></code></pre></div><h3 id="constrained-relationships">Constrained Relationships</h3>
 <p>You can enforce relationships. For example <code>enforce()</code> works like this:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#000">rm</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">enforce</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;xtoy&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;onetoone&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;directional&#34;</span><span style="color:#000;font-weight:bold">)</span>
-</code></pre></div><p>The relationship is registered as being one to one and directional, so that e.g. when you add a second relationship between the same two objects the first relationship is automatically removed - ensuring the relationship is always one to one. Alternatively, the implementation could raise an exception (go into the source and change it if this is what you need).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>rm<span style="color:#ff79c6">.</span>enforce(<span style="color:#f1fa8c">&#34;xtoy&#34;</span>, <span style="color:#f1fa8c">&#34;onetoone&#34;</span>, <span style="color:#f1fa8c">&#34;directional&#34;</span>)
+</span></span></code></pre></div><p>The relationship is registered as being one to one and directional, so that e.g. when you add a second relationship between the same two objects the first relationship is automatically removed - ensuring the relationship is always one to one. Alternatively, the implementation could raise an exception (go into the source and change it if this is what you need).</p>
 <h2 id="modelling-relationships">Modelling relationships</h2>
 <p>What methods do I put where when modelling relationships?</p>
 <p>What are all the possibilities of relationships between two classes?</p>
@@ -1131,7 +1206,7 @@ class Y:
 <ul>
 <li>A bi-directional relationship (pair) can be implemented more efficiently by a single directional relationship together with the magic rm back-pointer lookup call <code>rm.find_source(target=self)</code>.</li>
 </ul>
-<p>When you create a directional enforcement rule (e.g. Scenario 3A) with a call to <code>rm.enforce(&ldquo;xy&rdquo;, &ldquo;onetoone&rdquo;, &ldquo;directional&rdquo;)</code> or leave out this call altogether, you are causing rm to create <i>only</i> the relationships that you ask for. Thus classes on the &lsquo;target&rsquo; side of a relationship cannot call <code>rm.find_target(source=self)</code> to find out who is pointing to them. They can however, thanks to the back-pointer lookup magic of rm, call <code>rm.find_source(target=self)</code> to derive this information.</p>
+<p>When you create a directional enforcement rule (e.g. Scenario 3A) with a call to <code>rm.enforce(&ldquo;xy&rdquo;, &ldquo;onetoone&rdquo;, &ldquo;directional&rdquo;)</code> or leave out this call altogether, you are causing rm to create <i>only</i> the relationships that you ask for. Thus classes on the &rsquo;target&rsquo; side of a relationship cannot call <code>rm.find_target(source=self)</code> to find out who is pointing to them. They can however, thanks to the back-pointer lookup magic of rm, call <code>rm.find_source(target=self)</code> to derive this information.</p>
 <p>This means bidirectional relationships never actually need to be used or declared, 😲, since an implicit back-pointer (i.e. a back reference) is <i>always deducible</i> using <code>rm.find_source()</code>, when using a Relationship Manager! In fact a bidirectional relationship creates extra entries in the rm datastructure, and slightly more overhead in performance (maintaining both relationships e.g. in the case of creation and removal).</p>
 <ul>
 <li>Name your relationships with direction in mind</li>
@@ -1140,57 +1215,56 @@ class Y:
 <p>The same relationship id should be used in both classes e.g. <code>&quot;xtoy&quot;</code> (notice the sense of directionality is built into the name of the relationship!). Even though there is an API on both classes allowing each class to find the other class, does not turn the relationship semantics to be bi-directional from the point of view of domain modelling, but only in a convenient implementation sense. </p>
 <p>Some may frown on this ability of an implementation to cheat and betray the domain model. Perhaps a flag could be set in the rm to disallow use of the back-pointer lookup magic <code>rm.find_source(target=self)</code> of rm,.</p>
 <p>In the following implementation of a one to many relationship between class X and class Y, notice the same relationship id <code>&quot;xtoy&quot;</code> must be used in both classes.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">X</span><span style="color:#000;font-weight:bold">:</span>
-    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>        <span style="color:#000">rm</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">enforce</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;xtoy&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;onetoone&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;directional&#34;</span><span style="color:#000;font-weight:bold">)</span>
-    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">setY</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">y</span><span style="color:#000;font-weight:bold">):</span>         <span style="color:#000">rm</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">add_rel</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">y</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;xtoy&#34;</span><span style="color:#000;font-weight:bold">)</span>
-    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">getY</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>     <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">rm</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">find_target</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;xtoy&#34;</span><span style="color:#000;font-weight:bold">)</span>
-    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">clearY</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>          <span style="color:#000">rm</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">remove_rel</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">getY</span><span style="color:#000;font-weight:bold">(),</span> <span style="color:#4e9a06">&#34;xtoy&#34;</span><span style="color:#000;font-weight:bold">)</span>
-
-<span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Y</span><span style="color:#000;font-weight:bold">:</span>
-    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>        <span style="color:#000">rm</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">enforce</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;xtoy&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;onetoone&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;directional&#34;</span><span style="color:#000;font-weight:bold">)</span>  <span style="color:#8f5902;font-style:italic"># probably redundant</span>
-    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">setX</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">x</span><span style="color:#000;font-weight:bold">):</span>         <span style="color:#000">rm</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">add_rel</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">x</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;xtoy&#34;</span><span style="color:#000;font-weight:bold">)</span>
-    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">getX</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>     <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">rm</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">find_source</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;xtoy&#34;</span><span style="color:#000;font-weight:bold">)</span>
-    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">clearX</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>          <span style="color:#000">rm</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">remove_rel</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">getX</span><span style="color:#000;font-weight:bold">(),</span> <span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;xtoy&#34;</span><span style="color:#000;font-weight:bold">)</span>
-</code></pre></div><p>Note that both classes calling <code>rm.enforce</code> is possibly redundant, since its telling the rm the same information - depending on the order of initialisation of your classes.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">X</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> __init__(self):        rm<span style="color:#ff79c6">.</span>enforce(<span style="color:#f1fa8c">&#34;xtoy&#34;</span>, <span style="color:#f1fa8c">&#34;onetoone&#34;</span>, <span style="color:#f1fa8c">&#34;directional&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">setY</span>(self, y):         rm<span style="color:#ff79c6">.</span>add_rel(self, y, <span style="color:#f1fa8c">&#34;xtoy&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">getY</span>(self):     <span style="color:#ff79c6">return</span> rm<span style="color:#ff79c6">.</span>find_target(self, <span style="color:#f1fa8c">&#34;xtoy&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">clearY</span>(self):          rm<span style="color:#ff79c6">.</span>remove_rel(self, self<span style="color:#ff79c6">.</span>getY(), <span style="color:#f1fa8c">&#34;xtoy&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Y</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> __init__(self):        rm<span style="color:#ff79c6">.</span>enforce(<span style="color:#f1fa8c">&#34;xtoy&#34;</span>, <span style="color:#f1fa8c">&#34;onetoone&#34;</span>, <span style="color:#f1fa8c">&#34;directional&#34;</span>)  <span style="color:#6272a4"># probably redundant</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">setX</span>(self, x):         rm<span style="color:#ff79c6">.</span>add_rel(x, self, <span style="color:#f1fa8c">&#34;xtoy&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">getX</span>(self):     <span style="color:#ff79c6">return</span> rm<span style="color:#ff79c6">.</span>find_source(self, <span style="color:#f1fa8c">&#34;xtoy&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">clearX</span>(self):          rm<span style="color:#ff79c6">.</span>remove_rel(self<span style="color:#ff79c6">.</span>getX(), self, <span style="color:#f1fa8c">&#34;xtoy&#34;</span>)
+</span></span></code></pre></div><p>Note that both classes calling <code>rm.enforce</code> is possibly redundant, since its telling the rm the same information - depending on the order of initialisation of your classes.</p>
 <h2 id="examples">Examples</h2>
 <h3 id="python-example---observer-pattern">Python Example - Observer pattern</h3>
 <p>Here is an example of hiding the use of Relationship Manager,
 found in the examples folder as <code>relmgr/examples/observer.py</code> - the
 classic Subject/Observer pattern:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">relmgr</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">RelationshipManager</span>
-
-
-<span style="color:#000">rm</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">RelationshipManager</span><span style="color:#000;font-weight:bold">()</span>
-
-
-<span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Observer</span><span style="color:#000;font-weight:bold">:</span>
-   
-    <span style="color:#5c35cc;font-weight:bold">@property</span>
-    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">subject</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>
-        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">rm</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">find_target</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">)</span>
-
-    <span style="color:#5c35cc;font-weight:bold">@subject</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">setter</span>
-    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">subject</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">_subject</span><span style="color:#000;font-weight:bold">):</span>
-        <span style="color:#000">rm</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">add_rel</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">_subject</span><span style="color:#000;font-weight:bold">)</span>
-
-    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">notify</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">subject</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">notification_type</span><span style="color:#000;font-weight:bold">):</span>
-        <span style="color:#204a87;font-weight:bold">pass</span>  <span style="color:#8f5902;font-style:italic"># implementations override this and do something</span>
-
-
-<span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Subject</span><span style="color:#000;font-weight:bold">:</span>
-
-    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">notify_all</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">notification_type</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87">str</span><span style="color:#000;font-weight:bold">):</span>
-        <span style="color:#000">observers</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">rm</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">find_sources</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">)</span>  <span style="color:#8f5902;font-style:italic"># all things pointing at me</span>
-        <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">o</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#000">observers</span><span style="color:#000;font-weight:bold">:</span>
-            <span style="color:#000">o</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Notify</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">notification_type</span><span style="color:#000;font-weight:bold">)</span>
-
-    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">add_observer</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">observer</span><span style="color:#000;font-weight:bold">):</span>
-        <span style="color:#000">rm</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">add_rel</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">observer</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">)</span>
-
-    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">remove_observer</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">observer</span><span style="color:#000;font-weight:bold">):</span>
-        <span style="color:#000">rm</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">remove_rel</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">source</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#000">observer</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">target</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">)</span>
-
-</code></pre></div><p>When using the Subject and Observer, you use their methods without realising their functionality has been implemented using rm.  See <code>tests/python/examples/test_observer.py</code> in the <a href="https://github.com/abulka/relationship-manager">GitHub project</a> for the unit tests for this code.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">from</span> relmgr <span style="color:#ff79c6">import</span> RelationshipManager
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>rm <span style="color:#ff79c6">=</span> RelationshipManager()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Observer</span>:
+</span></span><span style="display:flex;"><span>   
+</span></span><span style="display:flex;"><span>    @property
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">subject</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> rm<span style="color:#ff79c6">.</span>find_target(self)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    @subject<span style="color:#ff79c6">.</span>setter
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">subject</span>(self, _subject):
+</span></span><span style="display:flex;"><span>        rm<span style="color:#ff79c6">.</span>add_rel(self, _subject)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">notify</span>(self, subject, notification_type):
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">pass</span>  <span style="color:#6272a4"># implementations override this and do something</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Subject</span>:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">notify_all</span>(self, notification_type: <span style="color:#8be9fd;font-style:italic">str</span>):
+</span></span><span style="display:flex;"><span>        observers <span style="color:#ff79c6">=</span> rm<span style="color:#ff79c6">.</span>find_sources(self)  <span style="color:#6272a4"># all things pointing at me</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">for</span> o <span style="color:#ff79c6">in</span> observers:
+</span></span><span style="display:flex;"><span>            o<span style="color:#ff79c6">.</span>Notify(self, notification_type)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">add_observer</span>(self, observer):
+</span></span><span style="display:flex;"><span>        rm<span style="color:#ff79c6">.</span>add_rel(observer, self)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">remove_observer</span>(self, observer):
+</span></span><span style="display:flex;"><span>        rm<span style="color:#ff79c6">.</span>remove_rel(source<span style="color:#ff79c6">=</span>observer, target<span style="color:#ff79c6">=</span>self)
+</span></span></code></pre></div><p>When using the Subject and Observer, you use their methods without realising their functionality has been implemented using rm.  See <code>tests/python/examples/test_observer.py</code> in the <a href="https://github.com/abulka/relationship-manager">GitHub project</a> for the unit tests for this code.</p>
 <h3 id="c-example---modelling-person----order">C# Example - modelling Person &ndash;&gt;* Order</h3>
 <p>Say you want to model a Person class which has one or more Orders.  The Order class needs to have a backpointer - back to the Person owning that order.</p>
 <p><img src="http://www.atug.com/andypatterns/images/PersonToOrderUsingRM001.gif" alt=""></p>
@@ -1200,142 +1274,142 @@ classic Subject/Observer pattern:</p>
 <p>Note that the use of Relationship Manager is hidden, and is a mere implementation detail.</p>
 </blockquote>
 <p>Here is the c# code to implement the above UML. This code uses the v1 API documented in the Relationship Manager <a href="https://github.com/abulka/relationship-manager">GitHub project</a>:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#204a87;font-weight:bold">using</span> <span style="color:#000">System</span><span style="color:#000;font-weight:bold">;</span>
-<span style="color:#204a87;font-weight:bold">using</span> <span style="color:#000">System.Collections</span><span style="color:#000;font-weight:bold">;</span>
-<span style="color:#204a87;font-weight:bold">using</span> <span style="color:#000">System.Collections.Generic</span><span style="color:#000;font-weight:bold">;</span>
-<span style="color:#204a87;font-weight:bold">using</span> <span style="color:#000">RelationshipManager.Interfaces</span><span style="color:#000;font-weight:bold">;</span>
-<span style="color:#204a87;font-weight:bold">using</span> <span style="color:#000">RelationshipManager.Turbo</span><span style="color:#000;font-weight:bold">;</span>
-
-<span style="color:#204a87;font-weight:bold">namespace</span> <span style="color:#000">Example_Person_Order_Console_App</span>
-<span style="color:#000;font-weight:bold">{</span>
-    <span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Program</span>
-    <span style="color:#000;font-weight:bold">{</span>
-        <span style="color:#204a87;font-weight:bold">static</span> <span style="color:#204a87;font-weight:bold">void</span> <span style="color:#000">Main</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">string</span><span style="color:#000;font-weight:bold">[]</span> <span style="color:#000">args</span><span style="color:#000;font-weight:bold">)</span>
-        <span style="color:#000;font-weight:bold">{</span>
-            <span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">jane</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">Person</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Jane&#34;</span><span style="color:#000;font-weight:bold">);</span>
-            <span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">order1</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">Order</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Boots&#34;</span><span style="color:#000;font-weight:bold">);</span>
-            <span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">order2</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">Order</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Clothes&#34;</span><span style="color:#000;font-weight:bold">);</span>
-            <span style="color:#000">jane</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">AddOrder</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">order1</span><span style="color:#000;font-weight:bold">);</span>
-            <span style="color:#000">jane</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">AddOrder</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">order2</span><span style="color:#000;font-weight:bold">);</span>
-
-            <span style="color:#8f5902;font-style:italic">// test forward pointer wiring
-</span><span style="color:#8f5902;font-style:italic"></span>            <span style="color:#000">Console</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">WriteLine</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">jane</span> <span style="color:#000;font-weight:bold">+</span> <span style="color:#4e9a06">&#34; has &#34;</span> <span style="color:#000;font-weight:bold">+</span> <span style="color:#000">jane</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">GetOrders</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">Count</span> <span style="color:#000;font-weight:bold">+</span> <span style="color:#4e9a06">&#34; orders&#34;</span><span style="color:#000;font-weight:bold">);</span>
-
-            <span style="color:#8f5902;font-style:italic">// test the backpointer wiring
-</span><span style="color:#8f5902;font-style:italic"></span>            <span style="color:#204a87;font-weight:bold">foreach</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">order</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#000">jane</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">GetOrders</span><span style="color:#000;font-weight:bold">())</span>
-            <span style="color:#000;font-weight:bold">{</span>
-                <span style="color:#000">Console</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">WriteLine</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;The person who ordered &#34;</span> <span style="color:#000;font-weight:bold">+</span> <span style="color:#000">order</span> <span style="color:#000;font-weight:bold">+</span> <span style="color:#4e9a06">&#34; is &#34;</span> <span style="color:#000;font-weight:bold">+</span> <span style="color:#000">order</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">GetPerson</span><span style="color:#000;font-weight:bold">());</span>
-            <span style="color:#000;font-weight:bold">}</span>
-
-            <span style="color:#000">Console</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">WriteLine</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Done!&#34;</span><span style="color:#000;font-weight:bold">);</span>
-
-        <span style="color:#000;font-weight:bold">}</span>
-
-        <span style="color:#8f5902;font-style:italic">///   
-</span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#8f5902;font-style:italic">/// BO is the base Business Object class which holds a single static reference  
-</span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#8f5902;font-style:italic">/// to a relationship manager. This one relationship manager is  
-</span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#8f5902;font-style:italic">/// used for managing all the relationships between Business Objects
-</span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#8f5902;font-style:italic">/// like Person and Order.  
-</span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#8f5902;font-style:italic">///   
-</span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">BO</span> <span style="color:#8f5902;font-style:italic">// Base business object  
-</span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#000;font-weight:bold">{</span>
-            <span style="color:#204a87;font-weight:bold">static</span> <span style="color:#204a87;font-weight:bold">protected</span> <span style="color:#000">RelationshipMgrTurbo</span> <span style="color:#000">rm</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">RelationshipMgrTurbo</span><span style="color:#000;font-weight:bold">();</span>
-        <span style="color:#000;font-weight:bold">}</span>
-
-
-        <span style="color:#8f5902;font-style:italic">///   
-</span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#8f5902;font-style:italic">/// Person class points to one or more orders.  
-</span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#8f5902;font-style:italic">/// Implemented using a relationship manager rather   
-</span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#8f5902;font-style:italic">/// than via pointers and arraylists etc.  
-</span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#8f5902;font-style:italic">///   
-</span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Person</span> <span style="color:#000;font-weight:bold">:</span> <span style="color:#000">BO</span>
-        <span style="color:#000;font-weight:bold">{</span>
-            <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">string</span> <span style="color:#000">name</span><span style="color:#000;font-weight:bold">;</span>
-
-            <span style="color:#204a87;font-weight:bold">static</span> <span style="color:#000">Person</span><span style="color:#000;font-weight:bold">()</span>
-            <span style="color:#000;font-weight:bold">{</span>
-                <span style="color:#000">rm</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">EnforceRelationship</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;p-&gt;o&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">Cardinality</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">OneToMany</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">Directionality</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">DirectionalWithBackPointer</span><span style="color:#000;font-weight:bold">);</span>
-            <span style="color:#000;font-weight:bold">}</span>
-
-            <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#000">Person</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">string</span> <span style="color:#000">name</span><span style="color:#000;font-weight:bold">)</span>
-            <span style="color:#000;font-weight:bold">{</span>
-                <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">name</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000">name</span><span style="color:#000;font-weight:bold">;</span>
-            <span style="color:#000;font-weight:bold">}</span>
-
-            <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">override</span> <span style="color:#204a87;font-weight:bold">string</span> <span style="color:#000">ToString</span><span style="color:#000;font-weight:bold">()</span>
-            <span style="color:#000;font-weight:bold">{</span>
-                <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#4e9a06">&#34;Person: &#34;</span> <span style="color:#000;font-weight:bold">+</span> <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">name</span><span style="color:#000;font-weight:bold">;</span>
-            <span style="color:#000;font-weight:bold">}</span>
-
-            <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">void</span> <span style="color:#000">AddOrder</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Order</span> <span style="color:#000">o</span><span style="color:#000;font-weight:bold">)</span>
-            <span style="color:#000;font-weight:bold">{</span>
-                <span style="color:#000">rm</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">AddRelationship</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">o</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;p-&gt;o&#34;</span><span style="color:#000;font-weight:bold">);</span>
-            <span style="color:#000;font-weight:bold">}</span>
-
-            <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">void</span> <span style="color:#000">RemoveOrder</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Order</span> <span style="color:#000">o</span><span style="color:#000;font-weight:bold">)</span>
-            <span style="color:#000;font-weight:bold">{</span>
-                <span style="color:#000">rm</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">RemoveRelationship</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">o</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;p-&gt;o&#34;</span><span style="color:#000;font-weight:bold">);</span>
-            <span style="color:#000;font-weight:bold">}</span>
-
-            <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#000">List</span><span style="color:#000;font-weight:bold">&lt;</span><span style="color:#000">Order</span><span style="color:#000;font-weight:bold">&gt;</span> <span style="color:#000">GetOrders</span><span style="color:#000;font-weight:bold">()</span>
-            <span style="color:#000;font-weight:bold">{</span>
-                <span style="color:#000">IList</span> <span style="color:#000">list</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000">rm</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">FindObjectsPointedToByMe</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;p-&gt;o&#34;</span><span style="color:#000;font-weight:bold">);</span>
-
-                <span style="color:#8f5902;font-style:italic">// cast from list of &#39;object&#39; to list of &#39;Person&#39;
-</span><span style="color:#8f5902;font-style:italic"></span>                <span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">result</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">List</span><span style="color:#000;font-weight:bold">&lt;</span><span style="color:#000">Order</span><span style="color:#000;font-weight:bold">&gt;();</span>
-                <span style="color:#204a87;font-weight:bold">foreach</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">order</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#000">list</span><span style="color:#000;font-weight:bold">)</span>
-                    <span style="color:#000">result</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Add</span><span style="color:#000;font-weight:bold">((</span><span style="color:#000">Order</span><span style="color:#000;font-weight:bold">)</span><span style="color:#000">order</span><span style="color:#000;font-weight:bold">);</span>
-
-                <span style="color:#8f5902;font-style:italic">// attempts at other simpler ways to cast a whole list
-</span><span style="color:#8f5902;font-style:italic"></span>                <span style="color:#8f5902;font-style:italic">//result = list as List&lt;Order&gt;;  // crash
-</span><span style="color:#8f5902;font-style:italic"></span>                <span style="color:#8f5902;font-style:italic">//result = new List&lt;Order&gt;(list); // syntax error?
-</span><span style="color:#8f5902;font-style:italic"></span>
-                <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">result</span><span style="color:#000;font-weight:bold">;</span>
-            <span style="color:#000;font-weight:bold">}</span>
-        <span style="color:#000;font-weight:bold">}</span>
-
-        <span style="color:#8f5902;font-style:italic">///   
-</span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#8f5902;font-style:italic">/// Order class points back to the person holding the order.  
-</span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#8f5902;font-style:italic">/// Implemented using a relationship manager rather
-</span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#8f5902;font-style:italic">/// than via pointers and arraylists etc.  
-</span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#8f5902;font-style:italic">///  
-</span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Order</span> <span style="color:#000;font-weight:bold">:</span> <span style="color:#000">BO</span>
-        <span style="color:#000;font-weight:bold">{</span>
-            <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">string</span> <span style="color:#000">description</span><span style="color:#000;font-weight:bold">;</span>
-
-            <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#000">Order</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">string</span> <span style="color:#000">description</span><span style="color:#000;font-weight:bold">)</span>
-            <span style="color:#000;font-weight:bold">{</span>
-                <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">description</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000">description</span><span style="color:#000;font-weight:bold">;</span>
-            <span style="color:#000;font-weight:bold">}</span>
-
-            <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">override</span> <span style="color:#204a87;font-weight:bold">string</span> <span style="color:#000">ToString</span><span style="color:#000;font-weight:bold">()</span>
-            <span style="color:#000;font-weight:bold">{</span>
-                <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#4e9a06">&#34;Order Description: &#34;</span> <span style="color:#000;font-weight:bold">+</span> <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">description</span><span style="color:#000;font-weight:bold">;</span>
-            <span style="color:#000;font-weight:bold">}</span>
-
-            <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">void</span> <span style="color:#000">SetPerson</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Person</span> <span style="color:#000">p</span><span style="color:#000;font-weight:bold">)</span>
-            <span style="color:#000;font-weight:bold">{</span>
-                <span style="color:#8f5902;font-style:italic">// though mapping is bidirectional, there is still a primary relationship direction!
-</span><span style="color:#8f5902;font-style:italic"></span>                <span style="color:#000">rm</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">AddRelationship</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">p</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;p-&gt;o&#34;</span><span style="color:#000;font-weight:bold">);</span>
-
-            <span style="color:#000;font-weight:bold">}</span>
-
-            <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#000">Person</span> <span style="color:#000">GetPerson</span><span style="color:#000;font-weight:bold">()</span>
-            <span style="color:#000;font-weight:bold">{</span>
-                <span style="color:#8f5902;font-style:italic">// cast from &#39;object&#39; to &#39;Person&#39;
-</span><span style="color:#8f5902;font-style:italic"></span>                <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">Person</span><span style="color:#000;font-weight:bold">)</span><span style="color:#000">rm</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">FindObjectPointingToMe</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;p-&gt;o&#34;</span><span style="color:#000;font-weight:bold">);</span>
-            <span style="color:#000;font-weight:bold">}</span>
-
-            <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">void</span> <span style="color:#000">ClearPerson</span><span style="color:#000;font-weight:bold">()</span>
-            <span style="color:#000;font-weight:bold">{</span>
-                <span style="color:#000">rm</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">RemoveRelationship</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">GetPerson</span><span style="color:#000;font-weight:bold">(),</span> <span style="color:#4e9a06">&#34;p-&gt;o&#34;</span><span style="color:#000;font-weight:bold">);</span>
-            <span style="color:#000;font-weight:bold">}</span>
-        <span style="color:#000;font-weight:bold">}</span>
-
-    <span style="color:#000;font-weight:bold">}</span>
-
-<span style="color:#000;font-weight:bold">}</span>
-</code></pre></div><p>Output:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c#" data-lang="c#"><span style="display:flex;"><span><span style="color:#ff79c6">using</span> System;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> System.Collections;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> System.Collections.Generic;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> RelationshipManager.Interfaces;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> RelationshipManager.Turbo;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">namespace</span> Example_Person_Order_Console_App
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Program</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">static</span> <span style="color:#ff79c6">void</span> Main(<span style="color:#8be9fd">string</span>[] args)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#8be9fd">var</span> jane = <span style="color:#ff79c6">new</span> Person(<span style="color:#f1fa8c">&#34;Jane&#34;</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#8be9fd">var</span> order1 = <span style="color:#ff79c6">new</span> Order(<span style="color:#f1fa8c">&#34;Boots&#34;</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#8be9fd">var</span> order2 = <span style="color:#ff79c6">new</span> Order(<span style="color:#f1fa8c">&#34;Clothes&#34;</span>);
+</span></span><span style="display:flex;"><span>            jane.AddOrder(order1);
+</span></span><span style="display:flex;"><span>            jane.AddOrder(order2);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#6272a4">// test forward pointer wiring</span>
+</span></span><span style="display:flex;"><span>            Console.WriteLine(jane + <span style="color:#f1fa8c">&#34; has &#34;</span> + jane.GetOrders().Count + <span style="color:#f1fa8c">&#34; orders&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#6272a4">// test the backpointer wiring</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">foreach</span> (<span style="color:#8be9fd">var</span> order <span style="color:#ff79c6">in</span> jane.GetOrders())
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                Console.WriteLine(<span style="color:#f1fa8c">&#34;The person who ordered &#34;</span> + order + <span style="color:#f1fa8c">&#34; is &#34;</span> + order.GetPerson());
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            Console.WriteLine(<span style="color:#f1fa8c">&#34;Done!&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">///   </span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">/// BO is the base Business Object class which holds a single static reference  </span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">/// to a relationship manager. This one relationship manager is  </span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">/// used for managing all the relationships between Business Objects</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">/// like Person and Order.  </span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">///   </span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">BO</span> <span style="color:#6272a4">// Base business object  </span>
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">static</span> <span style="color:#ff79c6">protected</span> RelationshipMgrTurbo rm = <span style="color:#ff79c6">new</span> RelationshipMgrTurbo();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">///   </span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">/// Person class points to one or more orders.  </span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">/// Implemented using a relationship manager rather   </span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">/// than via pointers and arraylists etc.  </span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">///   </span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Person</span> : BO
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">public</span> <span style="color:#8be9fd">string</span> name;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">static</span> Person()
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                rm.EnforceRelationship(<span style="color:#f1fa8c">&#34;p-&gt;o&#34;</span>, Cardinality.OneToMany, Directionality.DirectionalWithBackPointer);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">public</span> Person(<span style="color:#8be9fd">string</span> name)
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">this</span>.name = name;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">override</span> <span style="color:#8be9fd">string</span> ToString()
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">return</span> <span style="color:#f1fa8c">&#34;Person: &#34;</span> + <span style="color:#ff79c6">this</span>.name;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">void</span> AddOrder(Order o)
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                rm.AddRelationship(<span style="color:#ff79c6">this</span>, o, <span style="color:#f1fa8c">&#34;p-&gt;o&#34;</span>);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">void</span> RemoveOrder(Order o)
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                rm.RemoveRelationship(<span style="color:#ff79c6">this</span>, o, <span style="color:#f1fa8c">&#34;p-&gt;o&#34;</span>);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">public</span> List&lt;Order&gt; GetOrders()
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                IList list = rm.FindObjectsPointedToByMe(<span style="color:#ff79c6">this</span>, <span style="color:#f1fa8c">&#34;p-&gt;o&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                <span style="color:#6272a4">// cast from list of &#39;object&#39; to list of &#39;Person&#39;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#8be9fd">var</span> result = <span style="color:#ff79c6">new</span> List&lt;Order&gt;();
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">foreach</span> (<span style="color:#8be9fd">var</span> order <span style="color:#ff79c6">in</span> list)
+</span></span><span style="display:flex;"><span>                    result.Add((Order)order);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                <span style="color:#6272a4">// attempts at other simpler ways to cast a whole list</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#6272a4">//result = list as List&lt;Order&gt;;  // crash</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#6272a4">//result = new List&lt;Order&gt;(list); // syntax error?</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">return</span> result;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">///   </span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">/// Order class points back to the person holding the order.  </span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">/// Implemented using a relationship manager rather</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">/// than via pointers and arraylists etc.  </span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">///  </span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Order</span> : BO
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">public</span> <span style="color:#8be9fd">string</span> description;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">public</span> Order(<span style="color:#8be9fd">string</span> description)
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">this</span>.description = description;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">override</span> <span style="color:#8be9fd">string</span> ToString()
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">return</span> <span style="color:#f1fa8c">&#34;Order Description: &#34;</span> + <span style="color:#ff79c6">this</span>.description;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">void</span> SetPerson(Person p)
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                <span style="color:#6272a4">// though mapping is bidirectional, there is still a primary relationship direction!</span>
+</span></span><span style="display:flex;"><span>                rm.AddRelationship(p, <span style="color:#ff79c6">this</span>, <span style="color:#f1fa8c">&#34;p-&gt;o&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">public</span> Person GetPerson()
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                <span style="color:#6272a4">// cast from &#39;object&#39; to &#39;Person&#39;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">return</span> (Person)rm.FindObjectPointingToMe(<span style="color:#ff79c6">this</span>, <span style="color:#f1fa8c">&#34;p-&gt;o&#34;</span>);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">void</span> ClearPerson()
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                rm.RemoveRelationship(<span style="color:#ff79c6">this</span>, <span style="color:#ff79c6">this</span>.GetPerson(), <span style="color:#f1fa8c">&#34;p-&gt;o&#34;</span>);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Output:</p>
 <pre tabindex="0"><code>Person: Jane has 2 orders
 The person who ordered Order Description: Clothes is Person: Jane
 The person who ordered Order Description: Boots is Person: Jane
@@ -1423,7 +1497,7 @@ Done!
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified March 8, 2022: <a href="https://github.com/abulka/abulka.github.io/commit/e87d3adbc1163246d7f9411399351f360d33d76e">made project and patterns pages use docs layout, instead use scss to hide page-meta-links (e87d3ad)</a>
+  Last modified March 10, 2022: <a href="https://github.com/abulka/abulka.github.io/commit/9c1d0fd813e93ab2c2862b73dd0d54bd3d9db82f">added tag cloud (9c1d0fd)</a>
 </div>
 
 </div>
@@ -1515,7 +1589,7 @@ Done!
 
 
 
-<script src="/js/main.min.8ab8f81ff7e1454d30024cd6f956d4d341c3a97e2a673f988065f2ee4e147922.js" integrity="sha256-irj4H/fhRU0wAkzW&#43;VbU00HDqX4qZz&#43;YgGXy7k4UeSI=" crossorigin="anonymous"></script>
+<script src="/js/main.min.fc1551b8c1b40a6eaa08f3cb9c76f12ccd9aebc436cecdaf2341c890206d024a.js" integrity="sha256-/BVRuMG0Cm6qCPPLnHbxLM2a68Q2zs2vI0HIkCBtAko=" crossorigin="anonymous"></script>
 
 
 

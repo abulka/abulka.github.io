@@ -1,0 +1,34 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Andy Bulka – Dev Ops</title>
+    <link>https://abulka.github.io/tags/dev-ops/</link>
+    <description>Recent content in Dev Ops on Andy Bulka</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 03 Oct 2018 00:00:00 +0000</lastBuildDate>
+    
+	  <atom:link href="https://abulka.github.io/tags/dev-ops/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Blog: Building a Python-Electron App</title>
+      <link>https://abulka.github.io/blog/2018/10/03/building-a-python-electron-app/</link>
+      <pubDate>Wed, 03 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://abulka.github.io/blog/2018/10/03/building-a-python-electron-app/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Building a normal, deployable application for Mac or Windows, using Python 3 is hard. There is nothing like Visual Studio or Delphi (remember that?) for Python where you can drag and drop to design a GUI, press a button and get an .exe or .app to give people. Sad.
+The closest you can get is to follow a long recipe of steps — which I propose to outline here.&lt;/p&gt;
+&lt;p&gt;See full article on Medium &lt;a href=&#34;https://medium.com/@abulka/electron-python-4e8c807bfa5e&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

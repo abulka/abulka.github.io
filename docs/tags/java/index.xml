@@ -1,0 +1,412 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Andy Bulka – Java</title>
+    <link>https://abulka.github.io/tags/java/</link>
+    <description>Recent content in Java on Andy Bulka</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 05 Mar 2005 00:00:00 +0000</lastBuildDate>
+    
+	  <atom:link href="https://abulka.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Blog: Swapping Implementations</title>
+      <link>https://abulka.github.io/blog/2005/03/05/swapping-implementations/</link>
+      <pubDate>Sat, 05 Mar 2005 00:00:00 +0000</pubDate>
+      
+      <guid>https://abulka.github.io/blog/2005/03/05/swapping-implementations/</guid>
+      <description>
+        
+        
+        &lt;p&gt;This is an exploration of how to swap implementations of objects within our software architectures using patterns like the Interface, Factory, Strategy, Proxy, Adapter, and finally to the full blown Bridge Design Pattern.  &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;This article was formerly known as The &amp;ldquo;Road to the Bridge&amp;rdquo; and as &amp;ldquo;Strategy to Bridge&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;the-problem&#34;&gt;The problem&lt;/h2&gt;
+&lt;p&gt;We want to be flexible in our architecture.  We want to be able to swap implementations of objects/classes easily e.g. between using class &lt;code&gt;A&lt;/code&gt; or class &lt;code&gt;B&lt;/code&gt;.  &lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/swapping-PathToBridge_AorB.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;We want to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Build to anticipate and celebrate change.&lt;/li&gt;
+&lt;li&gt;Program to interfaces, not implementations..&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;some-broad-solutions&#34;&gt;Some broad solutions&lt;/h3&gt;
+&lt;p&gt;Let&amp;rsquo;s examine the range of solutions - showing the story of how to bind to two different implementations of the same interface - simple ways and more complex ways.
+Specifically how we can choose between:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;compile-time binding (one or the other is chosen by compiled code)&lt;/li&gt;
+&lt;li&gt;factory based binding (one or the other is returned by a factory)&lt;/li&gt;
+&lt;li&gt;dynamic binding using an intermediary object&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;where #3 is achieved using Strategy, Adapter and Proxy, which ultimately leads us to using the Bridge Pattern.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;This journey strikes me as a powerful way of looking at a deep and common problem (building to embrace change), and that also unites multiple patterns under the one theme. Given programmers love the ideal of &amp;lsquo;programming to interfaces&amp;rsquo; and being able to swap in different implementations, this story will show how to do it at many different levels and in fact how many of the classic GOF design patterns are all about helping us to achieve it.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;interface-pattern&#34;&gt;Interface pattern&lt;/h2&gt;
+&lt;h3 id=&#34;interface-compile-time-choice&#34;&gt;Interface, compile time choice&lt;/h3&gt;
+&lt;p&gt;Alternative implementations of an interface. Instantiate one or the other implementation of that interface. The code that uses the object is unaware of which object it is using. &amp;ldquo;Program to an interface&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/swapping-PathToBridge_Interface01.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Worker o &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;new&lt;/span&gt; A&lt;span style=&#34;color:#ff79c6&#34;&gt;()&lt;/span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;// Worker o = new B()
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;o&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;DoSomething&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Here the choice is at compile time, by commenting out one or the other instantiation.&lt;/p&gt;
+&lt;h3 id=&#34;interface-dynamic-run-time-choice&#34;&gt;Interface, dynamic run time choice&lt;/h3&gt;
+&lt;p&gt;Same solution except choose particular implementation dynamically at runtime using a flag.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; flag  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   Worker o &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;new&lt;/span&gt; A&lt;span style=&#34;color:#ff79c6&#34;&gt;()&lt;/span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;else&lt;/span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   Worker o &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;new&lt;/span&gt; B&lt;span style=&#34;color:#ff79c6&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;o&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;DoSomething&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;()&lt;/span&gt;    &lt;span style=&#34;color:#6272a4&#34;&gt;// we don&amp;#39;t know if its an A or a B.  Everything works ok.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;factory&#34;&gt;Factory&lt;/h2&gt;
+&lt;p&gt;Create A or B at runtime by asking another class to create the concrete object for us.  Pass in the flag to the factory or let the factory decide for itself which implementation we want.&lt;/p&gt;
+&lt;p&gt;Factory class is the only class to refer to concrete products. The client refers to the interface/abstract class only.&lt;/p&gt;
+&lt;p&gt;We are still talking directly to the concrete object (either an A or a B).&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/swapping-PathToBridge_Factory.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;There are a number of factory method variants:&lt;/p&gt;
+&lt;h3 id=&#34;simple-super-dumb-factory&#34;&gt;Simple Super Dumb Factory&lt;/h3&gt;
+&lt;p&gt;Encapsulates the &amp;ldquo;dynamic run time choice&amp;rdquo; solution discussed in the beginning of this talk. Benefit is that the  conditional logic containing the if statement is hidden and possibly centralized in a factory class.&lt;/p&gt;
+&lt;p&gt;Factory class is the only class that refers directly to concrete products. Client refers only to interface/abstract class.&lt;/p&gt;
+&lt;p&gt;The choice is made via conditional code.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/swapping-PathToBridge_FactorySimple.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Factory f &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;new&lt;/span&gt; SimpleFactory&lt;span style=&#34;color:#ff79c6&#34;&gt;()&lt;/span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Worker o &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; f&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;CreateWorker&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;o&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;DoSomething&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;()&lt;/span&gt;    &lt;span style=&#34;color:#6272a4&#34;&gt;// we don&amp;#39;t know if its an A or a B.  Everything works ok.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;registry-based-factory&#34;&gt;Registry Based Factory&lt;/h3&gt;
+&lt;p&gt;Maintains a registry of mappings between strings (or any type of key e.g. objects, class references, numbers etc.) and class references.  Benefit: more generalized, no if statements. &lt;/p&gt;
+&lt;p&gt;Factory class is the only class that refers directly to concrete products. Client refers only to interface/abstract class.&lt;/p&gt;
+&lt;p&gt;The choice is made via registry key.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/swapping-PathToBridge_FactoryRegistry.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;key &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &amp;#39;worker a&amp;#39;   &lt;span style=&#34;color:#6272a4&#34;&gt;// in setup code somewhere
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;Factory f &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;new&lt;/span&gt; RegistryFactory&lt;span style=&#34;color:#ff79c6&#34;&gt;()&lt;/span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Worker o &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; f&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;CreateWorker&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;key&lt;span style=&#34;color:#ff79c6&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;o&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;DoSomething&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;()&lt;/span&gt;    &lt;span style=&#34;color:#6272a4&#34;&gt;// we don&amp;#39;t know if its an A or a B.  Everything works ok.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;gof-factory-method&#34;&gt;GOF Factory Method&lt;/h3&gt;
+&lt;p&gt;Assumes the client &lt;em&gt;already has&lt;/em&gt; an instance of some class which needs either a A or B version of a worker class.  &lt;/p&gt;
+&lt;p&gt;Each alternative instance of  the existing class overrides a create method differently, each instantiating a different concrete product - typically one matching their own functionality. Benefit: no class reference language facilities required. &lt;/p&gt;
+&lt;p&gt;Factory class is the only class that refers directly to concrete products. Client refers only to interface/abstract class.&lt;/p&gt;
+&lt;p&gt;The choice is made via polymorphic override.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/swapping-PathToBridge_FactoryMethodGOF_01.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the choice as to which Work Manager (MgrA or MgrB) to instantiate in the first place is going to be an issue, but is not the point of this example.  The point is that once you have a particular brand of work manager, then you will get a related brand of of worker via the suitably overriden CreateWorker factory method.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;WorkManager f &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;new&lt;/span&gt; MgrA&lt;span style=&#34;color:#ff79c6&#34;&gt;()&lt;/span&gt;      &lt;span style=&#34;color:#6272a4&#34;&gt;// done somewhere in setup
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;Worker o &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; f&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;CreateWorker&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;key&lt;span style=&#34;color:#ff79c6&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;o&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;DoSomething&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;()&lt;/span&gt;    &lt;span style=&#34;color:#6272a4&#34;&gt;// we don&amp;#39;t know if its an A or a B.  Everything works ok.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;There will be parallel hierarchies, e.g. the WorkManager and the Worker hierarchies closely match, with A and B versions of their subclasses.  Start to think of a &lt;em&gt;family&lt;/em&gt; of classes.&lt;/p&gt;
+&lt;p&gt;My further thoughts, including a more detailed example of Factory Method &lt;a href=&#34;https://www.atug.com/andypatterns/factory_method_example.htm&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;abstract-factory&#34;&gt;Abstract Factory&lt;/h3&gt;
+&lt;p&gt;Abstract factory similar to factory method, in that there is something being overridden.&lt;/p&gt;
+&lt;p&gt;Abstract factory is the same as factory method, except there is  more than one Creation method.  E.g. CreateWorker, CreateAdministrator, CreatePoliceman - such that the class containing the factory methods might as well become a sole purpose class for dispensing these related classes.&lt;/p&gt;
+&lt;p&gt;The abstract factory is a mere mechanism for delivering A versions of B versions.  E.g. Client wants A version of products&lt;/p&gt;
+&lt;p&gt;Client programs against interfaces thus can switch between A or B.  Specifically, the client only talks to &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;IAbstractProductFactory&lt;/li&gt;
+&lt;li&gt;IProduct1&lt;/li&gt;
+&lt;li&gt;IProduct2&lt;/li&gt;
+&lt;li&gt;IProduct3&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/swapping-PathToBridge_AbsFactory_01.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;IAbstractProductFactory f &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;new&lt;/span&gt; ProductFactoryVersionA&lt;span style=&#34;color:#ff79c6&#34;&gt;()&lt;/span&gt;   
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;// choice is made at compile time, via factory method (run time) via strategy (runtime)  
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;IProduct1 p1 &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; f&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;CreateProduct1&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;()&lt;/span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;IProduct2 p2 &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; f&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;CreateProduct2&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;()&lt;/span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;IProduct3 p3 &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; f&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;CreateProduct3&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;All products p1, p2, p3 are in the above example A versions, and compatible with each other.&lt;/p&gt;
+&lt;p&gt;My further thoughts on Abstract Factory &lt;a href=&#34;https://www.atug.com/andypatterns/abstract_factory_thoughts.htm&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.atug.com/andypatterns/_themes/canvas/acnvrule.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;indirection-patterns&#34;&gt;Indirection Patterns&lt;/h2&gt;
+&lt;p&gt;Getting to implementation A or B via intermediary.&lt;/p&gt;
+&lt;p&gt;Rather than instantiate A or B and refer to them directly (albiet via a flexible interface variable), another approach is to refer to the same object all the time and hide the switching &lt;em&gt;behind&lt;/em&gt; that object.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/swapping-PathToBridge_Indirection01.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Now, because what is behind the intermediate object is hidden (and rightly so), you no longer need to program to the Strategy interface.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/swapping-PathToBridge_Indirection02.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;If you want to still program to an interface (good idea) then program to the Intermediary interface.  If you want to run free and wild, program to the intermediary object api.&lt;/p&gt;
+&lt;p&gt;Variants are as follows:&lt;/p&gt;
+&lt;h3 id=&#34;proxy-pattern-v1&#34;&gt;Proxy Pattern v1&lt;/h3&gt;
+&lt;p&gt;A methodless indirection using &amp;ldquo;demeter&amp;rdquo; referencing.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/swapping-PathToBridge_IndirectionStrategyPoorMans.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Responsibility of the client to know the API of the strategy.  So still programming to the strategy interface.  You have to since the intermediary has no methods, or rather, has no methods specifically related to accessing the A &amp;amp; B classes.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;o &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;new&lt;/span&gt; Intermediary&lt;span style=&#34;color:#ff79c6&#34;&gt;()&lt;/span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;o&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;SetStrategy&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;new&lt;/span&gt; A&lt;span style=&#34;color:#ff79c6&#34;&gt;())&lt;/span&gt;   &lt;span style=&#34;color:#6272a4&#34;&gt;// done in setup somewhere, or via a factory or via dependency injection framework
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;o&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;impl&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;DoSomething&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;strategy-pattern&#34;&gt;Strategy Pattern&lt;/h3&gt;
+&lt;p&gt;Proper Strategy.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/swapping-PathToBridge_IndirectionStrategy01.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;o &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;new&lt;/span&gt; Intermediary&lt;span style=&#34;color:#ff79c6&#34;&gt;()&lt;/span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;o&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;SetStrategy&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;new&lt;/span&gt; A&lt;span style=&#34;color:#ff79c6&#34;&gt;())&lt;/span&gt;   &lt;span style=&#34;color:#6272a4&#34;&gt;// done in setup somewhere, or via a factory or via dependency injection framework
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;o&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;DoSomething&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;later you can switch the strategy without the client code caring.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;o&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;SetStrategy&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;new&lt;/span&gt; B&lt;span style=&#34;color:#ff79c6&#34;&gt;())&lt;/span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;o&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;DoSomething&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;()&lt;/span&gt;        &lt;span style=&#34;color:#6272a4&#34;&gt;// different behaviour or different implementation occurs
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;strategy-with-a-touch-of-the-adapter-pattern&#34;&gt;Strategy with a touch of the Adapter pattern&lt;/h3&gt;
+&lt;p&gt;If your implementation has a slightly different API than the one your client code wants to use, then you can adapt it at the same time as you are strategizing&amp;hellip;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/swapping-PathToBridge_IndirectionStrategyAdapter.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;proxy-v2---going-all-the-way&#34;&gt;Proxy v2 - going all the way&lt;/h3&gt;
+&lt;p&gt;If your only have the same methods in your intermediary object as you have in your implementation, then you can have the intermediary inherit from the abstract implementation interface.  This turns the pattern into proxy, and lets you optionally, program to the Strategy interface again.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/swapping-PathToBridge_IndirectionProxy.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;The proxy, whilst &lt;em&gt;inheriting&lt;/em&gt; from Strategy, can also implement extra methods, though this is diverging a little from the intent of Proxy.&lt;/p&gt;
+&lt;p&gt;An alternative to inheritance, the proxy can &lt;em&gt;implement the interface&lt;/em&gt; of the Strategy class, and get some similar polymorphic substitutability benefits.&lt;/p&gt;
+&lt;h2 id=&#34;bridge-pattern&#34;&gt;Bridge Pattern&lt;/h2&gt;
+&lt;p&gt;This is still a variant on accessing different behaviour via an intermediary.&lt;/p&gt;
+&lt;p&gt;Bridge is just strategy with a oversized lhs context.&lt;/p&gt;
+&lt;p&gt;Same as strategy except there is&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Massive subclassing going on on the lhs (the &amp;lsquo;context&amp;rsquo; side).&lt;/li&gt;
+&lt;li&gt;The nature of the lhs methods are more compositional, adaptive and far reaching (not just a simply strategy delegation)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/swapping-PathToBridge_Bridge01.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;massive-subclassing&#34;&gt;Massive subclassing&lt;/h3&gt;
+&lt;p&gt;There is massive subclassing going on in the lhs. context.&lt;/p&gt;
+&lt;p&gt;The reason is that you are wanting lots of methods and lots of functionality, lots of classes.  E.g. you want to have a GUI or DB subsystem, not just a single strategy.&lt;/p&gt;
+&lt;h3 id=&#34;lhs-and-rhs-methods&#34;&gt;lhs and rhs methods&lt;/h3&gt;
+&lt;p&gt;What is the nature of the lhs and rhs methods?&lt;/p&gt;
+&lt;p&gt;Typically rhs (implementation/driver) calls are more primitive, and one lhs method will call the rhs. many times. e.g. see the &lt;code&gt;DoTalk()&lt;/code&gt; method, above.&lt;/p&gt;
+&lt;p&gt;The lhs methods can be diverse, comprising&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;lhs method simply calls rhs method. Method names can change or be the same. Simple delegation with no extra work.&lt;/li&gt;
+&lt;li&gt;lhs methods more complex and adapt and do extra lines of code as needed&lt;/li&gt;
+&lt;li&gt;Lots of logic in the lhs methods and may have associated helper classes.  But in the end they call stuff on the intermediary api.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;insulated-from-change&#34;&gt;Insulated from change. &lt;/h3&gt;
+&lt;p&gt;Allows lhs and rhs to vary independently.&lt;/p&gt;
+&lt;p&gt;Client is insulated from changes. Should not talk talk to implementation, even if it is the abstract implementation interface because the abs impl. may change. If the abstract implementation interface does change then this affects only the Intermediary but not the client code.  Client code should thus only talk to intermediary.&lt;/p&gt;
+&lt;p&gt;Similarly, if you change the Intermediary API, then only the client is affected - the r.h.s. (the abstract implementation interface and concrete implementations) are not affected.&lt;/p&gt;
+&lt;p&gt;In this sense the lhs and rhs can vary independently.  Ok - so there are repercussions when things vary - but they are limited, as discussed above.&lt;/p&gt;
+&lt;h3 id=&#34;final-thought-on-bridge&#34;&gt;Final thought on Bridge&lt;/h3&gt;
+&lt;p&gt;You could simplify Bridge and have the client code talk directly to the rhs. abstract implementation interface.   You would be reverting to where we started on this &amp;ldquo;road to Bridge&amp;rdquo;.   Nothing wrong with that - but you would lose the &amp;lsquo;insulation against change&amp;rsquo; that Bridge gets you.  And with Bridge the lhs can have lots of complex logic and the rhs implementations need only implement the more primitive operations.  That is a big win.&lt;/p&gt;
+&lt;h2 id=&#34;solutions-overview&#34;&gt;Solutions overview&lt;/h2&gt;
+&lt;p&gt;Summary of the ways of coupling your components&lt;/p&gt;
+&lt;table style=&#34;width: 100%;&#34; border=&#34;1&#34;&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td align=&#34;center&#34; width=&#34;18%&#34;&gt;
+                &lt;span style=&#34;font-family: Arial,Arial,Helvetica;&#34;&gt;&lt;strong&gt;Technique&lt;/strong&gt;
+                    &lt;/span&gt;&lt;/td&gt;
+            &lt;td align=&#34;center&#34; width=&#34;21%&#34;&gt;
+                &lt;span style=&#34;font-family: Arial,Arial,Helvetica;&#34;&gt;&lt;strong&gt;Meta-Pattern&lt;/strong&gt;
+                    &lt;/span&gt;&lt;/td&gt;
+            &lt;td align=&#34;center&#34; width=&#34;36%&#34;&gt;
+                &lt;span style=&#34;font-family: Arial,Arial,Helvetica;&#34;&gt;&lt;strong&gt;Pattern&lt;/strong&gt;
+                    &lt;/span&gt;&lt;/td&gt;
+            &lt;td align=&#34;center&#34; width=&#34;25%&#34;&gt;
+                &lt;span style=&#34;font-family: Arial,Arial,Helvetica;&#34;&gt;&lt;strong&gt;Description&lt;/strong&gt;
+                    &lt;/span&gt;&lt;/td&gt;
+            &lt;td align=&#34;center&#34; width=&#34;25%&#34;&gt;
+                &lt;span style=&#34;font-family: Arial,Arial,Helvetica;&#34;&gt; 
+                    &lt;/span&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td rowspan=&#34;8&#34; bgcolor=&#34;#ffff99&#34; width=&#34;18%&#34;&gt;
+                &lt;span style=&#34;font-family: Arial,Arial,Helvetica;&#34;&gt;To implementation A or B directly
+                    &lt;/span&gt;&lt;/td&gt;
+            &lt;td rowspan=&#34;2&#34; bgcolor=&#34;#cccccc&#34; width=&#34;21%&#34;&gt;
+                &lt;span style=&#34;font-family: Arial,Arial,Helvetica;&#34;&gt;Program to Interface
+                    &lt;/span&gt;&lt;/td&gt;
+            &lt;td rowspan=&#34;2&#34; bgcolor=&#34;#ffff99&#34; width=&#34;36%&#34;&gt;
+                &lt;span style=&#34;font-family: Arial,Arial,Helvetica;&#34;&gt;Interface
+                    &lt;/span&gt;&lt;/td&gt;
+            &lt;td width=&#34;25%&#34;&gt;
+                &lt;span style=&#34;font-family: Arial,Arial,Helvetica;&#34;&gt;Interface, compile time choice
+                    &lt;/span&gt;&lt;/td&gt;
+            &lt;td width=&#34;25%&#34;&gt;
+                &lt;span style=&#34;font-family: Arial,Arial,Helvetica;&#34;&gt;Alternative implementations of an
+                    interface. Instantiate one or the other implementation of that interface. The code that uses the
+                    object is unaware of which object it is using. &#34;Program to an interface&#34;
+                    &lt;/span&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td width=&#34;25%&#34;&gt;
+                &lt;span style=&#34;font-family: Arial,Arial,Helvetica;&#34;&gt;Interface, conditional code
+                    &lt;/span&gt;&lt;/td&gt;
+            &lt;td width=&#34;25%&#34;&gt;
+                &lt;span style=&#34;font-family: Arial,Arial,Helvetica;&#34;&gt;Same solution as above, except
+                    choose particular implementation dynamically at runtime using a flag.
+                    &lt;/span&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td rowspan=&#34;6&#34; bgcolor=&#34;#ffffcc&#34; width=&#34;21%&#34;&gt;
+                &lt;span style=&#34;font-family: Arial,Arial,Helvetica;&#34;&gt;Factory
+                    &lt;/span&gt;&lt;/td&gt;
+            &lt;td rowspan=&#34;3&#34; bgcolor=&#34;#ccffff&#34; width=&#34;36%&#34;&gt;
+                &lt;span style=&#34;font-family: Arial,Arial,Helvetica;&#34;&gt;Factory Method
+                    &lt;/span&gt;&lt;/td&gt;
+            &lt;td width=&#34;25%&#34;&gt;
+                &lt;span style=&#34;font-family: Arial,Arial,Helvetica;&#34;&gt;conditional code
+                    &lt;/span&gt;&lt;/td&gt;
+            &lt;td width=&#34;25%&#34;&gt;
+                &lt;span style=&#34;font-family: Arial,Arial,Helvetica;&#34;&gt; 
+                    &lt;/span&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td width=&#34;25%&#34;&gt;
+                &lt;span style=&#34;font-family: Arial,Arial,Helvetica;&#34;&gt;registry
+                    &lt;/span&gt;&lt;/td&gt;
+            &lt;td width=&#34;25%&#34;&gt;
+                &lt;span style=&#34;font-family: Arial,Arial,Helvetica;&#34;&gt; 
+                    &lt;/span&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td width=&#34;25%&#34;&gt;
+                &lt;span style=&#34;font-family: Arial,Arial,Helvetica;&#34;&gt;polymorphic factory method
+                    &lt;/span&gt;&lt;/td&gt;
+            &lt;td width=&#34;25%&#34;&gt;
+                &lt;span style=&#34;font-family: Arial,Arial,Helvetica;&#34;&gt; 
+                    &lt;/span&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td rowspan=&#34;3&#34; bgcolor=&#34;#ccccff&#34; width=&#34;36%&#34;&gt;
+                &lt;span style=&#34;font-family: Arial,Arial,Helvetica;&#34;&gt;Abstract Factory
+                    &lt;/span&gt;&lt;/td&gt;
+            &lt;td width=&#34;25%&#34;&gt;
+                &lt;span style=&#34;font-family: Arial,Arial,Helvetica;&#34;&gt;abstract factory - polymorphic
+                    &lt;/span&gt;&lt;/td&gt;
+            &lt;td width=&#34;25%&#34;&gt;
+                &lt;span style=&#34;font-family: Arial,Arial,Helvetica;&#34;&gt; 
+                    &lt;/span&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td width=&#34;25%&#34;&gt;
+                &lt;span style=&#34;font-family: Arial,Arial,Helvetica;&#34;&gt;conditional code
+                    &lt;/span&gt;&lt;/td&gt;
+            &lt;td width=&#34;25%&#34;&gt;
+                &lt;span style=&#34;font-family: Arial,Arial,Helvetica;&#34;&gt; 
+                    &lt;/span&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td width=&#34;25%&#34;&gt;
+                &lt;span style=&#34;font-family: Arial,Arial,Helvetica;&#34;&gt;class registry
+                    &lt;/span&gt;&lt;/td&gt;
+            &lt;td width=&#34;25%&#34;&gt;
+                &lt;span style=&#34;font-family: Arial,Arial,Helvetica;&#34;&gt; 
+                    &lt;/span&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td rowspan=&#34;6&#34; bgcolor=&#34;#ccffcc&#34; width=&#34;18%&#34;&gt;
+                &lt;span style=&#34;font-family: Arial,Arial,Helvetica;&#34;&gt;To implementation A or B via
+                    intermediary
+                    &lt;/span&gt;&lt;/td&gt;
+            &lt;td rowspan=&#34;6&#34; bgcolor=&#34;#ffccff&#34; width=&#34;21%&#34;&gt;
+                &lt;span style=&#34;font-family: Arial,Arial,Helvetica;&#34;&gt;Indirection
+                    &lt;/span&gt;&lt;/td&gt;
+            &lt;td width=&#34;36%&#34;&gt;
+                &lt;span style=&#34;font-family: Arial,Arial,Helvetica;&#34;&gt;Dot notation drilling
+                    &lt;/span&gt;&lt;/td&gt;
+            &lt;td width=&#34;25%&#34;&gt;
+                &lt;span style=&#34;font-family: Arial,Arial,Helvetica;&#34;&gt;methodless proxy using demeter
+                    referencing
+                    &lt;/span&gt;&lt;/td&gt;
+            &lt;td width=&#34;25%&#34;&gt;
+                &lt;span style=&#34;font-family: Arial,Arial,Helvetica;&#34;&gt; 
+                    &lt;/span&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td width=&#34;36%&#34;&gt;
+                &lt;span style=&#34;font-family: Arial,Arial,Helvetica;&#34;&gt;Strategy
+                    &lt;/span&gt;&lt;/td&gt;
+            &lt;td width=&#34;25%&#34;&gt;
+                &lt;span style=&#34;font-family: Arial,Arial,Helvetica;&#34;&gt;strategy - may be extra methods not
+                    related to the strategising
+                    &lt;/span&gt;&lt;/td&gt;
+            &lt;td width=&#34;25%&#34;&gt;
+                &lt;span style=&#34;font-family: Arial,Arial,Helvetica;&#34;&gt; 
+                    &lt;/span&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td width=&#34;36%&#34;&gt;
+                &lt;span style=&#34;font-family: Arial,Arial,Helvetica;&#34;&gt;Proxy
+                    &lt;/span&gt;&lt;/td&gt;
+            &lt;td width=&#34;25%&#34;&gt;
+                &lt;span style=&#34;font-family: Arial,Arial,Helvetica;&#34;&gt;proxy, all methods mapped (demeter
+                    is happy). inherit
+                    &lt;/span&gt;&lt;/td&gt;
+            &lt;td width=&#34;25%&#34;&gt;
+                &lt;span style=&#34;font-family: Arial,Arial,Helvetica;&#34;&gt; 
+                    &lt;/span&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td width=&#34;36%&#34;&gt;
+                &lt;span style=&#34;font-family: Arial,Arial,Helvetica;&#34;&gt; 
+                    &lt;/span&gt;&lt;/td&gt;
+            &lt;td width=&#34;25%&#34;&gt;
+                &lt;span style=&#34;font-family: Arial,Arial,Helvetica;&#34;&gt; 
+                    &lt;/span&gt;&lt;/td&gt;
+            &lt;td width=&#34;25%&#34;&gt;
+                &lt;span style=&#34;font-family: Arial,Arial,Helvetica;&#34;&gt; 
+                    &lt;/span&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td width=&#34;36%&#34;&gt;
+                &lt;span style=&#34;font-family: Arial,Arial,Helvetica;&#34;&gt;Adapter
+                    &lt;/span&gt;&lt;/td&gt;
+            &lt;td width=&#34;25%&#34;&gt;
+                &lt;span style=&#34;font-family: Arial,Arial,Helvetica;&#34;&gt;adapted proxy-like strategy. 
+                    different method names sometimes
+                    &lt;/span&gt;&lt;/td&gt;
+            &lt;td width=&#34;25%&#34;&gt;
+                &lt;span style=&#34;font-family: Arial,Arial,Helvetica;&#34;&gt; 
+                    &lt;/span&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td bgcolor=&#34;#ffffcc&#34; width=&#34;36%&#34;&gt;
+                &lt;span style=&#34;font-family: Arial,Arial,Helvetica;&#34;&gt;&lt;span
+                        style=&#34;background-color: #ffffcc;&#34;&gt;Bridge&lt;/span&gt;
+                    &lt;/span&gt;&lt;/td&gt;
+            &lt;td width=&#34;25%&#34;&gt;
+                &lt;span style=&#34;font-family: Arial,Arial,Helvetica;&#34;&gt;rhs - methods usually more
+                    primitive.  Only talk to abs. impl. &lt;/span&gt;
+                &lt;p&gt;&lt;span style=&#34;font-family: Arial,Arial,Helvetica;&#34;&gt;lhs - all adapted &amp;amp; thus changeable. can
+                        build hierarchies
+                        &lt;/span&gt;&lt;/p&gt;
+            &lt;/td&gt;
+            &lt;td width=&#34;25%&#34;&gt;
+                &lt;span style=&#34;font-family: Arial,Arial,Helvetica;&#34;&gt; 
+                    &lt;/span&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&#34;final-thoughts&#34;&gt;Final thoughts&lt;/h2&gt;
+&lt;p&gt;The presentation of the patterns form a story of simple to complex.  &lt;/p&gt;
+&lt;p&gt;And its a story of two broadly different techniques, &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Getting to the implementation A or B directly&lt;/li&gt;
+&lt;li&gt;Getting to the implementation A or B via an intermediary object&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;adapter-vs-bridge&#34;&gt;Adapter vs. Bridge&lt;/h3&gt;
+&lt;p&gt;Adapter is closer to Bridge in that the adaptation on the lhs. (the context) can be not just a renaming and mapping of methods, but extra logic and whatever it takes to make the adapation work.  So the lhs. is closer to the free wheeling compositional lhs of Bridge Pattern.  By compositional I mean that a single lhs. method can comprise of complex code and multiple calls to the rhs. methods.  In Bridge the lhs methods can even call on other methods in the same lhs, whereas in Adapter this is not really the intent.&lt;/p&gt;
+&lt;h3 id=&#34;ioc-inverison-of-control&#34;&gt;IOC (inverison of control)&lt;/h3&gt;
+&lt;p&gt;IOC (inverison of control) also fits in here somewhere.&lt;/p&gt;
+&lt;p&gt;Dependency injection.  Inject a context object or wire up dependent objects. Allows you to program normally.  Allows different implementations to be injected in.&lt;/p&gt;
+&lt;h3 id=&#34;microkernels&#34;&gt;Microkernels&lt;/h3&gt;
+&lt;p&gt;Microkernels also fit in here.&lt;/p&gt;
+&lt;p&gt;Amongst other things, a Microkernel style architecture allows alternative plugins (services) to fulfil the implementation.  &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Maybe think of it as &lt;em&gt;service&lt;/em&gt; A or B.&lt;/li&gt;
+&lt;li&gt;Or &lt;em&gt;plugin&lt;/em&gt; A or B.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;There seem to be three types of MicroKernel:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Service location, like COM where you either ask for a service and get an interface which you use, or you call a service and the late binding binds to an appropriate service at the last minute. &lt;strong&gt;Style of programming:&lt;/strong&gt; slightly different - must ask for an interface before using it.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Message broadcasting kernel, where messages are broadcast to all plugins and the chain of responsibility pattern is used, and a plugin/service which can make sense of the message acts on it (either consuming it or passing it on for someone else to have a go at). &lt;strong&gt;Style of programming:&lt;/strong&gt; different - you must create messages send them into the kernel, either synchronously or asynchronously.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Dependency Injection Microkernel, where all object attributes refering to other objects (dependencies) are injected for you by a framework.  Rather than setting up these references yourself manually, as normal programming style dictates, you leave it to magic - which allows other implementations to be swapped in. You must of course program to interfaces not to concrete classes, in order for this trick to work.  &lt;strong&gt;Style of programming:&lt;/strong&gt; normal, you just call methods on objects that you have references to.  The fact that the references have been wired up by a framework (which consults a plugin directory &amp;amp; setup file telling us which plugins are active) is hidden from us.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Maybe one or more of the above three descriptions of a Microkernel is not actually a microkernel - I am just learning about this stuff.  But I have seen references that suggest my analysis is correct. E.g. The &lt;a href=&#34;https://www.castleproject.org/castle/show/Windsor+Container&#34;&gt;Castle&lt;/a&gt; IOC framework for .NET calls itself a microkernel.  &lt;/p&gt;
+&lt;h3 id=&#34;variables-as-indirection&#34;&gt;Variables as indirection&lt;/h3&gt;
+&lt;p&gt;A variable of type interface is really a another &amp;lsquo;secret&amp;rsquo; form of indirection.&lt;/p&gt;
+&lt;p&gt;I have made a broad distinction between accessing implementations A or B either directly or via an intermediary. Thinking about it some more, when you do access A or B directly, you do so via an an intermediary variable declared of type abstract/interface.  This is when you are being good and &amp;lsquo;programming to interfaces&amp;rsquo;.&lt;/p&gt;
+&lt;p&gt;Thus you could argue that even even when you are accessing an object (implementation A or B) directly, you are in fact still acting through an intermediary - the interface variable!&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

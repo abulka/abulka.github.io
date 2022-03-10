@@ -1,0 +1,40 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Andy Bulka – Flutter</title>
+    <link>https://abulka.github.io/tags/flutter/</link>
+    <description>Recent content in Flutter on Andy Bulka</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 23 Nov 2020 12:21:55 +1100</lastBuildDate>
+    
+	  <atom:link href="https://abulka.github.io/tags/flutter/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Projects: Brew Moments</title>
+      <link>https://abulka.github.io/projects/apps/brew-moments/</link>
+      <pubDate>Mon, 23 Nov 2020 12:21:55 +1100</pubDate>
+      
+      <guid>https://abulka.github.io/projects/apps/brew-moments/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;brew-moments&#34;&gt;Brew Moments&lt;/h2&gt;
+&lt;p&gt;Coffee Ratio Calculation App for Android phones and tablets, built using Dart and Flutter.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/websites/images/brew-moments.png&#34; alt=&#34;pic&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Visit the Brew Moments &lt;a href=&#34;https://abulka.github.io/brew-moments/&#34;&gt;home page&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Visit the Brew Moments &lt;a href=&#34;https://play.google.com/store/apps/details?id=com.wware.brew_moments&#34;&gt;playstore page&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;status&#34;&gt;Status&lt;/h1&gt;
+&lt;p&gt;Free to download.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

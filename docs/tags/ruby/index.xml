@@ -1,0 +1,329 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Andy Bulka – Ruby</title>
+    <link>https://abulka.github.io/tags/ruby/</link>
+    <description>Recent content in Ruby on Andy Bulka</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 19 Mar 2011 00:00:00 +0000</lastBuildDate>
+    
+	  <atom:link href="https://abulka.github.io/tags/ruby/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Blog: Mocking in Ruby</title>
+      <link>https://abulka.github.io/blog/2011/03/19/mocking-in-ruby/</link>
+      <pubDate>Sat, 19 Mar 2011 00:00:00 +0000</pubDate>
+      
+      <guid>https://abulka.github.io/blog/2011/03/19/mocking-in-ruby/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Easy Dependency Injection and Mocking in Ruby&lt;/p&gt;
+&lt;p&gt;Here is a simple technique where you can inject mock methods into a class that you are unit testing.&lt;/p&gt;
+&lt;p&gt;Given you have a class &lt;code&gt;ClassA&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;ClassA&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff79c6&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;hi&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;hi&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff79c6&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;using-class_eval&#34;&gt;Using .class_eval&lt;/h2&gt;
+&lt;p&gt;You can replace the &amp;ldquo;hi&amp;rdquo; method from your unit test, without editing the source code of &lt;code&gt;ClassA&lt;/code&gt; at all.  You can inject mock methods - whatever.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;test_2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  ClassA&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;class_eval &lt;span style=&#34;color:#ff79c6&#34;&gt;do&lt;/span&gt;  &lt;span style=&#34;color:#6272a4&#34;&gt;# injecting into ClassA class&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff79c6&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;hi&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;hello&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff79c6&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff79c6&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  a &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; ClassA&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;new
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  assert_equal &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;hello&amp;#34;&lt;/span&gt;, a&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;hi
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;using-instance_eval&#34;&gt;Using .instance_eval&lt;/h2&gt;
+&lt;p&gt;The trouble with &lt;code&gt;class_eval&lt;/code&gt; is that it alters the class permanently, which is not so good for repeated unit testing where you may be injecting different things in different tests, or not injecting anything at all in some tests etc.  I couldn’t figure out how to restore a class in setup/teardown so&amp;hellip;.&lt;code&gt;instance_eval&lt;/code&gt; is probably better as it only affects an instance. Viz:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;test_2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  a &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; ClassA&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;new
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  a&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;instance_eval &lt;span style=&#34;color:#ff79c6&#34;&gt;do&lt;/span&gt;  &lt;span style=&#34;color:#6272a4&#34;&gt;# injecting into ClassA instance&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff79c6&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;hi&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;hello&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff79c6&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff79c6&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  assert_equal &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;hello&amp;#34;&lt;/span&gt;, a&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;hi
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The above injection (replacement of the &lt;code&gt;hi&lt;/code&gt; method with a different &lt;code&gt;hi&lt;/code&gt; method) does not affect the class, but the instance ONLY.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://bit.ly/gHbzTj&#34;&gt;Source code&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;comments&#34;&gt;Comments&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Posted by RB on Feb 17th, 2011&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Your example and use-case looks good.&lt;/p&gt;
+&lt;p&gt;However, it might be nice to have a Ruby testing framework that completely resets your environment after each unit test. Then you could safely use &lt;code&gt;class_eval&lt;/code&gt; and have the comfort of only thinking about one unit at a time.&lt;/p&gt;
+&lt;p&gt;Rails unit testing doesn&amp;rsquo;t do environment resetting (afaik) (on the code level) - but it does do it on the database level. After each unit-test, the database transaction is rolled-back, so each unit-test is not dependent or influenced by other unit tests.&lt;/p&gt;
+&lt;p&gt;There will also be other unit-testing situations where you will have to use &lt;code&gt;class_eval&lt;/code&gt;. For example, you may be testing a method that builds many objects of a class.&lt;/p&gt;
+&lt;p&gt;Or, arguably, if using &lt;code&gt;instance_eval&lt;/code&gt;, you would have to assume too much about how the code you are testing is written. In testing, all you want to do it test the interface: the high-level view from the outside. You shouldn&amp;rsquo;t be able to know if the tested code is making new instances of classes containing the method you want to inject or fake-out. Eg a method in an object could make a new instance of its own class, without you knowing!&lt;/p&gt;
+&lt;p&gt;-RB&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Posted by Jason on Feb 20th, 2011&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;I wonder what the best mocking tool is for Ruby and how it would fit into the above dependency injection scheme. Perhaps this technique is simple enough so you don&amp;rsquo;t need a mocking framework - just create the mocks as regular classes inside the unit test and away you go.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Blog: Cloning Directories in Ruby</title>
+      <link>https://abulka.github.io/blog/2011/03/01/cloning-directories-in-ruby/</link>
+      <pubDate>Tue, 01 Mar 2011 00:00:00 +0000</pubDate>
+      
+      <guid>https://abulka.github.io/blog/2011/03/01/cloning-directories-in-ruby/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Recursively Cloning Directories in Ruby using Hard Links&lt;/p&gt;
+&lt;p&gt;Hard links exist under windows 7 so you can clone huge directories or files without taking up any extra disk space.  Both the original and the copy are equal and apps can&amp;rsquo;t tell the difference between them - because we are using true hard links (not shortcuts or symbolic links).&lt;/p&gt;
+&lt;h2 id=&#34;built-in-windows-command&#34;&gt;Built in Windows Command&lt;/h2&gt;
+&lt;p&gt;The dos command for cloning a file is simply&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-dos&#34; data-lang=&#34;dos&#34;&gt;mklink /H original clone
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;If you delete the original file, the clone is still there and indistinguishable from the original file.  You can clone as many times as you like and no extra disk space is used.&lt;/p&gt;
+&lt;h2 id=&#34;ruby-code-to-achieve-the-same&#34;&gt;Ruby code to achieve the same&lt;/h2&gt;
+&lt;p&gt;I&amp;rsquo;m not aware of a way of recursively hard linking directories (files as hard links, sub directories as real directories) in windows or linux using the standard commands, so here is a recursive directory cloning utility written in Ruby.  It uses the FileUtils.ln method to do the file cloning.  This works under both windows 7 and linux.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;# ln_r&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;# Copy a directory recursively creating hardlinks for files and real dirs for directories&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;# Andy Bulka, Reilly Beacom&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;# version 1.5&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;require&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;fileutils&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;require&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;optparse&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;ln_r&lt;/span&gt; source, target, options &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; {&lt;span style=&#34;color:#f1fa8c&#34;&gt;:verbose&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;true&lt;/span&gt;, &lt;span style=&#34;color:#f1fa8c&#34;&gt;:report&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;true&lt;/span&gt;, &lt;span style=&#34;color:#f1fa8c&#34;&gt;:countsize&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;false&lt;/span&gt;, options&lt;span style=&#34;color:#ff79c6&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;:deletetarget&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;true&lt;/span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  verbose &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; options&lt;span style=&#34;color:#ff79c6&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;:verbose&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;puts&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;ln_r copying and hard linking from &lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;#{&lt;/span&gt;source&lt;span style=&#34;color:#f1fa8c&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt; to &lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;#{&lt;/span&gt;target&lt;span style=&#34;color:#f1fa8c&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; verbose
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;puts&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;...&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; verbose
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff79c6&#34;&gt;raise&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;source not a directory&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;not&lt;/span&gt; File&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;directory?(source)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#6272a4&#34;&gt;# Add trailing slash&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  source &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; File&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;join(source, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  target &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; File&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;join(target, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#6272a4&#34;&gt;# Ensure target dir exists before we start and delete destination files&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  FileUtils&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;mkdir_p target
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  FileUtils&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;rm_r Dir&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;glob(File&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;join(target, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;/*&amp;#39;&lt;/span&gt;)) &lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; options&lt;span style=&#34;color:#ff79c6&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;:deletetarget&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  total_file_sizes &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  Dir&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;glob(File&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;join(source, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;**/*&amp;#39;&lt;/span&gt;))&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;each &lt;span style=&#34;color:#ff79c6&#34;&gt;do&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;|&lt;/span&gt; source_path &lt;span style=&#34;color:#ff79c6&#34;&gt;|&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    target_path &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; source_path&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;gsub Regexp&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;new(&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;^&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;+&lt;/span&gt; source), target
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; File&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;file? source_path
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      FileUtils&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;mkdir_p File&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;dirname(target_path)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      FileUtils&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;ln source_path, target_path
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      total_file_sizes &lt;span style=&#34;color:#ff79c6&#34;&gt;+=&lt;/span&gt; File&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;size(source_path) &lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; options&lt;span style=&#34;color:#ff79c6&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;:countsize&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;puts&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;created hard link &lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;#{&lt;/span&gt;target_path&lt;span style=&#34;color:#f1fa8c&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;  (source: &lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;#{&lt;/span&gt;source_path&lt;span style=&#34;color:#f1fa8c&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; verbose
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff79c6&#34;&gt;else&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      FileUtils&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;mkdir_p target_path
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;puts&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;created directory &amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;+&lt;/span&gt; target_path &lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; verbose
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff79c6&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff79c6&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;puts&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Done copying/linking.&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; verbose
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff79c6&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;number_with_delimiter&lt;/span&gt;(number, delimiter&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;,&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    number&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;to_s&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;gsub(&lt;span style=&#34;color:#f1fa8c&#34;&gt;/(\d)(?=(\d\d\d)+(?!\d))/&lt;/span&gt;, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;#{&lt;/span&gt;delimiter&lt;span style=&#34;color:#f1fa8c&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff79c6&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;puts&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Bytes saved by linking: &lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;#{&lt;/span&gt;number_with_delimiter(total_file_sizes&lt;span style=&#34;color:#ff79c6&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;1024000&lt;/span&gt;)&lt;span style=&#34;color:#f1fa8c&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt; Mb&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; options&lt;span style=&#34;color:#ff79c6&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;:countsize&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; options&lt;span style=&#34;color:#ff79c6&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;:report&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;puts&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;puts&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;---- RESULT: SOURCE DIRECTORY&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;puts&lt;/span&gt; Dir&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;glob(File&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;join(source, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;/**/*&amp;#39;&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;puts&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;---- TARGET DIRECTORY&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;puts&lt;/span&gt; Dir&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;glob(File&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;join(target, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;/**/*&amp;#39;&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;puts&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;---- RESULT END&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;puts&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff79c6&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;# This hash will hold all of the options&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;# parsed from the command-line by&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;# OptionParser.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;options &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; {}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;optparse &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; OptionParser&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;new &lt;span style=&#34;color:#ff79c6&#34;&gt;do&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;|&lt;/span&gt;opts&lt;span style=&#34;color:#ff79c6&#34;&gt;|&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#6272a4&#34;&gt;# Set a banner, displayed at the top&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#6272a4&#34;&gt;# of the help screen.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  opts&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;banner &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Usage: ln_r.rb [options] source_dir target_dir&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#6272a4&#34;&gt;# Define the options, and what they do&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  options&lt;span style=&#34;color:#ff79c6&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;:verbose&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;false&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  opts&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;on( &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;-v&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;--verbose&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;Output more information&amp;#39;&lt;/span&gt; ) &lt;span style=&#34;color:#ff79c6&#34;&gt;do&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    options&lt;span style=&#34;color:#ff79c6&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;:verbose&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff79c6&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  options&lt;span style=&#34;color:#ff79c6&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;:test&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;false&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  opts&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;on( &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;-t&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;--test&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;Run test copy on test data dirs - Andy only&amp;#39;&lt;/span&gt; ) &lt;span style=&#34;color:#ff79c6&#34;&gt;do&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    options&lt;span style=&#34;color:#ff79c6&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;:test&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff79c6&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  options&lt;span style=&#34;color:#ff79c6&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;:report&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;false&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  opts&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;on( &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;-r&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;--report&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;Display directory of source and target dirs after finish&amp;#39;&lt;/span&gt; ) &lt;span style=&#34;color:#ff79c6&#34;&gt;do&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    options&lt;span style=&#34;color:#ff79c6&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;:report&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff79c6&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  options&lt;span style=&#34;color:#ff79c6&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;:countsize&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;false&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  opts&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;on( &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;-c&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;--countsize&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;Display bytes saved by using hard linking&amp;#39;&lt;/span&gt; ) &lt;span style=&#34;color:#ff79c6&#34;&gt;do&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    options&lt;span style=&#34;color:#ff79c6&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;:countsize&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff79c6&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  options&lt;span style=&#34;color:#ff79c6&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;:deletetarget&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  opts&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;on( &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;-d&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;--dontdeletetarget&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;Dont rm -r * target directory first&amp;#39;&lt;/span&gt; ) &lt;span style=&#34;color:#ff79c6&#34;&gt;do&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    options&lt;span style=&#34;color:#ff79c6&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;:deletetarget&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;false&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff79c6&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#6272a4&#34;&gt;#options[:logfile] = nil&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#6272a4&#34;&gt;#opts.on( &amp;#39;-l&amp;#39;, &amp;#39;--logfile FILE&amp;#39;, &amp;#39;Write log to FILE&amp;#39; ) do|file|&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#6272a4&#34;&gt;#  options[:logfile] = file&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#6272a4&#34;&gt;#end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#6272a4&#34;&gt;# This displays the help screen, all programs are&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#6272a4&#34;&gt;# assumed to have this option.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  opts&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;on( &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;-h&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;--help&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;Display this screen&amp;#39;&lt;/span&gt; ) &lt;span style=&#34;color:#ff79c6&#34;&gt;do&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;puts&lt;/span&gt; opts
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;exit&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff79c6&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;# Parse the command-line. Remember there are two forms&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;# of the parse method. The &amp;#39;parse&amp;#39; method simply parses&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;# ARGV, while the &amp;#39;parse!&amp;#39; method parses ARGV and removes&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;# any options found there, as well as any parameters for&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;# the options. What&amp;#39;s left is the list of files to resize.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;optparse&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;parse!
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;puts&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Being verbose&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; options&lt;span style=&#34;color:#ff79c6&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;:verbose&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;#puts &amp;#34;Logging to file #{options[:logfile]}&amp;#34; if options[:logfile]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; options&lt;span style=&#34;color:#ff79c6&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;:test&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  ln_r &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;LinkTests1/dirA&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;LinkTests1/dirB&amp;#34;&lt;/span&gt;, options
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  ln_r &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;LinkTests2/dirA&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;LinkTests2/dirB/MyCopy/Fred&amp;#34;&lt;/span&gt;, options
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;exit&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; ARGV&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;length &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;puts&lt;/span&gt; optparse&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;help
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;exit&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ln_r ARGV&lt;span style=&#34;color:#ff79c6&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;]&lt;/span&gt;, ARGV&lt;span style=&#34;color:#ff79c6&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;]&lt;/span&gt;, options
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You can invoke it using:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;ruby ln_r.rb [options] dir1 dir2 ...
+
+-v, --verbose Output more information
+-t, --test Run test copy on test data dirs - Andy only
+-r, --report Display directory of source and target dirs after finish
+-c, --countsize Display bytes saved by using hard linking
+-d, --dontdeletetarget Dont rm -r * target directory first
+-h, --help Display this screen
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;a href=&#34;http://bit.ly/igXtBJ&#34;&gt;Source code&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;linux-built-in-command&#34;&gt;Linux built in command&lt;/h2&gt;
+&lt;p&gt;Update Feb 2013&lt;/p&gt;
+&lt;p&gt;Its true that you can achieve the above in linux with&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;cp -lr from to&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;where &lt;code&gt;-r&lt;/code&gt; means recursive copy and &lt;code&gt;-l&lt;/code&gt; mean use linking.  &lt;/p&gt;
+&lt;h2 id=&#34;what-about-windows-copy&#34;&gt;What about Windows COPY&lt;/h2&gt;
+&lt;p&gt;Under windows, the COPY isn&amp;rsquo;t so smart and so the above ruby script may be of help.  Alternatively you can use a port of the linux cp command under windows - and it seems to work OK.  See &lt;a href=&#34;http://sourceforge.net/projects/unxutils/&#34;&gt;Port of the most important GNU utilities to Windows&lt;/a&gt;  &lt;/p&gt;
+&lt;h2 id=&#34;comments&#34;&gt;Comments&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Posted by Reilly on Dec 20th, 2011&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The unix/linux/posix command is:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cp -al dir1 dir2
+
+&amp;#34;copy [cp] with archive [a] (recursive) and link [l]&amp;#34;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;Posted by admin on Dec 20th, 2011&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;I wonder if Win 7 / NTFS has similar flags on the DOS copy command?&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Blog: Ruby vs Python list comprehensions</title>
+      <link>https://abulka.github.io/blog/2010/11/18/ruby-vs-python-list-comprehensions/</link>
+      <pubDate>Thu, 18 Nov 2010 00:00:00 +0000</pubDate>
+      
+      <guid>https://abulka.github.io/blog/2010/11/18/ruby-vs-python-list-comprehensions/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Let&amp;rsquo;s compare Python list comprehensions vs. the way Ruby achieves the same thing thing.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Intent:&lt;/strong&gt; Loop through a list of numbers and pick out the ones greater than 5, and multiply them by 100.  Return them as a list.&lt;/p&gt;
+&lt;h2 id=&#34;python&#34;&gt;Python&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;#!/usr/bin/env python&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;# Long explicit way:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;result &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; []
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;for&lt;/span&gt; n &lt;span style=&#34;color:#ff79c6&#34;&gt;in&lt;/span&gt; &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;range&lt;/span&gt;(&lt;span style=&#34;color:#bd93f9&#34;&gt;1&lt;/span&gt;,&lt;span style=&#34;color:#bd93f9&#34;&gt;8&lt;/span&gt;):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; n &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;5&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        result&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;append(n&lt;span style=&#34;color:#ff79c6&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;100&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;print&lt;/span&gt; result
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;# result [600, 700]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;# Concise way:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;print&lt;/span&gt; [n&lt;span style=&#34;color:#ff79c6&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;100&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;for&lt;/span&gt; n &lt;span style=&#34;color:#ff79c6&#34;&gt;in&lt;/span&gt; [&lt;span style=&#34;color:#bd93f9&#34;&gt;1&lt;/span&gt;,&lt;span style=&#34;color:#bd93f9&#34;&gt;2&lt;/span&gt;,&lt;span style=&#34;color:#bd93f9&#34;&gt;3&lt;/span&gt;,&lt;span style=&#34;color:#bd93f9&#34;&gt;4&lt;/span&gt;,&lt;span style=&#34;color:#bd93f9&#34;&gt;5&lt;/span&gt;,&lt;span style=&#34;color:#bd93f9&#34;&gt;6&lt;/span&gt;,&lt;span style=&#34;color:#bd93f9&#34;&gt;7&lt;/span&gt;] &lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; n &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;5&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;# result [600, 700]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;ruby&#34;&gt;Ruby&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;#!/usr/bin/env ruby&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;# Long explicit way:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;result &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;[]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(&lt;span style=&#34;color:#bd93f9&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;...&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;8&lt;/span&gt;)&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;each &lt;span style=&#34;color:#ff79c6&#34;&gt;do&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;|&lt;/span&gt;n&lt;span style=&#34;color:#ff79c6&#34;&gt;|&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; n &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;5&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        result &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; n&lt;span style=&#34;color:#ff79c6&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;100&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff79c6&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;p&lt;/span&gt; result
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;# result [600, 700]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;# Concise way:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;p&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;1&lt;/span&gt;,&lt;span style=&#34;color:#bd93f9&#34;&gt;2&lt;/span&gt;,&lt;span style=&#34;color:#bd93f9&#34;&gt;3&lt;/span&gt;,&lt;span style=&#34;color:#bd93f9&#34;&gt;4&lt;/span&gt;,&lt;span style=&#34;color:#bd93f9&#34;&gt;5&lt;/span&gt;,&lt;span style=&#34;color:#bd93f9&#34;&gt;6&lt;/span&gt;,&lt;span style=&#34;color:#bd93f9&#34;&gt;7&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;].&lt;/span&gt;select{&lt;span style=&#34;color:#ff79c6&#34;&gt;|&lt;/span&gt;n&lt;span style=&#34;color:#ff79c6&#34;&gt;|&lt;/span&gt; n &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;5&lt;/span&gt;}&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;map{&lt;span style=&#34;color:#ff79c6&#34;&gt;|&lt;/span&gt;n&lt;span style=&#34;color:#ff79c6&#34;&gt;|&lt;/span&gt; n&lt;span style=&#34;color:#ff79c6&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;100&lt;/span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;# result [600, 700]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;thoughts&#34;&gt;Thoughts&lt;/h2&gt;
+&lt;p&gt;It seems to me that the puzzle (such that it is) consists of two distinct stages.&lt;/p&gt;
+&lt;p&gt;The first stage is to select items from the list and the second stage is to apply a transformation onto each selected element.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I used to think that the python syntax was superior, but once you get around the idea of the two stages, the ruby syntax makes perfect sense too.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Also, I guess the “select + map idiom” is so common that the special python syntax wins in that it isn’t telling you how anything is being done – the “list comprehension” just reads better.&lt;/p&gt;
+&lt;p&gt;The ruby version is a little more cryptic to the newcomer I guess and is telling you how everything is being done.&lt;/p&gt;
+&lt;p&gt;The ruby version on the other hand is more general, and would allow other varieties of select/transform/manipulate to get plugged in, and you can have as many as you like e.g.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;p&lt;/span&gt; (&lt;span style=&#34;color:#bd93f9&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;..&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;10&lt;/span&gt;)&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;select{&lt;span style=&#34;color:#ff79c6&#34;&gt;|&lt;/span&gt;n&lt;span style=&#34;color:#ff79c6&#34;&gt;|&lt;/span&gt; n &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;5&lt;/span&gt;}&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;map{&lt;span style=&#34;color:#ff79c6&#34;&gt;|&lt;/span&gt;n&lt;span style=&#34;color:#ff79c6&#34;&gt;|&lt;/span&gt; n&lt;span style=&#34;color:#ff79c6&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;1&lt;/span&gt;}&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;delete_if{&lt;span style=&#34;color:#ff79c6&#34;&gt;|&lt;/span&gt;n&lt;span style=&#34;color:#ff79c6&#34;&gt;|&lt;/span&gt; n &lt;span style=&#34;color:#ff79c6&#34;&gt;%&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;2&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;0&lt;/span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Blog: Thoughts on Closures</title>
+      <link>https://abulka.github.io/blog/2007/11/05/thoughts-on-closures/</link>
+      <pubDate>Mon, 05 Nov 2007 00:00:00 +0000</pubDate>
+      
+      <guid>https://abulka.github.io/blog/2007/11/05/thoughts-on-closures/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;thoughts-on-closures&#34;&gt;Thoughts on Closures&lt;/h1&gt;
+&lt;p&gt;It seems like closures are all the rage in software development circles.  Ruby and Groovy have them and then C# got them.  Python had a form of them but are they really closures?  What are closures anyway - do we need them?&lt;/p&gt;
+&lt;p&gt;In this presentation I argue that anything you can do with closures you can do without closures.  Often not as elegantly, but often just as clearly.  What do you think?&lt;/p&gt;
+&lt;h2 id=&#34;presentation&#34;&gt;Presentation&lt;/h2&gt;
+&lt;iframe style=&#34;border: 1px solid #CCC; border-width: 1px; margin-bottom: 5px; max-width: 100%;&#34; src=&#34;//www.slideshare.net/slideshow/embed_code/key/EbZETLRZZskkDU&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; width=&#34;595&#34; height=&#34;485&#34;&gt; &lt;/iframe&gt;
+&lt;h2 id=&#34;comments&#34;&gt;Comments&lt;/h2&gt;
+&lt;h3 id=&#34;posted-by-lakisha-on-dec-29th-2014&#34;&gt;Posted by Lakisha on Dec 29th, 2014&lt;/h3&gt;
+&lt;p&gt;I appreciate you taking to time to contribute That&amp;rsquo;s very helpful.&lt;/p&gt;
+&lt;h3 id=&#34;posted-by-celiane-on-jan-10th-2015&#34;&gt;Posted by Celiane on Jan 10th, 2015&lt;/h3&gt;
+&lt;p&gt;Ah just what I&amp;rsquo;m looking for! I could not find this operator documented on the Groovy site. Excellent topics too btw, makes my learning idiomatic Groovy way easier. Thanks.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

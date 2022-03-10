@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.92.0" />
+<meta name="generator" content="Hugo 0.93.3" />
 <meta name="robots" content="index, follow">
 
 
@@ -26,14 +26,14 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://abulka.github.io/blog/2005/03/05/swapping-implementations/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2005-03-05T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-11-05T13:05:36+11:00" />
+<meta property="article:modified_time" content="2022-03-10T13:25:22+11:00" />
 
 <meta itemprop="name" content="Swapping Implementations">
 <meta itemprop="description" content="This is an exploration of how to swap implementations of objects within our software architectures using patterns like the Interface, Factory, Strategy, Proxy, Adapter, and finally to the full blown Bridge Design Pattern.  This article was formerly known as The &ldquo;Road to the Bridge&rdquo; and as &ldquo;Strategy to Bridge&rdquo;
  The problem We want to be flexible in our architecture. We want to be able to swap implementations of objects/classes easily e."><meta itemprop="datePublished" content="2005-03-05T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2020-11-05T13:05:36+11:00" />
+<meta itemprop="dateModified" content="2022-03-10T13:25:22+11:00" />
 <meta itemprop="wordCount" content="2490">
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Design Patterns,Java,Refactoring," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Swapping Implementations"/>
 <meta name="twitter:description" content="This is an exploration of how to swap implementations of objects within our software architectures using patterns like the Interface, Factory, Strategy, Proxy, Adapter, and finally to the full blown Bridge Design Pattern.  This article was formerly known as The &ldquo;Road to the Bridge&rdquo; and as &ldquo;Strategy to Bridge&rdquo;
  The problem We want to be flexible in our architecture. We want to be able to swap implementations of objects/classes easily e."/>
@@ -135,7 +135,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.776c822f296e236cb9c3d581f2e32871.json"
+  data-offline-search-index-json-src="/offline-search-index.ac860f082e5d6bbf6ec932fe84593fe9.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -157,7 +157,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.776c822f296e236cb9c3d581f2e32871.json"
+  data-offline-search-index-json-src="/offline-search-index.ac860f082e5d6bbf6ec932fe84593fe9.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -305,20 +305,84 @@ if (!doNotTrack) {
 
 	
 		
+			
+				
+			
+			
 
 
 
   
   
+    <div class="taxonomy taxonomy-terms-cloud taxo-tags">
+      
+        <h5 class="taxonomy-title">Tag Cloud</h5>
+      
+      <ul class="taxonomy-terms">
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/async/" data-taxonomy-term="async"><span class="taxonomy-label">Async</span><span class="taxonomy-count">1</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/calculators/" data-taxonomy-term="calculators"><span class="taxonomy-label">Calculators</span><span class="taxonomy-count">3</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/controllers/" data-taxonomy-term="controllers"><span class="taxonomy-label">Controllers</span><span class="taxonomy-count">8</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/design-patterns/" data-taxonomy-term="design-patterns"><span class="taxonomy-label">Design Patterns</span><span class="taxonomy-count">23</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/dev-ops/" data-taxonomy-term="dev-ops"><span class="taxonomy-label">Dev Ops</span><span class="taxonomy-count">1</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/diagramming/" data-taxonomy-term="diagramming"><span class="taxonomy-label">Diagramming</span><span class="taxonomy-count">5</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/django/" data-taxonomy-term="django"><span class="taxonomy-label">Django</span><span class="taxonomy-count">1</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/electron/" data-taxonomy-term="electron"><span class="taxonomy-label">Electron</span><span class="taxonomy-count">2</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/flask/" data-taxonomy-term="flask"><span class="taxonomy-label">Flask</span><span class="taxonomy-count">1</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/flutter/" data-taxonomy-term="flutter"><span class="taxonomy-label">Flutter</span><span class="taxonomy-count">1</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/gui/" data-taxonomy-term="gui"><span class="taxonomy-label">GUI</span><span class="taxonomy-count">10</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/java/" data-taxonomy-term="java"><span class="taxonomy-label">Java</span><span class="taxonomy-count">1</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/javascript/" data-taxonomy-term="javascript"><span class="taxonomy-label">Javascript</span><span class="taxonomy-count">6</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/jupyter/" data-taxonomy-term="jupyter"><span class="taxonomy-label">Jupyter</span><span class="taxonomy-count">1</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/music/" data-taxonomy-term="music"><span class="taxonomy-label">Music</span><span class="taxonomy-count">2</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/mvc/" data-taxonomy-term="mvc"><span class="taxonomy-label">MVC</span><span class="taxonomy-count">7</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/observer/" data-taxonomy-term="observer"><span class="taxonomy-label">Observer</span><span class="taxonomy-count">5</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/orm/" data-taxonomy-term="orm"><span class="taxonomy-label">ORM</span><span class="taxonomy-count">1</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/python/" data-taxonomy-term="python"><span class="taxonomy-label">Python</span><span class="taxonomy-count">17</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/refactoring/" data-taxonomy-term="refactoring"><span class="taxonomy-label">Refactoring</span><span class="taxonomy-count">4</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/ruby/" data-taxonomy-term="ruby"><span class="taxonomy-label">Ruby</span><span class="taxonomy-count">4</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/software-product/" data-taxonomy-term="software-product"><span class="taxonomy-label">Software Product</span><span class="taxonomy-count">6</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/sql/" data-taxonomy-term="sql"><span class="taxonomy-label">SQL</span><span class="taxonomy-count">3</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/thoughts/" data-taxonomy-term="thoughts"><span class="taxonomy-label">Thoughts</span><span class="taxonomy-count">9</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/ubuntu/" data-taxonomy-term="ubuntu"><span class="taxonomy-label">Ubuntu</span><span class="taxonomy-count">1</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/uml/" data-taxonomy-term="uml"><span class="taxonomy-label">UML</span><span class="taxonomy-count">8</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/vscode/" data-taxonomy-term="vscode"><span class="taxonomy-label">Vscode</span><span class="taxonomy-count">1</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/vuejs/" data-taxonomy-term="vuejs"><span class="taxonomy-label">Vuejs</span><span class="taxonomy-count">1</span></a></li>
+        
+          <li><a class="taxonomy-term" href="https://abulka.github.io/tags/wxpython/" data-taxonomy-term="wxpython"><span class="taxonomy-label">wxPython</span><span class="taxonomy-count">4</span></a></li>
+        
+      </ul>
+    </div>
+  
 
-	
 		
-
-
-
-  
-  
-
 	
 
           </aside>
@@ -339,12 +403,23 @@ if (!doNotTrack) {
 
   
     
+      
 
 
-  
+<div class="taxonomy taxonomy-terms-article taxo-tags">
+  <h5 class="taxonomy-title">Tags:</h5>
+  <ul class="taxonomy-terms">
     
+      <li><a class="taxonomy-term" href="https://abulka.github.io/tags/design-patterns/" data-taxonomy-term="design-patterns"><span class="taxonomy-label">Design Patterns</span></a></li>
+    
+      <li><a class="taxonomy-term" href="https://abulka.github.io/tags/java/" data-taxonomy-term="java"><span class="taxonomy-label">Java</span></a></li>
+    
+      <li><a class="taxonomy-term" href="https://abulka.github.io/tags/refactoring/" data-taxonomy-term="refactoring"><span class="taxonomy-label">Refactoring</span></a></li>
+    
+  </ul>
+</div>
 
-
+    
   
 
 		
@@ -377,18 +452,18 @@ Specifically how we can choose between:</p>
 <h3 id="interface-compile-time-choice">Interface, compile time choice</h3>
 <p>Alternative implementations of an interface. Instantiate one or the other implementation of that interface. The code that uses the object is unaware of which object it is using. &ldquo;Program to an interface&rdquo;</p>
 <p><img src="/blog/images/swapping-PathToBridge_Interface01.gif" alt=""></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#000">Worker</span> <span style="color:#000">o</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">A</span><span style="color:#ce5c00;font-weight:bold">()</span>  
-<span style="color:#8f5902;font-style:italic">// Worker o = new B()
-</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">o</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">DoSomething</span><span style="color:#ce5c00;font-weight:bold">()</span>
-</code></pre></div><p>Here the choice is at compile time, by commenting out one or the other instantiation.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Worker o <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> A<span style="color:#ff79c6">()</span>  
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">// Worker o = new B()
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>o<span style="color:#ff79c6">.</span><span style="color:#50fa7b">DoSomething</span><span style="color:#ff79c6">()</span>
+</span></span></code></pre></div><p>Here the choice is at compile time, by commenting out one or the other instantiation.</p>
 <h3 id="interface-dynamic-run-time-choice">Interface, dynamic run time choice</h3>
 <p>Same solution except choose particular implementation dynamically at runtime using a flag.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">flag</span>  
-   <span style="color:#000">Worker</span> <span style="color:#000">o</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">A</span><span style="color:#ce5c00;font-weight:bold">()</span>  
-<span style="color:#204a87;font-weight:bold">else</span>  
-   <span style="color:#000">Worker</span> <span style="color:#000">o</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">B</span><span style="color:#ce5c00;font-weight:bold">()</span>
-<span style="color:#000">o</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">DoSomething</span><span style="color:#ce5c00;font-weight:bold">()</span>    <span style="color:#8f5902;font-style:italic">// we don&#39;t know if its an A or a B.  Everything works ok.
-</span></code></pre></div><h2 id="factory">Factory</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#ff79c6">if</span> flag  
+</span></span><span style="display:flex;"><span>   Worker o <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> A<span style="color:#ff79c6">()</span>  
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">else</span>  
+</span></span><span style="display:flex;"><span>   Worker o <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> B<span style="color:#ff79c6">()</span>
+</span></span><span style="display:flex;"><span>o<span style="color:#ff79c6">.</span><span style="color:#50fa7b">DoSomething</span><span style="color:#ff79c6">()</span>    <span style="color:#6272a4">// we don&#39;t know if its an A or a B.  Everything works ok.
+</span></span></span></code></pre></div><h2 id="factory">Factory</h2>
 <p>Create A or B at runtime by asking another class to create the concrete object for us.  Pass in the flag to the factory or let the factory decide for itself which implementation we want.</p>
 <p>Factory class is the only class to refer to concrete products. The client refers to the interface/abstract class only.</p>
 <p>We are still talking directly to the concrete object (either an A or a B).</p>
@@ -399,29 +474,29 @@ Specifically how we can choose between:</p>
 <p>Factory class is the only class that refers directly to concrete products. Client refers only to interface/abstract class.</p>
 <p>The choice is made via conditional code.</p>
 <p><img src="/blog/images/swapping-PathToBridge_FactorySimple.gif" alt=""></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#000">Factory</span> <span style="color:#000">f</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">SimpleFactory</span><span style="color:#ce5c00;font-weight:bold">()</span>  
-<span style="color:#000">Worker</span> <span style="color:#000">o</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">f</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">CreateWorker</span><span style="color:#ce5c00;font-weight:bold">()</span>
-<span style="color:#000">o</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">DoSomething</span><span style="color:#ce5c00;font-weight:bold">()</span>    <span style="color:#8f5902;font-style:italic">// we don&#39;t know if its an A or a B.  Everything works ok.
-</span></code></pre></div><h3 id="registry-based-factory">Registry Based Factory</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Factory f <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> SimpleFactory<span style="color:#ff79c6">()</span>  
+</span></span><span style="display:flex;"><span>Worker o <span style="color:#ff79c6">=</span> f<span style="color:#ff79c6">.</span><span style="color:#50fa7b">CreateWorker</span><span style="color:#ff79c6">()</span>
+</span></span><span style="display:flex;"><span>o<span style="color:#ff79c6">.</span><span style="color:#50fa7b">DoSomething</span><span style="color:#ff79c6">()</span>    <span style="color:#6272a4">// we don&#39;t know if its an A or a B.  Everything works ok.
+</span></span></span></code></pre></div><h3 id="registry-based-factory">Registry Based Factory</h3>
 <p>Maintains a registry of mappings between strings (or any type of key e.g. objects, class references, numbers etc.) and class references.  Benefit: more generalized, no if statements. </p>
 <p>Factory class is the only class that refers directly to concrete products. Client refers only to interface/abstract class.</p>
 <p>The choice is made via registry key.</p>
 <p><img src="/blog/images/swapping-PathToBridge_FactoryRegistry.gif" alt=""></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#000">key</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#a40000">&#39;</span><span style="color:#000">worker</span> <span style="color:#000">a</span><span style="color:#a40000">&#39;</span>   <span style="color:#8f5902;font-style:italic">// in setup code somewhere
-</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">Factory</span> <span style="color:#000">f</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">RegistryFactory</span><span style="color:#ce5c00;font-weight:bold">()</span>  
-<span style="color:#000">Worker</span> <span style="color:#000">o</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">f</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">CreateWorker</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">key</span><span style="color:#ce5c00;font-weight:bold">)</span>
-<span style="color:#000">o</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">DoSomething</span><span style="color:#ce5c00;font-weight:bold">()</span>    <span style="color:#8f5902;font-style:italic">// we don&#39;t know if its an A or a B.  Everything works ok.
-</span></code></pre></div><h3 id="gof-factory-method">GOF Factory Method</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>key <span style="color:#ff79c6">=</span> &#39;worker a&#39;   <span style="color:#6272a4">// in setup code somewhere
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>Factory f <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> RegistryFactory<span style="color:#ff79c6">()</span>  
+</span></span><span style="display:flex;"><span>Worker o <span style="color:#ff79c6">=</span> f<span style="color:#ff79c6">.</span><span style="color:#50fa7b">CreateWorker</span><span style="color:#ff79c6">(</span>key<span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>o<span style="color:#ff79c6">.</span><span style="color:#50fa7b">DoSomething</span><span style="color:#ff79c6">()</span>    <span style="color:#6272a4">// we don&#39;t know if its an A or a B.  Everything works ok.
+</span></span></span></code></pre></div><h3 id="gof-factory-method">GOF Factory Method</h3>
 <p>Assumes the client <em>already has</em> an instance of some class which needs either a A or B version of a worker class.  </p>
 <p>Each alternative instance of  the existing class overrides a create method differently, each instantiating a different concrete product - typically one matching their own functionality. Benefit: no class reference language facilities required. </p>
 <p>Factory class is the only class that refers directly to concrete products. Client refers only to interface/abstract class.</p>
 <p>The choice is made via polymorphic override.</p>
 <p><img src="/blog/images/swapping-PathToBridge_FactoryMethodGOF_01.gif" alt=""></p>
 <p>Note that the choice as to which Work Manager (MgrA or MgrB) to instantiate in the first place is going to be an issue, but is not the point of this example.  The point is that once you have a particular brand of work manager, then you will get a related brand of of worker via the suitably overriden CreateWorker factory method.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#000">WorkManager</span> <span style="color:#000">f</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">MgrA</span><span style="color:#ce5c00;font-weight:bold">()</span>      <span style="color:#8f5902;font-style:italic">// done somewhere in setup
-</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">Worker</span> <span style="color:#000">o</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">f</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">CreateWorker</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">key</span><span style="color:#ce5c00;font-weight:bold">)</span>
-<span style="color:#000">o</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">DoSomething</span><span style="color:#ce5c00;font-weight:bold">()</span>    <span style="color:#8f5902;font-style:italic">// we don&#39;t know if its an A or a B.  Everything works ok.
-</span></code></pre></div><p>There will be parallel hierarchies, e.g. the WorkManager and the Worker hierarchies closely match, with A and B versions of their subclasses.  Start to think of a <em>family</em> of classes.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>WorkManager f <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> MgrA<span style="color:#ff79c6">()</span>      <span style="color:#6272a4">// done somewhere in setup
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>Worker o <span style="color:#ff79c6">=</span> f<span style="color:#ff79c6">.</span><span style="color:#50fa7b">CreateWorker</span><span style="color:#ff79c6">(</span>key<span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>o<span style="color:#ff79c6">.</span><span style="color:#50fa7b">DoSomething</span><span style="color:#ff79c6">()</span>    <span style="color:#6272a4">// we don&#39;t know if its an A or a B.  Everything works ok.
+</span></span></span></code></pre></div><p>There will be parallel hierarchies, e.g. the WorkManager and the Worker hierarchies closely match, with A and B versions of their subclasses.  Start to think of a <em>family</em> of classes.</p>
 <p>My further thoughts, including a more detailed example of Factory Method <a href="https://www.atug.com/andypatterns/factory_method_example.htm">here</a>.</p>
 <h3 id="abstract-factory">Abstract Factory</h3>
 <p>Abstract factory similar to factory method, in that there is something being overridden.</p>
@@ -435,12 +510,12 @@ Specifically how we can choose between:</p>
 <li>IProduct3</li>
 </ul>
 <p><img src="/blog/images/swapping-PathToBridge_AbsFactory_01.gif" alt=""></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#000">IAbstractProductFactory</span> <span style="color:#000">f</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">ProductFactoryVersionA</span><span style="color:#ce5c00;font-weight:bold">()</span>   
-<span style="color:#8f5902;font-style:italic">// choice is made at compile time, via factory method (run time) via strategy (runtime)  
-</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">IProduct1</span> <span style="color:#000">p1</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">f</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">CreateProduct1</span><span style="color:#ce5c00;font-weight:bold">()</span>  
-<span style="color:#000">IProduct2</span> <span style="color:#000">p2</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">f</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">CreateProduct2</span><span style="color:#ce5c00;font-weight:bold">()</span>  
-<span style="color:#000">IProduct3</span> <span style="color:#000">p3</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">f</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">CreateProduct3</span><span style="color:#ce5c00;font-weight:bold">()</span>
-</code></pre></div><p>All products p1, p2, p3 are in the above example A versions, and compatible with each other.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>IAbstractProductFactory f <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> ProductFactoryVersionA<span style="color:#ff79c6">()</span>   
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">// choice is made at compile time, via factory method (run time) via strategy (runtime)  
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>IProduct1 p1 <span style="color:#ff79c6">=</span> f<span style="color:#ff79c6">.</span><span style="color:#50fa7b">CreateProduct1</span><span style="color:#ff79c6">()</span>  
+</span></span><span style="display:flex;"><span>IProduct2 p2 <span style="color:#ff79c6">=</span> f<span style="color:#ff79c6">.</span><span style="color:#50fa7b">CreateProduct2</span><span style="color:#ff79c6">()</span>  
+</span></span><span style="display:flex;"><span>IProduct3 p3 <span style="color:#ff79c6">=</span> f<span style="color:#ff79c6">.</span><span style="color:#50fa7b">CreateProduct3</span><span style="color:#ff79c6">()</span>
+</span></span></code></pre></div><p>All products p1, p2, p3 are in the above example A versions, and compatible with each other.</p>
 <p>My further thoughts on Abstract Factory <a href="https://www.atug.com/andypatterns/abstract_factory_thoughts.htm">here</a>.</p>
 <p><img src="https://www.atug.com/andypatterns/_themes/canvas/acnvrule.gif" alt=""></p>
 <h2 id="indirection-patterns">Indirection Patterns</h2>
@@ -455,19 +530,19 @@ Specifically how we can choose between:</p>
 <p>A methodless indirection using &ldquo;demeter&rdquo; referencing.</p>
 <p><img src="/blog/images/swapping-PathToBridge_IndirectionStrategyPoorMans.gif" alt=""></p>
 <p>Responsibility of the client to know the API of the strategy.  So still programming to the strategy interface.  You have to since the intermediary has no methods, or rather, has no methods specifically related to accessing the A &amp; B classes.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#000">o</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">Intermediary</span><span style="color:#ce5c00;font-weight:bold">()</span>  
-<span style="color:#000">o</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">SetStrategy</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">A</span><span style="color:#ce5c00;font-weight:bold">())</span>   <span style="color:#8f5902;font-style:italic">// done in setup somewhere, or via a factory or via dependency injection framework
-</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">o</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">impl</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">DoSomething</span><span style="color:#ce5c00;font-weight:bold">()</span>
-</code></pre></div><h3 id="strategy-pattern">Strategy Pattern</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>o <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Intermediary<span style="color:#ff79c6">()</span>  
+</span></span><span style="display:flex;"><span>o<span style="color:#ff79c6">.</span><span style="color:#50fa7b">SetStrategy</span><span style="color:#ff79c6">(</span><span style="color:#ff79c6">new</span> A<span style="color:#ff79c6">())</span>   <span style="color:#6272a4">// done in setup somewhere, or via a factory or via dependency injection framework
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>o<span style="color:#ff79c6">.</span><span style="color:#50fa7b">impl</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">DoSomething</span><span style="color:#ff79c6">()</span>
+</span></span></code></pre></div><h3 id="strategy-pattern">Strategy Pattern</h3>
 <p>Proper Strategy.</p>
 <p><img src="/blog/images/swapping-PathToBridge_IndirectionStrategy01.gif" alt=""></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#000">o</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">Intermediary</span><span style="color:#ce5c00;font-weight:bold">()</span>  
-<span style="color:#000">o</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">SetStrategy</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">A</span><span style="color:#ce5c00;font-weight:bold">())</span>   <span style="color:#8f5902;font-style:italic">// done in setup somewhere, or via a factory or via dependency injection framework
-</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">o</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">DoSomething</span><span style="color:#ce5c00;font-weight:bold">()</span>
-</code></pre></div><p>later you can switch the strategy without the client code caring.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#000">o</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">SetStrategy</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">B</span><span style="color:#ce5c00;font-weight:bold">())</span>  
-<span style="color:#000">o</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">DoSomething</span><span style="color:#ce5c00;font-weight:bold">()</span>        <span style="color:#8f5902;font-style:italic">// different behaviour or different implementation occurs
-</span></code></pre></div><h3 id="strategy-with-a-touch-of-the-adapter-pattern">Strategy with a touch of the Adapter pattern</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>o <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Intermediary<span style="color:#ff79c6">()</span>  
+</span></span><span style="display:flex;"><span>o<span style="color:#ff79c6">.</span><span style="color:#50fa7b">SetStrategy</span><span style="color:#ff79c6">(</span><span style="color:#ff79c6">new</span> A<span style="color:#ff79c6">())</span>   <span style="color:#6272a4">// done in setup somewhere, or via a factory or via dependency injection framework
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>o<span style="color:#ff79c6">.</span><span style="color:#50fa7b">DoSomething</span><span style="color:#ff79c6">()</span>
+</span></span></code></pre></div><p>later you can switch the strategy without the client code caring.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>o<span style="color:#ff79c6">.</span><span style="color:#50fa7b">SetStrategy</span><span style="color:#ff79c6">(</span><span style="color:#ff79c6">new</span> B<span style="color:#ff79c6">())</span>  
+</span></span><span style="display:flex;"><span>o<span style="color:#ff79c6">.</span><span style="color:#50fa7b">DoSomething</span><span style="color:#ff79c6">()</span>        <span style="color:#6272a4">// different behaviour or different implementation occurs
+</span></span></span></code></pre></div><h3 id="strategy-with-a-touch-of-the-adapter-pattern">Strategy with a touch of the Adapter pattern</h3>
 <p>If your implementation has a slightly different API than the one your client code wants to use, then you can adapt it at the same time as you are strategizing&hellip;</p>
 <p><img src="/blog/images/swapping-PathToBridge_IndirectionStrategyAdapter.gif" alt=""></p>
 <h3 id="proxy-v2---going-all-the-way">Proxy v2 - going all the way</h3>
@@ -830,7 +905,7 @@ Specifically how we can choose between:</p>
 
 
 
-<script src="/js/main.min.8ab8f81ff7e1454d30024cd6f956d4d341c3a97e2a673f988065f2ee4e147922.js" integrity="sha256-irj4H/fhRU0wAkzW&#43;VbU00HDqX4qZz&#43;YgGXy7k4UeSI=" crossorigin="anonymous"></script>
+<script src="/js/main.min.fc1551b8c1b40a6eaa08f3cb9c76f12ccd9aebc436cecdaf2341c890206d024a.js" integrity="sha256-/BVRuMG0Cm6qCPPLnHbxLM2a68Q2zs2vI0HIkCBtAko=" crossorigin="anonymous"></script>
 
 
 

@@ -1,0 +1,36 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Andy Bulka – Ubuntu</title>
+    <link>https://abulka.github.io/tags/ubuntu/</link>
+    <description>Recent content in Ubuntu on Andy Bulka</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 06 Apr 2019 00:00:00 +0000</lastBuildDate>
+    
+	  <atom:link href="https://abulka.github.io/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Blog: Getting wxPython apps into the Ubuntu app store</title>
+      <link>https://abulka.github.io/blog/2019/04/06/getting-wxpython-apps-into-the-ubuntu-app-store/</link>
+      <pubDate>Sat, 06 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://abulka.github.io/blog/2019/04/06/getting-wxpython-apps-into-the-ubuntu-app-store/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Have you ever dreamt of getting your own apps in the Ubuntu app store? Here’s how.&lt;/p&gt;
+&lt;p&gt;I wanted to get my UML tool for Python, Pynsource, into the Ubuntu/Snapcraft app store for a long time. This is the story of how I made that happen.&lt;/p&gt;
+&lt;p&gt;It certainly wasn’t easy. It took me a week of work, struggling with the concepts, documentation and various bugs in the tooling to finally get my app listed.
+Hopefully I can save you some time getting your Python command line app or wxPython GUI app published.&lt;/p&gt;
+&lt;p&gt;See full article on Medium &lt;a href=&#34;https://medium.com/@abulka/getting-python-and-wxpython-apps-into-the-ubuntu-app-store-ccca7ae537a3&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>
