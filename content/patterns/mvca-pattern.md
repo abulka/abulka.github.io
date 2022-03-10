@@ -1,15 +1,17 @@
 ---
-title: "MVCA Architectural Pattern"
+title: "MVC-App Architectural Pattern"
 linkTitle: "MVC-App Pattern"
 date: 2019-01-04
 type: docs
 description: >
-  MVCA simply means "Model View Controller Application" - all four roles are necessary to any implementation.
+  MVC-App simply means "Model View Controller Application" - all four roles are necessary to any implementation.
 ---
 
 ## Introduction
 
-For the original MGM pattern see [MGM pattern]({{< ref "/patterns/mgm-pattern.md" >}})
+This article describes the "MVC-App Architectural Pattern" which you can use to design your software applications, when you need to support a GUI.  It is not a framework, it is a small set of principles which let you build sane, modular GUIs in any language, using any off the shelf UI components.
+
+> For the original, deprecated, MGM pattern which initially inspired this "MVC-App Pattern" pattern, see [MGM pattern]({{< ref "/patterns/mgm-pattern.md" >}})
 
 ## TodoMVC-OO
 
