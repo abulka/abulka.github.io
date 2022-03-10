@@ -89,7 +89,9 @@ id = "G-X0GNQ7330T"
       unsafe = true
   [markup.highlight]
       # See a complete list of available styles at https://xyproto.github.io/splash/docs/all.html
-      style = "tango"
+#       style = "tango"
+      style = "dracula"
+#       style = "vim"
       # Uncomment if you want your chosen highlight style used for code blocks without a specified language
       # guessSyntax = "true"
 
