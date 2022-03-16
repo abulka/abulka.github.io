@@ -1,7 +1,7 @@
 ---
 title: "Consulting"
 linkTitle: "Consulting"
-type: projects
+type: docs
 weight: 20
 ---
 

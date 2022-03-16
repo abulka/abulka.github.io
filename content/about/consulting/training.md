@@ -1,7 +1,7 @@
 ---
 title: "Training"
 date: 2020-11-23T12:30:33+11:00
-type: projects
+type: docs
 draft: false
 ---
 
