@@ -106,7 +106,7 @@ Google Colaboratory, or &amp;ldquo;Colab&amp;rdquo; for short, is a version of J
 &lt;p&gt;A midi web app that lets you play chords with 1 finger in the left hand
 and jam safely in the right hand.
 As you change chords, the rh notes are filtered so you always play good sounding notes.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/websites/images/chord-jammer-1.png&#34; alt=&#34;screenshot&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/websites/images/chord-jammer-2.png&#34; alt=&#34;screenshot&#34;&gt;&lt;/p&gt;
 &lt;p&gt;
     MIDI powered by &lt;a href=&#34;https://webmidijs.org/docs/&#34;&gt;WebMidi.js&lt;/a&gt;
     GUI powered by &lt;a href=&#34;http://g200kg.github.io/webaudio-controls/docs/index.html&#34;&gt;webaudio-controls&lt;/a&gt;
