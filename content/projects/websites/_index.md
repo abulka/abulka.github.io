@@ -147,7 +147,7 @@ A midi web app that lets you play chords with 1 finger in the left hand
 and jam safely in the right hand. 
 As you change chords, the rh notes are filtered so you always play good sounding notes.
 
-![screenshot](/projects/websites/images/chord-jammer-1.png)
+![screenshot](/projects/websites/images/chord-jammer-2.png)
 
 <p>
     MIDI powered by <a href="https://webmidijs.org/docs/">WebMidi.js</a>
