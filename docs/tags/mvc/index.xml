@@ -624,9 +624,13 @@ March 2012&lt;/p&gt;
         
         
         &lt;p&gt;TodoMVC implemented in a classic Object Oriented way.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;TodoMVC is a long standing web project showing how a ToDo app can be built in numerous frameworks.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;The classic Javascript TodoMVC app implemented without a framework, using plain Object Oriented programming + a traditional MVC design pattern. Distinct, mediating Controller objects are the key to this implementation.&lt;/p&gt;
 &lt;p&gt;Running demo &lt;a href=&#34;https://abulka.github.io/todomvc-oo/index.html&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;See full article on Medium &lt;a href=&#34;https://medium.com/@abulka/todomvc-implemented-using-traditional-oo-controllers-and-events-5e4c09f80cd4&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;See my full article on Medium &lt;a href=&#34;https://medium.com/@abulka/todomvc-implemented-using-traditional-oo-controllers-and-events-5e4c09f80cd4&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;See also &lt;a href=&#34;https://github.com/1Marc/todomvc-vanillajs-2022&#34;&gt;this GitHub repo&lt;/a&gt; by Marc Grabanski which shows us how to built TodoMVC in vanilla JS in 2022 (no classes are used in this version).&lt;/p&gt;
 
       </description>
     </item>
