@@ -527,7 +527,7 @@ Vmax is a programmer&amp;rsquo;s text editor combined with a graphical browsing 
 Debuggers are dynamic, automated ways of producing model-view-controller visualisations of your data, except they attach to ANY software application and reveal it, visually&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;&lt;strong&gt;Posted by Mike Davis on Feb 9th, 2009&lt;/strong&gt;&lt;br&gt;
-Have you looked at ECO IV and V from CapableObjects? (&lt;a href=&#34;http://www.capableobjects.com&#34;&gt;www.capableobjects.com&lt;/a&gt;). Is is a UML modeler which uses an extension to OCL for triggered actions and state diagrams for object state models to generate syncronized C# and VB.NET (version V) only.&lt;/p&gt;
+Have you looked at ECO IV and V from CapableObjects? (&lt;a href=&#34;https://www.capableobjects.com&#34;&gt;www.capableobjects.com&lt;/a&gt;). Is is a UML modeler which uses an extension to OCL for triggered actions and state diagrams for object state models to generate syncronized C# and VB.NET (version V) only.&lt;/p&gt;
 &lt;p&gt;It really only builds the business layer and the data layer but integrates them quite seamlessly so that the developer can concentrate on the UI and Business Model alone&amp;hellip;&lt;/p&gt;
 &lt;p&gt;mike&lt;/p&gt;
 &lt;hr&gt;

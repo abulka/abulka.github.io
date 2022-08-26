@@ -372,24 +372,26 @@ I feel the challenge of GUI architectures is to tame the role of Controller into
 &lt;p&gt;In TodoMVC-OO we have a Controller class &lt;code&gt;ControllerHeader&lt;/code&gt; for looking after the header part of the GUI and &lt;code&gt;ControllerFooter&lt;/code&gt; for looking after the footer area, which is where the &lt;code&gt;filter&lt;/code&gt; buttons are and the count of uncompleted todo items is displayed. The number of Controllers you create is up to you: one Controller per GUI element for fine grained updates, a more relaxed approach of one Controller per related group of GUI elements (my preference) or arguably even one Controller for all GUI elements! I go into more academic detail on this topic in my &lt;a href=&#34;docs_other/mgm.md&#34;&gt;MGM&lt;/a&gt; pattern paper.&lt;/p&gt;
 &lt;p&gt;By clearly defining what a mediating Controller is, and organising our app into different sensible controllers, we tame our design and prevent it from turning into spaghetti.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;View events &lt;em&gt;only&lt;/em&gt; talk to Controllers:&lt;/p&gt;
+&lt;li&gt;View events &lt;em&gt;only&lt;/em&gt; talk to Controllers:
 &lt;ul&gt;
 &lt;li&gt;View events (&amp;lsquo;gui events&amp;rsquo; e.g. via &lt;code&gt;.on(&#39;click&#39;, ...)&lt;/code&gt;) go to one or more Controllers.&lt;/li&gt;
 &lt;li&gt;Controllers update the View, usually in reponse to an &amp;lsquo;internal event&amp;rsquo; notification.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;The Controller talks to the rest of the system:&lt;/p&gt;
+&lt;/ul&gt;
+&lt;p&gt;and&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The Controller talks to the rest of the system:
 &lt;ul&gt;
 &lt;li&gt;Accesses App view state.&lt;/li&gt;
 &lt;li&gt;Calls App business logic methods.&lt;/li&gt;
 &lt;li&gt;Modifies the Model directly.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;The Controller listens for &amp;lsquo;internal events&amp;rsquo; broadcast from Model &amp;amp; App.&lt;/p&gt;
-&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;and&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The Controller listens for &amp;lsquo;internal events&amp;rsquo; broadcast from Model &amp;amp; App.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Whilst that may seem like a lot to understand, its basically saying Controllers talk to the GUI - nobody else does. Controllers then call into the rest of the system to get things done&lt;/p&gt;
 &lt;p&gt;Importantly, we must resist putting business logic into the Controller, simply let the controller call the Application to do what needs to be done. The Controller should do the minimal possible work, mediating and translating between the View and the rest of the system (the App + Model).&lt;/p&gt;
@@ -488,6 +490,9 @@ Another example is during bootup - some permanent Controllers need to be created
 &lt;!-- - [Website](https://www.gituml.com/editz/134) --&gt;
 &lt;!-- - [Blog](https://www.gituml.com/editz/136) --&gt;
 &lt;!-- - [FAQ](https://www.gituml.com/editz/136) --&gt;
+&lt;ul&gt;
+&lt;li&gt;I&amp;rsquo;m recently loving &lt;a href=&#34;https://flet.dev/docs/&#34;&gt;Flet&lt;/a&gt; which lets you build Flutter GUIs using Python.  However I miss the reactivity of Vuejs and even Flutter. So I put together a quick solution - instead of imperitively allowing the Flet UI control event callbacks e.g. on_click, to update the UI directly, we update a reactive model, which in turn updates the Flet UI.  A full example is at &lt;a href=&#34;https://github.com/abulka/freactive-python&#34;&gt;https://github.com/abulka/freactive-python&lt;/a&gt;.  It shows how such a simplified architecture can (even without the Observer classes) can achieve similar functionality to the TodoMVC-OO architecture.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h3 id=&#34;diagramming&#34;&gt;Diagramming&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.gituml.com&#34;&gt;GitUML&lt;/a&gt; diagramming used for this project&lt;/li&gt;
