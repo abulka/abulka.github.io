@@ -4,6 +4,13 @@ Andy Bulka's Software Blog, Projects and Articles
 
 This site is ready to be viewed at https://abulka.github.io/.
 
+## Installing
+
+    brew install hugo
+    git submodule add https://github.com/google/docsy.git themes/docsy
+    git submodule update --init --recursive
+    npm install
+
 ## Building Tips
 
     /content  --build-step-->  /docs
@@ -19,7 +26,6 @@ and be referred as `/files/pdfs/blah.pdf`.
     git submodule update --init --recursive
 
 ## Adding a directory
-
 
 Add it under `/content` and either create a correspondingly names dir in `/layouts` which is a custom overriding version of `/themes/layouts` or simply explicitly specify the type e.g. `type: projects` in each of the pages.
 
