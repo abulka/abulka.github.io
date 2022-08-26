@@ -154,11 +154,13 @@ By clearly defining what a mediating Controller is, and organising our app into 
     - View events ('gui events' e.g. via `.on('click', ...)`) go to one or more Controllers.
     - Controllers update the View, usually in reponse to an 'internal event' notification.
 
+and
 - The Controller talks to the rest of the system:
     - Accesses App view state.
     - Calls App business logic methods.
     - Modifies the Model directly.
 
+and
 - The Controller listens for 'internal events' broadcast from Model & App.
 
 Whilst that may seem like a lot to understand, its basically saying Controllers talk to the GUI - nobody else does. Controllers then call into the rest of the system to get things done
@@ -286,6 +288,8 @@ In this implementation, I notice that footer renders too early rather than right
 <!-- - [Website](https://www.gituml.com/editz/134) -->
 <!-- - [Blog](https://www.gituml.com/editz/136) -->
 <!-- - [FAQ](https://www.gituml.com/editz/136) -->
+
+- I'm recently loving [Flet](https://flet.dev/docs/) which lets you build Flutter GUIs using Python.  However I miss the reactivity of Vuejs and even Flutter. So I put together a quick solution - instead of imperitively allowing the Flet UI control event callbacks e.g. on_click, to update the UI directly, we update a reactive model, which in turn updates the Flet UI.  A full example is at https://github.com/abulka/freactive-python.  It shows how such a simplified architecture can (even without the Observer classes) can achieve similar functionality to the TodoMVC-OO architecture.
 
 ### Diagramming
 
