@@ -1,2 +1,3 @@
 hugo
-git push
+echo Now commit and push the changes with git
+# git push
