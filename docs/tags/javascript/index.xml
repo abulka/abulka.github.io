@@ -4,7 +4,7 @@
     <link>https://abulka.github.io/tags/javascript/</link>
     <description>Recent content in Javascript on Andy Bulka</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 12 Feb 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 14 Feb 2022 00:00:00 +0000</lastBuildDate>
     
 	  <atom:link href="https://abulka.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
     
@@ -13,6 +13,60 @@
         
       
     
+    
+    <item>
+      <title>Projects: Javascript RPN calculators</title>
+      <link>https://abulka.github.io/projects/websites/rpn-calcs/</link>
+      <pubDate>Mon, 14 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://abulka.github.io/projects/websites/rpn-calcs/</guid>
+      <description>
+        
+        
+        &lt;p&gt;These RPN calculators are programmable in Javascript, thus taking the vintage HP calculator paradigm and adding a modern language.&lt;/p&gt;
+&lt;h3 id=&#34;rpn-calc&#34;&gt;Rpn-calc&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/websites/images/rpn-calc-1.png&#34; alt=&#34;rpn-calc-1&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Here is the built in Javascript code editor.&lt;/p&gt;
+&lt;p&gt;Parameters to Javascript functions are taken off the RPN stack. Return values from Javascript functions are pushed onto the RPN stack.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/websites/images/rpn-calc-2.png&#34; alt=&#34;rpn-calc-2&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://atug.com/jsrpncalc-web/&#34;&gt;https://atug.com/jsrpncalc-web/&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;rpn-calc2&#34;&gt;Rpn-calc2&lt;/h3&gt;
+&lt;p&gt;A completely new implementation, also programmable in Javascript. Define interactive UI buttons and sliders.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/websites/images/rpn-calc2-1.png&#34; alt=&#34;rpn-calc2-1&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/websites/images/rpn-calc2-2.png&#34; alt=&#34;rpn-calc2-2&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://atug.com/jsrpncalc2/&#34;&gt;https://atug.com/jsrpncalc2/&lt;/a&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Projects: Toolback</title>
+      <link>https://abulka.github.io/projects/websites/toolback/</link>
+      <pubDate>Mon, 14 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://abulka.github.io/projects/websites/toolback/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Toolback - Low Code App Builder.&lt;/p&gt;
+&lt;p&gt;An online programming environment, with low code features.  Drag and drop a UI and add scripts directly to components.  Generate websites and desktop apps (electron based) with a click of a button.&lt;/p&gt;
+&lt;h3 id=&#34;toolback&#34;&gt;Toolback&lt;/h3&gt;
+&lt;p&gt;Toolback is the drag and drop UI builder and online, Low Code, app building IDE.&lt;/p&gt;
+&lt;!-- ![toolback-1](/projects/websites/images/toolback-1.png) --&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/websites/images/toolback-2.png&#34; alt=&#34;toolback-2&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/websites/images/toolback-7-drag-drop.png&#34; alt=&#34;toolback-7&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/websites/images/toolback-3.png&#34; alt=&#34;toolback-3&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/websites/images/toolback-4.png&#34; alt=&#34;toolback-4&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Preview your app with a key press.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/websites/images/toolback-5-menus.gif&#34; alt=&#34;toolback-5&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Export to a website or electron app - one click!&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/websites/images/toolback-6-electron.png&#34; alt=&#34;toolback-6&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;toolback-lite&#34;&gt;Toolback Lite&lt;/h3&gt;
+&lt;p&gt;Toolback-Lite is a lightweight drag and drop UI builder and online app building IDE. The drag and drop is done on a grid rather than using the the complex &lt;a href=&#34;https://grapesjs.com/&#34;&gt;grapes-js&lt;/a&gt; html builder library, which Toolback uses.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/websites/images/toolback-lite-1.gif&#34; alt=&#34;toolback-lite-1&#34;&gt;&lt;/p&gt;
+
+      </description>
+    </item>
     
     <item>
       <title>Patterns: HexMVC</title>

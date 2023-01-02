@@ -15,6 +15,23 @@
     
     
     <item>
+      <title>Projects: GitUML</title>
+      <link>https://abulka.github.io/projects/websites/gituml/</link>
+      <pubDate>Mon, 14 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://abulka.github.io/projects/websites/gituml/</guid>
+      <description>
+        
+        
+        &lt;p&gt;UML visualisation for Git repositories &lt;em&gt;(website app)&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Understand code quickly: Automatically generate UML class diagrams from source code residing in git repositories. Diagrams automatically update when you push code using git.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.gituml.com/static/home2/images_home/2017-10-19_09-43-34.bf679c329661.gif&#34; alt=&#34;point and click&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Visit &lt;a href=&#34;http://www.gituml.com&#34;&gt;GitUML&lt;/a&gt; now, create a free account and begin creating UML diagrams and documentation.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Projects: Pynsource</title>
       <link>https://abulka.github.io/projects/apps/pynsource/</link>
       <pubDate>Mon, 14 Feb 2022 00:00:00 +0000</pubDate>

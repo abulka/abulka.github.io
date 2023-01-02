@@ -77,6 +77,18 @@
 &lt;li&gt;&lt;a href=&#34;https://atug.com/image_presenter/zoomooz/&#34;&gt;https://atug.com/image_presenter/zoomooz/&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Source code currently unreleased.&lt;/p&gt;
+&lt;h2 id=&#34;jupyter-notebook-tools&#34;&gt;Jupyter Notebook Tools&lt;/h2&gt;
+&lt;p&gt;A way of implementing complex calculators incl. scrolling text area UI widgets within Jupyter &amp;amp; Colaboratory Notebooks.&lt;/p&gt;
+&lt;h3 id=&#34;scrolling-textareas-for-jupyter-notebooks&#34;&gt;Scrolling Textareas for Jupyter Notebooks&lt;/h3&gt;
+&lt;p&gt;Scrolling Textareas in a Python Jupyter Notebook, allows building a kind of &amp;ldquo;Calculator Playground&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/websites/images/jupyter-calc-pi.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Various Jupyter Notebooks at &lt;a href=&#34;https://bitbucket.org/abulka/jupyter_play/src/master/&#34;&gt;https://bitbucket.org/abulka/jupyter_play/src/master/&lt;/a&gt; (private)&lt;/p&gt;
+&lt;p&gt;Gist of the scrolling textarea technique: &lt;a href=&#34;https://gist.github.com/abulka/3043e8a4d78d2e26f872542524a0aa3e&#34;&gt;https://gist.github.com/abulka/3043e8a4d78d2e26f872542524a0aa3e&lt;/a&gt; (public)&lt;/p&gt;
+&lt;h3 id=&#34;google-colaboratory&#34;&gt;Google Colaboratory&lt;/h3&gt;
+&lt;p&gt;A way of implementing UI scrolling regions within Google Colaboratory Notebooks.
+Google Colaboratory, or &amp;ldquo;Colab&amp;rdquo; for short, is a version of Jupyter Notebooks, and allows you to write and execute Python in your browser.&lt;/p&gt;
+&lt;p&gt;This &lt;a href=&#34;https://colab.research.google.com/drive/1_R4DAqhVgfPc4113N5VxHVeUJ9oxDMKM#scrollTo=bz9ue7M7cRPq&#34;&gt;Colab project&lt;/a&gt; is a simpler version of the scrolling text area idea above, and needs to be fleshed out a little more fully to match the native Jupyter notebook functionality above.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/websites/images/jupyter-google-colab-1.gif&#34; alt=&#34;jupyter-google-colab-1&#34;&gt;&lt;/p&gt;
 
       </description>
     </item>
