@@ -14,7 +14,7 @@ canonifyurls = false
 enableRobotsTXT = true
 
 # Hugo allows theme composition (and inheritance). The precedence is from left to right.
-theme = ["docsy"]
+theme = ["github.com/google/docsy"]
 
 # setting this to false doesn't work? 
 # navbar_logo = false
