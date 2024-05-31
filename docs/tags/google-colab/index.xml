@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Google Colab on Andy Bulka</title>
+    <link>https://abulka.github.io/tags/google-colab/</link>
+    <description>Recent content in Google Colab on Andy Bulka</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="https://abulka.github.io/tags/google-colab/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Jupyter Notebook Tools</title>
+      <link>https://abulka.github.io/projects/libraries/jupyter-notebook-tools/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://abulka.github.io/projects/libraries/jupyter-notebook-tools/</guid>
+      <description>Jupyter Notebook Tools A way of implementing complex calculators incl. scrolling text area UI widgets within Jupyter &amp;amp; Colaboratory Notebooks.&#xA;Scrolling Textareas for Jupyter Notebooks Scrolling Textareas in a Python Jupyter Notebook, allows building a kind of &amp;ldquo;Calculator Playground&amp;rdquo;.&#xA;Various Jupyter Notebooks at https://bitbucket.org/abulka/jupyter_play/src/master/ (private)&#xA;Gist of the scrolling textarea technique: https://gist.github.com/abulka/3043e8a4d78d2e26f872542524a0aa3e (public)&#xA;Google Colaboratory A way of implementing UI scrolling regions within Google Colaboratory Notebooks. Google Colaboratory, or &amp;ldquo;Colab&amp;rdquo; for short, is a version of Jupyter Notebooks, and allows you to write and execute Python in your browser.</description>
+    </item>
+  </channel>
+</rss>

@@ -11,8 +11,32 @@
     <loc>https://abulka.github.io/about/consulting/</loc>
     <lastmod>2022-03-16T13:24:45+11:00</lastmod>
   </url><url>
+    <loc>https://abulka.github.io/projects/libraries/dedent-dart/</loc>
+    <lastmod>2024-05-31T16:40:12+10:00</lastmod>
+  </url><url>
+    <loc>https://abulka.github.io/projects/libraries/electron-flask-app-gen/</loc>
+    <lastmod>2024-05-31T16:40:12+10:00</lastmod>
+  </url><url>
+    <loc>https://abulka.github.io/projects/libraries/image-presenter/</loc>
+    <lastmod>2024-05-31T16:40:12+10:00</lastmod>
+  </url><url>
+    <loc>https://abulka.github.io/projects/libraries/jupyter-notebook-tools/</loc>
+    <lastmod>2024-05-31T16:40:12+10:00</lastmod>
+  </url><url>
     <loc>https://abulka.github.io/projects/libraries/</loc>
-    <lastmod>2024-05-31T13:26:51+10:00</lastmod>
+    <lastmod>2024-05-31T16:40:12+10:00</lastmod>
+  </url><url>
+    <loc>https://abulka.github.io/projects/libraries/relationship-manager/</loc>
+    <lastmod>2024-05-31T16:40:12+10:00</lastmod>
+  </url><url>
+    <loc>https://abulka.github.io/projects/libraries/snippet-creator/</loc>
+    <lastmod>2024-05-31T16:40:12+10:00</lastmod>
+  </url><url>
+    <loc>https://abulka.github.io/projects/libraries/snippets-explorer/</loc>
+    <lastmod>2024-05-31T16:40:12+10:00</lastmod>
+  </url><url>
+    <loc>https://abulka.github.io/projects/libraries/trigger-to-gate/</loc>
+    <lastmod>2024-05-31T16:40:12+10:00</lastmod>
   </url><url>
     <loc>https://abulka.github.io/projects/websites/</loc>
     <lastmod>2023-01-02T12:43:03+11:00</lastmod>
@@ -69,7 +93,7 @@
     <lastmod>2022-03-10T13:25:22+11:00</lastmod>
   </url><url>
     <loc>https://abulka.github.io/tags/python/</loc>
-    <lastmod>2023-01-02T12:43:03+11:00</lastmod>
+    <lastmod>2024-05-31T16:40:12+10:00</lastmod>
   </url><url>
     <loc>https://abulka.github.io/projects/websites/pyrpn/</loc>
     <lastmod>2023-01-02T12:43:03+11:00</lastmod>
@@ -81,10 +105,10 @@
     <lastmod>2023-01-02T12:43:03+11:00</lastmod>
   </url><url>
     <loc>https://abulka.github.io/tags/software-product/</loc>
-    <lastmod>2024-05-31T13:26:51+10:00</lastmod>
+    <lastmod>2024-05-31T16:40:12+10:00</lastmod>
   </url><url>
     <loc>https://abulka.github.io/tags/</loc>
-    <lastmod>2024-05-31T13:26:51+10:00</lastmod>
+    <lastmod>2024-05-31T16:40:12+10:00</lastmod>
   </url><url>
     <loc>https://abulka.github.io/projects/websites/toolback/</loc>
     <lastmod>2023-01-02T12:43:03+11:00</lastmod>
@@ -156,7 +180,7 @@
     <lastmod>2022-03-10T13:25:22+11:00</lastmod>
   </url><url>
     <loc>https://abulka.github.io/tags/sql/</loc>
-    <lastmod>2024-05-31T13:26:51+10:00</lastmod>
+    <lastmod>2022-03-10T13:25:22+11:00</lastmod>
   </url><url>
     <loc>https://abulka.github.io/blog/2020/10/09/links/</loc>
     <lastmod>2020-10-09T18:13:46+11:00</lastmod>
@@ -228,7 +252,7 @@
     <lastmod>2022-03-10T13:25:22+11:00</lastmod>
   </url><url>
     <loc>https://abulka.github.io/tags/electron/</loc>
-    <lastmod>2024-05-31T13:26:51+10:00</lastmod>
+    <lastmod>2024-05-31T16:40:12+10:00</lastmod>
   </url><url>
     <loc>https://abulka.github.io/blog/2018/06/01/python-ast-parsing/</loc>
     <lastmod>2022-03-10T13:25:22+11:00</lastmod>
@@ -338,8 +362,17 @@
     <loc>https://abulka.github.io/blog/</loc>
     <lastmod>2022-01-22T15:16:05+11:00</lastmod>
   </url><url>
+    <loc>https://abulka.github.io/tags/dart/</loc>
+    <lastmod>2024-05-31T16:40:12+10:00</lastmod>
+  </url><url>
+    <loc>https://abulka.github.io/tags/eurorack/</loc>
+    <lastmod>2024-05-31T16:40:12+10:00</lastmod>
+  </url><url>
     <loc>https://abulka.github.io/tags/flask/</loc>
-    <lastmod>2024-05-31T13:26:51+10:00</lastmod>
+    <lastmod>2024-05-31T16:40:12+10:00</lastmod>
+  </url><url>
+    <loc>https://abulka.github.io/tags/google-colab/</loc>
+    <lastmod>2024-05-31T16:40:12+10:00</lastmod>
   </url><url>
     <loc>https://abulka.github.io/</loc>
     <lastmod>2024-05-31T12:40:02+10:00</lastmod>
@@ -347,16 +380,43 @@
     <loc>https://abulka.github.io/blog/1/01/01/home-scraps/</loc>
     <lastmod>2022-01-22T15:16:05+11:00</lastmod>
   </url><url>
+    <loc>https://abulka.github.io/tags/image-presentation/</loc>
+    <lastmod>2024-05-31T16:40:12+10:00</lastmod>
+  </url><url>
+    <loc>https://abulka.github.io/tags/jupyter-notebook/</loc>
+    <lastmod>2024-05-31T16:40:12+10:00</lastmod>
+  </url><url>
+    <loc>https://abulka.github.io/tags/libraries/</loc>
+    <lastmod>2024-05-31T16:40:12+10:00</lastmod>
+  </url><url>
     <loc>https://abulka.github.io/patterns/</loc>
     <lastmod>2022-03-08T15:24:51+11:00</lastmod>
+  </url><url>
+    <loc>https://abulka.github.io/tags/narrative/</loc>
+    <lastmod>2024-05-31T16:40:12+10:00</lastmod>
+  </url><url>
+    <loc>https://abulka.github.io/tags/object-database/</loc>
+    <lastmod>2024-05-31T16:40:12+10:00</lastmod>
   </url><url>
     <loc>https://abulka.github.io/projects/</loc>
     <lastmod>2022-03-08T15:24:51+11:00</lastmod>
   </url><url>
+    <loc>https://abulka.github.io/tags/raspberry-pi/</loc>
+    <lastmod>2024-05-31T16:40:12+10:00</lastmod>
+  </url><url>
     <loc>https://abulka.github.io/search/</loc>
     <lastmod>2020-10-03T13:18:32+10:00</lastmod>
   </url><url>
-    <loc>https://abulka.github.io/tags/vscode/</loc>
-    <lastmod>2024-05-31T13:26:51+10:00</lastmod>
+    <loc>https://abulka.github.io/tags/string-manipulation/</loc>
+    <lastmod>2024-05-31T16:40:12+10:00</lastmod>
+  </url><url>
+    <loc>https://abulka.github.io/tags/tools/</loc>
+    <lastmod>2024-05-31T16:40:12+10:00</lastmod>
+  </url><url>
+    <loc>https://abulka.github.io/tags/vscode-extension/</loc>
+    <lastmod>2024-05-31T16:40:12+10:00</lastmod>
+  </url><url>
+    <loc>https://abulka.github.io/tags/yeoman-generator/</loc>
+    <lastmod>2024-05-31T16:40:12+10:00</lastmod>
   </url>
 </urlset>

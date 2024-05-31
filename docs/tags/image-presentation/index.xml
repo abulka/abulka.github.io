@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Image Presentation on Andy Bulka</title>
+    <link>https://abulka.github.io/tags/image-presentation/</link>
+    <description>Recent content in Image Presentation on Andy Bulka</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="https://abulka.github.io/tags/image-presentation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Image Presenter</title>
+      <link>https://abulka.github.io/projects/libraries/image-presenter/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://abulka.github.io/projects/libraries/image-presenter/</guid>
+      <description>Image Presenter An image presentation tool, where you can click and zoom into various parts of a single image.&#xA;Relevant text notes associated with each sub-area would appear when zoomed in. Arrow keys/buttons allow you to step through a narrated sequence of zooms, so that you get can be carefully guided through an art image, or diagram.&#xA;Two demo prototype versions, using different underlying technologies:&#xA;https://atug.com/image_presenter/layerjs/ https://atug.com/image_presenter/zoomooz/ Source code currently unreleased.</description>
+    </item>
+  </channel>
+</rss>

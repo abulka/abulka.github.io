@@ -6,8 +6,29 @@
     <description>Recent content in Python on Andy Bulka</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 02 Jan 2023 12:43:03 +1100</lastBuildDate>
+    <lastBuildDate>Fri, 31 May 2024 16:40:12 +1000</lastBuildDate>
     <atom:link href="https://abulka.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Electron-Flask App Generator</title>
+      <link>https://abulka.github.io/projects/libraries/electron-flask-app-gen/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://abulka.github.io/projects/libraries/electron-flask-app-gen/</guid>
+      <description>Electron-Flask App Generator Yoeman project generator to create an Electron app running a Flask server inside itself. Deployable via PyInstaller and Electron Forge packager.&#xA;Create an Electron App project that auto-starts a Flask server the electron app can call for services. Deployable as a single App that users can double click on and run.&#xA;https://github.com/abulka/generator-electron-flask&#xA;_-----_ ╭──────────────────────────╮ | | │ Welcome to the amazing │ |--(o)--| │ generator-electron-flask │ `---------´ │ generator!</description>
+    </item>
+    <item>
+      <title>Relationship Manager for Python 3</title>
+      <link>https://abulka.github.io/projects/libraries/relationship-manager/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://abulka.github.io/projects/libraries/relationship-manager/</guid>
+      <description>Relationship Manager A lightweight Object Database (no SQL used) class for Python 3&#xA;https://pypi.org/project/relationship-manager/</description>
+    </item>
+    <item>
+      <title>Trigger to Gate Script for EuroPi</title>
+      <link>https://abulka.github.io/projects/libraries/trigger-to-gate/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://abulka.github.io/projects/libraries/trigger-to-gate/</guid>
+      <description>Trigger to Gate Script for EuroPi This script allows you to trigger a gate signal from a trigger.&#xA;What is a EuroPi? The EuroPi Module is a Eurorack module that allows you to control your modular synthesizer with a Raspberry Pi.&#xA;You build it yourself using the information at https://github.com/Allen-Synthesis/EuroPi&#xA;Trigger to Gate Generates a gate on cv1 in response to a trigger on din.&#xA;Control the outgoing pulse width with k1.</description>
+    </item>
     <item>
       <title>Websites</title>
       <link>https://abulka.github.io/projects/websites/</link>
