@@ -1,139 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Andy Bulka – Composition</title>
+    <title>Composition on Andy Bulka</title>
     <link>https://abulka.github.io/tags/composition/</link>
     <description>Recent content in Composition on Andy Bulka</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 14 Feb 2022 00:00:00 +0000</lastBuildDate>
-    
-	  <atom:link href="https://abulka.github.io/tags/composition/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-      
-        
-      
-    
-    
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 02 Jan 2023 12:43:03 +1100</lastBuildDate>
+    <atom:link href="https://abulka.github.io/tags/composition/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Projects: Chord Jammer</title>
+      <title>Chord Jammer</title>
       <link>https://abulka.github.io/projects/websites/chordjammer/</link>
       <pubDate>Mon, 14 Feb 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://abulka.github.io/projects/websites/chordjammer/</guid>
-      <description>
-        
-        
-        &lt;p&gt;A midi web app that lets you play chords with 1 finger in the left hand
-and jam safely in the right hand.
-As you change chords, the rh notes are filtered so you always play good sounding notes.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/websites/images/chord-jammer-2.png&#34; alt=&#34;screenshot&#34;&gt;&lt;/p&gt;
-&lt;p&gt;Try it out at &lt;a href=&#34;https://chordjammer.web.app/&#34;&gt;Chord Jammer&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Code&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;~/Devel/midi-play/webmidijs-play
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;sample-config&#34;&gt;Sample config&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;let&lt;/span&gt; project &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    chords&lt;span style=&#34;color:#ff79c6&#34;&gt;:&lt;/span&gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;C3&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;:&lt;/span&gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            lhchord&lt;span style=&#34;color:#ff79c6&#34;&gt;:&lt;/span&gt; Em7Chord,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            rhnotes&lt;span style=&#34;color:#ff79c6&#34;&gt;:&lt;/span&gt; EmScaleMelodic,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        },
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;D3&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;:&lt;/span&gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            lhchord&lt;span style=&#34;color:#ff79c6&#34;&gt;:&lt;/span&gt; AmAdd9Chord,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            rhnotes&lt;span style=&#34;color:#ff79c6&#34;&gt;:&lt;/span&gt; EmScaleNatural,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        },
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;E3&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;:&lt;/span&gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            lhchord&lt;span style=&#34;color:#ff79c6&#34;&gt;:&lt;/span&gt; CM9Chord,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            rhnotes&lt;span style=&#34;color:#ff79c6&#34;&gt;:&lt;/span&gt; EmScaleNatural,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        },
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;F3&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;:&lt;/span&gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            lhchord&lt;span style=&#34;color:#ff79c6&#34;&gt;:&lt;/span&gt; BmAdd11ChordInversion1,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            rhnotes&lt;span style=&#34;color:#ff79c6&#34;&gt;:&lt;/span&gt; EmScaleNatural,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            rhnotes2&lt;span style=&#34;color:#ff79c6&#34;&gt;:&lt;/span&gt; EmScaleHarmonic,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            rhnotes3&lt;span style=&#34;color:#ff79c6&#34;&gt;:&lt;/span&gt; EmBlues,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;single-finger-chords&#34;&gt;Single finger Chords&lt;/h3&gt;
-&lt;p&gt;With the project config above&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Play C3 to trigger chord &lt;code&gt;Em7Chord&lt;/code&gt; and jam in default scale &lt;code&gt;EmScaleMelodic&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Play D3 to trigger chord &lt;code&gt;AmAdd9Chord&lt;/code&gt; and jam in default scale &lt;code&gt;EmScaleNatural&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Play E3 to trigger chord &lt;code&gt;CM9Chord&lt;/code&gt; and jam in default scale &lt;code&gt;EmScaleNatural&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Play F3 to trigger chord &lt;code&gt;BmAdd11ChordInversion1&lt;/code&gt; and jam in default scale &lt;code&gt;EmScaleNatural&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Jamming notes are &lt;code&gt;G3&lt;/code&gt; to &lt;code&gt;C5&lt;/code&gt; and are filtered to be in the default scale for that chord.&lt;/p&gt;
-&lt;h3 id=&#34;scale-switching-whilst-playing&#34;&gt;Scale Switching whilst playing&lt;/h3&gt;
-&lt;p&gt;You can switch to e.g. the pentatonic scale for the current chord by pressing D#4.  Switch back to the default scale by pressing C#4.&lt;/p&gt;
-&lt;p&gt;Here is a list of &lt;em&gt;modifier keys&lt;/em&gt; and what they do to the rh scale:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;C#4 default scale, &lt;code&gt;rhnotes&lt;/code&gt; in config&lt;/li&gt;
-&lt;li&gt;D#4 &lt;code&gt;rhnotes2&lt;/code&gt; scale in config&lt;/li&gt;
-&lt;li&gt;F#4 &lt;code&gt;rhnotes3&lt;/code&gt; scale in config&lt;/li&gt;
-&lt;li&gt;G#4 transpose rh scale by &lt;code&gt;options.transposeUpAmount&lt;/code&gt; semitones&lt;/li&gt;
-&lt;li&gt;A#4 transpose rh scale down by &lt;code&gt;options.transposeDownAmount&lt;/code&gt; semitones&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;You can customise the transposition amounts for a given project via config e.g.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;let&lt;/span&gt; project &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    chords&lt;span style=&#34;color:#ff79c6&#34;&gt;:&lt;/span&gt; {...},
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    options&lt;span style=&#34;color:#ff79c6&#34;&gt;:&lt;/span&gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        transposeUpAmount&lt;span style=&#34;color:#ff79c6&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;4&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        transposeDownAmount&lt;span style=&#34;color:#ff79c6&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;2&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Potentially other customisations via config will be supported in the future:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Being able to specify which scales to switch to, instead of pentatonic and blues.&lt;/li&gt;
-&lt;li&gt;Being able to change what the modifier keys actually are (unlikely).&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;left-hand-black-key-modifiers&#34;&gt;Left hand black key modifiers&lt;/h3&gt;
-&lt;p&gt;The octave containing the left hand chord trigger notes will have its black keys used as modifiers.
-The &lt;code&gt;C#&lt;/code&gt; acts as a SHIFT, so&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;C#&lt;/code&gt; hold down to engage SHIFT mode&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;D#&lt;/code&gt; cmdSetScaleFiltering(false)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;F#&lt;/code&gt; cmdSetScaleFiltering(true)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;G#&lt;/code&gt; transposeChord down a semitone&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;A#&lt;/code&gt; transposeChord up a semitone&lt;/li&gt;
-&lt;li&gt;SHIFT &lt;code&gt;D#&lt;/code&gt; stopAllNotes()&lt;/li&gt;
-&lt;li&gt;SHIFT &lt;code&gt;F#&lt;/code&gt; scaleFilteringModificationSticky toggle&lt;/li&gt;
-&lt;li&gt;SHIFT &lt;code&gt;G#&lt;/code&gt; reset chord transpose - todo&lt;/li&gt;
-&lt;li&gt;SHIFT &lt;code&gt;A#&lt;/code&gt; reset chord transpose - todo&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;config-customisations-supported&#34;&gt;Config customisations supported&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;let&lt;/span&gt; project &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    chords&lt;span style=&#34;color:#ff79c6&#34;&gt;:&lt;/span&gt; {...},
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    options&lt;span style=&#34;color:#ff79c6&#34;&gt;:&lt;/span&gt; {...},
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    splitNote&lt;span style=&#34;color:#ff79c6&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;C3&amp;#39;&lt;/span&gt;,         &lt;span style=&#34;color:#6272a4&#34;&gt;// Where the root note is (see explanation below)
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;    rhStartOctave&lt;span style=&#34;color:#ff79c6&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;3&lt;/span&gt;,        &lt;span style=&#34;color:#6272a4&#34;&gt;// To which octave to start mapping notes to
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;technologies&#34;&gt;Technologies&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Description&lt;/th&gt;
-&lt;th&gt;Technology&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;MIDI&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://webmidijs.org/docs/&#34;&gt;WebMidi.js&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;GUI&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;http://g200kg.github.io/webaudio-controls/docs/index.html&#34;&gt;webaudio-controls&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Scales and chords&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://github.com/tonaljs/tonal&#34;&gt;tonaljs&lt;/a&gt; - A functional music theory library for Javascript.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-      </description>
+      <description>A midi web app that lets you play chords with 1 finger in the left hand and jam safely in the right hand. As you change chords, the rh notes are filtered so you always play good sounding notes.&#xA;Try it out at Chord Jammer&#xA;Code&#xA;~/Devel/midi-play/webmidijs-play Sample config export let project = { chords: { &amp;#39;C3&amp;#39;: { lhchord: Em7Chord, rhnotes: EmScaleMelodic, }, &amp;#39;D3&amp;#39;: { lhchord: AmAdd9Chord, rhnotes: EmScaleNatural, }, &amp;#39;E3&amp;#39;: { lhchord: CM9Chord, rhnotes: EmScaleNatural, }, &amp;#39;F3&amp;#39;: { lhchord: BmAdd11ChordInversion1, rhnotes: EmScaleNatural, rhnotes2: EmScaleHarmonic, rhnotes3: EmBlues, } } } Single finger Chords With the project config above</description>
     </item>
-    
   </channel>
 </rss>

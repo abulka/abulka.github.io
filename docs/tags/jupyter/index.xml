@@ -1,109 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Andy Bulka – Jupyter</title>
+    <title>Jupyter on Andy Bulka</title>
     <link>https://abulka.github.io/tags/jupyter/</link>
     <description>Recent content in Jupyter on Andy Bulka</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 14 Feb 2022 00:00:00 +0000</lastBuildDate>
-    
-	  <atom:link href="https://abulka.github.io/tags/jupyter/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-      
-        
-      
-    
-    
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 02 Jan 2023 12:43:03 +1100</lastBuildDate>
+    <atom:link href="https://abulka.github.io/tags/jupyter/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Projects: Websites</title>
+      <title>Websites</title>
       <link>https://abulka.github.io/projects/websites/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://abulka.github.io/projects/websites/</guid>
-      <description>
-        
-        
-        &lt;p&gt;Being an application software developer, I made the transition to building web applications.  Here are some of them.&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Website&lt;/th&gt;
-&lt;th&gt;Description&lt;/th&gt;
-&lt;th&gt;Technology&lt;/th&gt;
-&lt;th&gt;&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;GitUML&lt;/td&gt;
-&lt;td&gt;UML visualisation for Git repositories&lt;/td&gt;
-&lt;td&gt;Python, Django, Javascript&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Python to RPN&lt;/td&gt;
-&lt;td&gt;Python to RPN converter&lt;/td&gt;
-&lt;td&gt;Python, Flask, Javascript&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;RPN Calculators&lt;/td&gt;
-&lt;td&gt;Online RPN calculators programmable in Javascript&lt;/td&gt;
-&lt;td&gt;Javascript, HTML, CSS&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Toolback - App Builder&lt;/td&gt;
-&lt;td&gt;An online programming environment, with low code features.&lt;/td&gt;
-&lt;td&gt;Python, Javascript&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Chord Jammer&lt;/td&gt;
-&lt;td&gt;A midi web app that lets you play chords with 1 finger in the left hand and jam safely in the right hand.&lt;/td&gt;
-&lt;td&gt;Javascript, Vuejs&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Rationale&lt;/td&gt;
-&lt;td&gt;An argument mapping application&lt;/td&gt;
-&lt;td&gt;C#, .NET&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-      </description>
+      <description>Being an application software developer, I made the transition to building web applications. Here are some of them.&#xA;Website Description Technology GitUML UML visualisation for Git repositories Python, Django, Javascript Python to RPN Python to RPN converter Python, Flask, Javascript RPN Calculators Online RPN calculators programmable in Javascript Javascript, HTML, CSS Toolback - App Builder An online programming environment, with low code features. Python, Javascript Chord Jammer A midi web app that lets you play chords with 1 finger in the left hand and jam safely in the right hand.</description>
     </item>
-    
     <item>
-      <title>Projects: Toolback</title>
+      <title>Toolback</title>
       <link>https://abulka.github.io/projects/websites/toolback/</link>
       <pubDate>Mon, 14 Feb 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://abulka.github.io/projects/websites/toolback/</guid>
-      <description>
-        
-        
-        &lt;p&gt;Toolback - Low Code App Builder.&lt;/p&gt;
-&lt;p&gt;An online programming environment, with low code features.  Drag and drop a UI and add scripts directly to components.  Generate websites and desktop apps (electron based) with a click of a button.&lt;/p&gt;
-&lt;h3 id=&#34;toolback&#34;&gt;Toolback&lt;/h3&gt;
-&lt;p&gt;Toolback is the drag and drop UI builder and online, Low Code, app building IDE.&lt;/p&gt;
-&lt;!-- ![toolback-1](/projects/websites/images/toolback-1.png) --&gt;
-&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/websites/images/toolback-2.png&#34; alt=&#34;toolback-2&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/websites/images/toolback-7-drag-drop.png&#34; alt=&#34;toolback-7&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/websites/images/toolback-3.png&#34; alt=&#34;toolback-3&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/websites/images/toolback-4.png&#34; alt=&#34;toolback-4&#34;&gt;&lt;/p&gt;
-&lt;p&gt;Preview your app with a key press.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/websites/images/toolback-5-menus.gif&#34; alt=&#34;toolback-5&#34;&gt;&lt;/p&gt;
-&lt;p&gt;Export to a website or electron app - one click!&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/websites/images/toolback-6-electron.png&#34; alt=&#34;toolback-6&#34;&gt;&lt;/p&gt;
-&lt;h3 id=&#34;toolback-lite&#34;&gt;Toolback Lite&lt;/h3&gt;
-&lt;p&gt;Toolback-Lite is a lightweight drag and drop UI builder and online app building IDE. The drag and drop is done on a grid rather than using the the complex &lt;a href=&#34;https://grapesjs.com/&#34;&gt;grapes-js&lt;/a&gt; html builder library, which Toolback uses.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/websites/images/toolback-lite-1.gif&#34; alt=&#34;toolback-lite-1&#34;&gt;&lt;/p&gt;
-
-      </description>
+      <description>Toolback - Low Code App Builder.&#xA;An online programming environment, with low code features. Drag and drop a UI and add scripts directly to components. Generate websites and desktop apps (electron based) with a click of a button.&#xA;Toolback Toolback is the drag and drop UI builder and online, Low Code, app building IDE.&#xA;Preview your app with a key press.&#xA;Export to a website or electron app - one click!</description>
     </item>
-    
   </channel>
 </rss>

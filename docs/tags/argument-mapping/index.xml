@@ -1,42 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Andy Bulka – Argument Mapping</title>
+    <title>Argument Mapping on Andy Bulka</title>
     <link>https://abulka.github.io/tags/argument-mapping/</link>
     <description>Recent content in Argument Mapping on Andy Bulka</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 14 Feb 2022 00:00:00 +0000</lastBuildDate>
-    
-	  <atom:link href="https://abulka.github.io/tags/argument-mapping/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-      
-        
-      
-    
-    
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 02 Jan 2023 12:43:03 +1100</lastBuildDate>
+    <atom:link href="https://abulka.github.io/tags/argument-mapping/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Projects: Rationale</title>
+      <title>Rationale</title>
       <link>https://abulka.github.io/projects/websites/rationale/</link>
       <pubDate>Mon, 14 Feb 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://abulka.github.io/projects/websites/rationale/</guid>
-      <description>
-        
-        
-        &lt;p&gt;As CTO of Austhink, I technically managed and helped architect &lt;code&gt;Rationale&lt;/code&gt; - an argument mapping application, written in C# and .NET.
-This was done together with a great team of developers and thinkers incl. the CEO &lt;a href=&#34;https://timvangelder.com/about/&#34;&gt;Tim van Gelder&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/websites/images/rationale-02.png&#34; alt=&#34;rationale&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Rationale - the desktop app&lt;/em&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Rationale is now available as an online web app at &lt;a href=&#34;https://www.rationaleonline.com/&#34;&gt;https://www.rationaleonline.com/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;🎗 Disclaimer: The web version of Rationale was developed by another team, using the source code and design of the desktop Rationale as a base.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Also at Austhink, we developed the online debating and argument mapping website the &lt;code&gt;Hive&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/websites/images/rationale-01.png&#34; alt=&#34;hive&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Hive - online debating and argument mapping website&lt;/em&gt;&lt;/p&gt;
-
-      </description>
+      <description>As CTO of Austhink, I technically managed and helped architect Rationale - an argument mapping application, written in C# and .NET. This was done together with a great team of developers and thinkers incl. the CEO Tim van Gelder.&#xA;Rationale - the desktop app&#xA;Rationale is now available as an online web app at https://www.rationaleonline.com/&#xA;🎗 Disclaimer: The web version of Rationale was developed by another team, using the source code and design of the desktop Rationale as a base.</description>
     </item>
-    
   </channel>
 </rss>

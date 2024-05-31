@@ -1,43 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Andy Bulka – Programmable</title>
+    <title>Programmable on Andy Bulka</title>
     <link>https://abulka.github.io/tags/programmable/</link>
     <description>Recent content in Programmable on Andy Bulka</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 14 Feb 2022 00:00:00 +0000</lastBuildDate>
-    
-	  <atom:link href="https://abulka.github.io/tags/programmable/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-      
-        
-      
-    
-    
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 02 Jan 2023 12:43:03 +1100</lastBuildDate>
+    <atom:link href="https://abulka.github.io/tags/programmable/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Projects: Javascript RPN calculators</title>
+      <title>Javascript RPN calculators</title>
       <link>https://abulka.github.io/projects/websites/rpn-calcs/</link>
       <pubDate>Mon, 14 Feb 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://abulka.github.io/projects/websites/rpn-calcs/</guid>
-      <description>
-        
-        
-        &lt;p&gt;These RPN calculators are programmable in Javascript, thus taking the vintage HP calculator paradigm and adding a modern language.&lt;/p&gt;
-&lt;h3 id=&#34;rpn-calc&#34;&gt;Rpn-calc&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/websites/images/rpn-calc-1.png&#34; alt=&#34;rpn-calc-1&#34;&gt;&lt;/p&gt;
-&lt;p&gt;Here is the built in Javascript code editor.&lt;/p&gt;
-&lt;p&gt;Parameters to Javascript functions are taken off the RPN stack. Return values from Javascript functions are pushed onto the RPN stack.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/websites/images/rpn-calc-2.png&#34; alt=&#34;rpn-calc-2&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://atug.com/jsrpncalc-web/&#34;&gt;https://atug.com/jsrpncalc-web/&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;rpn-calc2&#34;&gt;Rpn-calc2&lt;/h3&gt;
-&lt;p&gt;A completely new implementation, also programmable in Javascript. Define interactive UI buttons and sliders.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/websites/images/rpn-calc2-1.png&#34; alt=&#34;rpn-calc2-1&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/projects/websites/images/rpn-calc2-2.png&#34; alt=&#34;rpn-calc2-2&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://atug.com/jsrpncalc2/&#34;&gt;https://atug.com/jsrpncalc2/&lt;/a&gt;&lt;/p&gt;
-
-      </description>
+      <description>These RPN calculators are programmable in Javascript, thus taking the vintage HP calculator paradigm and adding a modern language.&#xA;Rpn-calc Here is the built in Javascript code editor.&#xA;Parameters to Javascript functions are taken off the RPN stack. Return values from Javascript functions are pushed onto the RPN stack.&#xA;https://atug.com/jsrpncalc-web/&#xA;Rpn-calc2 A completely new implementation, also programmable in Javascript. Define interactive UI buttons and sliders.&#xA;https://atug.com/jsrpncalc2/</description>
     </item>
-    
   </channel>
 </rss>

@@ -1,127 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Andy Bulka – Vuejs</title>
+    <title>Vuejs on Andy Bulka</title>
     <link>https://abulka.github.io/tags/vuejs/</link>
     <description>Recent content in Vuejs on Andy Bulka</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 11 Feb 2022 00:00:00 +0000</lastBuildDate>
-    
-	  <atom:link href="https://abulka.github.io/tags/vuejs/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-      
-        
-      
-    
-    
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 10 Mar 2022 13:25:22 +1100</lastBuildDate>
+    <atom:link href="https://abulka.github.io/tags/vuejs/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Blog: GUI Showdown</title>
+      <title>GUI Showdown</title>
       <link>https://abulka.github.io/blog/2022/02/11/gui-showdown/</link>
       <pubDate>Fri, 11 Feb 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://abulka.github.io/blog/2022/02/11/gui-showdown/</guid>
-      <description>
-        
-        
-        &lt;p&gt;Andy&amp;rsquo;s &lt;a href=&#34;https://abulka.github.io/gui-showdown&#34;&gt;GUI Showdown&lt;/a&gt; - The same application, implemented in various ways - which is better, cleaner, more understandable etc?&lt;/p&gt;
-&lt;p&gt;Like the TodoMVC &amp;ldquo;Rosetta Stone&amp;rdquo; project, but uses a different example application, and includes Python as well as Javascript implementations.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;This project was originally intended to see if an ECS (Entity Component System), which is commonly used in building games, could be used to implement a &amp;ldquo;normal&amp;rdquo; GUI application.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&#34;five-javascript-implementations&#34;&gt;Five Javascript implementations:&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;http://abulka.github.io/gui-showdown&#34;&gt;Live Demo&lt;/a&gt; of all Javascript implementations.&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Technique&lt;/th&gt;
-&lt;th&gt;Lines&lt;/th&gt;
-&lt;th&gt;Comment&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;OO&lt;/td&gt;
-&lt;td&gt;279&lt;/td&gt;
-&lt;td&gt;Gui wired via OO (Object Oriented Models with Observer)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;MVCA&lt;/td&gt;
-&lt;td&gt;383&lt;/td&gt;
-&lt;td&gt;Gui wired via &lt;a href=&#34;https://github.com/abulka/todomvc-oo&#34;&gt;MVCA&lt;/a&gt; Architectural Pattern 🆕!!&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;ECS&lt;/td&gt;
-&lt;td&gt;228&lt;/td&gt;
-&lt;td&gt;Gui wired via ECS (Entity Component System)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;PLAIN&lt;/td&gt;
-&lt;td&gt;154&lt;/td&gt;
-&lt;td&gt;Gui wired via plain JQuery&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;VUE&lt;/td&gt;
-&lt;td&gt;58&lt;/td&gt;
-&lt;td&gt;Gui wired via Vue.js&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;two-wxpython-implementations&#34;&gt;Two wxPython implementations:&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Technique&lt;/th&gt;
-&lt;th&gt;Lines&lt;/th&gt;
-&lt;th&gt;Comment&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;ECS&lt;/td&gt;
-&lt;td&gt;344&lt;/td&gt;
-&lt;td&gt;Gui wired via ECS (Entity Component System)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;OO&lt;/td&gt;
-&lt;td&gt;290&lt;/td&gt;
-&lt;td&gt;Gui wired via OO (Object Oriented Models with Observer)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;!-- P.S. Why is the python ESC version bigger than OO, yet the js ESC version is **smaller** than js OO!?? --&gt;
-&lt;p&gt;Counting the number of lines is approximate.  Implementation code that is a convenient extension to a library or framework is not counted.  E.g. Vue.js itself is not counted, obviously.  ECS uses Jecs library, which is not counted, nor are some extension functions I added.  OO technique uses an observer design pattern, whose short implementation code is not counted - its the least I could do to help the OO approach which came in at a whopping 300 lines.&lt;/p&gt;
-&lt;p&gt;There is an index.html launch page to get to all these implementations, as well as a debug view showing models in real time as you work with the GUI.&lt;/p&gt;
-&lt;h2 id=&#34;the-application-being-implemented&#34;&gt;The Application being implemented&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://github.com/abulka/gui-showdown/raw/master/docs/images/2019-07-17_11-41-03.gif&#34; alt=&#34;The UI&#34;&gt;&lt;/p&gt;
-&lt;h3 id=&#34;specification&#34;&gt;Specification&lt;/h3&gt;
-&lt;p&gt;Whilst not that complex, this application has a few interesting nuances which challenge any implementation. The main nuance is that whilst the &amp;ldquo;model&amp;rdquo; can be edited and manipulated (made uppercase, set to certain phrases) the top header area displays the model according to various &amp;ldquo;display options&amp;rdquo;.  Changing the display options changes how to top area appears but does not change the model.&lt;/p&gt;
-&lt;p&gt;Specifically, the behaviour we are implementing is:&lt;/p&gt;
-&lt;p&gt;Model:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;a &lt;strong&gt;welcome message&lt;/strong&gt;, default &amp;ldquo;Welcome&amp;rdquo;&lt;/li&gt;
-&lt;li&gt;a &lt;strong&gt;user&lt;/strong&gt;, with a &lt;code&gt;firstname&lt;/code&gt; and &lt;code&gt;surname&lt;/code&gt;, default &amp;ldquo;Sam Smith&amp;rdquo;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;model &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; {&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;welcome_msg&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Welcome&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;user&amp;#34;&lt;/span&gt;: {&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;firstname&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Sam&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;surname&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Smith&amp;#34;&lt;/span&gt;}}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The GUI displays:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;the welcome message twice
-&lt;ul&gt;
-&lt;li&gt;top left: pure message&lt;/li&gt;
-&lt;li&gt;top right: message + user&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;text entry, which allows editing of the welcome message&lt;/li&gt;
-&lt;li&gt;text entry, which allows editing of the user name and surname&lt;/li&gt;
-&lt;li&gt;checkbox1, which toggles the model welcome message uppercase/lowercase&lt;/li&gt;
-&lt;li&gt;checkbox2, which toggles the top right user to uppercase (not via model)&lt;/li&gt;
-&lt;li&gt;button1, which resets the welcome message to &amp;ldquo;Hi&amp;rdquo;&lt;/li&gt;
-&lt;li&gt;button2, which resets the user to &amp;ldquo;Fred Flinstone&amp;rdquo;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;commentary&#34;&gt;Commentary&lt;/h2&gt;
-&lt;p&gt;More commentary and evaluation of the techniques to come.&lt;/p&gt;
-
-      </description>
+      <description>Andy&amp;rsquo;s GUI Showdown - The same application, implemented in various ways - which is better, cleaner, more understandable etc?&#xA;Like the TodoMVC &amp;ldquo;Rosetta Stone&amp;rdquo; project, but uses a different example application, and includes Python as well as Javascript implementations.&#xA;This project was originally intended to see if an ECS (Entity Component System), which is commonly used in building games, could be used to implement a &amp;ldquo;normal&amp;rdquo; GUI application.&#xA;Five Javascript implementations: Live Demo of all Javascript implementations.</description>
     </item>
-    
   </channel>
 </rss>

@@ -1,17 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Andy Bulka – Libraries &amp; Tools</title>
+    <title>Libraries &amp; Tools on Andy Bulka</title>
     <link>https://abulka.github.io/projects/libraries/</link>
     <description>Recent content in Libraries &amp; Tools on Andy Bulka</description>
-    <generator>Hugo -- gohugo.io</generator>
-    
-	  <atom:link href="https://abulka.github.io/projects/libraries/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-      
-        
-      
-    
-    
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="https://abulka.github.io/projects/libraries/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

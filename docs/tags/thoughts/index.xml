@@ -1,581 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Andy Bulka – Thoughts</title>
+    <title>Thoughts on Andy Bulka</title>
     <link>https://abulka.github.io/tags/thoughts/</link>
     <description>Recent content in Thoughts on Andy Bulka</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 23 Nov 2020 12:43:14 +1100</lastBuildDate>
-    
-	  <atom:link href="https://abulka.github.io/tags/thoughts/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-      
-        
-      
-    
-    
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 10 Mar 2022 13:25:22 +1100</lastBuildDate>
+    <atom:link href="https://abulka.github.io/tags/thoughts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Projects: Literate Code Mapping</title>
+      <title>Literate Code Mapping</title>
       <link>https://abulka.github.io/projects/big-ideas/lcodemaps/</link>
       <pubDate>Mon, 23 Nov 2020 12:43:14 +1100</pubDate>
-      
       <guid>https://abulka.github.io/projects/big-ideas/lcodemaps/</guid>
-      <description>
-        
-        
-        &lt;p&gt;&lt;em&gt;Diagramming Methodology Specification&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Literate Code Maps are diagrams which help programmers understand the structure and behaviour of source code.&lt;/p&gt;
-&lt;h2 id=&#34;example&#34;&gt;Example&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/abulka/lcodemaps/master/images/example-01.svg?sanitize=true&#34; alt=&#34;code map example 01&#34;&gt;&lt;/p&gt;
-&lt;p&gt;Code Map diagrams differ from UML diagrams in that they
-focus on real source code fragments and lots of
-rich-text formatted story-telling narrative.
-They combine class and sequence diagrams into the same
-diagram, offering step by step numbering to follow the behaviour of a use case story.&lt;/p&gt;
-&lt;h2 id=&#34;the-5-laws-of-literate-code-mapping&#34;&gt;The 5 laws of literate code mapping&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;Boxes represent any scope or namespace - be creative&lt;/li&gt;
-&lt;li&gt;Show structure and behaviour in the same diagram&lt;/li&gt;
-&lt;li&gt;Code compartments in boxes contain code fragments and richly formatted narrative&lt;/li&gt;
-&lt;li&gt;Lines representing function calls between boxes are numbered to tell a story&lt;/li&gt;
-&lt;li&gt;Cross reference numbers can appear anywhere to associate ideas&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Think of literate code maps like UML class diagrams where the classes are now boxes which can represent more things, and lines represent function calls as well as structure.  Boxes contain one or more extra compartments containing real code fragments and rich narrative.&lt;/p&gt;
-&lt;p&gt;See full website dedicated to Literate Code Mapping &lt;a href=&#34;https://abulka.github.io/lcodemaps/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-      </description>
+      <description>Diagramming Methodology Specification&#xA;Literate Code Maps are diagrams which help programmers understand the structure and behaviour of source code.&#xA;Example Code Map diagrams differ from UML diagrams in that they focus on real source code fragments and lots of rich-text formatted story-telling narrative. They combine class and sequence diagrams into the same diagram, offering step by step numbering to follow the behaviour of a use case story.&#xA;The 5 laws of literate code mapping Boxes represent any scope or namespace - be creative Show structure and behaviour in the same diagram Code compartments in boxes contain code fragments and richly formatted narrative Lines representing function calls between boxes are numbered to tell a story Cross reference numbers can appear anywhere to associate ideas Think of literate code maps like UML class diagrams where the classes are now boxes which can represent more things, and lines represent function calls as well as structure.</description>
     </item>
-    
     <item>
-      <title>Blog: Central Patterns Repository</title>
+      <title>Central Patterns Repository</title>
       <link>https://abulka.github.io/blog/2009/02/12/central-patterns-repository/</link>
       <pubDate>Thu, 12 Feb 2009 00:00:00 +0000</pubDate>
-      
       <guid>https://abulka.github.io/blog/2009/02/12/central-patterns-repository/</guid>
-      <description>
-        
-        
-        &lt;p&gt;Towards a central repository of Design Patterns&lt;/p&gt;
-&lt;p&gt;An authoritative central repository of Design Patterns does not exist.  There is a book called &lt;a href=&#34;http://www.amazon.com/Pattern-Almanac-2000-Linda-Rising/dp/0201615673/ref=sr_1_4?ie=UTF8&amp;amp;s=books&amp;amp;qid=1236691007&amp;amp;sr=8-4&#34;&gt;The Pattern Almanac 2000&lt;/a&gt; by Linda Rising however this is no more than an index of patterns - nothing of substance except a one line descrtipion.  And furthermore, it leaves out hundreds if not thousands of patterns - scattered across books, websites and people&amp;rsquo;s code. &lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;2020 Update: Central repositories on the internet are now commonplace. For IDE plugins, programming language library packages (&lt;code&gt;npm&lt;/code&gt; for Javascript, &lt;code&gt;pypi&lt;/code&gt; for Python etc.), apps, software components for linux etc. Its more difficult to create such systems for design patterns because patterns are more nebulous - requiring textual descriptions rather concrete code. As such the best source of patterns is &lt;a href=&#34;https://github.com/DovAmir/awesome-design-patterns&#34;&gt;Awesome Design Patterns&lt;/a&gt; which links to all sorts of other web pages and resources incl. lists of patterns used in particular domains e.g. &lt;a href=&#34;https://github.com/ziyasal/design-patterns-and-idioms-in-es6&#34;&gt;es6 design patterns&lt;/a&gt;, language specific patterns, &lt;a href=&#34;https://github.com/DovAmir/awesome-design-patterns#cloud-architecture&#34;&gt;cloud architecture patterns&lt;/a&gt;, &lt;a href=&#34;https://github.com/DovAmir/awesome-design-patterns#big-data&#34;&gt;Big Data patterns&lt;/a&gt; etc.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&#34;prerequisites-for-a-repository&#34;&gt;Prerequisites for a repository&lt;/h2&gt;
-&lt;p&gt;Any new effort needs to have broad support and a way of contributing without having to go through vetting.  This way people can contribute their own patterns and the project can utilise the community.  Better to have too many patterns than not enough.  Perhaps a &amp;ldquo;moderated&amp;rdquo; category could be added for higher quality entries.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;A specific &amp;ldquo;template&amp;rdquo; for inserting patterns would be a must.&lt;/li&gt;
-&lt;li&gt;A UML diagram (png) - also a must.&lt;/li&gt;
-&lt;li&gt;Code sample (any language / psuedo code) - highly desirable.  &lt;/li&gt;
-&lt;li&gt;You could have a page of thumbnails of uml diagrams - very enticing way to browse the repository.&lt;/li&gt;
-&lt;li&gt;Drop down tags for type of pattern - architectural, design, coding idiom.&lt;/li&gt;
-&lt;li&gt;Tags for related patterns - not sure how the references would work, perhaps like a wiki, so each pattern should have a unique id (no spaces).  e.g. Observer or MVC or NullObject etc.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;on-the-copyrighted-design-pattern-material-in-books&#34;&gt;On the copyrighted design pattern material in books&lt;/h2&gt;
-&lt;p&gt;Getting all the patterns from published design patterns books would be a boon - even if we could at least get the basic UML and idea of each pattern - and leave the copyrighted content alone.  Existing patterns books are a huge source of material if we could mine them.  It could perhaps be pitched to authors as a way of stimulating book sales since people who want to learn more could buy the book via the usual link to Amazon etc.&lt;/p&gt;
-&lt;h2 id=&#34;other-ideas&#34;&gt;Other ideas&lt;/h2&gt;
-&lt;p&gt;It might be good to see the existing class libraries of the programming languages (e.g. Java, .NET, Python, Delphi and PHP) mined for patterns - and there is a real opportunity there to form pattern languages of how these patterns fit together within the one language platform. &lt;/p&gt;
-&lt;p&gt;The repository should include architectural patterns, design patterns and language and coding patterns (sometimes known as idioms) - forming a wonderful continuum of detail.  Of course the essential ideas in the deep implementation detail would probably be found at the high level and vice vera, such is the nature of reality. :-)&lt;/p&gt;
-&lt;h2 id=&#34;links&#34;&gt;Links&lt;/h2&gt;
-&lt;p&gt;In the absence of a central repository, here are some links to lists of design patterns and books.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/DovAmir/awesome-design-patterns&#34;&gt;Awesome Design Patterns&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;http://www.amazon.com/Pattern-Almanac-2000-Linda-Rising/dp/0201615673&#34;&gt;Amazon.com: The &lt;em&gt;Pattern&lt;/em&gt; Almanac 2000: Linda &lt;em&gt;Rising&lt;/em&gt;: Books&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;https://web.archive.org/web/20080516215348/http://www.vico.org/pages/PatronsDisseny.html&#34;&gt;A list&lt;/a&gt; of GOF patterns including part-whole and view-handler&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;http://www.google.com.au/url?sa=t&amp;amp;source=web&amp;amp;ct=res&amp;amp;cd=2&amp;amp;url=http%3A%2F%2Fhillside.net%2Fplop%2F2005%2Fproceedings%2FPLoP2005_shasso0_3.pdf&amp;amp;ei=ftOLSfeRGonOsAPhz8H-CA&amp;amp;usg=AFQjCNHHTPiWHzhVz-2nolHMEYMz_JnnWA&amp;amp;sig2=bzx7wyq2Mj--05ehoO61ow&#34;&gt;A Theoretically-based Process for Organizing Design Pattern&lt;/a&gt;s&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;https://web.archive.org/web/20070510145935/http://hillside.net/patterns/onlinepatterncatalog.htm&#34;&gt;Hillside.net - Online &lt;em&gt;Pattern Catalog&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;There was a new project starting up in 2009 -  not sure what came of it. Perhaps more information can be found by contacting &lt;a href=&#34;https://scholar.google.com.au/scholar?q=Paris+Avgeriou+and+Uwe+Van+Heesch&amp;amp;hl=en&amp;amp;as_sdt=0&amp;amp;as_vis=1&amp;amp;oi=scholart&#34;&gt;Paris Avgeriou and Uwe Van Heesch&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-
-      </description>
+      <description>Towards a central repository of Design Patterns&#xA;An authoritative central repository of Design Patterns does not exist. There is a book called The Pattern Almanac 2000 by Linda Rising however this is no more than an index of patterns - nothing of substance except a one line descrtipion. And furthermore, it leaves out hundreds if not thousands of patterns - scattered across books, websites and people&amp;rsquo;s code. 2020 Update: Central repositories on the internet are now commonplace.</description>
     </item>
-    
     <item>
-      <title>Blog: Visualising Software</title>
+      <title>Visualising Software</title>
       <link>https://abulka.github.io/blog/2009/01/22/visualising-software/</link>
       <pubDate>Thu, 22 Jan 2009 00:00:00 +0000</pubDate>
-      
       <guid>https://abulka.github.io/blog/2009/01/22/visualising-software/</guid>
-      <description>
-        
-        
-        &lt;p&gt;Ways of Visualising Software Designs&lt;/p&gt;
-&lt;p&gt;This blog article explores the novel ways of developing software more visually and in visualising software generally - that is without coding.  It also explores ways of visualising software designs and of watching software execute. &lt;a href=&#34;http://en.wikipedia.org/wiki/Visual_programming_language&#34;&gt;Visual Programming&lt;/a&gt; and &lt;a href=&#34;http://en.wikipedia.org/wiki/Executable_UML&#34;&gt;Executable UML&lt;/a&gt; are the closest terms that describe this area.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Some of these projects have failed and others continue to thrive (e.g. Scratch). As of 2020 the new big thing in this area is &lt;a href=&#34;https://www.google.com/search?sxsrf=ALeKk00YHpag-SrvKTLZbTzhPv3fQXe2FQ%3A1604617901453&amp;amp;ei=rYakX6ybG8Ce4-EP09qsiAE&amp;amp;q=nocode+low+code&amp;amp;oq=nocode+low+code&amp;amp;gs_lcp=CgZwc3ktYWIQAzIFCAAQyQMyBggAEBYQHjIGCAAQFhAeMgYIABAWEB4yBggAEBYQHjIICAAQFhAKEB4yBggAEBYQHjIGCAAQFhAeMgYIABAWEB4yBggAEBYQHjoECAAQRzoFCAAQkQI6CwgAELEDEIMBEJECOggIABCxAxCDAToFCC4QsQM6AgguOg4ILhCxAxCDARDHARCjAjoICC4QxwEQowI6BAgAEEM6BAguEEM6CwguELEDEMcBEKMCOgIIADoNCC4QsQMQyQMQQxCTAjoHCAAQsQMQQzoFCAAQsQM6CggAELEDEMkDEEM6BAgAEApQrdHvDFjG4-8MYJHl7wxoAHACeACAAZMCiAHlF5IBBTAuOS42mAEAoAEBqgEHZ3dzLXdpesgBCMABAQ&amp;amp;sclient=psy-ab&amp;amp;ved=0ahUKEwjspZDAw-zsAhVAzzgGHVMtCxEQ4dUDCA0&amp;amp;uact=5&#34;&gt;low code and no-code&lt;/a&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;Creating software in a visual way would arguably lift the level of abstraction in how we create software.  Is it even possible?&lt;/p&gt;
-&lt;h3 id=&#34;model-driven-design&#34;&gt;Model Driven Design&lt;/h3&gt;
-&lt;p&gt;Whether its MDA (model driven architecture) with UML or Case tools from the past - this has clearly been a dream for a long time.  Martin Fowler considers the viability of MSA in an interesting &lt;a href=&#34;http://martinfowler.com/bliki/ModelDrivenArchitecture.html&#34;&gt;blog entry&lt;/a&gt; - also providing links to other peoples&amp;rsquo; opinions in this area. &lt;/p&gt;
-&lt;p&gt;For example there are some that argue UML (even the latest 2.0 version) is not computationally complete, or that programming visually is not all that its cracked up to be and and may not be as efficient as textual coding techniques.  Here is yet another &lt;a href=&#34;http://www.ifi.uzh.ch/rerg/fileadmin/downloads/publications/papers/IWSSD-10.pdf&#34;&gt;critique&lt;/a&gt; of UML as a modelling tool good enough to generate code.  These sorts of critiques certainly don&amp;rsquo;t stop the vendors - there are a lot of MDA tools e.g. [here is a list](#Links to MDA tools).&lt;/p&gt;
-&lt;h3 id=&#34;case-tools&#34;&gt;Case Tools&lt;/h3&gt;
-&lt;p&gt;I&amp;rsquo;m an optimist and part of me wants to see some sort of MDA / Executable UML approach work.  However it may not look like existing solutions - we need to look outside the box and find a blend of metaphors that are trully innovative. That&amp;rsquo;s why this page exists - lets explore what programming visually looks like.&lt;/p&gt;
-&lt;h3 id=&#34;oo-as-biological-cells&#34;&gt;OO as Biological Cells&lt;/h3&gt;
-&lt;p&gt;I once came up with the idea of OO programming being like a &amp;ldquo;world of cells&amp;rdquo;.&lt;/p&gt;
-&lt;p&gt;The most complex systems on earth, including the human body, are composed of biological cells amongst other things.  Shouldn&amp;rsquo;t we be looking to biology for metaphors for programming?&lt;/p&gt;
-&lt;p&gt;Here is a thought experiment for you.  Imagine running software as a collection of biological cells, each cell representing an instance of a class.  Each object / cell lives in a community of objects, sending messages to other objects, storing data and providing behaviour exposed as methods.  It might look something like this:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/visualising_software_eggs1.gif&#34; alt=&#34;eggs1.gif (189234 bytes)&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;OO software as biological cells?&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Like in UML, the top half of the cells are storage (primitive data including pointers to other cells) and the bottom half represents the available public methods of the object.&lt;/p&gt;
-&lt;p&gt;The red lighting symbol&lt;img src=&#34;https://abulka.github.io/blog/images/visualising_software_redligtningFromCellEgg.gif&#34; alt=&#34;redligtningFromCellEgg.gif (854 bytes)&#34;&gt;next to a method name represents a method being invoked.&lt;/p&gt;
-&lt;p&gt;Imagine being able to pan around and view different aspects of this running software model.  The technique used by the information organiser &lt;a href=&#34;http://www.thebrain.com/&#34;&gt;the brain&lt;/a&gt; might be one cool way to browsing, navigate and perhaps organise such &amp;ldquo;computational space&amp;rdquo;.&lt;/p&gt;
-&lt;h3 id=&#34;executable-uml&#34;&gt;Executable UML&lt;/h3&gt;
-&lt;p&gt;There are only a couple of high end tools that get into the territory of being able to draw UML diagrams and generate code - which is executable.  The idea is that it saves implementation time and round trip engineering where you suck the implementation back into a UML model and to and fro and to and fro with all the synchronisation nightmares that entails. &lt;/p&gt;
-&lt;p&gt;UML is not expressive enough to cover all that code needs to do, so some of these tools come with a language that you have to use anyway.&lt;/p&gt;
-&lt;p&gt;There are a couple of books in this area.  One is called &lt;a href=&#34;http://www.cambridge.org/uk/catalogue/catalogue.asp?isbn=0521537711&#34;&gt;Model Driven Architecture with Executable UML&lt;/a&gt; which is linked to the Keneddy Carter tool (see below) and the other is called &lt;a href=&#34;http://www.amazon.com/Executable-UML-Model-Driven-Architecture-Addison-Wesley/dp/0201748045/ref=pd_bbs_sr_1?ie=UTF8&amp;amp;s=books&amp;amp;qid=1232316418&amp;amp;sr=8-1&#34;&gt;Executable UML: A Foundation for Model-Driven Architecture&lt;/a&gt; which illustrates its examples using the BridgePoint tool.&lt;/p&gt;
-&lt;p&gt;The software tools I have found are&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.mentor.com/products/sm/uml_suite/&#34;&gt;BridgePoint tool&lt;/a&gt; suite from Project Technology.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.kc.com/&#34;&gt;iUML Modeller and Simulator&lt;/a&gt; from Kennedy Carter&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.ilogix.com/products/rhapsody/developer.cfm&#34;&gt;Rhapsody&lt;/a&gt; by IBM (formerly by ILogix Telelogic)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;The great thing about some of these tools is that you can in some cases actually watch your UML &lt;em&gt;execute&lt;/em&gt; -they call it &amp;ldquo;executable UML-based application development&amp;rdquo;.&lt;/p&gt;
-&lt;p&gt;I&amp;rsquo;m about to run the latest trials of these products.  I&amp;rsquo;d be interested to see how they handle sequence diagrams, since sequence diagrams are not syntactically expressive enough to precisely model for loops and if statements to a practical, executable level.  In UML you can use OCL (object constraint language) and a few UML indicators to indicate looping etc. but to cover all the coding possibilities you need more.&lt;/p&gt;
-&lt;h3 id=&#34;simpler-approaches&#34;&gt;Simpler Approaches&lt;/h3&gt;
-&lt;p&gt;Executable UML is currently not for the faint of heart - its pretty complicated stuff but I hope that will change.  For a simplified programming environment check out &lt;a href=&#34;https://scratch.mit.edu/&#34;&gt;Scratch&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://cdm.link/app/uploads/2018/01/Roland_GO-KEYS_ScratchX_Extension.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Scratch - programming for students&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;With Scratch you can drag and drop your coding fragments, no typing.  Its truly amazing and whicls tit caters to kids, I really wish they would expose an object oriented, serious version.  In the current version you can define objects and broadcast and respond to messages, so its no slouch in the OO stakes, however you need to be able to define classes and instantiate them - at the moment you cannot instantiate arbitrary &amp;lsquo;sprites&amp;rsquo; easily.&lt;/p&gt;
-&lt;p&gt;Apple&amp;rsquo;s &lt;a href=&#34;https://support.apple.com/en-au/guide/automator/welcome/mac&#34;&gt;automator&lt;/a&gt; is a visual programming system for intra-application workflow.  It comes bundled with all Mac&amp;rsquo;s, though in order to automate MS Office you need to buy the business version not the home edition.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/visualising_software_11321233034707appleautomatorworkflow.gif&#34; alt=&#34;11321233034707appleautomatorworkflow.gif&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Apple&amp;rsquo;s Automator - for workflow&lt;/em&gt;&lt;/p&gt;
-&lt;h2 id=&#34;the-wiring-paradigm&#34;&gt;The Wiring Paradigm&lt;/h2&gt;
-&lt;p&gt;Another interesting system is Synopsis which lets you wire together your entire program without writing code.  You can drag and drop if statements and plus everything together.  You can group components and subsume them into a sub component - which reduces clutter and helps organise your work.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.codemorphis.com/articles/tip1/sample_event_prog.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;The Synopsis application development environment - no text coding!&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Trying it out I found it fascinating, though it sorely needs the more sophisticated thumbnail bread trail that SynthMaker (see below) has.  The wires are auto routed (thankfully) but things get pretty messy quickly.  I found that there was not enough information visible on the components themselves to figure out what was going on - you keep having to hover over components or double clicking on them to investigate the deeper logic.  Finally it gets quite tiresome doing if-then logic using wires.  I suspect that a touch of the Scratch metaphor (see above) would be better for those sorts of tasks, within a larger system of wiring.  A mixed metaphor approach?  Anyway, a brave effort.&lt;/p&gt;
-&lt;p&gt;Another similar effort along the same lines (plug together syntax with wiring) is &lt;a href=&#34;http://www.scripps.edu/~stoffler/proj/ViPEr/viper.html&#34;&gt;ViPEr&lt;/a&gt;: a visual programming environment for Python, which &amp;ldquo;allows non-programmers to interactively build networks describing novel combinations of computational methods, and yielding new visualizations of their data without actually writing code&amp;rdquo;.  It seems to be part of something called MGLTools now - here is a screenshot:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/visualising_software_40531234827676viper1.png&#34; alt=&#34;40531234827676viper1.png&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;ViPEr - visual programming for visualisation research.&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;The music software industry (synthesizer plugins, audo processing, music making) is light years ahead when it comes to visual interfaces.  And in terms of programming visually, &lt;a href=&#34;http://synthmaker.co.uk/&#34;&gt;SynthMaker&lt;/a&gt; is state of the art, especially with regards to making the wiring more friendly and usable.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/visualising_software_42141233034874synthmakers2.png&#34; alt=&#34;42141233034874synthmakers2.png&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;SynthEdit- synthesizer maker&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;SynthMaker allows you to program without writing code, linking together components. Interstingly you can drill inside components - worlds within worlds, and a &amp;ldquo;breadcrumb&amp;rdquo; screenshot panel at the top of the interface helps to give you a sense of where you have been and where you are now.  Clicking on a screenshot takes you back to the component/world.  This product is not just theoretical or academic - people make real synthesisers with this tool and even sell them commercially.&lt;/p&gt;
-&lt;h2 id=&#34;build-your-own-visual-language&#34;&gt;Build your own Visual Language&lt;/h2&gt;
-&lt;p&gt;An interesting effort to build a compiler &amp;ldquo;compiler&amp;rdquo; for visual languages is &lt;a href=&#34;http://www.cs.ioc.ee/cocovila/&#34;&gt;CoCoViLa&lt;/a&gt;.  Here you can draw shapes on a wrokspace to define the elements of your visual language.  You define ports for how these elements connect to each other using wires.  You can add java code to define what actually gets done when your shapes are connected to each other.  For example you could define an &amp;ldquo;ADD&amp;rdquo; shape with two inputs and one output and then feed a pair of numbers into it to get an output.  Connecting the output into the input of another shape would similarly chain on extra computation steps.  The beauty here is that you can define your own shapes and logic.  This is a phd project but hopefully will grow into something bigger and better, like an open source &lt;a href=&#34;http://www.metacase.com/&#34;&gt;MetaCase&lt;/a&gt;.  Here is an example of one of the &amp;ldquo;domain languages&amp;rdquo; that comes as an example:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.cs.ioc.ee/cocovila/images/dif.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;CoCoViLa - define your own shapes and how they join together.&lt;/em&gt;&lt;/p&gt;
-&lt;h2 id=&#34;debuggers-as-visualisers&#34;&gt;Debuggers as visualisers&lt;/h2&gt;
-&lt;p&gt;Of course debuggers are the most obvious tools we have today for watching software execute.  We can watch variables and see the current execution point etc.&lt;/p&gt;
-&lt;p&gt;There is a &lt;a href=&#34;http://www.compuware.com/products/numega/dps/java/jc.htm&#34;&gt;java visualisation debugger&lt;/a&gt; that is amazing when watching multiple threads.&lt;/p&gt;
-&lt;p&gt;The &lt;a href=&#34;http://www.python.org/windows/pythonwin/guienvironment.html&#34;&gt;python for windows&lt;/a&gt; debugger is pretty amazing too.  You can drill inside namespaces, objects and classes ad-infinitum. Even methods are objects, which have properties.  Its not animation but its an interesting hierarchical visualisation of computational space and name space. P.S. What sort of interesting &amp;ldquo;spaces&amp;rdquo; are there in software?   The &lt;a href=&#34;http://www.amazon.com/exec/obidos/ASIN/076453114X/qid=998548289/sr=2-1/ref=aps_sr_b_1_1/102-0823202-5511330&#34;&gt;Jbuilder 2 Bible&lt;/a&gt; by Armstrong has some fantastic descriptions of how software and objects operate and interact.&lt;/p&gt;
-&lt;h3 id=&#34;visualisations-using-gui-components&#34;&gt;Visualisations using gui components&lt;/h3&gt;
-&lt;p&gt;In my old &lt;a href=&#34;http://www.asymetrix.com.au/&#34;&gt;Multimedia Toolbook&lt;/a&gt; programming days, if I was prototyping an application and I needed a datastructure to hold a list of strings, and if that data was something I might want to watch change during program execution then I would use a visual GUI component to hold that data.  This way I could always &amp;lsquo;see the data&amp;rsquo; and watch it change. After development I simple made the GUI elements (that would make no sense to the user) invisible but still operational.&lt;/p&gt;
-&lt;p&gt;Normally a programmer would choose a non visual datastructure, which would of course be many times more efficient than storing the data in a GUI component. It is also considered bad practice to couple your &amp;lsquo;model&amp;rsquo; with GUI.  However for prototyping, the advantages are instant and often beautiful visualisations, since you can also change the fonts, colors and placement of such GUI elements to produce pleasing visualisation layouts.&lt;/p&gt;
-&lt;p&gt;Note: this technique of using gui components as data structures is just a thought provoking idea of how to achieve visualisation of program innards and program behaviour.   I am not advocating that you build your serious programs in this way.&lt;/p&gt;
-&lt;h3 id=&#34;static-representaion-of-wiring&#34;&gt;Static representaion of &amp;ldquo;wiring&amp;rdquo;&lt;/h3&gt;
-&lt;p&gt;I always liked the idea of &lt;a href=&#34;http://en.wikipedia.org/wiki/IBM_VisualAge&#34;&gt;Visual Age&lt;/a&gt; for Java technology.  You draw links between components, both visual and non visual.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://web.archive.org/web/20101203121657if_/http://www.javaworld.com/javaworld/jw-01-2000/images/jw-01-beans3.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Visual Age for Java - radical ideas, but now discontinued.&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;UML lets you visualise classes etc. but doesn&amp;rsquo;t cover this sort of &amp;lsquo;real world&amp;rsquo; representation of the wiring between GUI components on a form and objects in your model/application.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/visualising_software_vaTutorialWirePic.gif&#34; alt=&#34;vaTutorialWirePic.jpg (11334 bytes)&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Visual Age style programming&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;I&amp;rsquo;m not sure why Visual Age was discontinued in favour of the more traditional Eclipse tool.  Perhaps in use it was too cumbersome, or perhaps the particular implementation too complex?  Or is the whole idea of visual programming too radical for popular acceptance?&lt;/p&gt;
-&lt;p&gt;Another slightly radical tool for representing hitherto &amp;lsquo;hidden&amp;rsquo; and unvisualised information visually is the &lt;a href=&#34;https://www.embarcadero.com/products/delphi&#34;&gt;Delphi 6&lt;/a&gt; data diagram and form diagrams.  Both data diagrams and form designer have an extra tab, which lets you view your components schematically and see the wiring between them.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/visualising_software_BorlandADO_Image72.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Delphi - form diagram - shows the connections between visual components.&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/visualising_software_BorlandADO_Image60.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Delphi - data diagram - shows the connections between database and visual components.&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Note that Delphi (and most IDE&amp;rsquo;s) has always let you &amp;ldquo;wire&amp;rdquo; components together by setting a property on a component, with appropriate hinting in drop down combos - you select an object from a combo box in order to make the wiring (ie. set the property) - the combobox for each property lists all the valid components on the enclosing form that the property could possibly point / be wired to. To make these wiring connections with visual lines rather than combo boxes I guess is just another metaphor.&lt;/p&gt;
-&lt;h3 id=&#34;software-visualisation&#34;&gt;Software Visualisation&lt;/h3&gt;
-&lt;p&gt;There seems to be some serious work being done in this field. Check out &lt;a href=&#34;http://www.atug.com/andypatterns/www.ftp.cl.cam.ac.uk/ftp/papers/reports/TR511-camg100-software-visualization-in-prolog.pdf&#34;&gt;Software Visualization in Prolog&lt;/a&gt; by Calum A. McK. Grant (as a Dissertation submitted for the degree of Doctor of Philosophy) which has astonishing pictures of software visualisation tools and visual programming systems e.g.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/visualising_software_egg.ht1.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/visualising_software_egg.ht2.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;The quicksort algorithm written in ProGraph.&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Also check out  Vmax  &lt;a href=&#34;http://www.cl.cam.ac.uk/Research/Rainbow/vmax/sshot.html&#34;&gt;http://www.cl.cam.ac.uk/Research/Rainbow/vmax/sshot.html&lt;/a&gt; &lt;br&gt;
-Vmax is a programmer&amp;rsquo;s text editor combined with a graphical browsing window for powerful visualization of source code and run-time behaviour e.g.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/visualising_software_egg.ht3.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;Another interesting tool I recently found was &lt;a href=&#34;http://cs.joensuu.fi/jeliot/index.php&#34;&gt;Jeliot 3&lt;/a&gt; which plays an animation of your java source code executing.  Its quite amazing, though there are limitations on what you can feed it (all classes must be in the same source file etc.).  Here is a screenshot:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/visualising_software_54961233276533jeliot.png&#34; alt=&#34;54961233276533jeliot.png&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Jeliot 3: This was a screenshot I took during the animated playback of some java code&lt;/em&gt;&lt;/p&gt;
-&lt;h2 id=&#34;code-bubbles-and-spatial-development-environments&#34;&gt;Code Bubbles and Spatial Development Environments&lt;/h2&gt;
-&lt;p&gt;As of 2010 you&amp;rsquo;d think we had come a long way in terms of the visualising of software.  And I think we have.  I&amp;rsquo;ve just learned about &lt;a href=&#34;http://cs.brown.edu/~spr/codebubbles/&#34;&gt;Code Bubbles&lt;/a&gt;, a way of exploring code which displays relevant methods (of source code) in coloured bubbles, which you can glue together with other bubbles, to form islands of code that is related.  Lines show what is expanded from what.  Search functions let you fill bubbles with search results.  Watching the &lt;a href=&#34;https://www.youtube.com/watch?v=PsPX0nElJ0k&#34;&gt;video&lt;/a&gt; is the best way to get the idea. Old paper &lt;a href=&#34;https://web.archive.org/web/20101211162913/http://www.cs.brown.edu/people/acb/codebubbles_site.htm&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/visualising_software_CodeBubbles1.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Code Bubbles Java IDE and Explorer&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;You can make memo notes, edit code, add icons (like the bug symbol).  You can zoom out.  Even more amazing, you can run debug sessions and create bubbles of methods as you execute code - so that you can see the trail of execution.  A bubble can contain variables - or the state of the program at that point.  All this is persisted in your bubbles diagram, for comparison purposes or later reference.&lt;/p&gt;
-&lt;p&gt;Lastly, you have a huge workspace to play with.  Notice the bar along the top of the screen in the following screenshot:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/visualising_software_CodeBubbles2B.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Code Bubbles Java IDE and Explorer&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;The bar along the top is a high level minimap running horizontally.  Clicking on this minimap area scrolls the main workspace to show those bubbles.  Ableton Live and many DAW (Digital Audio Workstation) apps have such horizontal minimaps.  It also reminds me a little of SynthMaker (see above, near the start of this article) where you get thumbnail representations of a more complex workspace.  What is interesting with Code Bubbles is that you can drag out the minimap area to mark a region, and label it.&lt;/p&gt;
-&lt;p&gt;Code Bubbles seems to visualise what goes on in my mind when I code - I deal with a collection of related code and code fragments - or a path of execution through specific code fragments / methods.  Code Bubbles respects what is going on in my mind.  Instead of bookmarking, switching tabs, scrolling constantly - Code Bubbles chunks together all related code fragments into the one place.  This is truly a breakthrough and I can&amp;rsquo;t wait to try out the beta.&lt;/p&gt;
-&lt;p&gt;Another related tool comes from Microsoft Research, its called &lt;a href=&#34;http://blogs.msdn.com/kaelr/&#34;&gt;Code Canvas&lt;/a&gt; which is&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;an experimental research platform for building a spatial development environment. It lets us explore design alternatives when dealing with source code on an infinitely scalable two-dimensional surface.&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Basically you get a high level view of the files in a project and as you zoom in you start seeing class and method names, and you can keep zooming until you see actual code - which you can edit &lt;em&gt;in situ&lt;/em&gt;.  Relationships like inheritance and references (e.g. who is calling a particular method) are indicated with appropriate lines.  Its a nice experiment.  It doesn&amp;rsquo;t chunk the information like Code Bubbles does, but does provide infinite zooming - from super high level where you even see apps and packages right down to code level.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/visualising_software_code_canvas_menagerie_3.png&#34; alt=&#34;&#34;&gt;
-&lt;em&gt;Code Canvas, from Microsoft Research&lt;/em&gt;&lt;/p&gt;
-&lt;h2 id=&#34;summary&#34;&gt;Summary&lt;/h2&gt;
-&lt;p&gt;Ideally I would like to see approaches like Executable UML simplified down and incorporate the simple coding ideas of Scratch, albiet taken to a serious object oriented level (Scratch is really for kids at the moment).  Design Pattern support would also be woven in - e.g. Netbeans 6 has a visual way of creating design patterns - see my Feb 2009 &lt;a href=&#34;http://www.andypatterns.com/index.php?cID=82&#34; title=&#34;UML and Design Pattern Support in Netbeans 6.5&#34;&gt;blog post&lt;/a&gt; on this.  The visual form designing capabilities of Visual Age (now defunct, unfortunately) and Delphi form diagrams would complete are new lego was of building software.  Of course &lt;a href=&#34;http://en.wikipedia.org/wiki/Case_tools&#34;&gt;case tools&lt;/a&gt; have always been around and to some extent people have become a bit cynical about them over the decades as no breakthrough application has ever appeared.  We should still keep trying though as I can see progress on many fronts and can see all the wonderful pieces of the puzzle - they just need to be unified into a single compelling open source product. &lt;/p&gt;
-&lt;h2 id=&#34;my-personal-vision&#34;&gt;My personal vision&lt;/h2&gt;
-&lt;p&gt;My own vision is of a UML tool which doesn&amp;rsquo;t adhere strictly to UML in its committe born detail but takes a few risks (e.g. the way Visual Studio UML tool does) in order to innovate.  You type code into the UML tool itself, without opening a window - its all right there on the workspace.  Enterprise Architect displays code inside UML diagrams, so you can get a taste of how this might look. The potential clutter of code and UML in the one diagram would be alleviated by collapsable regions so that with all methods collapsed, all you see is a regular UML diagram with just methods listed.&lt;/p&gt;
-&lt;p&gt;And when I say type, I mean use Scratch type drag and drop to assemble code.  You apply design patterns like in Netbeans and IBM Rational, and you can specify design pattern roles not only to the level of granularity of classes and methods but also to the level of code &lt;em&gt;lines&lt;/em&gt; - that&amp;rsquo;s why its important to model and reify &lt;em&gt;code&lt;/em&gt; lines into objects, so that they are more easily referred to by &amp;ldquo;active&amp;rdquo; design patterns (like in ModelMaker). &lt;/p&gt;
-&lt;p&gt;The design patterns themselves would operate at the level of classes, as is normal.  There would also be dozens of language idiom patterns to assist with coding - e.g. iterating through a list is a pattern.  Lets treat language idiom patterns the same way as we do design patterns at a class level - all in the same interface.  Both class design and language coding becomes the same thing - pattern based lego.&lt;/p&gt;
-&lt;p&gt;You should be able to easily group UML objects into components which are like symbols in Flash.  You can then define the connection types and plug them together.  If you can&amp;rsquo;t plug them together directly then you might be able to drop in various adapters to help.  We might be using protocols similar to the way genes and enzymes talk to each other. Speaking of grouping, you should be able to group components and subsume them into sub modules, hiding away all the detail.  Then you double click to drill into that module - leaving a SynthMaker style breadscrumb of screenshots to help tell you where you are and where you have come from, and help you get back (just click on a relevant screenshot).&lt;/p&gt;
-&lt;p&gt;Method calls would be made using messages.  Messages are a more powerful metaphor for talking between objects - you can send messages to specific objects like a normal method call but also broadcasting messages broadly - there are are even books on messaging patterns (see patterns of enterprise architecture). Relationships would be modelled using an ORM style Relationship Manager so that you just specify what sort of relationships you want between two classes and its done.  Furthermore, you can leverage SQL or LINQ style queries without having to write custom looping code etc.&lt;/p&gt;
-&lt;p&gt;There should be an integrated GUI builder that caters to various styles of application: web, form based with controls and menus, workspace based with draggable widgets and sprite based for game type approaches.  A MVC framework would be built in so that you know where to put all your code and so that a proper separation between model and presentation is achieved.  No more guessing - its all defined for you.&lt;/p&gt;
-&lt;p&gt;How can this sort of vision compete against the well funded and expensive MDA and Executable UML tools industry?  I don&amp;rsquo;t know - my feeling is that MDA tools are stuck in a bit of a rut and aren&amp;rsquo;t taking advantage of more radical approaches that I have been talking about here.  I have only scratched the surface and there is lots of detail to be worked out, I know.  Its fun speculating about it anyway. I even have some screen designs if you wish to &lt;a href=&#34;http://www.andypatterns.com/index.php?cID=34&#34; title=&#34;Contact&#34;&gt;contact me&lt;/a&gt; about them!&lt;/p&gt;
-&lt;h3 id=&#34;appendix-links-to-various-mda-tools&#34;&gt;Appendix: Links to various MDA tools&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;http://www.software-pointers.com/en-mda-tools.html&#34;&gt;http://www.software-pointers.com/en-mda-tools.html&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;http://www.modelbased.net/mda_tools.html&#34;&gt;http://www.modelbased.net/mda_tools.html&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Dr Dobbs &lt;a href=&#34;http://www.ddj.com/architect/184415500&#34;&gt;MDA tools list and commentary&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Choosing MDA tools - &lt;a href=&#34;http://www.ibm.com/developerworks/architecture/library/wi-arch18.html&#34;&gt;IBM article&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;comments&#34;&gt;Comments&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;Posted by J. Alkub on Jan 18th, 2009&lt;/strong&gt;&lt;br&gt;
-Debuggers are dynamic, automated ways of producing model-view-controller visualisations of your data, except they attach to ANY software application and reveal it, visually&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;&lt;strong&gt;Posted by Mike Davis on Feb 9th, 2009&lt;/strong&gt;&lt;br&gt;
-Have you looked at ECO IV and V from CapableObjects? (&lt;a href=&#34;https://www.capableobjects.com&#34;&gt;www.capableobjects.com&lt;/a&gt;). Is is a UML modeler which uses an extension to OCL for triggered actions and state diagrams for object state models to generate syncronized C# and VB.NET (version V) only.&lt;/p&gt;
-&lt;p&gt;It really only builds the business layer and the data layer but integrates them quite seamlessly so that the developer can concentrate on the UI and Business Model alone&amp;hellip;&lt;/p&gt;
-&lt;p&gt;mike&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;&lt;strong&gt;Posted by AndrewBoldman on Sep 22nd, 2009&lt;/strong&gt;&lt;br&gt;
-Hi, good post. I have been wondering about this issue,so thanks for posting.&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;&lt;strong&gt;Posted by John Smythe on Sep 22nd, 2009&lt;/strong&gt;&lt;br&gt;
-Check out xdepend - visualises dependencies in java programs&lt;br&gt;
-&lt;a href=&#34;http://xdepend.com/&#34;&gt;http://xdepend.com/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;XDepend lets you extract, visualize, seek and control the structure of your applications and frameworks. XDepend provides complementary and interactive views on the same information. A Tree-Map view helps you easily identify the big one from the small one. The dependency matrix, the graph view and the detailed view help you gain insight in your code base.&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;&lt;strong&gt;Posted by K M Nur on Feb 11th, 2010&lt;/strong&gt;&lt;br&gt;
-I am doing my masters thesis on software visualization / software comprehension and so far considered, bluej, jeliot3, jgrasp, javavis, jive, ville. I am looking for more tools for software visualization. Please inform me if you have any more ideas.&lt;/p&gt;
-&lt;p&gt;Regards,&lt;br&gt;
-KMN&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;&lt;strong&gt;Posted by Norm on Dec 29th, 2014&lt;/strong&gt;&lt;br&gt;
-I&amp;rsquo;ll try to put this to good use immediately.&lt;/p&gt;
-
-      </description>
+      <description>Ways of Visualising Software Designs&#xA;This blog article explores the novel ways of developing software more visually and in visualising software generally - that is without coding. It also explores ways of visualising software designs and of watching software execute. Visual Programming and Executable UML are the closest terms that describe this area.&#xA;Some of these projects have failed and others continue to thrive (e.g. Scratch). As of 2020 the new big thing in this area is low code and no-code.</description>
     </item>
-    
     <item>
-      <title>Blog: Thoughts on Closures</title>
+      <title>Thoughts on Closures</title>
       <link>https://abulka.github.io/blog/2007/11/05/thoughts-on-closures/</link>
       <pubDate>Mon, 05 Nov 2007 00:00:00 +0000</pubDate>
-      
       <guid>https://abulka.github.io/blog/2007/11/05/thoughts-on-closures/</guid>
-      <description>
-        
-        
-        &lt;h1 id=&#34;thoughts-on-closures&#34;&gt;Thoughts on Closures&lt;/h1&gt;
-&lt;p&gt;It seems like closures are all the rage in software development circles.  Ruby and Groovy have them and then C# got them.  Python had a form of them but are they really closures?  What are closures anyway - do we need them?&lt;/p&gt;
-&lt;p&gt;In this presentation I argue that anything you can do with closures you can do without closures.  Often not as elegantly, but often just as clearly.  What do you think?&lt;/p&gt;
-&lt;h2 id=&#34;presentation&#34;&gt;Presentation&lt;/h2&gt;
-&lt;iframe style=&#34;border: 1px solid #CCC; border-width: 1px; margin-bottom: 5px; max-width: 100%;&#34; src=&#34;//www.slideshare.net/slideshow/embed_code/key/EbZETLRZZskkDU&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; width=&#34;595&#34; height=&#34;485&#34;&gt; &lt;/iframe&gt;
-&lt;h2 id=&#34;comments&#34;&gt;Comments&lt;/h2&gt;
-&lt;h3 id=&#34;posted-by-lakisha-on-dec-29th-2014&#34;&gt;Posted by Lakisha on Dec 29th, 2014&lt;/h3&gt;
-&lt;p&gt;I appreciate you taking to time to contribute That&amp;rsquo;s very helpful.&lt;/p&gt;
-&lt;h3 id=&#34;posted-by-celiane-on-jan-10th-2015&#34;&gt;Posted by Celiane on Jan 10th, 2015&lt;/h3&gt;
-&lt;p&gt;Ah just what I&amp;rsquo;m looking for! I could not find this operator documented on the Groovy site. Excellent topics too btw, makes my learning idiomatic Groovy way easier. Thanks.&lt;/p&gt;
-
-      </description>
+      <description>Thoughts on Closures It seems like closures are all the rage in software development circles. Ruby and Groovy have them and then C# got them. Python had a form of them but are they really closures? What are closures anyway - do we need them?&#xA;In this presentation I argue that anything you can do with closures you can do without closures. Often not as elegantly, but often just as clearly.</description>
     </item>
-    
     <item>
-      <title>Blog: Teaching 23 Patterns</title>
+      <title>Teaching 23 Patterns</title>
       <link>https://abulka.github.io/blog/2007/01/23/teaching-23-patterns/</link>
       <pubDate>Tue, 23 Jan 2007 00:00:00 +0000</pubDate>
-      
       <guid>https://abulka.github.io/blog/2007/01/23/teaching-23-patterns/</guid>
-      <description>
-        
-        
-        &lt;h1 id=&#34;teaching-23-patterns-in-3-days&#34;&gt;Teaching 23 patterns in 3 days&lt;/h1&gt;
-&lt;p&gt;I have been running a &lt;a href=&#34;http://www.andypatterns.com/index.php?cID=64&#34; title=&#34;Design Patterns Training Courses&#34;&gt;design patterns course&lt;/a&gt; for several years where I teach 23 design pattern patterns in 3 days.  I cover all the GOF (Gang of Four) patterns plus more.  Here are some tales from the front lines!&lt;/p&gt;
-&lt;h2 id=&#34;history&#34;&gt;History&lt;/h2&gt;
-&lt;p&gt;Having attended Melbourne Patterns Group meetings for quite a few years (what wonderful discussions we have there!), and having written up three design patterns of my own, I decided to teach a design patterns course and offer it commercially.&lt;/p&gt;
-&lt;p&gt;The course has been running for over four years now (now is 2007) with between six to twelve attendees.  Often a company will send a couple of employees to the same course so there are groups of students who already know each other – which is often interesting as they sometimes have discussions in front of the whole group about how a particular pattern could be applied to the software they are both working on in their companies.&lt;/p&gt;
-&lt;h2 id=&#34;how-i-start-the-course&#34;&gt;How I start the course&lt;/h2&gt;
-&lt;p&gt;I begin with a PowerPoint presentation where I run through the basics of what patterns are and where they came from.  I stress their benefit in communicating and transferring wisdom between programmers.  I place a low emphasis on “pattern culture” and refrain from telling tales about Christopher Alexander (the architect who started the patterns movement in architecture) – it is more of a practical course.&lt;/p&gt;
-&lt;p&gt;I have found that it is critical to revise a bit of OO (Object Oriented Programming) at the beginning of the course, as most of the patterns rely on OO concepts.   And it sort of warms everybody up and gets everybody on the same page in terms of concepts like interfaces, inheritance, composition, polymorphism etc.  I also do a session on basic UML - as all the patterns I present are expressed in this notation.&lt;/p&gt;
-&lt;h2 id=&#34;history-of-the-course-materials&#34;&gt;History of the Course Materials&lt;/h2&gt;
-&lt;p&gt;I provide a 300+ page course manual which I edit and improve before each course.  During the course I make notes to myself relating to anything that is unclear, typos or any new ideas that come up during the course that I can incorporate back into the course manual.&lt;/p&gt;
-&lt;p&gt;Historically, writing a training course manual is a major part of getting a course going - it took me many months to write.  I began with a handwritten brainstorming outline of all the GOF design patterns – here is an ancient extract from my original starting notes:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/teaching-23-OldNotes.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;I then massaged everything into a proper Microsoft Publisher document, adding content, tips and code examples.  I later had to shift to using Microsoft Word 2007 because I needed a dynamic table of contents facility which for some reason Publisher doesn’t support. &lt;/p&gt;
-&lt;p&gt;Here is an example of what the course manual looks like now:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/teaching-23-NewNotes1.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://abulka.github.io/blog/images/teaching-23-NewNotes2.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;how-i-present&#34;&gt;How I present&lt;/h2&gt;
-&lt;p&gt;For each design pattern, I get each student to read the first page of the pattern from the course notes.  This way each student ‘owns’ a pattern or two (we usually cycle around the students at least twice to get through the 23 patterns).  It also engages the students a bit more keeping them awake (and possible terrified or excited). &lt;/p&gt;
-&lt;p&gt;I follow that by a whiteboard presentation followed by my leaping onto a computer and building a code example from scratch.  &lt;/p&gt;
-&lt;p&gt;I used to select patterns at random, depending on my mood and on what I thought the students would relate to best next.  For example some patterns flow on from other patterns e.g. you need to understand the strategy design pattern early, as a lot of other patterns use this technique.  The feedback I got sometimes expressed the preference for a fixed order of presentation so that it matched the order of the printed course materials.  So from then on I changed the way I did things.  I settled on a teaching order based on the reasoning of Joshua Kerievsky  in his &lt;a href=&#34;http://www.industriallogic.com/papers/learning.html&#34;&gt;A Learning Guide To Design Patterns&lt;/a&gt; – which meant rearranging the teaching manual etc.  I got no more complaints then and quite possibly the course is more effective because of the way the patterns build upon each other.&lt;/p&gt;
-&lt;h2 id=&#34;code-examples&#34;&gt;Code Examples&lt;/h2&gt;
-&lt;p&gt;I quite often start building the examples from a UML diagramming tool like &lt;a href=&#34;http://www.bluej.org/about/what.html&#34;&gt;BlueJ&lt;/a&gt; in order to create the classes – then I fill out the code.  This way we keep our attention on the high level design pattern usage.  My code examples are in Java, C# and occasionally in Python – in my training courses you never know what the preferred development language of the students is – so my examples are evenly mixed between C# and Java with the occasional Python example thrown in to add something new into to the mix.&lt;/p&gt;
-&lt;p&gt;When building a code example – I like to do it from scratch – as I believe that pre-canned code examples are murky and mysterious – better to have everyone understand and see everything – and that means building examples from the beginning.  I used to pride myself on “jamming” (like jazz improvisation) and used to code live in front of the class - but due to the stress and amount of code involved, especially in some of the more complex examples, I now copy and paste code from the student notes using a keyboard macro facility which types the code slowly – as if I am typing it.  This alleviates the stress, allows me to commentate and doesn’t bore the audience with my typos.  &lt;/p&gt;
-&lt;p&gt;I always build examples that compile and run – either achieving some result or passing some set of unit tests.  Sometimes I adapt the examples as needed with variable names and method names invented by the group, so that the code feels more personalized and meaningful, and sometimes also we jam with the code a little to experiment with variations, in order to learn more.  At the end of the training course I provide all the code we develop to anyone who wants it - on USB stick or via email.&lt;/p&gt;
-&lt;h2 id=&#34;puzzles&#34;&gt;Puzzles&lt;/h2&gt;
-&lt;p&gt;Sometimes I preceded the presentation of a pattern with a puzzle and ask student to sketch out a solution to a problem themselves which gives the students some personal time to think and design.  And when I present the elegant solution using the relevant design pattern, the student appreciates it better because he or she has struggled with the problem themselves.  Note that I don’t actually have students using laptops as this is a recipe for students becoming distracted – it’s all done on paper.  If I ever get to expand (or rather get paid for a presenting) my 3 day course to 4 days, then there will be more time for these useful puzzle sessions.&lt;/p&gt;
-&lt;h2 id=&#34;from-a-teaching-point-of-view&#34;&gt;From a teaching point of view&lt;/h2&gt;
-&lt;p&gt;Teaching these courses requires a lot of energy as we move at a rate of seven patterns a day.  You have to engage the room and make it entertaining - filled with insight and technical detail.  I’m not sure about the students, but after the course finishes on the 3rd night I usually collapse into a deep coma sleep well into the next morning.  It’s a lot for students to absorb too, though most good programmers handle the amount of information presented well and come away excited.&lt;/p&gt;
-&lt;p&gt;As programmers are a highly intelligent bunch, I constantly have to handle probing questions – which I try to answer as honestly as I can.  I&amp;rsquo;ve tried to become more precise over the years – answering the exact question rather than converting it into yet another convenient question which helps in the learning process.  During some earlier courses I felt I was answering questions like a politician, especially if I felt the questions were half-baked and that our time was better spent answering a more profound question.  But I didn’t like the feeling of being a politician so I try to answer every question as it stands.  There is also a delicate balance between being an authority and my not knowing.  Whilst there are situations (especially in the wide and wonderful world of design patterns and OO design) where there is no clear answer to a question, too much uncertainty is not good for a training course where certainty is expected.&lt;/p&gt;
-&lt;p&gt;I encourage a certain amount of group discussion.  Its powerful letting students think and debate for themselves.  I put clues and questions their way during the discussion in order to facilitate the learning outcomes.  You have to not let it go on too long and stay on schedule.&lt;br&gt;
-Students have different personalities - there are active students who get right into it and then you get the quiet ones who just listen most of the time (until they have to read their pattern!).  And funnily enough the cross-section of the groups always seem to form a similar pattern: usually two or three positive and really bright sparks, one or two slower students, always one slightly grumpy negative student, and the rest are just normal.&lt;/p&gt;
-&lt;h2 id=&#34;future-directions&#34;&gt;Future Directions&lt;/h2&gt;
-&lt;p&gt;Last time I wrote a &amp;ldquo;future directions&amp;rdquo; section (in an earlier version of this blog) I promised to present patterns in a known order - exactly matching the training manual – this I now do and it has been a worthwhile change.  I also promised that I would add more code samples – and this is now the case – every pattern has at least one code example.  &lt;/p&gt;
-&lt;p&gt;In terms of the future, I would love to actually deliver more of these courses, and would like to try a 4 day course so that we get more time for puzzles etc. and spend more time exploring UML tools that support design pattern automation etc.  Most employers don’t like to lose their programmer for so long - even three days is pretty long, so a shorter course – a 2 day course – is something I am also offering now.  I’ve done one day course before too, but in the end my favorite course is the classic 3 day course where we get to cover all the basic 23 GOF design patterns.&lt;/p&gt;
-&lt;p&gt;-Andy&lt;/p&gt;
-&lt;p&gt;For details on my course click &lt;a href=&#34;http://www.andypatterns.com/index.php?cID=64&#34; title=&#34;Design Patterns Training Courses&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-      </description>
+      <description>Teaching 23 patterns in 3 days I have been running a design patterns course for several years where I teach 23 design pattern patterns in 3 days. I cover all the GOF (Gang of Four) patterns plus more. Here are some tales from the front lines!&#xA;History Having attended Melbourne Patterns Group meetings for quite a few years (what wonderful discussions we have there!), and having written up three design patterns of my own, I decided to teach a design patterns course and offer it commercially.</description>
     </item>
-    
     <item>
-      <title>Blog: Using Design Patterns in Real Projects</title>
+      <title>Using Design Patterns in Real Projects</title>
       <link>https://abulka.github.io/blog/2002/09/04/using-design-patterns-in-real-projects/</link>
       <pubDate>Wed, 04 Sep 2002 00:00:00 +0000</pubDate>
-      
       <guid>https://abulka.github.io/blog/2002/09/04/using-design-patterns-in-real-projects/</guid>
-      <description>
-        
-        
-        &lt;p&gt;What is it like to use design pattern in real life programming?&lt;br&gt;
-Do the sometimes academic patterns translate into the real world?&lt;/p&gt;
-&lt;p&gt;The answer is yes. I will back this up with three examples of where I have used patterns in real world projects.&lt;/p&gt;
-&lt;iframe class=&#34;scribd_iframe_embed&#34; title=&#34;Using Design Patterns in Real Projects&#34; src=&#34;https://www.scribd.com/embeds/11154597/content?start_page=1&amp;amp;view_mode=scroll&amp;amp;show_recommendations=true&amp;amp;access_key=key-2hwdc4gvp5l1dtlom3k4&#34; frameborder=&#34;0&#34; scrolling=&#34;no&#34; width=&#34;100%&#34; height=&#34;600&#34; data-auto-height=&#34;true&#34; data-aspect-ratio=&#34;null&#34;&gt;&lt;/iframe&gt;
-&lt;p&gt;&lt;em&gt;Scroll down through the slides above&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;-Andy Bulka&lt;/p&gt;
-
-      </description>
+      <description>What is it like to use design pattern in real life programming?&#xA;Do the sometimes academic patterns translate into the real world?&#xA;The answer is yes. I will back this up with three examples of where I have used patterns in real world projects.&#xA;Scroll down through the slides above&#xA;-Andy Bulka</description>
     </item>
-    
     <item>
-      <title>Patterns: Design Pattern Automation</title>
+      <title>Design Pattern Automation</title>
       <link>https://abulka.github.io/patterns/design-pattern-automation/</link>
       <pubDate>Fri, 04 Jan 2002 00:00:00 +0000</pubDate>
-      
       <guid>https://abulka.github.io/patterns/design-pattern-automation/</guid>
-      <description>
-        
-        
-        &lt;p&gt;&lt;img src=&#34;http://www.andypatterns.com/files/56881233035290bgDSC1195.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;As design patterns become more mainstream, various IDE&amp;rsquo;s (Integrated Development Environments) and UML modelling software environments have begun to introduce support for design patterns. For example, developers browse through a catalog of design patterns and drop one onto a UML workspace, whereupon various classes appear with the appropriate methods and attributes inserted. Usually there is an interface whereby roles in the design pattern can be mapped onto existing classes, or alternatively, new classes are created for you. This paper explores the state of pattern automation software, discusses the pros and cons of various approaches and then goes on to discusses the broader issues raised by the attempt to automate something which some argue, in principle, perhaps should not be automated at all..&lt;/p&gt;
-&lt;h3 id=&#34;history-of-these-papers-and-talks&#34;&gt;History of these papers and talks&lt;/h3&gt;
-&lt;p&gt;My pattern automation paper
-&lt;a href=&#34;#early-tools-and-the-philosophy-of-pattern-automation&#34;&gt;Early tools and the philosophy of pattern automation&lt;/a&gt; (below) was followed a few years later with a talk entitled:
-&lt;a href=&#34;#design-pattern-tools-as-of-2006&#34;&gt;Design Pattern Tools as of 2006&lt;/a&gt; (below) which reviewed the current crop of UML tools circa 2006. For a specific review of Netbeans 6 design pattern support - see
-&lt;a href=&#34;https://abulka.github.io/blog/2009/02/11/netbeans-uml/&#34;&gt;Netbeans UML&lt;/a&gt; blog post, created after I gave that talk to the Melbourne Patterns Group in Feb 2009.&lt;/p&gt;
-&lt;h2 id=&#34;design-pattern-automation--uml-tool-support&#34;&gt;Design Pattern Automation &amp;amp; UML Tool Support&lt;/h2&gt;
-&lt;p&gt;Various UML Tools support design pattern usage.  You typically drag and drop patterns onto your workspace and they appear as UML classes.  Its a bit more complicated than this, and raises all sorts of interesting issues.  Read the pdf (part 1) and then read the powerpoint and watch the video (part 2).&lt;/p&gt;
-&lt;h3 id=&#34;early-tools-and-the-philosophy-of-pattern-automation&#34;&gt;Early tools and the philosophy of pattern automation&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;This paper is a revision of one that appeared at KoalaPLoP 2002 – the Third Asia-Pacific Conference on Pattern Languages of Programmes.  Conferences in Research and Practice in Information Technology,Vol. 13. J. Noble, Ed. Reproduction for academic, not-for profit purposes permitted provided this text is included.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;iframe src=&#34;https://abulka.github.io/files/andybulkapatternautomation.html&#34; name=&#34;frame1&#34; scrolling=&#34;yes&#34; frameborder=&#34;yes&#34; align=&#34;center&#34; height = &#34;842px&#34; width = &#34;800&#34;&gt;
-&lt;/iframe&gt;
-&lt;p&gt;Download as &lt;a href=&#34;https://abulka.github.io/files/pdfs/AndyBulkaPatternAutomation.pdf&#34;&gt;pdf&lt;/a&gt;.&lt;/p&gt;
-&lt;h3 id=&#34;design-pattern-tools-as-of-2006&#34;&gt;Design Pattern Tools as of 2006&lt;/h3&gt;
-&lt;p&gt;Here are the slides from a talk entitled &amp;ldquo;Design Pattern support in UML tools - part II&amp;rdquo; which I gave in October 2006 to the Melbourne Patterns Group, Australia.&lt;/p&gt;
-&lt;iframe src=&#34;https://abulka.github.io/files/representingpatternsinumlandybulkaoct2006.html&#34; name=&#34;frame1&#34; scrolling=&#34;yes&#34; frameborder=&#34;yes&#34; align=&#34;center&#34; height = &#34;842px&#34; width = &#34;800&#34;&gt;
-&lt;/iframe&gt;
-&lt;p&gt;View the above powerpoint &lt;a href=&#34;http://www.slideshare.net/tcab22/representing-design-patterns-in-uml-andy-bulka-oct2006-presentation?type=powerpoint&#34;&gt;on slideshare&lt;/a&gt; or download the &lt;a href=&#34;https://abulka.github.io/files/ppt/RepresentingPatternsInUMLAndyBulkaOct2006.ppt&#34;&gt;powerpoint directly&lt;/a&gt;:&lt;/p&gt;
-&lt;h2 id=&#34;addendum&#34;&gt;Addendum&lt;/h2&gt;
-&lt;p&gt;As part of my Design Pattern Automation - Part 2 talk, I recorded some of that session.  Here is a youtube &lt;a href=&#34;http://www.youtube.com/watch?v=IjKClDX2dUU&#34;&gt;video&lt;/a&gt; of how to apply design patterns using IBM&amp;rsquo;s &lt;a href=&#34;http://www-01.ibm.com/software/rational/uml/products.html&#34;&gt;Rational&lt;/a&gt; tool.  Apologies about the sound quality - just look at the pictures!&lt;/p&gt;
-&lt;p&gt;Demonstration of Patterns in IBM&amp;rsquo;s Rational tool.
-&lt;a href=&#34;http://www.youtube.com/watch?v=IjKClDX2dUU&#34;&gt;http://www.youtube.com/watch?v=IjKClDX2dUU&lt;/a&gt;&lt;/p&gt;
-
-      </description>
+      <description>Introduction As design patterns become more mainstream, various IDE&amp;rsquo;s (Integrated Development Environments) and UML modelling software environments have begun to introduce support for design patterns. For example, developers browse through a catalog of design patterns and drop one onto a UML workspace, whereupon various classes appear with the appropriate methods and attributes inserted. Usually there is an interface whereby roles in the design pattern can be mapped onto existing classes, or alternatively, new classes are created for you.</description>
     </item>
-    
     <item>
-      <title>Blog: Patterns, ModelMaker &amp; Beyond</title>
+      <title>Patterns, ModelMaker &amp; Beyond</title>
       <link>https://abulka.github.io/blog/2000/01/04/patterns-modelmaker-beyond/</link>
       <pubDate>Tue, 04 Jan 2000 00:00:00 +0000</pubDate>
-      
       <guid>https://abulka.github.io/blog/2000/01/04/patterns-modelmaker-beyond/</guid>
-      <description>
-        
-        
-        &lt;p&gt;How can IDE visualisation features be further enhaced by UML and Design Patterns to assist developers. It discusses using the revolutionary UML tool ModelMaker (now discontinued) in conjuntion with Delphi.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.atug.com/andypatterns/images/cycleAll1.gif&#34; alt=&#34;cycleAll1.gif (11801 bytes)&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;ModelMaker allowed you to apply patterns onto your code using a UI&lt;/em&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;This is a talk I gave at the time that I was into Delphi programming.  Presented to the Australian Delphi User Group in December 1999.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&#34;engineers-use-models&#34;&gt;Engineers use models&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Engineers produce plans before building bridges&lt;/li&gt;
-&lt;li&gt;Electrical engineers have a language of electrical symbols&lt;/li&gt;
-&lt;li&gt;Architects have blueprints&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;What do software engineers / programmer for a modelling tool?&lt;/p&gt;
-&lt;p&gt;Do programmers necessarily need a strict visual language like other engineers?&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Answer&lt;/strong&gt;: Most programmers use visual IDE (integrated development environments) to visualize and organize their work.  For most programmers, this &amp;lsquo;informal&amp;rsquo; modelling is sufficient for their needs.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.atug.com/andypatterns/images/formDelphi1.gif&#34; alt=&#34;formDelphi1.gif (15234 bytes)&#34;&gt;&lt;/p&gt;
-&lt;p&gt;Database tables have a natural visual reprentation of a grid/table e.g.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.atug.com/andypatterns/images/sqlDelphi1.gif&#34; alt=&#34;sqlDelphi1.gif (14787 bytes)&#34;&gt;&lt;/p&gt;
-&lt;p&gt;though when you want to visualise the often complex relationships between multiple tables, you may want to use something like the Delphi 5 Data Diagram:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.atug.com/andypatterns/images/dataDiagramDelphi.gif&#34; alt=&#34;dataDiagramDelphi.gif (17838 bytes)&#34;&gt;&lt;/p&gt;
-&lt;p&gt;We also have visual modelling in the form of hierarchical representation of classes (or elements of a data module, in Delphi 5).  This form of representation is extrememly useful, however, these hierarchical views do not show how objects are connected to each other.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.atug.com/andypatterns/images/codeExplorer.gif&#34; alt=&#34;codeExplorer.gif (48391 bytes)&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;where-does-uml-come-in&#34;&gt;Where does UML come in?&lt;/h2&gt;
-&lt;p&gt;A modern IDE (Integrated Development Environments) like Delphi encourage a logical two-tier design where the data sits in the database and both the display &amp;amp; business logic sits in the presentation classes/components.  Really, most programmers are filling in the blanks (e.g. event code) and setting properties - the application code hangs off the IDE / Delphi / VCL / component framework.&lt;/p&gt;
-&lt;p&gt;When someone asks you &amp;ldquo;where is your application code?&amp;rdquo; you typically answer in my GUI.&lt;/p&gt;
-&lt;p&gt;If your application gets&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;large or&lt;/li&gt;
-&lt;li&gt;starts to create other extra classes&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;then you have no means of visualising your application code/classes.  Not only are they embedded behind GUI components, but they are effectively invisible to broad visualisation and organisation.&lt;/p&gt;
-&lt;h2 id=&#34;modelling-to-the-rescue&#34;&gt;Modelling to the rescue&lt;/h2&gt;
-&lt;p&gt;Modelling software allows you to visualise your application code/classes, using UML as the visual symbol language.  E.g. Objects and pointers to other objects are represented by boxes and lines..&lt;/p&gt;
-&lt;p&gt;When using a UML modeller, in addition to being able to visualize your extra application classes, you can also&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Visualize your existing Delphi components (including forms)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Take a punt and model your data as real objects instead of DB tables - that way you can give them behaviour.  They become real OO objects that model the real world domain your application is about.  Your application would then be based on a proper object model.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Keep application / business logic out of the GUI, and in a separate tier - called the model.  An OO model not only can model the real world domain your application is about, but can also be the engine powerhouse of your app.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.atug.com/andypatterns/images/2tier1d.gif&#34; alt=&#34;2tier1d.gif (5982 bytes)&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;visualising-a-form-in-uml&#34;&gt;Visualising a form in UML&lt;/h2&gt;
-&lt;p&gt;A UML model can also model &amp;amp; incorporate GUI forms.  A simple Delphi application with a form and a button on that form can be represented in the following ways:&lt;/p&gt;
-&lt;p&gt;Thus this form containing a button&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.atug.com/andypatterns/images/formWithOneButtonDelphi.gif&#34; alt=&#34;formWithOneButtonDelphi.gif (2071 bytes)&#34;&gt;&lt;/p&gt;
-&lt;p&gt;which is equivalent to the following Delphi code&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-pascal&#34; data-lang=&#34;pascal&#34;&gt;type  
-  TForm1 = class (TForm)  
-    Hello: TButton;  
-    procedure HelloClick(Sender: TObject);  
-  end;     
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;can be represented by the following UML diagram&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.atug.com/andypatterns/images/formWithOneButtonUML.gif&#34; alt=&#34;formWithOneButtonUML.gif (1825 bytes)&#34;&gt;&lt;/p&gt;
-&lt;p&gt;Note that a form aggregates or contains a button, and this is represented by a arrow pointer.  If the button&amp;rsquo;s lifetime is tied to the lifetime of the form, then the arrow should have a black diamond instead of a clear one (if you are a stickler for correct UML).&lt;/p&gt;
-&lt;h2 id=&#34;modelmaker&#34;&gt;Modelmaker&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.atug.com/andypatterns/images/tabulaMM1.jpg&#34; alt=&#34;tabulaMM1.jpg (22451 bytes)&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;ModelMaker&amp;rsquo;s UI integrated code, UML and design patterns&lt;/em&gt;&lt;/p&gt;
-&lt;h3 id=&#34;modelmaker-benefits&#34;&gt;ModelMaker benefits&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&#34;http://www.modelmakertools.com/&#34;&gt;ModelMaker&lt;/a&gt; (now unfortunately discontinued) represented a brand new way to develop classes and &lt;strong&gt;component packages&lt;/strong&gt; for Borland Delphi (1/2/3/4/5). ModelMaker is a two-way class tree oriented &lt;strong&gt;productivity&lt;/strong&gt; and UML-style CASE tool specifically designed for generating &lt;strong&gt;native&lt;/strong&gt; Delphi code (in fact it was made using Delphi and ModelMaker). Delphi&amp;rsquo;s Object Pascal language is fully supported by ModelMaker. From the start ModelMaker was designed to be a smart and highly productive tool. It has been used to create classes for both real-time / technical and database type applications. Versions 4 and 5 have full &lt;strong&gt;reverse enginering&lt;/strong&gt; capabilities.&lt;/p&gt;
-&lt;p&gt;ModelMaker supports drawing &lt;strong&gt;UML style class diagrams&lt;/strong&gt; and from that perspective it looks much like a traditional CASE tool. The key to ModelMaker&amp;rsquo;s magic, speed and power however is the &lt;strong&gt;active modelling engine&lt;/strong&gt; which stores and maintains all relationships between classes and their members. Renaming a class or changing its ancestor will immediately propagate to the automatically generated source code. Tasks like overriding methods, adding events, properties and access methods are reduced to selecting and clicking.&lt;/p&gt;
-&lt;p&gt;The main difference between ModelMaker and other CASE tools is that design is strictly related to and natively expressed in Delphi code. This way there is a seamless transition from design to implementation currently not found in any other CASE tool. This approach makes sure your designs remain down to earth. The main difference between ModelMaker and other Delphi code generators are it&amp;rsquo;s high level overview and restructuring capabilities letting you deal with complex designs.&lt;/p&gt;
-&lt;p&gt;In ModelMaker you&amp;rsquo;ll find a synergy of ideas from the cutting edge of object-oriented and component-based technology. It was inspired by the work of methodologists like Ivar Jacobson (OOSE), Ralph Johnson (design patterns) and Karl Lieberherr (adaptive software).&lt;/p&gt;
-&lt;p&gt;A unique feature, currently not found in any development environment for Delphi, is the support for &lt;strong&gt;design patterns&lt;/strong&gt;. A number of patterns are implemented as ‘ready to use’ active agents. A ModelMaker Pattern will not only insert Delphi style code fragments to implement a specific pattern, but it also stays ‘alive’ to update this code to reflect any changes made to the design.&lt;/p&gt;
-&lt;p&gt;As a result, ModelMaker lets you:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Speed up development&lt;/li&gt;
-&lt;li&gt;Think more about designing instead of typing code.&lt;/li&gt;
-&lt;li&gt;Design without compromising and refine and experiment with designs until they feel just right.&lt;/li&gt;
-&lt;li&gt;Create and maintain magnitudes larger models in magnitudes less time.&lt;/li&gt;
-&lt;li&gt;Document you designs in UML style diagrams.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;modelmaker-tutorial&#34;&gt;Modelmaker Tutorial&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;Creating classes&lt;/li&gt;
-&lt;li&gt;Adding methods and properties/fields to classes&lt;/li&gt;
-&lt;li&gt;Creating constructors and Destructors - MM adds the &amp;lsquo;call inherited&amp;rsquo; code&lt;/li&gt;
-&lt;li&gt;Units and code generation, two way synch.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;A sample of Andy&amp;rsquo;s Modelmaker live demo tutorials.&lt;/p&gt;
-&lt;h4 id=&#34;creating-a-simple-pointer-property&#34;&gt;Creating a Simple Pointer property&lt;/h4&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.atug.com/andypatterns/images/demo1.gif&#34; alt=&#34;demo1.gif (30347 bytes)&#34;&gt;&lt;/p&gt;
-&lt;p&gt;How to create 2 new classes and have one point to the other.  Also notice how a Delphi property is automatically created to represent the pointer.  Of course you can add the property by clicking on the &amp;ldquo;Add property&amp;rdquo; toolbar button, but as demonstrated, it is sure sometimes conventient to be able to drag and draw a pointer - additionally, it makes it clear that the property represents a relationship between two classes, rather than the property merely holding a value or some sort.&lt;/p&gt;
-&lt;h4 id=&#34;applying-the-wrapper-design-pattern&#34;&gt;Applying the Wrapper design pattern&lt;/h4&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.atug.com/andypatterns/images/demo2.gif&#34; alt=&#34;demo2.gif (122461 bytes)&#34;&gt;&lt;/p&gt;
-&lt;p&gt;Notice we create a third class and add 4 methods to it.  We want to then access these methods indirectly, via the TDefault1 class.  So we duplicate the methods in the TDefault1 class, delegating / redirecting these calls to the appropriate class, where the real methods live.  This technique is known as &amp;lsquo;&lt;strong&gt;wrapper pattern&lt;/strong&gt;&amp;rsquo;.   Note that the pattern will keep the method names up to date e.g. if you rename the wrapped class TDefault3 method &amp;lsquo;Member1&amp;rsquo; into &amp;lsquo;Member1A&amp;rsquo; then ModelMaker will automatically also rename TDefault1 class&amp;rsquo;s method &amp;lsquo;Member1&amp;rsquo; into &amp;lsquo;Member1A&amp;rsquo;.&lt;/p&gt;
-&lt;p&gt;Other uses of this pattern include simulating multiple inheritance (e.g. by having a class delegate out functionality to another class, you create the illusion of complex functionality coming from multiple classes).&lt;/p&gt;
-&lt;h4 id=&#34;initialising-create-and-owning-destroy-objects&#34;&gt;Initialising (Create) and owning (Destroy) objects&lt;/h4&gt;
-&lt;p&gt;Another use of the wrapper pattern is creating composite objects out of smaller parts.   The client needs only to deal with one class, but behind the scenes there may be many classes involved.  Related to &amp;lsquo;Facade pattern&amp;rsquo;.  There are issues of initialisation: Do you want the big class to create the sub classes?  If so, make a &lt;strong&gt;Create constructor&lt;/strong&gt; method in the big class TDefault1 and do the creation of the subclasses (TDefault2, TDefault3) there.  Modelmaker&amp;rsquo;s &lt;strong&gt;creational wizard&lt;/strong&gt; can help build the code in the constructor automatically - and the destruction code as well. E.g.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.atug.com/andypatterns/images/demo3.gif&#34; alt=&#34;demo3.gif (184426 bytes)&#34;&gt;&lt;/p&gt;
-&lt;p&gt;In the above demo we are creating Create and Destroy methods for the TDefault1 class, so that it both creates and destroys its &amp;lsquo;sub-classes&amp;rsquo; when it itself is created/destroyed.  After running the ModelMaker creational wizard on the TDefault1 class, the resulting Create method is&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-pascal&#34; data-lang=&#34;pascal&#34;&gt;inherited Create;  
-FDefault2 := TDefault2.Create;  
-FDefault3 := TDefault3.Create;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;and the resulting Destroy method is&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-pascal&#34; data-lang=&#34;pascal&#34;&gt;FDefault2.Free;  
-FDefault3.Free;  
-inherited Destroy;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Note: the &amp;lsquo;creational wizard&amp;rsquo; only generates code if it finds a create or destroy method.  Also, the creational wizard only generates code for FIELDS that have been marked &amp;lsquo;initialised&amp;rsquo; (this will generate the create code) or &amp;lsquo;owned&amp;rsquo; (this will create the free code).&lt;/p&gt;
-&lt;h3 id=&#34;interfaces-patterns-templates&#34;&gt;Interfaces, Patterns, Templates&lt;/h3&gt;
-&lt;p&gt;After a long period of design &amp;amp; development, a class can end up containing many, many methods and properties. Often these methods and properties can be grouped.   Wouldn&amp;rsquo;t it be great if we could name and distinguish these groups?  Well we already do!&lt;/p&gt;
-&lt;p&gt;Classes are an attempt to group functionality.  Class A supports methods 1 &amp;amp; 2, Class B inherits from B and also supports methods 3 &amp;amp; 4.&lt;/p&gt;
-&lt;p&gt;Interfaces are another attempt to group functionality.  A class can support/implement multiple interfaces.&lt;/p&gt;
-&lt;p&gt;Patterns are sets of methods and properties in a class, relating to methods and properties in one or more other classes.&lt;/p&gt;
-&lt;p&gt;Modelmaker templates are groups of methods &amp;amp; properties that you can save to disk and re-apply to any class.  Parametrisation means you can customise the code as you apply it.  You only get one shot at this.  After the code template is applied, you end up with raw code in your class, which you need to maintain manually.  This compares to ModelMaker&amp;rsquo;s design patterns, which are more &amp;lsquo;alive&amp;rsquo; e.g. references to a renamed method get maintained correctly within a ModelMaker pattern (e.g. Modelmaker&amp;rsquo;s visitor pattern)&lt;/p&gt;
-&lt;p&gt;Whilst ModelMaker is discontinued, you can read &lt;a href=&#34;http://read.pudn.com/downloads27/ebook/87707/Online+PDF%20Docs/ModelMaker/usermanual620.pdf&#34;&gt;the manual&lt;/a&gt; and still &lt;a href=&#34;https://torry.net/authorsmore.php?id=4653&#34;&gt;download&lt;/a&gt; a trial of the old software.&lt;/p&gt;
-&lt;h2 id=&#34;the-future&#34;&gt;The Future&lt;/h2&gt;
-&lt;p&gt;&lt;em&gt;As seen from 2000&amp;rsquo;s - nothing like this ever happened&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Working at the level of UML, &amp;lsquo;sets/groupings of methods&amp;rsquo; and patterns, is a significantly higher level than Delphi code - which is starting to look like assembly language.  One day we will be applying colored &amp;lsquo;LEGO&amp;rsquo; blocks that represent various groups of methods &amp;amp; properties - joining them together, much like the other component / bean technology we have today.&lt;/p&gt;
-&lt;p&gt;Here is an example of a Composite &amp;amp; Proxy pattern combined, from the book &lt;a href=&#34;https://www.amazon.com.au/Pattern-Hatching-John-Vlissides/dp/0201432935&#34;&gt;Pattern Hatching: Design Patterns Applied&lt;/a&gt; by Vlissides:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.atug.com/andypatterns/images/proxyComposite1.gif&#34; alt=&#34;proxyComposite1.gif (59167 bytes)&#34;&gt;&lt;/p&gt;
-&lt;p&gt;More ideas for what a programming environment of the future might look like:   Adding a refactoring tool to ModelMaker + more patterns + templates.  Sequence Diagrams auto-generated from code.  Color coded groupings of patterns and methods/properties.&lt;/p&gt;
-&lt;p&gt;Here is an example of a &amp;lsquo;refactoring&amp;rsquo; from Martin Fowler&amp;rsquo;s book &lt;a href=&#34;https://www.amazon.com.au/dp/0134757599/ref=cm_sw_em_r_mt_dp_DvJOFbTKD2427&#34;&gt;Refactoring: Improving the Design of Existing Code&lt;/a&gt;:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.atug.com/andypatterns/images/refactoring1.gif&#34; alt=&#34;refactoring1.gif (15421 bytes)&#34;&gt;&lt;/p&gt;
-&lt;p&gt;Modelmaker can make easy work of accomplishing this refactoring using drag and drop of methods, however a built in, dedicated refactoring tool (as in Smalltalk and Java) would make the task even clearer and easier.&lt;/p&gt;
-&lt;p&gt;2020 Postscript: Modern refactoring tools are now commonplace.&lt;/p&gt;
-&lt;p&gt;-Andy Bulka&lt;/p&gt;
-
-      </description>
+      <description>How can IDE visualisation features be further enhaced by UML and Design Patterns to assist developers. It discusses using the revolutionary UML tool ModelMaker (now discontinued) in conjuntion with Delphi.&#xA;ModelMaker allowed you to apply patterns onto your code using a UI&#xA;This is a talk I gave at the time that I was into Delphi programming. Presented to the Australian Delphi User Group in December 1999.&#xA;Engineers use models Engineers produce plans before building bridges Electrical engineers have a language of electrical symbols Architects have blueprints What do software engineers / programmer for a modelling tool?</description>
     </item>
-    
     <item>
-      <title>Patterns: Appendix: Musings on Design Patterns</title>
+      <title>Appendix: Musings on Design Patterns</title>
       <link>https://abulka.github.io/patterns/musings-on-patterns/</link>
       <pubDate>Thu, 01 Jan 1970 10:31:40 +1000</pubDate>
-      
       <guid>https://abulka.github.io/patterns/musings-on-patterns/</guid>
-      <description>
-        
-        
-        &lt;p&gt;Capturing hard-won software design experience in the form of design patterns and
-architectural patterns is a noble cause that everyone can contribute to.&lt;/p&gt;
-&lt;p&gt;You can contribute by writing patterns and maybe even coming to a &lt;a href=&#34;http://hillside.net/patterns/&#34;&gt;Plop patterns
-conference&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Basically when you see a software
-development technique a few times, and see that it isn&amp;rsquo;t yet documented - write
-it up in Pattern format and give it a name!&lt;/p&gt;
-&lt;p&gt;A pattern is more than just a &amp;ldquo;tip&amp;rdquo;
-or technique though - a pattern represents an abstract idea - that can be
-implemented in various ways depending on your circumstances.&lt;/p&gt;
-&lt;h1 id=&#34;the-patterns-movement&#34;&gt;The Patterns Movement&lt;/h1&gt;
-&lt;p&gt;The Patterns Movement is spearheaded by &lt;a href=&#34;https://www.hillside.net/plop/2020/&#34;&gt;Hillside and the Plop conferences&lt;/a&gt;, held each year.&lt;/p&gt;
-&lt;p&gt;There are a couple of things I would like to see happen in the patterns world.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;First, it would be nice if there was a single, authoritative repository of patterns. Yes an attempt has been made - a catalog book and and various websites - but nothing authoratative. I started a list of links &lt;a href=&#34;https://abulka.github.io/index.php/blog/central_repository/&#34; title=&#34;Towards a central repository of Design Patterns&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Secondly, it would be nice to have deep design pattern support in UML within all our favourite IDE&amp;rsquo;s. For example Netbeans has it all - coding, form design, UML and design pattern support - albiet not as integrated as it could be and not as polished as it could be. &lt;strong&gt;Update:&lt;/strong&gt; Unfortunately Netbeans seems to have dropped UML support in recent builds.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;comments-indicating-pattern-usage&#34;&gt;Comments indicating Pattern usage&lt;/h3&gt;
-&lt;p&gt;If IDE&amp;rsquo;s are not your cup of tea, then how about this: source code should have comment markers indicating where the patterns are, so that a reverse engineering tool can visualise not only the UML but also where the patterns are.&lt;/p&gt;
-&lt;p&gt;My own UML tool PyNSource will have such a feature - est. June 2011 &lt;i&gt;(turns out this never happened :-)&lt;/i&gt;.&lt;/p&gt;
-&lt;h3 id=&#34;executable-uml&#34;&gt;Executable UML&lt;/h3&gt;
-&lt;p&gt;Further advancements are arguably executable UML and even the possibility of building software without code.
-I muse a bit about this in my blog entry on &lt;a href=&#34;https://abulka.github.io/index.php/blog/visualising_software/&#34; title=&#34;Visualising Software&#34;&gt;software visualisation&lt;/a&gt; and my paper on &lt;a href=&#34;https://abulka.github.io/index.php/design_patterns/pattern_automation/&#34; title=&#34;Design Pattern Automation&#34;&gt;design pattern tools&lt;/a&gt;. &lt;/p&gt;
-&lt;h3 id=&#34;a-repository-of-patterns&#34;&gt;A repository of patterns&lt;/h3&gt;
-&lt;p&gt;First, it would be nice if there was a single, authoritative repository of patterns. Yes an attempt has been made - a catalog book and and various websites - but nothing authoratative.  I&amp;rsquo;m starting a list of links &lt;a href=&#34;https://abulka.github.io/index.php/blog/central_repository/&#34; title=&#34;Towards a central repository of Design Patterns&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Patterns at all levels need to be core &lt;strong&gt;visual&lt;/strong&gt; building blocks of IDE&amp;rsquo;s, or at the very least, extractable from source code into some visual UML tool - rather than being design ghosts that float around, implicit, in our source code.&lt;/p&gt;
-
-      </description>
+      <description>Capturing hard-won software design experience in the form of design patterns and architectural patterns is a noble cause that everyone can contribute to.&#xA;You can contribute by writing patterns and maybe even coming to a Plop patterns conference.&#xA;Basically when you see a software development technique a few times, and see that it isn&amp;rsquo;t yet documented - write it up in Pattern format and give it a name!&#xA;A pattern is more than just a &amp;ldquo;tip&amp;rdquo; or technique though - a pattern represents an abstract idea - that can be implemented in various ways depending on your circumstances.</description>
     </item>
-    
   </channel>
 </rss>

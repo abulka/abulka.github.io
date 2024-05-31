@@ -1,18 +1,299 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Andy Bulka – Tags</title>
+    <title>Tags on Andy Bulka</title>
     <link>https://abulka.github.io/tags/</link>
     <description>Recent content in Tags on Andy Bulka</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 14 Feb 2022 00:00:00 +0000</lastBuildDate>
-    
-	  <atom:link href="https://abulka.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-      
-        
-      
-    
-    
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 02 Jan 2023 12:43:03 +1100</lastBuildDate>
+    <atom:link href="https://abulka.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Argument Mapping</title>
+      <link>https://abulka.github.io/tags/argument-mapping/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://abulka.github.io/tags/argument-mapping/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Calculators</title>
+      <link>https://abulka.github.io/tags/calculators/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://abulka.github.io/tags/calculators/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Chords</title>
+      <link>https://abulka.github.io/tags/chords/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://abulka.github.io/tags/chords/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Code Translation</title>
+      <link>https://abulka.github.io/tags/code-translation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://abulka.github.io/tags/code-translation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Composition</title>
+      <link>https://abulka.github.io/tags/composition/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://abulka.github.io/tags/composition/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Diagramming</title>
+      <link>https://abulka.github.io/tags/diagramming/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://abulka.github.io/tags/diagramming/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Javascript</title>
+      <link>https://abulka.github.io/tags/javascript/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://abulka.github.io/tags/javascript/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Jupyter</title>
+      <link>https://abulka.github.io/tags/jupyter/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://abulka.github.io/tags/jupyter/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>MIDI</title>
+      <link>https://abulka.github.io/tags/midi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://abulka.github.io/tags/midi/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mind Mapping</title>
+      <link>https://abulka.github.io/tags/mind-mapping/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://abulka.github.io/tags/mind-mapping/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Music</title>
+      <link>https://abulka.github.io/tags/music/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://abulka.github.io/tags/music/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Philosophy</title>
+      <link>https://abulka.github.io/tags/philosophy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://abulka.github.io/tags/philosophy/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Programmable</title>
+      <link>https://abulka.github.io/tags/programmable/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://abulka.github.io/tags/programmable/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Python</title>
+      <link>https://abulka.github.io/tags/python/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://abulka.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reasoning</title>
+      <link>https://abulka.github.io/tags/reasoning/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://abulka.github.io/tags/reasoning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Software Product</title>
+      <link>https://abulka.github.io/tags/software-product/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://abulka.github.io/tags/software-product/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>UI Widgets</title>
+      <link>https://abulka.github.io/tags/ui-widgets/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://abulka.github.io/tags/ui-widgets/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>UML</title>
+      <link>https://abulka.github.io/tags/uml/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://abulka.github.io/tags/uml/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Controllers</title>
+      <link>https://abulka.github.io/tags/controllers/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://abulka.github.io/tags/controllers/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Design Patterns</title>
+      <link>https://abulka.github.io/tags/design-patterns/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://abulka.github.io/tags/design-patterns/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>MVC</title>
+      <link>https://abulka.github.io/tags/mvc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://abulka.github.io/tags/mvc/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>GUI</title>
+      <link>https://abulka.github.io/tags/gui/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://abulka.github.io/tags/gui/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Observer</title>
+      <link>https://abulka.github.io/tags/observer/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://abulka.github.io/tags/observer/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Vuejs</title>
+      <link>https://abulka.github.io/tags/vuejs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://abulka.github.io/tags/vuejs/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Thoughts</title>
+      <link>https://abulka.github.io/tags/thoughts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://abulka.github.io/tags/thoughts/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>AI</title>
+      <link>https://abulka.github.io/tags/ai/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://abulka.github.io/tags/ai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Flutter</title>
+      <link>https://abulka.github.io/tags/flutter/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://abulka.github.io/tags/flutter/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Fultter</title>
+      <link>https://abulka.github.io/tags/fultter/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://abulka.github.io/tags/fultter/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>SQL</title>
+      <link>https://abulka.github.io/tags/sql/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://abulka.github.io/tags/sql/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Django</title>
+      <link>https://abulka.github.io/tags/django/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://abulka.github.io/tags/django/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ubuntu</title>
+      <link>https://abulka.github.io/tags/ubuntu/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://abulka.github.io/tags/ubuntu/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>WxPython</title>
+      <link>https://abulka.github.io/tags/wxpython/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://abulka.github.io/tags/wxpython/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Async</title>
+      <link>https://abulka.github.io/tags/async/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://abulka.github.io/tags/async/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Refactoring</title>
+      <link>https://abulka.github.io/tags/refactoring/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://abulka.github.io/tags/refactoring/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Dev Ops</title>
+      <link>https://abulka.github.io/tags/dev-ops/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://abulka.github.io/tags/dev-ops/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Electron</title>
+      <link>https://abulka.github.io/tags/electron/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://abulka.github.io/tags/electron/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ruby</title>
+      <link>https://abulka.github.io/tags/ruby/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://abulka.github.io/tags/ruby/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>ORM</title>
+      <link>https://abulka.github.io/tags/orm/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://abulka.github.io/tags/orm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Java</title>
+      <link>https://abulka.github.io/tags/java/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://abulka.github.io/tags/java/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Flask</title>
+      <link>https://abulka.github.io/tags/flask/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://abulka.github.io/tags/flask/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Vscode</title>
+      <link>https://abulka.github.io/tags/vscode/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://abulka.github.io/tags/vscode/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>
