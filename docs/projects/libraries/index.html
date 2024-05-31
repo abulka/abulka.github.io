@@ -37,8 +37,8 @@ https://github.com/abulka/vscode-snippet-creator
 Snippets Explorer Visual Studio Code extension which displays all available language snippets in a TreeView
 https://github.com/abulka/vscode-snippets-explorer
 Electron-Flask App Generator Yoeman project generator to create an Electron app running a Flask server inside itself. Deployable via PyInstaller and Electron Forge packager.">
-  <meta itemprop="dateModified" content="2023-01-02T12:43:03+11:00">
-  <meta itemprop="wordCount" content="469">
+  <meta itemprop="dateModified" content="2024-05-31T13:26:51+10:00">
+  <meta itemprop="wordCount" content="1231">
   <meta itemprop="keywords" content="Software Product,Vscode,Electron,Flask,SQL">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Libraries &amp; Tools">
@@ -104,7 +104,7 @@ if (!doNotTrack) {
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.4bc3e0625e1a78d6fe491c6a801c9bed.json"
+    data-offline-search-index-json-src="/offline-search-index.6421e9826e33774355b4eb73b5fc0d2e.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -128,7 +128,7 @@ if (!doNotTrack) {
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.4bc3e0625e1a78d6fe491c6a801c9bed.json"
+    data-offline-search-index-json-src="/offline-search-index.6421e9826e33774355b4eb73b5fc0d2e.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -215,6 +215,7 @@ if (!doNotTrack) {
       <ul>
         <li><a href="#scrolling-textareas-for-jupyter-notebooks">Scrolling Textareas for Jupyter Notebooks</a></li>
         <li><a href="#google-colaboratory">Google Colaboratory</a></li>
+        <li><a href="#trigger-to-gate-script-for-europi">Trigger to Gate Script for EuroPi</a></li>
       </ul>
     </li>
   </ul>
@@ -365,6 +366,102 @@ if (!doNotTrack) {
 Google Colaboratory, or &ldquo;Colab&rdquo; for short, is a version of Jupyter Notebooks, and allows you to write and execute Python in your browser.</p>
 <p>This <a href="https://colab.research.google.com/drive/1_R4DAqhVgfPc4113N5VxHVeUJ9oxDMKM#scrollTo=bz9ue7M7cRPq">Colab project</a> is a simpler version of the scrolling text area idea above, and needs to be fleshed out a little more fully to match the native Jupyter notebook functionality above.</p>
 <p><img src="/projects/websites/images/jupyter-google-colab-1.gif" alt="jupyter-google-colab-1"></p>
+<h3 id="trigger-to-gate-script-for-europi">Trigger to Gate Script for EuroPi</h3>
+<p>The EuroPi Module is a Eurorack module that allows you to control your modular synthesizer with a Raspberry Pi. This script allows you to trigger a gate signal from a trigger.</p>
+<p>Issue: <a href="https://github.com/Allen-Synthesis/EuroPi/pull/260">https://github.com/Allen-Synthesis/EuroPi/pull/260</a></p>
+<p>Generates a gate on cv1 in response to a trigger on din.</p>
+<p>Control the outgoing pulse width with k1. Control the delay between the trigger and the gate starting with k2. Handy for converting short triggers (e.g. 1ms) into longer gates (e.g. 10ms) as some Eurorack modules don&rsquo;t like short
+triggers.</p>
+<p>Code: <a href="https://github.com/abulka/EuroPi/blob/a1841b0a294aa189dc96dc4d6bcbeaa1caec539d/software/contrib/trigger_to_gate.py">https://github.com/abulka/EuroPi/blob/a1841b0a294aa189dc96dc4d6bcbeaa1caec539d/software/contrib/trigger_to_gate.py</a></p>
+<h4 id="documentation">Documentation:</h4>
+<p><strong>Trigger to Gate</strong></p>
+<ul>
+<li>author: Andy Bulka (tcab) (github.com/abulka)</li>
+<li>date: 2023-05-16</li>
+<li>labels: trigger, gate, clock</li>
+</ul>
+<p>Trigger to Gate: Generates a gate on cv1 in response to a trigger on din.
+Control the outgoing pulse width with k1. Control the delay between the trigger
+and the gate starting with k2. Handy for converting short triggers (e.g. 1ms)
+into longer gates (e.g. 10ms) as some eurorack modules don&rsquo;t like short
+triggers.</p>
+<pre><code>din = trigger input
+cv1 = gate output
+b1 = toggle gate output on/off
+k1 = length of gate (1-1500ms)
+k2 = delay of gate (0-1500ms)
+</code></pre>
+<p>Clock: Generates an independent (unrelated to din or gate output),
+internally driven clock output on cv2. Handy for when you need a simple clock.</p>
+<pre><code>cv2 = clock output
+b1 = toggle clock output on/off
+k1 = length of clock pulse (1-1500ms)
+k2 = period of clock (1-1500ms) - how fast the clock pulses
+</code></pre>
+<h4 id="installation">Installation</h4>
+<p>Since the EuroPi <code>software/contrib</code> does not have this
+script already bundled, you will need to manually install it by copying it
+onto the EuroPi using <a href="https://thonny.org/">Thonny IDE</a>.</p>
+<ol>
+<li>
+<p>Copy the file <a href="https://github.com/abulka/EuroPi/blob/a1841b0a294aa189dc96dc4d6bcbeaa1caec539d/software/contrib/trigger_to_gate.py">trigger_to_gate.py</a> to <code>/lib/contrib/trigger_to_gate.py</code> on your EuroPi.</p>
+</li>
+<li>
+<p>Edit <code>main.py</code> in the EuroPi <code>/</code> directory to include the Trigger to Gate script in the menu:</p>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    [<span style="color:#f1fa8c">&#34;TriggerToGate&#34;</span>,    <span style="color:#f1fa8c">&#34;contrib.trigger_to_gate.TriggerToGate&#34;</span>],  <span style="color:#6272a4"># &lt;-- add this line</span>
+</span></span></code></pre></div><h4 id="usage">Usage</h4>
+<p>You can have both the gate and clock outputs running at the same time. There are
+two configuration screens, gate and clock. The screen mode is toggled by pressing b2.</p>
+<pre><code>b2 = toggle between gate/clock screen
+</code></pre>
+<p>This is what the screens look like:</p>
+<pre tabindex="0"><code>                       Trigger to Gate Screen                                           
+         ┌─────────────────────────────────────────────┐                                
+         │ Incoming din pulse length    din period   . │ ◀────── . symbol means that    
+         │                                             │         that gate output is on 
+(knob 1) │ Length of Gate                              │                                
+         │                                             │         (b1 toggles)           
+(knob 2) │ Gate Delay                                  │                                
+         └─────────────────────────────────────────────┘                                
+                                                                                        
+                           Clock Screen                                                 
+         ┌─────────────────────────────────────────────┐                                
+         │ Clock bpm                                 . │ ◀────── . symbol means that    
+         │                                             │         that clock output is on
+(knob 1) │ Clock pulse length                          │                                
+         │                                             │         (b1 toggles)           
+(knob 2) │ Clock period (speed)                        │                                
+         └─────────────────────────────────────────────┘                                                             
+</code></pre><h4 id="why-not-use-the-bundled-gates_and_triggerspy-script">Why not use the bundled <code>gates_and_triggers.py</code> script?</h4>
+<p>The bundled <code>gates_and_triggers.py</code> script also generates a gate from a trigger but</p>
+<ul>
+<li>does not have a delay feature (like e.g. many hardware modules implementing trigger to gate have)</li>
+<li>does not have a clock mode</li>
+<li>no knob pass through behaviour</li>
+</ul>
+<p>My <code>trigger_to_gate.py</code> script also handles all possible edge cases like turning up the delay to more than gate length, or turning up the gate size past the trigger period etc. It also lets you choose from a larger variety of output gate lengths, using an easy to use exponential turn of the knob.</p>
+<p>The bundled <code>gates_and_triggers.py</code> script on the other hand has has more cv outputs for rising and falling edges etc. if you need that.</p>
+<h4 id="note-on-changing-knob-values">Note on changing knob values:</h4>
+<p><strong>Pass-through knob values</strong></p>
+<p>Because the knobs are used in two different modes, we run into the problem of the physical
+knob position not matching the value when you switch between modes. To solve this, the knobs
+use &ldquo;pass-through&rdquo; logic, which you may be familiar with when loading presets into a hardware
+synthesiser.</p>
+<p>The term &ldquo;pass-through&rdquo; refers to the technique of enabling a parameter&rsquo;s value
+only when the knob physical position passes through the existing value, which
+prevents sudden jumps in values when you switch screen modes.</p>
+<p>If turning a knob doesn&rsquo;t change the value, it&rsquo;s because the knob is not yet
+&ldquo;passed-through&rdquo; the current value. Simply turn the knob until it does change. For example,
+if the existing value is 0 and your physical knob position is at &ldquo;5 o&rsquo;clock&rdquo; then you need to
+turn the physical knob counter-clockwise until it passes through 0 and then clockwise again
+to your required value.</p>
+<p><strong>Hysteresis Mitigation</strong></p>
+<p>The knobs also use hysteresis mitigation which prevents the values flickering,
+even though you are not turning the knob. There is a 1 second timeout when you
+can dial in the exact value you want, then the knob value will &ldquo;lock&rdquo;. To unlock
+the knob value, turn the knob past the threshold again.</p>
 
   <div class="section-index">
     
@@ -427,7 +524,7 @@ Google Colaboratory, or &ldquo;Colab&rdquo; for short, is a version of Jupyter N
 </script>
 <br />
 <div class="td-page-meta__lastmod">
-  Last modified January 2, 2023: <a href="https://github.com/abulka/abulka.github.io/commit/1ce495285a47f5dd0043f022c286ae6282cd151a">made separate pages for web apps (1ce4952)</a>
+  Last modified May 31, 2024: <a href="https://github.com/abulka/abulka.github.io/commit/82d2c27e9a981f7e9b9c8b4ae16e424400661a6a">add Trigger to Gate Script for EuroPi (82d2c27)</a>
 </div>
 </div>
 
