@@ -4,3 +4,7 @@ node_modules/
 tech-doc-hugo
 .hugo_build.lock
 .obsidian/
+
+# Mac
+.DS_Store
+
