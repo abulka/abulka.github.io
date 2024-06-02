@@ -18,40 +18,32 @@
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
 <title>EuroPi - Utility Classes | Andy Bulka</title>
-<meta name="description" content="Script Utils for EuroPi The Trigger to Gate script uses some utility functions that might be useful for other EuroPi scripts:
-KnobWithHysteresis KnobWithPassThrough Scheduler Rather than each script inventing its own hyseresis mitigation and knob pass-through logic, I have created these utility classes to be used by any EuroPi script that needs them.
-The problems: Pass-through knob values
-Because the knobs are used in two different modes, we run into the problem of the physical knob position not matching the value when you switch between modes.">
+<meta name="description" content="Introduction My Trigger to Gate script for EuroPi uses some utility functions I developed, that might be useful for other EuroPi scripts:
+KnobWithHysteresis KnobWithPassThrough Scheduler Rather than each EuroPi script inventing its own hyseresis mitigation and knob pass-through logic etc., these utility classes can be used by any EuroPi script that needs them. You can install them into the lib/contrib/experimental directory of the EuroPi software, or in a separate lib/contrib/utils directory - you can put them wherever you want, even copy and paste them into the body of your script.">
 <meta property="og:url" content="https://abulka.github.io/projects/libraries/europi-script-utils/">
   <meta property="og:site_name" content="Andy Bulka">
   <meta property="og:title" content="EuroPi - Utility Classes">
-  <meta property="og:description" content="Script Utils for EuroPi The Trigger to Gate script uses some utility functions that might be useful for other EuroPi scripts:
-KnobWithHysteresis KnobWithPassThrough Scheduler Rather than each script inventing its own hyseresis mitigation and knob pass-through logic, I have created these utility classes to be used by any EuroPi script that needs them.
-The problems: Pass-through knob values
-Because the knobs are used in two different modes, we run into the problem of the physical knob position not matching the value when you switch between modes.">
+  <meta property="og:description" content="Introduction My Trigger to Gate script for EuroPi uses some utility functions I developed, that might be useful for other EuroPi scripts:
+KnobWithHysteresis KnobWithPassThrough Scheduler Rather than each EuroPi script inventing its own hyseresis mitigation and knob pass-through logic etc., these utility classes can be used by any EuroPi script that needs them. You can install them into the lib/contrib/experimental directory of the EuroPi software, or in a separate lib/contrib/utils directory - you can put them wherever you want, even copy and paste them into the body of your script.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="projects">
-    <meta property="article:modified_time" content="2024-06-01T14:56:10+10:00">
+    <meta property="article:modified_time" content="2024-06-02T14:20:37+10:00">
     <meta property="article:tag" content="Software Product">
     <meta property="article:tag" content="Python">
     <meta property="article:tag" content="Eurorack">
     <meta property="article:tag" content="Raspberry Pi">
 
   <meta itemprop="name" content="EuroPi - Utility Classes">
-  <meta itemprop="description" content="Script Utils for EuroPi The Trigger to Gate script uses some utility functions that might be useful for other EuroPi scripts:
-KnobWithHysteresis KnobWithPassThrough Scheduler Rather than each script inventing its own hyseresis mitigation and knob pass-through logic, I have created these utility classes to be used by any EuroPi script that needs them.
-The problems: Pass-through knob values
-Because the knobs are used in two different modes, we run into the problem of the physical knob position not matching the value when you switch between modes.">
-  <meta itemprop="dateModified" content="2024-06-01T14:56:10+10:00">
-  <meta itemprop="wordCount" content="1510">
+  <meta itemprop="description" content="Introduction My Trigger to Gate script for EuroPi uses some utility functions I developed, that might be useful for other EuroPi scripts:
+KnobWithHysteresis KnobWithPassThrough Scheduler Rather than each EuroPi script inventing its own hyseresis mitigation and knob pass-through logic etc., these utility classes can be used by any EuroPi script that needs them. You can install them into the lib/contrib/experimental directory of the EuroPi software, or in a separate lib/contrib/utils directory - you can put them wherever you want, even copy and paste them into the body of your script.">
+  <meta itemprop="dateModified" content="2024-06-02T14:20:37+10:00">
+  <meta itemprop="wordCount" content="2207">
   <meta itemprop="keywords" content="Software Product,Python,Eurorack,Raspberry Pi">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="EuroPi - Utility Classes">
-  <meta name="twitter:description" content="Script Utils for EuroPi The Trigger to Gate script uses some utility functions that might be useful for other EuroPi scripts:
-KnobWithHysteresis KnobWithPassThrough Scheduler Rather than each script inventing its own hyseresis mitigation and knob pass-through logic, I have created these utility classes to be used by any EuroPi script that needs them.
-The problems: Pass-through knob values
-Because the knobs are used in two different modes, we run into the problem of the physical knob position not matching the value when you switch between modes.">
+  <meta name="twitter:description" content="Introduction My Trigger to Gate script for EuroPi uses some utility functions I developed, that might be useful for other EuroPi scripts:
+KnobWithHysteresis KnobWithPassThrough Scheduler Rather than each EuroPi script inventing its own hyseresis mitigation and knob pass-through logic etc., these utility classes can be used by any EuroPi script that needs them. You can install them into the lib/contrib/experimental directory of the EuroPi software, or in a separate lib/contrib/utils directory - you can put them wherever you want, even copy and paste them into the body of your script.">
 
 
 
@@ -109,7 +101,7 @@ if (!doNotTrack) {
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.6a3f4c0c62bad793c2d52bec72c881b5.json"
+    data-offline-search-index-json-src="/offline-search-index.5957b7b6cee4ff227acb002fcf88fc26.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -133,7 +125,7 @@ if (!doNotTrack) {
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.6a3f4c0c62bad793c2d52bec72c881b5.json"
+    data-offline-search-index-json-src="/offline-search-index.5957b7b6cee4ff227acb002fcf88fc26.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -233,10 +225,10 @@ if (!doNotTrack) {
   <ul>
     <li>
       <ul>
-        <li><a href="#script-utils-for-europi">Script Utils for EuroPi</a></li>
-        <li><a href="#util---knobwithhysteresis">Util - KnobWithHysteresis</a></li>
-        <li><a href="#util---knobwithpassthrough">Util - KnobWithPassThrough</a></li>
-        <li><a href="#util---scheduler">Util - Scheduler</a></li>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#class-knobwithhysteresis">class KnobWithHysteresis</a></li>
+        <li><a href="#class-knobwithpassthrough">class KnobWithPassThrough</a></li>
+        <li><a href="#class-scheduler">class Scheduler</a></li>
       </ul>
     </li>
   </ul>
@@ -334,45 +326,102 @@ if (!doNotTrack) {
 </div>
 
   </header>
-	<h3 id="script-utils-for-europi">Script Utils for EuroPi</h3>
-<p>The <a href="/projects/libraries/europi-trigger-to-gate">Trigger to Gate</a> script uses some utility functions that might be useful for other EuroPi scripts:</p>
+	<h3 id="introduction">Introduction</h3>
+<p>My <a href="/projects/libraries/europi-trigger-to-gate">Trigger to Gate</a> script for <a href="https://github.com/Allen-Synthesis/EuroPi">EuroPi</a> uses some utility functions I developed, that might be useful for other EuroPi scripts:</p>
 <ul>
 <li>KnobWithHysteresis</li>
 <li>KnobWithPassThrough</li>
 <li>Scheduler</li>
 </ul>
-<p>Rather than each script inventing its own hyseresis mitigation and knob pass-through logic, I have created these utility classes to be used by any EuroPi script that needs them.</p>
-<h4 id="the-problems">The problems:</h4>
+<p>Rather than each EuroPi script inventing its own hyseresis mitigation and knob pass-through logic etc., these utility classes can be used by any EuroPi script that needs them. You can install them into the <code>lib/contrib/experimental</code> directory of the EuroPi software, or in a separate <code>lib/contrib/utils</code> directory - you can put them wherever you want, even copy and paste them into the body of your script.</p>
+<h4 id="the-problems-these-utility-classes-solve">The problems these utility classes solve</h4>
+<p><strong>Hysteresis Mitigation</strong></p>
+<p>The term &ldquo;hysteresis&rdquo; refers to the problem of the knob value flickering when
+the knob is not being turned. This is a common problem with rotary encoders and
+can be mitigated by only accepting new values when the knob has been turned by a
+certain amount. This is especially useful when you have a knob that is used to
+set a value that is displayed on a screen, as in the Trigger to Gate script.</p>
+<p>The knobs in my <a href="/projects/libraries/europi-trigger-to-gate">Trigger to Gate</a>
+script use hysteresis mitigation which prevents the values flickering, even
+though you are not turning the knob. There is a 1 second timeout when you can
+dial in the exact value you want, then the knob value will &ldquo;lock&rdquo;. To unlock the
+knob value, turn the knob past the threshold again.</p>
 <p><strong>Pass-through knob values</strong></p>
-<p>Because the knobs are used in two different modes, we run into the problem of the physical
-knob position not matching the value when you switch between modes. To solve this, the knobs
-use &ldquo;pass-through&rdquo; logic, which you may be familiar with when loading presets into a hardware
-synthesiser.</p>
 <p>The term &ldquo;pass-through&rdquo; refers to the technique of enabling a parameter&rsquo;s value
 only when the knob physical position passes through the existing value, which
 prevents sudden jumps in values when you switch screen modes.</p>
+<p>If knobs are used in two different modes, as they are in my <a href="/projects/libraries/europi-trigger-to-gate">Trigger to
+Gate</a> script, we run into the
+problem of the physical knob position not matching the last value of that mode,
+when you switch between modes (between trigger to gate mode and clock mode, for
+example). To solve this, the knobs use &ldquo;pass-through&rdquo; logic, which you may be
+familiar with when loading presets into a hardware synthesiser.</p>
 <p>If turning a knob doesn&rsquo;t change the value, it&rsquo;s because the knob is not yet
 &ldquo;passed-through&rdquo; the current value. Simply turn the knob until it does change. For example,
 if the existing value is 0 and your physical knob position is at &ldquo;5 o&rsquo;clock&rdquo; then you need to
 turn the physical knob counter-clockwise until it passes through 0 and then clockwise again
 to your required value.</p>
-<p><strong>Hysteresis Mitigation</strong></p>
-<p>The knobs also use hysteresis mitigation which prevents the values flickering,
-even though you are not turning the knob. There is a 1 second timeout when you
-can dial in the exact value you want, then the knob value will &ldquo;lock&rdquo;. To unlock
-the knob value, turn the knob past the threshold again.</p>
-<h3 id="util---knobwithhysteresis">Util - KnobWithHysteresis</h3>
-<p>This is a class to cure the hysteresis problem with the rotary encoder.</p>
-<p>You can set any value within the <code>lock_delay</code> time period and it will be
-accepted but once the <code>lock_delay</code> time period expires the value returned will
-be locked and you have to move the knob by at least <code>tolerance</code> to change the value,
-at which point the time period before re-locking is extended by <code>lock_delay</code>
-time (defaults to 1s).</p>
-<p>Starts locked on the first value it sees, to avoid jittery beginning values.</p>
+<p><strong>Scheduler</strong></p>
+<p>When writing a EuroPi script, you may need to run tasks at a given time in the
+future. For example, you may want to turn off a gate after a certain time, or
+run a task every second. Most EuroPi scripts will have a simple while loop that
+runs continuously, with various ad-hoc flags and variables managing the
+behaviour inside the loop. This can get messy and hard to understand.</p>
+<p>My scheduler class offers a more organised way of looping and scheduling tasks
+to run at a given time in the future. A task is a function that you want to run
+at a given time in the future, thus instead of having a while loop and global
+variables, you have a function per task and a time to run it.</p>
+<blockquote>
+<p>Another potentially interesting way of managing tasks is to use a game inspired
+<strong>Entity Component System</strong> loop, as I describe in my article <a href="/blog/2020/05/18/todomvc-implemented-using-a-game-architecture-ecs/">TodoMVC
+implemented using a game architecture —
+ECS</a>. I
+leave that as an exercise for the future.</p>
+</blockquote>
+<p><u>Slow screen updates in EuroPi</u></p>
+<p>Screen updates in EuroPi are a blocking operation and take a long time relative
+to the ms activity of signals and interrupts. This means incoming triggers can
+easily be missed and interrupts won&rsquo;t fire. The scheduler class can help with
+this problem. For example, you can schedule to update the screen at a regular
+interval, rather than updating the screen every time you change a value. Even
+better, you can use the scheduler to update the screen only when the value has
+changed, rather than every time through the loop. This is accomplished by
+scheduling the screen update task only when needed, and ensure that the screen
+update task function does not reschedule itself.</p>
+<p>If you are not using the Scheduler class, you should use a flag to
+indicate when the screen needs updating and only update the screen when the flag
+is set.</p>
+<blockquote>
+<p><strong>NOTE:</strong> MicroPython async is supported on the Raspberry Pi Pico, and can
+help with task management. However even when using async, there is only one
+thread involved so you still need to be careful with blocking operations like
+writing to the screen. There is a second thread available on the Raspberry Pi
+Pico but MicroPython support for this feature is unreliable but will hopefully
+will improve in the future (we have been hoping for this for a long time though
+2022-2024 and it is still a problem).</p>
+</blockquote>
+<p>The utility classes presented here do not use async, nor do they use the second
+thread.</p>
+<p>Here are the utility classes:</p>
+<h3 id="class-knobwithhysteresis">class KnobWithHysteresis</h3>
+<p>This is a class to cure the hysteresis problem with the rotary encoder knobs k1
+and k2 of the EuroPi.</p>
+<p>It is easy to use because you just wrap the knob in the class and it will
+automatically mitigate the hysteresis problem. The knob will only change value
+when you turn it by a certain amount, which you can set with the <code>tolerance</code>.</p>
 <h5 id="usage">Usage</h5>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>k1 <span style="color:#ff79c6">=</span> KnobWithHysteresis(k1)  <span style="color:#6272a4"># backwards compatible, no hyteresis mitigation</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">from</span> europi <span style="color:#ff79c6">import</span> k1, k2
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>k1 <span style="color:#ff79c6">=</span> KnobWithHysteresis(k1)  <span style="color:#6272a4"># backwards compatible, no hyteresis mitigation</span>
 </span></span><span style="display:flex;"><span>k1 <span style="color:#ff79c6">=</span> KnobWithHysteresis(k1, tolerance<span style="color:#ff79c6">=</span><span style="color:#bd93f9">2</span>)  <span style="color:#6272a4"># set tolerance to 2, hysteresis mitigation</span>
-</span></span></code></pre></div><h5 id="code">Code:</h5>
+</span></span></code></pre></div><p>You can set any value within the <code>lock_delay</code> time period (an additional
+constructor parameter that defaults to 1000ms) and it will be accepted but once
+the <code>lock_delay</code> time period expires the value returned will be locked and you
+have to move the knob by at least <code>tolerance</code> to change the value, at which
+point the time period before re-locking is extended by <code>lock_delay</code> time
+(defaults to 1s).</p>
+<p>Starts locked on the first value it sees, to avoid jittery beginning values.</p>
+<h5 id="code">Code:</h5>
 <p>You can include this class in your EuroPi script to cure the hysteresis problem with the rotary encoder.
 You can put the code in a separate file and import it into your script. e.g. <code>from knob_with_hysteresis import KnobWithHysteresis</code> where your <code>knob_with_hysteresis.py</code> file contains the following code:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">import</span> utime
@@ -381,7 +430,6 @@ You can put the code in a separate file and import it into your script. e.g. <co
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">KnobWithHysteresis</span>:
 </span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;
 </span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">    This is a class to cure the hysteresis problem with the rotary encoder.
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">    Documentation in tigger_to_gate.md
 </span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">    &#34;&#34;&#34;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> __init__(self, knob, tolerance<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0</span>, lock_delay<span style="color:#ff79c6">=</span><span style="color:#bd93f9">1000</span>, name<span style="color:#ff79c6">=</span><span style="color:#ff79c6">None</span>) <span style="color:#ff79c6">-&gt;</span> <span style="color:#ff79c6">None</span>:
 </span></span><span style="display:flex;"><span>        self<span style="color:#ff79c6">.</span>knob <span style="color:#ff79c6">=</span> knob
@@ -425,13 +473,13 @@ You can put the code in a separate file and import it into your script. e.g. <co
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># TODO Wraps an instance of Knob, so need to expose all Knob methods</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># and the methods of its superclass AnalogueReader.</span>
-</span></span></code></pre></div><h3 id="util---knobwithpassthrough">Util - KnobWithPassThrough</h3>
+</span></span></code></pre></div><h3 id="class-knobwithpassthrough">class KnobWithPassThrough</h3>
 <p>Disable changing value till knob is moved and &ldquo;passes-through&rdquo; the current cached value.
 Useful for when you have a knob that is used in two different modes and you don&rsquo;t want
 the value to jump when you switch modes (think recalling presets on a hardware synth).</p>
-<p>Pass through requirement is initially turned off, and only activated when you have
-&ldquo;switched modes&rdquo; and need the same knob to drive different values. You switch modes by
-calling <code>mode_changed()</code> on the (KnobWithPassThrough) knob instance you are switching to.</p>
+<p>The knob passthrough feature is also useful when you turn on your hardware
+module and you want the knob value to be in the same position as when you turned
+it off, and the knob has physically moved slightly, so your sound is unfortunately, different.</p>
 <p>The knob value will initiallly lock to the initial_value parameter, which defaults to 50.
 Moving the underlying knob by any amount will overwrite that initial_value. If pass-through
 is enabled, then you will have to move the underlying knob &ldquo;through&rdquo; the initial value to
@@ -439,15 +487,22 @@ begin changing it.</p>
 <p>Its actually easier to use than to explain!</p>
 <h5 id="usage-1">Usage</h5>
 <p>Simplest usage is to wrap a knob with this class, passing the initial value e.g.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>choices <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">list</span>(<span style="color:#8be9fd;font-style:italic">range</span>(<span style="color:#bd93f9">0</span>, <span style="color:#bd93f9">200</span>))
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">from</span> europi <span style="color:#ff79c6">import</span> k1, k2
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>choices <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">list</span>(<span style="color:#8be9fd;font-style:italic">range</span>(<span style="color:#bd93f9">0</span>, <span style="color:#bd93f9">200</span>))
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>k <span style="color:#ff79c6">=</span> KnobWithPassThrough(k1, initial<span style="color:#ff79c6">=</span><span style="color:#bd93f9">50</span>)
 </span></span><span style="display:flex;"><span>val <span style="color:#ff79c6">=</span> k<span style="color:#ff79c6">.</span>choice(choices)  <span style="color:#6272a4"># val will remain 50 until k1 is moved</span>
 </span></span></code></pre></div><p>If you want k1 to control two different values depending on a mode, you need to
 create two instances of this class, wrapping the same knob e.g.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>k_mode1 <span style="color:#ff79c6">=</span> KnobWithPassThrough(k1, initial<span style="color:#ff79c6">=</span><span style="color:#bd93f9">50</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">from</span> europi <span style="color:#ff79c6">import</span> k1, k2
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>k_mode1 <span style="color:#ff79c6">=</span> KnobWithPassThrough(k1, initial<span style="color:#ff79c6">=</span><span style="color:#bd93f9">50</span>)
 </span></span><span style="display:flex;"><span>k_mode2 <span style="color:#ff79c6">=</span> KnobWithPassThrough(k1, initial<span style="color:#ff79c6">=</span><span style="color:#bd93f9">100</span>)
-</span></span></code></pre></div><p>When you switch modes e.g. as a result of a button press, you need to call <code>mode_changed()</code> on the
+</span></span></code></pre></div><p>Pass through requirement is initially turned off, and only activated when you have
+&ldquo;switched modes&rdquo; and need the same knob to drive different values. You switch modes by
+calling <code>mode_changed()</code> on the (KnobWithPassThrough) knob instance you are switching to.</p>
+<p>When you switch modes e.g. as a result of a button press, you need to call <code>mode_changed()</code> on the
 mode you are switching to, in order to tell it to use its cached value until physical knob
 pass-through has ocurred e.g.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>@b2.handler_falling
@@ -470,7 +525,6 @@ You can put the code in a separate file and import it into your script. e.g. <co
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">KnobWithPassThrough</span>:
 </span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;
 </span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">    Disable changing value till knob is moved and &#34;passes-through&#34; the current cached value.
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">    Documentation in tigger_to_gate.md
 </span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">    &#34;&#34;&#34;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> __init__(self, knob, initial_value<span style="color:#ff79c6">=</span><span style="color:#bd93f9">50</span>) <span style="color:#ff79c6">-&gt;</span> <span style="color:#ff79c6">None</span>:
 </span></span><span style="display:flex;"><span>        self<span style="color:#ff79c6">.</span>knob <span style="color:#ff79c6">=</span> knob
@@ -518,10 +572,12 @@ You can put the code in a separate file and import it into your script. e.g. <co
 </span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">choice</span>(self, <span style="color:#ff79c6">*</span>args, <span style="color:#ff79c6">**</span>kwargs):
 </span></span><span style="display:flex;"><span>        new_value <span style="color:#ff79c6">=</span> self<span style="color:#ff79c6">.</span>knob<span style="color:#ff79c6">.</span>choice(<span style="color:#ff79c6">*</span>args)
 </span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> self<span style="color:#ff79c6">.</span>_update_pass_through(new_value)
-</span></span></code></pre></div><h3 id="util---scheduler">Util - Scheduler</h3>
+</span></span></code></pre></div><h3 id="class-scheduler">class Scheduler</h3>
 <p>A simple scheduler for running tasks at a given time in the future.</p>
 <h5 id="usage-2">Usage</h5>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>s <span style="color:#ff79c6">=</span> Scheduler()
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">import</span> utime
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>s <span style="color:#ff79c6">=</span> Scheduler()
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>s<span style="color:#ff79c6">.</span>schedule_task(some_function, ms<span style="color:#ff79c6">=</span><span style="color:#bd93f9">1000</span>)  <span style="color:#6272a4"># run some_function in 1 second</span>
 </span></span><span style="display:flex;"><span>s<span style="color:#ff79c6">.</span>schedule_task(some_other_function, ms<span style="color:#ff79c6">=</span><span style="color:#bd93f9">2000</span>)  <span style="color:#6272a4"># run some_other_function in 2 seconds</span>
@@ -550,7 +606,6 @@ You can put the code in a separate file and import it into your script. e.g. <co
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Scheduler</span>:
 </span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;
 </span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">    A simple scheduler for running tasks at a given time in the future.
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">    Documentation in tigger_to_gate.md
 </span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">    &#34;&#34;&#34;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> __init__(self):
@@ -587,7 +642,8 @@ You can put the code in a separate file and import it into your script. e.g. <co
 </span></span><span style="display:flex;"><span>        <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#39;  Schedule:&#39;</span>)
 </span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">for</span> scheduled_time, callback, callback_func_name <span style="color:#ff79c6">in</span> self<span style="color:#ff79c6">.</span>schedule:
 </span></span><span style="display:flex;"><span>            <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#34;  </span><span style="color:#f1fa8c">{</span>callback_func_name<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c"> </span><span style="color:#f1fa8c">{</span>scheduled_time<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span>)
-</span></span></code></pre></div>
+</span></span></code></pre></div><p>For fuller examples of how to use all these classes together, see my <a href="/projects/libraries/europi-trigger-to-gate">Trigger to Gate</a> script.</p>
+
 	<style>
   .feedback--answer {
     display: inline-block;
@@ -645,7 +701,7 @@ You can put the code in a separate file and import it into your script. e.g. <co
 </script>
 <br />
 <div class="td-page-meta__lastmod">
-  Last modified June 1, 2024: <a href="https://github.com/abulka/abulka.github.io/commit/4ba6e9422cc38bacc2e99e090141e8a78b151db8">refined doco on europi script (4ba6e94)</a>
+  Last modified June 2, 2024: <a href="https://github.com/abulka/abulka.github.io/commit/d461578cc849ad9b8dbff395dc7c69b07915d421">polish europi doco (d461578)</a>
 </div>
 
 </div>

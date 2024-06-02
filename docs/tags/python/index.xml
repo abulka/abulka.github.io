@@ -6,7 +6,7 @@
     <description>Recent content in Python on Andy Bulka</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 01 Jun 2024 14:56:10 +1000</lastBuildDate>
+    <lastBuildDate>Sun, 02 Jun 2024 14:20:37 +1000</lastBuildDate>
     <atom:link href="https://abulka.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Electron-Flask App Generator</title>
@@ -20,14 +20,14 @@
       <link>https://abulka.github.io/projects/libraries/europi-trigger-to-gate/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://abulka.github.io/projects/libraries/europi-trigger-to-gate/</guid>
-      <description>Trigger to Gate Script for EuroPi This script allows you to convert trigger into a gate signal.&#xA;See this explanation on the difference between gates and triggers.&#xA;What is a EuroPi? The EuroPi Module is a Eurorack module that allows you to control your modular synthesizer with a Raspberry Pi. You build it yourself using the information at https://github.com/Allen-Synthesis/EuroPi&#xA;Trigger to Gate Generates a gate on cv1 in response to a trigger on din.</description>
+      <description>Trigger to Gate Script for EuroPi This script allows you to convert trigger into a gate signal.&#xA;I originally wrote this script because my 2hp MIDI module clock outputs 6ms triggers, which are too short to inter-operate with most of my Eurorack modules, which require longer gates e.g. 200ms.&#xA;Using my disting module or buying a Doepfer A-162-2 Dual Trigger Delay module just for this seemed overkill, so I wrote this script for my existing EuroPi module, which at the time, did not have a trigger to gate script.</description>
     </item>
     <item>
       <title>EuroPi - Utility Classes</title>
       <link>https://abulka.github.io/projects/libraries/europi-script-utils/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://abulka.github.io/projects/libraries/europi-script-utils/</guid>
-      <description>Script Utils for EuroPi The Trigger to Gate script uses some utility functions that might be useful for other EuroPi scripts:&#xA;KnobWithHysteresis KnobWithPassThrough Scheduler Rather than each script inventing its own hyseresis mitigation and knob pass-through logic, I have created these utility classes to be used by any EuroPi script that needs them.&#xA;The problems: Pass-through knob values&#xA;Because the knobs are used in two different modes, we run into the problem of the physical knob position not matching the value when you switch between modes.</description>
+      <description>Introduction My Trigger to Gate script for EuroPi uses some utility functions I developed, that might be useful for other EuroPi scripts:&#xA;KnobWithHysteresis KnobWithPassThrough Scheduler Rather than each EuroPi script inventing its own hyseresis mitigation and knob pass-through logic etc., these utility classes can be used by any EuroPi script that needs them. You can install them into the lib/contrib/experimental directory of the EuroPi software, or in a separate lib/contrib/utils directory - you can put them wherever you want, even copy and paste them into the body of your script.</description>
     </item>
     <item>
       <title>Relationship Manager for Python 3</title>
