@@ -10,6 +10,10 @@ tags: ["Software Product", "Python", "Eurorack", "Raspberry Pi"]
 
 This script allows you to convert trigger into a gate signal.
 
+I originally wrote this script because my [2hp MIDI](https://www.twohp.com/modules/midi) module clock outputs 6ms triggers, which are too short to inter-operate with most of my Eurorack modules, which require longer gates e.g. 200ms. 
+
+Using my disting module or buying a [Doepfer A-162-2 Dual Trigger Delay](https://doepfer.de/a100_man/A162_man.pdf) module just for this seemed overkill, so I wrote this script for my existing EuroPi module, which at the time, did not have a trigger to gate script.
+
 <!-- ![Oscilloscope](https://cdn.shopify.com/s/files/1/0552/0923/0485/files/gates_and_trigs.png?v=1628550175) -->
 
 <img src="https://cdn.shopify.com/s/files/1/0552/0923/0485/files/gates_and_trigs.png?v=1628550175" alt="Oscilloscope" width="30%">
@@ -18,6 +22,8 @@ This script allows you to convert trigger into a gate signal.
 <br>
 
 See [this explanation](https://noiseengineering.us/blogs/loquelic-literitas-the-blog/getting-started-gates-vs-triggers) on the difference between gates and triggers.
+
+> This `trigger_to_gate.py` script is different to the `gates_and_triggers.py` script now bundled with current (2024) versions of the EuroPi. The differences in features are explained below.
 
 ### What is a EuroPi?
 
@@ -34,7 +40,7 @@ Generates a gate on cv1 in response to a trigger on din.
 Control the outgoing pulse width with knob k1. Control the delay between the trigger and the gate starting with knob k2. Handy for converting short triggers (e.g. 1ms) into longer gates (e.g. 10ms) as some Eurorack modules don't like short
 triggers.
 
-> See alternative [Trigger Gate Delay](#trigger-gate-delay) script below, which is a simpler version of this script without the clock mode functionality.
+> See my stripped down, alternative [Trigger Gate Delay](#trigger-gate-delay) script below, which is a simpler version of this script without the clock mode functionality.
 
 
 #### Installation
@@ -149,12 +155,14 @@ The bundled `gates_and_triggers.py` script on the other hand:
 
 <!-- > **2024 update**: See my alternative [Trigger Gate Delay](#trigger-gate-delay) script below, which is a simpler version of this script without the clock mode functionality. If you choose to install the script without the knob pass-through mitigation, it is only 15% longer than the bundled `gates_and_triggers.py` script. -->
 
+> See also: my stripped down, alternative [Trigger Gate Delay](#trigger-gate-delay) script below, which is a simpler version of this script without the clock mode functionality.
+
 > See also: [Documentation](/projects/libraries/europi-script-utils) on my Scheduler, Hysteresis Mitigation and Knob Pass Through Utility Functions, which you can use in your own EuroPi scripts.
 
 
 ### Trigger Gate Delay {#trigger-gate-delay}
 
-This script is a simpler, shorter version of the above script, without the *clock mode* functionality, which makes the script more understandable and shorter. It just offers the basic 'trigger to gate' functionality, with optional gate delay.
+This script is a simpler, shorter version of the above script, without the *clock mode* functionality, which makes the script more understandable (if you are interested in reading the code) and shorter in length. It just offers the basic 'trigger to gate' functionality, with optional gate delay.
 
 I've named it 'Trigger Gate Delay' (instead of 'Trigger to Gate') to differentiate it from the more complex script.
 
@@ -183,6 +191,6 @@ This will make the script shorter, but you will lose the benefits of the hystere
 
 - [trigger_gate_delay.py - tiny](/projects/libraries/code/trigger_gate_delay_TINY.py) - no hysteresis or pass-through mitigation 
 
-For those wanting to conserve disk space on their EuroPi, the script with hysteresis mitigation only (no knob pass-through mitigation) is a good compromise between script length and functionality.
+For those wanting to conserve disk space on their EuroPi, the script with hysteresis mitigation only (no knob pass-through mitigation) is a good compromise between script length and functionality. Also, "pass-through" mitigation is not as important as "hysteresis" mitigation, especially since we aren't switching 'modes' with this simplified 'Trigger Gate Delay' script.
 
 - [trigger_gate_delay.py - hysteresis](/projects/libraries/code/trigger_gate_delay_HYSTERESIS.py) - hysteresis mitigation only

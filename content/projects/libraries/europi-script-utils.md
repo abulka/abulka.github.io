@@ -6,28 +6,44 @@ weight: 20
 tags: ["Software Product", "Python", "Eurorack", "Raspberry Pi"]
 ---
 
-### Script Utils for EuroPi
+### Introduction
 
-The [Trigger to Gate](/projects/libraries/europi-trigger-to-gate) script uses some utility functions that might be useful for other EuroPi scripts:
+My [Trigger to Gate](/projects/libraries/europi-trigger-to-gate) script for [EuroPi](https://github.com/Allen-Synthesis/EuroPi) uses some utility functions I developed, that might be useful for other EuroPi scripts:
 
 - KnobWithHysteresis
 - KnobWithPassThrough
 - Scheduler
 
-Rather than each script inventing its own hyseresis mitigation and knob pass-through logic, I have created these utility classes to be used by any EuroPi script that needs them.
+Rather than each EuroPi script inventing its own hyseresis mitigation and knob pass-through logic etc., these utility classes can be used by any EuroPi script that needs them. You can install them into the `lib/contrib/experimental` directory of the EuroPi software, or in a separate `lib/contrib/utils` directory - you can put them wherever you want, even copy and paste them into the body of your script.
 
-#### The problems:
+#### The problems these utility classes solve
+
+**Hysteresis Mitigation**
+
+The term "hysteresis" refers to the problem of the knob value flickering when
+the knob is not being turned. This is a common problem with rotary encoders and
+can be mitigated by only accepting new values when the knob has been turned by a
+certain amount. This is especially useful when you have a knob that is used to
+set a value that is displayed on a screen, as in the Trigger to Gate script.
+
+The knobs in my [Trigger to Gate](/projects/libraries/europi-trigger-to-gate)
+script use hysteresis mitigation which prevents the values flickering, even
+though you are not turning the knob. There is a 1 second timeout when you can
+dial in the exact value you want, then the knob value will "lock". To unlock the
+knob value, turn the knob past the threshold again.
 
 **Pass-through knob values**
-
-Because the knobs are used in two different modes, we run into the problem of the physical
-knob position not matching the value when you switch between modes. To solve this, the knobs
-use "pass-through" logic, which you may be familiar with when loading presets into a hardware
-synthesiser.
 
 The term "pass-through" refers to the technique of enabling a parameter's value
 only when the knob physical position passes through the existing value, which
 prevents sudden jumps in values when you switch screen modes.
+
+If knobs are used in two different modes, as they are in my [Trigger to
+Gate](/projects/libraries/europi-trigger-to-gate) script, we run into the
+problem of the physical knob position not matching the last value of that mode,
+when you switch between modes (between trigger to gate mode and clock mode, for
+example). To solve this, the knobs use "pass-through" logic, which you may be
+familiar with when loading presets into a hardware synthesiser.
 
 If turning a knob doesn't change the value, it's because the knob is not yet
 "passed-through" the current value. Simply turn the knob until it does change. For example,
@@ -35,32 +51,80 @@ if the existing value is 0 and your physical knob position is at "5 o'clock" the
 turn the physical knob counter-clockwise until it passes through 0 and then clockwise again
 to your required value.
 
-**Hysteresis Mitigation**
+**Scheduler**
 
-The knobs also use hysteresis mitigation which prevents the values flickering,
-even though you are not turning the knob. There is a 1 second timeout when you
-can dial in the exact value you want, then the knob value will "lock". To unlock
-the knob value, turn the knob past the threshold again.
+When writing a EuroPi script, you may need to run tasks at a given time in the
+future. For example, you may want to turn off a gate after a certain time, or
+run a task every second. Most EuroPi scripts will have a simple while loop that
+runs continuously, with various ad-hoc flags and variables managing the
+behaviour inside the loop. This can get messy and hard to understand.
 
-### Util - KnobWithHysteresis
+My scheduler class offers a more organised way of looping and scheduling tasks
+to run at a given time in the future. A task is a function that you want to run
+at a given time in the future, thus instead of having a while loop and global
+variables, you have a function per task and a time to run it.
 
-This is a class to cure the hysteresis problem with the rotary encoder.
+> Another potentially interesting way of managing tasks is to use a game inspired
+**Entity Component System** loop, as I describe in my article [TodoMVC
+implemented using a game architecture —
+ECS](/blog/2020/05/18/todomvc-implemented-using-a-game-architecture-ecs/). I
+leave that as an exercise for the future.
 
-You can set any value within the `lock_delay` time period and it will be
-accepted but once the `lock_delay` time period expires the value returned will
-be locked and you have to move the knob by at least `tolerance` to change the value,
-at which point the time period before re-locking is extended by `lock_delay`
-time (defaults to 1s).
+<u>Slow screen updates in EuroPi</u>
 
-Starts locked on the first value it sees, to avoid jittery beginning values.
+Screen updates in EuroPi are a blocking operation and take a long time relative
+to the ms activity of signals and interrupts. This means incoming triggers can
+easily be missed and interrupts won't fire. The scheduler class can help with
+this problem. For example, you can schedule to update the screen at a regular
+interval, rather than updating the screen every time you change a value. Even
+better, you can use the scheduler to update the screen only when the value has
+changed, rather than every time through the loop. This is accomplished by
+scheduling the screen update task only when needed, and ensure that the screen
+update task function does not reschedule itself.
+
+If you are not using the Scheduler class, you should use a flag to
+indicate when the screen needs updating and only update the screen when the flag
+is set.
+
+> **NOTE:** MicroPython async is supported on the Raspberry Pi Pico, and can
+help with task management. However even when using async, there is only one
+thread involved so you still need to be careful with blocking operations like
+writing to the screen. There is a second thread available on the Raspberry Pi
+Pico but MicroPython support for this feature is unreliable but will hopefully
+will improve in the future (we have been hoping for this for a long time though
+2022-2024 and it is still a problem).
+
+The utility classes presented here do not use async, nor do they use the second
+thread.
+
+Here are the utility classes:
+
+### class KnobWithHysteresis
+
+This is a class to cure the hysteresis problem with the rotary encoder knobs k1
+and k2 of the EuroPi.  
+
+It is easy to use because you just wrap the knob in the class and it will
+automatically mitigate the hysteresis problem. The knob will only change value
+when you turn it by a certain amount, which you can set with the `tolerance`.
 
 ##### Usage
 
 ```python
+from europi import k1, k2
+
 k1 = KnobWithHysteresis(k1)  # backwards compatible, no hyteresis mitigation
 k1 = KnobWithHysteresis(k1, tolerance=2)  # set tolerance to 2, hysteresis mitigation
 ```
 
+You can set any value within the `lock_delay` time period (an additional
+constructor parameter that defaults to 1000ms) and it will be accepted but once
+the `lock_delay` time period expires the value returned will be locked and you
+have to move the knob by at least `tolerance` to change the value, at which
+point the time period before re-locking is extended by `lock_delay` time
+(defaults to 1s).
+
+Starts locked on the first value it sees, to avoid jittery beginning values.
 
 ##### Code:
 
@@ -74,7 +138,6 @@ import utime
 class KnobWithHysteresis:
     """
     This is a class to cure the hysteresis problem with the rotary encoder.
-    Documentation in tigger_to_gate.md
     """
     def __init__(self, knob, tolerance=0, lock_delay=1000, name=None) -> None:
         self.knob = knob
@@ -120,7 +183,7 @@ class KnobWithHysteresis:
     # and the methods of its superclass AnalogueReader.
 ```
 
-### Util - KnobWithPassThrough
+### class KnobWithPassThrough
 
 Disable changing value till knob is moved and "passes-through" the current cached value.
 Useful for when you have a knob that is used in two different modes and you don't want
@@ -129,10 +192,6 @@ the value to jump when you switch modes (think recalling presets on a hardware s
 The knob passthrough feature is also useful when you turn on your hardware
 module and you want the knob value to be in the same position as when you turned
 it off, and the knob has physically moved slightly, so your sound is unfortunately, different.
-
-Pass through requirement is initially turned off, and only activated when you have 
-"switched modes" and need the same knob to drive different values. You switch modes by
-calling `mode_changed()` on the (KnobWithPassThrough) knob instance you are switching to.
 
 The knob value will initiallly lock to the initial_value parameter, which defaults to 50.
 Moving the underlying knob by any amount will overwrite that initial_value. If pass-through
@@ -146,6 +205,8 @@ Its actually easier to use than to explain!
 Simplest usage is to wrap a knob with this class, passing the initial value e.g.
 
 ```python    
+from europi import k1, k2
+
 choices = list(range(0, 200))
 
 k = KnobWithPassThrough(k1, initial=50)
@@ -156,9 +217,15 @@ If you want k1 to control two different values depending on a mode, you need to
 create two instances of this class, wrapping the same knob e.g.
 
 ```python
+from europi import k1, k2
+
 k_mode1 = KnobWithPassThrough(k1, initial=50)
 k_mode2 = KnobWithPassThrough(k1, initial=100)
 ```
+
+Pass through requirement is initially turned off, and only activated when you have 
+"switched modes" and need the same knob to drive different values. You switch modes by
+calling `mode_changed()` on the (KnobWithPassThrough) knob instance you are switching to.
 
 When you switch modes e.g. as a result of a button press, you need to call `mode_changed()` on the
 mode you are switching to, in order to tell it to use its cached value until physical knob 
@@ -190,7 +257,6 @@ You can put the code in a separate file and import it into your script. e.g. `fr
 class KnobWithPassThrough:
     """
     Disable changing value till knob is moved and "passes-through" the current cached value.
-    Documentation in tigger_to_gate.md
     """
     def __init__(self, knob, initial_value=50) -> None:
         self.knob = knob
@@ -240,13 +306,15 @@ class KnobWithPassThrough:
         return self._update_pass_through(new_value)
 ```
 
-### Util - Scheduler
+### class Scheduler
 
 A simple scheduler for running tasks at a given time in the future.
 
 ##### Usage
 
 ```python
+import utime
+
 s = Scheduler()
 
 s.schedule_task(some_function, ms=1000)  # run some_function in 1 second
@@ -284,7 +352,6 @@ import utime
 class Scheduler:
     """
     A simple scheduler for running tasks at a given time in the future.
-    Documentation in tigger_to_gate.md
     """
 
     def __init__(self):
@@ -322,3 +389,5 @@ class Scheduler:
         for scheduled_time, callback, callback_func_name in self.schedule:
             print(f"  {callback_func_name} {scheduled_time}")
 ```
+
+For fuller examples of how to use all these classes together, see my [Trigger to Gate](/projects/libraries/europi-trigger-to-gate) script.
