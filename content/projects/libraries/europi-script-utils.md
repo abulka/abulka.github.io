@@ -126,6 +126,10 @@ Disable changing value till knob is moved and "passes-through" the current cache
 Useful for when you have a knob that is used in two different modes and you don't want
 the value to jump when you switch modes (think recalling presets on a hardware synth).
 
+The knob passthrough feature is also useful when you turn on your hardware
+module and you want the knob value to be in the same position as when you turned
+it off, and the knob has physically moved slightly, so your sound is unfortunately, different.
+
 Pass through requirement is initially turned off, and only activated when you have 
 "switched modes" and need the same knob to drive different values. You switch modes by
 calling `mode_changed()` on the (KnobWithPassThrough) knob instance you are switching to.

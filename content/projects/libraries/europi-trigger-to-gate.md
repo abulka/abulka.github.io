@@ -60,7 +60,7 @@ onto the EuroPi using [Thonny IDE](https://thonny.org/).
 - date: 2023-05-16
 - labels: trigger, gate, clock
 
-Trigger to Gate: Generates a gate on cv1 in response to a trigger on din.
+**Trigger to Gate** mode: Generates a gate on cv1 in response to a trigger on din.
 Control the outgoing pulse width with k1. Control the delay between the trigger
 and the gate starting with k2. Handy for converting short triggers (e.g. 1ms)
 into longer gates (e.g. 10ms) as some eurorack modules don't like short
@@ -72,7 +72,7 @@ triggers.
     k1 = length of gate (1-1500ms)
     k2 = delay of gate (0-1500ms)
 
-Clock: Generates an independent (unrelated to din or gate output),
+**Clock** mode: Generates an independent (unrelated to din or gate output),
 internally driven clock output on cv2. Handy for when you need a simple clock with variable gate length.
 
     cv2 = clock output
@@ -115,7 +115,7 @@ This is what the screens look like:
 
 - Incoming trigger is blue (DIN)
 - Outgoing gate is purple (CV1).
-- The internally clock driven Outgoing gate is not wired (CV2).
+- The internally driven clock outgoing gate (CV2) is not wired in this example.
 
 <img src="/projects/libraries/images/europi-trigger.jpg" alt="Script at work" width="20%">
 <br>
