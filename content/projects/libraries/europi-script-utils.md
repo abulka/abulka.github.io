@@ -14,13 +14,15 @@ My [Trigger to Gate](/projects/libraries/europi-trigger-to-gate) script for [Eur
 - KnobWithPassThrough
 - Scheduler
 
-Rather than each EuroPi script inventing its own hyseresis mitigation and knob pass-through logic etc., these utility classes can be used by any EuroPi script that needs them. You can install them into the `lib/contrib/experimental` directory of the EuroPi software, or in a separate `lib/contrib/utils` directory - you can put them wherever you want, even copy and paste them into the body of your script.
+Rather than each EuroPi script inventing its own hyseresis mitigation and knob pass-through logic etc., these utility classes can be used by any EuroPi script that needs them. 
+
+You can install them into the `lib/contrib/experimental` directory of the EuroPi software, or in a separate `lib/contrib/utils` directory. Indeed, you can put them wherever you want - even copy and paste the classes into the body of the EuroPi script you are developing.
 
 #### The problems these utility classes solve
 
 **Hysteresis Mitigation**
 
-The term "hysteresis" refers to the problem of the knob value flickering when
+The term [hysteresis](https://electronics.stackexchange.com/questions/266608/stable-output-from-a-potentiometer) refers to the problem of the knob value flickering when
 the knob is not being turned. This is a common problem with rotary encoders and
 can be mitigated by only accepting new values when the knob has been turned by a
 certain amount. This is especially useful when you have a knob that is used to

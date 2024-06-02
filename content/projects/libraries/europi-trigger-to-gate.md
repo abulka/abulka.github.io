@@ -8,26 +8,26 @@ tags: ["Software Product", "Python", "Eurorack", "Raspberry Pi"]
 
 ### Trigger to Gate Script for EuroPi
 
-This script allows you to convert trigger into a gate signal.
+This script allows you to convert trigger into a gate signal. 
 
-I originally wrote this script because my [2hp MIDI](https://www.twohp.com/modules/midi) module clock outputs 6ms triggers, which are too short to inter-operate with most of my Eurorack modules, which require longer gates e.g. 200ms. 
+This is a common requirement in Eurorack modular synthesizers, where some modules require a gate signal to trigger an event, rather than a trigger signal.
 
-Using my disting module or buying a [Doepfer A-162-2 Dual Trigger Delay](https://doepfer.de/a100_man/A162_man.pdf) module just for this seemed overkill, so I wrote this script for my existing EuroPi module, which at the time, did not have a trigger to gate script.
-
-<!-- ![Oscilloscope](https://cdn.shopify.com/s/files/1/0552/0923/0485/files/gates_and_trigs.png?v=1628550175) -->
-
-<img src="https://cdn.shopify.com/s/files/1/0552/0923/0485/files/gates_and_trigs.png?v=1628550175" alt="Oscilloscope" width="30%">
+<img src="https://cdn.shopify.com/s/files/1/0552/0923/0485/files/gates_and_trigs.png?v=1628550175" alt="Gates vs Triggers Illustrated" width="30%">
 
 <br>
 <br>
 
 See [this explanation](https://noiseengineering.us/blogs/loquelic-literitas-the-blog/getting-started-gates-vs-triggers) on the difference between gates and triggers.
 
-> This `trigger_to_gate.py` script is different to the `gates_and_triggers.py` script now bundled with current (2024) versions of the EuroPi. The differences in features are explained below.
+I originally wrote this script because my [2hp MIDI](https://www.twohp.com/modules/midi) module clock was outputting `6ms` triggers, which are too short to inter-operate with most of my Eurorack modules, which require longer gates e.g. `200ms`. 
+
+Using a [disting module](https://www.expert-sleepers.co.uk/disting.html) or buying a [Doepfer A-162-2 Dual Trigger Delay](https://doepfer.de/a100_man/A162_man.pdf) module just for this seemed overkill, so I wrote a script for my existing EuroPi module, which at the time, was not bundled with a trigger to gate script.
+
+> The `trigger_to_gate.py` script in this article is different to the `gates_and_triggers.py` script now bundled with current (2024) versions of the EuroPi. The differences in features are explained below.
 
 ### What is a EuroPi?
 
-The EuroPi Module is a Eurorack module that allows you to control your modular synthesizer with a Raspberry Pi. 
+The EuroPi is a Eurorack module that allows you to control your modular synthesizer with a Raspberry Pi. 
 You build it yourself using the information at https://github.com/Allen-Synthesis/EuroPi
 
 <img src="/projects/libraries/images/europi-built.jpg" alt="EuroPi Module" width="20%">
@@ -40,7 +40,9 @@ Generates a gate on cv1 in response to a trigger on din.
 Control the outgoing pulse width with knob k1. Control the delay between the trigger and the gate starting with knob k2. Handy for converting short triggers (e.g. 1ms) into longer gates (e.g. 10ms) as some Eurorack modules don't like short
 triggers.
 
-> See my stripped down, alternative [Trigger Gate Delay](#trigger-gate-delay) script below, which is a simpler version of this script without the clock mode functionality.
+Also generates an independent (unrelated to din or gate output), internally driven clock output on cv2. Handy for when you need a simple clock with variable gate length.
+
+> For a shorter, smaller script, see my stripped down [Trigger Gate Delay](#trigger-gate-delay) script below, without the clock mode functionality.
 
 
 #### Installation
