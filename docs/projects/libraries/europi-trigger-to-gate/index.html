@@ -19,18 +19,20 @@
 
 <title>EuroPi - Trigger to Gate | Andy Bulka</title>
 <meta name="description" content="Trigger to Gate Script for EuroPi This script allows you to convert trigger into a gate signal.
-I originally wrote this script because my 2hp MIDI module clock outputs 6ms triggers, which are too short to inter-operate with most of my Eurorack modules, which require longer gates e.g. 200ms.
-Using my disting module or buying a Doepfer A-162-2 Dual Trigger Delay module just for this seemed overkill, so I wrote this script for my existing EuroPi module, which at the time, did not have a trigger to gate script.">
+This is a common requirement in Eurorack modular synthesizers, where some modules require a gate signal to trigger an event, rather than a trigger signal.
+See this explanation on the difference between gates and triggers.
+I originally wrote this script because my 2hp MIDI module clock was outputting 6ms triggers, which are too short to inter-operate with most of my Eurorack modules, which require longer gates e.">
 <meta property="og:url" content="https://abulka.github.io/projects/libraries/europi-trigger-to-gate/">
   <meta property="og:site_name" content="Andy Bulka">
   <meta property="og:title" content="EuroPi - Trigger to Gate">
   <meta property="og:description" content="Trigger to Gate Script for EuroPi This script allows you to convert trigger into a gate signal.
-I originally wrote this script because my 2hp MIDI module clock outputs 6ms triggers, which are too short to inter-operate with most of my Eurorack modules, which require longer gates e.g. 200ms.
-Using my disting module or buying a Doepfer A-162-2 Dual Trigger Delay module just for this seemed overkill, so I wrote this script for my existing EuroPi module, which at the time, did not have a trigger to gate script.">
+This is a common requirement in Eurorack modular synthesizers, where some modules require a gate signal to trigger an event, rather than a trigger signal.
+See this explanation on the difference between gates and triggers.
+I originally wrote this script because my 2hp MIDI module clock was outputting 6ms triggers, which are too short to inter-operate with most of my Eurorack modules, which require longer gates e.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="projects">
-    <meta property="article:modified_time" content="2024-06-02T14:20:37+10:00">
+    <meta property="article:modified_time" content="2024-06-02T18:15:42+10:00">
     <meta property="article:tag" content="Software Product">
     <meta property="article:tag" content="Python">
     <meta property="article:tag" content="Eurorack">
@@ -38,16 +40,18 @@ Using my disting module or buying a Doepfer A-162-2 Dual Trigger Delay module ju
 
   <meta itemprop="name" content="EuroPi - Trigger to Gate">
   <meta itemprop="description" content="Trigger to Gate Script for EuroPi This script allows you to convert trigger into a gate signal.
-I originally wrote this script because my 2hp MIDI module clock outputs 6ms triggers, which are too short to inter-operate with most of my Eurorack modules, which require longer gates e.g. 200ms.
-Using my disting module or buying a Doepfer A-162-2 Dual Trigger Delay module just for this seemed overkill, so I wrote this script for my existing EuroPi module, which at the time, did not have a trigger to gate script.">
-  <meta itemprop="dateModified" content="2024-06-02T14:20:37+10:00">
-  <meta itemprop="wordCount" content="1194">
+This is a common requirement in Eurorack modular synthesizers, where some modules require a gate signal to trigger an event, rather than a trigger signal.
+See this explanation on the difference between gates and triggers.
+I originally wrote this script because my 2hp MIDI module clock was outputting 6ms triggers, which are too short to inter-operate with most of my Eurorack modules, which require longer gates e.">
+  <meta itemprop="dateModified" content="2024-06-02T18:15:42+10:00">
+  <meta itemprop="wordCount" content="1290">
   <meta itemprop="keywords" content="Software Product,Python,Eurorack,Raspberry Pi">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="EuroPi - Trigger to Gate">
   <meta name="twitter:description" content="Trigger to Gate Script for EuroPi This script allows you to convert trigger into a gate signal.
-I originally wrote this script because my 2hp MIDI module clock outputs 6ms triggers, which are too short to inter-operate with most of my Eurorack modules, which require longer gates e.g. 200ms.
-Using my disting module or buying a Doepfer A-162-2 Dual Trigger Delay module just for this seemed overkill, so I wrote this script for my existing EuroPi module, which at the time, did not have a trigger to gate script.">
+This is a common requirement in Eurorack modular synthesizers, where some modules require a gate signal to trigger an event, rather than a trigger signal.
+See this explanation on the difference between gates and triggers.
+I originally wrote this script because my 2hp MIDI module clock was outputting 6ms triggers, which are too short to inter-operate with most of my Eurorack modules, which require longer gates e.">
 
 
 
@@ -105,7 +109,7 @@ if (!doNotTrack) {
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.5957b7b6cee4ff227acb002fcf88fc26.json"
+    data-offline-search-index-json-src="/offline-search-index.9f826bff6aa3fc74cd586360dec07dea.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -129,7 +133,7 @@ if (!doNotTrack) {
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.5957b7b6cee4ff227acb002fcf88fc26.json"
+    data-offline-search-index-json-src="/offline-search-index.9f826bff6aa3fc74cd586360dec07dea.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -176,7 +180,7 @@ if (!doNotTrack) {
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-projectslibrarieseuropi-trigger-to-gate-li">
   <a href="/projects/libraries/europi-trigger-to-gate/" class="align-left ps-0 active td-sidebar-link td-sidebar-link__page" id="m-projectslibrarieseuropi-trigger-to-gate"><span class="td-sidebar-nav-active-item">EuroPi - Trigger to Gate</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-projectslibrarieseuropi-script-utils-li">
-  <a href="/projects/libraries/europi-script-utils/" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-projectslibrarieseuropi-script-utils"><span class="">EuroPi - Utility Classes</span></a>
+  <a href="/projects/libraries/europi-script-utils/" title="EuroPi - Andy&#39;s Utility Classes" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-projectslibrarieseuropi-script-utils"><span class="">EuroPi - Utility Classes</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-projectslibrariesimage-presenter-li">
   <a href="/projects/libraries/image-presenter/" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-projectslibrariesimage-presenter"><span class="">Image Presenter</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-projectslibrariesjupyter-notebook-tools-li">
@@ -233,6 +237,7 @@ if (!doNotTrack) {
         <li><a href="#what-is-a-europi">What is a EuroPi?</a></li>
         <li><a href="#trigger-to-gate">Trigger to Gate</a></li>
         <li><a href="#trigger-gate-delay">Trigger Gate Delay</a></li>
+        <li><a href="#summary">Summary</a></li>
       </ul>
     </li>
   </ul>
@@ -332,26 +337,27 @@ if (!doNotTrack) {
   </header>
 	<h3 id="trigger-to-gate-script-for-europi">Trigger to Gate Script for EuroPi</h3>
 <p>This script allows you to convert trigger into a gate signal.</p>
-<p>I originally wrote this script because my <a href="https://www.twohp.com/modules/midi">2hp MIDI</a> module clock outputs 6ms triggers, which are too short to inter-operate with most of my Eurorack modules, which require longer gates e.g. 200ms.</p>
-<p>Using my disting module or buying a <a href="https://doepfer.de/a100_man/A162_man.pdf">Doepfer A-162-2 Dual Trigger Delay</a> module just for this seemed overkill, so I wrote this script for my existing EuroPi module, which at the time, did not have a trigger to gate script.</p>
-<!-- ![Oscilloscope](https://cdn.shopify.com/s/files/1/0552/0923/0485/files/gates_and_trigs.png?v=1628550175) -->
-<img src="https://cdn.shopify.com/s/files/1/0552/0923/0485/files/gates_and_trigs.png?v=1628550175" alt="Oscilloscope" width="30%">
+<p>This is a common requirement in Eurorack modular synthesizers, where some modules require a gate signal to trigger an event, rather than a trigger signal.</p>
+<img src="https://cdn.shopify.com/s/files/1/0552/0923/0485/files/gates_and_trigs.png?v=1628550175" alt="Gates vs Triggers Illustrated" width="30%">
 <br>
 <br>
 <p>See <a href="https://noiseengineering.us/blogs/loquelic-literitas-the-blog/getting-started-gates-vs-triggers">this explanation</a> on the difference between gates and triggers.</p>
+<p>I originally wrote this script because my <a href="https://www.twohp.com/modules/midi">2hp MIDI</a> module clock was outputting <code>6ms</code> triggers, which are too short to inter-operate with most of my Eurorack modules, which require longer gates e.g. <code>200ms</code>.</p>
+<p>Using a <a href="https://www.expert-sleepers.co.uk/disting.html">disting module</a> or buying a <a href="https://doepfer.de/a100_man/A162_man.pdf">Doepfer A-162-2 Dual Trigger Delay</a> module just for this seemed overkill, so I wrote a script for my existing EuroPi module, which at the time, was not bundled with a trigger to gate script.</p>
 <blockquote>
-<p>This <code>trigger_to_gate.py</code> script is different to the <code>gates_and_triggers.py</code> script now bundled with current (2024) versions of the EuroPi. The differences in features are explained below.</p>
+<p>The <code>trigger_to_gate.py</code> script in this article is different to the <code>gates_and_triggers.py</code> script now bundled with current (2024) versions of the EuroPi. The differences in features are explained below.</p>
 </blockquote>
 <h3 id="what-is-a-europi">What is a EuroPi?</h3>
-<p>The EuroPi Module is a Eurorack module that allows you to control your modular synthesizer with a Raspberry Pi.
+<p>The EuroPi is a Eurorack module that allows you to control your modular synthesizer with a Raspberry Pi.
 You build it yourself using the information at <a href="https://github.com/Allen-Synthesis/EuroPi">https://github.com/Allen-Synthesis/EuroPi</a></p>
 <img src="/projects/libraries/images/europi-built.jpg" alt="EuroPi Module" width="20%">
 <h3 id="trigger-to-gate">Trigger to Gate</h3>
 <p>Generates a gate on cv1 in response to a trigger on din.</p>
 <p>Control the outgoing pulse width with knob k1. Control the delay between the trigger and the gate starting with knob k2. Handy for converting short triggers (e.g. 1ms) into longer gates (e.g. 10ms) as some Eurorack modules don&rsquo;t like short
 triggers.</p>
+<p>Also generates an independent (unrelated to din or gate output), internally driven clock output on cv2. Handy for when you need a simple clock with variable gate length.</p>
 <blockquote>
-<p>See my stripped down, alternative <a href="#trigger-gate-delay">Trigger Gate Delay</a> script below, which is a simpler version of this script without the clock mode functionality.</p>
+<p>For a shorter, smaller script, see my stripped down <a href="#trigger-gate-delay">Trigger Gate Delay</a> script below, without the clock mode functionality.</p>
 </blockquote>
 <h4 id="installation">Installation</h4>
 <p>Since the EuroPi <code>software/contrib</code> does not have this
@@ -481,6 +487,12 @@ two configuration screens, gate and clock. The screen mode is toggled by pressin
 <ul>
 <li><a href="/projects/libraries/code/trigger_gate_delay_HYSTERESIS.py">trigger_gate_delay.py - hysteresis</a> - hysteresis mitigation only</li>
 </ul>
+<h3 id="summary">Summary</h3>
+<ul>
+<li><a href="/projects/libraries/europi-trigger-to-gate">Trigger to Gate</a> script, with gate delay feature and internal clock mode.</li>
+<li><a href="/projects/libraries/europi-trigger-to-gate/#trigger-gate-delay">Trigger Gate Delay</a> script, without the clock mode functionality.</li>
+<li><a href="/projects/libraries/europi-script-utils">Documentation</a> on my Scheduler, Hysteresis Mitigation and Knob Pass Through Utility Functions, which you can use in your own EuroPi scripts.</li>
+</ul>
 
 	<style>
   .feedback--answer {
@@ -539,7 +551,7 @@ two configuration screens, gate and clock. The screen mode is toggled by pressin
 </script>
 <br />
 <div class="td-page-meta__lastmod">
-  Last modified June 2, 2024: <a href="https://github.com/abulka/abulka.github.io/commit/d461578cc849ad9b8dbff395dc7c69b07915d421">polish europi doco (d461578)</a>
+  Last modified June 2, 2024: <a href="https://github.com/abulka/abulka.github.io/commit/debf9edc7462c25bdc2aadfae8ac149a953612a9">europi added summary sections (debf9ed)</a>
 </div>
 
 </div>
@@ -576,7 +588,7 @@ two configuration screens, gate and clock. The screen mode is toggled by pressin
       </div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2">
         <span class="td-footer__copyright">&copy;
     2024
-    <span class="td-footer__authors">Andy Bulka</span></span><span class="td-footer__all_rights_reserved">All Rights Reserved</span><span class="ms-2"><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Policy</a></span><p class="td-footer__about mt-2"><a href="/about/">About Andy Bulka</a></p>
+    <span class="td-footer__authors">Andy Bulka</span></span><span class="td-footer__all_rights_reserved">All Rights Reserved</span><span class="ms-2"><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Policy</a></span><p class="td-footer__about mt-2"><a href="/about/">About Andrew Bulka</a></p>
       </div>
     </div>
   </div>
