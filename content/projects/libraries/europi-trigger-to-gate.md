@@ -196,3 +196,9 @@ This will make the script shorter, but you will lose the benefits of the hystere
 For those wanting to conserve disk space on their EuroPi, the script with hysteresis mitigation only (no knob pass-through mitigation) is a good compromise between script length and functionality. Also, "pass-through" mitigation is not as important as "hysteresis" mitigation, especially since we aren't switching 'modes' with this simplified 'Trigger Gate Delay' script.
 
 - [trigger_gate_delay.py - hysteresis](/projects/libraries/code/trigger_gate_delay_HYSTERESIS.py) - hysteresis mitigation only
+
+### Summary
+
+- [Trigger to Gate](/projects/libraries/europi-trigger-to-gate) script, with gate delay feature and internal clock mode.
+- [Trigger Gate Delay](/projects/libraries/europi-trigger-to-gate/#trigger-gate-delay) script, without the clock mode functionality.
+- [Documentation](/projects/libraries/europi-script-utils) on my Scheduler, Hysteresis Mitigation and Knob Pass Through Utility Functions, which you can use in your own EuroPi scripts.

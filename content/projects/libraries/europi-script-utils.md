@@ -1,5 +1,5 @@
 ---
-title: "EuroPi - Utility Classes"
+title: "EuroPi - Andy's Utility Classes"
 linkTitle: "EuroPi - Utility Classes"
 type: docs
 weight: 20
@@ -75,14 +75,14 @@ leave that as an exercise for the future.
 <u>Slow screen updates in EuroPi</u>
 
 Screen updates in EuroPi are a blocking operation and take a long time relative
-to the ms activity of signals and interrupts. This means incoming triggers can
-easily be missed and interrupts won't fire. The scheduler class can help with
-this problem. For example, you can schedule to update the screen at a regular
-interval, rather than updating the screen every time you change a value. Even
-better, you can use the scheduler to update the screen only when the value has
-changed, rather than every time through the loop. This is accomplished by
-scheduling the screen update task only when needed, and ensure that the screen
-update task function does not reschedule itself.
+to the *millisecond* level of activity of signals and interrupts. This means
+incoming triggers can easily be missed and interrupts won't fire. The scheduler
+class can help with this problem. For example, you can schedule to update the
+screen at a regular interval, rather than updating the screen every time you
+change a value. Even better, you can use the scheduler to update the screen only
+when the value has changed, rather than every time through the loop. This is
+accomplished by scheduling the screen update task only when needed, and ensure
+that the screen update task function does not reschedule itself.
 
 If you are not using the Scheduler class, you should use a flag to
 indicate when the screen needs updating and only update the screen when the flag
@@ -91,10 +91,12 @@ is set.
 > **NOTE:** MicroPython async is supported on the Raspberry Pi Pico, and can
 help with task management. However even when using async, there is only one
 thread involved so you still need to be careful with blocking operations like
-writing to the screen. There is a second thread available on the Raspberry Pi
-Pico but MicroPython support for this feature is unreliable but will hopefully
-will improve in the future (we have been hoping for this for a long time though
-2022-2024 and it is still a problem).
+writing to the EuroPi screen. 
+
+> Yes, there is a second thread available on the
+Raspberry Pi Pico but MicroPython support for this feature is unreliable but
+will hopefully will improve in the future (we have been hoping for this for a
+long time though 2021-2024 and it is still a problem).
 
 The utility classes presented here do not use async, nor do they use the second
 thread.
@@ -393,3 +395,9 @@ class Scheduler:
 ```
 
 For fuller examples of how to use all these classes together, see my [Trigger to Gate](/projects/libraries/europi-trigger-to-gate) script.
+
+### Summary
+
+- [Trigger to Gate](/projects/libraries/europi-trigger-to-gate) script, with gate delay feature and internal clock mode.
+- [Trigger Gate Delay](/projects/libraries/europi-trigger-to-gate/#trigger-gate-delay) script, without the clock mode functionality.
+- [Documentation](/projects/libraries/europi-script-utils) on my Scheduler, Hysteresis Mitigation and Knob Pass Through Utility Functions, which you can use in your own EuroPi scripts.
