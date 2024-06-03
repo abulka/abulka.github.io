@@ -182,10 +182,24 @@ class KnobWithHysteresis:
     def choice(self, *args):
         new_value = self.knob.choice(*args)
         return self._update_value_if_allowed(new_value)
-
-    # TODO Wraps an instance of Knob, so need to expose all Knob methods
-    # and the methods of its superclass AnalogueReader.
 ```
+
+> This class is a wrapper around the EuroPi Knob class (rather than inheriting), so if you need to call additional
+`Knob` methods, or the methods of its superclass `AnalogueReader`, you can do so by declaring those methods here and
+forwarding the calls to the wrapped Knob instance. Alternatively you can simply call the methods directly on the wrapped
+`knob` instance. e.g. `k1_wrapped.knob.xxxxx`.
+    
+
+#### Example
+
+Wrapping a EuroPi k1 knob with the `KnobWithHysteresis` class:
+
+```python
+# Wrap knobs in KnobWithHysteresis to avoid jitter.
+self.k1_gate_length = KnobWithHysteresis(k1, tolerance=2, name="k1_gate_length")
+self.k2_gate_delay = KnobWithHysteresis(k2, tolerance=2, name="k2_gate_delay")
+```
+
 
 ### class KnobWithPassThrough
 
@@ -309,6 +323,17 @@ class KnobWithPassThrough:
         new_value = self.knob.choice(*args)
         return self._update_pass_through(new_value)
 ```
+#### Example
+
+Wrapping a EuroPi k1 knob with the `KnobWithPassThrough` class:
+
+```python
+# Wrap knobs in KnobWithPassThrough to prevent values jumping when toggling modes.
+self.k1_gate_length = KnobWithPassThrough(k1, initial_value=200)
+self.k2_gate_delay = KnobWithPassThrough(k2, initial_value=0)
+```
+
+> Tip: You can wrap a knob with both `KnobWithHysteresis` and `KnobWithPassThrough` classes, if you need both features. E.g. `k1 = KnobWithHysteresis(KnobWithPassThrough(k1))`.
 
 ### class Scheduler
 
