@@ -21,7 +21,7 @@ See [this explanation](https://noiseengineering.us/blogs/loquelic-literitas-the-
 
 I originally wrote this script because my [2hp MIDI](https://www.twohp.com/modules/midi) module clock was outputting `6ms` triggers, which are too short to inter-operate with most of my Eurorack modules, which require longer gates e.g. `200ms`. 
 
-Using a [disting module](https://www.expert-sleepers.co.uk/disting.html) or buying a [Doepfer A-162-2 Dual Trigger Delay](https://doepfer.de/a100_man/A162_man.pdf) module just for this seemed overkill, so I wrote a script for my existing EuroPi module, which at the time, was not bundled with a trigger to gate script.
+Using my disting module's [H6 Dual Delayed Pulse Generator](https://www.expert-sleepers.co.uk/disting.html) or buying a [Doepfer A-162-2 Dual Trigger Delay](https://doepfer.de/a100_man/A162_man.pdf) module just for this seemed overkill, so I wrote a script for my existing EuroPi module, which at the time, was not bundled with a trigger to gate script.
 
 > The `trigger_to_gate.py` script in this article is different to the `gates_and_triggers.py` script bundled with current (2024) versions of the EuroPi. The differences in features are explained below.
 
