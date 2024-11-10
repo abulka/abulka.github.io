@@ -285,7 +285,7 @@
       <link>https://abulka.github.io/patterns/transformation-interface/</link>
       <pubDate>Fri, 04 Jan 2019 00:00:00 +0000</pubDate>
       <guid>https://abulka.github.io/patterns/transformation-interface/</guid>
-      <description>Introduction The Transformation Interface is both a design pattern and an architectural pattern. It describes an interface or layer, which offers services to transform an object into another format and back again. A pair of methods on some class e.g. load/save are often the signature of a Transformation Interface.&#xA;The Pattern Download as pdf.</description>
+      <description>Introduction The Transformation Interface is both a design pattern and an architectural pattern. It describes an interface or layer, which offers services to transform an object into another format and back again. A pair of methods on some class e.g. load/save are often the signature of a Transformation Interface.&#xA;Simple Summary Let me summarize the core idea in a simple way:&#xA;The fundamental insight of this pattern is elegantly simple: whenever you need to move data between two different representations, create a matched pair of transformation methods that:</description>
     </item>
     <item>
       <title>Easy documentation with Docsy</title>
