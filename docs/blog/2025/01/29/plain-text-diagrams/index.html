@@ -1,0 +1,1004 @@
+<!doctype html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>Plain Text Diagrams | Andy Bulka</title>
+<meta name="description" content="Plain Text Diagrams are a way of representing diagrams of code structure and behaviour in a plain text format.
+This means that you can update and maintain your diagrams in a text editor. They are meant to be easy to read and write, and most importantly, useful. By useful I mean you should be able to read them and gain rapid deep understanding of the source code structure and behaviour that the diagram represents.">
+<meta property="og:url" content="https://abulka.github.io/blog/2025/01/29/plain-text-diagrams/">
+  <meta property="og:site_name" content="Andy Bulka">
+  <meta property="og:title" content="Plain Text Diagrams">
+  <meta property="og:description" content="Plain Text Diagrams are a way of representing diagrams of code structure and behaviour in a plain text format.
+This means that you can update and maintain your diagrams in a text editor. They are meant to be easy to read and write, and most importantly, useful. By useful I mean you should be able to read them and gain rapid deep understanding of the source code structure and behaviour that the diagram represents.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2025-01-29T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-01-29T17:42:56+11:00">
+    <meta property="article:tag" content="UML">
+    <meta property="article:tag" content="Diagramming">
+    <meta property="article:tag" content="Notation">
+
+  <meta itemprop="name" content="Plain Text Diagrams">
+  <meta itemprop="description" content="Plain Text Diagrams are a way of representing diagrams of code structure and behaviour in a plain text format.
+This means that you can update and maintain your diagrams in a text editor. They are meant to be easy to read and write, and most importantly, useful. By useful I mean you should be able to read them and gain rapid deep understanding of the source code structure and behaviour that the diagram represents.">
+  <meta itemprop="datePublished" content="2025-01-29T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-01-29T17:42:56+11:00">
+  <meta itemprop="wordCount" content="3858">
+  <meta itemprop="keywords" content="UML,Diagramming,Notation">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Plain Text Diagrams">
+  <meta name="twitter:description" content="Plain Text Diagrams are a way of representing diagrams of code structure and behaviour in a plain text format.
+This means that you can update and maintain your diagrams in a text editor. They are meant to be easy to read and write, and most importantly, useful. By useful I mean you should be able to read them and gain rapid deep understanding of the source code structure and behaviour that the diagram represents.">
+
+
+
+
+<link rel="preload" href="/scss/main.min.14fa15fc58c12d37d276ddf7a238d2028bfd61a7cc9685a90604de3b79d28104.css" as="style">
+<link href="/scss/main.min.14fa15fc58c12d37d276ddf7a238d2028bfd61a7cc9685a90604de3b79d28104.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+  crossorigin="anonymous"></script>
+<script defer
+  src="https://unpkg.com/lunr@2.3.9/lunr.min.js"
+  integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
+  crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X0GNQ7330T"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-X0GNQ7330T');
+}
+</script>
+  </head>
+  <body class="td-page td-blog">
+    <header>
+      <nav class="td-navbar js-navbar-scroll" data-bs-theme="dark">
+<div class="container-fluid flex-column flex-md-row">
+  <a class="navbar-brand" href="/"><span class="navbar-brand__logo navbar-logo"><svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 500 500" style="enable-background:new 0 0 500 500"><g><path style="fill:#fff" d="M116.8525 421.9722c-5.7041.0-10.3442-4.3127-10.3442-9.6129V88.183c0-5.3002 4.6401-9.6117 10.3442-9.6117H320.858c3.0347.0 9.3959.5498 11.7506 2.6302l.3545.3442 58.905 63.2912c2.3101 2.491 2.9202 8.4928 2.9202 11.3184v256.2039c0 5.3002-4.6407 9.6129-10.3436 9.6129H116.8525z"/><g><g><g><path style="fill:#767676" d="M384.4445 423.2066H116.852c-6.3839.0-11.5786-4.8658-11.5786-10.8474V88.1831c0-5.9804 5.1947-10.8461 11.5786-10.8461h204.0062c.377.0 9.2786.0329 12.568 2.9389l.3947.3833 58.9508 63.337c3.2135 3.4652 3.2514 11.7924 3.2514 12.1593v256.2036C396.0231 418.3408 390.8284 423.2066 384.4445 423.2066zM116.5079 411.9189c.0848.0278.1999.0531.3441.0531h267.5925c.1442.0.2581-.0253.3441-.0531V156.1556c-.0076-.9033-.3593-3.7347-.7034-5.0037l-57.6527-61.9416c-1.4651-.3176-4.4533-.6389-5.5742-.6389H116.852c-.143.0-.2594.024-.3441.0531V411.9189zm267.4533-261.149zM327.0321 89.371v.0013V89.371z"/></g></g></g><g><g><path style="fill:#5b7fc0" d="M189.0874 210.1754l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.025 2.454-11.4897 6.4116-15.4473C177.5953 212.627 183.0601 210.1742 189.0874 210.1754zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403S197.0816 234.1722 197.0804 232.033z"/><path style="opacity:.3;fill:#fff" d="M189.0898 210.176c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 212.6276 183.0612 210.176 189.0898 210.176zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 236.239 197.0839 234.2399 197.0839 232.0372z"/><g><defs><path id="SVGID_1_" d="M194.7376 237.6875c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.999 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 234.2399 196.1861 236.239 194.7376 237.6875z"/></defs><clipPath id="SVGID_2_"><use xlink:href="#SVGID_1_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_2_);fill:#fff" d="M190.0704 225.0237c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 225.7247 191.9774 225.0237 190.0704 225.0237z"/><path style="opacity:.13;clip-path:url(#SVGID_2_);fill:#020202" d="M190.0704 225.0237c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 225.7247 191.9774 225.0237 190.0704 225.0237z"/></g><g><defs><path id="SVGID_3_" d="M189.0898 210.176c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 212.6276 183.0612 210.176 189.0898 210.176zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 236.239 197.0839 234.2399 197.0839 232.0372z"/></defs><clipPath id="SVGID_4_"><use xlink:href="#SVGID_3_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_4_);fill:#5b7fc0" d="M172.6595 215.6045c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8612 12.0547.0024 21.8636-9.797 21.8613-21.8612.0024-3.8475-1.0151-7.6326-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 209.1953 176.6171 211.647 172.6595 215.6045z"/></g></g><rect x="198.8952" y="225.1043" style="fill:#5b7fc0" width="122.6266" height="13.8671"/></g><g><path style="fill:#d95140" d="M189.0874 155.7611l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.0249 2.454-11.4897 6.4116-15.4473C177.5953 158.2128 183.0601 155.7599 189.0874 155.7611zm7.993 21.8577c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403C196.2508 181.7667 197.0816 179.758 197.0804 177.6188z"/><path style="opacity:.3;fill:#fff" d="M189.0898 155.7617c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 158.2134 183.0612 155.7617 189.0898 155.7617zm7.9941 21.8613c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 181.8248 197.0839 179.8256 197.0839 177.623z"/><g><defs><path id="SVGID_5_" d="M194.7376 183.2733c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.9989 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 179.8256 196.1861 181.8248 194.7376 183.2733z"/></defs><clipPath id="SVGID_6_"><use xlink:href="#SVGID_5_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_6_);fill:#fff" d="M190.0704 170.6095c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 171.3104 191.9774 170.6095 190.0704 170.6095z"/><path style="opacity:.13;clip-path:url(#SVGID_6_);fill:#020202" d="M190.0704 170.6095c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 171.3104 191.9774 170.6095 190.0704 170.6095z"/></g><g><defs><path id="SVGID_7_" d="M189.0898 155.7617c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 158.2134 183.0612 155.7617 189.0898 155.7617zm7.9941 21.8613c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 181.8248 197.0839 179.8256 197.0839 177.623z"/></defs><clipPath id="SVGID_8_"><use xlink:href="#SVGID_7_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_8_);fill:#d95140" d="M172.6595 161.1903c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8613 12.0547.0024 21.8636-9.797 21.8613-21.8613.0024-3.8474-1.0151-7.6326-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 154.7811 176.6171 157.2327 172.6595 161.1903z"/></g><rect x="198.8952" y="170.69" style="fill:#d95140" width="122.6266" height="13.8671"/></g><g><g><path style="fill:#56a55c" d="M189.5379 264.6147l.0012-.0012c7.7751.0012 15.0294 4.1862 18.932 10.9235 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032-5.8394.0-11.3281-2.2733-15.458-6.4032-4.13-4.13-6.4032-9.6186-6.4056-15.4628.0012-6.0249 2.454-11.4897 6.4116-15.4472C178.0458 267.0663 183.5105 264.6135 189.5379 264.6147zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6538 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403C196.7013 290.6202 197.5321 288.6115 197.5309 286.4723z"/><path style="opacity:.3;fill:#fff" d="M189.5403 264.6153c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8065-21.8612-21.8613.0-6.0285 2.4516-11.492 6.4116-15.452C178.0482 267.0669 183.5117 264.6153 189.5403 264.6153zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.6366 290.6783 197.5344 288.6792 197.5344 286.4765z"/><g><defs><path id="SVGID_9_" d="M195.1881 292.1268c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.9989 7.9942-7.9941 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.5344 288.6792 196.6366 290.6783 195.1881 292.1268z"/></defs><clipPath id="SVGID_10_"><use xlink:href="#SVGID_9_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_10_);fill:#fff" d="M190.5209 279.463c-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7446-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9941 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C194.239 280.164 192.4279 279.463 190.5209 279.463z"/><path style="opacity:.13;clip-path:url(#SVGID_10_);fill:#020202" d="M190.5209 279.463c-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7446-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9941 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C194.239 280.164 192.4279 279.463 190.5209 279.463z"/></g><g><defs><path id="SVGID_11_" d="M189.5403 264.6153c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8065-21.8612-21.8613.0-6.0285 2.4516-11.492 6.4116-15.452C178.0482 267.0669 183.5117 264.6153 189.5403 264.6153zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.6366 290.6783 197.5344 288.6792 197.5344 286.4765z"/></defs><clipPath id="SVGID_12_"><use xlink:href="#SVGID_11_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_12_);fill:#56a55c" d="M173.11 270.0439c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8613 12.0547.0024 21.8636-9.797 21.8613-21.8613.0024-3.8474-1.0151-7.6326-2.9353-10.9462-3.8977-6.7325-11.1497-10.9151-18.926-10.9151C182.5311 263.6346 177.0676 266.0863 173.11 270.0439z"/></g></g><rect x="199.3456" y="279.5436" style="fill:#56a55c" width="122.6266" height="13.8671"/></g><g><g><path style="fill:#f1bc42" d="M189.0874 318.7208l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3305-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.025 2.454-11.4897 6.4116-15.4472C177.5953 321.1724 183.0601 318.7196 189.0874 318.7208zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403S197.0816 342.7176 197.0804 340.5784z"/><path style="opacity:.3;fill:#fff" d="M189.0898 318.7214c7.7763.0 15.0283 4.1826 18.926 10.915 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8612-12.0547.0024-21.8636-9.8065-21.8612-21.8612.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 321.173 183.0612 318.7214 189.0898 318.7214zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 344.7844 197.0839 342.7853 197.0839 340.5826z"/><g><defs><path id="SVGID_13_" d="M194.7376 346.2329c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.999 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 342.7853 196.1861 344.7844 194.7376 346.2329z"/></defs><clipPath id="SVGID_14_"><use xlink:href="#SVGID_13_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_14_);fill:#fff" d="M190.0704 333.5691c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0834 6.1218 2.8788C193.7885 334.2701 191.9774 333.5691 190.0704 333.5691z"/><path style="opacity:.13;clip-path:url(#SVGID_14_);fill:#020202" d="M190.0704 333.5691c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0834 6.1218 2.8788C193.7885 334.2701 191.9774 333.5691 190.0704 333.5691z"/></g><g><defs><path id="SVGID_15_" d="M189.0898 318.7214c7.7763.0 15.0283 4.1826 18.926 10.915 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8612-12.0547.0024-21.8636-9.8065-21.8612-21.8612.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 321.173 183.0612 318.7214 189.0898 318.7214zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 344.7844 197.0839 342.7853 197.0839 340.5826z"/></defs><clipPath id="SVGID_16_"><use xlink:href="#SVGID_15_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_16_);fill:#f1bc42" d="M172.6595 324.15c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8612 12.0547.0024 21.8636-9.797 21.8613-21.8612.0024-3.8474-1.0151-7.6327-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 317.7407 176.6171 320.1924 172.6595 324.15z"/></g></g><rect x="198.8952" y="333.6497" style="fill:#f1bc42" width="122.6266" height="13.8671"/></g></g></svg></span><span class="navbar-brand__name">Andy Bulka</span></a>
+  <div class="td-navbar-nav-scroll ms-md-auto" id="main_navbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link active" href="/blog/"><span>Blog</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/projects/"><span>Projects</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/patterns/"><span>My Design Patterns</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/about/"><span>About</span></a>
+      </li>
+      </ul>
+  </div>
+  <div class="d-none d-lg-block">
+    <div class="td-search td-search--offline">
+  <div class="td-search__icon"></div>
+  <input
+    type="search"
+    class="td-search__input form-control"
+    placeholder="Search this site…"
+    aria-label="Search this site…"
+    autocomplete="off"
+    
+    data-offline-search-index-json-src="/offline-search-index.329ab058d54b0bfbfd985a9b323a718f.json"
+    data-offline-search-base-href="/"
+    data-offline-search-max-results="10"
+  >
+</div>
+  </div>
+</div>
+</nav>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            <div id="td-sidebar-menu" class="td-sidebar__inner">
+  <form class="td-sidebar__search d-flex align-items-center">
+    <div class="td-search td-search--offline">
+  <div class="td-search__icon"></div>
+  <input
+    type="search"
+    class="td-search__input form-control"
+    placeholder="Search this site…"
+    aria-label="Search this site…"
+    autocomplete="off"
+    
+    data-offline-search-index-json-src="/offline-search-index.329ab058d54b0bfbfd985a9b323a718f.json"
+    data-offline-search-base-href="/"
+    data-offline-search-max-results="10"
+  >
+</div>
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ms-3 fas fa-bars" type="button" data-bs-toggle="collapse" data-bs-target="#td-section-nav" aria-controls="td-section-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  <nav class="td-sidebar-nav collapse" id="td-section-nav">
+    <ul class="td-sidebar-nav__section pe-md-3 ul-0">
+      <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-blog-li">
+  <a href="/blog/" title="Andy&#39;s Blog" class="align-left ps-0 td-sidebar-link td-sidebar-link__section tree-root" id="m-blog"><span class="">Blog</span></a>
+  <ul class="ul-1">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-blog20250129plain-text-diagrams-li">
+  <a href="/blog/2025/01/29/plain-text-diagrams/" class="align-left ps-0 active td-sidebar-link td-sidebar-link__page" id="m-blog20250129plain-text-diagrams"><span class="td-sidebar-nav-active-item">Plain Text Diagrams</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-blog20220211gui-showdown-li">
+  <a href="/blog/2022/02/11/gui-showdown/" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-blog20220211gui-showdown"><span class="">GUI Showdown</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-blog20220121history-of-this-blog-li">
+  <a href="/blog/2022/01/21/history-of-this-blog/" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-blog20220121history-of-this-blog"><span class="">History of this Blog</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-blog20200518todomvc-implemented-using-a-game-architecture-ecs-li">
+  <a href="/blog/2020/05/18/todomvc-implemented-using-a-game-architecture-ecs/" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-blog20200518todomvc-implemented-using-a-game-architecture-ecs"><span class="">TodoMVC implemented using a game architecture — ECS</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-blog20200518todomvc-implemented-using-traditional-oo-controllers-and-events-li">
+  <a href="/blog/2020/05/18/todomvc-implemented-using-traditional-oo-controllers-and-events/" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-blog20200518todomvc-implemented-using-traditional-oo-controllers-and-events"><span class="">TodoMVC implemented using traditional OO, Controllers and Events</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-blog20190904django-view-logging-is-back-the-front-li">
+  <a href="/blog/2019/09/04/django-view-logging-is-back-the-front/" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-blog20190904django-view-logging-is-back-the-front"><span class="">Django View logging is back-the-front</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-blog20190406getting-wxpython-apps-into-the-ubuntu-app-store-li">
+  <a href="/blog/2019/04/06/getting-wxpython-apps-into-the-ubuntu-app-store/" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-blog20190406getting-wxpython-apps-into-the-ubuntu-app-store"><span class="">Getting wxPython apps into the Ubuntu app store</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-blog20190302asyncawait-for-wxpython-li">
+  <a href="/blog/2019/03/02/async/await-for-wxpython/" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-blog20190302asyncawait-for-wxpython"><span class="">Async/await for wxPython</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-blog20181003building-a-python-electron-app-li">
+  <a href="/blog/2018/10/03/building-a-python-electron-app/" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-blog20181003building-a-python-electron-app"><span class="">Building a Python-Electron App</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-blog20180601python-ast-parsing-li">
+  <a href="/blog/2018/06/01/python-ast-parsing/" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-blog20180601python-ast-parsing"><span class="">Python AST Parsing</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-blog20110406uml-layout-li">
+  <a href="/blog/2011/04/06/uml-layout/" title="UML Layout" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-blog20110406uml-layout"><span class="">UML Diagram Layout</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-blog20110319mocking-in-ruby-li">
+  <a href="/blog/2011/03/19/mocking-in-ruby/" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-blog20110319mocking-in-ruby"><span class="">Mocking in Ruby</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-blog20110301cloning-directories-in-ruby-li">
+  <a href="/blog/2011/03/01/cloning-directories-in-ruby/" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-blog20110301cloning-directories-in-ruby"><span class="">Cloning Directories in Ruby</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-blog20101118ruby-vs-python-list-comprehensions-li">
+  <a href="/blog/2010/11/18/ruby-vs-python-list-comprehensions/" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-blog20101118ruby-vs-python-list-comprehensions"><span class="">Ruby vs Python list comprehensions</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-blog20090401refactoring-to-puremvc-li">
+  <a href="/blog/2009/04/01/refactoring-to-puremvc/" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-blog20090401refactoring-to-puremvc"><span class="">Refactoring to PureMVC</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-blog20090301puremvc-li">
+  <a href="/blog/2009/03/01/puremvc/" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-blog20090301puremvc"><span class="">PureMVC</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-blog20090212central-patterns-repository-li">
+  <a href="/blog/2009/02/12/central-patterns-repository/" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-blog20090212central-patterns-repository"><span class="">Central Patterns Repository</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-blog20090211netbeans-uml-li">
+  <a href="/blog/2009/02/11/netbeans-uml/" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-blog20090211netbeans-uml"><span class="">Netbeans Uml</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-blog20090122visualising-software-li">
+  <a href="/blog/2009/01/22/visualising-software/" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-blog20090122visualising-software"><span class="">Visualising Software</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-blog20080911state-pattern-in-flex-li">
+  <a href="/blog/2008/09/11/state-pattern-in-flex/" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-blog20080911state-pattern-in-flex"><span class="">State Pattern in Flex</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-blog20080305extract-composite-refactoring-li">
+  <a href="/blog/2008/03/05/extract-composite-refactoring/" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-blog20080305extract-composite-refactoring"><span class="">Extract Composite Refactoring</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-blog20071105thoughts-on-closures-li">
+  <a href="/blog/2007/11/05/thoughts-on-closures/" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-blog20071105thoughts-on-closures"><span class="">Thoughts on Closures</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-blog20070123teaching-23-patterns-li">
+  <a href="/blog/2007/01/23/teaching-23-patterns/" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-blog20070123teaching-23-patterns"><span class="">Teaching 23 Patterns</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-blog20060301tooled-composite-pattern-li">
+  <a href="/blog/2006/03/01/tooled-composite-pattern/" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-blog20060301tooled-composite-pattern"><span class="">Tooled Composite Pattern</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-blog20050701orm-pattern-li">
+  <a href="/blog/2005/07/01/orm-pattern/" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-blog20050701orm-pattern"><span class="">ORM Pattern</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-blog20050305swapping-implementations-li">
+  <a href="/blog/2005/03/05/swapping-implementations/" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-blog20050305swapping-implementations"><span class="">Swapping Implementations</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-blog20040805blackboard-pattern-li">
+  <a href="/blog/2004/08/05/blackboard-pattern/" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-blog20040805blackboard-pattern"><span class="">Blackboard Pattern</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-blog20021004null-object-pattern-li">
+  <a href="/blog/2002/10/04/null-object-pattern/" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-blog20021004null-object-pattern"><span class="">Null Object Pattern</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-blog20020904using-design-patterns-in-real-projects-li">
+  <a href="/blog/2002/09/04/using-design-patterns-in-real-projects/" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-blog20020904using-design-patterns-in-real-projects"><span class="">Using Design Patterns in Real Projects</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-blog20000104patterns-modelmaker-beyond-li">
+  <a href="/blog/2000/01/04/patterns-modelmaker-beyond/" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-blog20000104patterns-modelmaker-beyond"><span class="">Patterns, ModelMaker &amp; Beyond</span></a>
+</li>
+  </ul>
+</li>
+    </ul>
+  </nav>
+</div>
+
+          </aside>
+          <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
+            <div class="td-page-meta ms-2 pb-1 pt-2 mb-0">
+<a href="https://github.com/abulka/abulka.github.io/tree/main/content/blog/plain-text-diagrams.md" class="td-page-meta--view td-page-meta__view" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines fa-fw"></i> View page source</a>
+  <a href="https://github.com/abulka/abulka.github.io/edit/main/content/blog/plain-text-diagrams.md" class="td-page-meta--edit td-page-meta__edit" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> Edit this page</a>
+  <a href="https://github.com/abulka/abulka.github.io/new/main/content/blog?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child td-page-meta__child" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> Create child page</a>
+  <a href="https://github.com/abulka/abulka.github.io/issues/new?title=Plain%20Text%20Diagrams" class="td-page-meta--issue td-page-meta__issue" target="_blank" rel="noopener"><i class="fa-solid fa-list-check fa-fw"></i> Create documentation issue</a>
+  <a href="https://github.com/abulka/abulka.github.io/issues/new" class="td-page-meta--project td-page-meta__project-issue" target="_blank" rel="noopener"><i class="fa-solid fa-list-check fa-fw"></i> Create project issue</a>
+  
+</div>
+
+            <div class="td-toc">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#the-secret-technique-behind-every-great-programmer">The Secret Technique Behind Every Great Programmer</a>
+      <ul>
+        <li><a href="#what-does-a-code-map-look-like">What does a code map look like?</a></li>
+      </ul>
+    </li>
+    <li><a href="#plain-text-diagrams">Plain Text Diagrams</a></li>
+    <li><a href="#what-do-plain-text-diagram-syntax-look-like">What do Plain Text Diagram Syntax look like?</a></li>
+    <li><a href="#examples">Examples</a>
+      <ul>
+        <li><a href="#example-for-recipe-construction">Example for Recipe Construction</a></li>
+        <li><a href="#car-example">Car Example</a></li>
+      </ul>
+    </li>
+    <li><a href="#plain-text-diagram-pt-diagram-notation---specification">Plain Text Diagram (PT Diagram) Notation - Specification</a>
+      <ul>
+        <li><a href="#purpose"><strong>Purpose</strong></a></li>
+        <li><a href="#sections"><strong>Sections</strong></a></li>
+        <li><a href="#syntax"><strong>Syntax</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#musings">Musings</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#future">Future</a></li>
+    <li><a href="#tools">Tools</a></li>
+    <li><a href="#generating-pt-diagrams">Generating PT Diagrams</a></li>
+    <li><a href="#final-thoughts">Final Thoughts</a></li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+      </div>
+    
+            <div class="taxonomy taxonomy-terms-cloud taxo-tags">
+      <h5 class="taxonomy-title">Tag Cloud</h5>
+      <ul class="taxonomy-terms">
+        <li><a class="taxonomy-term" href="https://abulka.github.io/tags/ai/" data-taxonomy-term="ai"><span class="taxonomy-label">AI</span><span class="taxonomy-count">1</span></a></li>
+        <li><a class="taxonomy-term" href="https://abulka.github.io/tags/argument-mapping/" data-taxonomy-term="argument-mapping"><span class="taxonomy-label">Argument Mapping</span><span class="taxonomy-count">1</span></a></li>
+        <li><a class="taxonomy-term" href="https://abulka.github.io/tags/async/" data-taxonomy-term="async"><span class="taxonomy-label">Async</span><span class="taxonomy-count">1</span></a></li>
+        <li><a class="taxonomy-term" href="https://abulka.github.io/tags/calculators/" data-taxonomy-term="calculators"><span class="taxonomy-label">Calculators</span><span class="taxonomy-count">6</span></a></li>
+        <li><a class="taxonomy-term" href="https://abulka.github.io/tags/chords/" data-taxonomy-term="chords"><span class="taxonomy-label">Chords</span><span class="taxonomy-count">1</span></a></li>
+        <li><a class="taxonomy-term" href="https://abulka.github.io/tags/code-translation/" data-taxonomy-term="code-translation"><span class="taxonomy-label">Code Translation</span><span class="taxonomy-count">1</span></a></li>
+        <li><a class="taxonomy-term" href="https://abulka.github.io/tags/composition/" data-taxonomy-term="composition"><span class="taxonomy-label">Composition</span><span class="taxonomy-count">1</span></a></li>
+        <li><a class="taxonomy-term" href="https://abulka.github.io/tags/controllers/" data-taxonomy-term="controllers"><span class="taxonomy-label">Controllers</span><span class="taxonomy-count">8</span></a></li>
+        <li><a class="taxonomy-term" href="https://abulka.github.io/tags/dart/" data-taxonomy-term="dart"><span class="taxonomy-label">Dart</span><span class="taxonomy-count">1</span></a></li>
+        <li><a class="taxonomy-term" href="https://abulka.github.io/tags/design-patterns/" data-taxonomy-term="design-patterns"><span class="taxonomy-label">Design Patterns</span><span class="taxonomy-count">23</span></a></li>
+        <li><a class="taxonomy-term" href="https://abulka.github.io/tags/dev-ops/" data-taxonomy-term="dev-ops"><span class="taxonomy-label">Dev Ops</span><span class="taxonomy-count">1</span></a></li>
+        <li><a class="taxonomy-term" href="https://abulka.github.io/tags/diagramming/" data-taxonomy-term="diagramming"><span class="taxonomy-label">Diagramming</span><span class="taxonomy-count">7</span></a></li>
+        <li><a class="taxonomy-term" href="https://abulka.github.io/tags/django/" data-taxonomy-term="django"><span class="taxonomy-label">Django</span><span class="taxonomy-count">1</span></a></li>
+        <li><a class="taxonomy-term" href="https://abulka.github.io/tags/electron/" data-taxonomy-term="electron"><span class="taxonomy-label">Electron</span><span class="taxonomy-count">2</span></a></li>
+        <li><a class="taxonomy-term" href="https://abulka.github.io/tags/eurorack/" data-taxonomy-term="eurorack"><span class="taxonomy-label">Eurorack</span><span class="taxonomy-count">2</span></a></li>
+        <li><a class="taxonomy-term" href="https://abulka.github.io/tags/flask/" data-taxonomy-term="flask"><span class="taxonomy-label">Flask</span><span class="taxonomy-count">1</span></a></li>
+        <li><a class="taxonomy-term" href="https://abulka.github.io/tags/flutter/" data-taxonomy-term="flutter"><span class="taxonomy-label">Flutter</span><span class="taxonomy-count">1</span></a></li>
+        <li><a class="taxonomy-term" href="https://abulka.github.io/tags/fultter/" data-taxonomy-term="fultter"><span class="taxonomy-label">Fultter</span><span class="taxonomy-count">1</span></a></li>
+        <li><a class="taxonomy-term" href="https://abulka.github.io/tags/google-colab/" data-taxonomy-term="google-colab"><span class="taxonomy-label">Google Colab</span><span class="taxonomy-count">1</span></a></li>
+        <li><a class="taxonomy-term" href="https://abulka.github.io/tags/gui/" data-taxonomy-term="gui"><span class="taxonomy-label">GUI</span><span class="taxonomy-count">10</span></a></li>
+        <li><a class="taxonomy-term" href="https://abulka.github.io/tags/image-presentation/" data-taxonomy-term="image-presentation"><span class="taxonomy-label">Image Presentation</span><span class="taxonomy-count">1</span></a></li>
+        <li><a class="taxonomy-term" href="https://abulka.github.io/tags/java/" data-taxonomy-term="java"><span class="taxonomy-label">Java</span><span class="taxonomy-count">1</span></a></li>
+        <li><a class="taxonomy-term" href="https://abulka.github.io/tags/javascript/" data-taxonomy-term="javascript"><span class="taxonomy-label">Javascript</span><span class="taxonomy-count">8</span></a></li>
+        <li><a class="taxonomy-term" href="https://abulka.github.io/tags/jupyter/" data-taxonomy-term="jupyter"><span class="taxonomy-label">Jupyter</span><span class="taxonomy-count">2</span></a></li>
+        <li><a class="taxonomy-term" href="https://abulka.github.io/tags/jupyter-notebook/" data-taxonomy-term="jupyter-notebook"><span class="taxonomy-label">Jupyter Notebook</span><span class="taxonomy-count">1</span></a></li>
+        <li><a class="taxonomy-term" href="https://abulka.github.io/tags/libraries/" data-taxonomy-term="libraries"><span class="taxonomy-label">Libraries</span><span class="taxonomy-count">1</span></a></li>
+        <li><a class="taxonomy-term" href="https://abulka.github.io/tags/midi/" data-taxonomy-term="midi"><span class="taxonomy-label">MIDI</span><span class="taxonomy-count">1</span></a></li>
+        <li><a class="taxonomy-term" href="https://abulka.github.io/tags/mind-mapping/" data-taxonomy-term="mind-mapping"><span class="taxonomy-label">Mind Mapping</span><span class="taxonomy-count">1</span></a></li>
+        <li><a class="taxonomy-term" href="https://abulka.github.io/tags/music/" data-taxonomy-term="music"><span class="taxonomy-label">Music</span><span class="taxonomy-count">3</span></a></li>
+        <li><a class="taxonomy-term" href="https://abulka.github.io/tags/mvc/" data-taxonomy-term="mvc"><span class="taxonomy-label">MVC</span><span class="taxonomy-count">7</span></a></li>
+        <li><a class="taxonomy-term" href="https://abulka.github.io/tags/narrative/" data-taxonomy-term="narrative"><span class="taxonomy-label">Narrative</span><span class="taxonomy-count">1</span></a></li>
+        <li><a class="taxonomy-term" href="https://abulka.github.io/tags/notation/" data-taxonomy-term="notation"><span class="taxonomy-label">Notation</span><span class="taxonomy-count">1</span></a></li>
+        <li><a class="taxonomy-term" href="https://abulka.github.io/tags/object-database/" data-taxonomy-term="object-database"><span class="taxonomy-label">Object Database</span><span class="taxonomy-count">1</span></a></li>
+        <li><a class="taxonomy-term" href="https://abulka.github.io/tags/observer/" data-taxonomy-term="observer"><span class="taxonomy-label">Observer</span><span class="taxonomy-count">5</span></a></li>
+        <li><a class="taxonomy-term" href="https://abulka.github.io/tags/orm/" data-taxonomy-term="orm"><span class="taxonomy-label">ORM</span><span class="taxonomy-count">1</span></a></li>
+        <li><a class="taxonomy-term" href="https://abulka.github.io/tags/philosophy/" data-taxonomy-term="philosophy"><span class="taxonomy-label">Philosophy</span><span class="taxonomy-count">1</span></a></li>
+        <li><a class="taxonomy-term" href="https://abulka.github.io/tags/programmable/" data-taxonomy-term="programmable"><span class="taxonomy-label">Programmable</span><span class="taxonomy-count">1</span></a></li>
+        <li><a class="taxonomy-term" href="https://abulka.github.io/tags/python/" data-taxonomy-term="python"><span class="taxonomy-label">Python</span><span class="taxonomy-count">22</span></a></li>
+        <li><a class="taxonomy-term" href="https://abulka.github.io/tags/raspberry-pi/" data-taxonomy-term="raspberry-pi"><span class="taxonomy-label">Raspberry Pi</span><span class="taxonomy-count">2</span></a></li>
+        <li><a class="taxonomy-term" href="https://abulka.github.io/tags/reasoning/" data-taxonomy-term="reasoning"><span class="taxonomy-label">Reasoning</span><span class="taxonomy-count">1</span></a></li>
+        <li><a class="taxonomy-term" href="https://abulka.github.io/tags/refactoring/" data-taxonomy-term="refactoring"><span class="taxonomy-label">Refactoring</span><span class="taxonomy-count">4</span></a></li>
+        <li><a class="taxonomy-term" href="https://abulka.github.io/tags/ruby/" data-taxonomy-term="ruby"><span class="taxonomy-label">Ruby</span><span class="taxonomy-count">4</span></a></li>
+        <li><a class="taxonomy-term" href="https://abulka.github.io/tags/software-product/" data-taxonomy-term="software-product"><span class="taxonomy-label">Software Product</span><span class="taxonomy-count">21</span></a></li>
+        <li><a class="taxonomy-term" href="https://abulka.github.io/tags/sql/" data-taxonomy-term="sql"><span class="taxonomy-label">SQL</span><span class="taxonomy-count">2</span></a></li>
+        <li><a class="taxonomy-term" href="https://abulka.github.io/tags/string-manipulation/" data-taxonomy-term="string-manipulation"><span class="taxonomy-label">String Manipulation</span><span class="taxonomy-count">1</span></a></li>
+        <li><a class="taxonomy-term" href="https://abulka.github.io/tags/thoughts/" data-taxonomy-term="thoughts"><span class="taxonomy-label">Thoughts</span><span class="taxonomy-count">9</span></a></li>
+        <li><a class="taxonomy-term" href="https://abulka.github.io/tags/tools/" data-taxonomy-term="tools"><span class="taxonomy-label">Tools</span><span class="taxonomy-count">1</span></a></li>
+        <li><a class="taxonomy-term" href="https://abulka.github.io/tags/ubuntu/" data-taxonomy-term="ubuntu"><span class="taxonomy-label">Ubuntu</span><span class="taxonomy-count">1</span></a></li>
+        <li><a class="taxonomy-term" href="https://abulka.github.io/tags/ui-widgets/" data-taxonomy-term="ui-widgets"><span class="taxonomy-label">UI Widgets</span><span class="taxonomy-count">1</span></a></li>
+        <li><a class="taxonomy-term" href="https://abulka.github.io/tags/uml/" data-taxonomy-term="uml"><span class="taxonomy-label">UML</span><span class="taxonomy-count">10</span></a></li>
+        <li><a class="taxonomy-term" href="https://abulka.github.io/tags/vscode-extension/" data-taxonomy-term="vscode-extension"><span class="taxonomy-label">Vscode Extension</span><span class="taxonomy-count">2</span></a></li>
+        <li><a class="taxonomy-term" href="https://abulka.github.io/tags/vuejs/" data-taxonomy-term="vuejs"><span class="taxonomy-label">Vuejs</span><span class="taxonomy-count">1</span></a></li>
+        <li><a class="taxonomy-term" href="https://abulka.github.io/tags/wxpython/" data-taxonomy-term="wxpython"><span class="taxonomy-label">WxPython</span><span class="taxonomy-count">4</span></a></li>
+        <li><a class="taxonomy-term" href="https://abulka.github.io/tags/yeoman-generator/" data-taxonomy-term="yeoman-generator"><span class="taxonomy-label">Yeoman Generator</span><span class="taxonomy-count">1</span></a></li>
+        </ul>
+    </div>
+  
+	
+          </aside>
+          <main class="col-12 col-md-9 col-xl-8 ps-md-5 pe-md-4" role="main">
+            <a class="td-rss-button" title="RSS" href="/blog/index.xml" target="_blank" rel="noopener">
+              <i class="fa-solid fa-rss" aria-hidden="true"></i>
+            </a>
+            
+<div class="td-content">
+	<h1>Plain Text Diagrams</h1>
+	
+	<div class="td-byline mb-4">
+		
+		<time datetime="2025-01-29" class="text-body-secondary">Wednesday, January 29, 2025</time>
+	</div>
+	<header class="article-meta">
+		<div class="taxonomy taxonomy-terms-article taxo-tags">
+  <h5 class="taxonomy-title">Tags:</h5>
+  <ul class="taxonomy-terms">
+    <li><a class="taxonomy-term" href="https://abulka.github.io/tags/uml/" data-taxonomy-term="uml"><span class="taxonomy-label">UML</span></a></li>
+    <li><a class="taxonomy-term" href="https://abulka.github.io/tags/diagramming/" data-taxonomy-term="diagramming"><span class="taxonomy-label">Diagramming</span></a></li>
+    <li><a class="taxonomy-term" href="https://abulka.github.io/tags/notation/" data-taxonomy-term="notation"><span class="taxonomy-label">Notation</span></a></li>
+    </ul>
+</div>
+
+  </header>
+	<p><code>Plain Text Diagrams</code> are a way of representing diagrams of code structure and behaviour in a plain text format.</p>
+<p>This means that you can update and maintain your diagrams in a text editor. They are meant to be easy to read and write, and most importantly, useful. By useful I mean you should be able to read them and gain rapid deep understanding of the source code structure and behaviour that the diagram represents.</p>
+<p>Your Plain Text Diagram can be of a single source code file, or multiple source code files. Its scope is defined by the <code>files:</code> section of the <code>Diagram:</code> section.</p>
+<p>As I write on my flagship diagramming tool website <a href="https://www.gituml.com">GitUML</a>:</p>
+<blockquote>
+<p>Understanding source code is every programmer&rsquo;s biggest challenge</p>
+</blockquote>
+<p>Plain Text Diagrams are a way to help you understand source code. They are a way to help you understand the structure and behaviour of a codebase.</p>
+<h2 id="the-secret-technique-behind-every-great-programmer">The Secret Technique Behind Every Great Programmer</h2>
+<p>I don&rsquo;t care how smart you are, or how many years of experience you have, understanding source code is hard.  It&rsquo;s hard because source code is complex, and it&rsquo;s hard because it&rsquo;s always changing.  And it&rsquo;s hard because there are hundreds if not thousands of relationships between the different parts of a codebase.</p>
+<p>But there is one technique that every great programmer uses to understand source code, and that is <strong>code maps</strong>. Code maps are abstract representations of the structure and behaviour of a codebase. A programmer may grab a piece of paper or open a text editor and start writing class names, file names, variable names and function names then drawing arrows showing what calls what and what points to what. They show you how the different parts of the codebase are connected, and how they interact with each other.  They help you to see the big picture, and to understand how the different parts of the codebase fit together. Its a map.  A map of the codebase.  A code map.</p>
+<p>I don&rsquo;t care what anybody says, you cannot keep the entire structure and behaviour of a codebase in your head.  You need a map.  You need a code map.</p>
+<p>Such maps are not comprehensive. Just like with UML diagrams, you only need to map what you need to tell a particular use case story or solve a particular problem.  These code maps need not be permanent - you can throw them away after you are done with them.  Or you can keep them in an archive in your git repository for future reference, even though they will be out of date, they will still be useful.</p>
+<p>They are a tool to help you understand the codebase, and they are a tool to help you solve problems.  They are a tool to help you be a better programmer.</p>
+<h3 id="what-does-a-code-map-look-like">What does a code map look like?</h3>
+<p>Every programmer is different, and I can&rsquo;t claim to know what code maps scribbles they come up with. For me personally I like to use a combination of UML class diagrams and sequence diagrams.  I like to use a lot of rich text narrative to explain what is going on.  I like to number the function calls to show the order of execution.  I like to cross reference ideas to show how they are related.  I like to show the structure and behaviour in the same diagram.  I like to show the code fragments in the boxes.  I like to show the story of a use case scenario in the diagram.</p>
+<p>Here is an example:</p>
+<p><img src="https://raw.github.com/abulka/lcodemaps/master/images/handcrafted-code-map-andy.png" alt="code map example 01"></p>
+<p>Taking the code map idea to a more formal level, I have created a new diagramming methodology called Literate Code Mapping <a href="https://abulka.github.io/lcodemaps/">here</a>.</p>
+<p>However such code maps rely on visual tools and are not easily maintained in a text editor.  This is where Plain Text Diagrams come in.</p>
+<h2 id="plain-text-diagrams">Plain Text Diagrams</h2>
+<p>Plain Text Diagrams are a way of representing diagrams of code structure and behaviour in a plain text format.  This means that you can update and maintain your diagrams in a text editor.  They are meant to be easy to read and write, and most importantly, useful.  By useful I mean you should be able to read them and gain rapid deep understanding of the source code structure and behaviour that the diagram represents.</p>
+<h2 id="what-do-plain-text-diagram-syntax-look-like">What do Plain Text Diagram Syntax look like?</h2>
+<p><img src="/blog/images/pt-diagram-screenshot1.png" alt="beginning of a PT Diagram file">
+<em>beginning of a PT Diagram file</em></p>
+<p><img src="/blog/images/pt-diagram-screenshot2.png" alt="a pseudo code, sequence diagram example of a use case scenario">
+<em>a pseudo code, sequence diagram example of a use case scenario</em></p>
+<h2 id="examples">Examples</h2>
+<h3 id="example-for-recipe-construction">Example for Recipe Construction</h3>
+<pre tabindex="0"><code>Diagram:
+  name: Recipe Construction
+  version: 1.0
+  description: Example of PT (plain text) diagram notation, blending structure (class) and sequence diagramming
+  files: Recipe.ts, Fruit.ts, Smoothie.ts
+
+Files:
+  file: Recipe.ts
+    Variables:
+      const ingredients: Fruit[]
+      let instructions: string[]
+    Functions:
+      read(): Fruit[]
+      prepare(fruit: Fruit): void
+      chop(fruit: Fruit): void
+      makeSmoothie(fruit: Fruit): Smoothie
+      logRecipe() (private) # private function to log recipe details
+    Classes:
+      Recipe
+
+  file: Fruit.ts
+    Variables:
+      const name: string
+      const type: string
+    Functions:
+      getType(): string
+      peel(): void
+    Classes:
+      Fruit
+
+  file: Smoothie.ts
+    Variables:
+      const ingredients: Fruit[]
+      let blended: boolean
+    Functions:
+      blend(fruit: Fruit): void
+      serve(): void
+    Classes:
+      Smoothie
+
+Classes:
+  class: Recipe (Recipe.ts)
+    Attributes:
+      ingredients: Fruit (0..*)
+      instructions: string
+    Methods:
+      read()
+      prepare(fruit: Fruit)
+      chop(fruit: Fruit)
+      makeSmoothie(fruit: Fruit)
+      logRecipe() (private)
+      startRecipe()
+
+  class: Fruit (Fruit.ts)
+    Attributes:
+      name: string
+      type: string
+    Methods:
+      getType()
+      peel()
+
+  class: Smoothie (Smoothie.ts)
+    Attributes:
+      ingredients: Fruit (1..*)
+      blended: boolean
+    Methods:
+      blend(fruit: Fruit)
+      serve()
+
+
+Class Relationships:
+  Recipe
+    --&gt; Fruit (contains, 1..*)
+    --&gt; Smoothie (creates, 1)
+  Fruit
+    --&gt; Smoothie (ingredient, 1..*)
+  Smoothie
+    --&gt; Fruit (contains, 1..*)
+  Recipe
+    --&gt; Smoothie (uses, 1)
+
+Imports:
+  Recipe.ts (class Recipe, function read, function prepare)
+    --&gt; Fruit.ts (class Fruit, function getType, function peel)
+    --&gt; Smoothie.ts (class Smoothie, function blend, function serve)
+
+Use Cases:
+  Scenario: Preparation
+    startRecipe() [Recipe.ts]
+        initializes recipe
+        -&gt; read() [Recipe.ts]
+            reads ingredients
+            -&gt; getType() [class Fruit, Fruit.ts]
+                fetches fruit type
+                &lt; string
+            -&gt; peel() [class Fruit, Fruit.ts]
+                peels the fruit
+                &lt; void
+            &lt; Fruit[]
+        -&gt; prepare(fruit: Fruit) [Recipe.ts]
+            prepares fruit for chopping
+            -&gt; peel() [class Fruit, Fruit.ts]
+                peels the fruit
+                &lt; void
+            &lt; void
+        -&gt; chop(fruit: Fruit) [Recipe.ts]
+            chops the fruit
+            &lt; void
+        -&gt; makeSmoothie(fruit: Fruit) [Recipe.ts]
+            mixes fruit into smoothie
+            -&gt; blend(fruit: Fruit) [class Smoothie, Smoothie.ts]
+                blends fruit into smoothie
+                &lt; void
+            -&gt; serve() [class Smoothie, Smoothie.ts]
+                serves the smoothie
+                &lt; void
+        &lt; Smoothie
+
+  Scenario: Serving
+    startRecipe() [Recipe.ts]
+        initializes recipe
+        -&gt; makeSmoothie(fruit: Fruit) [Recipe.ts]
+            mixes fruit into smoothie
+            -&gt; blend(fruit: Fruit) [class Smoothie, Smoothie.ts]
+                blends fruit into smoothie
+                &lt; void
+            -&gt; serve() [class Smoothie, Smoothie.ts]
+                serves the smoothie
+                &lt; void
+        &lt; Smoothie
+</code></pre><h3 id="car-example">Car Example</h3>
+<p>Uses advanced scenario sequence diagram features</p>
+<pre tabindex="0"><code>Diagram:
+  name: Car Management System
+  version: 1.0
+  description: A system to manage cars, including electric cars, with features like starting, stopping, charging, and diagnostics.
+  files: Automobile.ts, Car.ts, ElectricCar.ts, Charger.ts, Diagnostics.ts
+
+Files:
+  file: Automobile.ts
+    Variables:
+      (none)
+    Functions:
+      (none)
+    Interfaces:
+      Automobile
+
+  file: Car.ts
+    Variables:
+      wheels: Wheel (4)
+      running: boolean
+      fuelLevel: number
+    Functions:
+      start()
+      stop()
+      refuel(amount: number)
+    Classes:
+      Car --&gt; Automobile (implements)
+
+  file: ElectricCar.ts
+    Variables:
+      batteryLevel: number
+      isCharging: boolean
+    Functions:
+      start(): void @override
+      charge(duration: number)
+      checkBattery(): number
+    Classes:
+      ElectricCar --&gt; Car (inherits)
+
+  file: Charger.ts
+    Variables:
+      powerOutput: number
+      isPluggedIn: boolean
+    Functions:
+      plugIn()
+      unplug()
+      chargeCar(car: ElectricCar, duration: number)
+    Classes:
+      Charger
+
+  file: Diagnostics.ts
+    Variables:
+      lastError: string
+    Functions:
+      runDiagnostics(car: Car)
+      logError(error: string)
+    Classes:
+      Diagnostics
+
+Classes:
+  interface: Automobile
+    Methods:
+      start()
+      stop()
+
+  class: Car --&gt; Automobile (implements)
+    Attributes:
+      wheels: Wheel (4)
+      running: boolean
+      fuelLevel: number
+    Methods:
+      start()
+      stop()
+      refuel(amount: number)
+
+  class: ElectricCar --&gt; Car (inherits)
+    Attributes:
+      batteryLevel: number
+      isCharging: boolean
+    Methods:
+      start(): void @override
+      charge(duration: number)
+      checkBattery(): number
+
+  class: Charger
+    Attributes:
+      powerOutput: number
+      isPluggedIn: boolean
+    Methods:
+      plugIn()
+      unplug()
+      chargeCar(car: ElectricCar, duration: number)
+
+  class: Diagnostics
+    Attributes:
+      lastError: string
+    Methods:
+      runDiagnostics(car: Car)
+      logError(error: string)
+
+Class Relationships:
+  Car
+    --&gt; Automobile (implements)
+  ElectricCar
+    --&gt; Car (inherits)
+  Charger
+    --&gt; ElectricCar (charges, 1)
+  Diagnostics
+    --&gt; Car (diagnoses, 1)
+
+Imports:
+  Car.ts (class Car, function start, function stop)
+    --&gt; Automobile.ts (interface Automobile)
+  ElectricCar.ts (class ElectricCar, function charge)
+    --&gt; Car.ts (class Car, function start)
+    --&gt; Charger.ts (class Charger, function chargeCar)
+      --&gt; Utils.ts (function calculatePower)
+  Diagnostics.ts (class Diagnostics, function runDiagnostics)
+    --&gt; Car.ts (class Car)
+
+Use Cases:
+  Scenario: Starting an Electric Car
+    start() [class ElectricCar, ElectricCar.ts]
+      [if batteryLevel &gt; 20]
+      -&gt; start() [class Car, Car.ts]
+          sets running to true
+          &lt; void
+      [else]
+      -&gt; charge(30) [class ElectricCar, ElectricCar.ts]
+          charges the car for 30 minutes
+          -&gt; chargeCar(car: ElectricCar, 30) [class Charger, Charger.ts]
+              increases batteryLevel
+              &lt; void
+          &lt; void
+      &lt; void
+
+  Scenario: Charging Multiple Electric Cars in Parallel
+    chargeCars(cars: ElectricCar[], duration: number) [class Charger, Charger.ts]
+      [parallel]
+      -&gt; chargeCar(car: ElectricCar, duration) [class Charger, Charger.ts]
+          charges each car
+          &lt; void
+      waits for all cars to charge
+      &lt; void
+
+  Scenario: Running Diagnostics with Error Handling
+    runDiagnostics(car: Car) [class Diagnostics, Diagnostics.ts]
+      [try]
+      -&gt; checkBattery() [class ElectricCar, ElectricCar.ts]
+          checks battery level
+          &lt; number
+      [catch error]
+      -&gt; logError(error: string) [class Diagnostics, Diagnostics.ts]
+          logs the error
+          &lt; void
+      [finally]
+      cleans up diagnostics
+      &lt; void
+
+  Scenario: Refueling a Car with a Loop
+    refuel(amount: number) [class Car, Car.ts]
+      [loop until fuelLevel &gt;= 100]
+      -&gt; addFuel(10) [class Car, Car.ts]
+          increases fuelLevel by 10
+          &lt; void
+      &lt; void
+
+  Scenario: Event-Driven Charging
+    setupChargingListeners() [class Charger, Charger.ts]
+      [on plugIn]
+      -&gt; chargeCar(car: ElectricCar, 60) [class Charger, Charger.ts]
+          charges the car for 60 minutes
+          &lt; void
+      [on unplug]
+      -&gt; stopCharging() [class Charger, Charger.ts]
+          stops charging
+          &lt; void
+      &lt; void
+
+  Scenario: Recursive Diagnostics
+    runDeepDiagnostics(car: Car) [class Diagnostics, Diagnostics.ts]
+      runs basic diagnostics
+      [recurse]
+      -&gt; runDeepDiagnostics(car: Car) [class Diagnostics, Diagnostics.ts]
+          runs deeper diagnostics
+          &lt; void
+      &lt; void
+</code></pre><h2 id="plain-text-diagram-pt-diagram-notation---specification">Plain Text Diagram (PT Diagram) Notation - Specification</h2>
+<h3 id="purpose"><strong>Purpose</strong></h3>
+<p>A lightweight, plain text format for visualizing software systems, including classes, files, variables, functions, relationships, and use cases. Designed for readability, version control, and LLM compatibility.</p>
+<h3 id="sections"><strong>Sections</strong></h3>
+<p>Broadly, the PT Diagram notation consists of the following sections:</p>
+<pre tabindex="0"><code>Diagram:
+Files:
+Classes:
+Class Relationships:
+Imports:
+Use Cases:
+  Scenario: A
+  Scenario: B
+</code></pre><p>Indentation: Critical for hierarchy and readability. Use <code>--&gt;</code> for relationships. Use <code>-&gt;</code> for function calls in use cases. Use <code>&lt; returnType</code> for function return types. Various annotations</p>
+<p>Insights: PT Diagrams are a hybrid of UML, sequence diagrams, and pseudo code. They are designed to be human-readable, version-controlled, and lightweight. They can be used to document, understand, and communicate software systems.</p>
+<h3 id="syntax"><strong>Syntax</strong></h3>
+<ol>
+<li>
+<p><strong>Diagram</strong>: System name, version, description, and files.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>Diagram:
+</span></span><span style="display:flex;"><span>  name: Diagram Name
+</span></span><span style="display:flex;"><span>  version: 1.0
+</span></span><span style="display:flex;"><span>  description: Brief description.
+</span></span><span style="display:flex;"><span>  files: File1.ts, File2.ts
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Files</strong>: Lists variables, functions (with parameters, return types, and annotations), and classes/interfaces for each file. Comments can be added using <code>#</code>. The file: objects are like UML boxes with data + behaviour e.g. Variables: and Functions:. Additional sections for Classes: and Interfaces: can be added if needed. Variables can have optional default values with <code>= defaultValue</code>, and optional relationships with <code>(relationship, cardinality)</code>.  Functions can be listed as (private).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>Files:
+</span></span><span style="display:flex;"><span>  file: File1.ts
+</span></span><span style="display:flex;"><span>    Variables:
+</span></span><span style="display:flex;"><span>      var1: Type # Example comment
+</span></span><span style="display:flex;"><span>      var2: Type = 100 # Optional default value
+</span></span><span style="display:flex;"><span>      var3: Type (0..1) # Optional cardinality
+</span></span><span style="display:flex;"><span>      var3: Type (contains, 1..*) # Optional relationship
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    Functions:
+</span></span><span style="display:flex;"><span>      func1(param1: Type, param2: Type): ReturnType
+</span></span><span style="display:flex;"><span>      func2(): void @override # Overrides a parent class method
+</span></span><span style="display:flex;"><span>      func3(): number (private)
+</span></span><span style="display:flex;"><span>    Classes:
+</span></span><span style="display:flex;"><span>      Class1
+</span></span><span style="display:flex;"><span>    Interfaces:
+</span></span><span style="display:flex;"><span>      Interface1
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Classes</strong>: Describes classes and interfaces, including their attributes, methods (with parameters, return types, and annotations), and relationships (inheritance or implementation). The class: object is like a UML box with data + behaviour e.g. Attributes: and Methods:. The interface: object is like a class but with no methods.  Attributes can have optional default values with <code>= defaultValue</code>, and optional relationships with <code>(relationship, cardinality)</code>. Class and Interface names can optionally be followed by (somefile.ts) indicating their location.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span> Classes:
+</span></span><span style="display:flex;"><span>   class: Class1 (class1.ts) --&gt; ParentClass (parent.ts) (inherits|implements)
+</span></span><span style="display:flex;"><span>     Attributes:
+</span></span><span style="display:flex;"><span>       attr1: Type # Example comment
+</span></span><span style="display:flex;"><span>       attr2: Type = 100  # Optional default value
+</span></span><span style="display:flex;"><span>       attr3: Type (0..1) # Optional cardinality
+</span></span><span style="display:flex;"><span>       attr3: Type (owns, 1) # Optional relationship and cardinality
+</span></span><span style="display:flex;"><span>     Methods:
+</span></span><span style="display:flex;"><span>       method1(param1: Type, param2: Type): ReturnType
+</span></span><span style="display:flex;"><span>       method2(): void @override # Overrides a parent method
+</span></span><span style="display:flex;"><span>   interface: Interface1
+</span></span><span style="display:flex;"><span>     Methods:
+</span></span><span style="display:flex;"><span>       method1(param1: Type): ReturnType
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Class Relationships</strong>: Describes relationships between classes and interfaces, including optional relationship annotation (uses, contains, owns, etc.) and optional cardinality (e.g., 1, 1..*, 0..1). Single or multiple relationships. If one relationship, use <code>Class1 --&gt; Class2 (relationship)</code>. For multiple relationships, indent the relationships under the class.  Nested relationships are indented further.</p>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>   Class Relationships:
+</span></span><span style="display:flex;"><span>     Class1
+</span></span><span style="display:flex;"><span>       --&gt; Class2 (inherits)
+</span></span><span style="display:flex;"><span>       --&gt; Class3 (implements)
+</span></span><span style="display:flex;"><span>     Class4 --&gt; Class5 (depends on)
+</span></span><span style="display:flex;"><span>     Class6
+</span></span><span style="display:flex;"><span>       --&gt; Class7 (contains, 1..*)
+</span></span><span style="display:flex;"><span>       --&gt; Class8 (creates, 1)
+</span></span><span style="display:flex;"><span>         --&gt; Class9 (owns, 0..1)
+</span></span></code></pre></div><ol start="5">
+<li><strong>Imports</strong>: Dependencies between files. Files one per line. List the contents of each file in () e.g. <code>File1.ts (class Class1, function func1)</code> indent the relationships under the file using &ndash;&gt;. Multiple relationships are indented under the file at the same level. Nested relationships are indented further.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>Imports:
+</span></span><span style="display:flex;"><span>  Car.ts (class Car, function start, function stop)
+</span></span><span style="display:flex;"><span>    --&gt; Automobile.ts (interface Automobile)
+</span></span><span style="display:flex;"><span>  ElectricCar.ts (class ElectricCar, function charge)
+</span></span><span style="display:flex;"><span>    --&gt; Car.ts (class Car, function start)
+</span></span><span style="display:flex;"><span>    --&gt; Charger.ts (class Charger, function chargeCar)
+</span></span><span style="display:flex;"><span>      --&gt; Utils.ts (function calculatePower)
+</span></span></code></pre></div><ol start="6">
+<li><strong>Use Cases</strong>:  Use Case Notation describes high-level scenarios combining sequence diagrams with descriptive pseudo-code. Core syntax: Function calls follow indented format <code>-&gt; functionName(params) [class ClassName, File.ts]</code> with source annotations [source class (if applicable), filename]. Return types appear on a new line as <code>&lt; returnType</code> followed by optional <code>, variable =</code> to specify where result is stored; <code>&lt; void</code> is optional for no return value. Returns can be primitives or complex objects like <code>&lt; {prop: type}</code>. Control flow uses bracketed annotations [if], [else], [loop], [parallel], [try], [catch], [finally], [recurse] with nesting shown through indentation and arrows (<code>-&gt;</code>) indicating nested function calls. Variables are referenced in backticks (e.g. <code>`variableName`</code>) with state updates described in natural language, focusing on key changes and purpose rather than detailed assignments. The notation prioritizes high-level abstraction and &ldquo;what&rdquo; over &ldquo;how&rdquo;, using natural language summaries for logic and state changes while retaining clear function call notation. Since use cases begin with a function call, they can serve as documentation for function behavior itself. Bullet points (-) can be used to list sequential actions.async function calls can be preceded by e.g. <code>-&gt; await function1()</code>.
+Indenting is typically two spaces, indented <code>-&gt; function()</code> call lines are matched with corresponding <code>&lt; type</code> line which is on its own line and indented more than the initialting parent call. It is impossible for there to be lines at the same indent level as a returning <code>&lt; type</code> line. [if condition] and other annotations like [try] are followed by a <code>-&gt; function()</code> line or psudo code descriptive text which is indented, like the way a regular if or try statements work.
+Example:</li>
+</ol>
+<pre tabindex="0"><code>   Use Cases:
+     Scenario: Example Scenario
+       func1() [class Class1, File1.ts]         
+         Initializes `this.snippetTree` and `this.itemTree` as empty structures.
+         [if condition]
+           -&gt; func2() [class Class2, File2.ts]
+             Updates `this.itemTree` with the constructed tree structure.
+             Stores the tree in `this.languageIdTrees` for the given language.
+             &lt; returnType, x =
+           -&gt; blend(fruit: Fruit) [class Smoothie, Smoothie.ts]              
+              &lt; string, currentFruit =
+           -&gt; await fsp.readdir(extensionsPath) [fs.promises]
+             &lt; string[], extensionsDirs = 
+         &lt; returnType
+</code></pre><p>Advanced example of PT Diagram (pure text diagram) use case sequence and psuedo code scenario:</p>
+<pre tabindex="0"><code>Use Cases:
+  Scenario: Building Snippet Tree
+    _buildTree(languageId: string) [class TreeDataProvider, snippet_tree.js]
+      Logs the start of tree building for the given language.
+      [if languageId is undefined]
+        Initializes `this.itemTree` with a placeholder message.
+        &lt; number
+      [else]
+        Initializes `this.snippetTree` and `this.itemTree` as empty structures.
+        -&gt; enumerateSnippets(this.snippetTree, languageId) [./snippet_enumerator]
+            Populates `this.snippetTree` with snippets for the given language.
+            &lt; void
+        -&gt; logSnippetTree(languageId: string) [class TreeDataProvider, snippet_tree.js]
+            Logs the structure of `this.snippetTree`.
+            &lt; void
+
+        Constructs the tree structure:
+        - Iterates over `this.snippetTree` to create `TreeItem` instances for each language.
+        - For each language, iterates over its snippets to create nested `TreeItem` instances.
+        - Sets tooltips, collapsible states, and parent-child relationships.
+
+        Updates `this.itemTree` with the constructed tree structure.
+        Stores the tree in `this.languageIdTrees` for the given language.
+
+        Logs the completion of tree building.
+        &lt; void
+        
+  Scenario: Switching Language
+    switchLanguage(languageId: string) [class TreeDataProvider, snippet_tree.js]
+      Logs the start of language switching.
+      [if languageId is not in this.languageIdTrees]
+        -&gt; _buildTree(languageId: string) [class TreeDataProvider, snippet_tree.js]
+            Builds the snippet tree for the given language.
+            &lt; void
+      [else]
+        Restores `this.snippetTree` and `this.itemTree` from `this.languageIdTrees`.
+        -&gt; _restoreExpandedStates(languageId: string) [class TreeDataProvider, snippet_tree.js]
+            Restores the expanded states of tree items for the given language.
+            &lt; void
+        Fires the tree data change event to refresh the UI.
+      -&gt; _selectSubtree(languageId: string) [class TreeDataProvider, snippet_tree.js]
+          Selects and reveals the subtree for the given language.
+          &lt; void
+      Logs the completion of language switching.
+      &lt; void
+
+  Scenario: Refreshing the Tree
+    refresh() [class TreeDataProvider, snippet_tree.js]
+      Logs the start of tree refresh.
+      -&gt; _buildTree(this._getCurrentDocumentLanguageId()) [class TreeDataProvider, snippet_tree.js]
+          Rebuilds the snippet tree for the current language.
+          &lt; void
+      Fires the tree data change event to refresh the UI.
+      Logs the completion of tree refresh.
+      &lt; void
+</code></pre><h2 id="musings">Musings</h2>
+<h4 id="paradigm-of-a-box-with-data-and-behaviour">Paradigm of a box with data and behaviour</h4>
+<p>The paradigm of a box with data and behaviour is used throughout the notation. Classes naturally have Attributes and Methods. Did you know that Files can also be represented as boxes with data and behaviour? Files have Variables and Functions.</p>
+<p>As such, the PT Diagram section <code>Files:</code> is a list of files, each with Variables and Functions. The <code>Classes:</code> section is a list of classes, each with Attributes and Methods.</p>
+<h4 id="relationships">Relationships</h4>
+<p>Philosophically, there are other paradigms besides data and behaviour. Relationships are a <code>thing</code>, so we have a <code>Class Relationships:</code> section and an <code>Imports:</code> section.</p>
+<p>The <code>Class Relationships:</code> section is a list of classes with relationships to other classes. The <code>Imports:</code> section is a list of files with relationships to other files.</p>
+<h4 id="sequence-diagrams-as-plain-text">Sequence Diagrams as plain text</h4>
+<p>The <code>Use Cases:</code> section is a list of scenarios, each with a sequence of function calls.  Each use case is a &ldquo;sequence diagram&rdquo; in plain text.</p>
+<p>Instead of a diagram with arrows drawn left to right, plain text diagrams use <code>-&gt;</code> to indicate a function call.  The return type of the function is shown on the next line as <code>&lt; returnType</code>.  The return type can optionally be followed by <code>, variable =</code> to indicate where the result is stored.</p>
+<h4 id="sequence-diagram-depth">Sequence diagram depth</h4>
+<p>Interestingly, since a scenatio starts with a function call, each use case can serve as documentation for a particular function.</p>
+<p>You could arguably have psudeo code before the beginning function call, and after the last function call, with multiple top level function calls being listed, including what they call, and what those functions call etc.  I haven&rsquo;t got to that yet, but it is a possibility. Typically you would just wrap such functionality in another top level function, but I suppose there are cases where there is no such high level function? e.g.</p>
+<pre tabindex="0"><code>Use Cases:
+  Scenario: Multiple top level functions
+    some psuedo code
+    -&gt; func1() [class Class1, File1.ts]
+      some psuedo code
+      -&gt; func2() [class Class2, File2.ts]
+        -&gt; func3() [class Class3, File3.ts]
+          &lt; void
+        &lt; void
+      &lt; void
+    &lt; void
+    some psuedo code
+    -&gt; func4() [class Class4, File4.ts]
+      &lt; void
+    &lt; void
+</code></pre><p>So typically, use case scenarios are a way of documenting the behaviour of a function. How deep you want to go with mapping function calls is up to you.  You can go as deep as you like, but remember, the purpose of the use case is to tell a story, not to document every detail of the function.  If you want to stop at a certain function call and not indent and drill down further with what it calls, that is fine.  The use case is a story, and you are the story teller. Also remember that the other function you didn&rsquo;t drill into can have its own scenario section where you can tell its story.</p>
+<p>Use case scenarios of a function can</p>
+<ul>
+<li>just show the function calls that are in the function</li>
+<li>show the function calls that are in the function and the function calls that those functions call</li>
+<li>show the function calls that are in the function and the function calls that those functions call and the function calls that those functions call etc.</li>
+</ul>
+<p>One useful use case sequence diagramming technique is to omit a lot of psuedo code detail and just show the function call sequence to a very deep level.  This is a way of documenting the overall function call sequence from top to botton - giving you a feel for how all the functions are connected.  For example:</p>
+<pre tabindex="0"><code>Use Cases:
+  Scenario: Deep Scenario
+    func1() [class Class1, File1.ts]
+      -&gt; func2() [class Class2, File2.ts]
+        -&gt; func3() [class Class3, File3.ts]
+          -&gt; func4() [class Class4, File4.ts]
+            -&gt; func5() [class Class5, File5.ts]
+              -&gt; func6() [class Class6, File6.ts]
+                -&gt; func7() [class Class7, File7.ts]
+                  -&gt; func8() [class Class8, File8.ts]
+                    -&gt; func9() [class Class9, File9.ts]
+                       this is as deep as it is possible to go
+                       &lt; void
+                    &lt; void
+                  &lt; string
+                &lt; void
+            &lt; number
+            -&gt; func10() [class Class10, File10.ts]
+              &lt; void
+            &lt; void
+        &lt; void
+    &lt; void
+</code></pre><p>Another technique is to show a lot of psuedo code detail and only show the function calls to a shallow level.  This is a way of documenting the function behaviour.  You can mix and match these techniques as you see fit.</p>
+<p>Note that <code>Imports:</code> also are nested and indented, with the ability to show imports of imports, as deep as you like.</p>
+<h4 id="psuedo-code">Psuedo Code</h4>
+<p>You can add psuedo code text of what is going on in a use case. There is no special syntax in PT Diagram notation for such lines. Just add them as you see fit.  They are indented under the function call line.  They are not part of the function call sequence, they are just descriptive text.  They are a way of telling the story of the use case.</p>
+<p>Psudeo code narrative text is only supported in the <code>Use Cases:</code> section.  It is not supported in the other sections.  However you can add comments after the attributes and methods in the <code>Classes:</code> section, or after the variables and functions in the <code>Files:</code> section.</p>
+<h2 id="future">Future</h2>
+<p><code>Events</code> are a &rsquo;thing&rsquo;, but I haven&rsquo;t got to that yet.</p>
+<p><code>State</code> is a &rsquo;thing&rsquo;, but I haven&rsquo;t got to that yet. though an initial stab at it might be:</p>
+<pre tabindex="0"><code>StateMachine:
+  name: SmoothieMachine
+  States:
+    - Idle
+    - Blending
+    - Serving
+  Transitions:
+    - Idle -&gt; Blending (on: startBlending)
+    - Blending -&gt; Serving (on: finishBlending)
+    - Serving -&gt; Idle (on: reset)
+  Events:
+    - startBlending
+    - finishBlending
+    - reset
+</code></pre><p>but more work is needed on this, as I want to integrate specifics of which function calls are made in each state transition and where state is stored etc. Any ideas please let me know in the issues.</p>
+<h2 id="tools">Tools</h2>
+<p>If you save your PT Diagrams in a file with a <code>.ptd</code> or <code>.pt-diagram</code> extension, you can use the <a href="https://github.com/abulka/vscode-pt-diagrams">PT Diagram Viewer</a> Visual Studio Code extension to view and edit them. Nice syntax highlighting and folding.</p>
+<h2 id="generating-pt-diagrams">Generating PT Diagrams</h2>
+<ul>
+<li>By hand</li>
+<li>Ask an AI to do it</li>
+<li>Use an app to do it (doesn&rsquo;t exist yet)</li>
+</ul>
+<p>If you want to generate PT Diagrams from your source code automatically, you can ask an AI to do it. Just feed it the specification, some examples then ask it to generate some PT Diagrams for you.</p>
+<h2 id="final-thoughts">Final Thoughts</h2>
+<p>Plain Text Diagrams are a way of representing diagrams of code structure and behaviour in a plain text format.  They help you understand source code. You can come back to a project after a long time and read the PT Diagrams to understand what is going on.  You can use them to explain to others how the code works.  You can use them to solve problems.  You can use them to be a better programmer.</p>
+<h2 id="references">References</h2>
+<p>These are traditional (visual) diagramming tools and methodologies that I have created:</p>
+<ul>
+<li><a href="https://www.gituml.com">GitUML</a> Generate diagrams rapidly from GitHub Repositories, supports customisation via PlantUML markup.</li>
+<li><a href="https://github.com/abulka/lcodemaps">Literate Code Mapping</a> An evolution of UML for today&rsquo;s software development needs - still visual, but more expressive and more useful.</li>
+</ul>
+
+	<ul class="list-unstyled d-flex justify-content-between align-items-center mb-0 pt-5">
+  <li>
+    <a href="/blog/2022/02/11/gui-showdown/" aria-label="Previous - GUI Showdown" class="btn btn-primary"><span class="me-1">←</span>Previous</a>
+  </li>
+  <li>
+    <a class="btn btn-primary disabled">Next<span class="ms-1">→</span></a>
+  </li>
+</ul>
+
+	<div class="td-page-meta__lastmod">
+  Last modified January 29, 2025: <a href="https://github.com/abulka/abulka.github.io/commit/4216ee880ce64e3fba625430d6d21cf41be0838b">blog: Plain Text Diagrams (4216ee8)</a>
+</div>
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      <footer class="td-footer row d-print-none">
+  <div class="container-fluid">
+    <div class="row mx-md-2">
+      <div class="td-footer__left col-6 col-sm-4 order-sm-1">
+        <ul class="td-footer__links-list">
+  
+  <li class="td-footer__links-item" data-bs-toggle="tooltip" title="Twitter" aria-label="Twitter">
+    <a target="_blank" rel="noopener" href="https://twitter.com/unjazz" aria-label="Twitter">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </li>
+  
+</ul>
+
+      </div><div class="td-footer__right col-6 col-sm-4 order-sm-3">
+        <ul class="td-footer__links-list">
+  
+  <li class="td-footer__links-item" data-bs-toggle="tooltip" title="GitHub" aria-label="GitHub">
+    <a target="_blank" rel="noopener" href="https://github.com/abulka/abulka.github.io" aria-label="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+</ul>
+
+      </div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2">
+        <span class="td-footer__copyright">&copy;
+    2025
+    <span class="td-footer__authors">Andy Bulka</span></span><span class="td-footer__all_rights_reserved">All Rights Reserved</span><span class="ms-2"><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Policy</a></span><p class="td-footer__about mt-2"><a href="/about/">About Andrew Bulka</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <script src="/js/main.min.69e2c1ae9320465ab10236d9ef752c6a4442c54b48b883b17c497b7c7d96a796.js" integrity="sha256-aeLBrpMgRlqxAjbZ73UsakRCxUtIuIOxfEl7fH2Wp5Y=" crossorigin="anonymous"></script>
+<script defer src="/js/click-to-copy.min.73478a7d4807698aed7e355eb23f9890ca18fea3158604c8471746d046702bad.js" integrity="sha256-c0eKfUgHaYrtfjVesj&#43;YkMoY/qMVhgTIRxdG0EZwK60=" crossorigin="anonymous"></script>
+<script src='/js/tabpane-persist.js'></script>
+
+  </body>
+</html>

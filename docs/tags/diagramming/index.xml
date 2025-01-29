@@ -6,7 +6,7 @@
     <description>Recent content in Diagramming on Andy Bulka</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 02 Jan 2023 12:43:03 +1100</lastBuildDate>
+    <lastBuildDate>Wed, 29 Jan 2025 17:42:56 +1100</lastBuildDate>
     <atom:link href="https://abulka.github.io/tags/diagramming/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Websites</title>
@@ -14,6 +14,13 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://abulka.github.io/projects/websites/</guid>
       <description>Being an application software developer, I made the transition to building web applications. Here are some of them.&#xA;Website Description Technology GitUML UML visualisation for Git repositories Python, Django, Javascript Python to RPN Python to RPN converter Python, Flask, Javascript RPN Calculators Online RPN calculators programmable in Javascript Javascript, HTML, CSS Toolback - App Builder An online programming environment, with low code features. Python, Javascript Chord Jammer A midi web app that lets you play chords with 1 finger in the left hand and jam safely in the right hand.</description>
+    </item>
+    <item>
+      <title>Plain Text Diagrams</title>
+      <link>https://abulka.github.io/blog/2025/01/29/plain-text-diagrams/</link>
+      <pubDate>Wed, 29 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://abulka.github.io/blog/2025/01/29/plain-text-diagrams/</guid>
+      <description>Plain Text Diagrams are a way of representing diagrams of code structure and behaviour in a plain text format.&#xA;This means that you can update and maintain your diagrams in a text editor. They are meant to be easy to read and write, and most importantly, useful. By useful I mean you should be able to read them and gain rapid deep understanding of the source code structure and behaviour that the diagram represents.</description>
     </item>
     <item>
       <title>GitUML</title>

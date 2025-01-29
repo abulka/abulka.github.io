@@ -8,6 +8,13 @@
     <language>en</language>
     <atom:link href="https://abulka.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Plain Text Diagrams</title>
+      <link>https://abulka.github.io/blog/2025/01/29/plain-text-diagrams/</link>
+      <pubDate>Wed, 29 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://abulka.github.io/blog/2025/01/29/plain-text-diagrams/</guid>
+      <description>Plain Text Diagrams are a way of representing diagrams of code structure and behaviour in a plain text format.&#xA;This means that you can update and maintain your diagrams in a text editor. They are meant to be easy to read and write, and most importantly, useful. By useful I mean you should be able to read them and gain rapid deep understanding of the source code structure and behaviour that the diagram represents.</description>
+    </item>
+    <item>
       <title>GUI Showdown</title>
       <link>https://abulka.github.io/blog/2022/02/11/gui-showdown/</link>
       <pubDate>Fri, 11 Feb 2022 00:00:00 +0000</pubDate>
