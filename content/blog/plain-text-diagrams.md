@@ -13,7 +13,7 @@ I call them text 'diagrams' because they are a way of representing the structure
 
 ## Why
 
-As I write on my flagship diagramming tool website [GitUML](https://www.gituml.com):
+As I write on my flagship (visual) diagramming tool website [GitUML](https://www.gituml.com):
 
 > Understanding source code is every programmer's biggest challenge
 
@@ -21,19 +21,17 @@ Plain Text Diagrams are a way to help you understand source code. They are a way
 
 ## The Secret Technique Behind Every Great Programmer
 
-I don't care how smart you are, or how many years of experience you have, understanding source code is hard.  It's hard because source code is complex, and it's hard because it's always changing.  And it's hard because there are hundreds if not thousands of relationships between the different parts of a codebase.  
+I don't care how smart you are, or how many years of experience you have, understanding source code is hard.  It's hard because source code is complex - there are hundreds if not thousands of relationships between the different parts of a codebase.  
 
-But there is one technique that every great programmer uses to understand source code, and that is **code maps**. Code maps are abstract representations of the structure and behaviour of a codebase. A programmer may grab a piece of paper or open a text editor and start writing class names, file names, variable names and function names then drawing arrows showing what calls what and what points to what. They show you how the different parts of the codebase are connected, and how they interact with each other.  They help you to see the big picture, and to understand how the different parts of the codebase fit together. Its a map.  A map of the codebase.  A code map.
+But there is one technique that every great programmer uses to understand source code, and that is some form of **code map** or abstraction artifact. Code maps are abstract representations of the structure and behaviour of a codebase. A programmer may grab a piece of paper or open a text editor and start writing class names, file names, events, variable names and function names then drawing arrows showing what calls what and what points to what. They show you how the different parts of the codebase are connected, and how they interact with each other.  Going through the proces of making some kind of code map helps you to see the big picture, or understand a slice of the codebase that you need to understand in order to debug something or add a feature.
 
-I don't care what anybody says, you cannot keep large chunks of structure and behaviour of a codebase entirely in your head.  You need a map.  You need a code map. Or at least, you will be more effective if you have a code map.
+I don't care what anybody says, you cannot keep large chunks of detail, structure and behaviour of a codebase entirely in your head - you will be more effective if you have a code map.
 
 Such maps need not be comprehensive. Just like with UML diagrams, you only need to map what you need to tell a particular use case story or solve a particular problem.  These code maps need not be permanent - you can throw them away after you are done with them.  Or you can keep them in an archive in your git repository for future reference, even though they will be out of date, they will still be useful.
 
-They are a tool to help you understand the codebase, and they are a tool to help you solve problems.  They are a tool to help you be a better programmer.
-
 ### What does a code map look like?
 
-Every programmer is different, and I can't claim to know what code maps scribbles they come up with. For me personally I like to use a combination of UML class diagrams and sequence diagrams.  I like to use a lot of rich text narrative to explain what is going on.  I like to number the function calls to show the order of execution.  I like to cross reference ideas to show how they are related.  I like to show the structure and behaviour in the same diagram.  I like to show the code fragments in the boxes.  I like to show the story of a use case scenario in the diagram.
+Every programmer is different, and I can't claim to know what code map techniques and scribbles they come up with. Personally I like to use a combination of UML class diagrams and sequence diagrams.  I like to use a rich text narrative to explain what is going on.  I like using colour to associate ideas either through coloured text, boxes or arrows. I like to number function calls to show the order of execution.  I like to cross reference ideas to show how they are related using colour, numbers or symbols.  I like to show the structure and behaviour in the same diagram.  I like to show actual code fragments or pseudo code in boxes.  
 
 Here is an example:
 
@@ -41,18 +39,18 @@ Here is an example:
 
 Taking the code map idea to a more formal level, I have created a new diagramming methodology called Literate Code Mapping [here](https://abulka.github.io/lcodemaps/).
 
-However such code maps rely on visual tools and are not easily maintained in a text editor.  This is where Plain Text Diagrams come in.
+However most code maps rely on visual tools (drawings on paper or visual diagrams) thus are not easily maintained in a text editor.  Ideally you want code maps to live in comments next to your code, or in markdown files. This is where Plain Text 'Diagrams' come in.
 
 ## Plain Text Diagrams
 
-Plain Text Diagrams are a way of representing diagrams of code structure and behaviour in a plain text format.  This means that you can update and maintain your diagrams in a text editor.  They are meant to be easy to read and write, and most importantly, useful.  By useful I mean you should be able to read them and gain rapid deep understanding of the source code structure and behaviour that the diagram represents.
+Plain Text Diagrams are a way of representing diagrams of code structure and behaviour in a plain text format - not ASCII diagrams which are hard to produce, but indented approximations of what diagrams give you.  Being Plain Text means that you can rapidly update and maintain your diagrams in a text editor.  They are meant to be easy to read and write, and most importantly, useful.  By useful I mean you should be able to read them and gain rapid deep understanding of the source code structure and behaviour that the diagram represents.
 
 ### What does Plain Text Diagram Syntax look like?
 
-![beginning of a PT Diagram file](/blog/images/pt-diagram-screenshot1.png)
+![The beginning of a PT Diagram file](/blog/images/pt-diagram-screenshot1.png)
 *beginning of a PT Diagram file*
 
-![a pseudo code, sequence diagram example of a use case scenario](/blog/images/pt-diagram-screenshot2.png)
+![A pseudo code, sequence diagram example of a use case scenario](/blog/images/pt-diagram-screenshot2.png)
 *a pseudo code, sequence diagram example of a use case scenario*
 
 ### Recipe Example
@@ -387,9 +385,7 @@ Use Cases:
 
 ### Treeview Example
 
-Advanced Use Case example showing a Treeview construction scenario, taken from my vscode extension [Snippets Explorer](/projects/libraries/snippets-explorer/).
-
-PT Diagram (pure text diagram) use case sequence and psuedo code scenario using advanced features like `[if]`, `[else]` and plenty of psuedo code descriptive text.
+A Use Case (sequence diagram as text) example showing a Treeview construction code, representing the functionality of my vscode extension [Snippets Explorer](/projects/libraries/snippets-explorer/) which shows vscode source code snippets in a treeview. This sequence 'diagram' example includes features like `[if]`, `[else]` and plenty of psuedo code descriptive text.
 
 ```
 Use Cases:
@@ -471,6 +467,7 @@ Indentation is critical for hierarchy and readability. Use `-->` for relationshi
 ### Sections (Overview)
 
 PT Diagram notation consists of the following sections:
+
 ```
 Diagram:
 Files:
@@ -483,15 +480,59 @@ Use Cases:
   ...
 ```
 
+more detail:
+
+```
+Diagram:
+  name:
+  version:
+  description:
+  files: File1.ts, File2.ts, ...
+
+Files:
+  file: File1.ts
+    Variables:
+    Functions:
+    Classes:
+    Interfaces:
+
+  file: File2.ts
+    ...
+
+Classes:
+  class: Class1 (class1.ts) --> ParentClass
+    Attributes:
+    Methods:
+
+  interface: Interface1 (interface1.ts)
+    Methods:
+
+  class: Class2 (class2.ts)
+    ...
+
+Class Relationships:
+  ...
+
+Imports:
+  ...
+
+Use Cases:
+  Scenario: Example Call Sequence
+    ...
+  
+  Scenario: Another Scenario
+    ...
+```
+
 ### Diagram:
 1. **Diagram**: System name, version, description, and files. Your Plain Text Diagram can be of a single source code file, or multiple source code files. Its scope is defined by the comma delimited list of files in the  `files:` label of the `Diagram:` section.
-   ```plaintext
-   Diagram:
-     name: Diagram Name
-     version: 1.0
-     description: Brief description.
-     files: File1.ts, File2.ts
-   ```
+```plaintext
+Diagram:
+  name: Diagram Name
+  version: 1.0
+  description: Brief description.
+  files: File1.ts, File2.ts
+```
 
 ### Files:
 2. **Files**: Lists variables, functions (with parameters, return types, and annotations), and classes/interfaces for each file. Comments can be added using `#`. The file: objects are like UML boxes with data + behaviour e.g. Variables: and Functions:. Additional sections for Classes: and Interfaces: can be added if needed - these just list the names of the classes and interfaces living in this particular file. Variables can have optional type `: type`, default value ` = value` followed by an optional tuple containing `(relationship type, cardinality)` where relationship type is just a free form description of the relationship e.g. `contains`, `owns`, `uses`, `implements`, `inherits`, `depends on`, `creates`, `diagnoses`. The cardinality is a string like `1`, `0..1`, `1..*`, `0..*`. Functions can have parameters with types and default values, and return types. Functions can have annotations like `@override` to indicate that they override a parent class method. Functions can be listed as `(private)` or some other access modifier.
@@ -784,8 +825,7 @@ Use Cases:
 
 Another technique is to show a lot of psuedo code detail and only show the function calls to a shallow level.  This is a way of documenting the function behaviour.  You can mix and match these techniques as you see fit.
 
-
-Note that `Imports:` also are nested and indented, with the ability to show imports of imports, as deep as you like.
+Note that file in the `Imports:` section also are nested and indented, with the ability to show imports of imports, as deep as you like.
 
 #### Psuedo Code
 
@@ -828,7 +868,12 @@ If you save your PT Diagrams in a file with a `.ptd` or `.pt-diagram` filename, 
 - Ask an AI to do it
 - Use an app to do it (doesn't exist yet)
 
-If you want to generate PT Diagrams from your source code automatically, you can ask an AI to do it. Just feed it the specification, some examples then ask it to generate some PT Diagrams for you.  
+If you want to generate PT Diagrams from your source code automatically, you can ask an AI to do it:
+- feed it the `Specification` portion of [this blog post as markdown](https://raw.githubusercontent.com/abulka/abulka.github.io/refs/heads/master/content/blog/plain-text-diagrams.md) (search for `## Specification`)
+- feed it some examples (search for `### Recipe Example`, `### Car Example` or `### Treeview Example`) 
+- ask the AI to generate a PT Diagram for you, pasting in the source code you wish the PT Diagram to represent.
+
+Ideally there would be a dedicated app, website or vscode extension that would do this for you.  I am thinking about this.
 
 ## Final Thoughts
 
