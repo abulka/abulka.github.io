@@ -1,0 +1,13 @@
+@startuml pt-diagram-sequence-uml
+participant Recipe
+participant Fruit
+participant Smoothie
+Recipe -> Fruit: read()
+Fruit -> Fruit: getType()
+Fruit -> Fruit: peel()
+Recipe -> Recipe: prepare(fruit)
+Recipe -> Recipe: chop(fruit)
+Recipe -> Smoothie: makeSmoothie(fruit)
+Smoothie -> Smoothie: blend(fruit)
+Smoothie -> Smoothie: serve()
+@enduml

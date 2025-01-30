@@ -75,7 +75,7 @@
       <link>https://abulka.github.io/blog/2025/01/29/plain-text-diagrams/</link>
       <pubDate>Wed, 29 Jan 2025 00:00:00 +0000</pubDate>
       <guid>https://abulka.github.io/blog/2025/01/29/plain-text-diagrams/</guid>
-      <description>Plain Text Diagrams are a way of representing diagrams of code structure and behaviour in a plain text format.&#xA;This means that you can update and maintain your diagrams in a text editor. They are meant to be easy to read and write, and most importantly, useful. By useful I mean you should be able to read them and gain rapid deep understanding of the source code structure and behaviour that the diagram represents.</description>
+      <description>Plain Text Diagrams are a way of representing diagrams of code structure and behaviour in a plain text format.&#xA;Plain Text &amp;lsquo;diagrams&amp;rsquo; - aren&amp;rsquo;t really diagrams but are nested, indented text files that can be rapidly parsed by the human eye to gain a high level understanding of a software system.&#xA;I call them text &amp;lsquo;diagrams&amp;rsquo; because they are a way of representing the structure and behaviour of a codebase in a way that is similar to UML diagrams, but implemented as text, using indentation and text arrows -&amp;gt; instead of boxes and arrows and graphics.</description>
     </item>
     <item>
       <title>Chord Jammer</title>

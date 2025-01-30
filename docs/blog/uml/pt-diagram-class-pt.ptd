@@ -1,0 +1,38 @@
+Classes:
+  class: Recipe --> BaseRecipe (inherits)
+                --> IRecipe (implements)
+    Attributes:
+      ingredients: Fruit (0..*) --> Fruit (contains)
+      instructions: string
+    Methods:
+      read()
+      prepare(fruit: Fruit)
+      chop(fruit: Fruit)
+      makeSmoothie(fruit: Fruit): Smoothie --> Smoothie (creates, 1)
+      logRecipe() (private)
+      startRecipe() (overrides)
+
+  class: Fruit
+    Attributes:
+      name: string
+      type: string
+    Methods:
+      getType()
+      peel()
+
+  class: Smoothie
+    Attributes:
+      ingredients: Fruit (1..*) --> Fruit (uses)
+      blended: boolean
+    Methods:
+      blend(fruit: Fruit)
+      serve()
+
+Class Relationships:
+  Recipe
+    --> BaseRecipe (inherits)
+    --> IRecipe (implements)
+    --> Fruit (contains, 1..*)
+    --> Smoothie (creates, 1)
+  Smoothie
+    --> Fruit (contains, 1..*)
