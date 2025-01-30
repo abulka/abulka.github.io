@@ -1,0 +1,15 @@
+Use Cases:
+  Scenario: Recipe 
+    read() [class Recipe, Recipe.ts]
+      -> getType() [class Fruit, Fruit.ts]
+        < string
+      -> peel() [class Fruit, Fruit.ts]
+        < void
+      < Fruit[]
+    prepare(fruit: Fruit) [class Recipe, Recipe.ts]
+      -> peel() [class Fruit, Fruit.ts]
+      -> chop(fruit: Fruit) [class Recipe, Recipe.ts]
+      -> makeSmoothie(fruit: Fruit) [class Recipe, Recipe.ts]
+        -> blend(fruit: Fruit) [class Smoothie, Smoothie.ts]
+        -> serve() [class Smoothie, Smoothie.ts]
+      < Smoothie

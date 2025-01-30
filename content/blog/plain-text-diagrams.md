@@ -47,15 +47,13 @@ However such code maps rely on visual tools and are not easily maintained in a t
 
 Plain Text Diagrams are a way of representing diagrams of code structure and behaviour in a plain text format.  This means that you can update and maintain your diagrams in a text editor.  They are meant to be easy to read and write, and most importantly, useful.  By useful I mean you should be able to read them and gain rapid deep understanding of the source code structure and behaviour that the diagram represents.
 
-## What do Plain Text Diagram Syntax look like?
+### What does Plain Text Diagram Syntax look like?
 
 ![beginning of a PT Diagram file](/blog/images/pt-diagram-screenshot1.png)
 *beginning of a PT Diagram file*
 
 ![a pseudo code, sequence diagram example of a use case scenario](/blog/images/pt-diagram-screenshot2.png)
 *a pseudo code, sequence diagram example of a use case scenario*
-
-## Examples
 
 ### Recipe Example
 
@@ -452,7 +450,9 @@ Use Cases:
 
 ```
 
-## Plain Text Diagram (PT Diagram) Notation - Specification
+## PT Diagram Specification
+
+Plain Text Diagram (PT Diagram) Notation - Specification
 
 A lightweight, plain text format for visualizing software systems, including classes, files, variables, functions, relationships, and use cases. Designed for readability, version control, and LLM compatibility.
 
@@ -514,19 +514,24 @@ Files:
 ```
 
 ### Classes:
-3. **Classes**: Describes classes and interfaces, including their attributes, methods (with parameters, return types, and annotations), and relationships (inheritance or implementation). The class: object is like a UML box with data + behaviour e.g. Attributes: and Methods:. The interface: object is like a class but with no methods.  Attributes can have optional default values with `= defaultValue`, and optional relationships with `(relationship, cardinality)`. Class and Interface names can optionally be followed by (somefile.ts) indicating their location. All the classes from all the files in the Diagram scope `files:` are listed here, allowing a 'logical' grouping of classes and interfaces, meaning you can list all the classes in one place, even though they are in different files.
+3. **Classes**: Describes classes and interfaces, including their attributes, methods (with parameters, return types, and annotations), and relationships (inheritance or implementation) e.g. `class Recipe --> BaseRecipe (inherits)`. Where there are multiple class and interface relationships, the second and subsequent relationships are placed on a new line with the `-->` lining up with the first arrow (see example below). 
+The class: object is like a UML box with data + behaviour e.g. Attributes: and Methods:. The interface: object is like a class but with no methods.
+Attributes can have optional default values with `= defaultValue`, and optional relationships with `(relationship, cardinality)` and optional arrows to the type `--> Type`. Class and Interface names can optionally be followed by (somefile.ts) indicating their location. 
+All the classes from all the files in the Diagram scope `files:` are listed in the `Classes:` section, allowing a 'logical' grouping of classes and interfaces, meaning you can list all the classes in one place, even though they are in different files.
 ```plaintext
 Classes:
-  class: Class1 (class1.ts) --> ParentClass (parent.ts) (inherits|implements)
+  class: Class1 (class1.ts) --> ParentClass (parent.ts) (inherits) 
+                            --> Interface1 (interface.ts) (implements)
     Attributes:
       attr1: Type # Example comment
-      attr2: Type = 100  # Optional default value
-      attr3: Type (0..1) # Optional cardinality
-      attr3: Type (owns, 1) # Optional relationship and cardinality
+      attr2: Type = 100 --> Type (uses, 1)
+      attr3: Type (0..1)
+      attr3: Type (owns, 1)
     Methods:
       method1(param1: Type, param2: Type): ReturnType
       method2(): void @override # Overrides a parent method
-  interface: Interface1
+
+  interface: Interface1 (interface1.ts)
     Methods:
       method1(param1: Type): ReturnType
 ```
@@ -581,23 +586,143 @@ Use Cases:
 
 ## Discussion
 
-#### Paradigm of a box with data and behaviour
+### Paradigm of a box with data and behaviour
 
 The paradigm of a box with data and behaviour is used throughout the notation. Classes naturally have Attributes and Methods. Did you know that Files can also be represented as boxes with data and behaviour? Files have Variables and Functions. 
 
-As such, the PT Diagram section `Files:` is a list of files, each with Variables and Functions. The `Classes:` section is a list of classes, each with Attributes and Methods. 
+> The idea that files can be treated as boxes with data and behaviour is a powerful one, and I use this idea in my [GitUML](https://www.gituml.com) tool to show the structure of a codebase. Also see my [Python UML tool](http://www.pynsource.com "Pynsource - UML tool for Python") which uses this idea to show the structure of a Python codebase by analysing python modules (files). Many programmers don't use classes for everything, and so the idea of a file as a box with data and behaviour is a useful one.
 
+Here is how data + behaviour is championed in PT Diagram notation:
+
+  - The PT Diagram section `Files:` is a list of files, each with Variables and Functions. 
+  - The PT Diagram section `Classes:` section is a list of classes, each with Attributes and Methods. 
+
+### Traditional UML Class Diagram
+
+<img src="/blog/images/pt-diagram-class-uml.png" alt="Traditional UML Class Diagram" width="60%">
+
+<br>
+<br>
+
+Here is the same diagram as a Plain Text Diagram:
+
+<img src="/blog/images/pt-diagram-class-pt.png" alt="Plain Text 'UML Class Diagram'" width="60%">
+
+<br>
+<br>
+
+Sure, its not as "visual" and as effective at communicating meaning, but its not bad for a text representation.  It is a way of representing the structure of a codebase in a way that is similar to a UML class diagram, but implemented as text, using indentation and text arrows `->` instead of boxes and arrows and graphics. Put it in a comment in your source code - no problem!
+
+### Similarity to PlantUML and Mermaid markdown
+
+The PT Diagram notation is similar to PlantUML and other markdown diagramming tools, but is arguably more human-readable because of the `-->` arrows which are trying to show relationships in a more line drawing, 'diagram-like' way. Here is the same diagram as a PlantUML markdown:
+
+```plantuml
+@startuml pt-diagram-class-uml
+class Recipe {
+  - ingredients: Fruit[]
+  - instructions: string[]
+  + read(): Fruit[]
+  + prepare(fruit: Fruit): void
+  + chop(fruit: Fruit): void
+  + makeSmoothie(fruit: Fruit): Smoothie
+  - logRecipe(): void
+}
+class Fruit {
+  - name: string
+  - type: string
+  + getType(): string
+  + peel(): void
+}
+class Smoothie {
+  - ingredients: Fruit[]
+  - blended: boolean
+  + blend(fruit: Fruit): void
+  + serve(): void
+}
+Recipe -|> BaseRecipe : inherits
+Recipe .|> IRecipe : implements
+Recipe "1" *-- "0..*" Fruit : contains
+Recipe "1" *-- "1" Smoothie : creates
+Smoothie "1" *-- "1..*" Fruit : uses
+@enduml
+```
+PlantUML shows relationships as special instructions each on their own line, which is less integrated and it is arguably harder for a human to reconstruct the visual picture of the relationships in their mind from a list.
+
+Sure, PT Diagrams, also have a `Class Relationships:` section where all the relationships are listed, one per line. But this section is a redundant, summary of the relationship shown in the Classes section and is entirely optional. Use it if you feel it adds value (see section below on Relationships).
+
+### Why not ASCII boxes?
+
+```
++----------------------+    +-------------------+                    
+|     BaseRecipe       |    |     IRecipe       |                    
++----------------------+    +-------------------+                    
+                 ▲              ▲                                    
+                 │ inherits     │implements                          
+                 │                                                   
+                 │              │                                    
+           +-----------------------+           +--------------------+
+           |       Recipe          |           |     Smoothie       |
+           +-----------------------+ creates──▶+--------------------+
+           | - ingredients: Fruit[]|           | - ingredients:     |
+           | - instructions: str[] |           |   Fruit[]          |
+           +-----------------------+           | - blended: boolean |
+           | + read(): Fruit[]     |           +--------------------+
+           | + prepare(fruit)      |─────┐     | + blend(fruit)     |
+           | + chop(fruit)         |     │     | + serve(): void    |
+           | + makeSmoothie()      |     │     +--------------------+
+           | - logRecipe()         |     │               │           
+           +-----------------------+ contains            │ uses      
+                                       1..*              ▼           
+                                         │     +--------------------+
+                                         │     |      Fruit         |
+                                         │     +--------------------+
+                                         └────▶| - name: string     |
+                                               | - type: string     |
+                                               +--------------------+
+                                               | + getType(): string|
+                                               | + peel(): void     |
+                                               +--------------------+
+```
+*hand crafted ascii diagram*
+
+Yeah good luck with that.
+
+ASCII boxes are a great way to represent classes and files, but they are not easy to create or maintain in a text editor.  In fact they are an absolute nightmare to create by hand. I used the Mac app [MonoDraw](https://monodraw.helftone.com/) to help me make the above ASCII diagram.
+  
 #### Relationships
 
 Philosophically, there are other paradigms besides data and behaviour. Relationships are a `thing`, so we have a `Class Relationships:` section and an `Imports:` section. 
 
-The `Class Relationships:` section is a list of classes with relationships to other classes. The `Imports:` section is a list of files with relationships to other files. 
+The `Imports:` section is a list of files with relationships to other files. 
+
+The `Class Relationships:` section is a list of classes with relationships to other classes. 
+
+<img src="/blog/images/pt-diagram-class-pt-relationships.png" alt="Plain Text 'UML Class Diagram' Class Relationships" width="60%">
+
+<br>
+<br>
 
 #### Sequence Diagrams as plain text
 
 The `Use Cases:` section is a list of scenarios, each with a sequence of function calls.  Each use case is a "sequence diagram" in plain text.
 
 Instead of a diagram with arrows drawn left to right, plain text diagrams use `->` to indicate a function call.  The return type of the function is shown on the next line as `< returnType`.  The return type can optionally be followed by `, variable =` to indicate where the result is stored.  
+
+### Traditional Sequence Diagram
+
+
+<img src="/blog/images/pt-diagram-sequence-uml.png" alt="Traditional UML Sequence Diagram" width="30%">
+
+<br>
+<br>
+
+Here is the same diagram as a Plain Text Diagram:
+
+<img src="/blog/images/pt-diagram-sequence-pt.png" alt="Plain Text 'UML Sequence Diagram'" width="60%">
+
+<br>
+<br>
 
 #### Sequence diagram depth
 

@@ -1,0 +1,28 @@
+@startuml pt-diagram-class-uml
+class Recipe {
+  - ingredients: Fruit[]
+  - instructions: string[]
+  + read(): Fruit[]
+  + prepare(fruit: Fruit): void
+  + chop(fruit: Fruit): void
+  + makeSmoothie(fruit: Fruit): Smoothie
+  - logRecipe(): void
+}
+class Fruit {
+  - name: string
+  - type: string
+  + getType(): string
+  + peel(): void
+}
+class Smoothie {
+  - ingredients: Fruit[]
+  - blended: boolean
+  + blend(fruit: Fruit): void
+  + serve(): void
+}
+Recipe -|> BaseRecipe : inherits
+Recipe .|> IRecipe : implements
+Recipe "1" *-- "0..*" Fruit : contains
+Recipe "1" *-- "1" Smoothie : creates
+Smoothie "1" *-- "1..*" Fruit : uses
+@enduml
