@@ -17,7 +17,7 @@ As I write on my flagship diagramming tool website [GitUML](https://www.gituml.c
 
 > Understanding source code is every programmer's biggest challenge
 
-Plain Text Diagrams are a way to help you understand source code. They are a way to help you understand the structure and behaviour of a codebase. They have the advantages of UML diagrams but implemented as text, using indentation and text arrows `->` instead of boxes and arrows and graphics. Arguably they go beyond UML diagrams as they can be used to document the behaviour of a function in a way that UML diagrams cannot, inclding psuedo code narrative text, much like literate code mapping does (see my [literate code mapping](https://github.com/abulka/lcodemaps).
+Plain Text Diagrams are a way to help you understand source code. They are a way to help you understand the structure and behaviour of a codebase. They have the advantages of UML diagrams but implemented as text, using indentation and text arrows `->` instead of boxes and arrows and graphics. Arguably they go beyond UML diagrams as they can be used to document the behaviour of a function in a way that UML diagrams cannot, inclding psuedo code narrative text, much like literate code mapping does (see my [literate code mapping](https://github.com/abulka/lcodemaps)).
 
 ## The Secret Technique Behind Every Great Programmer
 
@@ -25,9 +25,9 @@ I don't care how smart you are, or how many years of experience you have, unders
 
 But there is one technique that every great programmer uses to understand source code, and that is **code maps**. Code maps are abstract representations of the structure and behaviour of a codebase. A programmer may grab a piece of paper or open a text editor and start writing class names, file names, variable names and function names then drawing arrows showing what calls what and what points to what. They show you how the different parts of the codebase are connected, and how they interact with each other.  They help you to see the big picture, and to understand how the different parts of the codebase fit together. Its a map.  A map of the codebase.  A code map.
 
-I don't care what anybody says, you cannot keep the entire structure and behaviour of a codebase in your head.  You need a map.  You need a code map.
+I don't care what anybody says, you cannot keep large chunks of structure and behaviour of a codebase entirely in your head.  You need a map.  You need a code map. Or at least, you will be more effective if you have a code map.
 
-Such maps are not comprehensive. Just like with UML diagrams, you only need to map what you need to tell a particular use case story or solve a particular problem.  These code maps need not be permanent - you can throw them away after you are done with them.  Or you can keep them in an archive in your git repository for future reference, even though they will be out of date, they will still be useful.
+Such maps need not be comprehensive. Just like with UML diagrams, you only need to map what you need to tell a particular use case story or solve a particular problem.  These code maps need not be permanent - you can throw them away after you are done with them.  Or you can keep them in an archive in your git repository for future reference, even though they will be out of date, they will still be useful.
 
 They are a tool to help you understand the codebase, and they are a tool to help you solve problems.  They are a tool to help you be a better programmer.
 
@@ -450,7 +450,7 @@ Use Cases:
 
 ```
 
-## PT Diagram Specification
+## Specification
 
 Plain Text Diagram (PT Diagram) Notation - Specification
 
@@ -584,6 +584,44 @@ Use Cases:
       < returnType
 ```
 
+## Comparison with UML
+
+### Traditional UML Class Diagram
+
+<img src="/blog/images/pt-diagram-class-uml.png" alt="Traditional UML Class Diagram" width="60%">
+
+<br>
+<br>
+
+Here is the same diagram as a Plain Text Diagram:
+
+<img src="/blog/images/pt-diagram-class-pt.png" alt="Plain Text 'UML Class Diagram'" width="70%">
+
+<br>
+<br>
+
+Sure, its not as "visual" and as effective at communicating meaning, but its not bad for a text representation.  It is a way of representing the structure of a codebase in a way that is similar to a UML class diagram, but implemented as text, using indentation and text arrows `->` instead of boxes and arrows and graphics. Put it in a comment in your source code - no problem!
+
+### Traditional Sequence Diagram
+
+<img src="/blog/images/pt-diagram-sequence-uml.png" alt="Traditional UML Sequence Diagram" width="40%">
+
+<br>
+<br>
+
+Here is the same diagram as a Plain Text Diagram:
+
+<img src="/blog/images/pt-diagram-sequence-pt.png" alt="Plain Text 'UML Sequence Diagram'" width="60%">
+
+<br>
+<br>
+
+The `Use Cases:` section is a list of scenarios, each with a sequence of function calls.  Each `Scenario:` is a "sequence diagram" in plain text. 
+
+> Perhaps `Scenario:` should be renamed `Sequence:`?
+
+Instead of a diagram with arrows drawn left to right, plain text diagrams use `->` to indicate a function call.  The return type of the function is shown on the next line as `< returnType`.  The return type can optionally be followed by `, variable =` to indicate where the result is stored.  
+
 ## Discussion
 
 ### Paradigm of a box with data and behaviour
@@ -596,22 +634,6 @@ Here is how data + behaviour is championed in PT Diagram notation:
 
   - The PT Diagram section `Files:` is a list of files, each with Variables and Functions. 
   - The PT Diagram section `Classes:` section is a list of classes, each with Attributes and Methods. 
-
-### Traditional UML Class Diagram
-
-<img src="/blog/images/pt-diagram-class-uml.png" alt="Traditional UML Class Diagram" width="60%">
-
-<br>
-<br>
-
-Here is the same diagram as a Plain Text Diagram:
-
-<img src="/blog/images/pt-diagram-class-pt.png" alt="Plain Text 'UML Class Diagram'" width="60%">
-
-<br>
-<br>
-
-Sure, its not as "visual" and as effective at communicating meaning, but its not bad for a text representation.  It is a way of representing the structure of a codebase in a way that is similar to a UML class diagram, but implemented as text, using indentation and text arrows `->` instead of boxes and arrows and graphics. Put it in a comment in your source code - no problem!
 
 ### Similarity to PlantUML and Mermaid markdown
 
@@ -699,27 +721,6 @@ The `Imports:` section is a list of files with relationships to other files.
 The `Class Relationships:` section is a list of classes with relationships to other classes. 
 
 <img src="/blog/images/pt-diagram-class-pt-relationships.png" alt="Plain Text 'UML Class Diagram' Class Relationships" width="60%">
-
-<br>
-<br>
-
-#### Sequence Diagrams as plain text
-
-The `Use Cases:` section is a list of scenarios, each with a sequence of function calls.  Each use case is a "sequence diagram" in plain text.
-
-Instead of a diagram with arrows drawn left to right, plain text diagrams use `->` to indicate a function call.  The return type of the function is shown on the next line as `< returnType`.  The return type can optionally be followed by `, variable =` to indicate where the result is stored.  
-
-### Traditional Sequence Diagram
-
-
-<img src="/blog/images/pt-diagram-sequence-uml.png" alt="Traditional UML Sequence Diagram" width="30%">
-
-<br>
-<br>
-
-Here is the same diagram as a Plain Text Diagram:
-
-<img src="/blog/images/pt-diagram-sequence-pt.png" alt="Plain Text 'UML Sequence Diagram'" width="60%">
 
 <br>
 <br>
