@@ -31,7 +31,7 @@ I call them text ‘diagrams’ because they are a way of representing the struc
   <meta property="og:type" content="article">
     <meta property="article:section" content="blog">
     <meta property="article:published_time" content="2025-01-29T00:00:00+00:00">
-    <meta property="article:modified_time" content="2025-01-30T16:49:26+11:00">
+    <meta property="article:modified_time" content="2025-01-30T17:01:59+11:00">
     <meta property="article:tag" content="UML">
     <meta property="article:tag" content="Diagramming">
     <meta property="article:tag" content="Notation">
@@ -41,8 +41,8 @@ I call them text ‘diagrams’ because they are a way of representing the struc
 Plain Text ‘diagrams’ - aren’t really diagrams but are nested, indented text files that can be rapidly parsed by the human eye to gain a high level understanding of a software system.
 I call them text ‘diagrams’ because they are a way of representing the structure and behaviour of a codebase in a way that is similar to UML diagrams, but implemented as text, using indentation and text arrows -&gt; instead of boxes and arrows and graphics.">
   <meta itemprop="datePublished" content="2025-01-29T00:00:00+00:00">
-  <meta itemprop="dateModified" content="2025-01-30T16:49:26+11:00">
-  <meta itemprop="wordCount" content="4961">
+  <meta itemprop="dateModified" content="2025-01-30T17:01:59+11:00">
+  <meta itemprop="wordCount" content="5093">
   <meta itemprop="keywords" content="UML,Diagramming,Notation">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Plain Text Diagrams">
@@ -106,7 +106,7 @@ if (!doNotTrack) {
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.f601b941a1b534441da261bb95a6c771.json"
+    data-offline-search-index-json-src="/offline-search-index.d4f2aec8b481c67e19b943056bc15724.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -130,7 +130,7 @@ if (!doNotTrack) {
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.f601b941a1b534441da261bb95a6c771.json"
+    data-offline-search-index-json-src="/offline-search-index.d4f2aec8b481c67e19b943056bc15724.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -360,29 +360,28 @@ if (!doNotTrack) {
 <p>Plain Text &lsquo;diagrams&rsquo; - <strong>aren&rsquo;t really diagrams</strong> but are nested, indented text files that can be rapidly parsed by the human eye to gain a high level understanding of a software system.</p>
 <p>I call them text &lsquo;diagrams&rsquo; because they are a way of representing the structure and behaviour of a codebase in a way that is similar to UML diagrams, but implemented as text, using indentation and text arrows <code>-&gt;</code> instead of boxes and arrows and graphics.</p>
 <h2 id="why">Why</h2>
-<p>As I write on my flagship diagramming tool website <a href="https://www.gituml.com">GitUML</a>:</p>
+<p>As I write on my flagship (visual) diagramming tool website <a href="https://www.gituml.com">GitUML</a>:</p>
 <blockquote>
 <p>Understanding source code is every programmer&rsquo;s biggest challenge</p>
 </blockquote>
 <p>Plain Text Diagrams are a way to help you understand source code. They are a way to help you understand the structure and behaviour of a codebase. They have the advantages of UML diagrams but implemented as text, using indentation and text arrows <code>-&gt;</code> instead of boxes and arrows and graphics. Arguably they go beyond UML diagrams as they can be used to document the behaviour of a function in a way that UML diagrams cannot, inclding psuedo code narrative text, much like literate code mapping does (see my <a href="https://github.com/abulka/lcodemaps">literate code mapping</a>).</p>
 <h2 id="the-secret-technique-behind-every-great-programmer">The Secret Technique Behind Every Great Programmer</h2>
-<p>I don&rsquo;t care how smart you are, or how many years of experience you have, understanding source code is hard.  It&rsquo;s hard because source code is complex, and it&rsquo;s hard because it&rsquo;s always changing.  And it&rsquo;s hard because there are hundreds if not thousands of relationships between the different parts of a codebase.</p>
-<p>But there is one technique that every great programmer uses to understand source code, and that is <strong>code maps</strong>. Code maps are abstract representations of the structure and behaviour of a codebase. A programmer may grab a piece of paper or open a text editor and start writing class names, file names, variable names and function names then drawing arrows showing what calls what and what points to what. They show you how the different parts of the codebase are connected, and how they interact with each other.  They help you to see the big picture, and to understand how the different parts of the codebase fit together. Its a map.  A map of the codebase.  A code map.</p>
-<p>I don&rsquo;t care what anybody says, you cannot keep large chunks of structure and behaviour of a codebase entirely in your head.  You need a map.  You need a code map. Or at least, you will be more effective if you have a code map.</p>
+<p>I don&rsquo;t care how smart you are, or how many years of experience you have, understanding source code is hard.  It&rsquo;s hard because source code is complex - there are hundreds if not thousands of relationships between the different parts of a codebase.</p>
+<p>But there is one technique that every great programmer uses to understand source code, and that is some form of <strong>code map</strong> or abstraction artifact. Code maps are abstract representations of the structure and behaviour of a codebase. A programmer may grab a piece of paper or open a text editor and start writing class names, file names, events, variable names and function names then drawing arrows showing what calls what and what points to what. They show you how the different parts of the codebase are connected, and how they interact with each other.  Going through the proces of making some kind of code map helps you to see the big picture, or understand a slice of the codebase that you need to understand in order to debug something or add a feature.</p>
+<p>I don&rsquo;t care what anybody says, you cannot keep large chunks of detail, structure and behaviour of a codebase entirely in your head - you will be more effective if you have a code map.</p>
 <p>Such maps need not be comprehensive. Just like with UML diagrams, you only need to map what you need to tell a particular use case story or solve a particular problem.  These code maps need not be permanent - you can throw them away after you are done with them.  Or you can keep them in an archive in your git repository for future reference, even though they will be out of date, they will still be useful.</p>
-<p>They are a tool to help you understand the codebase, and they are a tool to help you solve problems.  They are a tool to help you be a better programmer.</p>
 <h3 id="what-does-a-code-map-look-like">What does a code map look like?</h3>
-<p>Every programmer is different, and I can&rsquo;t claim to know what code maps scribbles they come up with. For me personally I like to use a combination of UML class diagrams and sequence diagrams.  I like to use a lot of rich text narrative to explain what is going on.  I like to number the function calls to show the order of execution.  I like to cross reference ideas to show how they are related.  I like to show the structure and behaviour in the same diagram.  I like to show the code fragments in the boxes.  I like to show the story of a use case scenario in the diagram.</p>
+<p>Every programmer is different, and I can&rsquo;t claim to know what code map techniques and scribbles they come up with. Personally I like to use a combination of UML class diagrams and sequence diagrams.  I like to use a rich text narrative to explain what is going on.  I like using colour to associate ideas either through coloured text, boxes or arrows. I like to number function calls to show the order of execution.  I like to cross reference ideas to show how they are related using colour, numbers or symbols.  I like to show the structure and behaviour in the same diagram.  I like to show actual code fragments or pseudo code in boxes.</p>
 <p>Here is an example:</p>
 <p><img src="https://raw.github.com/abulka/lcodemaps/master/images/handcrafted-code-map-andy.png" alt="code map example 01"></p>
 <p>Taking the code map idea to a more formal level, I have created a new diagramming methodology called Literate Code Mapping <a href="https://abulka.github.io/lcodemaps/">here</a>.</p>
-<p>However such code maps rely on visual tools and are not easily maintained in a text editor.  This is where Plain Text Diagrams come in.</p>
+<p>However most code maps rely on visual tools (drawings on paper or visual diagrams) thus are not easily maintained in a text editor.  Ideally you want code maps to live in comments next to your code, or in markdown files. This is where Plain Text &lsquo;Diagrams&rsquo; come in.</p>
 <h2 id="plain-text-diagrams">Plain Text Diagrams</h2>
-<p>Plain Text Diagrams are a way of representing diagrams of code structure and behaviour in a plain text format.  This means that you can update and maintain your diagrams in a text editor.  They are meant to be easy to read and write, and most importantly, useful.  By useful I mean you should be able to read them and gain rapid deep understanding of the source code structure and behaviour that the diagram represents.</p>
+<p>Plain Text Diagrams are a way of representing diagrams of code structure and behaviour in a plain text format - not ASCII diagrams which are hard to produce, but indented approximations of what diagrams give you.  Being Plain Text means that you can rapidly update and maintain your diagrams in a text editor.  They are meant to be easy to read and write, and most importantly, useful.  By useful I mean you should be able to read them and gain rapid deep understanding of the source code structure and behaviour that the diagram represents.</p>
 <h3 id="what-does-plain-text-diagram-syntax-look-like">What does Plain Text Diagram Syntax look like?</h3>
-<p><img src="/blog/images/pt-diagram-screenshot1.png" alt="beginning of a PT Diagram file">
+<p><img src="/blog/images/pt-diagram-screenshot1.png" alt="The beginning of a PT Diagram file">
 <em>beginning of a PT Diagram file</em></p>
-<p><img src="/blog/images/pt-diagram-screenshot2.png" alt="a pseudo code, sequence diagram example of a use case scenario">
+<p><img src="/blog/images/pt-diagram-screenshot2.png" alt="A pseudo code, sequence diagram example of a use case scenario">
 <em>a pseudo code, sequence diagram example of a use case scenario</em></p>
 <h3 id="recipe-example">Recipe Example</h3>
 <p>Example for Recipe Construction</p>
@@ -705,8 +704,7 @@ Use Cases:
           &lt; void
       &lt; void
 </code></pre><h3 id="treeview-example">Treeview Example</h3>
-<p>Advanced Use Case example showing a Treeview construction scenario, taken from my vscode extension <a href="/projects/libraries/snippets-explorer/">Snippets Explorer</a>.</p>
-<p>PT Diagram (pure text diagram) use case sequence and psuedo code scenario using advanced features like <code>[if]</code>, <code>[else]</code> and plenty of psuedo code descriptive text.</p>
+<p>A Use Case (sequence diagram as text) example showing a Treeview construction code, representing the functionality of my vscode extension <a href="/projects/libraries/snippets-explorer/">Snippets Explorer</a> which shows vscode source code snippets in a treeview. This sequence &lsquo;diagram&rsquo; example includes features like <code>[if]</code>, <code>[else]</code> and plenty of psuedo code descriptive text.</p>
 <pre tabindex="0"><code>Use Cases:
   Scenario: Building Snippet Tree
     _buildTree(languageId: string) [class TreeDataProvider, snippet_tree.js]
@@ -788,17 +786,56 @@ Use Cases:
   Scenario: A
   Scenario: B
   ...
+</code></pre><p>more detail:</p>
+<pre tabindex="0"><code>Diagram:
+  name:
+  version:
+  description:
+  files: File1.ts, File2.ts, ...
+
+Files:
+  file: File1.ts
+    Variables:
+    Functions:
+    Classes:
+    Interfaces:
+
+  file: File2.ts
+    ...
+
+Classes:
+  class: Class1 (class1.ts) --&gt; ParentClass
+    Attributes:
+    Methods:
+
+  interface: Interface1 (interface1.ts)
+    Methods:
+
+  class: Class2 (class2.ts)
+    ...
+
+Class Relationships:
+  ...
+
+Imports:
+  ...
+
+Use Cases:
+  Scenario: Example Call Sequence
+    ...
+  
+  Scenario: Another Scenario
+    ...
 </code></pre><h3 id="diagram">Diagram:</h3>
 <ol>
-<li><strong>Diagram</strong>: System name, version, description, and files. Your Plain Text Diagram can be of a single source code file, or multiple source code files. Its scope is defined by the comma delimited list of files in the  <code>files:</code> label of the <code>Diagram:</code> section.
+<li><strong>Diagram</strong>: System name, version, description, and files. Your Plain Text Diagram can be of a single source code file, or multiple source code files. Its scope is defined by the comma delimited list of files in the  <code>files:</code> label of the <code>Diagram:</code> section.</li>
+</ol>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>Diagram:
 </span></span><span style="display:flex;"><span>  name: Diagram Name
 </span></span><span style="display:flex;"><span>  version: 1.0
 </span></span><span style="display:flex;"><span>  description: Brief description.
 </span></span><span style="display:flex;"><span>  files: File1.ts, File2.ts
-</span></span></code></pre></div></li>
-</ol>
-<h3 id="files">Files:</h3>
+</span></span></code></pre></div><h3 id="files">Files:</h3>
 <ol start="2">
 <li><strong>Files</strong>: Lists variables, functions (with parameters, return types, and annotations), and classes/interfaces for each file. Comments can be added using <code>#</code>. The file: objects are like UML boxes with data + behaviour e.g. Variables: and Functions:. Additional sections for Classes: and Interfaces: can be added if needed - these just list the names of the classes and interfaces living in this particular file. Variables can have optional type <code>: type</code>, default value <code> = value</code> followed by an optional tuple containing <code>(relationship type, cardinality)</code> where relationship type is just a free form description of the relationship e.g. <code>contains</code>, <code>owns</code>, <code>uses</code>, <code>implements</code>, <code>inherits</code>, <code>depends on</code>, <code>creates</code>, <code>diagnoses</code>. The cardinality is a string like <code>1</code>, <code>0..1</code>, <code>1..*</code>, <code>0..*</code>. Functions can have parameters with types and default values, and return types. Functions can have annotations like <code>@override</code> to indicate that they override a parent class method. Functions can be listed as <code>(private)</code> or some other access modifier.</li>
 </ol>
@@ -1039,7 +1076,7 @@ Smoothie &#34;1&#34; *-- &#34;1..*&#34; Fruit : uses
         &lt; void
     &lt; void
 </code></pre><p>Another technique is to show a lot of psuedo code detail and only show the function calls to a shallow level.  This is a way of documenting the function behaviour.  You can mix and match these techniques as you see fit.</p>
-<p>Note that <code>Imports:</code> also are nested and indented, with the ability to show imports of imports, as deep as you like.</p>
+<p>Note that file in the <code>Imports:</code> section also are nested and indented, with the ability to show imports of imports, as deep as you like.</p>
 <h4 id="psuedo-code">Psuedo Code</h4>
 <p>You can add psuedo code text of what is going on in a use case. There is no special syntax in PT Diagram notation for such lines. Just add them as you see fit.  They are indented under the function call line.  They are not part of the function call sequence, they are just descriptive text.  They are a way of telling the story of the use case.</p>
 <p>Psudeo code narrative text is only supported in the <code>Use Cases:</code> section.  It is not supported in the other sections.  However you can add comments after the attributes and methods in the <code>Classes:</code> section, or after the variables and functions in the <code>Files:</code> section.</p>
@@ -1069,7 +1106,13 @@ Smoothie &#34;1&#34; *-- &#34;1..*&#34; Fruit : uses
 <li>Ask an AI to do it</li>
 <li>Use an app to do it (doesn&rsquo;t exist yet)</li>
 </ul>
-<p>If you want to generate PT Diagrams from your source code automatically, you can ask an AI to do it. Just feed it the specification, some examples then ask it to generate some PT Diagrams for you.</p>
+<p>If you want to generate PT Diagrams from your source code automatically, you can ask an AI to do it:</p>
+<ul>
+<li>feed it the <code>Specification</code> portion of <a href="https://raw.githubusercontent.com/abulka/abulka.github.io/refs/heads/master/content/blog/plain-text-diagrams.md">this blog post as markdown</a> (search for <code>## Specification</code>)</li>
+<li>feed it some examples (search for <code>### Recipe Example</code>, <code>### Car Example</code> or <code>### Treeview Example</code>)</li>
+<li>ask the AI to generate a PT Diagram for you, pasting in the source code you wish the PT Diagram to represent.</li>
+</ul>
+<p>Ideally there would be a dedicated app, website or vscode extension that would do this for you.  I am thinking about this.</p>
 <h2 id="final-thoughts">Final Thoughts</h2>
 <p>Plain Text Diagrams are a way of representing diagrams of code structure and behaviour in a plain text format.  They help you understand source code. You can come back to a project after a long time and read the PT Diagrams to understand what is going on.  You can use them to explain to others how the code works.  You can use them to solve problems.  You can use them to be a better programmer.</p>
 <h2 id="references">References</h2>
@@ -1090,7 +1133,7 @@ Smoothie &#34;1&#34; *-- &#34;1..*&#34; Fruit : uses
 </ul>
 
 	<div class="td-page-meta__lastmod">
-  Last modified January 30, 2025: <a href="https://github.com/abulka/abulka.github.io/commit/fd02ac5952fa157677eb4769ef50681af63454b1">improve pt diagrams article (fd02ac5)</a>
+  Last modified January 30, 2025: <a href="https://github.com/abulka/abulka.github.io/commit/590e3dd89d87f90d1eee4b71f980cdd5c8e3affe">cleanup (590e3dd)</a>
 </div>
 </div>
 
