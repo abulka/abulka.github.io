@@ -7,15 +7,17 @@ tags: ["UML", "Diagramming", "Notation"]
 
 `Plain Text Diagrams` are a way of representing diagrams of code structure and behaviour in a plain text format.
 
-This means that you can update and maintain your diagrams in a text editor. They are meant to be easy to read and write, and most importantly, useful. By useful I mean you should be able to read them and gain rapid deep understanding of the source code structure and behaviour that the diagram represents.
+Plain Text 'diagrams' - **aren't really diagrams** but are nested, indented text files that can be rapidly parsed by the human eye to gain a high level understanding of a software system. 
 
-Your Plain Text Diagram can be of a single source code file, or multiple source code files. Its scope is defined by the `files:` section of the `Diagram:` section.
+I call them text 'diagrams' because they are a way of representing the structure and behaviour of a codebase in a way that is similar to UML diagrams, but implemented as text, using indentation and text arrows `->` instead of boxes and arrows and graphics.
+
+## Why
 
 As I write on my flagship diagramming tool website [GitUML](https://www.gituml.com):
 
 > Understanding source code is every programmer's biggest challenge
 
-Plain Text Diagrams are a way to help you understand source code. They are a way to help you understand the structure and behaviour of a codebase.
+Plain Text Diagrams are a way to help you understand source code. They are a way to help you understand the structure and behaviour of a codebase. They have the advantages of UML diagrams but implemented as text, using indentation and text arrows `->` instead of boxes and arrows and graphics. Arguably they go beyond UML diagrams as they can be used to document the behaviour of a function in a way that UML diagrams cannot, inclding psuedo code narrative text, much like literate code mapping does (see my [literate code mapping](https://github.com/abulka/lcodemaps).
 
 ## The Secret Technique Behind Every Great Programmer
 
@@ -55,7 +57,9 @@ Plain Text Diagrams are a way of representing diagrams of code structure and beh
 
 ## Examples
 
-### Example for Recipe Construction
+### Recipe Example
+
+Example for Recipe Construction
 
 ```
 Diagram:
@@ -383,121 +387,12 @@ Use Cases:
       < void
 ```
 
-## Plain Text Diagram (PT Diagram) Notation - Specification
+### Treeview Example
 
-### **Purpose**
-A lightweight, plain text format for visualizing software systems, including classes, files, variables, functions, relationships, and use cases. Designed for readability, version control, and LLM compatibility.
+Advanced Use Case example showing a Treeview construction scenario, taken from my vscode extension [Snippets Explorer](/projects/libraries/snippets-explorer/).
 
-### **Sections**
+PT Diagram (pure text diagram) use case sequence and psuedo code scenario using advanced features like `[if]`, `[else]` and plenty of psuedo code descriptive text.
 
-Broadly, the PT Diagram notation consists of the following sections:
-```
-Diagram:
-Files:
-Classes:
-Class Relationships:
-Imports:
-Use Cases:
-  Scenario: A
-  Scenario: B
-```
-
-Indentation: Critical for hierarchy and readability. Use `-->` for relationships. Use `->` for function calls in use cases. Use `< returnType` for function return types. Various annotations 
-
-Insights: PT Diagrams are a hybrid of UML, sequence diagrams, and pseudo code. They are designed to be human-readable, version-controlled, and lightweight. They can be used to document, understand, and communicate software systems.
-
-### **Syntax**
-
-1. **Diagram**: System name, version, description, and files.
-   ```plaintext
-   Diagram:
-     name: Diagram Name
-     version: 1.0
-     description: Brief description.
-     files: File1.ts, File2.ts
-   ```
-
-2. **Files**: Lists variables, functions (with parameters, return types, and annotations), and classes/interfaces for each file. Comments can be added using `#`. The file: objects are like UML boxes with data + behaviour e.g. Variables: and Functions:. Additional sections for Classes: and Interfaces: can be added if needed. Variables can have optional default values with `= defaultValue`, and optional relationships with `(relationship, cardinality)`.  Functions can be listed as (private).
-    ```plaintext
-    Files:
-      file: File1.ts
-        Variables:
-          var1: Type # Example comment
-          var2: Type = 100 # Optional default value
-          var3: Type (0..1) # Optional cardinality
-          var3: Type (contains, 1..*) # Optional relationship
-
-        Functions:
-          func1(param1: Type, param2: Type): ReturnType
-          func2(): void @override # Overrides a parent class method
-          func3(): number (private)
-        Classes:
-          Class1
-        Interfaces:
-          Interface1
-    ```
-
-3. **Classes**: Describes classes and interfaces, including their attributes, methods (with parameters, return types, and annotations), and relationships (inheritance or implementation). The class: object is like a UML box with data + behaviour e.g. Attributes: and Methods:. The interface: object is like a class but with no methods.  Attributes can have optional default values with `= defaultValue`, and optional relationships with `(relationship, cardinality)`. Class and Interface names can optionally be followed by (somefile.ts) indicating their location.
-   ```plaintext
-    Classes:
-      class: Class1 (class1.ts) --> ParentClass (parent.ts) (inherits|implements)
-        Attributes:
-          attr1: Type # Example comment
-          attr2: Type = 100  # Optional default value
-          attr3: Type (0..1) # Optional cardinality
-          attr3: Type (owns, 1) # Optional relationship and cardinality
-        Methods:
-          method1(param1: Type, param2: Type): ReturnType
-          method2(): void @override # Overrides a parent method
-      interface: Interface1
-        Methods:
-          method1(param1: Type): ReturnType
-   ```
-
-4. **Class Relationships**: Describes relationships between classes and interfaces, including optional relationship annotation (uses, contains, owns, etc.) and optional cardinality (e.g., 1, 1..*, 0..1). Single or multiple relationships. If one relationship, use `Class1 --> Class2 (relationship)`. For multiple relationships, indent the relationships under the class.  Nested relationships are indented further.
-```plaintext
-   Class Relationships:
-     Class1
-       --> Class2 (inherits)
-       --> Class3 (implements)
-     Class4 --> Class5 (depends on)
-     Class6
-       --> Class7 (contains, 1..*)
-       --> Class8 (creates, 1)
-         --> Class9 (owns, 0..1)
-```
-
-5. **Imports**: Dependencies between files. Files one per line. List the contents of each file in () e.g. `File1.ts (class Class1, function func1)` indent the relationships under the file using -->. Multiple relationships are indented under the file at the same level. Nested relationships are indented further.
-```plaintext
-Imports:
-  Car.ts (class Car, function start, function stop)
-    --> Automobile.ts (interface Automobile)
-  ElectricCar.ts (class ElectricCar, function charge)
-    --> Car.ts (class Car, function start)
-    --> Charger.ts (class Charger, function chargeCar)
-      --> Utils.ts (function calculatePower)
-```
-
-6. **Use Cases**:  Use Case Notation describes high-level scenarios combining sequence diagrams with descriptive pseudo-code. Core syntax: Function calls follow indented format `-> functionName(params) [class ClassName, File.ts]` with source annotations [source class (if applicable), filename]. Return types appear on a new line as `< returnType` followed by optional `, variable =` to specify where result is stored; `< void` is optional for no return value. Returns can be primitives or complex objects like `< {prop: type}`. Control flow uses bracketed annotations [if], [else], [loop], [parallel], [try], [catch], [finally], [recurse] with nesting shown through indentation and arrows (`->`) indicating nested function calls. Variables are referenced in backticks (e.g. `` `variableName` ``) with state updates described in natural language, focusing on key changes and purpose rather than detailed assignments. The notation prioritizes high-level abstraction and "what" over "how", using natural language summaries for logic and state changes while retaining clear function call notation. Since use cases begin with a function call, they can serve as documentation for function behavior itself. Bullet points (-) can be used to list sequential actions.async function calls can be preceded by e.g. `-> await function1()`. 
-Indenting is typically two spaces, indented `-> function()` call lines are matched with corresponding `< type` line which is on its own line and indented more than the initialting parent call. It is impossible for there to be lines at the same indent level as a returning `< type` line. [if condition] and other annotations like [try] are followed by a `-> function()` line or psudo code descriptive text which is indented, like the way a regular if or try statements work.
-Example:
-```
-   Use Cases:
-     Scenario: Example Scenario
-       func1() [class Class1, File1.ts]         
-         Initializes `this.snippetTree` and `this.itemTree` as empty structures.
-         [if condition]
-           -> func2() [class Class2, File2.ts]
-             Updates `this.itemTree` with the constructed tree structure.
-             Stores the tree in `this.languageIdTrees` for the given language.
-             < returnType, x =
-           -> blend(fruit: Fruit) [class Smoothie, Smoothie.ts]              
-              < string, currentFruit =
-           -> await fsp.readdir(extensionsPath) [fs.promises]
-             < string[], extensionsDirs = 
-         < returnType
-```
-Advanced example of PT Diagram (pure text diagram) use case sequence and psuedo code scenario:
 ```
 Use Cases:
   Scenario: Building Snippet Tree
@@ -557,7 +452,134 @@ Use Cases:
 
 ```
 
-## Musings
+## Plain Text Diagram (PT Diagram) Notation - Specification
+
+A lightweight, plain text format for visualizing software systems, including classes, files, variables, functions, relationships, and use cases. Designed for readability, version control, and LLM compatibility.
+
+Plain Text 'Diagrams' are a hybrid of UML, sequence diagrams, and pseudo code. They are designed to be human-readable, version-controlled, and lightweight. They can be used to document, understand, and communicate software systems.
+
+Like UML diagrams, we have two main types of 'diagrams':
+
+  - Structural: For example classes and files are listed with their data and behaviour - try to see them as boxes. Some class relationships are indicated with arrows. 
+
+  - Behavioural: Sequence 'diagrams' are constructed via an indented pseudo code format. Function calls are shown with arrows, return types are shown with `<`, and work well to indicate the flow of a use case scenario.
+
+You can update and maintain your diagrams in a text editor. They are meant to be easy to read and write, and most importantly, useful. By useful I mean you should be able to read them and gain rapid deep understanding of the source code structure and behaviour that the diagram represents.
+
+Indentation is critical for hierarchy and readability. Use `-->` for relationships. Use `->` for function calls in use cases and `< returnType` for function return types.
+
+### Sections (Overview)
+
+PT Diagram notation consists of the following sections:
+```
+Diagram:
+Files:
+Classes:
+Class Relationships:
+Imports:
+Use Cases:
+  Scenario: A
+  Scenario: B
+  ...
+```
+
+### Diagram:
+1. **Diagram**: System name, version, description, and files. Your Plain Text Diagram can be of a single source code file, or multiple source code files. Its scope is defined by the comma delimited list of files in the  `files:` label of the `Diagram:` section.
+   ```plaintext
+   Diagram:
+     name: Diagram Name
+     version: 1.0
+     description: Brief description.
+     files: File1.ts, File2.ts
+   ```
+
+### Files:
+2. **Files**: Lists variables, functions (with parameters, return types, and annotations), and classes/interfaces for each file. Comments can be added using `#`. The file: objects are like UML boxes with data + behaviour e.g. Variables: and Functions:. Additional sections for Classes: and Interfaces: can be added if needed - these just list the names of the classes and interfaces living in this particular file. Variables can have optional type `: type`, default value ` = value` followed by an optional tuple containing `(relationship type, cardinality)` where relationship type is just a free form description of the relationship e.g. `contains`, `owns`, `uses`, `implements`, `inherits`, `depends on`, `creates`, `diagnoses`. The cardinality is a string like `1`, `0..1`, `1..*`, `0..*`. Functions can have parameters with types and default values, and return types. Functions can have annotations like `@override` to indicate that they override a parent class method. Functions can be listed as `(private)` or some other access modifier.
+```plaintext
+Files:
+  file: File1.ts
+    Variables:
+      var1: Type # Example comment
+      var2: Type = 100 # Optional default value
+      var3: Type (0..1) # Optional cardinality
+      var3: Type (contains, 1..*) # Optional relationship
+    Functions:
+      func1(param1: Type, param2: Type): ReturnType
+      func2(): void @override # Overrides a parent class method
+      func3(): number (private)
+    Classes:
+      Class1
+    Interfaces:
+      Interface1
+```
+
+### Classes:
+3. **Classes**: Describes classes and interfaces, including their attributes, methods (with parameters, return types, and annotations), and relationships (inheritance or implementation). The class: object is like a UML box with data + behaviour e.g. Attributes: and Methods:. The interface: object is like a class but with no methods.  Attributes can have optional default values with `= defaultValue`, and optional relationships with `(relationship, cardinality)`. Class and Interface names can optionally be followed by (somefile.ts) indicating their location. All the classes from all the files in the Diagram scope `files:` are listed here, allowing a 'logical' grouping of classes and interfaces, meaning you can list all the classes in one place, even though they are in different files.
+```plaintext
+Classes:
+  class: Class1 (class1.ts) --> ParentClass (parent.ts) (inherits|implements)
+    Attributes:
+      attr1: Type # Example comment
+      attr2: Type = 100  # Optional default value
+      attr3: Type (0..1) # Optional cardinality
+      attr3: Type (owns, 1) # Optional relationship and cardinality
+    Methods:
+      method1(param1: Type, param2: Type): ReturnType
+      method2(): void @override # Overrides a parent method
+  interface: Interface1
+    Methods:
+      method1(param1: Type): ReturnType
+```
+
+### Class Relationships:
+4. **Class Relationships**: Describes relationships between classes and interfaces, including optional relationship annotation (uses, contains, owns, etc.) and optional cardinality (e.g., 1, 1..*, 0..1). Single or multiple relationships. If one relationship, use `Class1 --> Class2 (relationship)`. For multiple relationships, indent the relationships under the class.  Nested relationships are indented further.
+Whilst you can show relationships between classes in the `Classes:` section, this section is for summarizing all the relationships in one place, and is needed if you want to show nested class relationships e.g. for expressing the the chain: `Class6` uses `Class8` which in turn creates `Class9`.
+```plaintext
+Class Relationships:
+  Class1
+    --> Class2 (inherits)
+    --> Class3 (implements)
+  Class4 --> Class5 (depends on)
+  Class6
+    --> Class7 (contains, 1..*)
+    --> Class8 (creates, 1)
+      --> Class9 (owns, 0..1)
+```
+
+### Imports:
+5. **Imports**: Dependencies between files. Files one per line. List the contents of each file in () e.g. `File1.ts (class Class1, function func1)` indent the relationships under the file using -->. Multiple relationships are indented under the file at the same level. Nested relationships are indented further.
+```plaintext
+Imports:
+  Car.ts (class Car, function start, function stop)
+    --> Automobile.ts (interface Automobile)
+  ElectricCar.ts (class ElectricCar, function charge)
+    --> Car.ts (class Car, function start)
+    --> Charger.ts (class Charger, function chargeCar)
+      --> Utils.ts (function calculatePower)
+```
+
+### Use Cases / Scenarios:
+6. **Use Cases**:  Use Case Notation describes high-level scenarios combining sequence diagrams with descriptive pseudo-code. Core syntax: Function calls follow indented format `-> functionName(params) [class ClassName, File.ts]` with source annotations [source class (if applicable), filename]. Return types appear on a new line as `< returnType` followed by optional `, variable =` to specify where result is stored; `< void` is optional for no return value. Returns can be primitives or complex objects like `< {prop: type}`. Control flow uses bracketed annotations [if], [else], [loop], [parallel], [try], [catch], [finally], [recurse] with nesting shown through indentation and arrows (`->`) indicating nested function calls. Variables are referenced in backticks (e.g. `` `variableName` ``) with state updates described in natural language, focusing on key changes and purpose rather than detailed assignments. The notation prioritizes high-level abstraction and "what" over "how", using natural language summaries for logic and state changes while retaining clear function call notation. Since use cases begin with a function call, they can serve as documentation for function behavior itself. Bullet points (-) can be used to list sequential actions.async function calls can be preceded by e.g. `-> await function1()`. 
+Indenting is typically two spaces, indented `-> function()` call lines are matched with corresponding `< type` line which is on its own line and indented more than the initialting parent call. It is impossible for there to be lines at the same indent level as a returning `< type` line. [if condition] and other annotations like [try] are followed by a `-> function()` line or psudo code descriptive text which is indented, like the way a regular if or try statements work.
+Example:
+```plaintext
+Use Cases:
+  Scenario: Example Scenario
+    func1() [class Class1, File1.ts]         
+      Initializes `this.snippetTree` and `this.itemTree` as empty structures.
+      [if condition]
+        -> func2() [class Class2, File2.ts]
+          Updates `this.itemTree` with the constructed tree structure.
+          Stores the tree in `this.languageIdTrees` for the given language.
+          < returnType, x =
+        -> blend(fruit: Fruit) [class Smoothie, Smoothie.ts]              
+           < string, currentFruit =
+        -> await fsp.readdir(extensionsPath) [fs.promises]
+          < string[], extensionsDirs = 
+      < returnType
+```
+
+## Discussion
 
 #### Paradigm of a box with data and behaviour
 
@@ -672,7 +694,7 @@ but more work is needed on this, as I want to integrate specifics of which funct
 
 ## Tools
 
-If you save your PT Diagrams in a file with a `.ptd` or `.pt-diagram` extension, you can use the [PT Diagram Viewer](https://github.com/abulka/vscode-pt-diagrams) Visual Studio Code extension to view and edit them. Nice syntax highlighting and folding.
+If you save your PT Diagrams in a file with a `.ptd` or `.pt-diagram` filename, you can use the [Plain Text Diagram Language Extension](https://marketplace.visualstudio.com/items?itemName=wware.plain-text-diagrams) for Visual Studio Code. Nice syntax highlighting and folding.
 
 ## Generating PT Diagrams
 
@@ -692,4 +714,4 @@ These are traditional (visual) diagramming tools and methodologies that I have c
 
 - [GitUML](https://www.gituml.com) Generate diagrams rapidly from GitHub Repositories, supports customisation via PlantUML markup.
 - [Literate Code Mapping](https://github.com/abulka/lcodemaps) An evolution of UML for today's software development needs - still visual, but more expressive and more useful.
-
+- [Vscode Extension](https://marketplace.visualstudio.com/items?itemName=wware.plain-text-diagrams) for Plain Text Diagrams.
