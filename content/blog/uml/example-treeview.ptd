@@ -1,0 +1,71 @@
+Diagram: 
+    name: Treeview Example
+    version: 1.0
+    description: Example of PT (plain text) diagram notation, showing a treeview component for a code editor extension. A Use Case (sequence diagram as text) example showing a Treeview construction code, representing the functionality of my vscode extension [Snippets Explorer](/projects/libraries/snippets-explorer/) which shows vscode source code snippets in a treeview. This sequence 'diagram' example includes features like `[if]`, `[else]` and plenty of psuedo code descriptive text.
+    files: snippet_tree.js, snippet_enumerator.js
+
+Use Cases:
+  Scenario: Building Snippet Tree
+    _buildTree(languageId: string) [class TreeDataProvider, snippet_tree.js]
+      Logs the start of tree building for the given language.
+      [if languageId is undefined]
+        Initializes `this.itemTree` with a placeholder message.
+        < number
+      [else]
+        Initializes `this.snippetTree` and `this.itemTree` as empty structures.
+        -> enumerateSnippets(this.snippetTree, languageId) [./snippet_enumerator]
+            Populates `this.snippetTree` with snippets for the given language.
+            < void
+        -> logSnippetTree(languageId: string) [class TreeDataProvider, snippet_tree.js]
+            Logs the structure of `this.snippetTree`.
+            < void
+
+        Constructs the tree structure:
+        - Iterates over `this.snippetTree` to create `TreeItem` instances for each language.
+        - For each language, iterates over its snippets to create nested `TreeItem` instances.
+        - Sets tooltips, collapsible states, and parent-child relationships.
+
+        Updates `this.itemTree` with the constructed tree structure.
+        Stores the tree in `this.languageIdTrees` for the given language.
+
+        Logs the completion of tree building.
+        < void
+        
+  Scenario: Switching Language
+    switchLanguage(languageId: string) [class TreeDataProvider, snippet_tree.js]
+      Logs the start of language switching.
+      [if languageId is not in this.languageIdTrees]
+        -> _buildTree(languageId: string) [class TreeDataProvider, snippet_tree.js]
+            Builds the snippet tree for the given language.
+            < void
+      [else]
+        Restores `this.snippetTree` and `this.itemTree` from `this.languageIdTrees`.
+        -> _restoreExpandedStates(languageId: string) [class TreeDataProvider, snippet_tree.js]
+            Restores the expanded states of tree items for the given language.
+            < void
+        Fires the tree data change event to refresh the UI.
+        -> _selectSubtree(languageId: string) [class TreeDataProvider, snippet_tree.js]
+          Selects and reveals the subtree for the given language.
+          < void
+      Logs the completion of language switching.
+      < void
+
+  Scenario: Refreshing the Tree
+    refresh() [class TreeDataProvider, snippet_tree.js]
+      Logs the start of tree refresh.
+      -> _buildTree(this._getCurrentDocumentLanguageId()) [class TreeDataProvider, snippet_tree.js]
+          Rebuilds the snippet tree for the current language.
+          < void
+      Fires the tree data change event to refresh the UI.
+      Logs the completion of tree refresh.
+      < void
+
+  Scenario: Filtering Tree Items
+    updateFilterQuery(filterQuery: string) [class TreeDataProvider, snippet_tree.js]
+      -> _filterItems(items: TreeItem[], filterQuery: string) [class TreeDataProvider, snippet_tree.js]
+          filters tree items based on the query
+          < TreeItem[]
+      -> _onDidChangeTreeData.fire() [class TreeDataProvider, snippet_tree.js]
+          fires the tree data change event
+          < void
+      < void
