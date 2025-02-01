@@ -1,0 +1,86 @@
+Diagram:
+  name: Employee Postal System
+  version: 1.0
+  version-ptd: 1.1
+  description: An example of a PT (plain text) diagram notation that demonstrates an employee postal system,
+               including employees, persons, addresses and postage.
+               More details here about the diagram
+
+Imports:
+    Employee.ts (class Employee)
+        --> Person.ts (class Person)
+            --> Address.ts (class Address)
+
+Files:
+  file: Employee.ts
+    Variables:
+      const name: string
+      let employeeId: number
+    Functions:
+      sendLetter(address: Address): void ⋯⋯creates⋯⋯> |Postage|
+    Classes:
+      Employee
+
+  file: Person.ts
+    Variables:
+      const firstName: string
+      const lastName: string
+    Functions:
+      getFullName(): string 
+    Classes:
+      Person
+
+  file: Address.ts
+    Variables:
+      const streetName: string
+      let zipCode: number
+    Functions:
+       getAddressDetails(): void
+     Classes:
+       Address
+
+Classes:
+  class: Employee (Employee.ts) ---inherits---▷ |Person|
+                             ⋯⋯implements⋯⋯▷ |IEmployee|
+    Attributes:
+      name: string 
+      employeeId: number
+    Methods:
+      sendLetter(address: Address)
+        -> createPostage() [class Postage, Postage.ts]
+            < void
+
+  class: Person (Person.ts)  
+    Attributes:
+      firstName: string 
+      lastName: string
+     Methods:
+       getFullName()
+
+  class: Address (Address.ts)  
+    Attributes:
+      streetName: string 
+      zipCode: number
+     Methods:
+       getAddressDetails()
+
+Use Cases:
+
+Sequence Diagrams:
+
+  Sequence: Send Letter from Employee
+    🧍‍♂️ -> sendLetter(address) [Employee.ts]
+         initializes letter sending process for employee,
+         -> createPostage() [class Postage, Postage.ts]
+             creates postage required for the letter
+             < void
+
+  Sequence: Address Details 
+     🖱️ -> getAddressDetails() [Address.ts]
+          fetches details of address,
+          < string
+
+  Sequence: Employee Information 
+    🧍‍♂️ -> getFullName() [Person.ts]
+         retrieves full name of employee.
+         < string

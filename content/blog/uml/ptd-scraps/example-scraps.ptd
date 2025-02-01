@@ -1,0 +1,40 @@
+
+Files:
+  file: Recipe.ts   ◇--contains--> |Fruit|
+                    ◇--returns-->  |Fruit|
+                    ⋯⋯⋯creates⋯⋯⋯> |Smoothie|
+    Variables:
+      const ingredients: Fruit[]  ◇--contains--> |Fruit|
+      let instructions: string[]
+
+
+# Should we show function parameters as relationships to a class, or just attribute references?
+File Relationships:
+  Imports:
+    Recipe.ts (class Recipe, function read, function prepare)
+      --> Fruit.ts (class Fruit, function getType, function peel)
+      --> Smoothie.ts (class Smoothie, function blend, function serve)
+  References:
+    Recipe.ts (const ingredients) --> Fruit.ts (class Fruit)
+    Recipe.ts (function read) --> Fruit.ts (class Fruit)
+    Recipe.ts (function prepare) --> Fruit.ts (class Fruit)
+    Recipe.ts (function chop) --> Fruit.ts (class Fruit)
+
+
+  class: Smoothie
+    Attributes:
+      ingredients: Fruit (1..*)  ◇---contains---> Fruit
+      ingredients: Fruit       1 ◇---contains---> * Fruit
+      ingredients: Fruit       1---contains--->* Fruit
+      ingredients: Fruit       1 ---contains---> * Fruit
+      ingredients: Fruit (1..*)  ---contains---> Fruit
+
+Class Relationships:
+  Recipe
+    --> BaseRecipe (inherits)
+    --> IRecipe (implements)
+    --> Fruit (contains, 1..*)
+    --> Smoothie (creates, 1)
+  Smoothie
+    --> Fruit (contains, 1..*)
+

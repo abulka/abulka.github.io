@@ -1,0 +1,130 @@
+Diagram:
+  name: Recipe Construction
+  version: 1.0
+  description: Example of PT (plain text) diagram notation, blending structure (class) and sequence diagramming
+  files: Recipe.ts, Fruit.ts, Smoothie.ts
+
+Files:
+  file: Recipe.ts
+    Variables:
+      const ingredients: Fruit[]
+      let instructions: string[]
+    Functions:
+      read(): Fruit[]
+      prepare(fruit: Fruit): void
+      chop(fruit: Fruit): void
+      makeSmoothie(fruit: Fruit): Smoothie
+      logRecipe() (private) # private function to log recipe details
+    Classes:
+      Recipe
+
+  file: Fruit.ts
+    Variables:
+      const name: string
+      const type: string
+    Functions:
+      getType(): string
+      peel(): void
+    Classes:
+      Fruit
+
+  file: Smoothie.ts
+    Variables:
+      const ingredients: Fruit[]
+      let blended: boolean
+    Functions:
+      blend(fruit: Fruit): void
+      serve(): void
+    Classes:
+      Smoothie
+
+Classes:
+  class: Recipe (Recipe.ts)
+    Attributes:
+      ingredients: Fruit (0..*)
+      instructions: string
+    Methods:
+      read()
+      prepare(fruit: Fruit)
+      chop(fruit: Fruit)
+      makeSmoothie(fruit: Fruit)
+      logRecipe() (private)
+      startRecipe()
+
+  class: Fruit (Fruit.ts)
+    Attributes:
+      name: string
+      type: string
+    Methods:
+      getType()
+      peel()
+
+  class: Smoothie (Smoothie.ts)
+    Attributes:
+      ingredients: Fruit (1..*)
+      blended: boolean
+    Methods:
+      blend(fruit: Fruit)
+      serve()
+
+
+Class Relationships:
+  Recipe
+    --> Fruit (contains, 1..*)
+    --> Smoothie (creates, 1)
+  Fruit
+    --> Smoothie (ingredient, 1..*)
+  Smoothie
+    --> Fruit (contains, 1..*)
+  Recipe
+    --> Smoothie (uses, 1)
+
+Imports:
+  Recipe.ts (class Recipe, function read, function prepare)
+    --> Fruit.ts (class Fruit, function getType, function peel)
+    --> Smoothie.ts (class Smoothie, function blend, function serve)
+
+Use Cases:
+  Scenario: Preparation
+    startRecipe() [Recipe.ts]
+        initializes recipe
+        -> read() [Recipe.ts]
+            reads ingredients
+            -> getType() [class Fruit, Fruit.ts]
+                fetches fruit type
+                < string
+            -> peel() [class Fruit, Fruit.ts]
+                peels the fruit
+                < void
+            < Fruit[]
+        -> prepare(fruit: Fruit) [Recipe.ts]
+            prepares fruit for chopping
+            -> peel() [class Fruit, Fruit.ts]
+                peels the fruit
+                < void
+            < void
+        -> chop(fruit: Fruit) [Recipe.ts]
+            chops the fruit
+            < void
+        -> makeSmoothie(fruit: Fruit) [Recipe.ts]
+            mixes fruit into smoothie
+            -> blend(fruit: Fruit) [class Smoothie, Smoothie.ts]
+                blends fruit into smoothie
+                < void
+            -> serve() [class Smoothie, Smoothie.ts]
+                serves the smoothie
+                < void
+        < Smoothie
+
+  Scenario: Serving
+    startRecipe() [Recipe.ts]
+        initializes recipe
+        -> makeSmoothie(fruit: Fruit) [Recipe.ts]
+            mixes fruit into smoothie
+            -> blend(fruit: Fruit) [class Smoothie, Smoothie.ts]
+                blends fruit into smoothie
+                < void
+            -> serve() [class Smoothie, Smoothie.ts]
+                serves the smoothie
+                < void
+        < Smoothie

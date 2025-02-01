@@ -1,8 +1,21 @@
 Diagram:
   name: Car Management System
-  version: 1.0
-  description: A system to manage cars, including electric cars, with features like starting, stopping, charging, and diagnostics.
-  files: Automobile.ts, Car.ts, ElectricCar.ts, Charger.ts, Diagnostics.ts
+  version: 1.2
+  version-ptd: 1.1
+  description: A system to manage cars, including electric cars, with features like 
+               starting, stopping, charging, and diagnostics.
+  files: Automobile.ts, Car.ts, ElectricCar.ts, Charger.ts, Diagnostics.ts, Wheel.ts
+
+Imports:
+  Car.ts (class Car, function start, function stop)
+    --> Automobile.ts (interface Automobile)
+    --> Wheel.ts (class Wheel)
+  ElectricCar.ts (class ElectricCar, function charge)
+    --> Car.ts (class Car, function start)
+    --> Charger.ts (class Charger, function chargeCar)
+      --> Utils.ts (function calculatePower)
+  Diagnostics.ts (class Diagnostics, function runDiagnostics)
+    --> Car.ts (class Car)
 
 Files:
   file: Automobile.ts
@@ -15,7 +28,7 @@ Files:
 
   file: Car.ts
     Variables:
-      wheels: Wheel (4)
+      wheels: Wheel (4)  ◇---depends on--> Wheel (Wheel.ts)
       running: boolean
       fuelLevel: number
     Functions:
@@ -23,7 +36,7 @@ Files:
       stop()
       refuel(amount: number)
     Classes:
-      Car --> Automobile (implements)
+      Car
 
   file: ElectricCar.ts
     Variables:
@@ -34,7 +47,7 @@ Files:
       charge(duration: number)
       checkBattery(): number
     Classes:
-      ElectricCar --> Car (inherits)
+      ElectricCar
 
   file: Charger.ts
     Variables:
@@ -62,9 +75,9 @@ Classes:
       start()
       stop()
 
-  class: Car --> Automobile (implements)
+  class: Car  ⋯⋯⋯implements⋯⋯⋯▷ Automobile
     Attributes:
-      wheels: Wheel (4)
+      wheels: Wheel (4)  ◇---depends on--> Wheel
       running: boolean
       fuelLevel: number
     Methods:
@@ -72,7 +85,7 @@ Classes:
       stop()
       refuel(amount: number)
 
-  class: ElectricCar --> Car (inherits)
+  class: ElectricCar  ----inherits----▷ Car
     Attributes:
       batteryLevel: number
       isCharging: boolean
@@ -88,34 +101,14 @@ Classes:
     Methods:
       plugIn()
       unplug()
-      chargeCar(car: ElectricCar, duration: number)
+      chargeCar(car: ElectricCar, duration: number)  --charges--> ElectricCar
 
   class: Diagnostics
     Attributes:
       lastError: string
     Methods:
-      runDiagnostics(car: Car)
+      runDiagnostics(car: Car)  --diagnoses--> Car
       logError(error: string)
-
-Class Relationships:
-  Car
-    --> Automobile (implements)
-  ElectricCar
-    --> Car (inherits)
-  Charger
-    --> ElectricCar (charges, 1)
-  Diagnostics
-    --> Car (diagnoses, 1)
-
-Imports:
-  Car.ts (class Car, function start, function stop)
-    --> Automobile.ts (interface Automobile)
-  ElectricCar.ts (class ElectricCar, function charge)
-    --> Car.ts (class Car, function start)
-    --> Charger.ts (class Charger, function chargeCar)
-      --> Utils.ts (function calculatePower)
-  Diagnostics.ts (class Diagnostics, function runDiagnostics)
-    --> Car.ts (class Car)
 
 Use Cases:
   Scenario: Starting an Electric Car
@@ -151,6 +144,8 @@ Use Cases:
       [catch error]
       -> logError(error: string) [class Diagnostics, Diagnostics.ts]
           logs the error
+          - if warning, continue
+          - if critical, stop
           < void
       [finally]
       cleans up diagnostics

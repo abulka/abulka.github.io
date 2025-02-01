@@ -1,0 +1,59 @@
+Diagram:
+  name: Basic Calculator
+  version: 1.0
+  version-ptd: 1.1
+  description: Example of PT (plain text) diagram notation, blending structure (class) and sequence diagramming.
+  files: Calculator.ts, Operation.ts
+
+Files:
+  file: Calculator.ts
+    Variables:
+      let operations: Operation[] ◇--contains--> |Operation|
+    Functions:
+      add(a: number, b: number): number
+      subtract(a: number, b: number): number
+      calculate(operation: string, a: number, b: number): number
+    Classes:
+      class: Calculator
+
+  file: Operation.ts
+    Variables:
+      const name: string
+      let operands: number[]
+    Functions:
+      perform(): number
+    Classes:
+      class: Operation
+
+Classes:
+  class: Calculator (Calculator.ts)
+    Attributes:
+      operations: Operation[] (0..*) --contains--> |Operation|
+    Methods:
+      add(a: number, b: number): number
+      subtract(a: number, b: number): number
+      calculate(operation: string, a: number, b: number): number
+
+  class: Operation (Operation.ts)
+    Attributes:
+      name: string
+      operands: number[] (0..*) --contains--> |number|
+    Methods:
+      perform(): number
+
+Use Cases:
+  Sequence: Addition
+    🧍‍♂️ -> add(a: number, b: number) [Calculator.ts]
+         creates operation
+         -> perform() [Operation.ts]
+             performs addition
+             < number
+         < number
+
+  Sequence: Subtraction
+    🧍‍♂️ -> subtract(a: number, b: number) [Calculator.ts]
+         creates operation
+         -> perform() [Operation.ts]
+             performs subtraction
+             < number
+         < number

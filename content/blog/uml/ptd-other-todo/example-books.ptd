@@ -1,0 +1,116 @@
+Diagram:
+  name: Library Management System
+  version: 1.0
+
+  version-ptd: 1.1
+  description: This diagram describes the structure and interactions within a simple library management system.
+               The system includes various classes and their relationships to manage books, users, and borrowing operations.
+
+Files:
+  file: Book.ts
+    Variables:
+      const title: string
+      const author: string
+      let isbn: string
+    Functions:
+      getTitle(): string
+      getAuthor(): string
+      borrow(bookId: string): boolean
+    Classes:
+      class: Book (Book.ts)
+
+  file: User.ts
+    Variables:
+      const name: string
+      const userId: string
+      let borrowedBooks: Book[]
+    Functions:
+      getName(): string
+      borrowBook(book: Book): void
+      returnBook(book: Book): void
+    Classes:
+      class: User (User.ts)
+
+  file: Library.ts
+    Variables:
+      const books: Book[] ◇--contains--> |Book|
+      const users: User[] ◇--contains--> |User|
+    Functions:
+      addBook(book: Book): void
+      addUser(user: User): void
+      listBooks(): Book[]
+      findBookByTitle(title: string): Book | null
+    Classes:
+      class: Library (Library.ts)
+
+Classes:
+  class: Book (Book.ts)
+    Attributes:
+      title: string
+      author: string
+      isbn: string
+    Methods:
+      getTitle()
+      getAuthor()
+      borrow(bookId: string)
+
+  class: User (User.ts)
+    Attributes:
+      name: string
+      userId: string
+      borrowedBooks: Book[] (0..*) ---> |Book|
+    Methods:
+      getName()
+      borrowBook(book: Book)
+      returnBook(book: Book)
+
+  class: Library (Library.ts) --inherits--> |BaseSystem|
+                              ⋯⋯implements⋯⋯▷ |ILibrary|
+    Attributes:
+      books: Book[] (0..*) --contains--> |Book|
+      users: User[] (0..*) --has--> |User|
+    Methods:
+      addBook(book: Book)
+      addUser(user: User)
+      listBooks()
+      findBookByTitle(title: string)
+
+Use Cases:
+  Sequence: Add Book
+    📚 -> addBook() [Library.ts]
+         initializes book addition
+         -> getTitle() [class Book, Book.ts]
+             fetches book title
+             < string
+         -> getAuthor() [class Book, Book.ts]
+             fetches book author
+             < string
+         < void
+
+  Sequence: Borrow Book
+    🧍‍♂️ -> borrowBook() [User.ts]
+         initializes borrowing process
+         -> getTitle() [class Book, Book.ts]
+             fetches book title
+             < string
+         -> getAuthor() [class Book, Book.ts]
+             fetches book author
+             < string
+         -> borrow(bookId: string) [class Book, Book.ts]
+             borrows the book
+             < boolean
+         < void
+
+  Sequence: Return Book
+    🧍‍♂️ -> returnBook() [User.ts]
+         initializes returning process
+         -> getTitle() [class Book, Book.ts]
+             fetches book title
+             < string
+         -> getAuthor() [class Book, Book.ts]
+             fetches book author
+             < string
+         -> borrow(bookId: string) [class Book, Book.ts]
+             returns the book
+             < boolean
+         < void
