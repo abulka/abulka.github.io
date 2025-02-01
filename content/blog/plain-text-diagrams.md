@@ -165,20 +165,43 @@ Imports:
 ```
 
 ### Files:
-**Files**: Lists variables, functions (with parameters, return types, and annotations), and classes/interfaces for each file. Comments can be added using `#`. The file: objects are like UML boxes with data + behaviour e.g. Variables: and Functions:. Additional sections for Classes: and Interfaces: can be added if needed - these just list the names of the classes and interfaces living in this particular file. Variables can have optional type `: type`, default value ` = value` followed by an optional cardinality like `1`, `0..1`, `1..*`, `0..*`. This is followed by an optional arrow, like  `◇--contains--> Fruit` which optionally contains a relationship type e.g. `contains`, `owns`, `uses`, `implements`, `inherits`, `depends on`, `creates`, `diagnoses` etc. 
-Use such arrows like  `◆--contains--> Fruit` and `⋯⋯⋯creates⋯⋯⋯> Smoothie` for important `contains` and `creates` involving variables. 
-To reduce arrow clutter, there are usually no arrows for function parameter references to classes or for function return references to classes, such arrows being reserved for variables, however you can add them if you like e.g. `washes(): Car  ----returns----> Car`.
-Use of emoji characters like `◇`, `◆` or `⋯` is optional, but can help to make the diagram more visually appealing.
-Functions can have parameters with types and default values, and return types. Functions can have annotations like `@override` to indicate that they override a parent class method. Functions can be listed as `(private)` or some other access modifier.
-The number of `--` dashes or dots `⋯` in arrows is up to you.
+
+- Lists variables, functions, and classes/interfaces for each file.
+- Comments can be added using `#`.
+- **File Object**:
+  - Resembles a UML box with data and behavior:
+    - Sections include `Variables:` and `Functions:`.
+    - Additional sections for `Classes:` and `Interfaces:` can be added if needed - these sections list the names of the classes and interfaces located in the file.
+- **Variables**:
+  - Can have optional type annotations, denoted as `: type`.
+  - Can have optional default values, denoted as `= value`.
+  - Can include optional cardinality, such as `1`, `0..1`, `1..*`, or `0..*`.
+  - Can have optional arrows to indicate relationships, e.g., `◇--contains--> Fruit`.
+    - Relationship types can include `contains`, `owns`, `uses`, `implements`, `inherits`, `depends on`, `creates`, `diagnoses`, etc.
+    - Example: `◆--contains--> Fruit` or `⋯⋯⋯creates⋯⋯⋯> Smoothie`.
+- **Functions**:
+  - Include parameters, return types, and annotations.
+    - Parameters can have types and default values.
+    - Return types are specified.
+    - Annotations like `@override` can be used to indicate overriding a parent class method.
+    - Functions can be marked with access modifiers, e.g., `(private)`.
+  - Arrows for function parameter or return references to classes are usually omitted to reduce clutter but can be added if desired, e.g., `washes(): Car  ----returns----> Car`.
+Here’s the compressed version, removing redundancies while retaining all details:
+- **Arrows and Relationships**:
+  - Arrows are typically reserved for variable relationships, not function parameter or return references (unless explicitly added).
+  - Use of emoji characters like `◇`, `◆`, or `⋯` is optional but can enhance visual appeal:
+    - Examples: `◆--contains--> Fruit` or `⋯⋯⋯creates⋯⋯⋯> Smoothie` for important relationships.
+    - Plain arrows like `--contains-->` or `--creates-->` are also acceptable.
+  - The number of dashes `--` or dots `⋯` in arrows is flexible and up to the user.
+
 ```plaintext
 Files:
   file: File1.ts
     Variables:
-      var1: Type         ◇--contains--> |Type|
+      var1: Type         ◇--contains--> Type
       var2: Type = 100
       var3: Type (0..1)
-      var3: Type (1..*)  ⋯⋯creates⋯⋯> |Type|
+      var3: Type (1..*)  ⋯⋯creates⋯⋯> Type
     Functions:
       func1(param1: Type, param2: Type): ReturnType
       func2(): void @override # Overrides a parent class method
@@ -190,13 +213,37 @@ Files:
 ```
 
 ### Classes:
-**Classes**: Describes classes and interfaces, including their attributes, methods (with parameters, return types, and annotations), and relationships (inheritance or implementation) e.g. `class: Recipe  (Recipe.ts) --inherits--▷ |BaseRecipe|`. Where there are multiple class and interface relationships, the second and subsequent relationships are placed on a new line with the `-->` lining up with the first arrow (see example below). 
-The class: object is like a UML box with data + behaviour e.g. Attributes: and Methods:. The interface: object is like a class but with no methods.
-Attributes can have optional default values with `= defaultValue`, and optional relationships with `(cardinality)` and optional arrows to the type `--relationship--> |Type|`. Class and Interface names can optionally be followed by (somefile.ts) indicating their location. 
-All the classes from all the files in the Diagram scope `files:` are listed in the `Classes:` section, allowing a 'logical' grouping of classes and interfaces, meaning you can list all the classes in one place, even though they are in different files.
-To reduce arrow clutter, there are usually no arrows for method parameter references to classes or for method return references to classes, such arrows being reserved for attributes, however you can add them if you like e.g. `runDiagnostics(car: Car)  ----diagnoses----> Car`.
-Use of emoji characters like `▷` and `⋯` is optional, but can help to make the diagram more visually appealing. Use of the `◇`, `◆`, `▷` or `⋯` emoji character e.g. `◆---contains--->` or `⋯⋯⋯implements⋯⋯⋯▷` is meant to look like a UML aggregation triangle at the root of an association, or an inheritance triangle - use them if you like them, many prefer just plain `--contains-->` or `--owns-->` etc.
-The number of `--` dashes or dots `⋯` in arrows is up to you.
+Describes classes and interfaces, including:
+- **Attributes**: 
+  - Can have optional default values, denoted as `= defaultValue`.
+  - Can have optional `:type` and `(cardinality)` and optional arrows to the type, e.g., `--relationship--> Type`.
+- **Methods**:
+  - Include parameters, return types, and annotations.
+  - Arrows for method parameter or return references to classes are usually omitted to reduce clutter, but can be added if desired, e.g., `runDiagnostics(car: Car)  ----diagnoses----> Car`.
+- **Relationships**:
+  - Inheritance or implementation relationships are shown, e.g., `class: Recipe  (Recipe.ts) --inherits--▷ BaseRecipe`.
+  - For multiple relationships, the second and subsequent relationships are placed on a new line with the `-->` aligned with the first arrow.
+- **Class Object**:
+  - Resembles a UML box with data and behavior:
+    - Sections include `Attributes:` and `Methods:`.
+- **Interface Object**:
+  - Similar to a class but contains no methods.
+- **File Location**:
+  - Class and interface names can optionally include their file location, e.g., `(somefile.ts)`.
+- **Logical Grouping**:
+  - All classes and interfaces from the `files:` scope in the diagram are listed in the `Classes:` section.
+  - This allows for a logical grouping of classes and interfaces, even if they are located in different files.
+- **Arrows and Relationships**:
+  - Arrows are typically reserved for attribute relationships, not method parameter or return references (unless explicitly added).
+  - Use of emoji characters like `▷` and `⋯` is optional but can enhance visual appeal.
+  - Examples of emoji usage:
+    - `◆---contains--->` or `⋯⋯⋯implements⋯⋯⋯▷` to mimic UML aggregation or inheritance triangles.
+    - Plain arrows like `--contains-->` or `--owns-->` are also acceptable.
+  - The number of dashes `--` or dots `⋯` in arrows is flexible and up to the user.
+- **Visual Style**:
+  - Emoji characters like `◇`, `◆`, `▷`, or `⋯` can be used to represent UML-style relationships.
+  - The use of these characters is optional, and many users prefer plain arrows for simplicity.
+
 ```plaintext
 Classes:
   class: Class1 (class1.ts) --inherits--▷ ParentClass (parent.ts)
@@ -216,9 +263,46 @@ Classes:
 ```
 
 ### Use Cases / Sequences:
-**Use Cases**:  Use Case Notation describes high-level sequences combining sequence diagrams with descriptive pseudo-code. Core syntax: Function calls follow indented format `-> functionName(params) [class ClassName, File.ts]` with source annotations [source class (if applicable), filename]. Return types appear on a new line as `< returnType` followed by optional `, variable =` to specify where result is stored; `< void` is optional for no return value. Returns can be primitives or complex objects like `< {prop: type}`. Control flow uses bracketed annotations [if], [else], [loop], [parallel], [try], [catch], [finally], [recurse] with nesting shown through indentation and arrows (`->`) indicating nested function calls. Variables are referenced in backticks (e.g. `` `variableName` ``) with state updates described in natural language, focusing on key changes and purpose rather than detailed assignments. The notation prioritizes high-level abstraction and "what" over "how", using natural language summaries for logic and state changes while retaining clear function call notation. Since use cases begin with a function call, they can serve as documentation for function behavior itself. Bullet points (-) can be used to list sequential actions.async function calls can be preceded by e.g. `-> await function1()`. 
-Indenting is typically two spaces, indented `-> function()` call lines are matched with corresponding `< type` line which is on its own line and indented more than the initialting parent call. It is impossible for there to be lines at the same indent level as a returning `< type` line. [if condition] and other annotations like [try] are followed by a `-> function()` line or psudo code descriptive text which is indented, like the way a regular if or try statements work.
-The first function call of a sequence can start with an emoji symbol indicating what typically triggers that function call e.g `🖱️ -> ` for a use mouse click event, or `🧍‍♂️ -> ` for a generic user triggered event, or `📃 -> ` for code triggering other code. The emoji symbol is optional, so beginning a sequence with `-> function()` or just `function()` is fine.
+
+Here’s the rewritten and compressed version of the **Use Cases** section in Markdown bullet points, retaining all details and nuances:
+
+- **Use Cases**:
+Describes high-level sequences combining sequence diagrams with descriptive pseudo-code.
+
+- **Core Syntax**:
+  - Use cases begin with a function call, serving as documentation for function behavior.
+  - Function calls follow an indented format:  
+    `-> functionName(params) [class ClassName, File.ts]`  
+    (includes source annotations: source class and filename, if applicable).
+  - Return types appear on a new line:  
+    `< returnType`  
+    Optionally, specify where the result is stored:  
+    `< returnType, variable =`.
+    - Use `< void` for no return value (optional).
+    - Returns can be primitives or complex objects, e.g., `< {prop: type}`.
+- **Control Flow**:
+  - Uses bracketed annotations:  
+    `[if]`, `[else]`, `[loop]`, `[parallel]`, `[try]`, `[catch]`, `[finally]`, `[recurse]` which are followed by a `-> function()` line or pseudo-code descriptive text, indented similarly to regular `if` or `try` statements.
+  - Nesting is shown through indentation.
+  - Arrows (`->`) indicate nested function calls.
+  - Async function calls are preceded by `await`, e.g., `-> await function1()`.
+- **Abstraction**:
+  - State updates are described in natural language, focusing on key changes and purpose rather than detailed assignments.
+  - Prioritizes high-level abstraction ("what" over "how").
+  - Uses natural language summaries for logic and state changes.
+  - Retains clear function call notation for precision.
+  - Bullet points (`-`) can list sequential actions.
+- **Indentation Rules**:
+  - Typically two spaces.
+  - Indented `-> function()` call lines are matched with corresponding `< type` lines, which are on their own line and indented more than the initiating parent call.
+  - No lines can be at the same indent level as a returning `< type` line.
+- **Emoji Triggers (Optional)**:
+  - The first function call can start with an emoji symbol indicating the trigger:
+    - `🖱️ -> ` for a mouse click event.
+    - `🧍‍♂️ -> ` for a user-triggered event.
+    - `📃 -> ` for code triggering other code.
+  - Starting with `-> function()` or just `function()` is also fine.
+
 Example:
 ```plaintext
 Use Cases:
