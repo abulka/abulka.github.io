@@ -31,7 +31,7 @@ I call them text ‘diagrams’ because they are a way of representing the struc
   <meta property="og:type" content="article">
     <meta property="article:section" content="blog">
     <meta property="article:published_time" content="2025-01-29T00:00:00+00:00">
-    <meta property="article:modified_time" content="2025-01-30T17:01:59+11:00">
+    <meta property="article:modified_time" content="2025-02-01T17:45:05+11:00">
     <meta property="article:tag" content="UML">
     <meta property="article:tag" content="Diagramming">
     <meta property="article:tag" content="Notation">
@@ -41,8 +41,8 @@ I call them text ‘diagrams’ because they are a way of representing the struc
 Plain Text ‘diagrams’ - aren’t really diagrams but are nested, indented text files that can be rapidly parsed by the human eye to gain a high level understanding of a software system.
 I call them text ‘diagrams’ because they are a way of representing the structure and behaviour of a codebase in a way that is similar to UML diagrams, but implemented as text, using indentation and text arrows -&gt; instead of boxes and arrows and graphics.">
   <meta itemprop="datePublished" content="2025-01-29T00:00:00+00:00">
-  <meta itemprop="dateModified" content="2025-01-30T17:01:59+11:00">
-  <meta itemprop="wordCount" content="5093">
+  <meta itemprop="dateModified" content="2025-02-01T17:45:05+11:00">
+  <meta itemprop="wordCount" content="4468">
   <meta itemprop="keywords" content="UML,Diagramming,Notation">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Plain Text Diagrams">
@@ -106,7 +106,7 @@ if (!doNotTrack) {
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.d4f2aec8b481c67e19b943056bc15724.json"
+    data-offline-search-index-json-src="/offline-search-index.f1d31978f4468bed5fdb8714efd4971a.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -130,7 +130,7 @@ if (!doNotTrack) {
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.d4f2aec8b481c67e19b943056bc15724.json"
+    data-offline-search-index-json-src="/offline-search-index.f1d31978f4468bed5fdb8714efd4971a.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -203,6 +203,8 @@ if (!doNotTrack) {
   <a href="/blog/2002/09/04/using-design-patterns-in-real-projects/" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-blog20020904using-design-patterns-in-real-projects"><span class="">Using Design Patterns in Real Projects</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-blog20000104patterns-modelmaker-beyond-li">
   <a href="/blog/2000/01/04/patterns-modelmaker-beyond/" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-blog20000104patterns-modelmaker-beyond"><span class="">Patterns, ModelMaker &amp; Beyond</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-blog10101-li">
+  <a href="/blog/1/01/01/" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-blog10101"><span class=""></span></a>
 </li>
   </ul>
 </li>
@@ -232,21 +234,19 @@ if (!doNotTrack) {
     </li>
     <li><a href="#plain-text-diagrams">Plain Text Diagrams</a>
       <ul>
-        <li><a href="#what-does-plain-text-diagram-syntax-look-like">What does Plain Text Diagram Syntax look like?</a></li>
+        <li><a href="#what-does-a-plain-text-diagram-look-like">What does a Plain Text &lsquo;Diagram&rsquo; look like?</a></li>
         <li><a href="#recipe-example">Recipe Example</a></li>
         <li><a href="#car-example">Car Example</a></li>
-        <li><a href="#treeview-example">Treeview Example</a></li>
       </ul>
     </li>
     <li><a href="#specification">Specification</a>
       <ul>
         <li><a href="#sections-overview">Sections (Overview)</a></li>
         <li><a href="#diagram">Diagram:</a></li>
+        <li><a href="#imports">Imports:</a></li>
         <li><a href="#files">Files:</a></li>
         <li><a href="#classes">Classes:</a></li>
-        <li><a href="#class-relationships">Class Relationships:</a></li>
-        <li><a href="#imports">Imports:</a></li>
-        <li><a href="#use-cases--scenarios">Use Cases / Scenarios:</a></li>
+        <li><a href="#use-cases--sequences">Use Cases / Sequences:</a></li>
       </ul>
     </li>
     <li><a href="#comparison-with-uml">Comparison with UML</a>
@@ -257,7 +257,7 @@ if (!doNotTrack) {
     </li>
     <li><a href="#discussion">Discussion</a>
       <ul>
-        <li><a href="#paradigm-of-a-box-with-data-and-behaviour">Paradigm of a box with data and behaviour</a></li>
+        <li><a href="#a-box-with-data-and-behaviour">A box with data and behaviour</a></li>
         <li><a href="#similarity-to-plantuml-and-mermaid-markdown">Similarity to PlantUML and Mermaid markdown</a></li>
         <li><a href="#why-not-ascii-boxes">Why not ASCII boxes?</a></li>
       </ul>
@@ -375,33 +375,40 @@ if (!doNotTrack) {
 <p>Here is an example:</p>
 <p><img src="https://raw.github.com/abulka/lcodemaps/master/images/handcrafted-code-map-andy.png" alt="code map example 01"></p>
 <p>Taking the code map idea to a more formal level, I have created a new diagramming methodology called Literate Code Mapping <a href="https://abulka.github.io/lcodemaps/">here</a>.</p>
-<p>However most code maps rely on visual tools (drawings on paper or visual diagrams) thus are not easily maintained in a text editor.  Ideally you want code maps to live in comments next to your code, or in markdown files. This is where Plain Text &lsquo;Diagrams&rsquo; come in.</p>
+<p>Here is another, quite different, example of a code map, this time of part of my <a href="/projects/websites/chordjammer">ChordJammer</a> project:</p>
+<p><img src="/blog/images/pt-chord-scale-interactions.excalidraw.svg" alt="code map example 02"></p>
+<p>Most code maps (or other abstraction artifacts) typically rely on visual tooling (hand drawings on paper or visual diagrams) thus are not maintainable in a text editor along with your source code.  Ideally you want code maps to live in comments next to your code, or in markdown files where they can be rapidly edited. This is where Plain Text &lsquo;Diagrams&rsquo; come in.</p>
 <h2 id="plain-text-diagrams">Plain Text Diagrams</h2>
-<p>Plain Text Diagrams are a way of representing diagrams of code structure and behaviour in a plain text format - not ASCII diagrams which are hard to produce, but indented approximations of what diagrams give you.  Being Plain Text means that you can rapidly update and maintain your diagrams in a text editor.  They are meant to be easy to read and write, and most importantly, useful.  By useful I mean you should be able to read them and gain rapid deep understanding of the source code structure and behaviour that the diagram represents.</p>
-<h3 id="what-does-plain-text-diagram-syntax-look-like">What does Plain Text Diagram Syntax look like?</h3>
-<p><img src="/blog/images/pt-diagram-screenshot1.png" alt="The beginning of a PT Diagram file">
-<em>beginning of a PT Diagram file</em></p>
-<p><img src="/blog/images/pt-diagram-screenshot2.png" alt="A pseudo code, sequence diagram example of a use case scenario">
-<em>a pseudo code, sequence diagram example of a use case scenario</em></p>
+<p>Plain Text Diagrams are a way of representing diagrams of code structure and behaviour in a plain text format - not ASCII diagrams which are hard to produce, but indented approximations of what diagrams give you.  Being Plain Text means that you can rapidly update and maintain your diagrams in a text editor.  Code outlines on steroids. They are meant to be easy to read and write, and most importantly, useful.  By useful I mean you should be able to read them and gain rapid deep understanding of the source code structure and behaviour that the diagram represents.</p>
+<h3 id="what-does-a-plain-text-diagram-look-like">What does a Plain Text &lsquo;Diagram&rsquo; look like?</h3>
+<p><img src="/blog/images/pt-diagram-screenshot0.png" alt="A Plain Text &lsquo;Diagram&rsquo; file">
+<em>class &lsquo;diagram&rsquo; and sequence &lsquo;diagrams&rsquo;</em></p>
 <h3 id="recipe-example">Recipe Example</h3>
-<p>Example for Recipe Construction</p>
+<p>Example for Recipe Construction, <a href="/blog/uml/example-recipe.ptd">example-recipe.ptd</a></p>
 <pre tabindex="0"><code>Diagram:
   name: Recipe Construction
   version: 1.0
+  version-ptd: 1.1
   description: Example of PT (plain text) diagram notation, blending structure (class) and sequence diagramming
+               more details here about the diagram
   files: Recipe.ts, Fruit.ts, Smoothie.ts
+
+Imports:
+  Recipe.ts (class Recipe, function read, function prepare)
+    --&gt; Fruit.ts (class Fruit, function getType, function peel)
+    --&gt; Smoothie.ts (class Smoothie, function blend, function serve)
 
 Files:
   file: Recipe.ts
     Variables:
-      const ingredients: Fruit[]
+      const ingredients: Fruit[]  ◆---contains----&gt; Fruit
       let instructions: string[]
     Functions:
       read(): Fruit[]
       prepare(fruit: Fruit): void
       chop(fruit: Fruit): void
-      makeSmoothie(fruit: Fruit): Smoothie
-      logRecipe() (private) # private function to log recipe details
+      makeSmoothie(fruit: Fruit): Smoothie  ⋯⋯⋯creates⋯⋯⋯&gt; Smoothie
+      logRecipe() (private)
     Classes:
       Recipe
 
@@ -417,7 +424,7 @@ Files:
 
   file: Smoothie.ts
     Variables:
-      const ingredients: Fruit[]
+      const ingredients: Fruit[]  ◆---contains----&gt; Fruit
       let blended: boolean
     Functions:
       blend(fruit: Fruit): void
@@ -426,15 +433,16 @@ Files:
       Smoothie
 
 Classes:
-  class: Recipe (Recipe.ts)
+  class: Recipe  (Recipe.ts)  ----inherits----▷ BaseRecipe
+                              ⋯⋯⋯implements⋯⋯⋯▷ IRecipe
     Attributes:
-      ingredients: Fruit (0..*)
+      ingredients: Fruit (0..*)  ◇---depends on----&gt; Fruit
       instructions: string
     Methods:
       read()
       prepare(fruit: Fruit)
       chop(fruit: Fruit)
-      makeSmoothie(fruit: Fruit)
+      makeSmoothie(fruit: Fruit)  ⋯⋯⋯creates⋯⋯⋯&gt; Smoothie
       logRecipe() (private)
       startRecipe()
 
@@ -448,350 +456,93 @@ Classes:
 
   class: Smoothie (Smoothie.ts)
     Attributes:
-      ingredients: Fruit (1..*)
+      ingredients: Fruit (1..*)  ----uses----&gt; Fruit
       blended: boolean
     Methods:
       blend(fruit: Fruit)
       serve()
 
-
-Class Relationships:
-  Recipe
-    --&gt; Fruit (contains, 1..*)
-    --&gt; Smoothie (creates, 1)
-  Fruit
-    --&gt; Smoothie (ingredient, 1..*)
-  Smoothie
-    --&gt; Fruit (contains, 1..*)
-  Recipe
-    --&gt; Smoothie (uses, 1)
-
-Imports:
-  Recipe.ts (class Recipe, function read, function prepare)
-    --&gt; Fruit.ts (class Fruit, function getType, function peel)
-    --&gt; Smoothie.ts (class Smoothie, function blend, function serve)
-
 Use Cases:
-  Scenario: Preparation
-    startRecipe() [Recipe.ts]
-        initializes recipe
-        -&gt; read() [Recipe.ts]
-            reads ingredients
-            -&gt; getType() [class Fruit, Fruit.ts]
-                fetches fruit type
-                &lt; string
-            -&gt; peel() [class Fruit, Fruit.ts]
-                peels the fruit
-                &lt; void
-            &lt; Fruit[]
-        -&gt; prepare(fruit: Fruit) [Recipe.ts]
-            prepares fruit for chopping
-            -&gt; peel() [class Fruit, Fruit.ts]
-                peels the fruit
-                &lt; void
-            &lt; void
-        -&gt; chop(fruit: Fruit) [Recipe.ts]
-            chops the fruit
-            &lt; void
-        -&gt; makeSmoothie(fruit: Fruit) [Recipe.ts]
-            mixes fruit into smoothie
-            -&gt; blend(fruit: Fruit) [class Smoothie, Smoothie.ts]
-                blends fruit into smoothie
-                &lt; void
-            -&gt; serve() [class Smoothie, Smoothie.ts]
-                serves the smoothie
-                &lt; void
-        &lt; Smoothie
+  Sequence: Preparation
+    🧍‍♂️ -&gt; startRecipe() [Recipe.ts]
+         initializes recipe
+         -&gt; read() [Recipe.ts]
+             reads ingredients
+             -&gt; getType() [class Fruit, Fruit.ts]
+                 fetches fruit type
+                 &lt; string
+             -&gt; peel() [class Fruit, Fruit.ts]
+                 peels the fruit
+                 &lt; void
+             &lt; Fruit[]
+         -&gt; prepare(fruit: Fruit) [Recipe.ts]
+             prepares fruit for chopping
+             -&gt; peel() [class Fruit, Fruit.ts]
+                 peels the fruit
+                 &lt; void
+             &lt; void
+         -&gt; chop(fruit: Fruit) [Recipe.ts]
+             chops the fruit
+             &lt; void
+         -&gt; makeSmoothie(fruit: Fruit) [Recipe.ts]
+             mixes fruit into smoothie
+             -&gt; blend(fruit: Fruit) [class Smoothie, Smoothie.ts]
+                 blends fruit into smoothie
+                 &lt; void
+             -&gt; serve() [class Smoothie, Smoothie.ts]
+                 serves the smoothie
+                 &lt; void
+         &lt; Smoothie
 
-  Scenario: Serving
-    startRecipe() [Recipe.ts]
-        initializes recipe
-        -&gt; makeSmoothie(fruit: Fruit) [Recipe.ts]
-            mixes fruit into smoothie
-            -&gt; blend(fruit: Fruit) [class Smoothie, Smoothie.ts]
-                blends fruit into smoothie
-                &lt; void
-            -&gt; serve() [class Smoothie, Smoothie.ts]
-                serves the smoothie
-                &lt; void
-        &lt; Smoothie
+  Sequence: Serving
+    🖱️ -&gt; startRecipe() [Recipe.ts]
+         initializes recipe
+         -&gt; makeSmoothie(fruit: Fruit) [Recipe.ts]
+             mixes fruit into smoothie
+             -&gt; blend(fruit: Fruit) [class Smoothie, Smoothie.ts]
+                 blends fruit into smoothie
+                 &lt; void
+             -&gt; serve() [class Smoothie, Smoothie.ts]
+                 serves the smoothie
+                 &lt; void
+         &lt; Smoothie
 </code></pre><h3 id="car-example">Car Example</h3>
-<p>Uses advanced scenario sequence diagram features</p>
-<pre tabindex="0"><code>Diagram:
-  name: Car Management System
-  version: 1.0
-  description: A system to manage cars, including electric cars, with features like starting, stopping, charging, and diagnostics.
-  files: Automobile.ts, Car.ts, ElectricCar.ts, Charger.ts, Diagnostics.ts
-
-Files:
-  file: Automobile.ts
-    Variables:
-      (none)
-    Functions:
-      (none)
-    Interfaces:
-      Automobile
-
-  file: Car.ts
-    Variables:
-      wheels: Wheel (4)
-      running: boolean
-      fuelLevel: number
-    Functions:
-      start()
-      stop()
-      refuel(amount: number)
-    Classes:
-      Car --&gt; Automobile (implements)
-
-  file: ElectricCar.ts
-    Variables:
-      batteryLevel: number
-      isCharging: boolean
-    Functions:
-      start(): void @override
-      charge(duration: number)
-      checkBattery(): number
-    Classes:
-      ElectricCar --&gt; Car (inherits)
-
-  file: Charger.ts
-    Variables:
-      powerOutput: number
-      isPluggedIn: boolean
-    Functions:
-      plugIn()
-      unplug()
-      chargeCar(car: ElectricCar, duration: number)
-    Classes:
-      Charger
-
-  file: Diagnostics.ts
-    Variables:
-      lastError: string
-    Functions:
-      runDiagnostics(car: Car)
-      logError(error: string)
-    Classes:
-      Diagnostics
-
-Classes:
-  interface: Automobile
-    Methods:
-      start()
-      stop()
-
-  class: Car --&gt; Automobile (implements)
-    Attributes:
-      wheels: Wheel (4)
-      running: boolean
-      fuelLevel: number
-    Methods:
-      start()
-      stop()
-      refuel(amount: number)
-
-  class: ElectricCar --&gt; Car (inherits)
-    Attributes:
-      batteryLevel: number
-      isCharging: boolean
-    Methods:
-      start(): void @override
-      charge(duration: number)
-      checkBattery(): number
-
-  class: Charger
-    Attributes:
-      powerOutput: number
-      isPluggedIn: boolean
-    Methods:
-      plugIn()
-      unplug()
-      chargeCar(car: ElectricCar, duration: number)
-
-  class: Diagnostics
-    Attributes:
-      lastError: string
-    Methods:
-      runDiagnostics(car: Car)
-      logError(error: string)
-
-Class Relationships:
-  Car
-    --&gt; Automobile (implements)
-  ElectricCar
-    --&gt; Car (inherits)
-  Charger
-    --&gt; ElectricCar (charges, 1)
-  Diagnostics
-    --&gt; Car (diagnoses, 1)
-
-Imports:
-  Car.ts (class Car, function start, function stop)
-    --&gt; Automobile.ts (interface Automobile)
-  ElectricCar.ts (class ElectricCar, function charge)
-    --&gt; Car.ts (class Car, function start)
-    --&gt; Charger.ts (class Charger, function chargeCar)
-      --&gt; Utils.ts (function calculatePower)
-  Diagnostics.ts (class Diagnostics, function runDiagnostics)
-    --&gt; Car.ts (class Car)
-
-Use Cases:
-  Scenario: Starting an Electric Car
-    start() [class ElectricCar, ElectricCar.ts]
-      [if batteryLevel &gt; 20]
-      -&gt; start() [class Car, Car.ts]
-          sets running to true
-          &lt; void
-      [else]
-      -&gt; charge(30) [class ElectricCar, ElectricCar.ts]
-          charges the car for 30 minutes
-          -&gt; chargeCar(car: ElectricCar, 30) [class Charger, Charger.ts]
-              increases batteryLevel
-              &lt; void
-          &lt; void
-      &lt; void
-
-  Scenario: Charging Multiple Electric Cars in Parallel
-    chargeCars(cars: ElectricCar[], duration: number) [class Charger, Charger.ts]
-      [parallel]
-      -&gt; chargeCar(car: ElectricCar, duration) [class Charger, Charger.ts]
-          charges each car
-          &lt; void
-      waits for all cars to charge
-      &lt; void
-
-  Scenario: Running Diagnostics with Error Handling
-    runDiagnostics(car: Car) [class Diagnostics, Diagnostics.ts]
-      [try]
-      -&gt; checkBattery() [class ElectricCar, ElectricCar.ts]
-          checks battery level
-          &lt; number
-      [catch error]
-      -&gt; logError(error: string) [class Diagnostics, Diagnostics.ts]
-          logs the error
-          &lt; void
-      [finally]
-      cleans up diagnostics
-      &lt; void
-
-  Scenario: Refueling a Car with a Loop
-    refuel(amount: number) [class Car, Car.ts]
-      [loop until fuelLevel &gt;= 100]
-      -&gt; addFuel(10) [class Car, Car.ts]
-          increases fuelLevel by 10
-          &lt; void
-      &lt; void
-
-  Scenario: Event-Driven Charging
-    setupChargingListeners() [class Charger, Charger.ts]
-      [on plugIn]
-      -&gt; chargeCar(car: ElectricCar, 60) [class Charger, Charger.ts]
-          charges the car for 60 minutes
-          &lt; void
-      [on unplug]
-      -&gt; stopCharging() [class Charger, Charger.ts]
-          stops charging
-          &lt; void
-      &lt; void
-
-  Scenario: Recursive Diagnostics
-    runDeepDiagnostics(car: Car) [class Diagnostics, Diagnostics.ts]
-      runs basic diagnostics
-      [recurse]
-      -&gt; runDeepDiagnostics(car: Car) [class Diagnostics, Diagnostics.ts]
-          runs deeper diagnostics
-          &lt; void
-      &lt; void
-</code></pre><h3 id="treeview-example">Treeview Example</h3>
-<p>A Use Case (sequence diagram as text) example showing a Treeview construction code, representing the functionality of my vscode extension <a href="/projects/libraries/snippets-explorer/">Snippets Explorer</a> which shows vscode source code snippets in a treeview. This sequence &lsquo;diagram&rsquo; example includes features like <code>[if]</code>, <code>[else]</code> and plenty of psuedo code descriptive text.</p>
-<pre tabindex="0"><code>Use Cases:
-  Scenario: Building Snippet Tree
-    _buildTree(languageId: string) [class TreeDataProvider, snippet_tree.js]
-      Logs the start of tree building for the given language.
-      [if languageId is undefined]
-        Initializes `this.itemTree` with a placeholder message.
-        &lt; number
-      [else]
-        Initializes `this.snippetTree` and `this.itemTree` as empty structures.
-        -&gt; enumerateSnippets(this.snippetTree, languageId) [./snippet_enumerator]
-            Populates `this.snippetTree` with snippets for the given language.
-            &lt; void
-        -&gt; logSnippetTree(languageId: string) [class TreeDataProvider, snippet_tree.js]
-            Logs the structure of `this.snippetTree`.
-            &lt; void
-
-        Constructs the tree structure:
-        - Iterates over `this.snippetTree` to create `TreeItem` instances for each language.
-        - For each language, iterates over its snippets to create nested `TreeItem` instances.
-        - Sets tooltips, collapsible states, and parent-child relationships.
-
-        Updates `this.itemTree` with the constructed tree structure.
-        Stores the tree in `this.languageIdTrees` for the given language.
-
-        Logs the completion of tree building.
-        &lt; void
-        
-  Scenario: Switching Language
-    switchLanguage(languageId: string) [class TreeDataProvider, snippet_tree.js]
-      Logs the start of language switching.
-      [if languageId is not in this.languageIdTrees]
-        -&gt; _buildTree(languageId: string) [class TreeDataProvider, snippet_tree.js]
-            Builds the snippet tree for the given language.
-            &lt; void
-      [else]
-        Restores `this.snippetTree` and `this.itemTree` from `this.languageIdTrees`.
-        -&gt; _restoreExpandedStates(languageId: string) [class TreeDataProvider, snippet_tree.js]
-            Restores the expanded states of tree items for the given language.
-            &lt; void
-        Fires the tree data change event to refresh the UI.
-      -&gt; _selectSubtree(languageId: string) [class TreeDataProvider, snippet_tree.js]
-          Selects and reveals the subtree for the given language.
-          &lt; void
-      Logs the completion of language switching.
-      &lt; void
-
-  Scenario: Refreshing the Tree
-    refresh() [class TreeDataProvider, snippet_tree.js]
-      Logs the start of tree refresh.
-      -&gt; _buildTree(this._getCurrentDocumentLanguageId()) [class TreeDataProvider, snippet_tree.js]
-          Rebuilds the snippet tree for the current language.
-          &lt; void
-      Fires the tree data change event to refresh the UI.
-      Logs the completion of tree refresh.
-      &lt; void
-</code></pre><h2 id="specification">Specification</h2>
+<p>Example for Car Management System, <a href="/blog/uml/example-car.ptd">example-car.ptd</a>. This example uses <code>[..]</code> directives in the sequence diagrams, like <code>[if ...]</code> and <code>[try]</code>.</p>
+<h2 id="specification">Specification</h2>
 <p>Plain Text Diagram (PT Diagram) Notation - Specification</p>
 <p>A lightweight, plain text format for visualizing software systems, including classes, files, variables, functions, relationships, and use cases. Designed for readability, version control, and LLM compatibility.</p>
 <p>Plain Text &lsquo;Diagrams&rsquo; are a hybrid of UML, sequence diagrams, and pseudo code. They are designed to be human-readable, version-controlled, and lightweight. They can be used to document, understand, and communicate software systems.</p>
 <p>Like UML diagrams, we have two main types of &lsquo;diagrams&rsquo;:</p>
 <ul>
 <li>
-<p>Structural: For example classes and files are listed with their data and behaviour - try to see them as boxes. Some class relationships are indicated with arrows.</p>
+<p>Structural: Classes &lsquo;diagrams&rsquo; include classes, interfaces and files with their data and behaviour listed - try to see these outlines as UML boxes. Text arrows <code>----&gt;</code> are used to show relationships.</p>
 </li>
 <li>
-<p>Behavioural: Sequence &lsquo;diagrams&rsquo; are constructed via an indented pseudo code format. Function calls are shown with arrows, return types are shown with <code>&lt;</code>, and work well to indicate the flow of a use case scenario.</p>
+<p>Behavioural: Sequence &lsquo;diagrams&rsquo; are constructed via an indented pseudo code format. Function calls are shown with arrows, return types are shown with <code>&lt;</code> to indicate the flow of a use case sequence.</p>
 </li>
 </ul>
 <p>You can update and maintain your diagrams in a text editor. They are meant to be easy to read and write, and most importantly, useful. By useful I mean you should be able to read them and gain rapid deep understanding of the source code structure and behaviour that the diagram represents.</p>
-<p>Indentation is critical for hierarchy and readability. Use <code>--&gt;</code> for relationships. Use <code>-&gt;</code> for function calls in use cases and <code>&lt; returnType</code> for function return types.</p>
+<p>Indentation is critical for hierarchy and readability. Use <code>----&gt;</code> for relationships. Use <code>-&gt;</code> for function calls in use cases and <code>&lt; returnType</code> for function return types.</p>
 <h3 id="sections-overview">Sections (Overview)</h3>
 <p>PT Diagram notation consists of the following sections:</p>
 <pre tabindex="0"><code>Diagram:
+Imports:
 Files:
 Classes:
-Class Relationships:
-Imports:
 Use Cases:
-  Scenario: A
-  Scenario: B
+  Sequence: A
+  Sequence: B
   ...
 </code></pre><p>more detail:</p>
 <pre tabindex="0"><code>Diagram:
   name:
   version:
+  version-ptd:
   description:
   files: File1.ts, File2.ts, ...
+
+Imports:
+  ...
 
 Files:
   file: File1.ts
@@ -804,7 +555,7 @@ Files:
     ...
 
 Classes:
-  class: Class1 (class1.ts) --&gt; ParentClass
+  class: Class1 (class1.ts) ---inherits---▷ ParentClass
     Attributes:
     Methods:
 
@@ -814,38 +565,90 @@ Classes:
   class: Class2 (class2.ts)
     ...
 
-Class Relationships:
-  ...
-
-Imports:
-  ...
-
 Use Cases:
-  Scenario: Example Call Sequence
+  Sequence: Example Call Sequence
     ...
   
-  Scenario: Another Scenario
+  Sequence: Another sequence
     ...
 </code></pre><h3 id="diagram">Diagram:</h3>
-<ol>
-<li><strong>Diagram</strong>: System name, version, description, and files. Your Plain Text Diagram can be of a single source code file, or multiple source code files. Its scope is defined by the comma delimited list of files in the  <code>files:</code> label of the <code>Diagram:</code> section.</li>
-</ol>
+<p><strong>Diagram</strong>: System name, version, description, and files. Your Plain Text Diagram can be of a single source code file, or multiple source code files. Its scope is defined by the comma delimited list of files in the  <code>files:</code> label of the <code>Diagram:</code> section.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>Diagram:
 </span></span><span style="display:flex;"><span>  name: Diagram Name
 </span></span><span style="display:flex;"><span>  version: 1.0
-</span></span><span style="display:flex;"><span>  description: Brief description.
+</span></span><span style="display:flex;"><span>  version-ptd: Plain Text Diagram schema version e.g. 1.1
+</span></span><span style="display:flex;"><span>  description: Brief description. Multiple lines are fine.
 </span></span><span style="display:flex;"><span>  files: File1.ts, File2.ts
+</span></span></code></pre></div><h3 id="imports">Imports:</h3>
+<p><strong>Imports</strong>: Dependencies between files. Files one per line. List the contents of each file in () e.g. <code>File1.ts (class Class1, function func1)</code> indent the relationships under the file using &ndash;&gt;. Multiple relationships are indented under the file at the same level. Nested relationships are indented further.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>Imports:
+</span></span><span style="display:flex;"><span>  Car.ts (class Car, function start, function stop)
+</span></span><span style="display:flex;"><span>    --&gt; Automobile.ts (interface Automobile)
+</span></span><span style="display:flex;"><span>  ElectricCar.ts (class ElectricCar, function charge)
+</span></span><span style="display:flex;"><span>    --&gt; Car.ts (class Car, function start)
+</span></span><span style="display:flex;"><span>    --&gt; Charger.ts (class Charger, function chargeCar)
+</span></span><span style="display:flex;"><span>      --&gt; Utils.ts (function calculatePower)
 </span></span></code></pre></div><h3 id="files">Files:</h3>
-<ol start="2">
-<li><strong>Files</strong>: Lists variables, functions (with parameters, return types, and annotations), and classes/interfaces for each file. Comments can be added using <code>#</code>. The file: objects are like UML boxes with data + behaviour e.g. Variables: and Functions:. Additional sections for Classes: and Interfaces: can be added if needed - these just list the names of the classes and interfaces living in this particular file. Variables can have optional type <code>: type</code>, default value <code> = value</code> followed by an optional tuple containing <code>(relationship type, cardinality)</code> where relationship type is just a free form description of the relationship e.g. <code>contains</code>, <code>owns</code>, <code>uses</code>, <code>implements</code>, <code>inherits</code>, <code>depends on</code>, <code>creates</code>, <code>diagnoses</code>. The cardinality is a string like <code>1</code>, <code>0..1</code>, <code>1..*</code>, <code>0..*</code>. Functions can have parameters with types and default values, and return types. Functions can have annotations like <code>@override</code> to indicate that they override a parent class method. Functions can be listed as <code>(private)</code> or some other access modifier.</li>
-</ol>
+<ul>
+<li>Lists variables, functions, and classes/interfaces for each file.</li>
+<li>Comments can be added using <code>#</code>.</li>
+<li><strong>File Object</strong>:
+<ul>
+<li>Resembles a UML box with data and behavior:
+<ul>
+<li>Sections include <code>Variables:</code> and <code>Functions:</code>.</li>
+<li>Additional sections for <code>Classes:</code> and <code>Interfaces:</code> can be added if needed - these sections list the names of the classes and interfaces located in the file.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Variables</strong>:
+<ul>
+<li>Can have optional type annotations, denoted as <code>: type</code>.</li>
+<li>Can have optional default values, denoted as <code>= value</code>.</li>
+<li>Can include optional cardinality, such as <code>1</code>, <code>0..1</code>, <code>1..*</code>, or <code>0..*</code>.</li>
+<li>Can have optional arrows to indicate relationships, e.g., <code>◇--contains--&gt; Fruit</code>.
+<ul>
+<li>Relationship types can include <code>contains</code>, <code>owns</code>, <code>uses</code>, <code>implements</code>, <code>inherits</code>, <code>depends on</code>, <code>creates</code>, <code>diagnoses</code>, etc.</li>
+<li>Example: <code>◆--contains--&gt; Fruit</code> or <code>⋯⋯⋯creates⋯⋯⋯&gt; Smoothie</code>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Functions</strong>:
+<ul>
+<li>Include parameters, return types, and annotations.
+<ul>
+<li>Parameters can have types and default values.</li>
+<li>Return types are specified.</li>
+<li>Annotations like <code>@override</code> can be used to indicate overriding a parent class method.</li>
+<li>Functions can be marked with access modifiers, e.g., <code>(private)</code>.</li>
+</ul>
+</li>
+<li>Arrows for function parameter or return references to classes are usually omitted to reduce clutter but can be added if desired, e.g., <code>washes(): Car  ----returns----&gt; Car</code>.
+Here’s the compressed version, removing redundancies while retaining all details:</li>
+</ul>
+</li>
+<li><strong>Arrows and Relationships</strong>:
+<ul>
+<li>Arrows are typically reserved for variable relationships, not function parameter or return references (unless explicitly added).</li>
+<li>Use of emoji characters like <code>◇</code>, <code>◆</code>, or <code>⋯</code> is optional but can enhance visual appeal:
+<ul>
+<li>Examples: <code>◆--contains--&gt; Fruit</code> or <code>⋯⋯⋯creates⋯⋯⋯&gt; Smoothie</code> for important relationships.</li>
+<li>Plain arrows like <code>--contains--&gt;</code> or <code>--creates--&gt;</code> are also acceptable.</li>
+</ul>
+</li>
+<li>The number of dashes <code>--</code> or dots <code>⋯</code> in arrows is flexible and up to the user.</li>
+</ul>
+</li>
+</ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>Files:
 </span></span><span style="display:flex;"><span>  file: File1.ts
 </span></span><span style="display:flex;"><span>    Variables:
-</span></span><span style="display:flex;"><span>      var1: Type # Example comment
-</span></span><span style="display:flex;"><span>      var2: Type = 100 # Optional default value
-</span></span><span style="display:flex;"><span>      var3: Type (0..1) # Optional cardinality
-</span></span><span style="display:flex;"><span>      var3: Type (contains, 1..*) # Optional relationship
+</span></span><span style="display:flex;"><span>      var1: Type         ◇--contains--&gt; Type
+</span></span><span style="display:flex;"><span>      var2: Type = 100
+</span></span><span style="display:flex;"><span>      var3: Type (0..1)
+</span></span><span style="display:flex;"><span>      var3: Type (1..*)  ⋯⋯creates⋯⋯&gt; Type
 </span></span><span style="display:flex;"><span>    Functions:
 </span></span><span style="display:flex;"><span>      func1(param1: Type, param2: Type): ReturnType
 </span></span><span style="display:flex;"><span>      func2(): void @override # Overrides a parent class method
@@ -855,19 +658,78 @@ Use Cases:
 </span></span><span style="display:flex;"><span>    Interfaces:
 </span></span><span style="display:flex;"><span>      Interface1
 </span></span></code></pre></div><h3 id="classes">Classes:</h3>
-<ol start="3">
-<li><strong>Classes</strong>: Describes classes and interfaces, including their attributes, methods (with parameters, return types, and annotations), and relationships (inheritance or implementation) e.g. <code>class Recipe --&gt; BaseRecipe (inherits)</code>. Where there are multiple class and interface relationships, the second and subsequent relationships are placed on a new line with the <code>--&gt;</code> lining up with the first arrow (see example below).
-The class: object is like a UML box with data + behaviour e.g. Attributes: and Methods:. The interface: object is like a class but with no methods.
-Attributes can have optional default values with <code>= defaultValue</code>, and optional relationships with <code>(relationship, cardinality)</code> and optional arrows to the type <code>--&gt; Type</code>. Class and Interface names can optionally be followed by (somefile.ts) indicating their location.
-All the classes from all the files in the Diagram scope <code>files:</code> are listed in the <code>Classes:</code> section, allowing a &rsquo;logical&rsquo; grouping of classes and interfaces, meaning you can list all the classes in one place, even though they are in different files.</li>
-</ol>
+<p>Describes classes and interfaces, including:</p>
+<ul>
+<li><strong>Attributes</strong>:
+<ul>
+<li>Can have optional default values, denoted as <code>= defaultValue</code>.</li>
+<li>Can have optional <code>:type</code> and <code>(cardinality)</code> and optional arrows to the type, e.g., <code>--relationship--&gt; Type</code>.</li>
+</ul>
+</li>
+<li><strong>Methods</strong>:
+<ul>
+<li>Include parameters, return types, and annotations.</li>
+<li>Arrows for method parameter or return references to classes are usually omitted to reduce clutter, but can be added if desired, e.g., <code>runDiagnostics(car: Car)  ----diagnoses----&gt; Car</code>.</li>
+</ul>
+</li>
+<li><strong>Relationships</strong>:
+<ul>
+<li>Inheritance or implementation relationships are shown, e.g., <code>class: Recipe  (Recipe.ts) --inherits--▷ BaseRecipe</code>.</li>
+<li>For multiple relationships, the second and subsequent relationships are placed on a new line with the <code>--&gt;</code> aligned with the first arrow.</li>
+</ul>
+</li>
+<li><strong>Class Object</strong>:
+<ul>
+<li>Resembles a UML box with data and behavior:
+<ul>
+<li>Sections include <code>Attributes:</code> and <code>Methods:</code>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Interface Object</strong>:
+<ul>
+<li>Similar to a class but contains no methods.</li>
+</ul>
+</li>
+<li><strong>File Location</strong>:
+<ul>
+<li>Class and interface names can optionally include their file location, e.g., <code>(somefile.ts)</code>.</li>
+</ul>
+</li>
+<li><strong>Logical Grouping</strong>:
+<ul>
+<li>All classes and interfaces from the <code>files:</code> scope in the diagram are listed in the <code>Classes:</code> section.</li>
+<li>This allows for a logical grouping of classes and interfaces, even if they are located in different files.</li>
+</ul>
+</li>
+<li><strong>Arrows and Relationships</strong>:
+<ul>
+<li>Arrows are typically reserved for attribute relationships, not method parameter or return references (unless explicitly added).</li>
+<li>Use of emoji characters like <code>▷</code> and <code>⋯</code> is optional but can enhance visual appeal.</li>
+<li>Examples of emoji usage:
+<ul>
+<li><code>◆---contains---&gt;</code> or <code>⋯⋯⋯implements⋯⋯⋯▷</code> to mimic UML aggregation or inheritance triangles.</li>
+<li>Plain arrows like <code>--contains--&gt;</code> or <code>--owns--&gt;</code> are also acceptable.</li>
+</ul>
+</li>
+<li>The number of dashes <code>--</code> or dots <code>⋯</code> in arrows is flexible and up to the user.</li>
+</ul>
+</li>
+<li><strong>Visual Style</strong>:
+<ul>
+<li>Emoji characters like <code>◇</code>, <code>◆</code>, <code>▷</code>, or <code>⋯</code> can be used to represent UML-style relationships.</li>
+<li>The use of these characters is optional, and many users prefer plain arrows for simplicity.</li>
+</ul>
+</li>
+</ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>Classes:
-</span></span><span style="display:flex;"><span>  class: Class1 (class1.ts) --&gt; ParentClass (parent.ts) (inherits) 
-</span></span><span style="display:flex;"><span>                            --&gt; Interface1 (interface.ts) (implements)
+</span></span><span style="display:flex;"><span>  class: Class1 (class1.ts) --inherits--▷ ParentClass (parent.ts)
+</span></span><span style="display:flex;"><span>                            ⋯⋯implements⋯⋯▷ Interface1 (interface.ts)
 </span></span><span style="display:flex;"><span>    Attributes:
 </span></span><span style="display:flex;"><span>      attr1: Type # Example comment
-</span></span><span style="display:flex;"><span>      attr2: Type = 100 --&gt; Type (uses, 1)
-</span></span><span style="display:flex;"><span>      attr3: Type (0..1)
+</span></span><span style="display:flex;"><span>      attr2: Type = 100  ◆--contains---&gt; Type
+</span></span><span style="display:flex;"><span>      attr3: Type (0..1) ⋯⋯⋯creates⋯⋯⋯&gt; Type
 </span></span><span style="display:flex;"><span>      attr3: Type (owns, 1)
 </span></span><span style="display:flex;"><span>    Methods:
 </span></span><span style="display:flex;"><span>      method1(param1: Type, param2: Type): ReturnType
@@ -876,58 +738,95 @@ All the classes from all the files in the Diagram scope <code>files:</code> are 
 </span></span><span style="display:flex;"><span>  interface: Interface1 (interface1.ts)
 </span></span><span style="display:flex;"><span>    Methods:
 </span></span><span style="display:flex;"><span>      method1(param1: Type): ReturnType
-</span></span></code></pre></div><h3 id="class-relationships">Class Relationships:</h3>
-<ol start="4">
-<li><strong>Class Relationships</strong>: Describes relationships between classes and interfaces, including optional relationship annotation (uses, contains, owns, etc.) and optional cardinality (e.g., 1, 1..*, 0..1). Single or multiple relationships. If one relationship, use <code>Class1 --&gt; Class2 (relationship)</code>. For multiple relationships, indent the relationships under the class.  Nested relationships are indented further.
-Whilst you can show relationships between classes in the <code>Classes:</code> section, this section is for summarizing all the relationships in one place, and is needed if you want to show nested class relationships e.g. for expressing the the chain: <code>Class6</code> uses <code>Class8</code> which in turn creates <code>Class9</code>.</li>
-</ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>Class Relationships:
-</span></span><span style="display:flex;"><span>  Class1
-</span></span><span style="display:flex;"><span>    --&gt; Class2 (inherits)
-</span></span><span style="display:flex;"><span>    --&gt; Class3 (implements)
-</span></span><span style="display:flex;"><span>  Class4 --&gt; Class5 (depends on)
-</span></span><span style="display:flex;"><span>  Class6
-</span></span><span style="display:flex;"><span>    --&gt; Class7 (contains, 1..*)
-</span></span><span style="display:flex;"><span>    --&gt; Class8 (creates, 1)
-</span></span><span style="display:flex;"><span>      --&gt; Class9 (owns, 0..1)
-</span></span></code></pre></div><h3 id="imports">Imports:</h3>
-<ol start="5">
-<li><strong>Imports</strong>: Dependencies between files. Files one per line. List the contents of each file in () e.g. <code>File1.ts (class Class1, function func1)</code> indent the relationships under the file using &ndash;&gt;. Multiple relationships are indented under the file at the same level. Nested relationships are indented further.</li>
-</ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>Imports:
-</span></span><span style="display:flex;"><span>  Car.ts (class Car, function start, function stop)
-</span></span><span style="display:flex;"><span>    --&gt; Automobile.ts (interface Automobile)
-</span></span><span style="display:flex;"><span>  ElectricCar.ts (class ElectricCar, function charge)
-</span></span><span style="display:flex;"><span>    --&gt; Car.ts (class Car, function start)
-</span></span><span style="display:flex;"><span>    --&gt; Charger.ts (class Charger, function chargeCar)
-</span></span><span style="display:flex;"><span>      --&gt; Utils.ts (function calculatePower)
-</span></span></code></pre></div><h3 id="use-cases--scenarios">Use Cases / Scenarios:</h3>
-<ol start="6">
-<li><strong>Use Cases</strong>:  Use Case Notation describes high-level scenarios combining sequence diagrams with descriptive pseudo-code. Core syntax: Function calls follow indented format <code>-&gt; functionName(params) [class ClassName, File.ts]</code> with source annotations [source class (if applicable), filename]. Return types appear on a new line as <code>&lt; returnType</code> followed by optional <code>, variable =</code> to specify where result is stored; <code>&lt; void</code> is optional for no return value. Returns can be primitives or complex objects like <code>&lt; {prop: type}</code>. Control flow uses bracketed annotations [if], [else], [loop], [parallel], [try], [catch], [finally], [recurse] with nesting shown through indentation and arrows (<code>-&gt;</code>) indicating nested function calls. Variables are referenced in backticks (e.g. <code>`variableName`</code>) with state updates described in natural language, focusing on key changes and purpose rather than detailed assignments. The notation prioritizes high-level abstraction and &ldquo;what&rdquo; over &ldquo;how&rdquo;, using natural language summaries for logic and state changes while retaining clear function call notation. Since use cases begin with a function call, they can serve as documentation for function behavior itself. Bullet points (-) can be used to list sequential actions.async function calls can be preceded by e.g. <code>-&gt; await function1()</code>.
-Indenting is typically two spaces, indented <code>-&gt; function()</code> call lines are matched with corresponding <code>&lt; type</code> line which is on its own line and indented more than the initialting parent call. It is impossible for there to be lines at the same indent level as a returning <code>&lt; type</code> line. [if condition] and other annotations like [try] are followed by a <code>-&gt; function()</code> line or psudo code descriptive text which is indented, like the way a regular if or try statements work.
-Example:</li>
-</ol>
+</span></span></code></pre></div><h3 id="use-cases--sequences">Use Cases / Sequences:</h3>
+<p>Here’s the rewritten and compressed version of the <strong>Use Cases</strong> section in Markdown bullet points, retaining all details and nuances:</p>
+<ul>
+<li>
+<p><strong>Use Cases</strong>:
+Describes high-level sequences combining sequence diagrams with descriptive pseudo-code.</p>
+</li>
+<li>
+<p><strong>Core Syntax</strong>:</p>
+<ul>
+<li>Use cases begin with a function call, serving as documentation for function behavior.</li>
+<li>Function calls follow an indented format:<br>
+<code>-&gt; functionName(params) [class ClassName, File.ts]</code><br>
+(includes source annotations: source class and filename, if applicable).</li>
+<li>Return types appear on a new line:<br>
+<code>&lt; returnType</code><br>
+Optionally, specify where the result is stored:<br>
+<code>&lt; returnType, variable =</code>.
+<ul>
+<li>Use <code>&lt; void</code> for no return value (optional).</li>
+<li>Returns can be primitives or complex objects, e.g., <code>&lt; {prop: type}</code>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Control Flow</strong>:</p>
+<ul>
+<li>Uses bracketed annotations:<br>
+<code>[if]</code>, <code>[else]</code>, <code>[loop]</code>, <code>[parallel]</code>, <code>[try]</code>, <code>[catch]</code>, <code>[finally]</code>, <code>[recurse]</code> which are followed by a <code>-&gt; function()</code> line or pseudo-code descriptive text, indented similarly to regular <code>if</code> or <code>try</code> statements.</li>
+<li>Nesting is shown through indentation.</li>
+<li>Arrows (<code>-&gt;</code>) indicate nested function calls.</li>
+<li>Async function calls are preceded by <code>await</code>, e.g., <code>-&gt; await function1()</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Abstraction</strong>:</p>
+<ul>
+<li>State updates are described in natural language, focusing on key changes and purpose rather than detailed assignments.</li>
+<li>Prioritizes high-level abstraction (&ldquo;what&rdquo; over &ldquo;how&rdquo;).</li>
+<li>Uses natural language summaries for logic and state changes.</li>
+<li>Retains clear function call notation for precision.</li>
+<li>Bullet points (<code>-</code>) can list sequential actions.</li>
+</ul>
+</li>
+<li>
+<p><strong>Indentation Rules</strong>:</p>
+<ul>
+<li>Typically two spaces.</li>
+<li>Indented <code>-&gt; function()</code> call lines are matched with corresponding <code>&lt; type</code> lines, which are on their own line and indented more than the initiating parent call.</li>
+<li>No lines can be at the same indent level as a returning <code>&lt; type</code> line.</li>
+</ul>
+</li>
+<li>
+<p><strong>Emoji Triggers (Optional)</strong>:</p>
+<ul>
+<li>The first function call can start with an emoji symbol indicating the trigger:
+<ul>
+<li><code>🖱️ -&gt; </code> for a mouse click event.</li>
+<li><code>🧍‍♂️ -&gt; </code> for a user-triggered event.</li>
+<li><code>📃 -&gt; </code> for code triggering other code.</li>
+</ul>
+</li>
+<li>Starting with <code>-&gt; function()</code> or just <code>function()</code> is also fine.</li>
+</ul>
+</li>
+</ul>
+<p>Example:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>Use Cases:
-</span></span><span style="display:flex;"><span>  Scenario: Example Scenario
-</span></span><span style="display:flex;"><span>    func1() [class Class1, File1.ts]         
-</span></span><span style="display:flex;"><span>      Initializes `this.snippetTree` and `this.itemTree` as empty structures.
-</span></span><span style="display:flex;"><span>      [if condition]
-</span></span><span style="display:flex;"><span>        -&gt; func2() [class Class2, File2.ts]
-</span></span><span style="display:flex;"><span>          Updates `this.itemTree` with the constructed tree structure.
-</span></span><span style="display:flex;"><span>          Stores the tree in `this.languageIdTrees` for the given language.
-</span></span><span style="display:flex;"><span>          &lt; returnType, x =
-</span></span><span style="display:flex;"><span>        -&gt; blend(fruit: Fruit) [class Smoothie, Smoothie.ts]              
-</span></span><span style="display:flex;"><span>           &lt; string, currentFruit =
-</span></span><span style="display:flex;"><span>        -&gt; await fsp.readdir(extensionsPath) [fs.promises]
-</span></span><span style="display:flex;"><span>          &lt; string[], extensionsDirs = 
-</span></span><span style="display:flex;"><span>      &lt; returnType
+</span></span><span style="display:flex;"><span>  Sequence: Example sequence &#39;diagram&#39;
+</span></span><span style="display:flex;"><span>    🖱️ -&gt; func1() [class Class1, File1.ts]         
+</span></span><span style="display:flex;"><span>           Initializes `this.snippetTree` and `this.itemTree` as empty structures.
+</span></span><span style="display:flex;"><span>           [if condition]
+</span></span><span style="display:flex;"><span>             -&gt; func2() [class Class2, File2.ts]
+</span></span><span style="display:flex;"><span>               Updates `this.itemTree` with the constructed tree structure.
+</span></span><span style="display:flex;"><span>               Stores the tree in `this.languageIdTrees` for the given language.
+</span></span><span style="display:flex;"><span>               &lt; returnType, x =
+</span></span><span style="display:flex;"><span>             -&gt; blend(fruit: Fruit) [class Smoothie, Smoothie.ts]              
+</span></span><span style="display:flex;"><span>                &lt; string, currentFruit =
+</span></span><span style="display:flex;"><span>             -&gt; await fsp.readdir(extensionsPath) [fs.promises]
+</span></span><span style="display:flex;"><span>               &lt; string[], extensionsDirs = 
+</span></span><span style="display:flex;"><span>           &lt; returnType
 </span></span></code></pre></div><h2 id="comparison-with-uml">Comparison with UML</h2>
 <h3 id="traditional-uml-class-diagram">Traditional UML Class Diagram</h3>
 <img src="/blog/images/pt-diagram-class-uml.png" alt="Traditional UML Class Diagram" width="60%">
 <br>
 <br>
 <p>Here is the same diagram as a Plain Text Diagram:</p>
-<img src="/blog/images/pt-diagram-class-pt.png" alt="Plain Text 'UML Class Diagram'" width="70%">
+<img src="/blog/images/pt-diagram-class.png" alt="Plain Text 'UML Class Diagram'" width="80%">
 <br>
 <br>
 <p>Sure, its not as &ldquo;visual&rdquo; and as effective at communicating meaning, but its not bad for a text representation.  It is a way of representing the structure of a codebase in a way that is similar to a UML class diagram, but implemented as text, using indentation and text arrows <code>-&gt;</code> instead of boxes and arrows and graphics. Put it in a comment in your source code - no problem!</p>
@@ -936,16 +835,13 @@ Example:</li>
 <br>
 <br>
 <p>Here is the same diagram as a Plain Text Diagram:</p>
-<img src="/blog/images/pt-diagram-sequence-pt.png" alt="Plain Text 'UML Sequence Diagram'" width="60%">
+<img src="/blog/images/pt-diagram-sequence.png" alt="Plain Text 'UML Sequence Diagram'" width="90%">
 <br>
 <br>
-<p>The <code>Use Cases:</code> section is a list of scenarios, each with a sequence of function calls.  Each <code>Scenario:</code> is a &ldquo;sequence diagram&rdquo; in plain text.</p>
-<blockquote>
-<p>Perhaps <code>Scenario:</code> should be renamed <code>Sequence:</code>?</p>
-</blockquote>
+<p>The <code>Use Cases:</code> section is a list of sequences, each with a sequence of function calls.  Each <code>Sequence:</code> is a &ldquo;sequence diagram&rdquo; in plain text.</p>
 <p>Instead of a diagram with arrows drawn left to right, plain text diagrams use <code>-&gt;</code> to indicate a function call.  The return type of the function is shown on the next line as <code>&lt; returnType</code>.  The return type can optionally be followed by <code>, variable =</code> to indicate where the result is stored.</p>
 <h2 id="discussion">Discussion</h2>
-<h3 id="paradigm-of-a-box-with-data-and-behaviour">Paradigm of a box with data and behaviour</h3>
+<h3 id="a-box-with-data-and-behaviour">A box with data and behaviour</h3>
 <p>The paradigm of a box with data and behaviour is used throughout the notation. Classes naturally have Attributes and Methods. Did you know that Files can also be represented as boxes with data and behaviour? Files have Variables and Functions.</p>
 <blockquote>
 <p>The idea that files can be treated as boxes with data and behaviour is a powerful one, and I use this idea in my <a href="https://www.gituml.com">GitUML</a> tool to show the structure of a codebase. Also see my <a href="http://www.pynsource.com" title="Pynsource - UML tool for Python">Python UML tool</a> which uses this idea to show the structure of a Python codebase by analysing python modules (files). Many programmers don&rsquo;t use classes for everything, and so the idea of a file as a box with data and behaviour is a useful one.</p>
@@ -986,7 +882,29 @@ Recipe &#34;1&#34; *-- &#34;1&#34; Smoothie : creates
 Smoothie &#34;1&#34; *-- &#34;1..*&#34; Fruit : uses
 @enduml
 </code></pre><p>PlantUML shows relationships as special instructions each on their own line, which is less integrated and it is arguably harder for a human to reconstruct the visual picture of the relationships in their mind from a list.</p>
-<p>Sure, PT Diagrams, also have a <code>Class Relationships:</code> section where all the relationships are listed, one per line. But this section is a redundant, summary of the relationship shown in the Classes section and is entirely optional. Use it if you feel it adds value (see section below on Relationships).</p>
+<p>If you actually find it easier to read all the relationships in one area, then feel free to add a <code>Relationships:</code> section to the PT Diagram notation. Something like:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>Class Relationships:
+</span></span><span style="display:flex;"><span>  Class1
+</span></span><span style="display:flex;"><span>    --&gt; Class2 (inherits)
+</span></span><span style="display:flex;"><span>    --&gt; Class3 (implements)
+</span></span><span style="display:flex;"><span>  Class4 --&gt; Class5 (depends on)
+</span></span><span style="display:flex;"><span>  Class6
+</span></span><span style="display:flex;"><span>    --&gt; Class7 (contains, 1..*)
+</span></span><span style="display:flex;"><span>    --&gt; Class8 (creates, 1)
+</span></span><span style="display:flex;"><span>      --&gt; Class9 (owns, 0..1)
+</span></span></code></pre></div><p>or</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>Class Relationships:
+</span></span><span style="display:flex;"><span>  Class1
+</span></span><span style="display:flex;"><span>    ----inherits----▷ Class2
+</span></span><span style="display:flex;"><span>    ⋯⋯⋯implements⋯⋯⋯▷ Class3
+</span></span><span style="display:flex;"><span>  Class4 ---depends on---&gt; Class5
+</span></span><span style="display:flex;"><span>  Class6
+</span></span><span style="display:flex;"><span>    ---contains---&gt; Class7 (1..*)
+</span></span><span style="display:flex;"><span>    ⋯⋯⋯creates⋯⋯⋯&gt; Class8 ◆---owns--&gt; Class9
+</span></span><span style="display:flex;"><span>    ⋯⋯⋯creates⋯⋯⋯&gt; Class10
+</span></span><span style="display:flex;"><span>      ◆---owns--&gt; Class11
+</span></span><span style="display:flex;"><span>      ◆---uses--&gt; Class12
+</span></span></code></pre></div><p>however this is not part of the core PT Diagram notation, it is just a suggestion.</p>
 <h3 id="why-not-ascii-boxes">Why not ASCII boxes?</h3>
 <pre tabindex="0"><code>+----------------------+    +-------------------+                    
 |     BaseRecipe       |    |     IRecipe       |                    
@@ -1020,18 +938,11 @@ Smoothie &#34;1&#34; *-- &#34;1..*&#34; Fruit : uses
 </code></pre><p><em>hand crafted ascii diagram</em></p>
 <p>Yeah good luck with that.</p>
 <p>ASCII boxes are a great way to represent classes and files, but they are not easy to create or maintain in a text editor.  In fact they are an absolute nightmare to create by hand. I used the Mac app <a href="https://monodraw.helftone.com/">MonoDraw</a> to help me make the above ASCII diagram.</p>
-<h4 id="relationships">Relationships</h4>
-<p>Philosophically, there are other paradigms besides data and behaviour. Relationships are a <code>thing</code>, so we have a <code>Class Relationships:</code> section and an <code>Imports:</code> section.</p>
-<p>The <code>Imports:</code> section is a list of files with relationships to other files.</p>
-<p>The <code>Class Relationships:</code> section is a list of classes with relationships to other classes.</p>
-<img src="/blog/images/pt-diagram-class-pt-relationships.png" alt="Plain Text 'UML Class Diagram' Class Relationships" width="60%">
-<br>
-<br>
 <h4 id="sequence-diagram-depth">Sequence diagram depth</h4>
 <p>Interestingly, since a scenatio starts with a function call, each use case can serve as documentation for a particular function.</p>
 <p>You could arguably have psudeo code before the beginning function call, and after the last function call, with multiple top level function calls being listed, including what they call, and what those functions call etc.  I haven&rsquo;t got to that yet, but it is a possibility. Typically you would just wrap such functionality in another top level function, but I suppose there are cases where there is no such high level function? e.g.</p>
 <pre tabindex="0"><code>Use Cases:
-  Scenario: Multiple top level functions
+  Sequence: Multiple top level functions
     some psuedo code
     -&gt; func1() [class Class1, File1.ts]
       some psuedo code
@@ -1045,8 +956,8 @@ Smoothie &#34;1&#34; *-- &#34;1..*&#34; Fruit : uses
     -&gt; func4() [class Class4, File4.ts]
       &lt; void
     &lt; void
-</code></pre><p>So typically, use case scenarios are a way of documenting the behaviour of a function. How deep you want to go with mapping function calls is up to you.  You can go as deep as you like, but remember, the purpose of the use case is to tell a story, not to document every detail of the function.  If you want to stop at a certain function call and not indent and drill down further with what it calls, that is fine.  The use case is a story, and you are the story teller. Also remember that the other function you didn&rsquo;t drill into can have its own scenario section where you can tell its story.</p>
-<p>Use case scenarios of a function can</p>
+</code></pre><p>So typically, use case sequences are a way of documenting the behaviour of a function. How deep you want to go with mapping function calls is up to you.  You can go as deep as you like, but remember, the purpose of the use case is to tell a story, not to document every detail of the function.  If you want to stop at a certain function call and not indent and drill down further with what it calls, that is fine.  The use case is a story, and you are the story teller. Also remember that the other function you didn&rsquo;t drill into can have its own sequence section where you can tell its story.</p>
+<p>Use case sequences of a function can</p>
 <ul>
 <li>just show the function calls that are in the function</li>
 <li>show the function calls that are in the function and the function calls that those functions call</li>
@@ -1054,7 +965,7 @@ Smoothie &#34;1&#34; *-- &#34;1..*&#34; Fruit : uses
 </ul>
 <p>One useful use case sequence diagramming technique is to omit a lot of psuedo code detail and just show the function call sequence to a very deep level.  This is a way of documenting the overall function call sequence from top to botton - giving you a feel for how all the functions are connected.  For example:</p>
 <pre tabindex="0"><code>Use Cases:
-  Scenario: Deep Scenario
+  Sequence: Deep sequence
     func1() [class Class1, File1.ts]
       -&gt; func2() [class Class2, File2.ts]
         -&gt; func3() [class Class3, File3.ts]
@@ -1109,7 +1020,7 @@ Smoothie &#34;1&#34; *-- &#34;1..*&#34; Fruit : uses
 <p>If you want to generate PT Diagrams from your source code automatically, you can ask an AI to do it:</p>
 <ul>
 <li>feed it the <code>Specification</code> portion of <a href="https://raw.githubusercontent.com/abulka/abulka.github.io/refs/heads/master/content/blog/plain-text-diagrams.md">this blog post as markdown</a> (search for <code>## Specification</code>)</li>
-<li>feed it some examples (search for <code>### Recipe Example</code>, <code>### Car Example</code> or <code>### Treeview Example</code>)</li>
+<li>feed it some examples (search for <code>### Recipe Example</code>, <code>### Car Example</code>)</li>
 <li>ask the AI to generate a PT Diagram for you, pasting in the source code you wish the PT Diagram to represent.</li>
 </ul>
 <p>Ideally there would be a dedicated app, website or vscode extension that would do this for you.  I am thinking about this.</p>
@@ -1133,7 +1044,7 @@ Smoothie &#34;1&#34; *-- &#34;1..*&#34; Fruit : uses
 </ul>
 
 	<div class="td-page-meta__lastmod">
-  Last modified January 30, 2025: <a href="https://github.com/abulka/abulka.github.io/commit/590e3dd89d87f90d1eee4b71f980cdd5c8e3affe">cleanup (590e3dd)</a>
+  Last modified February 1, 2025: <a href="https://github.com/abulka/abulka.github.io/commit/1e3b893a67808e4ad5700c3775af4ffc09d24703">ptd specification expanded (1e3b893)</a>
 </div>
 </div>
 
