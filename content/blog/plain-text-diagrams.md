@@ -52,11 +52,13 @@ Plain Text Diagrams are a way of representing diagrams of code structure and beh
 ### What does a Plain Text 'Diagram' look like?
 
 ![A Plain Text 'Diagram' file](/blog/images/pt-diagram-screenshot0.png)
-*class 'diagram' and sequence 'diagrams'*
+*Plain Text class 'diagram' and sequence 'diagrams'*
 
 ### Recipe Example
 
-Example for Recipe Construction, [example-recipe.ptd](/blog/uml/example-recipe.ptd)
+Example for Recipe Construction, [example-recipe.ptd](/blog/uml/example-recipe.ptd). See above for syntax highlighted version of this example.
+
+**Tip:** Use the vscode [Plain Text Diagram Language Extension](https://marketplace.visualstudio.com/items?itemName=wware.plain-text-diagrams) to view this file with nice syntax highlighting, folding and formatting.
 
 ```
 {{< andy/include-file path="content/blog/uml/example-recipe.ptd" >}}
@@ -64,7 +66,9 @@ Example for Recipe Construction, [example-recipe.ptd](/blog/uml/example-recipe.p
 
 ### Car Example
 
-Example for Car Management System, [example-car.ptd](/blog/uml/example-car.ptd). This example uses `[..]` directives in the sequence diagrams, like `[if ...]` and `[try]`.
+Example for Car Management System, [example-car.ptd](/blog/uml/example-car.ptd). This example uses a variety of `[..]` directives in the sequence diagrams, like `[if ...]` and `[try]`.
+
+**Tip:** Use the vscode [Plain Text Diagram Language Extension](https://marketplace.visualstudio.com/items?itemName=wware.plain-text-diagrams) to view this file with nice syntax highlighting, folding and formatting.
 
 ## Specification
 
@@ -474,7 +478,7 @@ Yeah good luck with that.
 ASCII boxes are a great way to represent classes and files, but they are not easy to create or maintain in a text editor.  In fact they are an absolute nightmare to create by hand. I used the Mac app [MonoDraw](https://monodraw.helftone.com/) to help me make the above ASCII diagram.
   
 
-#### Sequence diagram depth
+### Sequence diagram depth
 
 Interestingly, since a scenatio starts with a function call, each use case can serve as documentation for a particular function.
 
@@ -535,7 +539,7 @@ Another technique is to show a lot of psuedo code detail and only show the funct
 
 Note that file in the `Imports:` section also are nested and indented, with the ability to show imports of imports, as deep as you like.
 
-#### Psuedo Code
+### Psuedo Code
 
 You can add psuedo code text of what is going on in a use case. There is no special syntax in PT Diagram notation for such lines. Just add them as you see fit.  They are indented under the function call line.  They are not part of the function call sequence, they are just descriptive text.  They are a way of telling the story of the use case.
 
@@ -570,6 +574,8 @@ but more work is needed on this, as I want to integrate specifics of which funct
 
 If you save your PT Diagrams in a file with a `.ptd` or `.pt-diagram` filename, you can use the [Plain Text Diagram Language Extension](https://marketplace.visualstudio.com/items?itemName=wware.plain-text-diagrams) for Visual Studio Code. Nice syntax highlighting and folding.
 
+Version `1.1.1` now supports automatic formatting of `.ptd` files.  Just right click in the editor and select `Format Document` or use the keyboard shortcut `Shift+Alt+F` (or `Shift+Opt+F` on Mac).
+
 ## Generating PT Diagrams
 
 - By hand
@@ -581,11 +587,17 @@ If you want to generate PT Diagrams from your source code automatically, you can
 - feed it some examples (search for `### Recipe Example`, `### Car Example`) 
 - ask the AI to generate a PT Diagram for you, pasting in the source code you wish the PT Diagram to represent.
 
+I've found that feeding an AI an example `.ptd` file is enough - feeding in the whole specification is usually unecessary. 
+
+Your mileage may vary, and for the AI to generate a PT Diagram from source code, you need a large context window so the little 7B models you run at home probably won't do a good job, but DeepSeek, ChatGPT, Claude and Vscode CoPilot will do a suprisingly reasonable job.
+
 Ideally there would be a dedicated app, website or vscode extension that would do this for you.  I am thinking about this.
 
 ## Final Thoughts
 
 Plain Text Diagrams are a way of representing diagrams of code structure and behaviour in a plain text format.  They help you understand source code. You can come back to a project after a long time and read the PT Diagrams to understand what is going on.  You can use them to explain to others how the code works.  You can use them to solve problems.  You can use them to be a better programmer.
+
+I'd love to hear your thoughts on this notation.  Please raise an issue on the [github repo](https://github.com/abulka/vscode-pt-diagrams/issues) if you have any suggestions or questions. Or send me an email at abulka@gmail.com.
 
 ## References
 
