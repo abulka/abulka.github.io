@@ -31,7 +31,7 @@ I call them text ‘diagrams’ because they are a way of representing the struc
   <meta property="og:type" content="article">
     <meta property="article:section" content="blog">
     <meta property="article:published_time" content="2025-01-29T00:00:00+00:00">
-    <meta property="article:modified_time" content="2025-02-01T17:45:05+11:00">
+    <meta property="article:modified_time" content="2025-02-02T22:30:02+11:00">
     <meta property="article:tag" content="UML">
     <meta property="article:tag" content="Diagramming">
     <meta property="article:tag" content="Notation">
@@ -41,8 +41,8 @@ I call them text ‘diagrams’ because they are a way of representing the struc
 Plain Text ‘diagrams’ - aren’t really diagrams but are nested, indented text files that can be rapidly parsed by the human eye to gain a high level understanding of a software system.
 I call them text ‘diagrams’ because they are a way of representing the structure and behaviour of a codebase in a way that is similar to UML diagrams, but implemented as text, using indentation and text arrows -&gt; instead of boxes and arrows and graphics.">
   <meta itemprop="datePublished" content="2025-01-29T00:00:00+00:00">
-  <meta itemprop="dateModified" content="2025-02-01T17:45:05+11:00">
-  <meta itemprop="wordCount" content="4468">
+  <meta itemprop="dateModified" content="2025-02-02T22:30:02+11:00">
+  <meta itemprop="wordCount" content="4653">
   <meta itemprop="keywords" content="UML,Diagramming,Notation">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Plain Text Diagrams">
@@ -106,7 +106,7 @@ if (!doNotTrack) {
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.f1d31978f4468bed5fdb8714efd4971a.json"
+    data-offline-search-index-json-src="/offline-search-index.c0f86fe87c46be75cec8bef2c3dbca6e.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -130,7 +130,7 @@ if (!doNotTrack) {
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.f1d31978f4468bed5fdb8714efd4971a.json"
+    data-offline-search-index-json-src="/offline-search-index.c0f86fe87c46be75cec8bef2c3dbca6e.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -260,6 +260,8 @@ if (!doNotTrack) {
         <li><a href="#a-box-with-data-and-behaviour">A box with data and behaviour</a></li>
         <li><a href="#similarity-to-plantuml-and-mermaid-markdown">Similarity to PlantUML and Mermaid markdown</a></li>
         <li><a href="#why-not-ascii-boxes">Why not ASCII boxes?</a></li>
+        <li><a href="#sequence-diagram-depth">Sequence diagram depth</a></li>
+        <li><a href="#psuedo-code">Psuedo Code</a></li>
       </ul>
     </li>
     <li><a href="#future">Future</a></li>
@@ -382,9 +384,10 @@ if (!doNotTrack) {
 <p>Plain Text Diagrams are a way of representing diagrams of code structure and behaviour in a plain text format - not ASCII diagrams which are hard to produce, but indented approximations of what diagrams give you.  Being Plain Text means that you can rapidly update and maintain your diagrams in a text editor.  Code outlines on steroids. They are meant to be easy to read and write, and most importantly, useful.  By useful I mean you should be able to read them and gain rapid deep understanding of the source code structure and behaviour that the diagram represents.</p>
 <h3 id="what-does-a-plain-text-diagram-look-like">What does a Plain Text &lsquo;Diagram&rsquo; look like?</h3>
 <p><img src="/blog/images/pt-diagram-screenshot0.png" alt="A Plain Text &lsquo;Diagram&rsquo; file">
-<em>class &lsquo;diagram&rsquo; and sequence &lsquo;diagrams&rsquo;</em></p>
+<em>Plain Text class &lsquo;diagram&rsquo; and sequence &lsquo;diagrams&rsquo;</em></p>
 <h3 id="recipe-example">Recipe Example</h3>
-<p>Example for Recipe Construction, <a href="/blog/uml/example-recipe.ptd">example-recipe.ptd</a></p>
+<p>Example for Recipe Construction, <a href="/blog/uml/example-recipe.ptd">example-recipe.ptd</a>. See above for syntax highlighted version of this example.</p>
+<p><strong>Tip:</strong> Use the vscode <a href="https://marketplace.visualstudio.com/items?itemName=wware.plain-text-diagrams">Plain Text Diagram Language Extension</a> to view this file with nice syntax highlighting, folding and formatting.</p>
 <pre tabindex="0"><code>Diagram:
   name: Recipe Construction
   version: 1.0
@@ -465,49 +468,50 @@ Classes:
 Use Cases:
   Sequence: Preparation
     🧍‍♂️ -&gt; startRecipe() [Recipe.ts]
-         initializes recipe
-         -&gt; read() [Recipe.ts]
-             reads ingredients
-             -&gt; getType() [class Fruit, Fruit.ts]
-                 fetches fruit type
-                 &lt; string
-             -&gt; peel() [class Fruit, Fruit.ts]
-                 peels the fruit
-                 &lt; void
-             &lt; Fruit[]
-         -&gt; prepare(fruit: Fruit) [Recipe.ts]
-             prepares fruit for chopping
-             -&gt; peel() [class Fruit, Fruit.ts]
-                 peels the fruit
-                 &lt; void
-             &lt; void
-         -&gt; chop(fruit: Fruit) [Recipe.ts]
-             chops the fruit
-             &lt; void
-         -&gt; makeSmoothie(fruit: Fruit) [Recipe.ts]
-             mixes fruit into smoothie
-             -&gt; blend(fruit: Fruit) [class Smoothie, Smoothie.ts]
-                 blends fruit into smoothie
-                 &lt; void
-             -&gt; serve() [class Smoothie, Smoothie.ts]
-                 serves the smoothie
-                 &lt; void
-         &lt; Smoothie
+        initializes recipe
+        -&gt; read() [Recipe.ts]
+            reads ingredients
+            -&gt; getType() [class Fruit, Fruit.ts]
+                fetches fruit type
+                &lt; string
+            -&gt; peel() [class Fruit, Fruit.ts]
+                peels the fruit
+                &lt; void
+            &lt; Fruit[]
+        -&gt; prepare(fruit: Fruit) [Recipe.ts]
+            prepares fruit for chopping
+            -&gt; peel() [class Fruit, Fruit.ts]
+                peels the fruit
+                &lt; void
+            &lt; void
+        -&gt; chop(fruit: Fruit) [Recipe.ts]
+            chops the fruit
+            &lt; void
+        -&gt; makeSmoothie(fruit: Fruit) [Recipe.ts]
+            mixes fruit into smoothie
+            -&gt; blend(fruit: Fruit) [class Smoothie, Smoothie.ts]
+                blends fruit into smoothie
+                &lt; void
+            -&gt; serve() [class Smoothie, Smoothie.ts]
+                serves the smoothie
+                &lt; void
+            &lt; Smoothie
 
   Sequence: Serving
     🖱️ -&gt; startRecipe() [Recipe.ts]
-         initializes recipe
-         -&gt; makeSmoothie(fruit: Fruit) [Recipe.ts]
-             mixes fruit into smoothie
-             -&gt; blend(fruit: Fruit) [class Smoothie, Smoothie.ts]
-                 blends fruit into smoothie
-                 &lt; void
-             -&gt; serve() [class Smoothie, Smoothie.ts]
-                 serves the smoothie
-                 &lt; void
-         &lt; Smoothie
+        initializes recipe
+        -&gt; makeSmoothie(fruit: Fruit) [Recipe.ts]
+            mixes fruit into smoothie
+            -&gt; blend(fruit: Fruit) [class Smoothie, Smoothie.ts]
+                blends fruit into smoothie
+                &lt; void
+            -&gt; serve() [class Smoothie, Smoothie.ts]
+                serves the smoothie
+                &lt; void
+            &lt; Smoothie
 </code></pre><h3 id="car-example">Car Example</h3>
-<p>Example for Car Management System, <a href="/blog/uml/example-car.ptd">example-car.ptd</a>. This example uses <code>[..]</code> directives in the sequence diagrams, like <code>[if ...]</code> and <code>[try]</code>.</p>
+<p>Example for Car Management System, <a href="/blog/uml/example-car.ptd">example-car.ptd</a>. This example uses a variety of <code>[..]</code> directives in the sequence diagrams, like <code>[if ...]</code> and <code>[try]</code>.</p>
+<p><strong>Tip:</strong> Use the vscode <a href="https://marketplace.visualstudio.com/items?itemName=wware.plain-text-diagrams">Plain Text Diagram Language Extension</a> to view this file with nice syntax highlighting, folding and formatting.</p>
 <h2 id="specification">Specification</h2>
 <p>Plain Text Diagram (PT Diagram) Notation - Specification</p>
 <p>A lightweight, plain text format for visualizing software systems, including classes, files, variables, functions, relationships, and use cases. Designed for readability, version control, and LLM compatibility.</p>
@@ -938,7 +942,7 @@ Smoothie &#34;1&#34; *-- &#34;1..*&#34; Fruit : uses
 </code></pre><p><em>hand crafted ascii diagram</em></p>
 <p>Yeah good luck with that.</p>
 <p>ASCII boxes are a great way to represent classes and files, but they are not easy to create or maintain in a text editor.  In fact they are an absolute nightmare to create by hand. I used the Mac app <a href="https://monodraw.helftone.com/">MonoDraw</a> to help me make the above ASCII diagram.</p>
-<h4 id="sequence-diagram-depth">Sequence diagram depth</h4>
+<h3 id="sequence-diagram-depth">Sequence diagram depth</h3>
 <p>Interestingly, since a scenatio starts with a function call, each use case can serve as documentation for a particular function.</p>
 <p>You could arguably have psudeo code before the beginning function call, and after the last function call, with multiple top level function calls being listed, including what they call, and what those functions call etc.  I haven&rsquo;t got to that yet, but it is a possibility. Typically you would just wrap such functionality in another top level function, but I suppose there are cases where there is no such high level function? e.g.</p>
 <pre tabindex="0"><code>Use Cases:
@@ -988,7 +992,7 @@ Smoothie &#34;1&#34; *-- &#34;1..*&#34; Fruit : uses
     &lt; void
 </code></pre><p>Another technique is to show a lot of psuedo code detail and only show the function calls to a shallow level.  This is a way of documenting the function behaviour.  You can mix and match these techniques as you see fit.</p>
 <p>Note that file in the <code>Imports:</code> section also are nested and indented, with the ability to show imports of imports, as deep as you like.</p>
-<h4 id="psuedo-code">Psuedo Code</h4>
+<h3 id="psuedo-code">Psuedo Code</h3>
 <p>You can add psuedo code text of what is going on in a use case. There is no special syntax in PT Diagram notation for such lines. Just add them as you see fit.  They are indented under the function call line.  They are not part of the function call sequence, they are just descriptive text.  They are a way of telling the story of the use case.</p>
 <p>Psudeo code narrative text is only supported in the <code>Use Cases:</code> section.  It is not supported in the other sections.  However you can add comments after the attributes and methods in the <code>Classes:</code> section, or after the variables and functions in the <code>Files:</code> section.</p>
 <h2 id="future">Future</h2>
@@ -1011,6 +1015,7 @@ Smoothie &#34;1&#34; *-- &#34;1..*&#34; Fruit : uses
 </code></pre><p>but more work is needed on this, as I want to integrate specifics of which function calls are made in each state transition and where state is stored etc. Any ideas please let me know in the issues.</p>
 <h2 id="tools">Tools</h2>
 <p>If you save your PT Diagrams in a file with a <code>.ptd</code> or <code>.pt-diagram</code> filename, you can use the <a href="https://marketplace.visualstudio.com/items?itemName=wware.plain-text-diagrams">Plain Text Diagram Language Extension</a> for Visual Studio Code. Nice syntax highlighting and folding.</p>
+<p>Version <code>1.1.1</code> now supports automatic formatting of <code>.ptd</code> files.  Just right click in the editor and select <code>Format Document</code> or use the keyboard shortcut <code>Shift+Alt+F</code> (or <code>Shift+Opt+F</code> on Mac).</p>
 <h2 id="generating-pt-diagrams">Generating PT Diagrams</h2>
 <ul>
 <li>By hand</li>
@@ -1023,9 +1028,12 @@ Smoothie &#34;1&#34; *-- &#34;1..*&#34; Fruit : uses
 <li>feed it some examples (search for <code>### Recipe Example</code>, <code>### Car Example</code>)</li>
 <li>ask the AI to generate a PT Diagram for you, pasting in the source code you wish the PT Diagram to represent.</li>
 </ul>
+<p>I&rsquo;ve found that feeding an AI an example <code>.ptd</code> file is enough - feeding in the whole specification is usually unecessary.</p>
+<p>Your mileage may vary, and for the AI to generate a PT Diagram from source code, you need a large context window so the little 7B models you run at home probably won&rsquo;t do a good job, but DeepSeek, ChatGPT, Claude and Vscode CoPilot will do a suprisingly reasonable job.</p>
 <p>Ideally there would be a dedicated app, website or vscode extension that would do this for you.  I am thinking about this.</p>
 <h2 id="final-thoughts">Final Thoughts</h2>
 <p>Plain Text Diagrams are a way of representing diagrams of code structure and behaviour in a plain text format.  They help you understand source code. You can come back to a project after a long time and read the PT Diagrams to understand what is going on.  You can use them to explain to others how the code works.  You can use them to solve problems.  You can use them to be a better programmer.</p>
+<p>I&rsquo;d love to hear your thoughts on this notation.  Please raise an issue on the <a href="https://github.com/abulka/vscode-pt-diagrams/issues">github repo</a> if you have any suggestions or questions. Or send me an email at <a href="mailto:abulka@gmail.com">abulka@gmail.com</a>.</p>
 <h2 id="references">References</h2>
 <p>These are traditional (visual) diagramming tools and methodologies that I have created:</p>
 <ul>
@@ -1044,7 +1052,7 @@ Smoothie &#34;1&#34; *-- &#34;1..*&#34; Fruit : uses
 </ul>
 
 	<div class="td-page-meta__lastmod">
-  Last modified February 1, 2025: <a href="https://github.com/abulka/abulka.github.io/commit/1e3b893a67808e4ad5700c3775af4ffc09d24703">ptd specification expanded (1e3b893)</a>
+  Last modified February 2, 2025: <a href="https://github.com/abulka/abulka.github.io/commit/81a08cd1d0782ef337e51cbb65fa64ea8fecb60f">ptd doc formatter (81a08cd)</a>
 </div>
 </div>
 
