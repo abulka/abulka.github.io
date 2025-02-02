@@ -111,7 +111,7 @@ Classes:
       logError(error: string)
 
 Use Cases:
-  Scenario: Starting an Electric Car
+  Sequence: Starting an Electric Car
     start() [class ElectricCar, ElectricCar.ts]
       [if batteryLevel > 20]
       -> start() [class Car, Car.ts]
@@ -126,7 +126,7 @@ Use Cases:
           < void
       < void
 
-  Scenario: Charging Multiple Electric Cars in Parallel
+  Sequence: Charging Multiple Electric Cars in Parallel
     chargeCars(cars: ElectricCar[], duration: number) [class Charger, Charger.ts]
       [parallel]
       -> chargeCar(car: ElectricCar, duration) [class Charger, Charger.ts]
@@ -135,7 +135,7 @@ Use Cases:
       waits for all cars to charge
       < void
 
-  Scenario: Running Diagnostics with Error Handling
+  Sequence: Running Diagnostics with Error Handling
     runDiagnostics(car: Car) [class Diagnostics, Diagnostics.ts]
       [try]
       -> checkBattery() [class ElectricCar, ElectricCar.ts]
@@ -151,7 +151,7 @@ Use Cases:
       cleans up diagnostics
       < void
 
-  Scenario: Refueling a Car with a Loop
+  Sequence: Refueling a Car with a Loop
     refuel(amount: number) [class Car, Car.ts]
       [loop until fuelLevel >= 100]
       -> addFuel(10) [class Car, Car.ts]
@@ -159,7 +159,7 @@ Use Cases:
           < void
       < void
 
-  Scenario: Event-Driven Charging
+  Sequence: Event-Driven Charging
     setupChargingListeners() [class Charger, Charger.ts]
       [on plugIn]
       -> chargeCar(car: ElectricCar, 60) [class Charger, Charger.ts]
@@ -171,7 +171,7 @@ Use Cases:
           < void
       < void
 
-  Scenario: Recursive Diagnostics
+  Sequence: Recursive Diagnostics
     runDeepDiagnostics(car: Car) [class Diagnostics, Diagnostics.ts]
       runs basic diagnostics
       [recurse]
