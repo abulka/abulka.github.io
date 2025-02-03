@@ -66,7 +66,7 @@ Example for Recipe Construction, [example-recipe.ptd](/blog/uml/example-recipe.p
 
 ### Car Example
 
-Example for Car Management System, [example-car.ptd](/blog/uml/example-car.ptd). This example uses a variety of `[..]` directives in the sequence diagrams, like `[if ...]` and `[try]`.
+Example for Car Management System, [example-car.ptd](/blog/uml/example-car.ptd). This example uses a variety of `[..]` directives in the sequence diagrams, like `[if ...]`, `[end]` and `[try]` etc.
 
 **Tip:** Use the vscode [Plain Text Diagram Language Extension](https://marketplace.visualstudio.com/items?itemName=wware.plain-text-diagrams) to view this file with nice syntax highlighting, folding and formatting.
 
@@ -282,12 +282,18 @@ Describes high-level sequences combining sequence diagrams with descriptive pseu
     `< returnType`  
     Optionally, specify where the result is stored:  
     `< returnType, variable =`.
-    - Use `< void` for no return value (optional).
+    - Use `< void` for no return value. 
+    - For reduced clutter you might want to omit the `< void` line, as it is implied, and just rely on indentation to show the call has ended. However for the `.ptd` vscode extension formatter to indent your `.ptd` files correctly, you should include it.
     - Returns can be primitives or complex objects, e.g., `< {prop: type}`.
 - **Control Flow**:
-  - Uses bracketed annotations:  
-    `[if]`, `[else]`, `[loop]`, `[parallel]`, `[try]`, `[catch]`, `[finally]`, `[recurse]` which are followed by a `-> function()` line or pseudo-code descriptive text, indented similarly to regular `if` or `try` statements.
-  - Nesting is shown through indentation.
+  - Uses bracketed annotations:  Make these up as necessary, e.g.,
+    `[if]`, `[else]`, `[loop]`, `[for]`, `[switch]`, `[parallel]`, `[try]`, `[catch]`, `[finally]`, `[recurse]`, `[except]` which are followed on the next line by a `-> function()` line or pseudo-code descriptive text.
+  - Annotations like `[on some event]`, `[on mouseClick]` etc. don't necessitate an indent on the next line - that's really reserved for control flow annotations like `[if]`, `[loop]`, `[try]` where the next line should be indented similarly to regular `if` or `try` statements.
+  - Add whatever pseudo-code text you like inside the `[if]`, `[loop]` or `[end]` etc. lines e.g. `[if condition]`, `[loop until condition]`, `[loop until fuelLevel >= 100]`, `[end loop]`, `[end if]`.
+  - You should match `[if]` with `[end]` in order for the `.ptd` vscode extension formatter to indent your `.ptd` files correctly e.g. see [example-nested.ptd](/blog/uml/example-nested.ptd). 
+    - The `[end]` annotation line is handy for ending all sorts of annotations thus adding clarity. 
+    - For reduced clutter you might want to omit the `[end]` line, as it is implied, and just rely on indentation to show the annotation has ended. However for the `.ptd` vscode extension formatter to indent your `.ptd` files correctly, you should include it.
+  - Call Nesting is shown through nested indentation.
   - Arrows (`->`) indicate nested function calls.
   - Async function calls are preceded by `await`, e.g., `-> await function1()`.
 - **Abstraction**:
@@ -319,11 +325,14 @@ Use Cases:
                Stores the tree in `this.languageIdTrees` for the given language.
                < returnType, x =
              -> blend(fruit: Fruit) [class Smoothie, Smoothie.ts]              
-                < string, currentFruit =
+                < string
              -> await fsp.readdir(extensionsPath) [fs.promises]
                < string[], extensionsDirs = 
+           [end]
            < returnType
 ```
+
+> Note you should match `[if]` with `[end]` in order for the `.ptd` vscode extension formatter to indent your `.ptd` files correctly. See the [example-nested.ptd](/blog/uml/example-nested.ptd) file for various `Sequence:` sections using `[end]` including nested `[if]`, `[else]`, `[end]` annotations.
 
 ## Comparison with UML
 
