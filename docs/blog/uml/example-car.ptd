@@ -114,16 +114,18 @@ Use Cases:
   Sequence: Starting an Electric Car
     start() [class ElectricCar, ElectricCar.ts]
         [if batteryLevel > 20]
-        -> start() [class Car, Car.ts]
-            sets running to true
-            < void
+            -> start() [class Car, Car.ts]
+                sets running to true
+                < void
         [else]
-        -> charge(30) [class ElectricCar, ElectricCar.ts]
-            charges the car for 30 minutes
-            -> chargeCar(car: ElectricCar, 30) [class Charger, Charger.ts]
-                increases batteryLevel
+            -> charge(30) [class ElectricCar, ElectricCar.ts]
+                charges the car for 30 minutes
+                -> chargeCar(car: ElectricCar, 30) [class Charger, Charger.ts]
+                    increases batteryLevel
+                    < void
                 < void
             < void
+        [end]
         < void
 
   Sequence: Charging Multiple Electric Cars in Parallel
@@ -138,25 +140,27 @@ Use Cases:
   Sequence: Running Diagnostics with Error Handling
     runDiagnostics(car: Car) [class Diagnostics, Diagnostics.ts]
         [try]
-        -> checkBattery() [class ElectricCar, ElectricCar.ts]
-            checks battery level
-            < number
-        [catch error]
-        -> logError(error: string) [class Diagnostics, Diagnostics.ts]
-            logs the error
-            - if warning, continue
-            - if critical, stop
-            < void
+            -> checkBattery() [class ElectricCar, ElectricCar.ts]
+                checks battery level
+                < number
+            [catch error]
+            -> logError(error: string) [class Diagnostics, Diagnostics.ts]
+                logs the error
+                - if warning, continue
+                - if critical, stop
+                < void
         [finally]
-        cleans up diagnostics
-        < void
+            cleans up diagnostics
+            < void
 
   Sequence: Refueling a Car with a Loop
     refuel(amount: number) [class Car, Car.ts]
         [loop until fuelLevel >= 100]
-        -> addFuel(10) [class Car, Car.ts]
-            increases fuelLevel by 10
+            -> addFuel(10) [class Car, Car.ts]
+                increases fuelLevel by 10
+                < void
             < void
+        [end loop]
         < void
 
   Sequence: Event-Driven Charging

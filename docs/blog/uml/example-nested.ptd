@@ -1,0 +1,41 @@
+Use Cases:
+  Sequence: Nested Ifs with returns inside the indent
+    func(): number [SomeFunction.ts]
+        hello
+        [if true]
+            world
+            < number
+        [else]
+            goodbye
+            blah blah
+            < number
+        [end]
+        more stuff
+        < number
+  Sequence: Nested Ifs with return outside the indent
+    func(): number [SomeFunction.ts]
+        hello
+        [if true]
+            world
+            - also does this
+            - does that
+        [else]
+            goodbye
+            no returns here
+        [end]
+        more stuff
+        < number
+  Sequence: Deeply nested Ifs
+    func(): string [SomeFunction.ts]
+        does something
+        [if condition]
+            action1
+            [if subcondition]
+                subaction1
+            [else]
+                subaction2
+            [end]
+        [else]
+            action2
+        [end]
+        < string

@@ -42,7 +42,7 @@ Plain Text ‘diagrams’ - aren’t really diagrams but are nested, indented te
 I call them text ‘diagrams’ because they are a way of representing the structure and behaviour of a codebase in a way that is similar to UML diagrams, but implemented as text, using indentation and text arrows -&gt; instead of boxes and arrows and graphics.">
   <meta itemprop="datePublished" content="2025-01-29T00:00:00+00:00">
   <meta itemprop="dateModified" content="2025-02-02T22:30:02+11:00">
-  <meta itemprop="wordCount" content="4653">
+  <meta itemprop="wordCount" content="4893">
   <meta itemprop="keywords" content="UML,Diagramming,Notation">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Plain Text Diagrams">
@@ -106,7 +106,7 @@ if (!doNotTrack) {
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.c0f86fe87c46be75cec8bef2c3dbca6e.json"
+    data-offline-search-index-json-src="/offline-search-index.c852a830f0ae08db0876e89497f85c8c.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -130,7 +130,7 @@ if (!doNotTrack) {
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.c0f86fe87c46be75cec8bef2c3dbca6e.json"
+    data-offline-search-index-json-src="/offline-search-index.c852a830f0ae08db0876e89497f85c8c.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -510,7 +510,7 @@ Use Cases:
                 &lt; void
             &lt; Smoothie
 </code></pre><h3 id="car-example">Car Example</h3>
-<p>Example for Car Management System, <a href="/blog/uml/example-car.ptd">example-car.ptd</a>. This example uses a variety of <code>[..]</code> directives in the sequence diagrams, like <code>[if ...]</code> and <code>[try]</code>.</p>
+<p>Example for Car Management System, <a href="/blog/uml/example-car.ptd">example-car.ptd</a>. This example uses a variety of <code>[..]</code> directives in the sequence diagrams, like <code>[if ...]</code>, <code>[end]</code> and <code>[try]</code> etc.</p>
 <p><strong>Tip:</strong> Use the vscode <a href="https://marketplace.visualstudio.com/items?itemName=wware.plain-text-diagrams">Plain Text Diagram Language Extension</a> to view this file with nice syntax highlighting, folding and formatting.</p>
 <h2 id="specification">Specification</h2>
 <p>Plain Text Diagram (PT Diagram) Notation - Specification</p>
@@ -761,7 +761,8 @@ Describes high-level sequences combining sequence diagrams with descriptive pseu
 Optionally, specify where the result is stored:<br>
 <code>&lt; returnType, variable =</code>.
 <ul>
-<li>Use <code>&lt; void</code> for no return value (optional).</li>
+<li>Use <code>&lt; void</code> for no return value.</li>
+<li>For reduced clutter you might want to omit the <code>&lt; void</code> line, as it is implied, and just rely on indentation to show the call has ended. However for the <code>.ptd</code> vscode extension formatter to indent your <code>.ptd</code> files correctly, you should include it.</li>
 <li>Returns can be primitives or complex objects, e.g., <code>&lt; {prop: type}</code>.</li>
 </ul>
 </li>
@@ -770,9 +771,17 @@ Optionally, specify where the result is stored:<br>
 <li>
 <p><strong>Control Flow</strong>:</p>
 <ul>
-<li>Uses bracketed annotations:<br>
-<code>[if]</code>, <code>[else]</code>, <code>[loop]</code>, <code>[parallel]</code>, <code>[try]</code>, <code>[catch]</code>, <code>[finally]</code>, <code>[recurse]</code> which are followed by a <code>-&gt; function()</code> line or pseudo-code descriptive text, indented similarly to regular <code>if</code> or <code>try</code> statements.</li>
-<li>Nesting is shown through indentation.</li>
+<li>Uses bracketed annotations:  Make these up as necessary, e.g.,
+<code>[if]</code>, <code>[else]</code>, <code>[loop]</code>, <code>[for]</code>, <code>[switch]</code>, <code>[parallel]</code>, <code>[try]</code>, <code>[catch]</code>, <code>[finally]</code>, <code>[recurse]</code>, <code>[except]</code> which are followed on the next line by a <code>-&gt; function()</code> line or pseudo-code descriptive text.</li>
+<li>Annotations like <code>[on some event]</code>, <code>[on mouseClick]</code> etc. don&rsquo;t necessitate an indent on the next line - that&rsquo;s really reserved for control flow annotations like <code>[if]</code>, <code>[loop]</code>, <code>[try]</code> where the next line should be indented similarly to regular <code>if</code> or <code>try</code> statements.</li>
+<li>Add whatever pseudo-code text you like inside the <code>[if]</code>, <code>[loop]</code> or <code>[end]</code> etc. lines e.g. <code>[if condition]</code>, <code>[loop until condition]</code>, <code>[loop until fuelLevel &gt;= 100]</code>, <code>[end loop]</code>, <code>[end if]</code>.</li>
+<li>You should match <code>[if]</code> with <code>[end]</code> in order for the <code>.ptd</code> vscode extension formatter to indent your <code>.ptd</code> files correctly e.g. see <a href="/blog/uml/example-nested.ptd">example-nested.ptd</a>.
+<ul>
+<li>The <code>[end]</code> annotation line is handy for ending all sorts of annotations thus adding clarity.</li>
+<li>For reduced clutter you might want to omit the <code>[end]</code> line, as it is implied, and just rely on indentation to show the annotation has ended. However for the <code>.ptd</code> vscode extension formatter to indent your <code>.ptd</code> files correctly, you should include it.</li>
+</ul>
+</li>
+<li>Call Nesting is shown through nested indentation.</li>
 <li>Arrows (<code>-&gt;</code>) indicate nested function calls.</li>
 <li>Async function calls are preceded by <code>await</code>, e.g., <code>-&gt; await function1()</code>.</li>
 </ul>
@@ -820,11 +829,15 @@ Optionally, specify where the result is stored:<br>
 </span></span><span style="display:flex;"><span>               Stores the tree in `this.languageIdTrees` for the given language.
 </span></span><span style="display:flex;"><span>               &lt; returnType, x =
 </span></span><span style="display:flex;"><span>             -&gt; blend(fruit: Fruit) [class Smoothie, Smoothie.ts]              
-</span></span><span style="display:flex;"><span>                &lt; string, currentFruit =
+</span></span><span style="display:flex;"><span>                &lt; string
 </span></span><span style="display:flex;"><span>             -&gt; await fsp.readdir(extensionsPath) [fs.promises]
 </span></span><span style="display:flex;"><span>               &lt; string[], extensionsDirs = 
+</span></span><span style="display:flex;"><span>           [end]
 </span></span><span style="display:flex;"><span>           &lt; returnType
-</span></span></code></pre></div><h2 id="comparison-with-uml">Comparison with UML</h2>
+</span></span></code></pre></div><blockquote>
+<p>Note you should match <code>[if]</code> with <code>[end]</code> in order for the <code>.ptd</code> vscode extension formatter to indent your <code>.ptd</code> files correctly. See the <a href="/blog/uml/example-nested.ptd">example-nested.ptd</a> file for various <code>Sequence:</code> sections using <code>[end]</code> including nested <code>[if]</code>, <code>[else]</code>, <code>[end]</code> annotations.</p>
+</blockquote>
+<h2 id="comparison-with-uml">Comparison with UML</h2>
 <h3 id="traditional-uml-class-diagram">Traditional UML Class Diagram</h3>
 <img src="/blog/images/pt-diagram-class-uml.png" alt="Traditional UML Class Diagram" width="60%">
 <br>
