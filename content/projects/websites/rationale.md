@@ -23,3 +23,6 @@ Also at Austhink, we developed the online debating and argument mapping website 
 
 *Hive - online debating and argument mapping website*
 
+A Funny side to Rationale: Here is an (alternative and slightly subversive) set of basis nodes for Rationale.  They took me about an hour to produce, and were fully integrated with my custom build of Rationale - because of the way Rationale dynamically reads in the basis nodes.  I simply googled for images and took screenshots, now that basis nodes:
+
+![funny basis nodes](/projects/websites/images/rationale-03-funny-basis.png)
