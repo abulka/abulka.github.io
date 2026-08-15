@@ -15,6 +15,28 @@ I'm using the [Hugo](https://gohugo.io/) static site generator with the [Docsy](
 
 I've switched away from using git submodules for the Docsy theme to using Go modules based theme approach - see https://www.docsy.dev/docs/updating/convert-site-to-module/
 
+## 2026 Update - building with newer Hugo versions
+
+Newer Hugo releases (>= 0.161) added security policies that break the Docsy build out of
+the box. If you install a recent Hugo via `brew install hugo`, add/keep these settings in
+`hugo.toml` (they were added 2026-08-12 to build with Hugo 0.164):
+
+    [security]
+      allowContent = [".*"]
+
+    [security.node]
+      [security.node.permissions]
+        disable = true
+
+- `security.allowContent` (new in Hugo 0.162) denies `text/html` content files by default;
+  the site has `.html` content pages, so content types must be allowed.
+- `security.node.permissions` (new in Hugo 0.161) runs Node tools (e.g. PostCSS used by
+  Docsy's SCSS pipeline) under a restricted permission model; it must be disabled for the
+  theme's asset build to work.
+
+Older Hugos (before 0.161) did not have these defaults, which is why the site built
+without them before.
+
 ## Installing
 
 Installing (2024) - [Hugo modules](https://gohugo.io/hugo-modules/) are the simplest and latest way to use Hugo themes like Docsy when building a website. 
@@ -30,7 +52,7 @@ https://github.com/google/docsy-example. In the latest version of this example p
 
 Architecturally, the site is structured as follows:
 
-    /content  --build-step-->  /docs
+    /content  --build-step-->  /public
 
 static content goes into
 
@@ -38,7 +60,7 @@ static content goes into
 
 and be referred as e.g. `/files/pdfs/blah.pdf`.
 
-Edit the files in `/content`, add files to `/static` and then run `bin/build` to generate the site in `/docs`. 
+Edit the files in `/content`, add files to `/static` and then run `bin/build` to generate the site in `/public`. The generated `/public` (and the old `/docs`) output is gitignored - you never commit build output.
 
 ### Running
 
@@ -55,14 +77,18 @@ https://www.docsy.dev/docs/updating/updating-hugo-module/
 
 ## Deploying
 
-Deploy
-run
+Just commit and push your source changes (in `/content`, `/static`, etc.). A GitHub
+Actions workflow (`.github/workflows/deploy.yml`) builds the site and deploys it to
+GitHub Pages automatically. It takes a few seconds to update.
 
-    bin/build
+Note: the GitHub Pages publishing source must be set to **GitHub Actions**
+(Settings → Pages → Build and deployment → Source), not "Deploy from a branch".
 
-then commit and push
+To preview locally first:
 
-There is a action that runs on GitHub when you push, so it may take a few seconds to update.
+    bin/run
+
+and visit http://localhost:1313/
 
 ## Adding a directory
 

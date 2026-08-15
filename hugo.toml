@@ -6,7 +6,7 @@ baseURL = "https://abulka.github.io/"
 # title = "Andy Bulka - Blog, Projects, Articles"
 # title = "Andypatterns Software Blog"
 title = "Andy Bulka"
-publishDir = "docs"
+publishDir = "public"
 
 # need to set to true to make image links generated with full path incl. the 'hugo-docsy-example' sub-path 
 canonifyurls = false
@@ -216,3 +216,11 @@ enable = false
 # 	icon = "fa fa-envelope"
 #         desc = "Discuss development issues around the project"
 
+
+# Allow .html content files (Hugo >=0.162 denies text/html by default)
+[security]
+  allowContent = [".*"]
+
+[security.node]
+  [security.node.permissions]
+    disable = true
