@@ -356,7 +356,7 @@ Rationale, bCisive, Hive - World class argument visualisation software suite, [w
 
 Reason!Able - Reasoning software in use in schools around the world, Programmer.
 
-[PyNSource](/index.php/products/pynsource/ "PyNSource - UML tool for Python") - Python code reverse engineering utility and UML modelling tool, Programmer.
+[PyNSource](/projects/apps/pynsource/ "PyNSource - UML tool for Python") - Python code reverse engineering utility and UML modelling tool, Programmer.
 
 Architect, Team Leader, Lead Programmer, Hunting Tank Software, Victoria (2001 - 2004). Combat Campaign Game.
 
@@ -389,4 +389,4 @@ Andy Bulka
 
 ## Addendum:
 
-If you would like me to run a design patterns course or consult on your next software design, please check out my [product](/index.php/products/ "Products") page.  There is also an open source [Python UML tool](http://www.pynsource.com "Pynsource - UML tool for Python") you might be interested in, plus references to products I have developed over the years esp. the worldclass argumentation visualisation software Rationale and bCisive.
+If you would like me to run a design patterns course or consult on your next software design, please check out my [product](/projects/ "Products") page.  There is also an open source [Python UML tool](http://www.pynsource.com "Pynsource - UML tool for Python") you might be interested in, plus references to products I have developed over the years esp. the worldclass argumentation visualisation software Rationale and bCisive.

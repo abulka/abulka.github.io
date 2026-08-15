@@ -171,10 +171,6 @@ Here is that small research sub-project https://github.com/abulka/pynsource/tree
 <iframe src="/files/UML-Graph-Layout-Andy-Talk-March-2011.html" name="frame1" scrolling="yes" frameborder="yes" align="center" height = "842px" width = "800">
 </iframe>
 
-### Slides as Pdf download
-
-[View as pdf](/index.php/download_file/429/109/)
-
 ---
 
 ## Images

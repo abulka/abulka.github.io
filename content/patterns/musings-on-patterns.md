@@ -27,7 +27,7 @@ The Patterns Movement is spearheaded by <a href="https://www.hillside.net/plop/2
 
 There are a couple of things I would like to see happen in the patterns world.
 
-- First, it would be nice if there was a single, authoritative repository of patterns. Yes an attempt has been made - a catalog book and and various websites - but nothing authoratative. I started a list of links [here](/index.php/blog/central_repository/ "Towards a central repository of Design Patterns").
+- First, it would be nice if there was a single, authoritative repository of patterns. Yes an attempt has been made - a catalog book and and various websites - but nothing authoratative. I started a list of links [here](/blog/2009/02/12/central-patterns-repository/ "Towards a central repository of Design Patterns").
 
 - Secondly, it would be nice to have deep design pattern support in UML within all our favourite IDE's. For example Netbeans has it all - coding, form design, UML and design pattern support - albiet not as integrated as it could be and not as polished as it could be. **Update:** Unfortunately Netbeans seems to have dropped UML support in recent builds.
 
@@ -38,10 +38,10 @@ My own UML tool PyNSource will have such a feature - est. June 2011 <i>(turns ou
 
 ### Executable UML
 Further advancements are arguably executable UML and even the possibility of building software without code.
-I muse a bit about this in my blog entry on [software visualisation](/index.php/blog/visualising_software/ "Visualising Software") and my paper on [design pattern tools](/index.php/design_patterns/pattern_automation/ "Design Pattern Automation"). 
+I muse a bit about this in my blog entry on [software visualisation](/blog/2009/01/22/visualising-software/ "Visualising Software") and my paper on [design pattern tools](/patterns/design-pattern-automation/ "Design Pattern Automation"). 
 
 ### A repository of patterns
 
-First, it would be nice if there was a single, authoritative repository of patterns. Yes an attempt has been made - a catalog book and and various websites - but nothing authoratative.  I'm starting a list of links [here](/index.php/blog/central_repository/ "Towards a central repository of Design Patterns").
+First, it would be nice if there was a single, authoritative repository of patterns. Yes an attempt has been made - a catalog book and and various websites - but nothing authoratative.  I'm starting a list of links [here](/blog/2009/02/12/central-patterns-repository/ "Towards a central repository of Design Patterns").
 
 Patterns at all levels need to be core **visual** building blocks of IDE's, or at the very least, extractable from source code into some visual UML tool - rather than being design ghosts that float around, implicit, in our source code.

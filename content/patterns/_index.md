@@ -17,24 +17,24 @@ The four patterns MGM, RM, TI and Pattern Automation have been peer reviewed and
 
 <!--
 
-# OLD FRONT PAGE
+# OLD VERSION OF THIS PAGE - RETIRED
 
 **My Design Patterns**
 ----------------------
 
-### [Relationship Manager Pattern](/index.php/design_patterns/relationship_manager/)
+### [Relationship Manager Pattern](/patterns/relationship-manager/)
 
 A central mediating class which records all the one-to-one, one-to-many and many-to-many relationships between a group of selected classes. Classes that use a Relationship Manager to implement their…
 
-### [Model Gui Mediator Pattern](/index.php/design_patterns/model_gui_mediator_pattern/)
+### [Model Gui Mediator Pattern](/patterns/mgm-pattern/)
 
 The MGM pattern is a variation of MVC (model view controller) or MVP (Model View Presenter) but takes into account the use of modern off the shelf GUI controls. A MGM object displays a portion of a…
 
-### [Transformation Interface Pattern](/index.php/design_patterns/transformation_interface_pattern/)
+### [Transformation Interface Pattern](/patterns/transformation-interface/)
 
 The Transformation Interface is both a design pattern and an architectural pattern. It describes an interface or layer, which offers services to transform an object into another format and back agai…
 
-### [Design Pattern Automation](/index.php/design_patterns/pattern_automation/)
+### [Design Pattern Automation](/patterns/design-pattern-automation/)
 
 As design patterns become more mainstream, various IDE's (Integrated Development Environments) and UML modelling software environments have begun to introduce support for design patterns. For example,…
 
