@@ -14,4 +14,5 @@ Desktop and Mobile Apps I have built:
 | Brew Moments | Calculate coffee bean to water ratios | Mobile (Android) | Flutter |
 | Ai Image Browser | Browse and delete AI generated images | Desktop (Mac, Windows, Linux) | Flutter |
 | Prophet 6 Librarian | Edit Prophet 6 patches | Desktop | Electron |
+| CLI Tools | A collection of command line utilities (lspath, cli, dumpdir, cpu-top, ping-master) | Desktop (Mac, Linux, Windows) | Go, Python |
 
