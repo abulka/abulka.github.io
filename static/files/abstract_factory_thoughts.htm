@@ -1,0 +1,73 @@
+<html>
+
+<head>
+<title>Abstract Factory Thoughts</title>
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta name="Microsoft Theme" content="canvas 111, default">
+<meta name="Microsoft Border" content="t, default">
+</head>
+
+<body background="_themes/canvas/cnvbkgnd.jpg" bgcolor="#FFFFCC" text="#000066" link="#663399" vlink="#006699" alink="#339999"><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td><!--mstheme--><font face="Arial, Arial, Helvetica">
+
+<p align="center"><font size="6"><strong><img src="_derived/abstract_factory_thoughts.htm_cmp_canvas110_bnr.gif" width="600" height="60" border="0" alt="Abstract Factory Thoughts"></strong></font><br>
+ </p>
+<p align="center">&nbsp;</p>
+
+<!--mstheme--></font></td></tr><!--msnavigation--></table><!--msnavigation--><table dir="ltr" border="0" cellpadding="0" cellspacing="0" width="100%"><tr><!--msnavigation--><td valign="top"><!--mstheme--><font face="Arial, Arial, Helvetica">
+<h2><!--mstheme--><font color="#663399">Further miscellaneous thoughts on Abstract Factory<!--mstheme--></font></h2>
+<p>Abstract Factory is presented as part of <a href="https://abulka.github.io/blog/2005/03/05/swapping-implementations/#abstract-factory">this
+talk</a>.&nbsp; Here are some footnotes:</p>
+<h2><!--mstheme--><font color="#663399"><b>Implementation variants for Abstract Factory</b><!--mstheme--></font></h2>
+<p>The GOF style abstract factory, uses polymorphic override.&nbsp; This is
+shown using UML and explained in <a href="https://abulka.github.io/blog/2005/03/05/swapping-implementations/#abstract-factory">my
+talk</a></p>
+<p>You could alternatively have <i>conditional code</i> &amp; class <i>registry</i>
+implementation variations of abstract factory too.&nbsp; I talk about factory
+method (as opposed to Abstract Factory) being implemented using these variants <a href="https://abulka.github.io/blog/2005/03/05/swapping-implementations/ Super Dumb Factory">here</a>
+and <a href="https://abulka.github.io/blog/2005/03/05/swapping-implementations/ Based Factory">here</a>.&nbsp;
+However the standard GOF (Gang of Four) polymorphic override technique is
+actually quite a good implementation choice for abstract factory since we now
+have a dedicated factory class and we simply override the create methods to make
+a specific factory.&nbsp; To do a registry version of this would be ok as well,
+but not as polymorphically elegant.&nbsp;&nbsp;</p>
+<h3><!--mstheme--><font color="#663399">The &quot;which version of the implementation do we want&quot; switch<!--mstheme--></font></h3>
+<p>How do the three variants known which version/family of classes to return?</p>
+<p>The traditional GOF abstract factory remembers the family you need (&quot;the
+switch&quot;) via the act&nbsp; of instantiatiating the required subclass (with
+all creational methods polymorphically overridden).&nbsp; See <a href="https://abulka.github.io/blog/2005/03/05/swapping-implementations/#abstract-factory">diagram</a>.</p>
+<p>A <i>registry based </i>version of an abstract factory (or even regular
+'factory method') factory could set a switch once and subsequently remember
+which version/style of implemenation to use.</p>
+<!--mstheme--></font><pre>  factory.SetFamily('b version')
+  factory.CreateProduct1()
+  factory.CreateProduct2()
+  factory.CreateProduct3()</pre><!--mstheme--><font face="Arial, Arial, Helvetica">
+<p>rather than having to pass in a parameter each time.</p>
+<!--mstheme--></font><pre>  factory.CreateProduct1('a version')
+  factory.CreateProduct2('a version')
+  factory.CreateProduct3('a version')</pre><!--mstheme--><font face="Arial, Arial, Helvetica">
+<h2><!--mstheme--><font color="#663399">What do the factory methods on an Abstract Factory do?<!--mstheme--></font></h2>
+<p>The factory methods on an Abstract Factory should, in my opinion, should</p>
+<!--mstheme--></font><!--msthemelist--><table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <!--msthemelist--><tr><td valign="baseline" width="42"><img src="_themes/canvas/acnvbul1.gif" width="15" height="15" hspace="13" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">only create 'products' - which are instances of classes<!--mstheme--></font><!--msthemelist--></td></tr>
+  <!--msthemelist--><tr><td valign="baseline" width="42"><img src="_themes/canvas/acnvbul1.gif" width="15" height="15" hspace="13" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">should have the phrase 'create' somewhere in its name e.g. CreateProd1, or
+    CreateProd2<!--mstheme--></font><!--msthemelist--></td></tr>
+  <!--msthemelist--><tr><td valign="baseline" width="42"><img src="_themes/canvas/acnvbul1.gif" width="15" height="15" hspace="13" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">each product should be of a different class type<!--mstheme--></font><!--msthemelist--></td></tr>
+  <!--msthemelist--><tr><td valign="baseline" width="42"><img src="_themes/canvas/acnvbul1.gif" width="15" height="15" hspace="13" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Arial, Helvetica">should not do any real work or computation<!--mstheme--></font><!--msthemelist--></td></tr>
+<!--msthemelist--></table><!--mstheme--><font face="Arial, Arial, Helvetica">
+<p>I once saw a presentation on Abstract Factory where the factory methods on
+the concrete abstract factory class actually did complex computational work
+(each one did something different) and all returned a result class of the same
+type (a data set, as it happens).&nbsp; This is not abstract factory.&nbsp; The
+methods in the factory should not have done any real WORK just merely returned
+DIFFERENT 'products'. Products are a bunch of different classes which are meant
+to be instantiated as a family of classes, which typically work together.&nbsp;
+Thus the idea of an 'abstract factory class generating a FAMILY of DIFFERENT but
+relatedclasses' was entirely missing, and this it seems to me to be the essence
+of abstract factory. What was being actually presented was simply a compile time
+choosing of one of two different implementations of an interface, which I call
+the Interface Pattern and discussed <a href="https://abulka.github.io/blog/2005/03/05/swapping-implementations/ pattern">here</a>.</p>
+&nbsp;<!--mstheme--></font><!--msnavigation--></td></tr><!--msnavigation--></table></body>
+
+</html>
