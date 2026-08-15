@@ -7,7 +7,7 @@ tags: ["Design Patterns", "Thoughts"]
 
 # Teaching 23 patterns in 3 days
 
-I have been running a [design patterns course](http://www.andypatterns.com/index.php?cID=64 "Design Patterns Training Courses") for several years where I teach 23 design pattern patterns in 3 days.  I cover all the GOF (Gang of Four) patterns plus more.  Here are some tales from the front lines!
+I have been running a [design patterns course](https://abulka.github.io/blog/2007/01/23/teaching-23-patterns/ "Design Patterns Training Courses") for several years where I teach 23 design pattern patterns in 3 days.  I cover all the GOF (Gang of Four) patterns plus more.  Here are some tales from the front lines!
 
 ## History
 
@@ -23,7 +23,7 @@ I have found that it is critical to revise a bit of OO (Object Oriented Programm
 
 ## History of the Course Materials
 
-I provide a 300+ page course manual which I edit and improve before each course.  During the course I make notes to myself relating to anything that is unclear, typos or any new ideas that come up during the course that I can incorporate back into the course manual.
+I provide a 300+ page course manual which I edit and improve before each course. [Download the 2008 course notes](/files/pdfs/DesignPatternsCourseStudentNotes2008.pdf).  During the course I make notes to myself relating to anything that is unclear, typos or any new ideas that come up during the course that I can incorporate back into the course manual.
 
 Historically, writing a training course manual is a major part of getting a course going - it took me many months to write.  I began with a handwritten brainstorming outline of all the GOF design patterns – here is an ancient extract from my original starting notes:
 
@@ -74,4 +74,4 @@ In terms of the future, I would love to actually deliver more of these courses, 
 
 \-Andy
 
-For details on my course click [here](http://www.andypatterns.com/index.php?cID=64 "Design Patterns Training Courses").
+For details on my course click [here](https://abulka.github.io/blog/2007/01/23/teaching-23-patterns/ "Design Patterns Training Courses").

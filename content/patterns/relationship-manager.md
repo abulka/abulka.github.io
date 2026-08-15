@@ -8,7 +8,7 @@ description: >
 tags: ["Design Patterns", "Python", "SQL"]
 ---
 
-![](http://www.andypatterns.com/files/62371233035718bgDSC1367.jpg)
+![](/blog/images/patterns/62371233035718bgDSC1367.jpg)
 
 ## Abstract
 
@@ -172,7 +172,7 @@ These scenarios are all unit tested in `tests/python/test_enforcing.py` in the [
 
 One of the benefits of the relationship manager pattern is that *you don't have to explicitly wire up and maintain back-pointers*.  Once you add a pointer relationship, you get the back pointer relationship available, for free.  And once you delete the pointer relationship, the back-pointer relationship goes away automatically too.
 
-The following [code](http://www.atug.com/andypatterns/code/proxydecorator01.zip) is a good example of how the use of RM saves you from having to explicitly maintain backpointers. P.S. To run the code you also need the support files found [here](http://www.atug.com/downloads/pythonRmProof.zip).  View the code below (requires the flash plugin) - showing an implementation of a Composite Pattern, with back pointer - or simply read the [pdf](http://www.atug.com/downloads/rm_annotation_by_ANDY_01.PDF) directly.
+The following [code](/files/proxydecorator01.zip) is a good example of how the use of RM saves you from having to explicitly maintain backpointers. P.S. To run the code you also need the support files found [here](/files/pythonRmProof.zip).  View the code below (requires the flash plugin) - showing an implementation of a Composite Pattern, with back pointer - or simply read the [pdf](/files/rm_annotation_by_ANDY_01.PDF) directly.
 
 <iframe src="/files/rm_annotation_by_ANDY_01.html" name="frame1" scrolling="yes" frameborder="yes" align="center" height = "842px" width = "800">
 </iframe>
@@ -303,7 +303,7 @@ When using the Subject and Observer, you use their methods without realising the
 
 Say you want to model a Person class which has one or more Orders.  The Order class needs to have a backpointer - back to the Person owning that order.
 
-![](http://www.atug.com/andypatterns/images/PersonToOrderUsingRM001.gif)
+![](/blog/images/patterns/PersonToOrderUsingRM001.gif)
 
 Instead of hand coding and reinventing techniques for doing all the AddOrder() methods and GetOrders() methods etc. using ArrayLists and whatever, we can do it using the relationship manager object instead, which turns out to be simpler and faster and less error prone. 
 
@@ -470,7 +470,9 @@ A generics version of relationship manager would be cool - that way no casting w
 
 - Full Python Relationship Manager [API documentation](https://abulka.github.io/relationship-manager/relmgr/index.html).
 
-- See [original andypatterns page](http://www.andypatterns.com/index.php?cID=44)
+- Original pure simple Python implementation [pythonRmProof.pdf](/files/pythonRmProof.pdf) (code + results as a pdf).
+
+- Older Java implementation of relationship manager [RelationshipManager56Java.zip](/files/RelationshipManager56Java.zip).
 
 - Official [Relationship Manager Pattern](https://abulka.github.io/patterns/relationship-manager/) page incl. academic paper by Andy Bulka (this page).
 

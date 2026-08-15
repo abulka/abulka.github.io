@@ -24,7 +24,7 @@ Consulting and Mentoring is also available.  Contact [Andy](mailto:abulka@gmail.
 **Cost**:          $ [Email for pricing](mailto:abulka@gmail.com) for up to 6 people - per day.  $220 per extra person - max 10 people.  Plus GST.  
 **Room**:      Trainer requires a whiteboard, projector. Computers for attendees are not needed. 
 
-**Course materials**:  Are supplied (approx 320 pages) - option for client to print and bind if that is more convenient.  Contains code examples, whiteboard screenshots, tips, UML diagrams, advanced discussions etc.
+**Course materials**:  Are supplied (approx 320 pages) - option for client to print and bind if that is more convenient.  Contains code examples, whiteboard screenshots, tips, UML diagrams, advanced discussions etc.  Sample course notes: [full 2008 course notes](/files/pdfs/DesignPatternsCourseStudentNotes2008.pdf) and the [3-day short course notes](/files/pdfs/DesignPatternsStudentNotesSep2006.pdf).
 
 ![](/about/consulting/images/traini1.png)
 
@@ -321,7 +321,7 @@ Introduction to OO, UML and Design Patterns Course
 
 Andy Bulka has been teaching design patterns for five years, running three day workshops covering all the 23 GOF patterns. 
 
-He is an active member of Melbourne Patterns User Group giving regular presentations and talks. Andy was Local Conference Chair at the Australian Koala Plop Patterns Conference 2002, and is author of several papers on Design Patterns and Software development ? see his patterns and blog at [www.andypatterns.com](http://www.andypatterns.com)
+He is an active member of Melbourne Patterns User Group giving regular presentations and talks. Andy was Local Conference Chair at the Australian Koala Plop Patterns Conference 2002, and is author of several papers on Design Patterns and Software development ? see his patterns and blog at [abulka.github.io](https://abulka.github.io/)
 
 Andy Bulka is principal consultant at Wware Consulting. Prior to that, he was Technical Director and Chief Software Architect at Austhink Software [www.austhink.com](http://www.austhink.com/) for four years (2004-2008), developing world class visualisation software in C# .NET and Flex 3 using agile methodologies, design patterms and 25 years of programming experience. Prior to that, Andy has developed software in many fields - consistently applying design patterns to numerous real world applications including windows desktop applications, web sites and even a commercial computer game.
 
@@ -334,7 +334,7 @@ Andy Bulka is principal consultant at Wware Consulting. Prior to that, he was Te
 2002: Local Conference Chair, Koala Plop Patterns Conference, Melbourne Australia.  
 [www.mcs.vuw.ac.nz/~kplop/aboutus.html](http://www.mcs.vuw.ac.nz/%7Ekplop/aboutus.html)
 
-1999-2008: Maintain website on research into software development: [www.andypatterns.com](http://www.andypatterns.com)
+1999-2008: Maintain website on research into software development: [abulka.github.io](https://abulka.github.io/)
 
 ### Refereed Papers
 
@@ -342,7 +342,7 @@ Bulka, A. (2003). Design Pattern Automation. In Proc. Pattern Languages of Progr
 [http://crpit.com/Vol13.html](http://crpit.com/Vol13.html)
 
 2000-2002: Three patterns conference papers which have been presented at KoalaPlop (Asian Pacific Conference on Pattern Languages of Programs) in both 2000 and 2001. My shepherds were Jim Coplien (MGM pattern), Ali Arsanjani (TI pattern) and James Noble (RM pattern). These final versions incorporate comments and reviews from the attendees of KoalaPlop 2000 and 2001.  
-[http://www.andypatterns.com/index.php/design\_patterns](index.php/design_patterns)
+[Design Patterns](/patterns/)
 
 van Gelder, T. J., & Bulka, A. (2000) Reason!: Improving informal reasoning skills. in Proceedings of the Australian Computers in Education Conference, Melbourne July 2000.  
 [View](http://sites.google.com/site/timvangelder/publications-1/reason---improving-informal-reasoning-skills)

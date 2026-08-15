@@ -917,9 +917,9 @@ If your application is simple it may not be worthwhile incorporating PureMVC, ho
 
 Finally, this tutorial has shown that you can hack something up in wxPython and then later, switch to PureMVC when you need to, in a step by step way.
 
-Source code for all the steps is available [here](http://www.atug.com/downloads/puremvcrefactor_python.zip).
+Source code for all the steps is available [here](/files/puremvcrefactor_python.zip).
 
-If you prefer a java example walkthrough, click [here](http://www.andypatterns.com/index.php?cID=86 "Refactoring to PureMVC - Java version").
+If you prefer a java example walkthrough, click [here](https://abulka.github.io/blog/2009/04/01/refactoring-to-puremvc/ "Refactoring to PureMVC - Java version").
 
 \-Andy Bulka  
 March 2009
@@ -966,7 +966,7 @@ When I began to understand MVC it clicked in my head that the model would be ind
 
 Refactoring to PureMVC - Java
 
-Here is a Java version of the tutorial I originally wrote in wxPython. It leaves out most of the commentary and concentrates on the code, so please read the [original tutorial](http://www.andypatterns.com/index.php?cID=84 "Refactoring to PureMVC") for more detail about the meaning of the refactoring steps.
+Here is a Java version of the tutorial I originally wrote in wxPython. It leaves out most of the commentary and concentrates on the code, so please read the [original tutorial](https://abulka.github.io/blog/2009/04/01/refactoring-to-puremvc/ "Refactoring to PureMVC") for more detail about the meaning of the refactoring steps.
 
 I have used the same class names and the logic is identical (except for the parameters to the notification message DATA\_SUBMITTED, which I have swapped around due to the fact that in the Java PureMVC framework the getBody() parameter is of type object whereas in dynamic Python the type of this paramter is more flexible – more explanation is found below).
 
@@ -1606,7 +1606,7 @@ and we might as well...
 
 Here are a couple of screenshots of the GUI in operation:
 
-![](http://www.atug.com/images/PureMvcRefactorImages/puremvcfussJAVA1.png)
+![](/blog/images/puremvcfussJAVA1.png)
 
 ```
 compile:
@@ -1620,7 +1620,7 @@ handleNotification (mediator) Hello - hit enter
 
 User hits ENTER
 
-![](http://www.atug.com/images/PureMvcRefactorImages/puremvcfussJAVA2.png)
+![](/blog/images/puremvcfussJAVA2.png)
 
 ```
 setData (model) HELLO - HIT ENTER
@@ -1636,5 +1636,5 @@ The [Python refactoring steps above]({{< relref "#1-starting-point" >}}) contain
 
 ## Resources
 
-- The [Java source code](http://www.atug.com/downloads/puremvcrefactor_java.zip) for this example.
-- The [Python source code](http://www.atug.com/downloads/puremvcrefactor_python.zip) for this example.
+- The [Java source code](/files/puremvcrefactor_java.zip) for this example.
+- The [Python source code](/files/puremvcrefactor_python.zip) for this example.

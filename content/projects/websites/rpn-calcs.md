@@ -18,7 +18,7 @@ Parameters to Javascript functions are taken off the RPN stack. Return values fr
 
 ![rpn-calc-2](/projects/websites/images/rpn-calc-2.png)
 
-https://atug.com/jsrpncalc-web/
+https://atug.com/demos/jsrpncalc-web/
 
 ### Rpn-calc2
 
@@ -28,4 +28,4 @@ A completely new implementation, also programmable in Javascript. Define interac
 
 ![rpn-calc2-2](/projects/websites/images/rpn-calc2-2.png)
 
-https://atug.com/jsrpncalc2/
+https://atug.com/demos/jsrpncalc2/

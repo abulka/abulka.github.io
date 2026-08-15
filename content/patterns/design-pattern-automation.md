@@ -9,7 +9,7 @@ description: >
 tags: ["Design Patterns", "Thoughts"]
 ---
 
-![](http://www.andypatterns.com/files/56881233035290bgDSC1195.jpg)
+![](/blog/images/patterns/56881233035290bgDSC1195.jpg)
 
 ## Introduction
 

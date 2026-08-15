@@ -127,7 +127,7 @@ o.DoSomething()    // we don't know if its an A or a B.  Everything works ok.
 
 There will be parallel hierarchies, e.g. the WorkManager and the Worker hierarchies closely match, with A and B versions of their subclasses.  Start to think of a _family_ of classes.
 
-My further thoughts, including a more detailed example of Factory Method [here](https://www.atug.com/andypatterns/factory_method_example.htm).
+My further thoughts, including a more detailed example of Factory Method [here](/files/factory_method_example.htm).
 
 ### Abstract Factory
 
@@ -156,9 +156,9 @@ IProduct3 p3 = f.CreateProduct3()
 
 All products p1, p2, p3 are in the above example A versions, and compatible with each other.
 
-My further thoughts on Abstract Factory [here](https://www.atug.com/andypatterns/abstract_factory_thoughts.htm).
+My further thoughts on Abstract Factory [here](/files/abstract_factory_thoughts.htm).
 
-![](https://www.atug.com/andypatterns/_themes/canvas/acnvrule.gif)
+![](/blog/images/patterns/acnvrule.gif)
 
 ## Indirection Patterns
 

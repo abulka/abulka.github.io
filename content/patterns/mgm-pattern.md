@@ -13,7 +13,7 @@ description: >
   The MGM pattern is a variation of MVC (model view controller) or MVP (Model View Presenter) but takes into account the use of modern off the shelf GUI controls.
 ---
 
-![](http://www.andypatterns.com/files/33971232953329bg-pods1.jpg)
+![](/blog/images/patterns/33971232953329bg-pods1.jpg)
 
 ## Introduction
 
@@ -100,7 +100,7 @@ and so on, infinitely!! See your lines marked \*\*\* highlighted lines above.
 However the Editbox OnChange fires only seems to fire when the text is altered by the user in the gui. It does not fire when the edit1.text is changed programatically. So there is no loop.  
   
 I tried it in Delphi 6. Here is a sample delphi app that proves it.  
-http://www.atug.com/downloads/mgmquickproof01.zip  
+[/files/mgmquickproof01.zip](/files/mgmquickproof01.zip)
 It has a cheaper form of mgm which I just whipped up, in order to demonstrate the point.  
   
 P.S. If the event HAD fired, you could  
@@ -120,4 +120,4 @@ Here is a [nice article](http://www.c-sharpcorner.com/UploadFile/shivprasadk/124
 
 ## Resources
 
-[Old link](http://www.andypatterns.com/index.php?cID=46) on andypatterns.com 
+[Old link](https://abulka.github.io/patterns/mgm-pattern/) on my old website 

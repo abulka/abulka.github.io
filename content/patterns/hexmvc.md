@@ -336,7 +336,7 @@ Alistair Cockburn described a [hexagonal architecture](https://www.google.com/ur
 > 
 This was the architecture I was intrigued by, but there were no reference implementations, and a lot of the writing on the webpage seemed theoretical and sketchy - like a half baked idea that nobody had actually tried.  So I went ahead and built something similar - as simply as possible.
 
-I had always liked the [PureMvc](https://www.google.com/url?q=http://puremvc.org/&sa=D&source=editors&ust=1644533497539894&usg=AOvVaw0krRSlmvdpyy7V-x2aGNRS) pattern, which was a bold retelling of the mvc architecture pattern.  It described all the roles in an mvc architecture, and provided strict rules as to who knows who and how the sequence of interactions went.  I wrote a number of [articles](https://www.google.com/url?q=http://www.andypatterns.com/index.php/blog/puremvc_refactor/&sa=D&source=editors&ust=1644533497540127&usg=AOvVaw1wOxO1elRARnO7oLGybGMF) about it.
+I had always liked the [PureMvc](https://www.google.com/url?q=http://puremvc.org/&sa=D&source=editors&ust=1644533497539894&usg=AOvVaw0krRSlmvdpyy7V-x2aGNRS) pattern, which was a bold retelling of the mvc architecture pattern.  It described all the roles in an mvc architecture, and provided strict rules as to who knows who and how the sequence of interactions went.  I wrote a number of [articles](https://abulka.github.io/blog/2009/04/01/refactoring-to-puremvc/) about it.
 
 ![](/patterns/images/hexmvc/image2.png)
 

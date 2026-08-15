@@ -31,7 +31,7 @@ Thus anything you type gets converted to uppercase and stored in the model.
 
 ## Code
 
-The single python file can be downloaded from [here](http://www.atug.com/downloads/puremvcminimalwx0.py.zip).
+The single python file can be downloaded from [here](/files/puremvcminimalwx0.py.zip).
 
 ```python
 import wx  
@@ -177,7 +177,7 @@ Notification messages have a `.getName()`, `.getBody()` and `.getType()`.  Exce
 
 Here is an even simpler implementation, essentially the same, however I have removed the startup command.  You can initialise the bits and pieces of the application, creating the mediator and model proxy etc. in regular code rather than going through all the fancy startup command stuff (see the bold code).  This helps reduce complexity and increases your chances of understanding what is going on with the PureMVC architectural pattern.  In practice, in a complex project, a startup command may very well be a good idea.
 
-You can download this example [here](http://www.atug.com/downloads/puremvcminimalwx0nostartupcmd.py.zip).
+You can download this example [here](/files/puremvcminimalwx0nostartupcmd.py.zip).
 
 ```python
 import wx
@@ -288,7 +288,7 @@ if __name__ == '__main__':
 
 ## Conclusion
 
-I hope this minimalist example helps you understand PureMVC.  Of course read the pdf [documentation](http://puremvc.org/) on PureMVC by Cliff.  For a step by step guide to buildng a PureMVC based application in wxPython - or any other language for that matter, see my blog entry [Refactoring to PureMVC](http://www.andypatterns.com/index.php?cID=84 "Refactoring to PureMVC").
+I hope this minimalist example helps you understand PureMVC.  Of course read the pdf [documentation](http://puremvc.org/) on PureMVC by Cliff.  For a step by step guide to buildng a PureMVC based application in wxPython - or any other language for that matter, see my blog entry [Refactoring to PureMVC](https://abulka.github.io/blog/2009/04/01/refactoring-to-puremvc/ "Refactoring to PureMVC").
 
 \-Andy
 

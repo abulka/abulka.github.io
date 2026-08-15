@@ -17,7 +17,7 @@ A Null Object provides a surrogate for another object that shares the same inter
 
 ## UML
 
-![null objject uml](http://www.andypatterns.com/files/27251232690646nullobjectUML.png)
+![null objject uml](/blog/images/patterns/27251232690646nullobjectUML.png)
 
 _Null Object Pattern_
 

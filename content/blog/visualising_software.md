@@ -156,7 +156,7 @@ Note that Delphi (and most IDE's) has always let you "wire" components together 
 
 ### Software Visualisation
 
-There seems to be some serious work being done in this field. Check out [Software Visualization in Prolog](http://www.atug.com/andypatterns/www.ftp.cl.cam.ac.uk/ftp/papers/reports/TR511-camg100-software-visualization-in-prolog.pdf) by Calum A. McK. Grant (as a Dissertation submitted for the degree of Doctor of Philosophy) which has astonishing pictures of software visualisation tools and visual programming systems e.g.
+There seems to be some serious work being done in this field. Check out Software Visualization in Prolog by Calum A. McK. Grant (as a Dissertation submitted for the degree of Doctor of Philosophy) which has astonishing pictures of software visualisation tools and visual programming systems e.g.
 
 ![](/blog/images/visualising_software_egg.ht1.jpg)
 
@@ -207,7 +207,7 @@ _Code Canvas, from Microsoft Research_
 
 ## Summary
 
-Ideally I would like to see approaches like Executable UML simplified down and incorporate the simple coding ideas of Scratch, albiet taken to a serious object oriented level (Scratch is really for kids at the moment).  Design Pattern support would also be woven in - e.g. Netbeans 6 has a visual way of creating design patterns - see my Feb 2009 [blog post](http://www.andypatterns.com/index.php?cID=82 "UML and Design Pattern Support in Netbeans 6.5") on this.  The visual form designing capabilities of Visual Age (now defunct, unfortunately) and Delphi form diagrams would complete are new lego was of building software.  Of course [case tools](http://en.wikipedia.org/wiki/Case_tools) have always been around and to some extent people have become a bit cynical about them over the decades as no breakthrough application has ever appeared.  We should still keep trying though as I can see progress on many fronts and can see all the wonderful pieces of the puzzle - they just need to be unified into a single compelling open source product. 
+Ideally I would like to see approaches like Executable UML simplified down and incorporate the simple coding ideas of Scratch, albiet taken to a serious object oriented level (Scratch is really for kids at the moment).  Design Pattern support would also be woven in - e.g. Netbeans 6 has a visual way of creating design patterns - see my Feb 2009 [blog post](https://abulka.github.io/blog/2009/01/22/visualising-software/ "UML and Design Pattern Support in Netbeans 6.5") on this.  The visual form designing capabilities of Visual Age (now defunct, unfortunately) and Delphi form diagrams would complete are new lego was of building software.  Of course [case tools](http://en.wikipedia.org/wiki/Case_tools) have always been around and to some extent people have become a bit cynical about them over the decades as no breakthrough application has ever appeared.  We should still keep trying though as I can see progress on many fronts and can see all the wonderful pieces of the puzzle - they just need to be unified into a single compelling open source product. 
 
 ## My personal vision
 
@@ -223,7 +223,7 @@ Method calls would be made using messages.  Messages are a more powerful metaph
 
 There should be an integrated GUI builder that caters to various styles of application: web, form based with controls and menus, workspace based with draggable widgets and sprite based for game type approaches.  A MVC framework would be built in so that you know where to put all your code and so that a proper separation between model and presentation is achieved.  No more guessing - its all defined for you.
 
-How can this sort of vision compete against the well funded and expensive MDA and Executable UML tools industry?  I don't know - my feeling is that MDA tools are stuck in a bit of a rut and aren't taking advantage of more radical approaches that I have been talking about here.  I have only scratched the surface and there is lots of detail to be worked out, I know.  Its fun speculating about it anyway. I even have some screen designs if you wish to [contact me](http://www.andypatterns.com/index.php?cID=34 "Contact") about them!
+How can this sort of vision compete against the well funded and expensive MDA and Executable UML tools industry?  I don't know - my feeling is that MDA tools are stuck in a bit of a rut and aren't taking advantage of more radical approaches that I have been talking about here.  I have only scratched the surface and there is lots of detail to be worked out, I know.  Its fun speculating about it anyway. I even have some screen designs if you wish to [contact me](https://abulka.github.io/about/ "Contact") about them!
 
 ### Appendix: Links to various MDA tools
 

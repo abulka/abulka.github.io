@@ -11,7 +11,7 @@ Allows you to program your old vintage HP Calculator in Python!
 
 ![[Image: python_rpn_ui_01.png?raw=1]](https://www.dropbox.com/s/nqfq01xaxvi4xnv/python_rpn_ui_01.png?raw=1)  
   
-> See also my blog post [How I used the Python AST capabilities to build a Python to Rpn converter](http://www.andypatterns.com/index.php/blog/ast-parsing-python-generate-hp-calculator-rpn/ "AST Parsing with Python to generate HP Calculator RPN").
+> See also my blog post [How I used the Python AST capabilities to build a Python to Rpn converter](https://abulka.github.io/blog/2018/06/01/python-ast-parsing/ "AST Parsing with Python to generate HP Calculator RPN").
 
 You write code in a high level structured language (which happens to be Python 3 syntax), hit a button and RPN is generated.   
   

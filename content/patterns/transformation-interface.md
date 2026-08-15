@@ -8,7 +8,7 @@ description: >
 tags: ["Design Patterns"]
 ---
 
-![](http://www.andypatterns.com/files/71241233039311bgDSC1068.jpg)
+![](/blog/images/patterns/71241233039311bgDSC1068.jpg)
 
 ## Introduction
 

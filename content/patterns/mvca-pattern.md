@@ -304,7 +304,7 @@ In this implementation, I notice that footer renders too early rather than right
 
 ## Credit
 
-Created by [Andy Bulka](http://andypatterns.com)
+Created by [Andy Bulka](https://abulka.github.io/)
 
 Note: This project is not not officially part of the [TodoMVC project](http://todomvc.com/) - as it is does not use a MVC framework library, nor does it meet the criterion of "having a community" around it.  On the other hand, perhaps a pattern is equivalent enough to a framework - after all there is a plain Javascript TodoMVC implementation officially available using ad-hoc techniques. Plus, there has been a "community" around the Object Oriented MVC pattern for decades now - hasn't there? 😉
 
