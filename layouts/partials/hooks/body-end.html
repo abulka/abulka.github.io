@@ -1,0 +1,7 @@
+{{/*  Injects our side-effect scripts after DocSy's own. Overrides DocSy's placeholder
+        layouts/partials/hooks/body-end.html (which is empty by default).
+        DocSy's scripts.html ends with: {{ partial "hooks/body-end.html" . -}}
+        so our file runs on every page that loads scripts.html. */}}
+
+<!-- Preserve DocSy left-sidebar scroll position across static page navigations. -->
+<script defer src="{{ "js/sidebar-scroll.js" | relURL }}"></script>

@@ -37,6 +37,45 @@ the box. If you install a recent Hugo via `brew install hugo`, add/keep these se
 Older Hugos (before 0.161) did not have these defaults, which is why the site built
 without them before.
 
+## Customizations
+
+### Sidebar scroll position is preserved across blog pages
+
+Each blog page is a full static render, so the Docsy left sidebar is rebuilt on
+every navigation and its scroll position resets to the top. That makes it
+annoying to preview a sequence of posts: each new page starts at the top of the
+sidebar even though you were part-way down.
+
+A small vanilla-JS script fixes this. It stores the sidebar's scroll offset in
+`sessionStorage` and restores it on each page load (one shared position per
+browser tab/session), so "where you are in the nav list" survives clicking a
+link. On the very first page of a session it anchors the currently-active row
+into view.
+
+- `static/js/sidebar-scroll.js` — the script (no dependencies, no build step).
+- `layouts/partials/hooks/body-end.html` — the injection point.
+
+**Why `hooks/body-end.html`?** This is a Docsy *extension hook*. Docsy's own
+`partials/scripts.html` ends with `{{ partial "hooks/body-end.html" . }}`, and
+`hooks/` contains placeholder files shipped by the theme. Hugo prefers a layout
+from our repo (left) over the theme (right), so creating our own
+`layouts/partials/hooks/body-end.html` is the clean, documented way to add our
+script without copying or forking any Docsy files. Because we only override a
+stable, theme-provided hook, a future Docsy upgrade keeps working as long as it
+still calls that hook.
+
+The scroll container is the inner `<nav id="td-section-nav">` (it has
+`overflow-y: auto` + `max-height`). The script falls back to
+`#td-sidebar-menu` in case that id changes in a theme update.
+
+**To revert:** delete those two files. That's the whole change.
+
+> Note (for anyone adding a blog page layout): this site renders blog pages with
+> Docsy's own `layouts/blog/baseof.html`. The repo's `layouts/blog__/baseof.html`
+> does *not* apply — Hugo matches the section name `blog`, not the
+> `double-underscore` (which would only match a section literally named `blog__`).
+> It is effectively dead code, so don't add site-wide `<script>` tags there.
+
 ## Installing
 
 Installing (2024) - [Hugo modules](https://gohugo.io/hugo-modules/) are the simplest and latest way to use Hugo themes like Docsy when building a website. 
