@@ -70,3 +70,5 @@ pre-built frontend and proxying `/api/*` to the FastAPI backend with a named vol
 persistence); a deployment target is being finalized.
 
 Code: [github.com/abulka/songblend](https://github.com/abulka/songblend) (private for now)
+
+Deployment: [songblend.atug.com](https://songblend.atug.com/)
