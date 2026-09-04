@@ -22,3 +22,4 @@ Being an application software developer, I made the transition to building web a
 | Cinema | Transform text into illustrated cinematic shot lists | Vue, Ollama LLM, ComfyUI |
 | Muse | Dynamic prompt generation for AI image apps | Javascript, Draw Things, ComfyUI |
 | Story Builder | Plan and draft stories at any scale with beat frameworks | Vue, Javascript |
+| Bookmark Super Manager | Local-first bookmark manager & Chrome extension, nothing uploaded | React, TypeScript |
