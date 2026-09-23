@@ -1,8 +1,8 @@
 ---
-title: "Websites"
+title: "Web Apps"
 linkTitle: "Web Apps"
 type: docs
-weight: 20
+weight: 19
 tags: ["Software Product", "Calculators", "Python", "Jupyter", "Music", "Diagramming"]
 ---
 
@@ -23,3 +23,4 @@ Being an application software developer, I made the transition to building web a
 | Muse | Dynamic prompt generation for AI image apps | Javascript, Draw Things, ComfyUI |
 | Story Builder | Plan and draft stories at any scale with beat frameworks | Vue, Javascript |
 | Bookmark Super Manager | Local-first bookmark manager & Chrome extension, nothing uploaded | React, TypeScript |
+| Bar Chess | Chess with bullets — an RTS where chess pieces shoot visible projectiles and the AI matches your pace of play | Vue, TypeScript |
