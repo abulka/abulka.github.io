@@ -1,6 +1,6 @@
 ---
-title: "Web Apps"
-linkTitle: "Web Apps"
+title: "Apps"
+linkTitle: "Apps"
 type: docs
 weight: 19
 tags: ["Software Product", "Calculators", "Python", "Jupyter", "Music", "Diagramming"]

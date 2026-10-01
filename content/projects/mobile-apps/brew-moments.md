@@ -3,6 +3,7 @@ title: "Brew Moments"
 date: 2020-11-23T12:21:55+11:00
 type: docs
 draft: false
+aliases: ["/projects/apps/brew-moments"]
 tags: ["Flutter", "Software Product"]
 ---
 
@@ -10,7 +11,7 @@ tags: ["Flutter", "Software Product"]
 
 Coffee Ratio Calculation App for Android phones and tablets, built using Dart and Flutter.
 
-![pic](/projects/websites/images/brew-moments.png)
+![pic](/projects/mobile-apps/images/brew-moments.png)
 
 - Visit the Brew Moments [home page](https://abulka.github.io/brew-moments/)
 - Visit the Brew Moments [playstore page](https://play.google.com/store/apps/details?id=com.wware.brew_moments)
