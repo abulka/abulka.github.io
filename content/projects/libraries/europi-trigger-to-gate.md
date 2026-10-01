@@ -199,3 +199,4 @@ Here are all the variants of the script, so you can choose the one that best sui
 - [Trigger to Gate](/projects/libraries/europi-trigger-to-gate) script, with gate delay feature and internal clock mode.
 - [Trigger Gate Delay](/projects/libraries/europi-trigger-to-gate/#trigger-gate-delay) script, without the clock mode functionality.
 - [Documentation](/projects/libraries/europi-script-utils) on my Scheduler, Hysteresis Mitigation and Knob Pass Through utility classes, which you can use in your own EuroPi scripts.
+- [EuroPi-Go](/projects/libraries/europi-go) — an alternative EuroPi firmware written in Go with TinyGo, which includes a Trigger Gate app.
