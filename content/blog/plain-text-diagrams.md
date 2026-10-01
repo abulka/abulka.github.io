@@ -39,7 +39,7 @@ Here is an example:
 
 Taking the code map idea to a more formal level, I have created a new diagramming methodology called Literate Code Mapping [here](https://abulka.github.io/lcodemaps/).
 
-Here is another, quite different, example of a code map, this time of part of my [ChordJammer](/projects/websites/chordjammer) project:
+Here is another, quite different, example of a code map, this time of part of my [OneKeyJam](/projects/websites/onekeyjam) project:
 
 ![code map example 02](/blog/images/pt-chord-scale-interactions.excalidraw.svg)
 

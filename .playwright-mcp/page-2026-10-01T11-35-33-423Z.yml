@@ -1,0 +1,882 @@
+- generic [active] [ref=f1e1]:
+  - banner:
+    - navigation [ref=f1e2]:
+      - generic [ref=f1e3]:
+        - link [ref=f1e4] [cursor=pointer]:
+          - /url: /
+        - list [ref=f1e53]:
+          - listitem [ref=f1e54]:
+            - link "Blog" [ref=f1e55] [cursor=pointer]:
+              - /url: /blog/
+          - listitem [ref=f1e56]:
+            - link "Projects" [ref=f1e57] [cursor=pointer]:
+              - /url: /projects/
+          - listitem [ref=f1e58]:
+            - link "My Design Patterns" [ref=f1e59] [cursor=pointer]:
+              - /url: /patterns/
+          - listitem [ref=f1e60]:
+            - link "About" [ref=f1e61] [cursor=pointer]:
+              - /url: /about/
+        - generic [ref=f1e63]:
+          - generic: 
+          - searchbox "Search this site…" [ref=f1e64]
+  - generic [ref=f1e65]:
+    - generic [ref=f1e67]:
+      - complementary [ref=f1e68]:
+        - generic [ref=f1e69]:
+          - generic [ref=f1e70]:
+            - generic [ref=f1e71]:
+              - generic: 
+              - searchbox "Search this site…" [ref=f1e72]
+            - text: 
+          - navigation [ref=f1e73]:
+            - list [ref=f1e74]:
+              - listitem [ref=f1e75]:
+                - link "Projects" [ref=f1e76] [cursor=pointer]:
+                  - /url: /projects/
+                - list [ref=f1e77]:
+                  - listitem [ref=f1e78]:
+                    - link "Web Apps" [ref=f1e79] [cursor=pointer]:
+                      - /url: /projects/websites/
+                    - list [ref=f1e80]:
+                      - listitem [ref=f1e81]:
+                        - link "Toolback" [ref=f1e82] [cursor=pointer]:
+                          - /url: /projects/websites/toolback/
+                      - listitem [ref=f1e83]:
+                        - link "Bar Chess" [ref=f1e84] [cursor=pointer]:
+                          - /url: /projects/websites/bar-chess/
+                      - listitem [ref=f1e85]:
+                        - link "Bookmark Super Manager" [ref=f1e86] [cursor=pointer]:
+                          - /url: /projects/websites/bookmark-super-manager/
+                      - listitem [ref=f1e87]:
+                        - link "Cinema" [ref=f1e88] [cursor=pointer]:
+                          - /url: /projects/websites/cinema/
+                      - listitem [ref=f1e89]:
+                        - link "Compose Permutator" [ref=f1e90] [cursor=pointer]:
+                          - /url: /projects/websites/compose-permutator/
+                      - listitem [ref=f1e91]:
+                        - link "Muse" [ref=f1e92] [cursor=pointer]:
+                          - /url: /projects/websites/muse/
+                      - listitem [ref=f1e93]:
+                        - link "SongBlend" [ref=f1e94] [cursor=pointer]:
+                          - /url: /projects/websites/songblend/
+                      - listitem [ref=f1e95]:
+                        - link "Story Builder" [ref=f1e96] [cursor=pointer]:
+                          - /url: /projects/websites/story-builder/
+                      - listitem [ref=f1e97]:
+                        - link "Unjazz" [ref=f1e98] [cursor=pointer]:
+                          - /url: /projects/websites/unjazz/
+                      - listitem [ref=f1e99]:
+                        - link "GitUML" [ref=f1e100] [cursor=pointer]:
+                          - /url: /projects/websites/gituml/
+                      - listitem [ref=f1e101]:
+                        - link "Javascript RPN calculators" [ref=f1e102] [cursor=pointer]:
+                          - /url: /projects/websites/rpn-calcs/
+                      - listitem [ref=f1e103]:
+                        - link "OneKeyJam" [ref=f1e104] [cursor=pointer]:
+                          - /url: /projects/websites/onekeyjam/
+                      - listitem [ref=f1e105]:
+                        - link "Python to RPN" [ref=f1e106] [cursor=pointer]:
+                          - /url: /projects/websites/pyrpn/
+                      - listitem [ref=f1e107]:
+                        - link "Rationale" [ref=f1e108] [cursor=pointer]:
+                          - /url: /projects/websites/rationale/
+                  - listitem [ref=f1e109]:
+                    - link "Apps" [ref=f1e110] [cursor=pointer]:
+                      - /url: /projects/apps/
+                    - list [ref=f1e111]:
+                      - listitem [ref=f1e112]:
+                        - link "Command Line Tools" [ref=f1e113] [cursor=pointer]:
+                          - /url: /projects/apps/cli-tools/
+                      - listitem [ref=f1e114]:
+                        - link "Pynsource" [ref=f1e115] [cursor=pointer]:
+                          - /url: /projects/apps/pynsource/
+                      - listitem [ref=f1e116]:
+                        - link "AI Image Browser" [ref=f1e117] [cursor=pointer]:
+                          - /url: /projects/apps/ai-images-manager/
+                      - listitem [ref=f1e118]:
+                        - link "Brew Moments" [ref=f1e119] [cursor=pointer]:
+                          - /url: /projects/apps/brew-moments/
+                      - listitem [ref=f1e120]:
+                        - link "Print42" [ref=f1e121] [cursor=pointer]:
+                          - /url: /projects/apps/print42/
+                      - listitem [ref=f1e122]:
+                        - link "Prophet 6 Librarian" [ref=f1e123] [cursor=pointer]:
+                          - /url: /projects/apps/prophet-6-librarian/
+                  - listitem [ref=f1e124]:
+                    - link "Big Ideas" [ref=f1e125] [cursor=pointer]:
+                      - /url: /projects/big-ideas/
+                    - list [ref=f1e126]:
+                      - listitem [ref=f1e127]:
+                        - link "Literate Code Mapping" [ref=f1e128] [cursor=pointer]:
+                          - /url: /projects/big-ideas/lcodemaps/
+                      - listitem [ref=f1e129]:
+                        - link "Medium Articles" [ref=f1e130] [cursor=pointer]:
+                          - /url: /projects/big-ideas/medium-articles/
+                  - listitem [ref=f1e131]:
+                    - link "Libraries & Tools" [ref=f1e132] [cursor=pointer]:
+                      - /url: /projects/libraries/
+                    - list [ref=f1e133]:
+                      - listitem [ref=f1e134]:
+                        - link "Dedent for Dart" [ref=f1e135] [cursor=pointer]:
+                          - /url: /projects/libraries/dedent-dart/
+                      - listitem [ref=f1e136]:
+                        - link "Electron-Flask App Generator" [ref=f1e137] [cursor=pointer]:
+                          - /url: /projects/libraries/electron-flask-app-gen/
+                      - listitem [ref=f1e138]:
+                        - link "EuroPi - Trigger to Gate" [ref=f1e139] [cursor=pointer]:
+                          - /url: /projects/libraries/europi-trigger-to-gate/
+                      - listitem [ref=f1e140]:
+                        - link "EuroPi - Utility Classes" [ref=f1e141] [cursor=pointer]:
+                          - /url: /projects/libraries/europi-script-utils/
+                      - listitem [ref=f1e142]:
+                        - link "Image Presenter" [ref=f1e143] [cursor=pointer]:
+                          - /url: /projects/libraries/image-presenter/
+                      - listitem [ref=f1e144]:
+                        - link "Jupyter Notebook Tools" [ref=f1e145] [cursor=pointer]:
+                          - /url: /projects/libraries/jupyter-notebook-tools/
+                      - listitem [ref=f1e146]:
+                        - link "Relationship Manager" [ref=f1e147] [cursor=pointer]:
+                          - /url: /projects/libraries/relationship-manager/
+                      - listitem [ref=f1e148]:
+                        - link "Snippet Creator - Vscode" [ref=f1e149] [cursor=pointer]:
+                          - /url: /projects/libraries/snippet-creator/
+                      - listitem [ref=f1e150]:
+                        - link "Snippets Explorer - Vscode" [ref=f1e151] [cursor=pointer]:
+                          - /url: /projects/libraries/snippets-explorer/
+      - complementary [ref=f1e152]:
+        - generic [ref=f1e153]:
+          - text:    
+          - link " Create project issue" [ref=f1e154] [cursor=pointer]:
+            - /url: https://github.com/abulka/abulka.github.io/issues/new
+            - generic [ref=f1e155]: 
+            - text: Create project issue
+        - navigation [ref=f1e157]:
+          - list [ref=f1e158]:
+            - listitem [ref=f1e159]:
+              - link "What is OneKeyJam?" [ref=f1e160] [cursor=pointer]:
+                - /url: "#what-is-onekeyjam"
+            - listitem [ref=f1e161]:
+              - link "Features" [ref=f1e162] [cursor=pointer]:
+                - /url: "#features"
+            - listitem [ref=f1e163]:
+              - link "Using the app" [ref=f1e164] [cursor=pointer]:
+                - /url: "#using-the-app"
+            - listitem [ref=f1e165]:
+              - link "Screenshots" [ref=f1e166] [cursor=pointer]:
+                - /url: "#screenshots"
+            - listitem [ref=f1e167]:
+              - link "Use a real MIDI keyboard" [ref=f1e168] [cursor=pointer]:
+                - /url: "#use-a-real-midi-keyboard"
+            - listitem [ref=f1e169]:
+              - link "How single-finger chords work" [ref=f1e170] [cursor=pointer]:
+                - /url: "#how-single-finger-chords-work"
+              - list [ref=f1e171]:
+                - listitem [ref=f1e172]:
+                  - link "Switching scale while you play" [ref=f1e173] [cursor=pointer]:
+                    - /url: "#switching-scale-while-you-play"
+                - listitem [ref=f1e174]:
+                  - link "Left-hand black key modifiers" [ref=f1e175] [cursor=pointer]:
+                    - /url: "#left-hand-black-key-modifiers"
+            - listitem [ref=f1e176]:
+              - link "Project config" [ref=f1e177] [cursor=pointer]:
+                - /url: "#project-config"
+            - listitem [ref=f1e178]:
+              - link "Technologies" [ref=f1e179] [cursor=pointer]:
+                - /url: "#technologies"
+            - listitem [ref=f1e180]:
+              - link "Source and feedback" [ref=f1e181] [cursor=pointer]:
+                - /url: "#source-and-feedback"
+        - generic [ref=f1e182]:
+          - heading "Tag Cloud" [level=5] [ref=f1e183]
+          - list [ref=f1e184]:
+            - listitem [ref=f1e185]:
+              - link "AI 5" [ref=f1e186] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/ai/
+                - text: AI
+                - generic [ref=f1e187]: "5"
+            - listitem [ref=f1e188]:
+              - link "Argument Mapping 1" [ref=f1e189] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/argument-mapping/
+                - text: Argument Mapping
+                - generic [ref=f1e190]: "1"
+            - listitem [ref=f1e191]:
+              - link "Async 1" [ref=f1e192] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/async/
+                - text: Async
+                - generic [ref=f1e193]: "1"
+            - listitem [ref=f1e194]:
+              - link "Audio 1" [ref=f1e195] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/audio/
+                - text: Audio
+                - generic [ref=f1e196]: "1"
+            - listitem [ref=f1e197]:
+              - link "Calculators 5" [ref=f1e198] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/calculators/
+                - text: Calculators
+                - generic [ref=f1e199]: "5"
+            - listitem [ref=f1e200]:
+              - link "Chess 1" [ref=f1e201] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/chess/
+                - text: Chess
+                - generic [ref=f1e202]: "1"
+            - listitem [ref=f1e203]:
+              - link "Chords 1" [ref=f1e204] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/chords/
+                - text: Chords
+                - generic [ref=f1e205]: "1"
+            - listitem [ref=f1e206]:
+              - link "Chrome Extension 2" [ref=f1e207] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/chrome-extension/
+                - text: Chrome Extension
+                - generic [ref=f1e208]: "2"
+            - listitem [ref=f1e209]:
+              - link "Code Translation 1" [ref=f1e210] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/code-translation/
+                - text: Code Translation
+                - generic [ref=f1e211]: "1"
+            - listitem [ref=f1e212]:
+              - link "ComfyUI 1" [ref=f1e213] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/comfyui/
+                - text: ComfyUI
+                - generic [ref=f1e214]: "1"
+            - listitem [ref=f1e215]:
+              - link "Composition 2" [ref=f1e216] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/composition/
+                - text: Composition
+                - generic [ref=f1e217]: "2"
+            - listitem [ref=f1e218]:
+              - link "Controllers 8" [ref=f1e219] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/controllers/
+                - text: Controllers
+                - generic [ref=f1e220]: "8"
+            - listitem [ref=f1e221]:
+              - link "Dart 1" [ref=f1e222] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/dart/
+                - text: Dart
+                - generic [ref=f1e223]: "1"
+            - listitem [ref=f1e224]:
+              - link "Design Patterns 24" [ref=f1e225] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/design-patterns/
+                - text: Design Patterns
+                - generic [ref=f1e226]: "24"
+            - listitem [ref=f1e227]:
+              - link "Dev Ops 2" [ref=f1e228] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/dev-ops/
+                - text: Dev Ops
+                - generic [ref=f1e229]: "2"
+            - listitem [ref=f1e230]:
+              - link "Diagramming 7" [ref=f1e231] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/diagramming/
+                - text: Diagramming
+                - generic [ref=f1e232]: "7"
+            - listitem [ref=f1e233]:
+              - link "Django 1" [ref=f1e234] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/django/
+                - text: Django
+                - generic [ref=f1e235]: "1"
+            - listitem [ref=f1e236]:
+              - link "Electron 2" [ref=f1e237] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/electron/
+                - text: Electron
+                - generic [ref=f1e238]: "2"
+            - listitem [ref=f1e239]:
+              - link "Eurorack 2" [ref=f1e240] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/eurorack/
+                - text: Eurorack
+                - generic [ref=f1e241]: "2"
+            - listitem [ref=f1e242]:
+              - link "Flask 1" [ref=f1e243] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/flask/
+                - text: Flask
+                - generic [ref=f1e244]: "1"
+            - listitem [ref=f1e245]:
+              - link "Flutter 1" [ref=f1e246] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/flutter/
+                - text: Flutter
+                - generic [ref=f1e247]: "1"
+            - listitem [ref=f1e248]:
+              - link "Fultter 1" [ref=f1e249] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/fultter/
+                - text: Fultter
+                - generic [ref=f1e250]: "1"
+            - listitem [ref=f1e251]:
+              - link "Game 1" [ref=f1e252] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/game/
+                - text: Game
+                - generic [ref=f1e253]: "1"
+            - listitem [ref=f1e254]:
+              - link "Go 1" [ref=f1e255] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/go/
+                - text: Go
+                - generic [ref=f1e256]: "1"
+            - listitem [ref=f1e257]:
+              - link "Google Colab 1" [ref=f1e258] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/google-colab/
+                - text: Google Colab
+                - generic [ref=f1e259]: "1"
+            - listitem [ref=f1e260]:
+              - link "GUI 10" [ref=f1e261] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/gui/
+                - text: GUI
+                - generic [ref=f1e262]: "10"
+            - listitem [ref=f1e263]:
+              - link "HyperCard-Inspired 1" [ref=f1e264] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/hypercard-inspired/
+                - text: HyperCard-Inspired
+                - generic [ref=f1e265]: "1"
+            - listitem [ref=f1e266]:
+              - link "Image Generation 2" [ref=f1e267] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/image-generation/
+                - text: Image Generation
+                - generic [ref=f1e268]: "2"
+            - listitem [ref=f1e269]:
+              - link "Image Presentation 1" [ref=f1e270] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/image-presentation/
+                - text: Image Presentation
+                - generic [ref=f1e271]: "1"
+            - listitem [ref=f1e272]:
+              - link "Java 1" [ref=f1e273] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/java/
+                - text: Java
+                - generic [ref=f1e274]: "1"
+            - listitem [ref=f1e275]:
+              - link "Javascript 13" [ref=f1e276] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/javascript/
+                - text: Javascript
+                - generic [ref=f1e277]: "13"
+            - listitem [ref=f1e278]:
+              - link "Jupyter 1" [ref=f1e279] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/jupyter/
+                - text: Jupyter
+                - generic [ref=f1e280]: "1"
+            - listitem [ref=f1e281]:
+              - link "Jupyter Notebook 1" [ref=f1e282] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/jupyter-notebook/
+                - text: Jupyter Notebook
+                - generic [ref=f1e283]: "1"
+            - listitem [ref=f1e284]:
+              - link "Libraries 1" [ref=f1e285] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/libraries/
+                - text: Libraries
+                - generic [ref=f1e286]: "1"
+            - listitem [ref=f1e287]:
+              - link "LLM 1" [ref=f1e288] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/llm/
+                - text: LLM
+                - generic [ref=f1e289]: "1"
+            - listitem [ref=f1e290]:
+              - link "Local-First 2" [ref=f1e291] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/local-first/
+                - text: Local-First
+                - generic [ref=f1e292]: "2"
+            - listitem [ref=f1e293]:
+              - link "MIDI 2" [ref=f1e294] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/midi/
+                - text: MIDI
+                - generic [ref=f1e295]: "2"
+            - listitem [ref=f1e296]:
+              - link "Mind Mapping 1" [ref=f1e297] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/mind-mapping/
+                - text: Mind Mapping
+                - generic [ref=f1e298]: "1"
+            - listitem [ref=f1e299]:
+              - link "Music 6" [ref=f1e300] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/music/
+                - text: Music
+                - generic [ref=f1e301]: "6"
+            - listitem [ref=f1e302]:
+              - link "MVC 7" [ref=f1e303] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/mvc/
+                - text: MVC
+                - generic [ref=f1e304]: "7"
+            - listitem [ref=f1e305]:
+              - link "Narrative 1" [ref=f1e306] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/narrative/
+                - text: Narrative
+                - generic [ref=f1e307]: "1"
+            - listitem [ref=f1e308]:
+              - link "Notation 1" [ref=f1e309] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/notation/
+                - text: Notation
+                - generic [ref=f1e310]: "1"
+            - listitem [ref=f1e311]:
+              - link "Object Database 1" [ref=f1e312] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/object-database/
+                - text: Object Database
+                - generic [ref=f1e313]: "1"
+            - listitem [ref=f1e314]:
+              - link "Observer 5" [ref=f1e315] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/observer/
+                - text: Observer
+                - generic [ref=f1e316]: "5"
+            - listitem [ref=f1e317]:
+              - link "Open Source 1" [ref=f1e318] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/open-source/
+                - text: Open Source
+                - generic [ref=f1e319]: "1"
+            - listitem [ref=f1e320]:
+              - link "ORM 1" [ref=f1e321] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/orm/
+                - text: ORM
+                - generic [ref=f1e322]: "1"
+            - listitem [ref=f1e323]:
+              - link "Philosophy 1" [ref=f1e324] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/philosophy/
+                - text: Philosophy
+                - generic [ref=f1e325]: "1"
+            - listitem [ref=f1e326]:
+              - link "Programmable 1" [ref=f1e327] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/programmable/
+                - text: Programmable
+                - generic [ref=f1e328]: "1"
+            - listitem [ref=f1e329]:
+              - link "Python 24" [ref=f1e330] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/python/
+                - text: Python
+                - generic [ref=f1e331]: "24"
+            - listitem [ref=f1e332]:
+              - link "Raspberry Pi 2" [ref=f1e333] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/raspberry-pi/
+                - text: Raspberry Pi
+                - generic [ref=f1e334]: "2"
+            - listitem [ref=f1e335]:
+              - link "React 2" [ref=f1e336] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/react/
+                - text: React
+                - generic [ref=f1e337]: "2"
+            - listitem [ref=f1e338]:
+              - link "Reasoning 1" [ref=f1e339] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/reasoning/
+                - text: Reasoning
+                - generic [ref=f1e340]: "1"
+            - listitem [ref=f1e341]:
+              - link "Refactoring 4" [ref=f1e342] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/refactoring/
+                - text: Refactoring
+                - generic [ref=f1e343]: "4"
+            - listitem [ref=f1e344]:
+              - link "RTS 1" [ref=f1e345] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/rts/
+                - text: RTS
+                - generic [ref=f1e346]: "1"
+            - listitem [ref=f1e347]:
+              - link "Ruby 4" [ref=f1e348] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/ruby/
+                - text: Ruby
+                - generic [ref=f1e349]: "4"
+            - listitem [ref=f1e350]:
+              - link "Software Product 31" [ref=f1e351] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/software-product/
+                - text: Software Product
+                - generic [ref=f1e352]: "31"
+            - listitem [ref=f1e353]:
+              - link "SQL 2" [ref=f1e354] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/sql/
+                - text: SQL
+                - generic [ref=f1e355]: "2"
+            - listitem [ref=f1e356]:
+              - link "String Manipulation 1" [ref=f1e357] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/string-manipulation/
+                - text: String Manipulation
+                - generic [ref=f1e358]: "1"
+            - listitem [ref=f1e359]:
+              - link "Thoughts 9" [ref=f1e360] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/thoughts/
+                - text: Thoughts
+                - generic [ref=f1e361]: "9"
+            - listitem [ref=f1e362]:
+              - link "ToolBook 1" [ref=f1e363] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/toolbook/
+                - text: ToolBook
+                - generic [ref=f1e364]: "1"
+            - listitem [ref=f1e365]:
+              - link "Tools 2" [ref=f1e366] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/tools/
+                - text: Tools
+                - generic [ref=f1e367]: "2"
+            - listitem [ref=f1e368]:
+              - link "TypeScript 3" [ref=f1e369] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/typescript/
+                - text: TypeScript
+                - generic [ref=f1e370]: "3"
+            - listitem [ref=f1e371]:
+              - link "Ubuntu 1" [ref=f1e372] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/ubuntu/
+                - text: Ubuntu
+                - generic [ref=f1e373]: "1"
+            - listitem [ref=f1e374]:
+              - link "UI Widgets 1" [ref=f1e375] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/ui-widgets/
+                - text: UI Widgets
+                - generic [ref=f1e376]: "1"
+            - listitem [ref=f1e377]:
+              - link "UML 11" [ref=f1e378] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/uml/
+                - text: UML
+                - generic [ref=f1e379]: "11"
+            - listitem [ref=f1e380]:
+              - link "Visualisation 1" [ref=f1e381] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/visualisation/
+                - text: Visualisation
+                - generic [ref=f1e382]: "1"
+            - listitem [ref=f1e383]:
+              - link "Vscode Extension 2" [ref=f1e384] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/vscode-extension/
+                - text: Vscode Extension
+                - generic [ref=f1e385]: "2"
+            - listitem [ref=f1e386]:
+              - link "Vue 4" [ref=f1e387] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/vue/
+                - text: Vue
+                - generic [ref=f1e388]: "4"
+            - listitem [ref=f1e389]:
+              - link "Vuejs 1" [ref=f1e390] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/vuejs/
+                - text: Vuejs
+                - generic [ref=f1e391]: "1"
+            - listitem [ref=f1e392]:
+              - link "Web App 2" [ref=f1e393] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/web-app/
+                - text: Web App
+                - generic [ref=f1e394]: "2"
+            - listitem [ref=f1e395]:
+              - link "Writing 1" [ref=f1e396] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/writing/
+                - text: Writing
+                - generic [ref=f1e397]: "1"
+            - listitem [ref=f1e398]:
+              - link "WxPython 4" [ref=f1e399] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/wxpython/
+                - text: WxPython
+                - generic [ref=f1e400]: "4"
+            - listitem [ref=f1e401]:
+              - link "Yeoman Generator 1" [ref=f1e402] [cursor=pointer]:
+                - /url: https://abulka.github.io/tags/yeoman-generator/
+                - text: Yeoman Generator
+                - generic [ref=f1e403]: "1"
+      - main [ref=f1e404]:
+        - navigation "breadcrumb" [ref=f1e405]:
+          - list [ref=f1e406]:
+            - listitem [ref=f1e407]:
+              - link "Projects" [ref=f1e408] [cursor=pointer]:
+                - /url: /projects/
+            - listitem [ref=f1e409]:
+              - text: /
+              - link "Web Apps" [ref=f1e410] [cursor=pointer]:
+                - /url: /projects/websites/
+            - listitem [ref=f1e411]: / OneKeyJam
+        - generic [ref=f1e412]:
+          - heading "OneKeyJam" [level=1] [ref=f1e413]
+          - generic [ref=f1e415]:
+            - heading "Tags:" [level=5] [ref=f1e416]
+            - list [ref=f1e417]:
+              - listitem [ref=f1e418]:
+                - link "Music" [ref=f1e419] [cursor=pointer]:
+                  - /url: https://abulka.github.io/tags/music/
+              - listitem [ref=f1e420]:
+                - link "Software Product" [ref=f1e421] [cursor=pointer]:
+                  - /url: https://abulka.github.io/tags/software-product/
+              - listitem [ref=f1e422]:
+                - link "Composition" [ref=f1e423] [cursor=pointer]:
+                  - /url: https://abulka.github.io/tags/composition/
+              - listitem [ref=f1e424]:
+                - link "Chords" [ref=f1e425] [cursor=pointer]:
+                  - /url: https://abulka.github.io/tags/chords/
+              - listitem [ref=f1e426]:
+                - link "MIDI" [ref=f1e427] [cursor=pointer]:
+                  - /url: https://abulka.github.io/tags/midi/
+          - paragraph [ref=f1e428]: Become a master of playing complex chords by assigning them to a single note and triggering them with one finger. Jam (solo) over chord progressions in safety, because the notes that don’t fit are automatically filtered out. Import a MIDI file and OneKeyJam will find the chords inside it and lay them out across the keyboard so you can play along.
+          - paragraph [ref=f1e429]: OneKeyJam is a browser-based MIDI app. Left-hand notes trigger whole chords with a single finger, and right-hand notes are snapped into the scale that fits the current chord, so everything you play sounds good. Change chord and the safe notes change with it. It can drive a real MIDI keyboard and DAW (for example Ableton), or make the sound in the browser.
+          - paragraph [ref=f1e430]:
+            - strong [ref=f1e431]:
+              - link "Try it now at onekeyjam.netlify.app" [ref=f1e432] [cursor=pointer]:
+                - /url: https://onekeyjam.netlify.app
+            - text: · source code on
+            - link "GitHub" [ref=f1e433] [cursor=pointer]:
+              - /url: https://github.com/abulka/onekeyjam
+          - paragraph [ref=f1e434]:
+            - img "OneKeyJam screenshot" [ref=f1e435]
+          - heading "What is OneKeyJam?" [level=2] [ref=f1e436]
+          - paragraph [ref=f1e437]: "OneKeyJam is a MIDI jam station built around one simple idea: you shouldn’t need to know how to play a chord to play it. Assign a chord to a single note, press that note, and the chord plays. Then noodle around on the right-hand side of the keyboard and jam over it. Notes that don’t belong are quietly filtered out, so you can’t hit a wrong note."
+          - paragraph [ref=f1e438]:
+            - text: It’s a bit like the way a DAW plugin such as
+            - link "Cthulhu" [ref=f1e439] [cursor=pointer]:
+              - /url: https://xferrecords.com/products/cthulhu
+            - text: works, but in your browser and with no setup. It’s great for songwriting, for practising improvisation, and for exploring chord progressions you wouldn’t normally reach for.
+          - heading "Features" [level=2] [ref=f1e440]
+          - list [ref=f1e441]:
+            - listitem [ref=f1e442]:
+              - strong [ref=f1e443]: Single-finger chords
+              - text: – each left-hand key plays a full chord from your project. No chord shapes to learn.
+            - listitem [ref=f1e444]:
+              - strong [ref=f1e445]: Scale filtering
+              - text: – right-hand notes snap to the scale that fits the current chord, so improvisation always sounds right.
+            - listitem [ref=f1e446]:
+              - strong [ref=f1e447]: Black-key modifiers
+              - text: – switch scale, transpose chords and turn filtering on or off while you play.
+            - listitem [ref=f1e448]:
+              - strong [ref=f1e449]: Real MIDI, or built-in sounds
+              - text: – send notes to a DAW over the macOS IAC Driver (jam notes, chords and bass on separate channels), or use the bundled General MIDI sounds in the browser.
+            - listitem [ref=f1e450]:
+              - strong [ref=f1e451]: Projects you control
+              - text: – configure chords and scales with JSON, save projects in your browser, and export or import them as files.
+            - listitem [ref=f1e452]:
+              - strong [ref=f1e453]: Ready-made demo projects
+              - text: – open a featured project and start playing straight away.
+            - listitem [ref=f1e454]:
+              - strong [ref=f1e455]: Import MIDI files
+              - text: – load a MIDI file and OneKeyJam finds the chords inside it, then assigns them across the keyboard so you can trigger each chord with one note and jam over it in key.
+          - heading "Using the app" [level=2] [ref=f1e456]
+          - list [ref=f1e457]:
+            - listitem [ref=f1e458]:
+              - text: Open the app and choose
+              - strong [ref=f1e459]: File → Open Featured…
+              - text: to load a demo project.
+            - listitem [ref=f1e460]: Play the highlighted left-hand keys to trigger chords.
+            - listitem [ref=f1e461]: Play anywhere to the right to jam – the notes are filtered to fit the chord.
+            - listitem [ref=f1e462]: Use the black keys to switch scale or transpose.
+          - paragraph [ref=f1e463]:
+            - text: A guided tour is available from the
+            - strong [ref=f1e464]: Start Tour
+            - text: item in the menu. To build a project from an existing MIDI file, choose
+            - strong [ref=f1e465]: File → Import MIDI file…
+            - text: and OneKeyJam will detect the chords and lay them out on the keyboard.
+          - heading "Screenshots" [level=2] [ref=f1e466]
+          - paragraph [ref=f1e467]: "The perform view shows your chord table, with each chord mapped to a single left-hand trigger note, and a built-in sequencer where you can capture both the left-hand chords and the right-hand jam notes on separate tracks:"
+          - paragraph [ref=f1e468]:
+            - img "OneKeyJam sequencer" [ref=f1e469]
+          - paragraph [ref=f1e470]: "The edit view is where you build projects. Pick chords from the circle of fifths, see which scales fit each chord, and import a MIDI file to auto-detect its chords:"
+          - paragraph [ref=f1e471]:
+            - img "OneKeyJam edit view" [ref=f1e472]
+          - heading "Use a real MIDI keyboard" [level=2] [ref=f1e473]
+          - paragraph [ref=f1e474]: Plug in a MIDI keyboard and Chrome connects to it automatically through the built-in Web MIDI support – no setup needed. Sound is made in the browser out of the box, and you can also route notes to a DAW or synth such as Ableton via the macOS IAC Driver.
+          - img "An external MIDI keyboard connected to OneKeyJam" [ref=f1e475]
+          - paragraph [ref=f1e476]:
+            - text: MIDI needs a secure context, so the page must be served over HTTPS (or
+            - code [ref=f1e477]: localhost
+            - text: "). To send notes to Ableton (or another DAW) over the IAC Driver:"
+          - list [ref=f1e478]:
+            - listitem [ref=f1e479]:
+              - text: enable the
+              - strong [ref=f1e480]: IAC Driver
+              - text: in macOS
+              - strong [ref=f1e481]: Audio MIDI Setup
+            - listitem [ref=f1e482]: "in Ableton, add a track with a synth that listens on the IAC Driver MIDI input, and use separate channels for each part:"
+          - table [ref=f1e483]:
+            - rowgroup [ref=f1e484]:
+              - row [ref=f1e485]:
+                - columnheader "Channel" [ref=f1e486]
+                - columnheader "Part" [ref=f1e487]
+            - rowgroup [ref=f1e488]:
+              - row [ref=f1e489]:
+                - cell "1" [ref=f1e490]
+                - cell "right-hand jam notes" [ref=f1e491]
+              - row [ref=f1e492]:
+                - cell "2" [ref=f1e493]
+                - cell "chords" [ref=f1e494]
+              - row [ref=f1e495]:
+                - cell "3" [ref=f1e496]
+                - cell "bass" [ref=f1e497]
+          - paragraph [ref=f1e498]:
+            - img "Ableton MIDI setup" [ref=f1e499]
+          - heading "How single-finger chords work" [level=2] [ref=f1e500]
+          - paragraph [ref=f1e501]: "Each entry in a project maps one left-hand trigger note to a chord and a set of scales to jam with. With the demo project:"
+          - list [ref=f1e502]:
+            - listitem [ref=f1e503]:
+              - text: Play
+              - code [ref=f1e504]: C3
+              - text: to trigger the
+              - code [ref=f1e505]: Em7
+              - text: chord and jam in
+              - code [ref=f1e506]: E dorian
+            - listitem [ref=f1e507]:
+              - text: Play
+              - code [ref=f1e508]: D3
+              - text: to trigger
+              - code [ref=f1e509]: AmAdd9
+              - text: and jam in
+              - code [ref=f1e510]: EmScaleNatural
+            - listitem [ref=f1e511]:
+              - text: Play
+              - code [ref=f1e512]: E3
+              - text: to trigger
+              - code [ref=f1e513]: CM9
+              - text: and jam in
+              - code [ref=f1e514]: EmScaleNatural
+            - listitem [ref=f1e515]:
+              - text: Play
+              - code [ref=f1e516]: F3
+              - text: to trigger
+              - code [ref=f1e517]: Bm(+11)
+              - text: and jam in
+              - code [ref=f1e518]: EmScaleNatural
+          - paragraph [ref=f1e519]:
+            - text: Jamming notes are
+            - code [ref=f1e520]: G3
+            - text: to
+            - code [ref=f1e521]: C5
+            - text: and are filtered to be in the default scale for the current chord.
+          - heading "Switching scale while you play" [level=3] [ref=f1e522]
+          - paragraph [ref=f1e523]: "The black keys in the left-hand octave are modifiers. While you hold a chord, the right-hand black keys switch the jam scale or transpose it:"
+          - list [ref=f1e524]:
+            - listitem [ref=f1e525]:
+              - code [ref=f1e526]: C#
+              - text: – default scale (
+              - code [ref=f1e527]: scale1
+              - text: in the config)
+            - listitem [ref=f1e528]:
+              - code [ref=f1e529]: D#
+              - text: – second scale (
+              - code [ref=f1e530]: scale2
+              - text: )
+            - listitem [ref=f1e531]:
+              - code [ref=f1e532]: F#
+              - text: – third scale (
+              - code [ref=f1e533]: scale3
+              - text: )
+            - listitem [ref=f1e534]:
+              - code [ref=f1e535]: G#
+              - text: – transpose the jam scale
+            - listitem [ref=f1e536]:
+              - code [ref=f1e537]: A#
+              - text: – transpose the jam scale the other way
+          - heading "Left-hand black key modifiers" [level=3] [ref=f1e538]
+          - paragraph [ref=f1e539]:
+            - text: The left-hand black keys act on the chord itself, with
+            - code [ref=f1e540]: C#
+            - text: "behaving like a SHIFT key:"
+          - list [ref=f1e541]:
+            - listitem [ref=f1e542]:
+              - code [ref=f1e543]: C#
+              - text: hold down to engage SHIFT mode
+            - listitem [ref=f1e544]:
+              - code [ref=f1e545]: D#
+              - text: turn scale filtering off
+            - listitem [ref=f1e546]:
+              - code [ref=f1e547]: F#
+              - text: turn scale filtering on
+            - listitem [ref=f1e548]:
+              - code [ref=f1e549]: G#
+              - text: transpose the chord down a semitone
+            - listitem [ref=f1e550]:
+              - code [ref=f1e551]: A#
+              - text: transpose the chord up a semitone
+            - listitem [ref=f1e552]:
+              - text: SHIFT
+              - code [ref=f1e553]: D#
+              - text: stop all notes
+            - listitem [ref=f1e554]:
+              - text: SHIFT
+              - code [ref=f1e555]: F#
+              - text: toggle sticky scale filtering
+          - heading "Project config" [level=2] [ref=f1e556]
+          - paragraph [ref=f1e557]: "Projects are plain JSON, so you can hand-write them, save them in the browser, or export and import them as files. A chord entry looks like this:"
+          - generic [ref=f1e559]:
+            - button "Copy to clipboard" [ref=f1e560] [cursor=pointer]: 
+            - code [ref=f1e561]:
+              - generic [ref=f1e562]: "{"
+              - generic [ref=f1e564]: "\"name\": \"Em Am+9 CM9 Bm+11\","
+              - generic [ref=f1e566]: "\"chords\": ["
+              - generic [ref=f1e568]: "{"
+              - generic [ref=f1e570]: "\"id\": 1,"
+              - generic [ref=f1e572]: "\"name\": \"Em7\","
+              - generic [ref=f1e574]: "\"chord\": \"Em7\","
+              - generic [ref=f1e576]: "\"chordNotes\": [\"E3\", \"G3\", \"B3\", \"D4\"],"
+              - generic [ref=f1e578]: "\"scale1\": \"E dorian\","
+              - generic [ref=f1e580]: "\"scale2\": \"E major pentatonic\","
+              - generic [ref=f1e582]: "\"scale3\": \"E minor blues\","
+              - generic [ref=f1e584]: "\"bassNote\": \"E2\""
+              - generic [ref=f1e586]: "},"
+              - generic [ref=f1e588]: "{"
+              - generic [ref=f1e590]: "\"id\": 2,"
+              - generic [ref=f1e592]: "\"name\": \"AmAdd9\","
+              - generic [ref=f1e594]: "\"chord\": \"AmAdd9\","
+              - generic [ref=f1e596]: "\"chordNotes\": [\"A3\", \"C4\", \"E4\", \"B4\"],"
+              - generic [ref=f1e598]: "\"scale1\": \"E minor natural\","
+              - generic [ref=f1e600]: "\"scale2\": \"E minor pentatonic\","
+              - generic [ref=f1e602]: "\"scale3\": \"E minor blues\","
+              - generic [ref=f1e604]: "\"bassNote\": \"A2\""
+              - generic [ref=f1e606]: "}"
+              - generic [ref=f1e608]: "]"
+              - generic [ref=f1e610]: "}"
+          - paragraph [ref=f1e612]: The app validates project and keyboard JSON against schemas, so you get useful errors if something doesn’t look right.
+          - heading "Technologies" [level=2] [ref=f1e613]
+          - table [ref=f1e614]:
+            - rowgroup [ref=f1e615]:
+              - row [ref=f1e616]:
+                - columnheader "Description" [ref=f1e617]
+                - columnheader "Technology" [ref=f1e618]
+            - rowgroup [ref=f1e619]:
+              - row [ref=f1e620]:
+                - cell "Framework" [ref=f1e621]
+                - cell [ref=f1e622]:
+                  - link "Vue 3" [ref=f1e623] [cursor=pointer]:
+                    - /url: https://vuejs.org/
+                  - text: with
+                  - link "Vite" [ref=f1e624] [cursor=pointer]:
+                    - /url: https://vitejs.dev/
+              - row [ref=f1e625]:
+                - cell "MIDI" [ref=f1e626]
+                - cell [ref=f1e627]:
+                  - link "WebMidi.js" [ref=f1e628] [cursor=pointer]:
+                    - /url: https://webmidijs.org/docs/
+              - row [ref=f1e629]:
+                - cell "MIDI file import" [ref=f1e630]
+                - cell [ref=f1e631]:
+                  - link "@tonejs/midi" [ref=f1e632] [cursor=pointer]:
+                    - /url: https://github.com/Tonejs/Midi
+              - row [ref=f1e633]:
+                - cell "Scales and chords" [ref=f1e634]
+                - cell [ref=f1e635]:
+                  - link "tonaljs" [ref=f1e636] [cursor=pointer]:
+                    - /url: https://github.com/tonaljs/tonal
+                  - text: – a functional music theory library for JavaScript
+              - row [ref=f1e637]:
+                - cell "Built-in sounds" [ref=f1e638]
+                - cell [ref=f1e639]:
+                  - link "soundfont-player" [ref=f1e640] [cursor=pointer]:
+                    - /url: https://github.com/danigb/soundfont-player
+              - row [ref=f1e641]:
+                - cell "Styling" [ref=f1e642]
+                - cell [ref=f1e643]:
+                  - link "Tailwind CSS" [ref=f1e644] [cursor=pointer]:
+                    - /url: https://tailwindcss.com/
+          - heading "Source and feedback" [level=2] [ref=f1e645]
+          - paragraph [ref=f1e646]:
+            - text: OneKeyJam is free and open source – the code lives at
+            - link "github.com/abulka/onekeyjam" [ref=f1e647] [cursor=pointer]:
+              - /url: https://github.com/abulka/onekeyjam
+            - text: . Bug reports and feature requests are welcome in the
+            - link "issue tracker" [ref=f1e648] [cursor=pointer]:
+              - /url: https://github.com/abulka/onekeyjam/issues
+            - text: .
+          - paragraph [ref=f1e649]:
+            - text: I’d also love to hear how you use it. Send me an email at
+            - link "abulka@gmail.com" [ref=f1e650] [cursor=pointer]:
+              - /url: mailto:abulka@gmail.com
+            - text: .
+          - generic [ref=f1e651]:
+            - heading "Feedback" [level=2] [ref=f1e652]
+            - paragraph [ref=f1e653]: Was this page helpful?
+            - button "Yes" [ref=f1e654] [cursor=pointer]
+            - button "No" [ref=f1e655] [cursor=pointer]
+    - contentinfo [ref=f1e656]:
+      - generic [ref=f1e658]:
+        - list [ref=f1e660]:
+          - listitem "Twitter" [ref=f1e661]:
+            - link "Twitter" [ref=f1e662] [cursor=pointer]:
+              - /url: https://twitter.com/unjazz
+              - generic [ref=f1e663]: 
+        - list [ref=f1e665]:
+          - listitem "GitHub" [ref=f1e666]:
+            - link "GitHub" [ref=f1e667] [cursor=pointer]:
+              - /url: https://github.com/abulka/abulka.github.io
+              - generic [ref=f1e668]: 
+        - generic [ref=f1e669]:
+          - generic [ref=f1e670]: © 2026 Andy Bulka
+          - link "Privacy Policy" [ref=f1e672] [cursor=pointer]:
+            - /url: https://policies.google.com/privacy
+          - paragraph [ref=f1e673]:
+            - link "About Andrew Bulka" [ref=f1e674] [cursor=pointer]:
+              - /url: /about/
