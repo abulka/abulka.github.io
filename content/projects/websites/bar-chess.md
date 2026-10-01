@@ -97,3 +97,7 @@ HUD · `Esc` cancel.
 Play it at [bar-chess.netlify.app](https://bar-chess.netlify.app/).
 
 Code: [github.com/abulka/bar-chess](https://github.com/abulka/bar-chess) · MIT
+
+### See also
+
+- [BAR AutoHotkey](/projects/libraries/bar-autohotkey) — a desktop tool that automates BAR's in-game cheat console.
