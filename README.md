@@ -108,6 +108,23 @@ Edit the files in `/content`, add files to `/static` and then run `bin/build` to
 and visit
 http://localhost:1313/ 
 
+    bin/rund
+
+same as `bin/run`, but also passes `-D` so **draft** pages are built and previewed
+(`hugo server -D --cleanDestinationDir`).
+
+> **Stale pages when previewing.** Recent Hugo versions make `hugo server` write
+> and serve from `/public` on disk by default (it used to serve from memory), and
+> it never deletes output for pages whose source was removed. So if you delete or
+> rename a content page, the old URL keeps working locally — a leftover file in
+> `/public` — even though the same URL is gone once deployed (the GitHub Actions
+> build uses `--cleanDestinationDir`).
+>
+> Both `bin/run` and `bin/rund` therefore pass `--cleanDestinationDir`, which
+> removes destination files not backed by content. If you ever get a persistent
+> ghost page, stop the server, `rm -rf public`, and restart.
+
+
 ## Updating Docsy submodule
 Latest Go module approach
 https://www.docsy.dev/docs/updating/updating-hugo-module/
