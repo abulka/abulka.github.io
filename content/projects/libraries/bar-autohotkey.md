@@ -8,18 +8,21 @@ weight: 20
 tags: ["AutoHotkey", "Beyond All Reason", "Game", "Tool"]
 ---
 
-## BAR AutoHotkey
+## BAR AutoHotkey Cheat GUI
 
 An [AutoHotkey](https://www.autohotkey.com/) v2 script that automates the in-game
 console commands ("cheats") for [Beyond All Reason](https://www.beyondallreason.info/)
-(BAR). Instead of typing `/give 10 armck 0` by hand, you press a hotkey, pick a unit
+(BAR) via a popup GUI. 
+Instead of typing `/give 10 armck 0` by hand, you press a hotkey, pick a unit
 from a searchable tree, and the script types the Enter → cheat → Enter sequence for you.
+
+![BAR AutoHotkey GUI](https://raw.githubusercontent.com/abulka/AutoHotkey/afb0a5d80aaf99b4affc4ab8e1e4e5b456b82f89/docs/BAR-Autohotkey-cheat-Screenshot-01.png)
 
 It's a convenience tool for experimenting with the game: spawn units, buildings and
 weapons, or toggle commands like god mode and no-cost, without memorising the codes.
 
 > **Caveat:** cheats only work once the host has enabled cheat mode with `/cheat`, so
-> this is for your own games and sandboxes — not for online matches against others.
+> this is for your own skirmish sandbox games — not for online matches against others.
 > Units are spawned at the position of your last mouse click.
 
 ## Features
