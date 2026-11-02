@@ -585,11 +585,11 @@ More elaboration on [HexMVC eventing](/patterns/hexmvc-eventing) and Event Patte
 
 ### HexMVC Source Code
 
-Here is the directory of code used to develop the ideas in this article. It contains various versions of implementations, mainly in Python and .NET.  I need to document it sometime.
+Here is the repository of code used to develop the ideas in this article. It contains various versions of implementations, mainly in Python and .NET.
 
-[https://github.com/abulka/pynsource/tree/master/Research/hexmvc](https://github.com/abulka/pynsource/tree/master/Research/hexmvc)
+[https://github.com/abulka/hexmvc](https://github.com/abulka/hexmvc)
 
-P.S. There is no reason it is located in the `pynsource` GitHub project directory - it just happened that way. It should be moved to its own repository.
+Previously located under `pynsource/Research/hexmvc`, now moved to its own repository.
 
 ## Presentation in 2012
 
