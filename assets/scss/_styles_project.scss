@@ -10,3 +10,31 @@ https://www.docsy.dev/docs/adding-content/repository-links/
 .td-page-meta--child { display: none !important; }
 .td-page-meta--issue { display: none !important; }
 .td-page-meta--project-issue { display: none !important; }
+
+/*
+
+Home cover legibility
+
+The theme picks the cover text colour from the `color` shortcode parameter.
+With `color="orange"` that means dark text, which is almost invisible over the
+staircase photo. Force light, heavier text and darken the photo overlay.
+
+*/
+.td-home .td-cover-block {
+  &.td-overlay--dark::after {
+    background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.65));
+  }
+
+  h1 {
+    color: #fff;
+    font-weight: 600;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.85);
+  }
+
+  .lead p.lead {
+    color: #fff;
+    font-weight: 500;
+    font-size: clamp(1.15rem, 2vw, 1.5rem);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+  }
+}
