@@ -11,8 +11,9 @@ tags: ["UML", "Diagramming"]
 
 ## Intro
 
-Presented to the [Melbourne Patterns Group](https://melbournepatterns.wordpress.com/), Wednesday 6th April 2011 6:30 PM
+Presented to the [Melbourne Patterns Group](https://melbournepatterns.wordpress.com/), Wednesday 6th April 2011 6:30 PM
 
+> **Update (2026):** the canvas and the layout hooks behind this work now live in [wxdiagram]({{< ref "/projects/libraries/wxdiagram" >}}), the standalone shape-and-connector canvas extracted from Pynsource. It ships a spring layout, crossing-aware refinement and pluggable edge routing. For the extraction story, see [wxdiagram: a modern diagram canvas for wxPython]({{< ref "/blog/wxdiagram-canvas-for-wxpython" >}}).
 
 ## The Problem: Untangling UML Diagrams
 

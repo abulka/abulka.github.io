@@ -189,3 +189,5 @@ Another real world example of this pattern being used in is my
 open source [Python UML tool](http://www.pynsource.com "Pynsource - UML tool for Python") where I used this pattern to evaluate numerous attempts at laying out a UML diagram, scoring the result and then choosing the best layout.  
 
 Here is the [source code](https://github.com/abulka/pynsource/blob/master/src/layout/blackboard.py) of that Python module on GitHub.
+
+The layout and overlap-removal work is described in [Developing a Layout Algorithm for UML diagrams]({{< ref "/blog/uml-layout" >}}). The canvas and layout hooks now live in [wxdiagram]({{< ref "/projects/libraries/wxdiagram" >}}), the standalone library extracted from Pynsource — read the engineering story in [wxdiagram: a modern diagram canvas for wxPython]({{< ref "/blog/wxdiagram-canvas-for-wxpython" >}}).
