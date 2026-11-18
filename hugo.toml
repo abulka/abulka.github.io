@@ -46,7 +46,7 @@ taxonomyPageHeader = ["tags"] # set taxonomyPageHeader = [] to hide taxonomies o
 
 # Highlighting config
 pygmentsCodeFences = true
-pygmentsUseClasses = false
+pygmentsUseClasses = true
 # Use the new Chroma Go highlighter in Hugo.
 pygmentsUseClassic = false
 #pygmentsOptions = "linenos=table"
@@ -101,6 +101,9 @@ id = "G-X0GNQ7330T"
     [markup.goldmark.renderer]
       unsafe = true
   [markup.highlight]
+      # Emit CSS classes instead of inline styles so Docsy can switch the
+      # Chroma palette with the light/dark theme (see _styles_project.scss).
+      noClasses = false
       # See a complete list of available styles at https://xyproto.github.io/splash/docs/all.html
 #       style = "tango"
       style = "dracula"
@@ -163,6 +166,8 @@ breadcrumb_disable = false
 sidebar_search_disable = false
 #  Set to false if you don't want to display a logo (/assets/icons/logo.svg) in the top nav bar
 navbar_logo = true
+# Show the light / dark / auto theme selector in the navbar.
+showLightDarkModeMenu = true
 # Set to true to disable the About link in the site footer
 footer_about_enable = true
 
